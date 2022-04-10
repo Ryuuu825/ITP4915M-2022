@@ -8,14 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TheBetterLimited_ManagementSystem
+namespace TheBetterLimited_ManagementSystem.Test
 {
-    public partial class Form1 : Form
+    public partial class TestText : Form
     {
-        public Form1()
+        public TestText()
         {
-
             InitializeComponent();
         }
+
+        
     }
 }
