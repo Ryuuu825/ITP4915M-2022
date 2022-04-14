@@ -16,6 +16,24 @@ namespace TheBetterLimited_ManagementSystem.Lib.Toolkit
         public static readonly Render instance = new Render();
         private Render() { }
 
+        public Render DrawRoundRect(Rectangle rect, int radius, Graphics g, Color c , int size)
+        {
+            using (Pen pen = new Pen(c, size))
+            {
+                g.DrawPath(pen, Render.ToRoundedRect(rect, radius));
+            }
+            return instance;
+        }
+
+        public Render FillRoundRect(Rectangle rect, int radius, Graphics g, Color c)
+        {
+            using (Brush brush = new SolidBrush(c))
+            {
+                g.FillPath(brush, Render.ToRoundedRect(rect, radius));
+            }
+            return instance;
+        }
+
         // https://stackoverflow.com/questions/33853434/how-to-draw-a-rounded-rectangle-in-c-sharp
         public static GraphicsPath ToRoundedRect(Rectangle bounds, int radius)
         {

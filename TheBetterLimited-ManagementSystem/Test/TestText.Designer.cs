@@ -38,11 +38,12 @@
             // 
             // testing1
             // 
-            this.testing1.Location = new System.Drawing.Point(433, 92);
+            this.testing1.Location = new System.Drawing.Point(639, 205);
             this.testing1.Name = "testing1";
-            this.testing1.Size = new System.Drawing.Size(199, 71);
+            this.testing1.Size = new System.Drawing.Size(147, 40);
             this.testing1.TabIndex = 6;
             this.testing1.Text = "dfsdf";
+            this.testing1.Click += new System.EventHandler(this.testing1_Click);
             // 
             // headerOne1
             // 
@@ -88,7 +89,7 @@
             // 
             this.headerTwo1.AutoSize = true;
             this.headerTwo1.Font = new System.Drawing.Font("Courier New", 24F);
-            this.headerTwo1.Location = new System.Drawing.Point(27, 79);
+            this.headerTwo1.Location = new System.Drawing.Point(27, 90);
             this.headerTwo1.Name = "headerTwo1";
             this.headerTwo1.Size = new System.Drawing.Size(205, 36);
             this.headerTwo1.TabIndex = 1;
@@ -98,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1034, 666);
             this.Controls.Add(this.testing1);
             this.Controls.Add(this.headerOne1);
             this.Controls.Add(this.headerFive1);
@@ -109,7 +110,6 @@
             this.Text = "TestText";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -119,6 +119,6 @@
         private Lib.Toolkit.Font.HeaderFour headerFour1;
         private Lib.Toolkit.Font.HeaderFive headerFive1;
         private Lib.Toolkit.Font.HeaderOne headerOne1;
-        private Lib.Toolkit.Control.Testing testing1;
+        private TheBetterLimited_ManagementSystem.Lib.Toolkit.Control.Testing testing1;
     }
 }

@@ -17,6 +17,9 @@ namespace TheBetterLimited_ManagementSystem.Test
             InitializeComponent();
         }
 
-        
+        private void testing1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

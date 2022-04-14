@@ -25,9 +25,7 @@ namespace TheBetterLimited_ManagementSystem.Lib.Toolkit.Control
 
         protected void Init_Paint(object sender, PaintEventArgs e)
         {
-            Render.instance.DrawRect(this.rect, e.Graphics, Colour.StandardColour.SecondaryColour).FillRect(this.rect, e.Graphics, Colour.StandardColour.MainColour);
-            Render.instance.DrawString(this.Text, e.Graphics, 18, Color.White, this.rect);
-            Render.instance.DrawCircle( e.Graphics, Color.Red , 10, 10, 5);
+            Render.instance.DrawRoundRect(this.rect, 50, e.Graphics, Colour.StandardColour.MainColour, 3).FillRoundRect(this.rect, 50, e.Graphics, Colour.StandardColour.MainColour);
         }
 
         protected override void OnSizeChanged(EventArgs e)
