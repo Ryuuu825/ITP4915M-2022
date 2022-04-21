@@ -13,4 +13,25 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="AppLogic\" />
+    <None Remove="AppLogic\controller\" />
+    <None Remove="AppLogic\model\" />
+    <None Remove="Lib\" />
+    <None Remove="Helper\File\" />
+    <None Remove="var\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AppLogic\" />
+    <Folder Include="AppLogic\controller\" />
+    <Folder Include="AppLogic\model\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Helper\File\" />
+    <Folder Include="var\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="var\EmptyTextFile.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
