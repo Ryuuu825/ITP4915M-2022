@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Text;
+using Microsoft.VisualBasic;
 
 namespace TheBetterLimited_Server.Helper.File
 {
@@ -8,46 +10,38 @@ namespace TheBetterLimited_Server.Helper.File
 		private static readonly string FolderPath = AppDomain.CurrentDomain.BaseDirectory + "/var";
 
 		private String FilePath;
-		private FileStream fileStream;
-		private StreamWriter writer; 
 
 		public bool IsClose { get; private set; } = false;
 
 
-		public TempFile()
+        public TempFile()
+        {
+            FilePath = Path.Combine(FolderPath, Path.GetRandomFileName());
+        }
+
+        public void Dispose()
 		{
-			FilePath = Path.Combine(FolderPath, Path.GetRandomFileName() );
-			fileStream = new FileStream(FilePath, FileMode.Create, FileAccess.ReadWrite, FileShare.ReadWrite, 4092, FileOptions.DeleteOnClose);
-			writer = new StreamWriter(fileStream);
-		}
-
-
-
-		public void Dispose()
-		{
-			if (!IsClose)
-			{
-				Close();
-			}
+            Close();
 		}
 
 		public void Close()
 		{
-			writer.Close();
-			fileStream.Close();
-			IsClose = true;
+            if (!IsClose)
+            {
+                System.IO.File.Delete(FilePath);
+                IsClose = true;
+            }
 		}
 
-		public String ReadAllText()
-		{
-			return System.IO.File.ReadAllText(FilePath);
-		}
+        public string ReadAllText()
+        {
+            return System.IO.File.ReadAllText(FilePath);
+        }
 
-		public void WriteAllText(string str)
-		{
-			writer.Write(str);
-			writer.Flush();
-		}
+        public void WriteAllText(string str)
+        {
+           System.IO.File.AppendAllText(FilePath , str);
+        }
 
 		public string GetFilePath()
         {

@@ -28,14 +28,13 @@ namespace TheBetterLimited_Server.APIController
         }
 
         [HttpGet("tmp")]
-        public IActionResult Get()
+        public IActionResult GetAsync()
         {
-            String str = "Cannot";
+            String str = "";
             using (TempFile tmp = new TempFile() )
             {
                 tmp.WriteAllText("This is something");
-                str = tmp.ReadAllText() + "\n" + tmp.GetFilePath();
-                tmp.Close();
+                str = tmp.ReadAllText();
             }
            
             return Ok(str);
