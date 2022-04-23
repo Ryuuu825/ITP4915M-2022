@@ -4,7 +4,6 @@ namespace TheBetterLimited_Server.Helper.File
 {
     public class TempFileManager
     {
-        private static readonly TempFileManager Instance = new TempFileManager();
 
         // This is a linked list to store all TempFile
         private static TempFileNode head;

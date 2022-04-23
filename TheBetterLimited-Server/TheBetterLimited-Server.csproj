@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -19,17 +19,15 @@
     <None Remove="AppLogic\model\" />
     <None Remove="Lib\" />
     <None Remove="Helper\File\" />
-    <None Remove="var\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppLogic\" />
     <Folder Include="AppLogic\controller\" />
     <Folder Include="AppLogic\model\" />
-    <Folder Include="var\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Update="var\EmptyTextFile.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
+
+  <Target Name="MakeDir" AfterTargets="Build">
+   <MakeDir Directories="$(OutDir)var\tmp" />
+   <MakeDir Directories="$(OutDir)var\log" />
+  </Target>
 </Project>

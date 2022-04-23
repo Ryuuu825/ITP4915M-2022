@@ -7,7 +7,7 @@ namespace TheBetterLimited_Server.Helper.File
 {
 	public class TempFile : IDisposable
 	{
-		protected static readonly string FolderPath = AppDomain.CurrentDomain.BaseDirectory + "/var";
+		protected static readonly string FolderPath = AppDomain.CurrentDomain.BaseDirectory + "/var/tmp";
 
         protected String FilePath;
 
