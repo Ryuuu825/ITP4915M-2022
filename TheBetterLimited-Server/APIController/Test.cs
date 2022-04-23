@@ -31,11 +31,10 @@ namespace TheBetterLimited_Server.APIController
         public IActionResult GetAsync()
         {
             String str = "";
-            using (TempFile tmp = new TempFile() )
-            {
-                tmp.WriteAllText("This is something");
-                str = tmp.ReadAllText();
-            }
+            TempFile tmp = TempFileManager.AddTempFile();
+            tmp.WriteAllText("SDFSDF");
+            tmp.WriteAllText("sdfdf");
+            str = tmp.ReadAllText();
            
             return Ok(str);
         }
