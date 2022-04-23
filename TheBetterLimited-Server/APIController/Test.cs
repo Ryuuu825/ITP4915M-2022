@@ -8,6 +8,7 @@ using TheBetterLimited_Server.Helper.File;
 using TheBetterLimited_Server.Helper;
 using TheBetterLimited_Server.APIFilters;
 using TheBetterLimited_Server.AppLogic.Model;
+using Microsoft.AspNetCore.Http.Features;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -41,7 +42,6 @@ namespace TheBetterLimited_Server.APIController
            
             return Ok(str);
         }
-
 
         [HttpGet("Auth")]
         [ApiKeyAuth]
@@ -137,7 +137,26 @@ namespace TheBetterLimited_Server.APIController
 
 
         }
-        
+
+        [HttpGet("log")]
+        public IActionResult GetLog()
+        {
+            Helper.Logger.FileLogger.Log(Helper.Logger.LogLevel.Information, "", "Testing");
+            return Ok();
+        }
+
+
+        [HttpGet("autolog")]
+        public IActionResult GetautoLog()
+        {
+            return Ok();
+        }
+
+
+
+
+        // https://stackoverflow.com/questions/43678963/send-and-receive-large-file-over-streams-in-asp-net-web-api-c-sharp
+
 
 
     }

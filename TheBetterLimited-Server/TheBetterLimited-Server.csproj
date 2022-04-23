@@ -20,16 +20,19 @@
     <None Remove="Lib\" />
     <None Remove="Helper\File\" />
     <None Remove="APIFilters\" />
+    <None Remove="Helper\logger\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppLogic\" />
     <Folder Include="AppLogic\controller\" />
     <Folder Include="AppLogic\model\" />
     <Folder Include="APIFilters\" />
+    <Folder Include="Helper\logger\" />
   </ItemGroup>
 
   <Target Name="MakeDir" AfterTargets="Build">
    <MakeDir Directories="$(OutDir)var\tmp" />
    <MakeDir Directories="$(OutDir)var\log" />
   </Target>
+
 </Project>
