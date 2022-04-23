@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 
 namespace TheBetterLimited_Server.Helper
 {
-    public static class SecurePasswordHasher
+    public static class SecureHasher
     {
 
         /// <summary>
@@ -27,23 +27,24 @@ namespace TheBetterLimited_Server.Helper
         public static string Hash(string password, int iterations)
         {
             // Create salt
-            byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[SaltSize]);
+            using (var rng = new RNGCryptoServiceProvider())
+            {
+                byte[] salt;
+                rng.GetBytes(salt = new byte[SaltSize]);
+                using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations))
+                {
+                    var hash = pbkdf2.GetBytes(HashSize);
+                    // Combine salt and hash
+                    var hashBytes = new byte[SaltSize + HashSize];
+                    Array.Copy(salt, 0, hashBytes, 0, SaltSize);
+                    Array.Copy(hash, 0, hashBytes, SaltSize, HashSize);
+                    // Convert to base64
+                    var base64Hash = Convert.ToBase64String(hashBytes);
 
-            // Create hash
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations);
-            var hash = pbkdf2.GetBytes(HashSize);
-
-            // Combine salt and hash
-            var hashBytes = new byte[SaltSize + HashSize];
-            Array.Copy(salt, 0, hashBytes, 0, SaltSize);
-            Array.Copy(hash, 0, hashBytes, SaltSize, HashSize);
-
-            // Convert to base64
-            var base64Hash = Convert.ToBase64String(hashBytes);
-
-            // Format hash with extra information
-            return string.Format("$MYHASH$V1${0}${1}", iterations, base64Hash);
+                    // Format hash with extra information
+                    return $"$HASH|V1${iterations}${base64Hash}";
+                }
+            }
         }
 
         /// <summary>
@@ -63,7 +64,7 @@ namespace TheBetterLimited_Server.Helper
         /// <returns>Is supported?</returns>
         public static bool IsHashSupported(string hashString)
         {
-            return hashString.Contains("$MYHASH$V1$");
+            return hashString.Contains("HASH|V1$");
         }
 
         /// <summary>
@@ -81,7 +82,7 @@ namespace TheBetterLimited_Server.Helper
             }
 
             // Extract iteration and Base64 string
-            var splittedHashString = hashedPassword.Replace("$MYHASH$V1$", "").Split('$');
+            var splittedHashString = hashedPassword.Replace("$HASH|V1$", "").Split('$');
             var iterations = int.Parse(splittedHashString[0]);
             var base64Hash = splittedHashString[1];
 
@@ -93,18 +94,21 @@ namespace TheBetterLimited_Server.Helper
             Array.Copy(hashBytes, 0, salt, 0, SaltSize);
 
             // Create hash with given salt
-            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations);
-            byte[] hash = pbkdf2.GetBytes(HashSize);
-
-            // Get result
-            for (var i = 0; i < HashSize; i++)
+            using (var pbkdf2 = new Rfc2898DeriveBytes(password, salt, iterations))
             {
-                if (hashBytes[i + SaltSize] != hash[i])
+                byte[] hash = pbkdf2.GetBytes(HashSize);
+
+                // Get result
+                for (var i = 0; i < HashSize; i++)
                 {
-                    return false;
+                    if (hashBytes[i + SaltSize] != hash[i])
+                    {
+                        return false;
+                    }
                 }
+
+                return true;
             }
-            return true;
         }
     }
 }

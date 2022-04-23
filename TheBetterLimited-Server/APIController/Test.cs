@@ -50,6 +50,14 @@ namespace TheBetterLimited_Server.APIController
             return Ok("I have secret key");
         }
 
+#if DEBUG
+        [HttpGet("check/{plainText}")]
+        public IActionResult Getasd(string plainText)
+        {
+            return Ok(SecureHasher.Hash(plainText));
+        }
+#endif
+
         [HttpGet("enum/entity")]
         public IEnumerable<Accout> GetEntity()
         {
@@ -67,8 +75,8 @@ namespace TheBetterLimited_Server.APIController
             arr.Add(JObject.FromObject(new Accout
             {
                 Username = "1",
-                Password = SecurePasswordHasher.Hash("ASDA")
-            })); ;
+                Password = "SDF"
+            }));
             arr.Add(JObject.FromObject(new Accout
             {
                 Username = "2",

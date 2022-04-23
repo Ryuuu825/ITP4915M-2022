@@ -8,6 +8,7 @@
 using System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using TheBetterLimited_Server.Helper;
 
 namespace TheBetterLimited_Server.APIFilters
 {
@@ -20,11 +21,13 @@ namespace TheBetterLimited_Server.APIFilters
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
+            // the context is null
             if (!context.HttpContext.Request.Headers.TryGetValue(ApiKeyHeaderName, out var potentialApiKey))
             {
                 context.Result = new UnauthorizedResult();
             }
 
+            // get API key from the config file
             var config = context.HttpContext.RequestServices.GetRequiredService<IConfiguration>();
             var ApiKey = config.GetValue<string>("ApiKey");
 
@@ -32,6 +35,7 @@ namespace TheBetterLimited_Server.APIFilters
             {
                 context.Result = new UnauthorizedResult();
             }
+
         }
     }
 
