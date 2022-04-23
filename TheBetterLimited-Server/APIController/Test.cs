@@ -106,6 +106,40 @@ namespace TheBetterLimited_Server.APIController
             return Ok(arr);
         }
 
+
+        [HttpGet]
+        public ContentResult Index()
+        {
+            return base.Content("<h1>Hello World</h1>", "text/html");
+        }
+
+
+        // https://stackoverflow.com/questions/39177576/how-to-to-return-an-image-with-web-api-get-method
+        [HttpGet("image")]
+        public IActionResult GetIamge(string filename)
+        {
+            byte[] ImgFile = System.IO.File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + $"/img/{filename}");
+            return File(ImgFile, "image/jpeg");
+        }
+
+        [HttpGet("pdf")]
+        public IActionResult GetPDF(string filename)
+        {
+            try
+            {
+                byte[] pdfFile = System.IO.File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + $"/img/{filename}");
+                return File(pdfFile, "application/pdf");
+
+            } catch(FileNotFoundException e)
+            {
+                return BadRequest(e.Message);
+            }
+
+
+        }
+        
+
+
     }
 
 }
