@@ -5,6 +5,10 @@ namespace TheBetterLimited_Server.Helper
 {
 	public static class HttpReader
 	{
+        public static string GetClientSocket(HttpContext context)
+        {
+            return $"{context.Connection.RemoteIpAddress.ToString()}:{context.Connection.RemotePort.ToString()}";
+        }
 
         public static string GetHeaderString(HttpRequest req)
         {

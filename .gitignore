@@ -376,3 +376,7 @@ FodyWeavers.xsd
 
 ################################ For MacOS #############################################
 .DS_Store
+
+
+# secrect files
+**/secret.json

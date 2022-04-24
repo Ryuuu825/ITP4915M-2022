@@ -9,6 +9,9 @@ using TheBetterLimited_Server.Helper;
 using TheBetterLimited_Server.APIFilters;
 using TheBetterLimited_Server.AppLogic.Model;
 using Microsoft.AspNetCore.Http.Features;
+using MailKit;
+using MailKit.Net.Smtp;
+using MimeKit;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -39,12 +42,11 @@ namespace TheBetterLimited_Server.APIController
             tmp.WriteAllText("SDFSDF");
             tmp.WriteAllText("sdfdf");
             str = tmp.ReadAllText();
-           
+
             return Ok(str);
         }
 
         [HttpGet("Auth")]
-        [ApiKeyAuth]
         public IActionResult GetAuth()
         {
             return Ok("I have secret key");
@@ -63,7 +65,7 @@ namespace TheBetterLimited_Server.APIController
         {
             return Enumerable.Range(1, 5).Select(index => new Accout
             {
-                Username = "ASD" ,
+                Username = "ASD",
                 Password = "ASD"
             }).ToArray();
         }
@@ -130,7 +132,7 @@ namespace TheBetterLimited_Server.APIController
                 byte[] pdfFile = System.IO.File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + $"/img/{filename}");
                 return File(pdfFile, "application/pdf");
 
-            } catch(FileNotFoundException e)
+            } catch (FileNotFoundException e)
             {
                 return BadRequest(e.Message);
             }
@@ -138,21 +140,30 @@ namespace TheBetterLimited_Server.APIController
 
         }
 
-        [HttpGet("log")]
-        public IActionResult GetLog()
+        [HttpGet("email")]
+        public IActionResult SentEmail()
         {
-            Helper.Logger.FileLogger.Log(Helper.Logger.LogLevel.Information, "", "Testing");
-            return Ok();
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("Name", "@gmail.com"));
+            message.To.Add(new MailboxAddress("Name", "@gmail.com"));
+            message.Subject = "Testing";
+            message.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+            {
+                Text = "<h1>Hello World</h1>"
+            };
+            Helper.Logger.FileLogger.Log(message.ToString());
+
+            using (var client = new SmtpClient())
+            {
+                client.Connect("smtp.gmail.com", 587, false);
+                client.Authenticate("@gmail.com", "password");
+                client.Send(message);
+                client.Disconnect(true);
+            }
+
+            return Ok(message.ToString());
+
         }
-
-
-        [HttpGet("autolog")]
-        public IActionResult GetautoLog()
-        {
-            return Ok();
-        }
-
-
 
 
         // https://stackoverflow.com/questions/43678963/send-and-receive-large-file-over-streams-in-asp-net-web-api-c-sharp

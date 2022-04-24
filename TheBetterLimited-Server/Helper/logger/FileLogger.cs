@@ -4,10 +4,9 @@
     {
         private readonly static string _LogPath = AppDomain.CurrentDomain.BaseDirectory + "/var/log/";
 
-
-        public static void Log(LogLevel level, string header, string message)
+        public static void Log(string msg)
         {
-            System.IO.File.AppendAllText(_LogPath + level.ToString() + ".log", $"[{level.ToString()}]\t{header}\n\t\t{message}\n");
+            System.IO.File.AppendAllText(_LogPath + "tmp.log" , msg + "\n");
         }
 
         public static void AcceccLog(string user , string url )
