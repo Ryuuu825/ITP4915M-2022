@@ -21,17 +21,17 @@
     <None Remove="Lib\" />
     <None Remove="Helper\File\" />
     <None Remove="APIFilters\" />
-    <None Remove="Helper\logger\" />
     <None Remove="AppLogic\Dto\" />
     <None Remove="MailKit" />
+    <None Remove="Helper\LogHelper\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppLogic\" />
     <Folder Include="AppLogic\controller\" />
     <Folder Include="AppLogic\model\" />
     <Folder Include="APIFilters\" />
-    <Folder Include="Helper\logger\" />
     <Folder Include="AppLogic\Dto\" />
+    <Folder Include="Helper\LogHelper\" />
   </ItemGroup>
 
   <ItemGroup>

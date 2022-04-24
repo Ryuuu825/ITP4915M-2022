@@ -18,6 +18,7 @@ using MimeKit;
 namespace TheBetterLimited_Server.APIController
 {
     [Route("api/[controller]")]
+    [LogAccess]
     public class Test : Controller
     {
 
@@ -151,7 +152,7 @@ namespace TheBetterLimited_Server.APIController
             {
                 Text = "<h1>Hello World</h1>"
             };
-            Helper.Logger.FileLogger.Log(message.ToString());
+            Helper.LogHelper.FileLogger.Log(message.ToString());
 
             using (var client = new SmtpClient())
             {
