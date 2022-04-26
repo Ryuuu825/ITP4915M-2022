@@ -1,4 +1,7 @@
-﻿public class Program
+﻿global using Microsoft.EntityFrameworkCore;
+global using TheBetterLimited_Server.AppLogic;
+
+public class Program
 {
     static void Main(String[] args)
     {
@@ -6,9 +9,18 @@
 
         // Add services to the container.
         builder.Services.AddControllers().AddNewtonsoftJson();
+        builder.Services.AddDbContext<DataContext>(options =>
+        {
+            string ConnString = builder.Configuration.GetConnectionString("DefaultConnection");
+            options.UseMySql(
+                ConnString,
+                ServerVersion.AutoDetect(ConnString)
+            );
+        });
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+
 
         var app = builder.Build();
 

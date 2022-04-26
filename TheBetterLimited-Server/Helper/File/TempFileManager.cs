@@ -11,7 +11,7 @@ namespace TheBetterLimited_Server.Helper.File
         private TempFileManager()
         { }
 
-        public static TempFile AddTempFile()
+        public static TempFile Create()
         {
             if (head == null)
             {

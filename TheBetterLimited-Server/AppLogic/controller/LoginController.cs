@@ -1,5 +1,5 @@
 ﻿using System;
-using TheBetterLimited_Server.AppLogic.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace TheBetterLimited_Server.AppLogic.Controller
 {
@@ -8,7 +8,6 @@ namespace TheBetterLimited_Server.AppLogic.Controller
 
 		public LoginController()
 		{
-			
 		}
 
 		public static bool Login(String name, String password)

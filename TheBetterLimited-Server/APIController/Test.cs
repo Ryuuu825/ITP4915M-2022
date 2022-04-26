@@ -7,21 +7,27 @@ using Newtonsoft.Json.Linq;
 using TheBetterLimited_Server.Helper.File;
 using TheBetterLimited_Server.Helper;
 using TheBetterLimited_Server.APIFilters;
-using TheBetterLimited_Server.AppLogic.Model;
-using Microsoft.AspNetCore.Http.Features;
-using MailKit;
 using MailKit.Net.Smtp;
 using MimeKit;
+using System.Data;
+using TheBetterLimited_Server.AppLogic;
+using TheBetterLimited_Server.AppLogic.model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TheBetterLimited_Server.APIController
 {
     [Route("api/[controller]")]
-    [LogAccess]
     public class Test : Controller
     {
+        private readonly IConfiguration _config;
+        private readonly TheBetterLimited_Server.AppLogic.Controller.TestController _testController;
 
+        public Test(IConfiguration config , DataContext data)
+        {
+            _config = config;
+            _testController = new AppLogic.Controller.TestController(data);
+        }
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
@@ -39,7 +45,7 @@ namespace TheBetterLimited_Server.APIController
         public IActionResult GetAsync()
         {
             String str = "";
-            TempFile tmp = TempFileManager.AddTempFile();
+            TempFile tmp = TempFileManager.Create();
             tmp.WriteAllText("SDFSDF");
             tmp.WriteAllText("sdfdf");
             str = tmp.ReadAllText();
@@ -62,9 +68,9 @@ namespace TheBetterLimited_Server.APIController
 #endif
 
         [HttpGet("enum/entity")]
-        public IEnumerable<Accout> GetEntity()
+        public IEnumerable<Account> GetEntity()
         {
-            return Enumerable.Range(1, 5).Select(index => new Accout
+            return Enumerable.Range(1, 5).Select(index => new Account
             {
                 Username = "ASD",
                 Password = "ASD"
@@ -75,32 +81,32 @@ namespace TheBetterLimited_Server.APIController
         public IActionResult GetJsonEntity()
         {
             JArray arr = new JArray();
-            arr.Add(JObject.FromObject(new Accout
+            arr.Add(JObject.FromObject(new Account
             {
                 Username = "1",
                 Password = "SDF"
             }));
-            arr.Add(JObject.FromObject(new Accout
+            arr.Add(JObject.FromObject(new Account
             {
                 Username = "2",
                 Password = "akj"
             }));
-            arr.Add(JObject.FromObject(new Accout
+            arr.Add(JObject.FromObject(new Account
             {
                 Username = "3",
                 Password = "akj"
             }));
-            arr.Add(JObject.FromObject(new Accout
+            arr.Add(JObject.FromObject(new Account
             {
                 Username = "4",
                 Password = "akj"
             }));
-            arr.Add(JObject.FromObject(new Accout
+            arr.Add(JObject.FromObject(new Account
             {
                 Username = "5",
                 Password = "akj"
             }));
-            arr.Add(JObject.FromObject(new Accout
+            arr.Add(JObject.FromObject(new Account
             {
                 Username = "6",
                 Password = "akj"
@@ -137,8 +143,6 @@ namespace TheBetterLimited_Server.APIController
             {
                 return BadRequest(e.Message);
             }
-
-
         }
 
         [HttpGet("email")]
@@ -165,6 +169,15 @@ namespace TheBetterLimited_Server.APIController
             return Ok(message.ToString());
 
         }
+
+
+
+        [HttpGet("Acc")]
+        public IActionResult GetAccs()
+        {
+            return Ok(_testController.GetSth());
+        }
+
 
 
         // https://stackoverflow.com/questions/43678963/send-and-receive-large-file-over-streams-in-asp-net-web-api-c-sharp
