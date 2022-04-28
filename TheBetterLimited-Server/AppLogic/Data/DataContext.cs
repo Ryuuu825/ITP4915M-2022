@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TheBetterLimited_Server.AppLogic.Dto;
 
-namespace TheBetterLimited_Server.AppLogic
+namespace TheBetterLimited_Server.AppLogic.Data
 {
 	public class DataContext : DbContext
 	{

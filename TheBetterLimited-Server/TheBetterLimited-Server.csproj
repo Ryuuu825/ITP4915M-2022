@@ -31,7 +31,6 @@
     <None Remove="AppLogic\model\" />
     <None Remove="Lib\" />
     <None Remove="Helper\File\" />
-    <None Remove="APIFilters\" />
     <None Remove="AppLogic\Dto\" />
     <None Remove="MailKit" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
@@ -41,21 +40,23 @@
     <None Remove="MySql.Data.EntityFrameworkCore" />
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
     <None Remove="Migrations\" />
-    <None Remove="Helper\" />
+    <None Remove="API\" />
+    <None Remove="API\APIController\" />
+    <None Remove="API\APIFilters\" />
+    <None Remove="AppLogic\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppLogic\" />
-    <Folder Include="AppLogic\controller\" />
-    <Folder Include="AppLogic\model\" />
-    <Folder Include="APIFilters\" />
+    <Folder Include="AppLogic\Controllers\" />
+    <Folder Include="AppLogic\Models\" />
     <Folder Include="AppLogic\Dto\" />
     <Folder Include="Migrations\" />
-    <Folder Include="Helper\" />
+    <Folder Include="API\" />
+    <Folder Include="API\Controller\" />
+    <Folder Include="API\Filter\" />
+    <Folder Include="AppLogic\Data\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Remove="secret.json" />
-  </ItemGroup>
   <Target Name="MakeDir" AfterTargets="Build">
    <MakeDir Directories="$(OutDir)var\tmp" />
    <MakeDir Directories="$(OutDir)var\log" />

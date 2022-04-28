@@ -1,7 +1,8 @@
 ﻿using System;
 using TheBetterLimited_Server.AppLogic.Dto;
+using TheBetterLimited_Server.AppLogic.Data;
 
-namespace TheBetterLimited_Server.AppLogic.Controller
+namespace TheBetterLimited_Server.AppLogic.Controllers
 {
 	public class TestController
 	{

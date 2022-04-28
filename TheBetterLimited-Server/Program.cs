@@ -1,5 +1,5 @@
 ﻿global using Microsoft.EntityFrameworkCore;
-global using TheBetterLimited_Server.AppLogic;
+global using TheBetterLimited_Server.AppLogic.Data;
 
 public class Program
 {
@@ -37,7 +37,7 @@ public class Program
         Console.Title = "The Better Limited Server";
         app.Run();
 
-        TheBetterLimited_Server.Helper.File.TempFileManager.CloseAllTempFile();
+        TheBetterLimited_Server.Helpers.File.TempFileManager.CloseAllTempFile();
     }
 
 }

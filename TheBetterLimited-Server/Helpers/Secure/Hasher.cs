@@ -3,9 +3,9 @@
 using System;
 using System.Security.Cryptography;
 
-namespace TheBetterLimited_Server.Helper
+namespace TheBetterLimited_Server.Helpers.Secure
 {
-    public static class SecureHasher
+    public static class Hasher
     {
 
         /// <summary>

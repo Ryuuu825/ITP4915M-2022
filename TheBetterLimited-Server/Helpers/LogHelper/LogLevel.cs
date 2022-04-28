@@ -1,5 +1,5 @@
 ﻿using System;
-namespace TheBetterLimited_Server.Helper.LogHelper
+namespace TheBetterLimited_Server.Helpers.LogHelper
 {
 	public enum LogLevel
 	{

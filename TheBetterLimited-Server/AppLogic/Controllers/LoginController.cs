@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 
-namespace TheBetterLimited_Server.AppLogic.Controller
+namespace TheBetterLimited_Server.AppLogic.Controllers
 {
 	public class LoginController
 	{

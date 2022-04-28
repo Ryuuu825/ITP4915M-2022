@@ -1,5 +1,5 @@
 ﻿using System;
-namespace TheBetterLimited_Server.AppLogic.model
+namespace TheBetterLimited_Server.AppLogic.Models
 {
 	public class Account
 	{

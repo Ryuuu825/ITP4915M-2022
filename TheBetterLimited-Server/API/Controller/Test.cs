@@ -4,29 +4,31 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
-using TheBetterLimited_Server.Helper.File;
-using TheBetterLimited_Server.Helper;
-using TheBetterLimited_Server.APIFilters;
+using TheBetterLimited_Server.Helpers.File;
+using TheBetterLimited_Server.Helpers;
+using TheBetterLimited_Server.Helpers.Secure;
+using TheBetterLimited_Server.AppLogic.Data;
+using TheBetterLimited_Server.API.Filters;
 using MailKit.Net.Smtp;
 using MimeKit;
 using System.Data;
 using TheBetterLimited_Server.AppLogic;
-using TheBetterLimited_Server.AppLogic.model;
+using TheBetterLimited_Server.AppLogic.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace TheBetterLimited_Server.APIController
+namespace TheBetterLimited_Server.API.Controllers
 {
     [Route("api/[controller]")]
-    public class Test : Controller
+    public class Test : ControllerBase
     {
         private readonly IConfiguration _config;
-        private readonly TheBetterLimited_Server.AppLogic.Controller.TestController _testController;
+        private readonly TheBetterLimited_Server.AppLogic.Controllers.TestController _testController;
 
         public Test(IConfiguration config , DataContext data)
         {
             _config = config;
-            _testController = new AppLogic.Controller.TestController(data);
+            _testController = new AppLogic.Controllers.TestController(data);
         }
         [HttpGet("{id}")]
         public IActionResult Get(long id)
@@ -63,7 +65,7 @@ namespace TheBetterLimited_Server.APIController
         [HttpGet("check/{plainText}")]
         public IActionResult Getasd(string plainText)
         {
-            return Ok(SecureHasher.Hash(plainText));
+            return Ok(Hasher.Hash(plainText));
         }
 #endif
 
@@ -149,19 +151,19 @@ namespace TheBetterLimited_Server.APIController
         public IActionResult SentEmail()
         {
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Name", "@gmail.com"));
-            message.To.Add(new MailboxAddress("Name", "@gmail.com"));
+            message.From.Add(new MailboxAddress("Name", "address"));
+            message.To.Add(new MailboxAddress("Name", "address"));
             message.Subject = "Testing";
             message.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
                 Text = "<h1>Hello World</h1>"
             };
-            Helper.LogHelper.FileLogger.Log(message.ToString());
+            Helpers.LogHelper.FileLogger.Log(message.ToString());
 
             using (var client = new SmtpClient())
             {
-                client.Connect("smtp.gmail.com", 587, false);
-                client.Authenticate("@gmail.com", "password");
+                client.Connect("", 587, false);
+                client.Authenticate("email address", "password");
                 client.Send(message);
                 client.Disconnect(true);
             }

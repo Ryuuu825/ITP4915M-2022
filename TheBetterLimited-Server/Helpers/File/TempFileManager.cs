@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 
-namespace TheBetterLimited_Server.Helper.File
+namespace TheBetterLimited_Server.Helpers.File
 {
     public class TempFileManager
     {

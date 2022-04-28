@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using Microsoft.VisualBasic;
 
-namespace TheBetterLimited_Server.Helper.File
+namespace TheBetterLimited_Server.Helpers.File
 {
 	public class TempFile : IDisposable
 	{

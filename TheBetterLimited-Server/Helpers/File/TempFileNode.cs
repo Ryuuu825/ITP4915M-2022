@@ -1,4 +1,4 @@
-﻿namespace TheBetterLimited_Server.Helper.File
+﻿namespace TheBetterLimited_Server.Helpers.File
 {
     public class TempFileNode : TempFile
     { 

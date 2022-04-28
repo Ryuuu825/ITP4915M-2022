@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TheBetterLimited_Server.AppLogic;
+using TheBetterLimited_Server.AppLogic.Data;
 
 #nullable disable
 

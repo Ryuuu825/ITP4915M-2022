@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace TheBetterLimited_Server.Controllers
+namespace TheBetterLimited_Server.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

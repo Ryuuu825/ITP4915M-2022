@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace TheBetterLimited_Server.Helper
+namespace TheBetterLimited_Server.Helpers
 {
 	public static class HttpReader
 	{

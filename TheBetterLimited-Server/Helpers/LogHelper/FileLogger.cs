@@ -1,4 +1,4 @@
-﻿namespace TheBetterLimited_Server.Helper.LogHelper
+﻿namespace TheBetterLimited_Server.Helpers.LogHelper
 {
     public class FileLogger 
     {
