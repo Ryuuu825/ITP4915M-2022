@@ -20,7 +20,7 @@ namespace TheBetterLimited_Server.Helpers
 
         public static MailboxAddress GetMailBoxAddress()
         {
-            return new MailboxAddress(EmailConfig["DisplayUserName"].ToString(), GetEmailAddress());
+            return new MailboxAddress(EmailConfig["DisplayName"].ToString(), GetEmailAddress());
         }
 
         public static void SentEmail(MailboxAddress destination , string subject , MimeKit.Text.TextFormat type ,  string msg )
@@ -28,6 +28,7 @@ namespace TheBetterLimited_Server.Helpers
             var message = new MimeMessage();
             message.From.Add(GetMailBoxAddress());
             message.To.Add(destination);
+            message.Subject = subject;
             message.Body = new TextPart(type)
             {
                 Text = msg
@@ -36,7 +37,7 @@ namespace TheBetterLimited_Server.Helpers
 
             using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
-                client.Connect(EmailConfig["ServerName"].ToString() , 587, false);
+                client.Connect(EmailConfig["ServerUrl"].ToString() , EmailConfig["Port"].ToObject<int>() , false);
                 client.Authenticate(GetEmailAddress() , EmailConfig["Password"].ToString());
 
                 if (client.IsConnected)

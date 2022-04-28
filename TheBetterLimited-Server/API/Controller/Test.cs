@@ -151,7 +151,7 @@ namespace TheBetterLimited_Server.API.Controllers
         [HttpGet("email")]
         public IActionResult SentEmail()
         {
-            Helpers.EmailSender.SentEmail(new MailboxAddress("Ken", "210339487@stu.vtc.edu.hk"), "This is a test", MimeKit.Text.TextFormat.Html, DynamicFile.GetFile("test.html", "name:Ken;pw:asdf"));
+            Helpers.EmailSender.SentEmail(new MailboxAddress("Ken", "210339487@stu.vtc.edu.hk"), "This is a test", MimeKit.Text.TextFormat.Html, DynamicFile.GetFile("test.html", "name=Ken;pw=asdf"));
             // return Ok(Helpers.SecretConfig.Instance.GetEmailDetail().);
             return Ok();
 
