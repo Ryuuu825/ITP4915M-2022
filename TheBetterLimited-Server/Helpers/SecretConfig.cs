@@ -36,6 +36,12 @@ namespace TheBetterLimited_Server.Helpers
 			return _config["MailAccount"];
         }
 
+		public string GetSection(string target)
+        {
+			string[] sep = target.Split(":");
+			return _config[sep[0]][sep[1]].ToString();
+        }
+
 	}
 }
 

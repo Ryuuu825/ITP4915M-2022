@@ -15,6 +15,7 @@ using System.Data;
 using TheBetterLimited_Server.AppLogic;
 using TheBetterLimited_Server.AppLogic.Models;
 using TheBetterLimited_Server.AppLogic.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -56,10 +57,22 @@ namespace TheBetterLimited_Server.API.Controllers
             return Ok(str);
         }
 
-        [HttpGet("Auth")]
+        [HttpGet("login")]
+        public IActionResult GetKey()
+        {
+            Account user = new Account
+            {
+                Password = "ASD",
+                Username = "ASD"
+            };
+            var key = Helpers.Secure.JwtToken.Issue(user);
+            return Ok(key);
+        }
+
+        [HttpGet("Auth"), Authorize(Roles = "Admin")]
         public IActionResult GetAuth()
         {
-            return Ok("I have secret key");
+            return Ok();
         }
 
 #if DEBUG
