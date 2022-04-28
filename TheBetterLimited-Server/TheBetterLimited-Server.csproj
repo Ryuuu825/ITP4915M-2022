@@ -44,6 +44,7 @@
     <None Remove="API\APIController\" />
     <None Remove="API\APIFilters\" />
     <None Remove="AppLogic\Data\" />
+    <None Remove="AppLogic\Exceptions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppLogic\" />
@@ -55,11 +56,13 @@
     <Folder Include="API\Controller\" />
     <Folder Include="API\Filter\" />
     <Folder Include="AppLogic\Data\" />
+    <Folder Include="AppLogic\Exceptions\" />
   </ItemGroup>
 
   <Target Name="MakeDir" AfterTargets="Build">
    <MakeDir Directories="$(OutDir)var\tmp" />
    <MakeDir Directories="$(OutDir)var\log" />
+   <MakeDir Directories="$(OutDir)resource\template" />
   </Target>
 
 </Project>

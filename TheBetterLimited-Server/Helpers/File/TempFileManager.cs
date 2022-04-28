@@ -2,6 +2,12 @@
 
 namespace TheBetterLimited_Server.Helpers.File
 {
+    class TempFileNode : TempFile
+    {
+        internal TempFileNode prev;
+        internal TempFileNode next;
+    }
+
     public class TempFileManager
     {
 

@@ -14,6 +14,7 @@ using MimeKit;
 using System.Data;
 using TheBetterLimited_Server.AppLogic;
 using TheBetterLimited_Server.AppLogic.Models;
+using TheBetterLimited_Server.AppLogic.Exceptions;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -179,6 +180,22 @@ namespace TheBetterLimited_Server.API.Controllers
         {
             return Ok(_testController.GetSth());
         }
+
+        [HttpPost("Acc")]
+        public async Task<IActionResult> CreateAccsAsync(AppLogic.Dto.Acc acc)
+        {
+            try
+            {
+                _testController.CreateSth(acc);
+                return Ok();
+
+            } catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
+        }
+
 
 
 

@@ -5,6 +5,9 @@ public class Program
 {
     static void Main(String[] args)
     {
+
+        //var filename = "test.html";
+        //Console.Write(TheBetterLimited_Server.Helpers.File.DynamicHtml.GetFile( "test.html" , new string[] {"pw:sdf"}));
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
