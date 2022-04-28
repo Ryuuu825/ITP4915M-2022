@@ -30,10 +30,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 			// return await _dataContext.Accs.ToListAsync();
         }
 
-		//public Acc GetSth(Acc acc)
-  //      {
-		//	var keywords = keyword.ToList();
-  //      }
+
 	}
 
 

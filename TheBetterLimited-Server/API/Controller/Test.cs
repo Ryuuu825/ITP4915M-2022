@@ -151,26 +151,11 @@ namespace TheBetterLimited_Server.API.Controllers
         [HttpGet("email")]
         public IActionResult SentEmail()
         {
-            var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Name", "address"));
-            message.To.Add(new MailboxAddress("Name", "address"));
-            message.Subject = "Testing";
-            message.Body = new TextPart(MimeKit.Text.TextFormat.Html)
-            {
-                Text = "<h1>Hello World</h1>"
-            };
-            Helpers.LogHelper.FileLogger.Log(message.ToString());
+            Helpers.EmailSender.SentEmail(new MailboxAddress("Ken", "210339487@stu.vtc.edu.hk"), "This is a test", MimeKit.Text.TextFormat.Html, DynamicFile.GetFile("test.html", "name:Ken;pw:asdf"));
+            // return Ok(Helpers.SecretConfig.Instance.GetEmailDetail().);
+            return Ok();
 
-            using (var client = new SmtpClient())
-            {
-                client.Connect("", 587, false);
-                client.Authenticate("email address", "password");
-                client.Send(message);
-                client.Disconnect(true);
-            }
-
-            return Ok(message.ToString());
-
+            
         }
 
 
@@ -195,6 +180,7 @@ namespace TheBetterLimited_Server.API.Controllers
             }
 
         }
+
 
 
 

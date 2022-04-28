@@ -62,7 +62,7 @@
   <Target Name="MakeDir" AfterTargets="Build">
    <MakeDir Directories="$(OutDir)var\tmp" />
    <MakeDir Directories="$(OutDir)var\log" />
-   <MakeDir Directories="$(OutDir)resource\template" />
+   <MakeDir Directories="$(OutDir)template" />
   </Target>
 
 </Project>
