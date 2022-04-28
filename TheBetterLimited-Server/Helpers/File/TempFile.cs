@@ -3,13 +3,13 @@ using System.IO;
 using System.Text;
 using Microsoft.VisualBasic;
 
-namespace TheBetterLimited_Server.Helper.File
+namespace TheBetterLimited_Server.Helpers.File
 {
 	public class TempFile : IDisposable
 	{
-		private static readonly string FolderPath = AppDomain.CurrentDomain.BaseDirectory + "/var";
+		protected static readonly string FolderPath = AppDomain.CurrentDomain.BaseDirectory + "/var/tmp";
 
-		private String FilePath;
+        protected String FilePath;
 
 		public bool IsClose { get; private set; } = false;
 
