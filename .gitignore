@@ -378,5 +378,5 @@ FodyWeavers.xsd
 .DS_Store
 
 
-# secrect files
-**/secret.json
+# secret files
+**/secret.*

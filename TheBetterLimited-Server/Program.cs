@@ -1,26 +1,28 @@
 ﻿global using Microsoft.EntityFrameworkCore;
+global using System.ComponentModel.DataAnnotations;
+global using System.ComponentModel.DataAnnotations.Schema;
+global using System.Text;
 
-using TheBetterLimited_Server.AppLogic.Data;
+using TheBetterLimited_Server.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Swashbuckle.AspNetCore.Filters;
 
 public class Program
 {
     static void Main(String[] args)
     {
-
         var builder = WebApplication.CreateBuilder(args);
         // Add services to the container.
         builder.Services.AddControllers().AddNewtonsoftJson();
         builder.Services.AddDbContext<DataContext>(options =>
         {
-            string ConnString = builder.Configuration.GetConnectionString("DefaultConnection");
+            string ConnString = TheBetterLimited_Server.Helpers.SecretConf.Instance["ConnectionString"];
             options.UseMySql(
                 ConnString,
                 ServerVersion.AutoDetect(ConnString)
-            ); 
+            );
+            
         });
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -29,7 +31,7 @@ public class Program
                     {
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
-                            .GetBytes(TheBetterLimited_Server.Helpers.SecretConfig.Instance.GetValue("Token"))),
+                            .GetBytes(TheBetterLimited_Server.Helpers.SecretConf.Instance["Token"])),
                         ValidateIssuer = false,
                         ValidateAudience = false
                     };
@@ -63,10 +65,31 @@ public class Program
         app.UseAuthentication();
         app.UseAuthorization();
         app.MapControllers();
-
         Console.Title = "The Better Limited Server";
+
+        using (MySqlConnector.MySqlConnection conn = new MySqlConnector.MySqlConnection(connectionString: TheBetterLimited_Server.Helpers.SecretConf.Instance["ConnectionString"]))
+        {
+            try // test the connection with sql server
+            {
+                conn.Open();
+
+            }
+            catch (MySqlConnector.MySqlException e)
+            {
+                Console.WriteLine("Error ocurr during create a connection with MySQL server");
+                Console.WriteLine(e.Message + " : " + conn.ConnectionTimeout + "s");
+                return;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+
         app.Run();
 
+        
         TheBetterLimited_Server.Helpers.File.TempFileManager.CloseAllTempFile();
     }
 

@@ -7,7 +7,7 @@ using TheBetterLimited_Server.Helpers;
 namespace TheBetterLimited_Server.API.Filters
 {
 	[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-	public class LogAccessAttribute : Attribute, IAsyncActionFilter
+	public class LogAccessAttribute : Attribute, IAsyncResultFilter
 	{
 		public async Task OnActionExecutionAsync(ActionExecutingContext actionContext , ActionExecutionDelegate next)
 		{
@@ -23,6 +23,13 @@ namespace TheBetterLimited_Server.API.Filters
                 actionContext.Result = new UnauthorizedResult();
             }
 		}
-	}
+
+        public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
+        {
+            if (context.HttpContext.Response.StatusCode == (int)System.Net.HttpStatusCode.Unauthorized)
+                throw new NotImplementedException();
+            await next(); 
+        }
+    }
 }
 
