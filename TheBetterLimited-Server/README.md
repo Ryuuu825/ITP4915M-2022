@@ -1,17 +1,17 @@
 ﻿# The Backend Server for [The Better Limited System](../TheBetterLimited-ManagementSystem) 
 
-# Introdution
+## Introdution
 ```
 ```
 
-# Features
+## Features
 - TODO
-# Dependenies
+## Dependenies
 - .Net 6
 - Entity Framework Core CLI tools
 
-# Get Started
-## Create a file call secret.conf under ./etc
+## Get Started
+### Create a file call secret.conf under ./etc
 ```
 # The Mail Account
 
@@ -29,21 +29,21 @@ Token="ThisRequiredALongToken"
 
 ConnectionString="Data Source={db};Initial Catalog={};User Id={user};password={pw};ConnectionTimeout=5"
 ```
-## update the database
+### update the database
 ```
 dotnet ef database update
 ```
 
-## build the sysetm
+### build the sysetm
 ```
 dotnet build --configuration Release
 ```
 
-## build the system with .Net 6 runtime contain 
+### build the system with .Net 6 runtime contain 
 [see this page](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
 ```
 dotnet build -r <RUNTIME_IDENTIFIER> -o {output directory}  --configuration Release
 ```
 
-# API doucumentation
-## TODO
+## API doucumentation
+### TODO
