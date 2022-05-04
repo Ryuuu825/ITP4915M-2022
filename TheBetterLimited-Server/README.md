@@ -9,6 +9,7 @@
 ## Dependenies
 - .Net 6
 - Entity Framework Core CLI tools
+- MySQL
 
 ## Get Started
 ### Create a file call secret.conf under ./etc
@@ -29,7 +30,7 @@ Token="ThisRequiredALongToken"
 
 ConnectionString="Data Source={db};Initial Catalog={};User Id={user};password={pw};ConnectionTimeout=5"
 ```
-### update the database
+### create the database table
 ```
 dotnet ef database update
 ```
@@ -39,7 +40,7 @@ dotnet ef database update
 dotnet build --configuration Release
 ```
 
-### build the system with .Net 6 runtime contain 
+### Or build the system with .Net 6 runtime contain 
 [see this page](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
 ```
 dotnet build -r <RUNTIME_IDENTIFIER> -o {output directory}  --configuration Release
