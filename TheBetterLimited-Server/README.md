@@ -45,6 +45,29 @@ dotnet build --configuration Release
 ```
 dotnet build -r <RUNTIME_IDENTIFIER> -o {output directory}  --configuration Release
 ```
-
+## File Structure
+```
+.
+├── API                     <- API routing controller
+│   ├── Controller
+│   └── Filter
+├── AppLogic                <- Appliation Logic
+│   ├── Controllers
+│   ├── Exceptions
+│   └── Models
+├── Data                    <- Data Access Logic
+│   ├── Dto
+│   ├── Entity
+│   ├── EnumType
+│   └── Migrations
+├── Helpers                 <- Helper tools
+│   ├── File
+│   ├── LogHelper
+│   ├── Secure
+│   └── Sql
+├── etc                     <- user editable configuration (contain your secret)
+└── resource                <- File that needed at runtime by the server
+    └── template
+```
 ## API doucumentation
 ### TODO
