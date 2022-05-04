@@ -33,7 +33,6 @@
     <None Remove="AppLogic\model\" />
     <None Remove="Lib\" />
     <None Remove="Helper\File\" />
-    <None Remove="AppLogic\Dto\" />
     <None Remove="MailKit" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.EntityFrameworkCore" />
@@ -41,28 +40,52 @@
     <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
     <None Remove="MySql.Data.EntityFrameworkCore" />
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
-    <None Remove="Migrations\" />
     <None Remove="API\" />
     <None Remove="API\APIController\" />
     <None Remove="API\APIFilters\" />
-    <None Remove="AppLogic\Data\" />
     <None Remove="AppLogic\Exceptions\" />
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
     <None Remove="Swashbuckle.AspNetCore.Filters" />
+    <None Remove="etc\" />
+    <None Remove="Helpers\Sql\" />
+    <None Remove="resource\" />
+    <None Remove="resource\template\" />
+    <None Remove="Data\" />
+    <None Remove="Data\Migrations\" />
+    <None Remove="Data\Dto\" />
+    <None Remove="Data\EnumType\" />
+    <None Remove="Data\Entity\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AppLogic\" />
     <Folder Include="AppLogic\Controllers\" />
     <Folder Include="AppLogic\Models\" />
-    <Folder Include="AppLogic\Dto\" />
-    <Folder Include="Migrations\" />
     <Folder Include="API\" />
     <Folder Include="API\Controller\" />
     <Folder Include="API\Filter\" />
-    <Folder Include="AppLogic\Data\" />
     <Folder Include="AppLogic\Exceptions\" />
+    <Folder Include="etc\" />
+    <Folder Include="Helpers\Sql\" />
+    <Folder Include="resource\" />
+    <Folder Include="resource\template\" />
+    <Folder Include="Data\" />
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Data\Dto\" />
+    <Folder Include="Data\EnumType\" />
+    <Folder Include="Data\Entity\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="etc\secret.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="etc\secret.conf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="resource\template\test.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Target Name="MakeDir" AfterTargets="Build">
    <MakeDir Directories="$(OutDir)var\tmp" />
    <MakeDir Directories="$(OutDir)var\log" />

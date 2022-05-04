@@ -9,25 +9,20 @@ namespace TheBetterLimited_Server.Helpers
 {
     public static class EmailSender
     {
-
-        public readonly static JToken EmailConfig = SecretConfig.Instance.GetEmailDetail();
-
+        private static Helpers.SecretConf EmailConfig = Helpers.SecretConf.Instance;
 
         public static string GetEmailAddress()
         {
             return $"{EmailConfig["Username"]}{EmailConfig["Domain"]}";
         }
 
-        public static MailboxAddress GetMailBoxAddress()
-        {
-            return new MailboxAddress(EmailConfig["DisplayName"].ToString(), GetEmailAddress());
-        }
 
-        public static void SentEmail(MailboxAddress destination , string subject , MimeKit.Text.TextFormat type ,  string msg )
+        public static void SendEmail(string recevier , string receiverAddress , string subject , MimeKit.Text.TextFormat type ,  string msg )
         {
+
             var message = new MimeMessage();
-            message.From.Add(GetMailBoxAddress());
-            message.To.Add(destination);
+            message.From.Add(new MailboxAddress( EmailConfig["DisplayedName"] , GetEmailAddress() ));
+            message.To.Add(new MailboxAddress(recevier, receiverAddress));
             message.Subject = subject;
             message.Body = new TextPart(type)
             {
@@ -37,7 +32,7 @@ namespace TheBetterLimited_Server.Helpers
 
             using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
-                client.Connect(EmailConfig["ServerUrl"].ToString() , EmailConfig["Port"].ToObject<int>() , false);
+                client.Connect(EmailConfig["ServerURL"] , Int32.Parse(EmailConfig["Port"]) , false);
                 client.Authenticate(GetEmailAddress() , EmailConfig["Password"].ToString());
 
                 if (client.IsConnected)

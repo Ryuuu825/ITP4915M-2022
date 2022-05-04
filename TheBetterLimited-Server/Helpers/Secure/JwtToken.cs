@@ -2,7 +2,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
-using TheBetterLimited_Server.AppLogic.Models;
+using TheBetterLimited_Server.Data.Entity;
 
 namespace TheBetterLimited_Server.Helpers.Secure
 {
@@ -12,12 +12,12 @@ namespace TheBetterLimited_Server.Helpers.Secure
         {
 			List<Claim> claims = new List<Claim>
 			{
-				new Claim(ClaimTypes.Name , user.Username),
-				new Claim(ClaimTypes.Role, "noob")
+				new Claim(ClaimTypes.Name , user.UserName),
+				new Claim(ClaimTypes.Role, "admin")
 			};
 
 
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(SecretConfig.Instance.GetValue("Token")));
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(Helpers.SecretConf.Instance.GetValue("Token")));
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 

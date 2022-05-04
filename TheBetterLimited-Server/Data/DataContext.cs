@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using TheBetterLimited_Server.AppLogic.Dto;
+using TheBetterLimited_Server.Data.Entity;
 
-namespace TheBetterLimited_Server.AppLogic.Data
+namespace TheBetterLimited_Server.Data
 {
 	public class DataContext : DbContext
 	{
@@ -11,8 +11,8 @@ namespace TheBetterLimited_Server.AppLogic.Data
 
         }
 
-        public DbSet<Acc> Accs { get; set; }
 
-	}
+        public DbSet<Account> accounts { get;  }
+    }
 }
 
