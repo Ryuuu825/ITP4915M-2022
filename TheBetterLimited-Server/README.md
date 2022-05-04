@@ -45,7 +45,10 @@ dotnet build --configuration Release
 ```
 dotnet build -r <RUNTIME_IDENTIFIER> -o {output directory}  --configuration Release
 ```
-## File Structure
+
+## Overview
+---
+### File Structure
 ```
 .
 ├── API                     <- API routing controller
@@ -69,5 +72,5 @@ dotnet build -r <RUNTIME_IDENTIFIER> -o {output directory}  --configuration Rele
 └── resource                <- File that needed at runtime by the server
     └── template
 ```
-## API doucumentation
-### TODO
+### API doucumentation
+TODO
