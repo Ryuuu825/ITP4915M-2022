@@ -40,10 +40,10 @@ dotnet ef database update
 dotnet build --configuration Release
 ```
 
-### Or build the system with .Net 6 runtime contain 
+### Or publish the system into a single executable with.Net 6 runtime contain 
 [see this page](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
 ```
-dotnet build -r <RUNTIME_IDENTIFIER> -o {output directory}  --configuration Release
+dotnet publish -r {Runtime Identifier} /p:PublishSingleFile=true --configuration Relase -o {output dir}
 ```
 
 ## Overview
