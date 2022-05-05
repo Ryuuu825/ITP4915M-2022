@@ -1,5 +1,9 @@
 name: .NET
 
+defaults:
+  run:
+    working-directory: TheBetterLimited-Server
+    
 on:
   push:
     branches: [ develop ]
@@ -8,6 +12,7 @@ on:
 
 jobs:
   build:
+  
 
     runs-on: windows-latest
 
