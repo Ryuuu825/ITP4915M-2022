@@ -1,52 +1,46 @@
-﻿using System;
-using Newtonsoft.Json.Linq;
-using MailKit.Net.Smtp;
+﻿using MailKit.Net.Smtp;
 using MimeKit;
-using System.Net.Mail;
+using MimeKit.Text;
 using TheBetterLimited_Server.AppLogic.Exceptions;
 
-namespace TheBetterLimited_Server.Helpers
+namespace TheBetterLimited_Server.Helpers;
+
+public static class EmailSender
 {
-    public static class EmailSender
+    private static readonly SecretConf EmailConfig = SecretConf.Instance;
+
+    public static string GetEmailAddress()
     {
-        private static Helpers.SecretConf EmailConfig = Helpers.SecretConf.Instance;
+        return $"{EmailConfig["Username"]}{EmailConfig["Domain"]}";
+    }
 
-        public static string GetEmailAddress()
+
+    public static void SendEmail(string recevier, string receiverAddress, string subject, TextFormat type, string msg)
+    {
+        var message = new MimeMessage();
+        message.From.Add(new MailboxAddress(EmailConfig["DisplayedName"], GetEmailAddress()));
+        message.To.Add(new MailboxAddress(recevier, receiverAddress));
+        message.Subject = subject;
+        message.Body = new TextPart(type)
         {
-            return $"{EmailConfig["Username"]}{EmailConfig["Domain"]}";
-        }
+            Text = msg
+        };
 
 
-        public static void SendEmail(string recevier , string receiverAddress , string subject , MimeKit.Text.TextFormat type ,  string msg )
+        using (var client = new SmtpClient())
         {
+            client.Connect(EmailConfig["ServerURL"], int.Parse(EmailConfig["Port"]), false);
+            client.Authenticate(GetEmailAddress(), EmailConfig["Password"]);
 
-            var message = new MimeMessage();
-            message.From.Add(new MailboxAddress( EmailConfig["DisplayedName"] , GetEmailAddress() ));
-            message.To.Add(new MailboxAddress(recevier, receiverAddress));
-            message.Subject = subject;
-            message.Body = new TextPart(type)
+            if (client.IsConnected)
             {
-                Text = msg
-            };
-            
-
-            using (var client = new MailKit.Net.Smtp.SmtpClient())
+                client.Send(message);
+                client.Disconnect(true);
+            }
+            else
             {
-                client.Connect(EmailConfig["ServerURL"] , Int32.Parse(EmailConfig["Port"]) , false);
-                client.Authenticate(GetEmailAddress() , EmailConfig["Password"].ToString());
-
-                if (client.IsConnected)
-                {
-                    client.Send(message);
-                    client.Disconnect(true);
-                }
-                else
-                {
-                    throw new OperationFailException("Sent Email Fail"); 
-                }
-
+                throw new OperationFailException("Sent Email Fail");
             }
         }
     }
 }
-

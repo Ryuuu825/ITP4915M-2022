@@ -2,33 +2,24 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheBetterLimited_Server.Data;
 
 #nullable disable
 
-namespace TheBetterLimited_Server.Data.Migrations
+namespace TheBetterLimited_Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220505125438_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
-
-            modelBuilder.Entity("TheBetterLimited_Server.Data.Dto.Staff", b =>
-                {
-                    b.Property<string>("id")
-                        .HasMaxLength(5)
-                        .HasColumnType("char(5)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Staff");
-                });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Account", b =>
                 {
@@ -67,26 +58,12 @@ namespace TheBetterLimited_Server.Data.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
-                    b.Property<string>("_Staffid")
-                        .HasColumnType("char(5)");
-
                     b.Property<DateTime?>("unlockDate")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("_Staffid");
-
                     b.ToTable("accounts");
-                });
-
-            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Account", b =>
-                {
-                    b.HasOne("TheBetterLimited_Server.Data.Dto.Staff", "_Staff")
-                        .WithMany()
-                        .HasForeignKey("_Staffid");
-
-                    b.Navigation("_Staff");
                 });
 #pragma warning restore 612, 618
         }
