@@ -1,95 +1,101 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>TheBetterLimited_Server</RootNamespace>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>TheBetterLimited_Server</RootNamespace>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.4" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    <PackageReference Include="MailKit" Version="3.2.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.4" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.4" />
-    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.2" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.4" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="MailKit" Version="3.2.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.4" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.4">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.4" />
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.4" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.2" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="AppLogic\" />
-    <None Remove="AppLogic\controller\" />
-    <None Remove="AppLogic\model\" />
-    <None Remove="Lib\" />
-    <None Remove="Helper\File\" />
-    <None Remove="MailKit" />
-    <None Remove="Microsoft.EntityFrameworkCore.Tools" />
-    <None Remove="Microsoft.EntityFrameworkCore" />
-    <None Remove="Microsoft.EntityFrameworkCore.Design" />
-    <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
-    <None Remove="MySql.Data.EntityFrameworkCore" />
-    <None Remove="Pomelo.EntityFrameworkCore.MySql" />
-    <None Remove="API\" />
-    <None Remove="API\APIController\" />
-    <None Remove="API\APIFilters\" />
-    <None Remove="AppLogic\Exceptions\" />
-    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
-    <None Remove="Swashbuckle.AspNetCore.Filters" />
-    <None Remove="etc\" />
-    <None Remove="Helpers\Sql\" />
-    <None Remove="resource\" />
-    <None Remove="resource\template\" />
-    <None Remove="Data\" />
-    <None Remove="Data\Migrations\" />
-    <None Remove="Data\Dto\" />
-    <None Remove="Data\EnumType\" />
-    <None Remove="Data\Entity\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppLogic\" />
-    <Folder Include="AppLogic\Controllers\" />
-    <Folder Include="AppLogic\Models\" />
-    <Folder Include="API\" />
-    <Folder Include="API\Controller\" />
-    <Folder Include="API\Filter\" />
-    <Folder Include="AppLogic\Exceptions\" />
-    <Folder Include="etc\" />
-    <Folder Include="Helpers\Sql\" />
-    <Folder Include="resource\" />
-    <Folder Include="resource\template\" />
-    <Folder Include="Data\" />
-    <Folder Include="Data\Migrations\" />
-    <Folder Include="Data\Dto\" />
-    <Folder Include="Data\EnumType\" />
-    <Folder Include="Data\Entity\" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Remove="AppLogic\" />
+        <None Remove="AppLogic\controller\" />
+        <None Remove="AppLogic\model\" />
+        <None Remove="Lib\" />
+        <None Remove="Helper\File\" />
+        <None Remove="MailKit" />
+        <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+        <None Remove="Microsoft.EntityFrameworkCore" />
+        <None Remove="Microsoft.EntityFrameworkCore.Design" />
+        <None Remove="Microsoft.EntityFrameworkCore.SqlServer" />
+        <None Remove="MySql.Data.EntityFrameworkCore" />
+        <None Remove="Pomelo.EntityFrameworkCore.MySql" />
+        <None Remove="API\" />
+        <None Remove="API\APIController\" />
+        <None Remove="API\APIFilters\" />
+        <None Remove="AppLogic\Exceptions\" />
+        <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+        <None Remove="Swashbuckle.AspNetCore.Filters" />
+        <None Remove="etc\" />
+        <None Remove="Helpers\Sql\" />
+        <None Remove="resource\" />
+        <None Remove="resource\template\" />
+        <None Remove="Data\" />
+        <None Remove="Data\Migrations\" />
+        <None Remove="Data\Dto\" />
+        <None Remove="Data\EnumType\" />
+        <None Remove="Data\Entity\" />
+        <None Remove="Helpers\Entity\" />
+        <None Remove="API\Services\" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="AppLogic\" />
+        <Folder Include="AppLogic\Controllers\" />
+        <Folder Include="AppLogic\Models\" />
+        <Folder Include="API\" />
+        <Folder Include="API\Controller\" />
+        <Folder Include="API\Filter\" />
+        <Folder Include="AppLogic\Exceptions\" />
+        <Folder Include="etc\" />
+        <Folder Include="Helpers\Sql\" />
+        <Folder Include="resource\" />
+        <Folder Include="resource\localization" />
+        <Folder Include="resource\template\" />
+        <Folder Include="Data\" />
+        <Folder Include="Data\Migrations\" />
+        <Folder Include="Data\Dto\" />
+        <Folder Include="Data\EnumType\" />
+        <Folder Include="Data\Entity\" />
+        <Folder Include="resource\template\email" />
+        <Folder Include="Helpers\Entity\" />
+        <Folder Include="API\Services\" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <Content Remove="etc\secret.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="etc\secret.conf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="resource\template\test.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <Target Name="MakeDir" AfterTargets="Build">
-   <MakeDir Directories="$(OutDir)var\tmp" />
-   <MakeDir Directories="$(OutDir)var\log" />
-   <MakeDir Directories="$(OutDir)template" />
-  </Target>
+    <ItemGroup>
+        <Content Remove="etc\secret.json" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Update="etc\secret.conf">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="resource\template\test.html">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+    <Target Name="MakeDir" AfterTargets="Build">
+        <MakeDir Directories="$(OutDir)var\tmp" />
+        <MakeDir Directories="$(OutDir)var\log" />
+        <MakeDir Directories="$(OutDir)template" />
+    </Target>
 
 </Project>

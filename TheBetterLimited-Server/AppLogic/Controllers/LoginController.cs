@@ -1,29 +1,21 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿namespace TheBetterLimited_Server.AppLogic.Controllers;
 
-namespace TheBetterLimited_Server.AppLogic.Controllers
+public class LoginController
 {
-	public class LoginController
-	{
+    public static bool Login(string name, string password)
+    {
+        return true;
+    }
 
-		public LoginController()
-		{
-		}
+    public static void ForgetPW()
+    {
+    }
 
-		public static bool Login(String name, String password)
-		{
-			return true;
-		}
+    public static void ForgetPW(string username, string email)
+    {
+    }
 
-		public static void ForgetPW()
-		{ }
-
-		public static void ForgetPW(String username , String email)
-		{ }
-
-		public static void ChangePW(String usernmae, String oldPW , String newPW)
-		{ }
-
-	}
+    public static void ChangePW(string usernmae, string oldPW, string newPW)
+    {
+    }
 }
-

@@ -1,32 +1,25 @@
-﻿using System;
-using System.Text;
+﻿namespace TheBetterLimited_Server.Helpers;
 
-namespace TheBetterLimited_Server.Helpers
+public static class HttpReader
 {
-	public static class HttpReader
-	{
-        public static string GetClientSocket(HttpContext context)
-        {
-            return $"{context.Connection.RemoteIpAddress.ToString()}:{context.Connection.RemotePort.ToString()}";
-        }
+    public static string GetClientSocket(HttpContext context)
+    {
+        return $"{context.Connection.RemoteIpAddress}:{context.Connection.RemotePort.ToString()}";
+    }
 
-        public static string GetHeaderString(HttpRequest req)
-        {
-            StringBuilder sbHeaders = new StringBuilder();
-            foreach (var header in req.Headers)
-                sbHeaders.Append($"{header.Key}: {header.Value}\n");
+    public static string GetHeaderString(HttpRequest req)
+    {
+        var sbHeaders = new StringBuilder();
+        foreach (var header in req.Headers)
+            sbHeaders.Append($"{header.Key}: {header.Value}\n");
 
-            return sbHeaders.ToString();
-        }
+        return sbHeaders.ToString();
+    }
 
-        public static string GetURL(HttpRequest req , bool withMethod = false)
-        {
-            if (withMethod)
-                return $"{req.Protocol} {req.Method} {req.Scheme}://{req.Host}{req.Path}{req.QueryString.Value}";
-            else
-                return $"{req.Scheme}://{req.Host}{req.Path}{req.QueryString.Value}";
-        }
-
+    public static string GetURL(HttpRequest req, bool withMethod = false)
+    {
+        if (withMethod)
+            return $"{req.Protocol} {req.Method} {req.Scheme}://{req.Host}{req.Path}{req.QueryString.Value}";
+        return $"{req.Scheme}://{req.Host}{req.Path}{req.QueryString.Value}";
     }
 }
-
