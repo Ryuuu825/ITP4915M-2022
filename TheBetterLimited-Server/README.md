@@ -64,28 +64,31 @@ dotnet publish -r {Runtime Identifier} /p:PublishSingleFile=true --configuration
 
 ```
 .
-├── API                     <- API routing controller
+├── API                         <- The API handler
 │   ├── Controller
-│   └── Filter
-├── AppLogic                <- Appliation Logic
+│   ├── Filter
+│   └── Services
+├── AppLogic                    <- Application Logic
 │   ├── Controllers
 │   ├── Exceptions
 │   └── Models
-├── Data                    <- Data Access Logic
-│   ├── Dto
+├── Data                        <- Data Access Logic
+│   ├── Dto                     <- Entity / Model that are exposed to end user
 │   ├── Entity
 │   ├── EnumType
-│   └── Migrations
-├── Helpers                 <- Helper tools
+│   ├── Migrations
+│   └── Repositories      
+├── Helpers                     <- The Helpers Tools
+│   ├── Entity
 │   ├── File
 │   ├── LogHelper
 │   ├── Secure
 │   └── Sql
-├── etc                     <- user editable configuration (contain your secret)
-└── resource                <- File that needed at runtime by the server
-    └── template
+├── Migrations
+├── Properties
+├── etc
 ```
 
-### API doucumentation
+### API documentation
 
-TODO
+[Click me](./API/API.md)

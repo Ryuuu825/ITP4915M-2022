@@ -7,7 +7,7 @@ using TheBetterLimited_Server.Data;
 
 #nullable disable
 
-namespace TheBetterLimited_Server.Migrations
+namespace TheBetterLimited_Server.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot

@@ -29,7 +29,7 @@ public static class ObjectExtension
 
         target = Copy<T>(source);
 
-        return target is null;
+        return target.Equals(source);
     }
 
 
@@ -41,11 +41,28 @@ public static class ObjectExtension
 #if DEBUG
         foreach (var item in o.GetType().GetProperties())
         {
+            
             str.Append($"{item.Name} = {item.GetValue(o)}\n");
         }
 #endif
         return str.ToString();
 
+    }
+
+
+    public static String GetPropertiesToString<T>(this Type o)
+    {
+        StringBuilder _buffer = new StringBuilder();
+
+
+        var newObj = (T) Activator.CreateInstance(typeof(T));
+
+        foreach (var item in newObj.GetType().GetProperties())
+        {
+            _buffer.Append($"{item.Name}\n");
+        }
+        
+        return _buffer.ToString();
     }
 
 

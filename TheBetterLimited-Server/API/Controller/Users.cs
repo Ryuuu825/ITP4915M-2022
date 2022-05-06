@@ -22,7 +22,12 @@ public class Users : ControllerBase
     {
         controller = new UserController(data);
     }
-
+    
+    [HttpGet("index")]
+    public IActionResult Index()
+    {
+        return Ok(typeof(UserController).GetPropertiesToString<Account>());
+    }
     // GET: api/values
     [HttpGet]
     public IActionResult GetWithLimit(int limit )

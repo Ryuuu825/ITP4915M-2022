@@ -8,10 +8,10 @@ using TheBetterLimited_Server.Data;
 
 #nullable disable
 
-namespace TheBetterLimited_Server.Migrations
+namespace TheBetterLimited_Server.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220505125438_Init")]
+    [Migration("20220506122030_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,17 @@ namespace TheBetterLimited_Server.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Dto.TestOne", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(5)
+                        .HasColumnType("char(5)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TestOnes");
+                });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Account", b =>
                 {
