@@ -1,11 +1,12 @@
 using MySqlConnector;
+using TheBetterLimited_Server.AppLogic.Exceptions;
+
 namespace TheBetterLimited_Server.Data.Repositories;
 
 public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : class
 {
     protected readonly DataContext DbContext;
-    public DbSet<TEntity> Entities { get; }
-    public virtual IQueryable<TEntity> Table => Entities;
+    private DbSet<TEntity> Entities { get; }
     
     public Repository(DataContext dbContext , DbSet<TEntity> entities)
     {
@@ -26,15 +27,23 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
 
     public async Task<bool> AddAsync(TEntity entity, bool saveNow = true)
     {
-        if (Helpers.Entity.EntityValidator.Validate<TEntity>(entity))
+        if (!Helpers.Entity.EntityValidator.Validate<TEntity>(entity))
+            return false;
+        
+        try
         {
-            await Entities.AddAsync(entity);
+            Entities.Add(entity);
             if (saveNow)
                 await DbContext.SaveChangesAsync();
             return true;
         }
-        return false;
+        catch (Exception e)
+        {
+            throw new DuplicateEntryException("Primary key duplicated!"); 
+        }
+
     }
+    
 
     public Task<bool> UpdateAsync(TEntity entity, bool saveNow = true)
     {
@@ -45,7 +54,12 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
     {
         throw new NotImplementedException();
     }
-    
+
+    public async Task<bool> IsRecordExistAsync(string id)
+    {
+        return (await Entities.FindAsync(id)) is null;
+    }
+
     public TEntity GetById(params object[] ids)
     {
         return Entities.Find(ids);
@@ -76,6 +90,11 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
     public bool Delete(TEntity entity, bool saveNow = true)
     {
         throw new NotImplementedException();
+    }
+
+    public bool IsRecordExist(string id)
+    {
+        return ! (Entities.Find(id) is null);
     }
 
     public void Dispose()

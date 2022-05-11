@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel;
+using TheBetterLimited_Server.Data.Entity;
 
 namespace TheBetterLimited_Server.Data.Dto;
 
-public class Acc
+public class AccountDto
 {
     [Required]
     [MaxLength(5)]
@@ -32,22 +33,14 @@ public class Acc
     [Column(TypeName = "char(1)")]
     public string Status { get; set; }
 
-
-    // public Staff? _Staff { get; set; }
+    [ForeignKey("StaffId")]
+    [MaxLength(5)]
+    [Column(TypeName = "char(5)")]
+    public int _StaffId {get; set; }
+    
+    public virtual Staff Staff { get; set; }
 
 
     [Column(TypeName = "varchar(100)")] public string? Remarks { get; set; }
 }
 
-public class Staff
-{
-    [Key]
-    [MaxLength(5)]
-    [Column(TypeName = "char(5)")]
-    public int Id {get; set; }
-
-    public string FirstName { get; set; }
-
-    public string lastName { get; set; }
-
-}
