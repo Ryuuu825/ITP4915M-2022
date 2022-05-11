@@ -78,7 +78,6 @@
         <Folder Include="Data\Entity\" />
         <Folder Include="resource\template\email" />
         <Folder Include="Helpers\Entity\" />
-        <Folder Include="API\Services\" />
     </ItemGroup>
 
     <ItemGroup>

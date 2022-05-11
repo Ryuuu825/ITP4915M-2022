@@ -36,9 +36,8 @@ public class AccountDto
     [ForeignKey("StaffId")]
     [MaxLength(5)]
     [Column(TypeName = "char(5)")]
-    public int _StaffId {get; set; }
-    
-    public virtual Staff Staff { get; set; }
+    public string? _StaffId {get; set; }
+
 
 
     [Column(TypeName = "varchar(100)")] public string? Remarks { get; set; }

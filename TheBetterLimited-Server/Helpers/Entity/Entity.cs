@@ -1,12 +1,11 @@
 ﻿using System.Reflection;
-using System.Runtime.Serialization.Formatters.Binary;
-using TheBetterLimited_Server.Helpers.Sql;
+using Newtonsoft.Json;
 
 namespace TheBetterLimited_Server.Helpers.Entity;
 
 public static class ObjectExtension
 {
-    public static T Copy<T>(this object source)
+    public static T TryCopy<T>(this object source)
     {
         T newObj = (T)Activator.CreateInstance(typeof(T));
 
@@ -18,6 +17,17 @@ public static class ObjectExtension
                 source.GetType().GetProperties().Where(x => x.Name == item.Name).FirstOrDefault().GetValue(source)
             );
         }
+        return newObj;
+    }
+    
+    public static T CopyAs<T>(this object source)
+    {
+        string tmp = JsonConvert.SerializeObject(source , new JsonSerializerSettings()
+        {
+            ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+        });
+
+        var newObj = JsonConvert.DeserializeObject<T>(tmp);
 
         return newObj;
     }
@@ -27,7 +37,7 @@ public static class ObjectExtension
     {
         target = default;
 
-        target = Copy<T>(source);
+        target = CopyAs<T>(source);
 
         return target.Equals(source);
     }
@@ -50,19 +60,19 @@ public static class ObjectExtension
     }
 
 
-    public static String GetPropertiesToString<T>(this Type o)
+    public static List<String> GetPropertiesToString(this Type o)
     {
-        StringBuilder _buffer = new StringBuilder();
+        List<string> list = new List<string>();
 
-
-        var newObj = (T) Activator.CreateInstance(typeof(T));
+        var newObj =  Activator.CreateInstance(o);
 
         foreach (var item in newObj.GetType().GetProperties())
         {
-            _buffer.Append($"{item.Name}\n");
+            list.Add(item.Name);
         }
-        
-        return _buffer.ToString();
+
+        return list;
+
     }
 
 

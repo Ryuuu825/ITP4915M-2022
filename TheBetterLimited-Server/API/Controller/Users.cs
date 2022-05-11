@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TheBetterLimited_Server.AppLogic.Controllers;
 using TheBetterLimited_Server.AppLogic.Exceptions;
 using TheBetterLimited_Server.Data;
@@ -12,10 +11,11 @@ using TheBetterLimited_Server.Helpers.Entity;
 
 namespace TheBetterLimited_Server.API.Controllers;
 
+[ApiController]
 [Route("api/[controller]")]
-[Authorize(Roles = "admin,staff")]
 public class Users : ControllerBase
 {
+    
     private readonly UserController controller;
 
     public Users(DataContext data)
@@ -24,42 +24,45 @@ public class Users : ControllerBase
     }
     
     [HttpGet("index")]
-    public IActionResult Index()
+    public List<String> Index()
     {
-        return Ok(typeof(UserController).GetPropertiesToString<Account>());
+        return typeof(AccountDto).GetPropertiesToString();
     }
     // GET: api/values
     [HttpGet]
-    public IActionResult GetWithLimit(int limit )
+    public IActionResult GetWithLimit(int limit = 0 )
     {
         if (limit == 0)
             return Ok(controller.GetAllUsers());
-        
+
         try
         {
             return Ok(controller.GetUsers(limit));
         }
-        catch (System.ArgumentException e)
+        catch (BadArgException e)
         {
-            return BadRequest("Limit too large or too small");
+            return StatusCode(e.ReturnCode , e.GetHttpResult());
         }
+        
     }
 
-    [HttpGet("sql/{querystring}")]
-    public IActionResult GetAcc(string querystring)
+    [HttpGet("sql")]
+    public async Task<IActionResult> GetAcc(string querystring)
     {
         string queryStr;
-        if (querystring.Contains("="))
-            queryStr = Helpers.Sql.QueryStringBuilder.CreateSQLQuery<Account>( querystring);
+        if (querystring.Contains(":"))
+            queryStr = Helpers.Sql.QueryStringBuilder.CreateSQLQuery( querystring , "accounts");
         else 
-            queryStr = Helpers.Sql.QueryStringBuilder.LazyCreateSQLQuery<Account>( querystring);
+            queryStr = Helpers.Sql.QueryStringBuilder.LazyCreateSQLQuery<AccountDto>( querystring, "accounts");
         try
         {
-            return Ok(controller.GetUserBySql(queryStr));
+            var o = await controller.GetUsersBySql(queryStr);
+            
+            return Ok(o);
         }
         catch (HasNoElementException e)
         {
-            return base.NotFound("Object not found");
+            return StatusCode(e.ReturnCode, e.GetHttpResult());
         }
     }
 
@@ -68,13 +71,23 @@ public class Users : ControllerBase
     public IActionResult Get(string id)
     {
         return Ok(controller.GetUserByID(id));
+        
     }
 
     // POST api/values
     [HttpPost]
-    public async Task<IActionResult> PostAsync([FromBody] Data.Dto.Acc value)
+    public async Task<IActionResult> PostAsync([FromBody] AccountDto value)
     {
-        controller.CreateUser(value.Copy<Data.Entity.Account>() );
+
+        try
+        {
+            await controller.CreateUser(value);
+        }
+        catch (ICustException e)
+        {
+            return StatusCode(e.ReturnCode, e.GetHttpResult());
+        }
+        
         return Ok();
     }
 
@@ -88,5 +101,11 @@ public class Users : ControllerBase
     [HttpDelete("{id}")]
     public void Delete(int id)
     {
+    }
+
+    [HttpGet("test/{id}")]
+    public IActionResult CheckIsExist(string id)
+    {
+        return Ok(controller.CheckIsExist(id));
     }
 }

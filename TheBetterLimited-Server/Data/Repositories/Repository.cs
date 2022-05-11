@@ -6,8 +6,9 @@ namespace TheBetterLimited_Server.Data.Repositories;
 public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : class
 {
     protected readonly DataContext DbContext;
-    private DbSet<TEntity> Entities { get; }
+    public DbSet<TEntity> Entities { get; }
     
+    protected Repository(){}
     public Repository(DataContext dbContext , DbSet<TEntity> entities)
     {
         DbContext = dbContext;
@@ -20,9 +21,9 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
         return await Entities.FindAsync(ids);
     }
 
-    public async Task<TEntity?> GetBySQLAsync(string sql)
+    public async Task<List<TEntity>> GetBySQLAsync(string sql)
     {
-        return await Entities.FromSqlRaw(sql).FirstOrDefaultAsync<TEntity>();
+        return await Entities.FromSqlRaw(sql).ToListAsync();
     }
 
     public async Task<bool> AddAsync(TEntity entity, bool saveNow = true)
@@ -39,7 +40,7 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
         }
         catch (Exception e)
         {
-            throw new DuplicateEntryException("Primary key duplicated!"); 
+            throw new OperationFailException("Primary key duplicated!"); 
         }
 
     }
@@ -65,9 +66,9 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
         return Entities.Find(ids);
     }
 
-    public TEntity GetBySQL(string sql)
+    public List<TEntity> GetBySQL(string sql)
     {
-        return Entities.FromSqlRaw(sql).First();
+        return Entities.FromSqlRaw(sql).ToList();
     }
 
     public bool Add(TEntity entity, bool saveNow = true)

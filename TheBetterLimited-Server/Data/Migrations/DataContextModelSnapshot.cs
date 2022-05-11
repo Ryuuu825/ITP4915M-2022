@@ -19,17 +19,6 @@ namespace TheBetterLimited_Server.Data.Migrations
                 .HasAnnotation("ProductVersion", "6.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("TheBetterLimited_Server.Data.Dto.TestOne", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasMaxLength(5)
-                        .HasColumnType("char(5)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TestOnes");
-                });
-
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Account", b =>
                 {
                     b.Property<string>("Id")
@@ -67,12 +56,53 @@ namespace TheBetterLimited_Server.Data.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
+                    b.Property<string>("_StaffId")
+                        .HasMaxLength(5)
+                        .HasColumnType("char(5)");
+
                     b.Property<DateTime?>("unlockDate")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("_StaffId")
+                        .IsUnique();
+
                     b.ToTable("accounts");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Staff", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(5)
+                        .HasColumnType("char(5)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("lastName")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("staffs");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Account", b =>
+                {
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.Staff", "Staff")
+                        .WithOne("acc")
+                        .HasForeignKey("TheBetterLimited_Server.Data.Entity.Account", "_StaffId");
+
+                    b.Navigation("Staff");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Staff", b =>
+                {
+                    b.Navigation("acc")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

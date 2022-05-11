@@ -2,11 +2,11 @@ Table of content
 1. Response Status Code
 2. Authentication
 3. [Resources](#Resources)
-    1. [Users](#user-sample) 
+    1. [Users](#Users) 
 
 ## Resources
 
-### user-sample
+### Users
 
 #### get attribute of users dto
 
@@ -14,12 +14,18 @@ Table of content
 GET /api/Users/index
 ```
 
-response body (in plain text)
+example request
+```c#
+var client = new RestClient("http://localhost:5233/api/Users/index");
+client.Timeout = -1;
+var request = new RestRequest(Method.GET);
+request.AddHeader("Authorization", $"Bearer {your token here}");
+IRestResponse response = client.Execute(request);
+Console.WriteLine(response.Content);
 ```
-LoginFailedCount
-LoginFailedAt
-LastLogin
-unlockDate
+
+example response body (in plain text)
+```
 Id
 UserName
 Password
@@ -36,14 +42,10 @@ Remarks
 GET /api/Users?limit={limit}
 ```
 
-response body (json)
+example response body
 ```json
 [
   {
-    "loginFailedCount": 0,
-    "loginFailedAt": null,
-    "lastLogin": null,
-    "unlockDate": null,
     "id": "strin",
     "userName": "string",
     "password": "string",
@@ -67,7 +69,7 @@ Limit too large or too small
 POST /api/Users
 ```
 
-request body example:
+example request body example:
 ```json
 {
   "id": "strin",

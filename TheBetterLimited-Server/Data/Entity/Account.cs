@@ -1,9 +1,16 @@
-﻿using System.ComponentModel;
-
+﻿
 namespace TheBetterLimited_Server.Data.Entity;
 
-public class Account : Dto.Acc
+using System.ComponentModel;
+
+public class Account : Dto.AccountDto
 {
+    public Account()
+    {
+    }
+
+    internal Staff Staff { get; set; }
+
     [Column(TypeName = "int(1)")]
     [Description("How many time the user fail to login")]
     public int LoginFailedCount { get; set; }

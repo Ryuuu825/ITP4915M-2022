@@ -5,6 +5,59 @@ namespace TheBetterLimited_Server.Helpers.Sql;
 public static class QueryStringBuilder
 {
     public static readonly string query = "SELECT @ATTRIBUTE FROM @TABLE WHERE @CONDITION";
+
+    private static string ConditionBuilder(string condString)
+    {
+        var condBuilder = new StringBuilder();
+
+        var cond = condString.Split(";");
+        var pair = cond[0].Split(":");
+        
+        if (pair[1].Equals("null"))
+            condBuilder.Append($" {pair[0]} is {pair[1]}");
+        else 
+            condBuilder.Append($" {pair[0]} = '{pair[1]}'");
+        
+        for (var i = 1;  i < cond.Length; i++)
+        {
+            if (!cond[i].Equals(""))
+            {
+                pair = cond[i].Split(":");
+                if (pair[1].Equals("null"))
+                    condBuilder.Append($" AND {pair[0]} is {pair[1]}");
+                else
+                    condBuilder.Append($" AND {pair[0]} = '{pair[1]}'");
+            }
+        }
+
+        return condBuilder.ToString();
+    }
+    private static string LazyConditionBuilder<T>(string condString)
+    {
+        var condBuilder = new StringBuilder();
+        var cond = condString.Split(";");
+
+        if (!cond[0].Equals(""))
+        {
+            if (cond[0].Equals("null"))
+                condBuilder.Append($"{typeof(T).GetProperties()[0].Name} is {cond[0]} ");
+            else 
+                condBuilder.Append($"{typeof(T).GetProperties()[0].Name} = '{cond[0]}' ");
+        }
+
+        for (var i = 1; i < typeof(T).GetProperties().Length && i < cond.Length; i++)
+        {
+            if (!cond[i].Equals(""))
+            {
+                if (cond[i].Equals("null"))
+                    condBuilder.Append($"{typeof(T).GetProperties()[i].Name} is {cond[i]} ");
+                else 
+                    condBuilder.Append($"{typeof(T).GetProperties()[i].Name} = '{cond[i]}' ");
+            }
+        }
+
+        return condBuilder.ToString();
+    }
     
     // Two type of condString
     // lazy one : value;value;value
@@ -12,54 +65,40 @@ public static class QueryStringBuilder
     public static string CreateSQLQuery<T>(string condString)
     {
         var builder = new StringBuilder(query);
-        var condBuilder = new StringBuilder();
-        var cond = condString.Split(";");
-
-        var pair = cond[0].Split("=");
-        condBuilder.Append($" {pair[0]} = '{pair[1]}'");
-
-        for (var i = 1;  i < cond.Length; i++)
-        {
-            if (!cond[i].Equals(""))
-            {
-                pair = cond[i].Split("=");
-                condBuilder.Append($" AND {pair[0]} = '{pair[1]}'");
-            }
-
-        }
+       
         builder.Replace("@TABLE", typeof(T).Name.ToLower() + "s" );
         builder.Replace("@ATTRIBUTE", "*");
-        builder.Replace("@CONDITION", condBuilder.ToString());
+        builder.Replace("@CONDITION", ConditionBuilder(condString));
         return builder.ToString();
 
+    }
+    
+    public static string CreateSQLQuery(string condString , string table)
+    {
+        var builder = new StringBuilder(query);
+        builder.Replace("@TABLE", table );
+        builder.Replace("@ATTRIBUTE", "*");
+        builder.Replace("@CONDITION", ConditionBuilder(condString));
+        return builder.ToString();
     }
     public static string LazyCreateSQLQuery<T>(string condString)
     {
         var builder = new StringBuilder(query);
-        var condBuilder = new StringBuilder();
-        var cond = condString.Split(";");
-        var counter = 0; // check how many condition
-
-        if (!cond[0].Equals(""))
-        {
-            condBuilder.Append($"{typeof(T).GetProperties()[0].Name} = '{cond[0]}' ");
-            counter++;
-        }
-
-        for (var i = 1; i < typeof(T).GetProperties().Length && i < cond.Length; i++)
-        {
-            if (!cond[i].Equals(""))
-            {
-                if (counter!=0)
-                    condBuilder.Append($" AND {typeof(T).GetProperties()[i].Name} = '{cond[i]}' ");
-                else 
-                    condBuilder.Append($" {typeof(T).GetProperties()[i].Name} = '{cond[i]}' ");
-  
-            }
-        }
+        
         builder.Replace("@TABLE", typeof(T).Name.ToLower() + "s" );
         builder.Replace("@ATTRIBUTE", "*");
-        builder.Replace("@CONDITION", condBuilder.ToString());
+        builder.Replace("@CONDITION", LazyConditionBuilder<T>(condString));
+        return builder.ToString();
+
+    }
+    
+    public static string LazyCreateSQLQuery<T>(string condString , string table)
+    {
+        var builder = new StringBuilder(query);
+       
+        builder.Replace("@TABLE", table );
+        builder.Replace("@ATTRIBUTE", "*");
+        builder.Replace("@CONDITION", LazyConditionBuilder<T>(condString));
         return builder.ToString();
 
     }

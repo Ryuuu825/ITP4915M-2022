@@ -1,13 +1,11 @@
-using TheBetterLimited_Server.Data.Entity;
-
-namespace TheBetterLimited_Server.Data.Dto;
+namespace TheBetterLimited_Server.Data.Entity;
 
 public class Staff
 {
     [Key]
     [MaxLength(5)]
     [Column(TypeName = "char(5)")]
-    public int Id {get; set; }
+    public string Id {get; set; }
 
     public string FirstName { get; set; }
 

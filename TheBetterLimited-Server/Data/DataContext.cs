@@ -9,10 +9,18 @@ public class DataContext : DbContext
     public DataContext(DbContextOptions<DataContext> options) : base(options)
     {
         accounts = this.Set<Account>();
+        staffs = this.Set<Staff>();
     }
 
-
-    public DbSet<Account> accounts { get;  }
+    protected override void OnModelCreating(ModelBuilder md)
+    {
+        md.Entity<Account>()
+            .HasOne(a => a.Staff)
+            .WithOne(s => s.acc)
+            .HasForeignKey<Account>(a => a._StaffId);
+    }
     
-    public DbSet<TestOne> TestOnes { get; } 
+    public DbSet<Account> accounts { get;  }
+    public DbSet<Staff> staffs { get; }
+
 }
