@@ -1,0 +1,354 @@
+Table of content 
+1. [Stardard](#standard)
+2. Authentication
+3. [Resources](#Resources)
+    1. [Users](#Users) 
+
+
+## Stardard
+
+- query string 
+    - use ';' as separator                                    
+    - query string use ':' as key value separator
+    - There are two type of query string
+        1. *key value pair* ```key:value;key:value;key:value;``` 
+        2. *the server will auto match the attribute* ```value;value;value```
+
+## Resources
+
+### Users
+
+#### get the template of AccountDto
+
+```
+GET /api/Users/index
+```
+
+response
+
+```json
+{
+  "Id": null,
+  "UserName": null,
+  "Password": null,
+  "EmailAddress": null,
+  "Status": null,
+  "_StaffId": null,
+  "Remarks": null
+}
+```
+
+---
+
+#### get the user accounts
+
+```
+GET /api/Users?limit={limit}
+```
+
+example response body
+```json
+[
+  {
+    "id": "sdfsd",
+    "userName": "sfsdf",
+    "password": "11",
+    "emailAddress": "121",
+    "status": "O",
+    "_StaffId": "12345",
+    "remarks": "string"
+  },
+  {
+    "id": "strin",
+    "userName": "string",
+    "password": "11",
+    "emailAddress": "121",
+    "status": "O",
+    "_StaffId": null,
+    "remarks": "string"
+  }
+]
+```
+
+* HTTP BadRequests : the limit is out of range
+
+```JSON
+{
+  "status": 400,
+  "message": "Limit is invalid."
+}
+```
+
+* HTTP NotFound : the user is not found
+```json
+{
+  "status": 404,
+  "message": "Account with id S0002 is not exist"
+}
+```
+
+example request
+
+```
+GET /api/Users?limit=123
+```
+
+---
+
+#### get the user account by id
+
+```
+GET /api/Users/{id}
+```
+[see me](#get-the-user-accounts)
+
+
+---
+#### create a user account
+
+```
+POST /api/Users
+```
+
+example request body example:
+```json
+{
+  "id": "S0002",
+  "userName": "string",
+  "password": "string",
+  "emailAddress": "user@example.com",
+  "status": "O",
+  "remarks": "string"
+}
+```
+
+few exception will raise if the request body is invalid
+
+* BadRequest : Cannot construct instance of type 'AccountDto' from JSON object.
+```json
+{
+  "errors": {
+    "Status": [
+      "The field Status must be a string or array type with a maximum length of '1'.",
+      "The field Status must match the regular expression '(O|N|L)'."
+    ],
+    "EmailAddress": [
+      "The EmailAddress field is not a valid e-mail address."
+    ]
+  },
+  "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "traceId": "00-a25d278698b98ef70c0b112e8b3cb1ef-3447b12c91f467b3-00"
+}
+```
+
+* BadRequest : The primary key 'Id' is duplicated.
+
+```json
+{
+  "status": 400,
+  "message": "The staff already have a account"
+}
+```
+
+* BadRequest : The foregin key 'Id' not found.
+
+```json
+{
+  "status": 400,
+  "message": "Staff is not exist in database."
+}
+```
+
+--- 
+
+#### search a user account using query string
+
+```
+GET /api/Users/sql?querystring={querystring}
+```
+
+example response body
+```json
+[
+  {
+    "id": "sdfsd",
+    "userName": "sfsdf",
+    "password": "11",
+    "emailAddress": "test@example.com",
+    "status": "O",
+    "_StaffId": "12345",
+    "remarks": "string"
+  },
+  {
+    "id": "strin",
+    "userName": "string",
+    "password": "11",
+    "emailAddress": "test@example.com",
+    "status": "O",
+    "_StaffId": null,
+    "remarks": "string"
+  }
+]
+```
+
+
+---
+#### update a user account
+```
+PUT /api/Users/{id}
+```
+
+example request body example:
+
+```json
+[
+  {
+    "attribute": "EmailAddress",
+    "value": "abs@domain.com"
+  },
+  {
+    "attribute": "Remarks",
+    "value": "tgus us a remarks"
+  }
+]
+```
+
+example response body example:
+```json
+{
+  "id": "S0002",
+  "userName": "string",
+  "password": "string",
+  "emailAddress": "abs@domain.com",
+  "status": "O",
+  "_StaffId": null,
+  "remarks": "tgus us a remarks"
+}
+```
+
+* BadRequest : No Account is found
+```
+{
+  "status": 400,
+  "message": "No such user"
+}
+```
+
+* BadRequest : No Attribute is found
+```json
+{
+  "status": 400,
+  "message": "Attribute EmaildAddress is invalid."
+}
+```
+
+* BadRequest : The value is invalid
+```json
+{
+  "status": 400,
+  "message": "Invalid value: The EmailAddress field is not a valid e-mail address."
+}
+```
+
+---
+
+#### update a range of user accounts using query string
+
+```
+PUT /api/Users?querystring={querystring}
+```
+[see this](#update-a-user-account)
+
+
+
+#### delete a user account
+```
+DELETE /api/Users/{id}
+```
+
+Http OK response: in plain text with its id
+```txt
+S0001
+```
+
+* BadRequest : No Account is found
+```json
+{
+  "status": 400,
+  "message": "No such user"
+}
+```
+
+
+
+---
+
+#### lock a user account
+```
+POST /api/Users/lock
+```
+
+Http OK response: its lock status
+```txt
+User Locked until 27/09/2049 23:20:07 days
+```
+
+* BadRequest : No Account is found
+```json
+{
+  "status": 400,
+  "message": "No such user"
+}
+```
+
+* BadRequest : The lock day is negative
+```json
+{
+  "errors": {
+    "value": [
+      "The value field is required."
+    ],
+    "lockDay": [
+      "Error converting value -10 to type 'System.UInt32'. Path 'lockDay', line 3, position 16."
+    ]
+  },
+  "type": "https://tools.ietf.org/html/rfc7231#section-6.5.1",
+  "title": "One or more validation errors occurred.",
+  "status": 400,
+  "traceId": "00-66596f2cc272a973292a5a52ac1816d3-845a1ac5573e4216-00"
+}
+```
+
+
+---
+
+#### lock a user account
+```
+POST /api/Users/lock
+```
+
+example request body example
+```
+{
+  "id": "strin"
+}
+```
+
+Http OK response: in plain text with its id
+```
+strin
+```
+
+* BadRequest : No Account is found
+```json
+{
+  "status": 400,
+  "message": "No such user"
+}
+```
+
+
+
+---

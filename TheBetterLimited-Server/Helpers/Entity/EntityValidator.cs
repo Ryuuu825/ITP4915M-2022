@@ -42,6 +42,7 @@ public class EntityValidator : IDisposable
         StringBuilder _buffer = new StringBuilder();
         using (var v = new EntityValidator(typeof(T)))
         {
+            v._res.Clear();
             res = v.Validate(o);
             foreach (var item in v._res)
             {

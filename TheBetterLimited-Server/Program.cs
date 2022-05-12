@@ -2,7 +2,10 @@
 global using System.ComponentModel.DataAnnotations;
 global using System.ComponentModel.DataAnnotations.Schema;
 global using System.Text;
+global using TheBetterLimited_Server.Helpers.Extension;
 
+using System.Globalization;
+using CsvHelper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -11,20 +14,34 @@ using Swashbuckle.AspNetCore.Filters;
 using TheBetterLimited_Server.Data;
 using TheBetterLimited_Server.Helpers;
 using TheBetterLimited_Server.Helpers.File;
-using TheBetterLimited_Server.Helpers.Entity;
-using TheBetterLimited_Server.Helpers.Secure;
-using Microsoft.AspNetCore.ResponseCompression;
+using static TheBetterLimited_Server.Helpers.SecretConf;
+using System.Data;
 
+class Foo 
+{
+    public string Id {get; set;}
+    public string Name {get; set;}
+}
 public class Program
 {
     private static void Main(string[] args)
     {
+        // using (var reader = new StreamReader("./resource/localization/test.csv"))
+        // using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+        // {
+        //     var records = csv.GetRecords<Foo>();
+        //     foreach (var record in records)
+        //     {
+        //         Console.WriteLine(record.Id);
+        //         Console.WriteLine(record.Name);
+        //     }
+        // }
         var builder = WebApplication.CreateBuilder(args);
         // Add services to the container.
         builder.Services.AddControllers().AddNewtonsoftJson();
         builder.Services.AddDbContext<DataContext>(options =>
         {
-            var ConnString = SecretConf.Instance["ConnectionString"];
+            var ConnString = _Secret["ConnectionString"];
             options.UseMySql(
                 ConnString,
                 ServerVersion.AutoDetect(ConnString)
@@ -37,7 +54,7 @@ public class Program
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
-                        .GetBytes(SecretConf.Instance["Token"])),
+                        .GetBytes(_Secret["Token"])),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
@@ -73,7 +90,7 @@ public class Program
         app.MapControllers();
         Console.Title = "The Better Limited Server";
 
-        using (var conn = new MySqlConnection(SecretConf.Instance["ConnectionString"]))
+        using (var conn = new MySqlConnection(_Secret["ConnectionString"]))
         {
             try // test the connection with sql server
             {

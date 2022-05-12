@@ -1,8 +1,16 @@
-﻿namespace TheBetterLimited_Server.AppLogic.Exceptions;
+﻿using System.Net;
+using Newtonsoft.Json.Linq;
 
-public class OperationFailException : Exception
+namespace TheBetterLimited_Server.AppLogic.Exceptions;
+
+public class OperationFailException : ICustException
 {
-    public OperationFailException(string msg) : base(msg)
+    public OperationFailException(string msg) : base(msg,HttpStatusCode.InternalServerError)
     {
+    }
+    
+    public override JObject GetHttpResult()
+    {
+        return IExceptionHttpResponseBuilder.Create(ReturnCode, this.Message);
     }
 }
