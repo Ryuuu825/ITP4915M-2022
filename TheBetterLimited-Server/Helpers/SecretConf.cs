@@ -4,7 +4,7 @@ namespace TheBetterLimited_Server.Helpers;
 
 public class SecretConf
 {
-    public static SecretConf Instance = new("etc/secret.conf");
+    public static SecretConf _Secret = new("etc/secret.conf");
     private readonly Hashtable table;
 
     public SecretConf(string path)

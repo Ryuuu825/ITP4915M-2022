@@ -2,23 +2,23 @@
 using MimeKit;
 using MimeKit.Text;
 using TheBetterLimited_Server.AppLogic.Exceptions;
+using static TheBetterLimited_Server.Helpers.SecretConf;
 
 namespace TheBetterLimited_Server.Helpers;
 
 public static class EmailSender
 {
-    private static readonly SecretConf EmailConfig = SecretConf.Instance;
 
     public static string GetEmailAddress()
     {
-        return $"{EmailConfig["Username"]}{EmailConfig["Domain"]}";
+        return $"{_Secret["Username"]}{_Secret["Domain"]}";
     }
 
 
     public static void SendEmail(string recevier, string receiverAddress, string subject, TextFormat type, string msg)
     {
         var message = new MimeMessage();
-        message.From.Add(new MailboxAddress(EmailConfig["DisplayedName"], GetEmailAddress()));
+        message.From.Add(new MailboxAddress(_Secret["DisplayedName"], GetEmailAddress()));
         message.To.Add(new MailboxAddress(recevier, receiverAddress));
         message.Subject = subject;
         message.Body = new TextPart(type)
@@ -29,8 +29,8 @@ public static class EmailSender
 
         using (var client = new SmtpClient())
         {
-            client.Connect(EmailConfig["ServerURL"], int.Parse(EmailConfig["Port"]), false);
-            client.Authenticate(GetEmailAddress(), EmailConfig["Password"]);
+            client.Connect(_Secret["ServerURL"], int.Parse(_Secret["Port"]), false);
+            client.Authenticate(GetEmailAddress(), _Secret["Password"]);
 
             if (client.IsConnected)
             {

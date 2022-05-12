@@ -1,7 +1,6 @@
-﻿using System.Reflection;
+namespace TheBetterLimited_Server.Helpers.Extension;
 using Newtonsoft.Json;
 
-namespace TheBetterLimited_Server.Helpers.Entity;
 
 public static class ObjectExtension
 {
@@ -32,17 +31,17 @@ public static class ObjectExtension
         return newObj;
     }
 
-
-    public static bool TryCopy<T>(this object source , out T target)
+    public static void CopyValueTo<T>(this object source, ref T newObj)
     {
-        target = default;
-
-        target = CopyAs<T>(source);
-
-        return target.Equals(source);
+        foreach (var item in source.GetType().GetProperties())
+        {
+            item.SetValue
+            (
+                newObj,
+                source.GetType().GetProperties().Where(x => x.Name == item.Name).FirstOrDefault().GetValue(source)
+            );
+        }
     }
-
-
 
     public static String Debug(this object o)
     {
@@ -59,21 +58,5 @@ public static class ObjectExtension
 
     }
 
-
-    public static List<String> GetPropertiesToString(this Type o)
-    {
-        List<string> list = new List<string>();
-
-        var newObj =  Activator.CreateInstance(o);
-
-        foreach (var item in newObj.GetType().GetProperties())
-        {
-            list.Add(item.Name);
-        }
-
-        return list;
-
-    }
-
-
+    
 }

@@ -18,6 +18,11 @@ public class DataContext : DbContext
             .HasOne(a => a.Staff)
             .WithOne(s => s.acc)
             .HasForeignKey<Account>(a => a._StaffId);
+        
+        md.Entity<Staff>()
+            .HasOne(s => s.acc)
+            .WithOne(a => a.Staff)
+            .HasForeignKey<Staff>(s => s._AccountId);
     }
     
     public DbSet<Account> accounts { get;  }

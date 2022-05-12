@@ -18,7 +18,7 @@ public class AccountRepository : Repository<Account>
     {
         var staff = Staffs.Find(acc._StaffId);
         var e = base.GetBySQL(
-            Helpers.Sql.QueryStringBuilder.CreateSQLQuery($"_staffId:{acc._StaffId}", "accounts")
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"id:{acc.Id}" , "accounts")
         );
 
         if (acc._StaffId is not null && staff is null) // No foreign key match

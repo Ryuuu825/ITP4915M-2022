@@ -1,10 +1,71 @@
-﻿using System.Reflection;
-
+﻿using TheBetterLimited_Server.AppLogic.Exceptions;
 namespace TheBetterLimited_Server.Helpers.Sql;
 
 public static class QueryStringBuilder
 {
     public static readonly string query = "SELECT @ATTRIBUTE FROM @TABLE WHERE @CONDITION";
+
+    public static string GetSqlStatement<T>(string condString , string table)
+    {
+        string queryStr;
+        if (condString.Contains("="))
+            throw new BadArgException("The condition string should not contain '='");
+
+        if (condString.Contains(":"))
+            queryStr = Helpers.Sql.QueryStringBuilder.CreateSQLQuery( condString , "accounts");
+        else 
+            queryStr = Helpers.Sql.QueryStringBuilder.LazyCreateSQLQuery<T>( condString, "accounts");
+#if DEBUG
+        Console.WriteLine(queryStr);
+#endif      
+        
+        return queryStr;
+    }
+
+
+    // Two type of condString
+    // lazy one : value;value;value
+    // readable one : key=value;key=value;
+    private static string CreateSQLQuery<T>(string condString)
+    {
+        var builder = new StringBuilder(query);
+       
+        builder.Replace("@TABLE", typeof(T).Name.ToLower() + "s" );
+        builder.Replace("@ATTRIBUTE", "*");
+        builder.Replace("@CONDITION", ConditionBuilder(condString));
+        return builder.ToString();
+
+    }
+    
+    private static string CreateSQLQuery(string condString , string table)
+    {
+        var builder = new StringBuilder(query);
+        builder.Replace("@TABLE", table );
+        builder.Replace("@ATTRIBUTE", "*");
+        builder.Replace("@CONDITION", ConditionBuilder(condString));
+        return builder.ToString();
+    }
+    private static string LazyCreateSQLQuery<T>(string condString)
+    {
+        var builder = new StringBuilder(query);
+        
+        builder.Replace("@TABLE", typeof(T).Name.ToLower() + "s" );
+        builder.Replace("@ATTRIBUTE", "*");
+        builder.Replace("@CONDITION", LazyConditionBuilder<T>(condString));
+        return builder.ToString();
+
+    }
+    
+    private static string LazyCreateSQLQuery<T>(string condString , string table)
+    {
+        var builder = new StringBuilder(query);
+       
+        builder.Replace("@TABLE", table );
+        builder.Replace("@ATTRIBUTE", "*");
+        builder.Replace("@CONDITION", LazyConditionBuilder<T>(condString));
+        return builder.ToString();
+
+    }
 
     private static string ConditionBuilder(string condString)
     {
@@ -59,69 +120,4 @@ public static class QueryStringBuilder
         return condBuilder.ToString();
     }
     
-    // Two type of condString
-    // lazy one : value;value;value
-    // readable one : key=value;key=value;
-    public static string CreateSQLQuery<T>(string condString)
-    {
-        var builder = new StringBuilder(query);
-       
-        builder.Replace("@TABLE", typeof(T).Name.ToLower() + "s" );
-        builder.Replace("@ATTRIBUTE", "*");
-        builder.Replace("@CONDITION", ConditionBuilder(condString));
-        return builder.ToString();
-
-    }
-    
-    public static string CreateSQLQuery(string condString , string table)
-    {
-        var builder = new StringBuilder(query);
-        builder.Replace("@TABLE", table );
-        builder.Replace("@ATTRIBUTE", "*");
-        builder.Replace("@CONDITION", ConditionBuilder(condString));
-        return builder.ToString();
-    }
-    public static string LazyCreateSQLQuery<T>(string condString)
-    {
-        var builder = new StringBuilder(query);
-        
-        builder.Replace("@TABLE", typeof(T).Name.ToLower() + "s" );
-        builder.Replace("@ATTRIBUTE", "*");
-        builder.Replace("@CONDITION", LazyConditionBuilder<T>(condString));
-        return builder.ToString();
-
-    }
-    
-    public static string LazyCreateSQLQuery<T>(string condString , string table)
-    {
-        var builder = new StringBuilder(query);
-       
-        builder.Replace("@TABLE", table );
-        builder.Replace("@ATTRIBUTE", "*");
-        builder.Replace("@CONDITION", LazyConditionBuilder<T>(condString));
-        return builder.ToString();
-
-    }
-    // public static void Create(object data, string queryString)
-    // {
-    //     var builder = new StringBuilder(query);
-    //     var condBuilder = new StringBuilder();
-    //
-    //
-    //     MemberInfo[] infos = type.GetProperties();
-    //     for (var i = 0; i < infos.Length; i++)
-    //         // Display name and type of the member of 'MyClass'.
-    //         Console.WriteLine("'{0}' is a {1}", infos[i].Name, infos[i].MemberType);
-    //
-    //     builder.Replace("@TABLE", type.Name);
-    //     builder.Replace("@ATTRIBUTE", "*");
-    //     Console.WriteLine(builder.ToString());
-    // }
-    //
-    // public static void Create(string table, string queryString)
-    // {
-    //     var argv = queryString.Split(";");
-    //     for (var i = 0; i < argv.Length; i++) Console.WriteLine(argv[i]);
-    //     Console.WriteLine(argv[argv.Length - 1].Equals(""));
-    // }
 }

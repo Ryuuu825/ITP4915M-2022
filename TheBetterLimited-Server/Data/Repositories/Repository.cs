@@ -18,7 +18,8 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
 
     public async Task<TEntity?> GetByIdAsync(params object[] ids)
     {
-        return await Entities.FindAsync(ids);
+        return await Entities
+                    .FindAsync(ids);
     }
 
     public async Task<List<TEntity>> GetBySQLAsync(string sql)
@@ -46,14 +47,34 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
     }
     
 
-    public Task<bool> UpdateAsync(TEntity entity, bool saveNow = true)
+    public async Task<bool> UpdateAsync(TEntity entity, bool saveNow = true)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Entities.Update(entity);
+            if (saveNow)
+                await DbContext.SaveChangesAsync();
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            throw new OperationFailException("Error");
+        }
     }
 
-    public Task<bool> DeleteAsync(TEntity entity, bool saveNow = true)
+    public async Task DeleteAsync(TEntity entity, bool saveNow = true)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Entities.Remove(entity);
+            if (saveNow)
+                await DbContext.SaveChangesAsync();
+        }catch(Exception e)
+        {
+            throw new OperationFailException($"Delete {entity} failed!");
+        }
     }
 
     public async Task<bool> IsRecordExistAsync(string id)
@@ -88,7 +109,7 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
         throw new NotImplementedException();
     }
 
-    public bool Delete(TEntity entity, bool saveNow = true)
+    public void Delete(TEntity entity, bool saveNow = true)
     {
         throw new NotImplementedException();
     }

@@ -12,24 +12,12 @@ public class LogAccessAttribute : Attribute, IAsyncResultFilter
     public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
     {
         if (context.HttpContext.Response.StatusCode == (int) HttpStatusCode.Unauthorized)
-            throw new NotImplementedException();
+            FileLogger.InvalidAcceccLog(
+                HttpReader.GetClientSocket(context.HttpContext),
+                HttpReader.GetURL(context.HttpContext.Request),
+                HttpReader.GetHeaderString(context.HttpContext.Request)
+            );
         await next();
     }
 
-    public async Task OnActionExecutionAsync(ActionExecutingContext actionContext, ActionExecutionDelegate next)
-    {
-        if (actionContext.HttpContext.Request.Headers.TryGetValue("User", out var user))
-        {
-            FileLogger.AcceccLog(user, actionContext.HttpContext.Request.Path.ToString());
-        }
-        else
-        {
-            FileLogger.InvalidAcceccLog(
-                HttpReader.GetClientSocket(actionContext.HttpContext),
-                HttpReader.GetURL(actionContext.HttpContext.Request),
-                HttpReader.GetHeaderString(actionContext.HttpContext.Request)
-            );
-            actionContext.Result = new UnauthorizedResult();
-        }
-    }
 }

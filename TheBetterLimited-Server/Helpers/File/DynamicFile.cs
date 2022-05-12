@@ -17,7 +17,7 @@ public class DynamicFile
         for (var i = 0; i < KeyValuePairs.Length; i++)
         {
             var para = KeyValuePairs[i].Split("=");
-            buffer.Replace($"{prefix}{para[0]}{postfix}", $"{para[1]}");
+            buffer.Replace($"{prefix}${para[0]}{postfix}", $"{para[1]}");
         }
 
         return buffer.ToString();
