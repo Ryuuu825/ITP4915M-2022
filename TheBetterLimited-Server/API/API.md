@@ -240,7 +240,7 @@ example response body example:
 ```json
 {
   "status": 400,
-  "message": "Attribute EmaildAddress is invalid."
+  "message": "Attribute IAMAwrongAttribute is invalid."
 }
 ```
 
@@ -262,6 +262,7 @@ PUT /api/Users?querystring={querystring}
 [see this](#update-a-user-account)
 
 
+---
 
 #### delete a user account
 ```
@@ -324,9 +325,9 @@ User Locked until 27/09/2049 23:20:07 days
 
 ---
 
-#### lock a user account
+#### unlock a user account
 ```
-POST /api/Users/lock
+POST /api/Users/unlock
 ```
 
 example request body example

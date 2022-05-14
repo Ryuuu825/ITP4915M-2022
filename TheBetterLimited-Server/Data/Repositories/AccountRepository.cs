@@ -9,23 +9,27 @@ public class AccountRepository : Repository<Account>
     protected readonly DataContext DbContext;
     private DbSet<Staff> Staffs;
     
-    public AccountRepository(DataContext dbContext) : base(dbContext , dbContext.accounts)
+    public AccountRepository(DataContext dbContext) : base(dbContext)
     {
-        Staffs = dbContext.staffs;
+        DbContext = dbContext;
+        Staffs = DbContext.Set<Staff>();
     }
 
     public bool CreateUser(ref Account acc)
     {
         var staff = Staffs.Find(acc._StaffId);
-        var e = base.GetBySQL(
+        var checkKey = base.GetBySQL(
             Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"id:{acc.Id}" , "accounts")
         );
+        var checkUserName = base.GetBySQL(
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{acc.UserName}" , "accounts")
+        );
 
-        if (acc._StaffId is not null && staff is null) // No foreign key match
+        if ( acc._StaffId is not null && staff is null) // No foreign key match
         {
             throw new BadArgException("Staff is not exist in database.");
         }
-        else if (e.Count != 0) // a staff has one account only
+        else if (checkKey.Count != 0 || checkUserName.Count != 0) // a staff can only has one account only, with unique id and user name
         {
             throw new BadArgException("The staff already have a account");
         }
@@ -33,11 +37,6 @@ public class AccountRepository : Repository<Account>
         {
             acc.Staff = staff;
             Console.WriteLine(staff.Debug());
-        }
-
-        if (base.IsRecordExist(acc.Id))
-        {
-            throw new DuplicateEntryException("Account ID is already exist ");
         }
 
         return base.Add(acc);

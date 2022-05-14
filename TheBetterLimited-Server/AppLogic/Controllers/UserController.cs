@@ -21,6 +21,7 @@ public class UserController
     public async Task CreateUser(AccountDto acc, bool saveNow = true)
     {
         var newObj = acc.CopyAs<Account>();
+        newObj.Password = Helpers.Secure.Hasher.Hash(newObj.Password);
         newObj.unlockDate = DateTime.Now;
         newObj.unlockDate = DateTime.Now;
         newObj.LoginFailedCount = 0;

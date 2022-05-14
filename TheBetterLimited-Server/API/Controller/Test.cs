@@ -164,22 +164,25 @@ namespace TheBetterLimited_Server.API.Controllers
             }
         }
 
-        [HttpGet("email")]
-        public IActionResult SendEmail()
+        // [HttpGet("email")]
+        // public IActionResult SendEmail()
+        // {
+        //     //Helpers.EmailSender.SendEmail("Ken", "210339487@stu.vtc.edu.hk", "This is a test", MimeKit.Text.TextFormat.Html, DynamicFile.UpdatePlaceFolder("test.html", "name=Ken;pw=asdf"));
+        //     Helpers.EmailSender.SendEmail(
+        //         recevier: "Ken",
+        //         receiverAddress: "210339487@stu.vtc.edu.hk",
+        //         subject: "test",
+        //         msg: DynamicFile.UpdatePlaceHolder("test.html", "name=Ken;pw=sdf")
+        //     );
+
+        //     // return Ok(Helpers.SecretConfig.Instance.GetEmailDetail().);
+        //     return Ok();
+        // }
+
+        [HttpGet("ping")]
+        public IActionResult Ping()
         {
-            //Helpers.EmailSender.SendEmail("Ken", "210339487@stu.vtc.edu.hk", "This is a test", MimeKit.Text.TextFormat.Html, DynamicFile.UpdatePlaceFolder("test.html", "name=Ken;pw=asdf"));
-            Helpers.EmailSender.SendEmail(
-                recevier: "Ken",
-                receiverAddress: "210339487@stu.vtc.edu.hk",
-                subject: "test",
-                type: MimeKit.Text.TextFormat.Html,
-                msg: DynamicFile.UpdatePlaceHolder("test.html", "name=Ken;pw=sdf")
-            );
-
-            // return Ok(Helpers.SecretConfig.Instance.GetEmailDetail().);
-            return Ok();
-
-
+            return Ok("pong");
         }
 
 

@@ -42,4 +42,9 @@ public class TempFile : IDisposable
     {
         return FilePath;
     }
+
+    public string GetFileName()
+    {
+        return Path.GetFileName(FilePath);
+    }
 }

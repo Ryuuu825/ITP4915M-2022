@@ -95,11 +95,15 @@
         <None Update="resource\email\reset_password.en.html">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
-    </ItemGroup>
-    <ItemGroup>
-      <EmbeddedResource Condition=" '$(EnableDefaultEmbeddedResourceItems)' == 'true' " Update="resource\localization\test.resx">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </EmbeddedResource>
+        <None Update="resource\email\reset_password.zh.html">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+          </None>
+        <None Update="resource\pages\reset_password.en.html">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="resource\pages\reset_password.zh.html">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
     <Target Name="MakeDir" AfterTargets="Build">
         <MakeDir Directories="$(OutDir)var\tmp" />

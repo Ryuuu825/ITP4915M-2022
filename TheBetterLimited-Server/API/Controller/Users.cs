@@ -11,13 +11,11 @@ using TheBetterLimited_Server.AppLogic.Models;
 namespace TheBetterLimited_Server.API.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
-public class Users : ControllerBase
+[Route("api/users")]
+public class UsersController : ControllerBase
 {
-    
     private readonly UserController controller;
-
-    public Users(DataContext data)
+    public UsersController(DataContext data)
     {
         controller = new UserController(data);
     }

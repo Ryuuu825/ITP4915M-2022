@@ -1,8 +1,9 @@
 ﻿namespace TheBetterLimited_Server.Helpers.File;
 
+using TheBetterLimited_Server.AppLogic.Models;
 public class DynamicFile
 {
-    public static readonly string DefaultFileDir = AppDomain.CurrentDomain.BaseDirectory + "/template/";
+    public static readonly string DefaultFileDir = AppDomain.CurrentDomain.BaseDirectory + "/resource/";
 
     /**
      * <summary>
@@ -10,16 +11,13 @@ public class DynamicFile
      *     The argv shoule provide keys and values like "key=value;key1=value"
      * </summary>
      */
-    public static string UpdatePlaceHolder(string FileName, string argv, string prefix = "{", string postfix = "}")
+    public static string UpdatePlaceHolder(string FileName, List<UpdateObjectModel> model, string prefix = "{", string postfix = "}")
     {
         var buffer = new StringBuilder(System.IO.File.ReadAllText(DefaultFileDir + FileName));
-        var KeyValuePairs = argv.Split(";");
-        for (var i = 0; i < KeyValuePairs.Length; i++)
+        foreach (var item in model)
         {
-            var para = KeyValuePairs[i].Split("=");
-            buffer.Replace($"{prefix}${para[0]}{postfix}", $"{para[1]}");
+             buffer.Replace($"{prefix}${item.Attribute}{postfix}", $"{item.Value}");
         }
-
         return buffer.ToString();
     }
 }

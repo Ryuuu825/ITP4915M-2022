@@ -11,7 +11,7 @@ using TheBetterLimited_Server.Data;
 namespace TheBetterLimited_Server.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220510105714_Init")]
+    [Migration("20220514154029_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -67,9 +67,6 @@ namespace TheBetterLimited_Server.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("_StaffId")
-                        .IsUnique();
-
                     b.ToTable("accounts");
                 });
 
@@ -83,27 +80,34 @@ namespace TheBetterLimited_Server.Data.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("_AccountId")
+                        .HasMaxLength(5)
+                        .HasColumnType("char(5)");
+
                     b.Property<string>("lastName")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("_AccountId")
+                        .IsUnique();
+
                     b.ToTable("staffs");
-                });
-
-            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Account", b =>
-                {
-                    b.HasOne("TheBetterLimited_Server.Data.Entity.Staff", "Staff")
-                        .WithOne("acc")
-                        .HasForeignKey("TheBetterLimited_Server.Data.Entity.Account", "_StaffId");
-
-                    b.Navigation("Staff");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Staff", b =>
                 {
-                    b.Navigation("acc")
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.Account", "acc")
+                        .WithOne("Staff")
+                        .HasForeignKey("TheBetterLimited_Server.Data.Entity.Staff", "_AccountId");
+
+                    b.Navigation("acc");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Account", b =>
+                {
+                    b.Navigation("Staff")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618
