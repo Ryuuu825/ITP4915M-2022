@@ -15,9 +15,10 @@ public class LoginController
     public LoginController(DataContext dataContext)
     {
         _UserTable = new Data.Repositories.AccountRepository(dataContext);
+
     }
 
-    public bool Login(string name, string password, out LoginOkModel res)
+    public bool Login(string name, string password, out LoginOkModel res , in HttpRequest request)
     {
         res = new LoginOkModel();
         
@@ -47,6 +48,8 @@ public class LoginController
                 _UserTable.Update( in potentialUser);
                 throw new LoginFailException($"The password is incorrect. The account is lock until {potentialUser.unlockDate}");
             }
+
+            throw new LoginFailException($"The password is incorrect.");
         }
         //  if password is correct and user not locked
         else 
@@ -56,16 +59,33 @@ public class LoginController
             potentialUser.Status = "N";
 
             res.Token = JwtToken.Issue(potentialUser);
-            res.Account = potentialUser.CopyAs<AccountDto>();
             res.Status = "Authenticated";
             res.ExpireAt = DateTime.Now.AddHours(10);
 
+            _UserTable.LoadUser(ref potentialUser);
+            List<AppLogic.Models.Permission> permissions = new List<AppLogic.Models.Permission>();
+            // foreach (var permission in potentialUser.Staff.position.permissions)
+            // {
+            //     permissions.Add(
+            //         new AppLogic.Models.Permission
+            //         {
+            //             menu_name = permission.menu.Name,
+            //             read = permission.read,
+            //             write = permission.write,
+            //             delete = permission.delete
+            //         }
+            //     );
+            // }
+        
+            res.permissions = permissions;
+
             _UserTable.Update(in potentialUser);
+
+            Helpers.LogHelper.FileLogger.AcceccLog( in potentialUser);
 
             return true;
         }
 
-        return false;
     }
 
     public void RequestForgetPW(ForgetPwModel model, string lang)

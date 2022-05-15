@@ -33,10 +33,9 @@ public class AccountDto
     [Column(TypeName = "char(1)")]
     public string Status { get; set; }
 
-    [ForeignKey("StaffId")]
     [MaxLength(5)]
     [Column(TypeName = "char(5)")]
-    public string? _StaffId {get; set; }
+    public string _StaffId {get; set; }
 
 
 

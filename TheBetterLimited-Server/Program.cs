@@ -7,6 +7,7 @@ global using TheBetterLimited_Server.AppLogic.Exceptions;
 global using System.Net;
 global using static TheBetterLimited_Server.Helpers.SecretConf;
 global using Newtonsoft.Json.Linq;
+global using TheBetterLimited_Server.Helpers.LogHelper;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

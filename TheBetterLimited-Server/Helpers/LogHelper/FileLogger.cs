@@ -1,23 +1,33 @@
-﻿namespace TheBetterLimited_Server.Helpers.LogHelper;
+﻿using TheBetterLimited_Server.Data.Entity;
+
+namespace TheBetterLimited_Server.Helpers.LogHelper;
 
 public class FileLogger
 {
     private static readonly string _LogPath = AppDomain.CurrentDomain.BaseDirectory + "/var/log/";
 
-    public static void Log(string msg)
+    private static StreamWriter _logWriter = new StreamWriter(new FileStream(_LogPath + DateTime.Today.ToString("d").Replace("/","") + ".log", FileMode.Append, FileAccess.Write));
+    private static StreamWriter _accessWriter = new StreamWriter(new FileStream(_LogPath + "Access.log", FileMode.Append, FileAccess.Write));
+    private static StreamWriter _invalidAccessWriter = new StreamWriter(new FileStream(_LogPath + "InvalidAccess.log", FileMode.Append, FileAccess.Write));
+
+    public static void Log(LogLevel level , string message)
     {
-        System.IO.File.AppendAllText(_LogPath + "tmp.log", msg + "\r\n");
+        string str = $"[{DateTime.Now.ToShortTimeString()}][{level.ToString()}]: {message}";
+        _logWriter.Write(str);
+        _logWriter.Flush();
     }
 
-    public static void AcceccLog(string user, string url)
+    public static void AcceccLog( in Account user)
     {
-        System.IO.File.AppendAllText(_LogPath + $"{LogLevel.Access.ToString()}.log",
-            $"[{DateTime.Now.ToString()}]:{user} {url}\r\n");
+        string msg = $"[{DateTime.Now.ToString()}]:\t{user.UserName} ({user._StaffId})\r\n";
+         _accessWriter.Write(msg);
+         _accessWriter.Flush();
     }
 
-    public static void InvalidAcceccLog(string socket, string url, string header)
+    public static void InvalidAcceccLog(string socket, string url, string user  )
     {
-        System.IO.File.AppendAllText(_LogPath + $"{LogLevel.InvalidAccess.ToString()}.log",
-            $"[{DateTime.Now.ToString()}]: {socket} -- {url}\r\n\r\n[Header]:\r\n{header}\r\n-----\r\n\r\n");
+        string msg = $"Time:\t\t[{DateTime.Now.ToString()}]\r\nFrom:\t\t[{socket}]\r\nEndPoint:\t[{url}]\r\nUser:\t\t[{user}]\r\n-----\r\n\r\n";
+        _invalidAccessWriter.WriteLine(msg);
+        _invalidAccessWriter.Flush();
     }
 }

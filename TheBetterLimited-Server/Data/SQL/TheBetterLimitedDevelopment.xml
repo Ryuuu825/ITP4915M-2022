@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.1.1
+- https://www.phpmyadmin.net
+-
+- Host: localhost
+- Generation Time: May 15, 2022 at 11:37 AM
+- Server version: 10.4.21-MariaDB
+- PHP Version: 8.1.2
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="TheBetterLimitedDevelopment" collation="utf8mb4_general_ci" charset="utf8mb4">
+            <pma:table name="accounts">
+                CREATE TABLE `accounts` (
+                  `Id` char(5) NOT NULL,
+                  `LoginFailedCount` int(1) NOT NULL,
+                  `LoginFailedAt` datetime(6) DEFAULT NULL,
+                  `LastLogin` datetime(6) DEFAULT NULL,
+                  `unlockDate` datetime(6) DEFAULT NULL,
+                  `UserName` char(10) NOT NULL,
+                  `Password` varchar(100) NOT NULL,
+                  `EmailAddress` varchar(50) NOT NULL,
+                  `Status` char(1) NOT NULL,
+                  `_StaffId` char(5) NOT NULL,
+                  `Remarks` varchar(100) DEFAULT NULL,
+                  PRIMARY KEY (`Id`),
+                  KEY `IX_accounts__StaffId` (`_StaffId`),
+                  CONSTRAINT `FK_accounts_staffs__StaffId` FOREIGN KEY (`_StaffId`) REFERENCES `staffs` (`Id`) ON DELETE CASCADE
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="departments">
+                CREATE TABLE `departments` (
+                  `Id` char(3) NOT NULL,
+                  `Name` varchar(20) NOT NULL,
+                  PRIMARY KEY (`Id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="menus">
+                CREATE TABLE `menus` (
+                  `Id` char(3) NOT NULL,
+                  `Name` varchar(20) NOT NULL,
+                  PRIMARY KEY (`Id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="permissions">
+                CREATE TABLE `permissions` (
+                  `_menuId` char(3) NOT NULL,
+                  `_positionId` char(3) NOT NULL,
+                  `read` tinyint(1) DEFAULT NULL,
+                  `write` tinyint(1) DEFAULT NULL,
+                  `delete` tinyint(1) DEFAULT NULL,
+                  PRIMARY KEY (`_menuId`,`_positionId`),
+                  KEY `IX_permissions__positionId` (`_positionId`),
+                  CONSTRAINT `FK_permissions_menus__menuId` FOREIGN KEY (`_menuId`) REFERENCES `menus` (`Id`) ON DELETE CASCADE,
+                  CONSTRAINT `FK_permissions_positions__positionId` FOREIGN KEY (`_positionId`) REFERENCES `positions` (`Id`) ON DELETE CASCADE
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="positions">
+                CREATE TABLE `positions` (
+                  `Id` char(3) NOT NULL,
+                  `_departmentId` char(3) NOT NULL,
+                  `jobTitle` varchar(20) DEFAULT NULL,
+                  PRIMARY KEY (`Id`),
+                  KEY `IX_positions__departmentId` (`_departmentId`),
+                  CONSTRAINT `FK_positions_departments__departmentId` FOREIGN KEY (`_departmentId`) REFERENCES `departments` (`Id`) ON DELETE CASCADE
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="staffs">
+                CREATE TABLE `staffs` (
+                  `Id` char(5) NOT NULL,
+                  `_AccountId` char(5) DEFAULT NULL,
+                  `_departmentId` char(3) NOT NULL,
+                  `_positionId` char(3) NOT NULL,
+                  `FirstName` varchar(10) NOT NULL,
+                  `lastName` varchar(10) NOT NULL,
+                  `sex` char(1) DEFAULT NULL,
+                  `age` int(2) DEFAULT NULL,
+                  `phone` varchar(15) DEFAULT NULL,
+                  PRIMARY KEY (`Id`),
+                  KEY `IX_staffs__AccountId` (`_AccountId`),
+                  KEY `IX_staffs__departmentId` (`_departmentId`),
+                  KEY `IX_staffs__positionId` (`_positionId`),
+                  CONSTRAINT `FK_staffs_accounts__AccountId` FOREIGN KEY (`_AccountId`) REFERENCES `accounts` (`Id`),
+                  CONSTRAINT `FK_staffs_departments__departmentId` FOREIGN KEY (`_departmentId`) REFERENCES `departments` (`Id`) ON DELETE CASCADE,
+                  CONSTRAINT `FK_staffs_positions__positionId` FOREIGN KEY (`_positionId`) REFERENCES `positions` (`Id`) ON DELETE CASCADE
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+            <pma:table name="__EFMigrationsHistory">
+                CREATE TABLE `__EFMigrationsHistory` (
+                  `MigrationId` varchar(150) NOT NULL,
+                  `ProductVersion` varchar(32) NOT NULL,
+                  PRIMARY KEY (`MigrationId`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Database: 'TheBetterLimitedDevelopment'
+    -->
+    <database name="TheBetterLimitedDevelopment">
+        <!-- Table accounts -->
+        <!-- Table departments -->
+        <table name="departments">
+            <column name="Id">001</column>
+            <column name="Name">Admin</column>
+        </table>
+        <!-- Table menus -->
+        <table name="menus">
+            <column name="Id">1</column>
+            <column name="Name">UserManagement</column>
+        </table>
+        <table name="menus">
+            <column name="Id">2</column>
+            <column name="Name">Inventory</column>
+        </table>
+        <table name="menus">
+            <column name="Id">3</column>
+            <column name="Name">Worker Management</column>
+        </table>
+        <table name="menus">
+            <column name="Id">4</column>
+            <column name="Name">Purchase</column>
+        </table>
+        <table name="menus">
+            <column name="Id">5</column>
+            <column name="Name">POS</column>
+        </table>
+        <table name="menus">
+            <column name="Id">6</column>
+            <column name="Name">Accounting</column>
+        </table>
+        <table name="menus">
+            <column name="Id">Id</column>
+            <column name="Name">Name</column>
+        </table>
+        <!-- Table permissions -->
+        <table name="permissions">
+            <column name="_menuId">1</column>
+            <column name="_positionId">001</column>
+            <column name="read">1</column>
+            <column name="write">1</column>
+            <column name="delete">1</column>
+        </table>
+        <table name="permissions">
+            <column name="_menuId">2</column>
+            <column name="_positionId">001</column>
+            <column name="read">1</column>
+            <column name="write">1</column>
+            <column name="delete">1</column>
+        </table>
+        <table name="permissions">
+            <column name="_menuId">3</column>
+            <column name="_positionId">001</column>
+            <column name="read">1</column>
+            <column name="write">1</column>
+            <column name="delete">1</column>
+        </table>
+        <table name="permissions">
+            <column name="_menuId">4</column>
+            <column name="_positionId">001</column>
+            <column name="read">1</column>
+            <column name="write">1</column>
+            <column name="delete">1</column>
+        </table>
+        <table name="permissions">
+            <column name="_menuId">5</column>
+            <column name="_positionId">001</column>
+            <column name="read">1</column>
+            <column name="write">1</column>
+            <column name="delete">1</column>
+        </table>
+        <table name="permissions">
+            <column name="_menuId">6</column>
+            <column name="_positionId">001</column>
+            <column name="read">1</column>
+            <column name="write">1</column>
+            <column name="delete">1</column>
+        </table>
+        <!-- Table positions -->
+        <table name="positions">
+            <column name="Id">001</column>
+            <column name="_departmentId">001</column>
+            <column name="jobTitle">admin</column>
+        </table>
+        <!-- Table staffs -->
+        <table name="staffs">
+            <column name="Id">001</column>
+            <column name="_AccountId">NULL</column>
+            <column name="_departmentId">001</column>
+            <column name="_positionId">001</column>
+            <column name="FirstName">Ken</column>
+            <column name="lastName">Lee</column>
+            <column name="sex">M</column>
+            <column name="age">18</column>
+            <column name="phone">+852 12345678</column>
+        </table>
+        <!-- Table __EFMigrationsHistory -->
+        <table name="__EFMigrationsHistory">
+            <column name="MigrationId">20220515090854_Init</column>
+            <column name="ProductVersion">6.0.4</column>
+        </table>
+        <table name="__EFMigrationsHistory">
+            <column name="MigrationId">20220515092956_Init</column>
+            <column name="ProductVersion">6.0.4</column>
+        </table>
+    </database>
+</pma_xml_export>

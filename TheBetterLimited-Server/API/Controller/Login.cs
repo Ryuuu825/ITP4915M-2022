@@ -26,15 +26,19 @@ public class LoginController : ControllerBase
         try
         {
             LoginOkModel token;
-            if (controller.Login(data.UserName , data.Password, out token))
-                return Ok(token);
-            else 
-                return StatusCode(401 , "Invalid username or password");
+            controller.Login(data.UserName , data.Password, out token , HttpContext.Request);
+            return Ok(token);
+            
         }catch (ICustException e)
         {
+            Helpers.LogHelper.FileLogger.InvalidAcceccLog(
+                Helpers.HttpReader.GetClientSocket(HttpContext),
+                Helpers.HttpReader.GetURL(HttpContext.Request),
+                data.UserName is null ? "Unknown" : data.UserName
+            );
+          
             return StatusCode(e.ReturnCode , e.GetHttpResult());
-        }
-        
+        };
        
     }
 

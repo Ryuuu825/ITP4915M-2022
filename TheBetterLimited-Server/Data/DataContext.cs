@@ -13,18 +13,29 @@ public class DataContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder md)
     {
-        md.Entity<Account>()
-            .HasOne(a => a.Staff)
-            .WithOne(s => s.acc)
-            .HasForeignKey<Account>(a => a._StaffId);
+        // md.Entity<Account>()
+        //     .HasOne(a => a.Staff)
+        //     .WithOne(s => s.acc)
+        //     .HasForeignKey<Account>(a => a._StaffId);
         
-        md.Entity<Staff>()
-            .HasOne(s => s.acc)
-            .WithOne(a => a.Staff)
-            .HasForeignKey<Staff>(s => s._AccountId);
+        // md.Entity<Staff>()
+        //     .HasOne(s => s.acc)
+        //     .WithOne(a => a.Staff)
+        //     .HasForeignKey<Staff>(s => s._AccountId);
+        
+        // set two foreign key in permission table as the primary key
+        md.Entity<Permission>()
+            .HasKey(p => new { p._menuId, p._positionId });
+
     }
     
     public DbSet<Account> accounts { get;  }
     public DbSet<Staff> staffs { get; }
+
+    public DbSet<Menu> menus { get; }
+    public DbSet<Position> positions { get; }
+    public DbSet<Permission> permissions { get; }
+    public DbSet<Department> departments { get; }
+    
 
 }

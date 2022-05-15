@@ -18,6 +18,8 @@ public static class HttpReader
         return sbHeaders.ToString();
     }
 
+
+
     public static string GetURL(HttpRequest req, bool withMethod = false)
     {
         if (withMethod)
