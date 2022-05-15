@@ -10,6 +10,7 @@ Table of content
   - use ';' as separator
   - query string use ':' as key value separator
   - There are two type of query string
+  
         1. *key value pair* ```key:value;key:value;key:value;```
         2. *the server will auto match the attribute* ```value;value;value```
 
@@ -17,7 +18,7 @@ Table of content
 
 #### login to the system 
 
-```json
+```
 POST /api/login
 ```
 
@@ -39,7 +40,7 @@ example request body
     "id": "S0001",
     "userName": "Ken",
     "password": "$HASH|V1$10000$xqJ+jOkLGBkdq8fFUv/oDpz+1zdDSj4Bp9L6ccIRJ8z0CZnW",
-    "emailAddress": "210339487@stu.vtc.edu.hk",
+    "emailAddress": "user@example.com",
     "status": "N",
     "_StaffId": null,
     "remarks": "string"
