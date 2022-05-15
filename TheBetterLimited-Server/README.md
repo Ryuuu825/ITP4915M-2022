@@ -12,12 +12,12 @@
 ## Dependenies
 
 - .Net 6
-- Entity Framework Core CLI tools
-- MySQL
+- [Entity Framework Core CLI tools](https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
+- [Xampp MySQL](https://www.apachefriends.org/download.html) or MySQL 
 
 ## Get Started
 
-### Create a file call secret.conf under ./etc
+### 1. Create a file call secret.conf under ./etc
 
 ```
 # The Mail Account
@@ -36,25 +36,28 @@ Token="ThisRequiredALongToken"
 
 ConnectionString="Data Source={db};Initial Catalog={};User Id={user};password={pw};ConnectionTimeout=5"
 ```
+### 2. import sql file to database
+```
+```
 
-### create the database table
+### 2. or create the database table
 
 ```
 dotnet ef database update
 ```
 
-### build the sysetm
+### 3. build the sysetm
 
 ```
-dotnet build --configuration Release
+dotnet build -c Release
 ```
 
-### Or publish the system into a single executable with.Net 6 runtime contain
+### 3. Or publish the system into a single executable with .Net 6 runtime contain
 
 [see this page](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
 
 ```
-dotnet publish -r {Runtime Identifier} /p:PublishSingleFile=true --configuration Relase -o {output dir}
+dotnet publish -r {Runtime Identifier} /p:PublishSingleFile=true -c Relase -o {output dir}
 ```
 
 ## Overview

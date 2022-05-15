@@ -13,23 +13,6 @@ namespace TheBetterLimited_Server.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "staffs",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    FirstName = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    lastName = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_staffs", x => x.Id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "accounts",
                 columns: table => new
                 {
@@ -55,28 +38,47 @@ namespace TheBetterLimited_Server.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_accounts", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "staffs",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    FirstName = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    lastName = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _AccountId = table.Column<string>(type: "char(5)", maxLength: 5, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_staffs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_accounts_staffs__StaffId",
-                        column: x => x._StaffId,
-                        principalTable: "staffs",
+                        name: "FK_staffs_accounts__AccountId",
+                        column: x => x._AccountId,
+                        principalTable: "accounts",
                         principalColumn: "Id");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_accounts__StaffId",
-                table: "accounts",
-                column: "_StaffId",
+                name: "IX_staffs__AccountId",
+                table: "staffs",
+                column: "_AccountId",
                 unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "accounts");
+                name: "staffs");
 
             migrationBuilder.DropTable(
-                name: "staffs");
+                name: "accounts");
         }
     }
 }

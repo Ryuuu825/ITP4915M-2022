@@ -19,16 +19,14 @@ public static class ObjectExtension
         return newObj;
     }
     
-    public static T CopyAs<T>(this object source)
+    public static T? CopyAs<T>(this object source)
     {
         string tmp = JsonConvert.SerializeObject(source , new JsonSerializerSettings()
         {
             ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
         });
 
-        var newObj = JsonConvert.DeserializeObject<T>(tmp);
-
-        return newObj;
+        return JsonConvert.DeserializeObject<T>(tmp) ;
     }
 
     public static void CopyValueTo<T>(this object source, ref T newObj)

@@ -3,19 +3,18 @@ global using System.ComponentModel.DataAnnotations;
 global using System.ComponentModel.DataAnnotations.Schema;
 global using System.Text;
 global using TheBetterLimited_Server.Helpers.Extension;
+global using TheBetterLimited_Server.AppLogic.Exceptions;
+global using System.Net;
+global using static TheBetterLimited_Server.Helpers.SecretConf;
+global using Newtonsoft.Json.Linq;
 
-using System.Globalization;
-using CsvHelper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MySqlConnector;
 using Swashbuckle.AspNetCore.Filters;
 using TheBetterLimited_Server.Data;
-using TheBetterLimited_Server.Helpers;
 using TheBetterLimited_Server.Helpers.File;
-using static TheBetterLimited_Server.Helpers.SecretConf;
-using System.Data;
 
 class Foo 
 {
@@ -74,6 +73,18 @@ public class Program
             });
             options.OperationFilter<SecurityRequirementsOperationFilter>();
         });
+        builder.Services.AddCors(
+            options =>
+            {
+                options.AddPolicy("default",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader();
+                    });
+            }
+        );
 
 
         var app = builder.Build();
@@ -88,6 +99,7 @@ public class Program
         app.UseAuthentication();
         app.UseAuthorization();
         app.MapControllers();
+        app.UseCors("default");
         Console.Title = "The Better Limited Server";
 
         using (var conn = new MySqlConnection(_Secret["ConnectionString"]))

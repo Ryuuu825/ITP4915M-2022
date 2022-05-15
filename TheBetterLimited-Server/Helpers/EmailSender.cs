@@ -15,13 +15,13 @@ public static class EmailSender
     }
 
 
-    public static void SendEmail(string recevier, string receiverAddress, string subject, TextFormat type, string msg)
+    public static void SendEmail(string recevier, string receiverAddress, string subject, in string msg)
     {
         var message = new MimeMessage();
         message.From.Add(new MailboxAddress(_Secret["DisplayedName"], GetEmailAddress()));
         message.To.Add(new MailboxAddress(recevier, receiverAddress));
         message.Subject = subject;
-        message.Body = new TextPart(type)
+        message.Body = new TextPart(TextFormat.Html)
         {
             Text = msg
         };

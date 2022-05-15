@@ -1,11 +1,9 @@
-using System.Net;
-using System.Security.Principal;
-using MimeKit;
-using Newtonsoft.Json.Linq;
 
 namespace TheBetterLimited_Server.AppLogic.Exceptions;
 
-using System.Web;
+using System.Net;
+using Newtonsoft.Json.Linq;
+
 public abstract class ICustException : Exception
 {
      public int ReturnCode;

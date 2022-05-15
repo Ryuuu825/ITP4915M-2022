@@ -8,19 +8,18 @@ public static class QueryStringBuilder
     public static string GetSqlStatement<T>(string condString , string table)
     {
         string queryStr;
-        if (condString.Contains("="))
-            throw new BadArgException("The condition string should not contain '='");
 
         if (condString.Contains(":"))
-            queryStr = Helpers.Sql.QueryStringBuilder.CreateSQLQuery( condString , "accounts");
+            queryStr = Helpers.Sql.QueryStringBuilder.CreateSQLQuery( condString , table);
         else 
-            queryStr = Helpers.Sql.QueryStringBuilder.LazyCreateSQLQuery<T>( condString, "accounts");
+            queryStr = Helpers.Sql.QueryStringBuilder.LazyCreateSQLQuery<T>( condString, table);
 #if DEBUG
         Console.WriteLine(queryStr);
 #endif      
         
         return queryStr;
     }
+
 
 
     // Two type of condString

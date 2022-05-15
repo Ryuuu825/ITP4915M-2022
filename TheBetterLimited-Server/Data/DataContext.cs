@@ -8,8 +8,7 @@ public class DataContext : DbContext
 {
     public DataContext(DbContextOptions<DataContext> options) : base(options)
     {
-        accounts = this.Set<Account>();
-        staffs = this.Set<Staff>();
+
     }
 
     protected override void OnModelCreating(ModelBuilder md)

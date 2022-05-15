@@ -6,13 +6,13 @@ namespace TheBetterLimited_Server.Data.Repositories;
 public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEntity : class
 {
     protected readonly DataContext DbContext;
-    public DbSet<TEntity> Entities { get; }
+    public DbSet<TEntity> Entities { get; set; }
     
     protected Repository(){}
-    public Repository(DataContext dbContext , DbSet<TEntity> entities)
+    public Repository(DataContext dbContext)
     {
         DbContext = dbContext;
-        Entities = entities; 
+        Entities = dbContext.Set<TEntity>();
     }
     
 
@@ -104,14 +104,34 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
         return false;
     }
 
-    public bool Update(TEntity entity, bool saveNow = true)
+    public bool Update(in TEntity entity, bool saveNow = true)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Entities.Update(entity);
+            if (saveNow)
+                DbContext.SaveChanges();
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            throw new OperationFailException("Error");
+        }
     }
 
     public void Delete(TEntity entity, bool saveNow = true)
     {
-        throw new NotImplementedException();
+        try
+        {
+            Entities.Remove(entity);
+            if (saveNow)
+                DbContext.SaveChanges();
+        }catch(Exception e)
+        {
+            throw new OperationFailException($"Delete {entity} failed!");
+        }
     }
 
     public bool IsRecordExist(string id)

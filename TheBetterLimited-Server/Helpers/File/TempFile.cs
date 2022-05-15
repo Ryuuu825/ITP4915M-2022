@@ -33,7 +33,7 @@ public class TempFile : IDisposable
         return System.IO.File.ReadAllText(FilePath);
     }
 
-    public void WriteAllText(string str)
+    public void WriteAllText(in string str)
     {
         System.IO.File.AppendAllText(FilePath, str);
     }
@@ -41,5 +41,10 @@ public class TempFile : IDisposable
     public string GetFilePath()
     {
         return FilePath;
+    }
+
+    public string GetFileName()
+    {
+        return Path.GetFileName(FilePath);
     }
 }
