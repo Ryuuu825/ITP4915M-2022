@@ -17,50 +17,39 @@ public class LoginController
         _UserTable = new Data.Repositories.AccountRepository(dataContext);
     }
 
-#if DEBUG
-    public async Task UpdateUserPasswordAsHashedPassword(string userName)
-    {
-        Account potentialUser = (await _UserTable.GetBySQLAsync(Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{userName}" , "accounts"))).Single();
-        List<UpdateObjectModel> content = new List<UpdateObjectModel>();
-        content.Add(new UpdateObjectModel() { Attribute = "Password", Value = Helpers.Secure.Hasher.Hash(potentialUser.Password) });
-        Helpers.Entity.EntityUpdater.Update(ref potentialUser, content);
-        ConsoleLogger.Debug(potentialUser.Debug());
-        await _UserTable.UpdateAsync(potentialUser);
-    }
-
-#endif
     public bool Login(string name, string password, out LoginOkModel res)
     {
         res = new LoginOkModel();
         
+        // get the user from the database
         var potentialUser = _UserTable.GetBySQL(Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{name}" , "accounts")).FirstOrDefault();
         if (potentialUser is null)
         {
             throw new HasNoElementException($"UserName: {name} not found" , HttpStatusCode.BadRequest);
         }
 
+        // the user is found and is currently locked.
         if (potentialUser.unlockDate >= DateTime.Now)
         {
-            potentialUser.Status = "L";
-            potentialUser.LoginFailedCount++;
-            potentialUser.LoginFailedAt = DateTime.Now;
-            _UserTable.Update(potentialUser);
             throw new LoginFailException($"The account is locked until {potentialUser.unlockDate}");
         }
+        // the user is found and the password is incorrect
         else if (! password.Verify(potentialUser.Password))
         {
             potentialUser.LoginFailedCount++;
             potentialUser.LoginFailedAt = DateTime.Now;
-            _UserTable.Update(potentialUser);
+            _UserTable.Update( in potentialUser);
 
             if (potentialUser.LoginFailedCount >= 3)
             {
+                potentialUser.Status = "L";
                 potentialUser.unlockDate = DateTime.Now.AddHours(1);
-                _UserTable.Update(potentialUser);
+                _UserTable.Update( in potentialUser);
                 throw new LoginFailException($"The password is incorrect. The account is lock until {potentialUser.unlockDate}");
             }
         }
-        else //  if password is correct and user not locked
+        //  if password is correct and user not locked
+        else 
         {
             potentialUser.LastLogin = DateTime.Now;
             potentialUser.LoginFailedCount = 0;
@@ -71,7 +60,7 @@ public class LoginController
             res.Status = "Authenticated";
             res.ExpireAt = DateTime.Now.AddHours(10);
 
-            _UserTable.Update(potentialUser);
+            _UserTable.Update(in potentialUser);
 
             return true;
         }
@@ -81,13 +70,16 @@ public class LoginController
 
     public void RequestForgetPW(ForgetPwModel model, string lang)
     {
-        var potentialUser = _UserTable.GetBySQL(Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{model.UserName};EmailAddress:{model.EmailAddress}" , "accounts")).FirstOrDefault();
+        // get the user from the database
+        Account potentialUser = _UserTable.GetBySQL(Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{model.UserName};EmailAddress:{model.EmailAddress}" , "accounts")).FirstOrDefault();
 
         if (potentialUser is null)
             throw new HasNoElementException("UserName or EmailAddress not found", HttpStatusCode.BadRequest);
         
+        // create a tmp token and store as a filename
         var token = Helpers.File.TempFileManager.Create();
-        token.WriteAllText(Helpers.Secure.JwtToken.IssueResetPasswordToken(model.UserName , model.EmailAddress, lang));
+        // store the bearer token in the file
+        token.WriteAllText( Helpers.Secure.JwtToken.IssueResetPasswordToken(model.UserName , model.EmailAddress, lang));
 
         // prepare email content
         List<UpdateObjectModel> content = new List<UpdateObjectModel>(5);
@@ -97,34 +89,48 @@ public class LoginController
         content.Add(new UpdateObjectModel() { Attribute = "name", Value = potentialUser.UserName });
         content.Add(new UpdateObjectModel() { Attribute = "token", Value = token.GetFileName() });
         
-        string email = Helpers.File.DynamicFile.UpdatePlaceHolder(
+        try
+        {
+            // use the email template and the update obj content to generate the email content
+            string email = Helpers.File.DynamicFile.UpdatePlaceHolder(
                 $"email/reset_password.{lang}.html",
                 content
             );
 
-        ConsoleLogger.Debug(email);
+            // send email to user with link to reset password
+            Helpers.EmailSender.SendEmail(
+                potentialUser.UserName,
+                potentialUser.EmailAddress,
+                "Reset Password",
+                in email
+            );
 
-        // send email to user with link to reset password
-        // Helpers.EmailSender.SendEmail(
-        //     potentialUser.UserName,
-        //     potentialUser.EmailAddress,
-        //     "Reset Password",
-        //     in email
-        // );
-
-
+        }catch(FileNotFoundException e)
+        {
+            throw new FileNotExistException($"Language not supprt: {lang}", HttpStatusCode.BadRequest);
+        }catch(Exception e) 
+        {
+            // the email account maybe not verified, therefore there are a limited number of email can be sent within one day.
+            // also the email sender class did not use oauth2 before sending the email, therefore the email maybe can not sent.
+            throw new OperationFailException("Failed to send email");
+        }
+       
     }
 
     public void ResetPW( HttpRequest req , string password)
     {
+        // get the bearer token from the request
         var bearerToken = req.Headers["Authorization"].ToString().Split(' ')[1];
-        var accessToken = Helpers.File.TempFileManager.GetFilePath(bearerToken);
-        ConsoleLogger.Debug("Access token : " + accessToken);
 
+        // get the token from compare the content of the file with the bearer token
+        var accessToken = Helpers.File.TempFileManager.GetFilePath(bearerToken);
+
+        // The token is not found
         if (accessToken.Equals(""))
             throw new System.UnauthorizedAccessException("Invalid token");
         
 
+        // get list of claims from the bearer token
         var claims = Helpers.HttpReader.GetClaims(req); 
         var userName = claims["name"];
         var emailAddress = claims["emailaddress"];
@@ -138,7 +144,7 @@ public class LoginController
         potentialUser.Password = Helpers.Secure.Hasher.Hash(password);
 
         Helpers.File.TempFileManager.CloseTempFile(accessToken);
-        _UserTable.Update(potentialUser);
+        _UserTable.Update( in potentialUser);
     }
 
     public void GetResetPwPage(string accessToken , string lang, ref string html)
@@ -156,8 +162,4 @@ public class LoginController
             }
         );
     }
-    public void ChangePW(string usernmae, string oldPW, string newPW)
-    {
-    }
-    
 }

@@ -104,7 +104,7 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
         return false;
     }
 
-    public bool Update(TEntity entity, bool saveNow = true)
+    public bool Update(in TEntity entity, bool saveNow = true)
     {
         try
         {

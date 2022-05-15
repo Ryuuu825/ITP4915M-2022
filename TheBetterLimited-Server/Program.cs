@@ -6,19 +6,15 @@ global using TheBetterLimited_Server.Helpers.Extension;
 global using TheBetterLimited_Server.AppLogic.Exceptions;
 global using System.Net;
 global using static TheBetterLimited_Server.Helpers.SecretConf;
+global using Newtonsoft.Json.Linq;
 
-using System.Globalization;
-using CsvHelper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MySqlConnector;
 using Swashbuckle.AspNetCore.Filters;
 using TheBetterLimited_Server.Data;
-using TheBetterLimited_Server.Helpers;
 using TheBetterLimited_Server.Helpers.File;
-using static TheBetterLimited_Server.Helpers.SecretConf;
-using System.Data;
 
 class Foo 
 {

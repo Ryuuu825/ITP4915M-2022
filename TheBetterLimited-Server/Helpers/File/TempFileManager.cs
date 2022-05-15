@@ -45,27 +45,35 @@ public class TempFileManager
 
     public static void CloseTempFile(string filename)
     {
-        ConsoleLogger.Debug("CloseTempFile: " + filename);
-        Print();
         if (head == null)
         {
             return;
         }
-        else if (head == tail)
+        
+        
+        if (head.GetFileName().Equals(filename))
         {
             head.Close();
-            head = tail = null;
+            head = head.next;
+            return;
+        
+        }
+        else if (tail.GetFileName().Equals(filename))
+        {
+            tail.Close();
+            tail = tail.prev;
+            tail.next = null;
             return;
         }
+
+
         var curr = head;
         while (curr.next != null)
         {
-            ConsoleLogger.Debug($"{curr.GetFileName()}");
             if (curr.next.GetFileName().Equals(filename))
             {
-                ConsoleLogger.Debug("Close TempFile: " + filename);
                 curr.next.Close();
-                curr.next = curr.next.next is null ? null : curr.next.next;
+                curr.next = curr.next.next;
                 return;
             }
             curr = curr.next;

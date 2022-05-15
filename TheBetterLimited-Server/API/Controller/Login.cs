@@ -23,36 +23,35 @@ public class LoginController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Login([FromBody] LoginModel data)
     {
-        LoginOkModel token;
-        if (controller.Login(data.UserName , data.Password, out token))
-            return Ok(token);
-        else 
-            return StatusCode(401 , "Invalid username or password");
-    }
-
-#if DEBUG
-    [HttpPost("UpdateUserPasswordAsHashedPassword")]
-    public async Task Test([FromBody] LoginModel data)
-    {
-        await controller.UpdateUserPasswordAsHashedPassword(data.UserName );
-    }
-#endif
-
-    [Authorize]
-    [HttpGet("claims")]
-    public Hashtable Get()
-    {
-        var keyvalue = Helpers.HttpReader.GetClaims(HttpContext.Request);
-        return keyvalue;
-
+        try
+        {
+            LoginOkModel token;
+            if (controller.Login(data.UserName , data.Password, out token))
+                return Ok(token);
+            else 
+                return StatusCode(401 , "Invalid username or password");
+        }catch (ICustException e)
+        {
+            return StatusCode(e.ReturnCode , e.GetHttpResult());
+        }
+        
+       
     }
 
 
     // User request to change password and the system will send a email to the user to change the password
     [HttpPost("requestresetpwd")]
-    public void RequestResetPwd( [FromHeader] string lang , [FromBody] ForgetPwModel data)
+    public IActionResult RequestResetPwd( [FromHeader] string lang , [FromBody] ForgetPwModel data)
     {
-        controller.RequestForgetPW(data, lang);
+        try
+        {
+            controller.RequestForgetPW(data, lang);
+            return Ok();
+
+        }catch (ICustException e)
+        {
+            return StatusCode(e.ReturnCode , e.GetHttpResult());
+        }
     }
 
     // the web page that the user click to change the password
