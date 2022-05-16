@@ -13,7 +13,7 @@ public class Staff
     public string? _AccountId {get; set; }
 
     [ForeignKey("_AccountId")]
-    public Account? acc { get; set; }
+    public virtual Account? acc { get; set; }
 
 
     [MaxLength(3)]
@@ -21,14 +21,14 @@ public class Staff
     public string _departmentId {get; set; }
 
     [ForeignKey("_departmentId")]
-    public Department department { get; set; }
+    public virtual Department department { get; set; }
 
     [MaxLength(3)]
     [Column(TypeName = "char(3)")]
     public string _positionId {get; set; }
 
     [ForeignKey("_positionId")]
-    public Position position { get; set; }
+    public virtual Position position { get; set; }
 
 
 

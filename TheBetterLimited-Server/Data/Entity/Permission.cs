@@ -8,14 +8,14 @@ namespace TheBetterLimited_Server.Data.Entity
         public string _menuId { get; set; }
 
         [Key , ForeignKey("_menuId")]
-        public Menu menu { get; set; }  
+        public virtual Menu menu { get; set; }  
 
         [MaxLength(3)]
         [Column(TypeName = "char(3)")]
         public string _positionId { get; set; } 
 
         [Key , ForeignKey("_positionId")]
-        public Position position { get; set; } 
+        public virtual Position position { get; set; } 
 
         [Column(TypeName = "tinyint(1)")]
         // GET

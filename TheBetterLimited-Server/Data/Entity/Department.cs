@@ -18,6 +18,6 @@ namespace TheBetterLimited_Server.Data.Entity
         // [ForeignKey("_budgetId")]
         // public Budget budget { get; set; }
 
-        public ICollection<Staff> staffs { get; set; }
+        public virtual ICollection<Staff> staffs { get; set; }
     }
 }

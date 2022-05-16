@@ -17,11 +17,6 @@ using Swashbuckle.AspNetCore.Filters;
 using TheBetterLimited_Server.Data;
 using TheBetterLimited_Server.Helpers.File;
 
-class Foo 
-{
-    public string Id {get; set;}
-    public string Name {get; set;}
-}
 public class Program
 {
     private static void Main(string[] args)

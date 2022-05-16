@@ -10,7 +10,7 @@ public class Account : Dto.AccountDto
     }
 
     [ForeignKey("_StaffId")]
-    public Staff Staff { get; set; }
+    public virtual Staff Staff { get; set; }
 
     [Column(TypeName = "int(1)")]
     [Description("How many time the user fail to login")]

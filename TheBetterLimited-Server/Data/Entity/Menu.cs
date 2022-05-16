@@ -11,6 +11,6 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "varchar(20)")]
         public string Name { get; set; }
 
-        public ICollection<Permission> permissions { get; set; }
+        public virtual ICollection<Permission> permissions { get; set; }
     }
 }

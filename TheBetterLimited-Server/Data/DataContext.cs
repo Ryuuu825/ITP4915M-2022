@@ -1,6 +1,7 @@
 ﻿using TheBetterLimited_Server.API.Controllers;
 using TheBetterLimited_Server.Data.Dto;
 using TheBetterLimited_Server.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace TheBetterLimited_Server.Data;
 
@@ -8,9 +9,17 @@ public class DataContext : DbContext
 {
     public DataContext(DbContextOptions<DataContext> options) : base(options)
     {
-
+        
     }
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    => optionsBuilder
+        .UseLazyLoadingProxies()
+        .UseMySql(
+            _Secret["ConnectionString"],
+            ServerVersion.AutoDetect(_Secret["ConnectionString"])
+        );
+    
     protected override void OnModelCreating(ModelBuilder md)
     {
         // md.Entity<Account>()
@@ -26,6 +35,9 @@ public class DataContext : DbContext
         // set two foreign key in permission table as the primary key
         md.Entity<Permission>()
             .HasKey(p => new { p._menuId, p._positionId });
+        
+        md.Entity<Staff>()
+            .HasCheckConstraint("staff_age_check", "age >= 18 and age <= 60");
 
     }
     

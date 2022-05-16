@@ -62,7 +62,8 @@ public class LoginController
             res.Status = "Authenticated";
             res.ExpireAt = DateTime.Now.AddHours(10);
 
-            _UserTable.LoadUser(ref potentialUser);
+
+
             List<AppLogic.Models.Permission> permissions = new List<AppLogic.Models.Permission>();
             // foreach (var permission in potentialUser.Staff.position.permissions)
             // {
