@@ -7,6 +7,7 @@ global using TheBetterLimited_Server.AppLogic.Exceptions;
 global using System.Net;
 global using static TheBetterLimited_Server.Helpers.SecretConf;
 global using Newtonsoft.Json.Linq;
+global using TheBetterLimited_Server.Helpers.LogHelper;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -16,11 +17,6 @@ using Swashbuckle.AspNetCore.Filters;
 using TheBetterLimited_Server.Data;
 using TheBetterLimited_Server.Helpers.File;
 
-class Foo 
-{
-    public string Id {get; set;}
-    public string Name {get; set;}
-}
 public class Program
 {
     private static void Main(string[] args)

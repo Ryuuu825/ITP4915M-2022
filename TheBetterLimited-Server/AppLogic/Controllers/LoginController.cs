@@ -15,9 +15,10 @@ public class LoginController
     public LoginController(DataContext dataContext)
     {
         _UserTable = new Data.Repositories.AccountRepository(dataContext);
+
     }
 
-    public bool Login(string name, string password, out LoginOkModel res)
+    public bool Login(string name, string password, out LoginOkModel res , in HttpRequest request)
     {
         res = new LoginOkModel();
         
@@ -40,13 +41,23 @@ public class LoginController
             potentialUser.LoginFailedAt = DateTime.Now;
             _UserTable.Update( in potentialUser);
 
-            if (potentialUser.LoginFailedCount >= 3)
+            if (potentialUser.LoginFailedCount >= 10)
             {
+                ConsoleLogger.Debug($"The account {potentialUser.UserName} is locked");
                 potentialUser.Status = "L";
-                potentialUser.unlockDate = DateTime.Now.AddHours(1);
+                potentialUser.unlockDate = DateTime.Now.AddYears(1);
                 _UserTable.Update( in potentialUser);
                 throw new LoginFailException($"The password is incorrect. The account is lock until {potentialUser.unlockDate}");
             }
+            else if (potentialUser.LoginFailedCount >= 5)
+            {
+                potentialUser.Status = "L";
+                potentialUser.unlockDate = DateTime.Now.AddMinutes(5);
+                _UserTable.Update( in potentialUser);
+                throw new LoginFailException($"The password is incorrect. The account is lock until {potentialUser.unlockDate}");
+            }
+
+            throw new LoginFailException($"The password is incorrect. You have {5 - potentialUser.LoginFailedCount} attempts left");
         }
         //  if password is correct and user not locked
         else 
@@ -56,16 +67,34 @@ public class LoginController
             potentialUser.Status = "N";
 
             res.Token = JwtToken.Issue(potentialUser);
-            res.Account = potentialUser.CopyAs<AccountDto>();
             res.Status = "Authenticated";
             res.ExpireAt = DateTime.Now.AddHours(10);
 
+
+
+            List<AppLogic.Models.Permission> permissions = new List<AppLogic.Models.Permission>();
+            // foreach (var permission in potentialUser.Staff.position.permissions)
+            // {
+            //     permissions.Add(
+            //         new AppLogic.Models.Permission
+            //         {
+            //             menu_name = permission.menu.Name,
+            //             read = permission.read,
+            //             write = permission.write,
+            //             delete = permission.delete
+            //         }
+            //     );
+            // }
+        
+            res.permissions = permissions;
+
             _UserTable.Update(in potentialUser);
+
+            Helpers.LogHelper.FileLogger.AcceccLog( in potentialUser);
 
             return true;
         }
 
-        return false;
     }
 
     public void RequestForgetPW(ForgetPwModel model, string lang)
@@ -110,6 +139,7 @@ public class LoginController
             throw new FileNotExistException($"Language not supprt: {lang}", HttpStatusCode.BadRequest);
         }catch(Exception e) 
         {
+            ConsoleLogger.Debug(e.Message);
             // the email account maybe not verified, therefore there are a limited number of email can be sent within one day.
             // also the email sender class did not use oauth2 before sending the email, therefore the email maybe can not sent.
             throw new OperationFailException("Failed to send email");
@@ -145,7 +175,10 @@ public class LoginController
 
         Helpers.File.TempFileManager.CloseTempFile(accessToken);
         _UserTable.Update( in potentialUser);
+ 
     }
+
+    
 
     public void GetResetPwPage(string accessToken , string lang, ref string html)
     {
@@ -161,5 +194,19 @@ public class LoginController
                 new UpdateObjectModel { Attribute = "lan", Value = lang }
             }
         );
+    }
+
+
+    public void ChangePW(string username , string newPassword )
+    {
+        var potentialUser = _UserTable.GetBySQL(
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>(
+                $"UserName:{username}" , "accounts"
+            )
+        ).FirstOrDefault();
+
+        potentialUser.Password = Helpers.Secure.Hasher.Hash(newPassword);
+
+        _UserTable.Update( in potentialUser);
     }
 }

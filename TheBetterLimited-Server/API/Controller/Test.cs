@@ -22,17 +22,32 @@ using Microsoft.AspNetCore.SignalR;
 namespace TheBetterLimited_Server.API.Controllers
 {
     [Route("api/[controller]")]
+
     public class Test : ControllerBase
     {
         private readonly IConfiguration _config;
         private readonly TheBetterLimited_Server.AppLogic.Controllers.TestController _testController;
+        private readonly TheBetterLimited_Server.Data.Repositories.AccountRepository _accountRepository;
 
         public Test(IConfiguration config, DataContext data )
         {
             _config = config;
             _testController = new AppLogic.Controllers.TestController(data);
+            _accountRepository = new Data.Repositories.AccountRepository(data);
         }
 
+        [HttpGet("testref")]
+        public void Getdafsdf()
+        {
+            TheBetterLimited_Server.Data.Entity.Account account = new TheBetterLimited_Server.Data.Entity.Account();
+        }
+
+
+        [HttpGet("testlogaccess")]
+        public IActionResult TestLogAccess()
+        {
+            return Ok("LogAccess");
+        }
 
         [HttpGet("{id}")]
         public IActionResult Get(long id)

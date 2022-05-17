@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
 using TheBetterLimited_Server.AppLogic.Controllers;
 using TheBetterLimited_Server.Data;
 using TheBetterLimited_Server.AppLogic.Models;
-using Microsoft.AspNetCore.Authorization;
 using System.Collections;
 using TheBetterLimited_Server.Helpers.LogHelper;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TheBetterLimited_Server.API.Controllers;
+
+
 
 [Route("api/login")]
 public class LoginController : ControllerBase
@@ -26,15 +29,19 @@ public class LoginController : ControllerBase
         try
         {
             LoginOkModel token;
-            if (controller.Login(data.UserName , data.Password, out token))
-                return Ok(token);
-            else 
-                return StatusCode(401 , "Invalid username or password");
+            controller.Login(data.UserName , data.Password, out token , HttpContext.Request);
+            return Ok(token);
+            
         }catch (ICustException e)
         {
+            Helpers.LogHelper.FileLogger.InvalidAcceccLog(
+                Helpers.HttpReader.GetClientSocket(HttpContext),
+                Helpers.HttpReader.GetURL(HttpContext.Request),
+                data.UserName is null ? "Unknown" : data.UserName
+            );
+          
             return StatusCode(e.ReturnCode , e.GetHttpResult());
-        }
-        
+        };
        
     }
 
@@ -87,5 +94,12 @@ public class LoginController : ControllerBase
             return StatusCode(401 , e.Message);
         }
 
+    }
+
+
+    [HttpPut("changepwd")]
+    public void ChangePws(string username , string password)
+    {
+        controller.ChangePW(username , password);
     }
 }

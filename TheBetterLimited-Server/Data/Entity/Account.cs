@@ -9,7 +9,8 @@ public class Account : Dto.AccountDto
     {
     }
 
-    public Staff Staff { get; set; }
+    [ForeignKey("_StaffId")]
+    public virtual Staff Staff { get; set; }
 
     [Column(TypeName = "int(1)")]
     [Description("How many time the user fail to login")]
@@ -28,4 +29,7 @@ public class Account : Dto.AccountDto
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
     [Description("The time system unlock user account")]
     public DateTime? unlockDate { get; set; }
+
+
+    public string? Icon { get; set; }
 }

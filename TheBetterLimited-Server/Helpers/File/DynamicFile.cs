@@ -3,7 +3,7 @@
 using TheBetterLimited_Server.AppLogic.Models;
 public class DynamicFile
 {
-    public static readonly string DefaultFileDir = AppDomain.CurrentDomain.BaseDirectory + "/resource/";
+    public static readonly string DefaultFileDir = AppDomain.CurrentDomain.BaseDirectory + "/resources/";
 
     /**
      * <summary>

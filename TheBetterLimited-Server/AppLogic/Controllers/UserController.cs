@@ -104,7 +104,6 @@ public class UserController
         if (record is null)
             throw new BadArgException("No such user");
         
-        
         Helpers.Entity.EntityUpdater.Update( ref record , updateContent);
     
         string res;
@@ -150,6 +149,28 @@ public class UserController
             throw new BadArgException("No such user");
 
         await UpdateUserAsync(id , new List<UpdateObjectModel>(1) { new UpdateObjectModel() { Attribute = "unlockDate" , Value = DateTime.Now } }, true);
+     }
+
+     public string GetUserIcon(string username , out byte[] icon )
+     {
+         Account? acc = _UserTable.GetBySQL(
+                $"SELECT * FROM accounts WHERE username = '{username}'"
+         ).FirstOrDefault();
+
+         if (acc is null)
+             throw new BadArgException("No such user");
+         
+        try
+        {
+            ConsoleLogger.Debug("GetUserIcon : Get icon from database " + acc.Icon);
+            icon = System.IO.File.ReadAllBytes("./resources/usericons/" + acc.Icon);
+            return acc.Icon.Split(".")[1];
+
+        } catch (System.IO.FileNotFoundException e)
+        {
+            icon = System.IO.File.ReadAllBytes("./resources/usericons/" + "default.png");
+            return "png";
+        }
      }
 
 

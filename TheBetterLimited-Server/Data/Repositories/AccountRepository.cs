@@ -1,6 +1,7 @@
 using TheBetterLimited_Server.AppLogic.Exceptions;
 using TheBetterLimited_Server.Data.Entity;
 using TheBetterLimited_Server.Helpers.Entity;
+using System.Reflection;
 
 namespace TheBetterLimited_Server.Data.Repositories;
 
@@ -8,12 +9,17 @@ public class AccountRepository : Repository<Account>
 {
     protected readonly DataContext DbContext;
     private DbSet<Staff> Staffs;
+    private DbSet<Menu> Menus;
+    private DbSet<Position> Positions;
+    private DbSet<Permission> Permissions;
+    private DbSet<Department> Departments;
     
     public AccountRepository(DataContext dbContext) : base(dbContext)
     {
         DbContext = dbContext;
         Staffs = DbContext.Set<Staff>();
     }
+
 
     public bool CreateUser(ref Account acc)
     {
@@ -42,4 +48,6 @@ public class AccountRepository : Repository<Account>
         return base.Add(acc);
 
     }
+
+    
 }
