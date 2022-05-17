@@ -30,22 +30,26 @@ public class Staff
     [ForeignKey("_positionId")]
     public virtual Position position { get; set; }
 
-
-
-    // [ForeignKey("WarehouseId")]
     // [MaxLength(3)]
     // [Column(TypeName = "char(3)")]
     // public string? _warehouseId {get; set; }
 
-    // [ForeignKey("StoreId")]
+    // [ForeignKey("_warehouseId")]
+    // public virtual Warehouse warehouse { get; set; }
+
     // [MaxLength(3)]
     // [Column(TypeName = "char(3)")]
     // public string? _storeId {get; set; }
 
-    // [ForeignKey("TeamId")]
+    // [ForeignKey("_storeId")]
+    // public virtual Store store { get; set; }
+
     // [MaxLength(3)]
     // [Column(TypeName = "char(3)")]
     // public string? _teamId {get; set; }
+
+    // [ForeignKey("_teamId")]
+    // public virtual Team team { get; set; }
 
     [MaxLength(10)]
     [Column(TypeName = "varchar(10)")]
@@ -53,20 +57,16 @@ public class Staff
 
     [MaxLength(10)]
     [Column(TypeName = "varchar(10)")]
-    public string lastName { get; set; }
+    public string LastName { get; set; }
 
     [Column(TypeName = "char(1)")]
-    public char? sex {get; set;}
+    public char? Sex {get; set;}
 
     [Range(0, 99)]
     [Column(TypeName = "integer(2)")]
-    public short? age {get; set;}
+    public short? Age {get; set;}
 
     [Phone]
     [Column(TypeName = "varchar(15)")]
-    public string? phone { get; set;}
-
-
-
-    
+    public string? Phone { get; set;}
 }

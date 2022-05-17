@@ -11,14 +11,14 @@ using TheBetterLimited_Server.Data;
 namespace TheBetterLimited_Server.Data.EFMigrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220515100757_Init")]
-    partial class Init
+    [Migration("20220517142725_init1")]
+    partial class init1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.4")
+                .HasAnnotation("ProductVersion", "7.0.0-preview.4.22229.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Account", b =>
@@ -30,6 +30,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Property<string>("EmailAddress")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Icon")
+                        .HasColumnType("longtext");
 
                     b.Property<DateTime?>("LastLogin")
                         .HasColumnType("datetime(6)");
@@ -89,6 +92,22 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.ToTable("departments");
                 });
 
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Location", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(3)
+                        .HasColumnType("char(3)");
+
+                    b.Property<string>("Loc")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("locations");
+                });
+
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Menu", b =>
                 {
                     b.Property<string>("Id")
@@ -103,6 +122,32 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.HasKey("Id");
 
                     b.ToTable("menus");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Message", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<DateTime>("SentDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("_senderId")
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .HasColumnType("char(5)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("_senderId");
+
+                    b.ToTable("messages");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Permission", b =>
@@ -159,10 +204,24 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasMaxLength(5)
                         .HasColumnType("char(5)");
 
+                    b.Property<int?>("Age")
+                        .HasColumnType("integer(2)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("varchar(10)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<string>("Sex")
+                        .HasColumnType("char(1)");
 
                     b.Property<string>("_AccountId")
                         .HasMaxLength(5)
@@ -178,20 +237,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasMaxLength(3)
                         .HasColumnType("char(3)");
 
-                    b.Property<int?>("age")
-                        .HasColumnType("integer(2)");
-
-                    b.Property<string>("lastName")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<string>("phone")
-                        .HasColumnType("varchar(15)");
-
-                    b.Property<string>("sex")
-                        .HasColumnType("char(1)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("_AccountId");
@@ -201,6 +246,27 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.HasIndex("_positionId");
 
                     b.ToTable("staffs");
+
+                    b.HasCheckConstraint("age_cc", "age >= 18 and age <= 60");
+
+                    b.HasCheckConstraint("sex_cc", "sex in ('M' , 'F') ");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Staff_Message", b =>
+                {
+                    b.Property<string>("_messageId")
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<string>("_receiverId")
+                        .HasMaxLength(5)
+                        .HasColumnType("char(5)");
+
+                    b.HasKey("_messageId", "_receiverId");
+
+                    b.HasIndex("_receiverId");
+
+                    b.ToTable("staff_messages");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Account", b =>
@@ -212,6 +278,17 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .IsRequired();
 
                     b.Navigation("Staff");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Message", b =>
+                {
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.Account", "sender")
+                        .WithMany()
+                        .HasForeignKey("_senderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("sender");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Permission", b =>
@@ -267,6 +344,25 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Navigation("department");
 
                     b.Navigation("position");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Staff_Message", b =>
+                {
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.Message", "message")
+                        .WithMany()
+                        .HasForeignKey("_messageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.Account", "receiver")
+                        .WithMany()
+                        .HasForeignKey("_receiverId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("message");
+
+                    b.Navigation("receiver");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Department", b =>

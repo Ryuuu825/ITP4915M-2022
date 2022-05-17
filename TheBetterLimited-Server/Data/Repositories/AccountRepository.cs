@@ -20,6 +20,7 @@ public class AccountRepository : Repository<Account>
         Staffs = DbContext.Set<Staff>();
     }
 
+
     public bool CreateUser(ref Account acc)
     {
         var staff = Staffs.Find(acc._StaffId);
@@ -48,55 +49,5 @@ public class AccountRepository : Repository<Account>
 
     }
 
-    // a recursive function to load all foreign key data from database
-    // escape the recursion when there are no foreign key
-    // public void LoadForeignKeyData(object acc)
-    // {
-    //     if (acc is null)
-    //         return;
-    //     ConsoleLogger.Debug($"LoadForeignKeyData: {acc.GetType().Name}");
-    //     // load all foreign key data from database
-    //     foreach (var item in acc.GetType().GetProperties())
-    //     {
-    //         ConsoleLogger.Debug("Checking property: " + item.Name);
-    //         if (item.PropertyType == typeof(List<>))
-    //         {
-    //             ConsoleLogger.Debug("TEST" + item.Name);
-    //             DbContext.Entry(acc).Collection(item.Name).Load();
-                
-    //         }
-    //         else if (item.PropertyType.IsClass && item.PropertyType != typeof(string))
-    //         {
-    //             ConsoleLogger.Debug($"{item.Name} is a class");
-    //             DbContext.Entry(acc).Reference(item.Name).Load();
-    //             LoadForeignKeyData(item.GetValue(acc));
-    //         }
-    //     }     
-           
-    // }
-
-    // load all foreign key data from database
-    public void LoadUser(ref Account account)
-    {
-        // DbContext.Entry(account).Reference( a => a.Staff).Load();
-        // DbContext.Entry(account.Staff).Reference(s => s.department).Load();
-        // DbContext.Entry(account.Staff).Reference(s=>s.position).Load();
-
-
-        // LoadForeignKeyData(account);
-        // DbContext.Entry(account.Staff.position).Collection(p => p.permissions).Load();
-        // foreach (var item in account.Staff.position.permissions)
-        // {
-        //     DbContext.Entry(item.menu).Reference(m => m.Name).Load();
-        // }
-        // foreach (var permission in account.Staff.position.permissions)
-        // {
-        //     ConsoleLogger.Debug($"Loading... - {permission.menu.Name}");
-        //     DbContext.Entry(permission).Reference(p => p.menu).Load();
-        // }
-        ConsoleLogger.Debug(account.Staff.Debug());
-        ConsoleLogger.Debug(account.Staff.department.Debug());
-
-
-    }
+    
 }

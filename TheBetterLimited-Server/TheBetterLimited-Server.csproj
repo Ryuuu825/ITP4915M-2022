@@ -87,20 +87,7 @@
         <None Update="etc\secret.conf">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
-        <None Update="resource\template\test.html">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-
-        <None Update="resource\email\reset_password.en.html">
-          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="resource\email\reset_password.zh.html">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-          </None>
-        <None Update="resource\pages\reset_password.en.html">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="resource\pages\reset_password.zh.html">
+        <None Update="resources\**">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>

@@ -5,9 +5,9 @@ namespace TheBetterLimited_Server.Helpers.Extension
         
         /**
         * <summary>Load all foreign key data from database</summary>
-        * <remarks>ICollection type is not able to load</remarks>
+        * <remarks>ICollection type is not able to load. Lazy loading is enable, therefore it is not recommend to use this function</remarks>
         */    
-        public void LoadRelatedEntity(this DbContext db , object entity)
+        public static void LoadRelatedEntity(this DbContext db , object entity)
         {
             if (entity is null)
                 return;

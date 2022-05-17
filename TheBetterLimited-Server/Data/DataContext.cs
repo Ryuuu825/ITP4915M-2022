@@ -32,13 +32,16 @@ public class DataContext : DbContext
         //     .WithOne(a => a.Staff)
         //     .HasForeignKey<Staff>(s => s._AccountId);
         
-        // set two foreign key in permission table as the primary key
         md.Entity<Permission>()
             .HasKey(p => new { p._menuId, p._positionId });
         
+        md.Entity<Staff_Message>()
+            .HasKey(sm => new { sm._messageId , sm._receiverId});
+        
         md.Entity<Staff>()
-            .HasCheckConstraint("staff_age_check", "age >= 18 and age <= 60");
-
+            .HasCheckConstraint("age_cc", "age >= 18 and age <= 60")
+            .HasCheckConstraint("sex_cc" , "sex in ('M' , 'F') ");
+        
     }
     
     public DbSet<Account> accounts { get;  }
@@ -48,6 +51,14 @@ public class DataContext : DbContext
     public DbSet<Position> positions { get; }
     public DbSet<Permission> permissions { get; }
     public DbSet<Department> departments { get; }
+
+    public DbSet<Location> locations { get; }
+
+    public DbSet<Message> messages { get; }
+
+    public DbSet<Staff_Message> staff_messages { get; }
+
+    
     
 
 }

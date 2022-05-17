@@ -5,6 +5,8 @@ using TheBetterLimited_Server.Data;
 using TheBetterLimited_Server.Data.Dto;
 using Newtonsoft.Json.Linq;
 using TheBetterLimited_Server.AppLogic.Models;
+using Microsoft.AspNetCore.Authorization;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -159,4 +161,21 @@ public class UsersController : ControllerBase
             return StatusCode(e.ReturnCode, e.GetHttpResult());
         }
     }
+
+    [HttpGet("icon")]
+    [Authorize]
+    public async Task<IActionResult> GetIcon()
+    {
+        try
+        {
+            byte[] icon; 
+            string FileType = controller.GetUserIcon(User.Identity.Name , out icon);
+            return File(icon , $"image/{FileType}");
+        }
+        catch (ICustException e)
+        {
+            return StatusCode(e.ReturnCode, e.GetHttpResult());
+        }
+    }
+
 }

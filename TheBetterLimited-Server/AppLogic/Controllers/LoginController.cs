@@ -41,15 +41,23 @@ public class LoginController
             potentialUser.LoginFailedAt = DateTime.Now;
             _UserTable.Update( in potentialUser);
 
-            if (potentialUser.LoginFailedCount >= 3)
+            if (potentialUser.LoginFailedCount >= 10)
+            {
+                ConsoleLogger.Debug($"The account {potentialUser.UserName} is locked");
+                potentialUser.Status = "L";
+                potentialUser.unlockDate = DateTime.Now.AddYears(1);
+                _UserTable.Update( in potentialUser);
+                throw new LoginFailException($"The password is incorrect. The account is lock until {potentialUser.unlockDate}");
+            }
+            else if (potentialUser.LoginFailedCount >= 5)
             {
                 potentialUser.Status = "L";
-                potentialUser.unlockDate = DateTime.Now.AddHours(1);
+                potentialUser.unlockDate = DateTime.Now.AddMinutes(5);
                 _UserTable.Update( in potentialUser);
                 throw new LoginFailException($"The password is incorrect. The account is lock until {potentialUser.unlockDate}");
             }
 
-            throw new LoginFailException($"The password is incorrect.");
+            throw new LoginFailException($"The password is incorrect. You have {5 - potentialUser.LoginFailedCount} attempts left");
         }
         //  if password is correct and user not locked
         else 
@@ -131,6 +139,7 @@ public class LoginController
             throw new FileNotExistException($"Language not supprt: {lang}", HttpStatusCode.BadRequest);
         }catch(Exception e) 
         {
+            ConsoleLogger.Debug(e.Message);
             // the email account maybe not verified, therefore there are a limited number of email can be sent within one day.
             // also the email sender class did not use oauth2 before sending the email, therefore the email maybe can not sent.
             throw new OperationFailException("Failed to send email");
@@ -166,7 +175,10 @@ public class LoginController
 
         Helpers.File.TempFileManager.CloseTempFile(accessToken);
         _UserTable.Update( in potentialUser);
+ 
     }
+
+    
 
     public void GetResetPwPage(string accessToken , string lang, ref string html)
     {
@@ -182,5 +194,19 @@ public class LoginController
                 new UpdateObjectModel { Attribute = "lan", Value = lang }
             }
         );
+    }
+
+
+    public void ChangePW(string username , string newPassword )
+    {
+        var potentialUser = _UserTable.GetBySQL(
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>(
+                $"UserName:{username}" , "accounts"
+            )
+        ).FirstOrDefault();
+
+        potentialUser.Password = Helpers.Secure.Hasher.Hash(newPassword);
+
+        _UserTable.Update( in potentialUser);
     }
 }
