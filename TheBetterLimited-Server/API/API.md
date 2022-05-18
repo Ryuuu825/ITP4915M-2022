@@ -453,3 +453,68 @@ strin
 ```
 
 ---
+
+### message
+
+#### get message
+
+Bearer token is needed to access this endpoint
+```json
+GET /api/message
+```
+example response body:
+```json
+{
+  "messageReceived": 4,
+  "messages": [
+    {
+      "senderName": "admin",
+      "sentDate": "05/17/2022",
+      "content": "string"
+    },
+    {
+      "senderName": "admin",
+      "sentDate": "05/17/2022",
+      "content": "string"
+    },
+    {
+      "senderName": "admin",
+      "sentDate": "05/17/2022",
+      "content": "我係"
+    },
+    {
+      "senderName": "admin",
+      "sentDate": "05/17/2022",
+      "content": "string"
+    }
+  ]
+}
+```
+
+or if no message is found
+```json
+{
+  "messageReceived": 0,
+  "messages": []
+}
+```
+
+----
+
+#### send message
+you can specify the message content and the receiver id. You can send message to multiple users at the same time.
+
+```
+POST /api/message
+```
+
+example request body:
+```json
+{
+  "receiver": [
+    "S0002", "strin"
+  ],
+  "content": "我係"
+}
+```
+
