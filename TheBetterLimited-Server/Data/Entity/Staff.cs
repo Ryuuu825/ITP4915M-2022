@@ -1,5 +1,6 @@
 namespace TheBetterLimited_Server.Data.Entity;
 
+[Table("Staff")]
 public class Staff
 {
     [Key]

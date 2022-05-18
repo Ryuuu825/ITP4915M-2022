@@ -128,15 +128,17 @@ public class LoginController
 
             // send email to user with link to reset password
             Helpers.EmailSender.SendEmail(
-                potentialUser.UserName,
-                potentialUser.EmailAddress,
-                "Reset Password",
-                in email
+                    potentialUser.UserName,
+                    potentialUser.EmailAddress,
+                    "Reset Password",
+                    email
             );
+          
 
         }catch(FileNotFoundException e)
         {
             throw new FileNotExistException($"Language not supprt: {lang}", HttpStatusCode.BadRequest);
+        
         }catch(Exception e) 
         {
             ConsoleLogger.Debug(e.Message);

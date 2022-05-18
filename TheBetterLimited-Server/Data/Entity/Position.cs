@@ -1,5 +1,6 @@
 namespace TheBetterLimited_Server.Data.Entity
 {
+    [Table("Position")]
     public class Position
     {
         [Key]

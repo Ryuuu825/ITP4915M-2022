@@ -3,6 +3,8 @@
 namespace TheBetterLimited_Server.Data.Entity
 {
     using System.ComponentModel;
+
+    [Table("Location")]
     public class Location
     {
         [Key]

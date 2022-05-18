@@ -53,7 +53,7 @@ public class LoginController : ControllerBase
         try
         {
             controller.RequestForgetPW(data, lang);
-            return Ok();
+            return Ok(new{status= 200 , message = "Email  is being sent to your mail box! Please check your mail box (or Junk box also) to reset your password."});
 
         }catch (ICustException e)
         {

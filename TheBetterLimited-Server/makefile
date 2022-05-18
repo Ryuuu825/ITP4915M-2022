@@ -1,5 +1,5 @@
-﻿update:
-	dotnet ef migrations add Init -o ./Data/EFMigrations
+﻿update: Clean
+	dotnet ef migrations add CREATEALLTABLE -o ./Data/EFMigrations
 	dotnet ef database update
 
 updaten:

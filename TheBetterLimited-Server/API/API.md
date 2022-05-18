@@ -455,10 +455,10 @@ strin
 ---
 
 ### message
+Bearer token is needed to access this endpoint
 
 #### get message
 
-Bearer token is needed to access this endpoint
 ```json
 GET /api/message
 ```
