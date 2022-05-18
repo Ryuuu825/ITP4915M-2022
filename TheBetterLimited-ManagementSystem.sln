@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheBetterLimited-Management
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheBetterLimited-Server", "TheBetterLimited-Server\TheBetterLimited-Server.csproj", "{8B44AD9A-47A8-481A-9FEE-70680854BC65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheBetterLimited-System", "SDPTest\TheBetterLimited-System.csproj", "{E9BF8671-3F41-4B16-8060-593B63DAC7D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheBetterLimited-System", "TheBetterLimited-System\TheBetterLimited-System.csproj", "{E9BF8671-3F41-4B16-8060-593B63DAC7D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
