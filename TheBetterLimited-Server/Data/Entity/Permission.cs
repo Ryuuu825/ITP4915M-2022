@@ -1,5 +1,6 @@
 namespace TheBetterLimited_Server.Data.Entity
 {
+    [Table("Permission")]
     public class Permission
     {
 

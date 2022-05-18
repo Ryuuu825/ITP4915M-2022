@@ -3,6 +3,7 @@ namespace TheBetterLimited_Server.Data.Entity;
 
 using System.ComponentModel;
 
+[Table("Account")]
 public class Account : Dto.AccountDto
 {
     public Account()

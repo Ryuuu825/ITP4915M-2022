@@ -1,5 +1,6 @@
 namespace TheBetterLimited_Server.Data.Entity
 {
+    [Table("Staff_Message")]
     public class Staff_Message
     {
         [ForeignKey("message")]

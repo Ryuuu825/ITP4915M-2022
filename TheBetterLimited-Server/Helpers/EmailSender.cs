@@ -14,8 +14,7 @@ public static class EmailSender
         return $"{_Secret["Username"]}{_Secret["Domain"]}";
     }
 
-
-    public static void SendEmail(string recevier, string receiverAddress, string subject, in string msg)
+    public static MimeMessage CreateEmail(string recevier, string receiverAddress, string subject, in string msg)
     {
         var message = new MimeMessage();
         message.From.Add(new MailboxAddress(_Secret["DisplayedName"], GetEmailAddress()));
@@ -26,16 +25,24 @@ public static class EmailSender
             Text = msg
         };
 
+        return message;
+    }
+
+
+    public static async Task SendEmail(string recevier, string receiverAddress, string subject, string msg)
+    {
+        
+        var message = CreateEmail(recevier, receiverAddress, subject, in msg);
 
         using (var client = new SmtpClient())
         {
-            client.Connect(_Secret["ServerURL"], int.Parse(_Secret["Port"]), false);
-            client.Authenticate(GetEmailAddress(), _Secret["Password"]);
+            await client.ConnectAsync(_Secret["ServerURL"], int.Parse(_Secret["Port"]), false);
+            await client.AuthenticateAsync(GetEmailAddress(), _Secret["Password"]);
 
             if (client.IsConnected)
             {
-                client.Send(message);
-                client.Disconnect(true);
+                await client.SendAsync(message);
+                await client.DisconnectAsync(true);
             }
             else
             {
