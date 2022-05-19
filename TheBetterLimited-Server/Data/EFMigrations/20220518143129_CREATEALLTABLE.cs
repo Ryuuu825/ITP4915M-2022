@@ -47,21 +47,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Department",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Name = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Department", x => x.Id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "Location",
                 columns: table => new
                 {
@@ -99,13 +84,13 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Name = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Phone = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false)
+                    Phone = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Contact = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false)
+                    Contact = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Email = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false)
+                    Email = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Address = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                    Address = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -127,9 +112,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     Description = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Price = table.Column<short>(type: "SMALLINT", nullable: false),
-                    GTINNode = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: false)
+                    GTINNode = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Size = table.Column<string>(type: "char(1)", nullable: false)
+                    Size = table.Column<string>(type: "char(1)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Status = table.Column<string>(type: "char(1)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
@@ -142,77 +127,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         column: x => x._catalogueId,
                         principalTable: "Catalogue",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Position",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    _departmentId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    jobTitle = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Position", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Position_Department__departmentId",
-                        column: x => x._departmentId,
-                        principalTable: "Department",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Session",
-                columns: table => new
-                {
-                    ID = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    _departmentId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    StartTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    EndTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Date = table.Column<DateOnly>(type: "date", nullable: false),
-                    NumOfAppointments = table.Column<sbyte>(type: "TINYINT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Session", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Session_Department__departmentId",
-                        column: x => x._departmentId,
-                        principalTable: "Department",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Team",
-                columns: table => new
-                {
-                    ID = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    _departmentId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Name = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Team", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Team_Department__departmentId",
-                        column: x => x._departmentId,
-                        principalTable: "Department",
-                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -310,7 +224,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _departmentId = table.Column<string>(type: "char(10)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    _price = table.Column<decimal>(type: "DECIMAL(7,2)", nullable: false)
+                    _price = table.Column<decimal>(type: "DECIMAL(7,2)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -326,73 +240,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         name: "FK_Supplier_Goods_Supplier__supplierId",
                         column: x => x._supplierId,
                         principalTable: "Supplier",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Permission",
-                columns: table => new
-                {
-                    _menuId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    _positionId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    read = table.Column<bool>(type: "tinyint(1)", nullable: true),
-                    write = table.Column<bool>(type: "tinyint(1)", nullable: true),
-                    delete = table.Column<bool>(type: "tinyint(1)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Permission", x => new { x._menuId, x._positionId });
-                    table.ForeignKey(
-                        name: "FK_Permission_Menu__menuId",
-                        column: x => x._menuId,
-                        principalTable: "Menu",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Permission_Position__positionId",
-                        column: x => x._positionId,
-                        principalTable: "Position",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Appointment",
-                columns: table => new
-                {
-                    ID = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    _sessionId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    _departmentId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    _teamId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Appointment", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Appointment_Department__departmentId",
-                        column: x => x._departmentId,
-                        principalTable: "Department",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Appointment_Session__sessionId",
-                        column: x => x._sessionId,
-                        principalTable: "Session",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Appointment_Team__teamId",
-                        column: x => x._teamId,
-                        principalTable: "Team",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -431,38 +278,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         columns: x => new { x.Supplier_Goods_goodsId, x.Supplier_Goods_supplierId },
                         principalTable: "Supplier_Goods",
                         principalColumns: new[] { "_goodsId", "_supplierId" });
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "BookingOrder",
-                columns: table => new
-                {
-                    ID = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    _customerId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    _appointmentId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Quantity = table.Column<short>(type: "SMALLINT", nullable: false),
-                    Remarks = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BookingOrder", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_BookingOrder_Appointment__appointmentId",
-                        column: x => x._appointmentId,
-                        principalTable: "Appointment",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_BookingOrder_Customer__customerId",
-                        column: x => x._customerId,
-                        principalTable: "Customer",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -522,6 +337,227 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Staff_Message",
+                columns: table => new
+                {
+                    _messageId = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _receiverId = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Status = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Staff_Message", x => new { x._messageId, x._receiverId });
+                    table.ForeignKey(
+                        name: "FK_Staff_Message_Account__receiverId",
+                        column: x => x._receiverId,
+                        principalTable: "Account",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Staff_Message_Message__messageId",
+                        column: x => x._messageId,
+                        principalTable: "Message",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Appointment",
+                columns: table => new
+                {
+                    ID = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _sessionId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _departmentId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _teamId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Appointment", x => x.ID);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "BookingOrder",
+                columns: table => new
+                {
+                    ID = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _customerId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _appointmentId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Quantity = table.Column<short>(type: "SMALLINT", nullable: false),
+                    Remarks = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BookingOrder", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_BookingOrder_Appointment__appointmentId",
+                        column: x => x._appointmentId,
+                        principalTable: "Appointment",
+                        principalColumn: "ID");
+                    table.ForeignKey(
+                        name: "FK_BookingOrder_Customer__customerId",
+                        column: x => x._customerId,
+                        principalTable: "Customer",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Budget",
+                columns: table => new
+                {
+                    ID = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _operatorId = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Amount = table.Column<decimal>(type: "DECIMAL(7,2)", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    Remarks = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    ResetDate = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Budget", x => x.ID);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Department",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Name = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _budgetId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Department", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Department_Budget__budgetId",
+                        column: x => x._budgetId,
+                        principalTable: "Budget",
+                        principalColumn: "ID");
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Position",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _departmentId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    jobTitle = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Position", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Position_Department__departmentId",
+                        column: x => x._departmentId,
+                        principalTable: "Department",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Session",
+                columns: table => new
+                {
+                    ID = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _departmentId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    StartTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    EndTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    Date = table.Column<DateOnly>(type: "date", nullable: false),
+                    NumOfAppointments = table.Column<sbyte>(type: "TINYINT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Session", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Session_Department__departmentId",
+                        column: x => x._departmentId,
+                        principalTable: "Department",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Team",
+                columns: table => new
+                {
+                    ID = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _departmentId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Name = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Team", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Team_Department__departmentId",
+                        column: x => x._departmentId,
+                        principalTable: "Department",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Permission",
+                columns: table => new
+                {
+                    _menuId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _positionId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    read = table.Column<bool>(type: "tinyint(1)", nullable: true),
+                    write = table.Column<bool>(type: "tinyint(1)", nullable: true),
+                    delete = table.Column<bool>(type: "tinyint(1)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Permission", x => new { x._menuId, x._positionId });
+                    table.ForeignKey(
+                        name: "FK_Permission_Menu__menuId",
+                        column: x => x._menuId,
+                        principalTable: "Menu",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Permission_Position__positionId",
+                        column: x => x._positionId,
+                        principalTable: "Position",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Staff",
                 columns: table => new
                 {
@@ -532,6 +568,12 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     _departmentId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _positionId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _warehouseId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _storeId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _teamId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     FirstName = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -565,59 +607,21 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         principalTable: "Position",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Staff_Message",
-                columns: table => new
-                {
-                    _messageId = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    _receiverId = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Staff_Message", x => new { x._messageId, x._receiverId });
                     table.ForeignKey(
-                        name: "FK_Staff_Message_Account__receiverId",
-                        column: x => x._receiverId,
-                        principalTable: "Account",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Staff_Store__storeId",
+                        column: x => x._storeId,
+                        principalTable: "Store",
+                        principalColumn: "ID");
                     table.ForeignKey(
-                        name: "FK_Staff_Message_Message__messageId",
-                        column: x => x._messageId,
-                        principalTable: "Message",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Budget",
-                columns: table => new
-                {
-                    ID = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    _operatorId = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Amount = table.Column<decimal>(type: "DECIMAL(7,2)", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    Remarks = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    ResetDate = table.Column<DateTime>(type: "datetime(6)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Budget", x => x.ID);
+                        name: "FK_Staff_Team__teamId",
+                        column: x => x._teamId,
+                        principalTable: "Team",
+                        principalColumn: "ID");
                     table.ForeignKey(
-                        name: "FK_Budget_Staff__operatorId",
-                        column: x => x._operatorId,
-                        principalTable: "Staff",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        name: "FK_Staff_Warehouse__warehouseId",
+                        column: x => x._warehouseId,
+                        principalTable: "Warehouse",
+                        principalColumn: "ID");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -653,7 +657,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _createrId = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    _operatorId = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
+                    _operatorId = table.Column<string>(type: "char(5)", maxLength: 5, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _warehouseId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -674,8 +678,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         name: "FK_PurchaseOrder_Staff__operatorId",
                         column: x => x._operatorId,
                         principalTable: "Staff",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_PurchaseOrder_Warehouse__warehouseId",
                         column: x => x._warehouseId,
@@ -835,7 +838,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     SupplierGoodsStock_locationId = table.Column<string>(type: "char(3)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    _salesOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
+                    _salesOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _creatorId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -844,7 +847,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     Status = table.Column<int>(type: "int", nullable: false),
                     createdAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     updatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Remark = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                    Remark = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -854,8 +857,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         name: "FK_DefectItemRecord_SalesOrder__salesOrderId",
                         column: x => x._salesOrderId,
                         principalTable: "SalesOrder",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_DefectItemRecord_Staff__creatorId",
                         column: x => x._creatorId,
@@ -889,9 +891,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     SupplierGoodsStock_locationId = table.Column<string>(type: "char(3)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Quantity = table.Column<sbyte>(type: "TINYINT", nullable: false),
-                    _appointmentId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
+                    _appointmentId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    _bookingOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
+                    _bookingOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -901,14 +903,12 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         name: "FK_SalesOrderItem_Appointment__appointmentId",
                         column: x => x._appointmentId,
                         principalTable: "Appointment",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_SalesOrderItem_BookingOrder__bookingOrderId",
                         column: x => x._bookingOrderId,
                         principalTable: "BookingOrder",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_SalesOrderItem_SalesOrder__salesOrderId",
                         column: x => x._salesOrderId,
@@ -1004,6 +1004,11 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "IX_DefectItemRecord_SupplierGoodsStock_supplierGoodsId_Supplier~",
                 table: "DefectItemRecord",
                 columns: new[] { "SupplierGoodsStock_supplierGoodsId", "SupplierGoodsStock_locationId" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Department__budgetId",
+                table: "Department",
+                column: "_budgetId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DisplayItem__goodsId",
@@ -1131,6 +1136,21 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 column: "_positionId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Staff__storeId",
+                table: "Staff",
+                column: "_storeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Staff__teamId",
+                table: "Staff",
+                column: "_teamId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Staff__warehouseId",
+                table: "Staff",
+                column: "_warehouseId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Staff_Message__receiverId",
                 table: "Staff_Message",
                 column: "_receiverId");
@@ -1182,6 +1202,36 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 principalTable: "Staff",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Appointment_Department__departmentId",
+                table: "Appointment",
+                column: "_departmentId",
+                principalTable: "Department",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Appointment_Session__sessionId",
+                table: "Appointment",
+                column: "_sessionId",
+                principalTable: "Session",
+                principalColumn: "ID");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Appointment_Team__teamId",
+                table: "Appointment",
+                column: "_teamId",
+                principalTable: "Team",
+                principalColumn: "ID");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Budget_Staff__operatorId",
+                table: "Budget",
+                column: "_operatorId",
+                principalTable: "Staff",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -1190,8 +1240,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "FK_Account_Staff__StaffId",
                 table: "Account");
 
-            migrationBuilder.DropTable(
-                name: "Budget");
+            migrationBuilder.DropForeignKey(
+                name: "FK_Budget_Staff__operatorId",
+                table: "Budget");
 
             migrationBuilder.DropTable(
                 name: "DayOffRecord");
@@ -1242,9 +1293,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "SalesOrder");
 
             migrationBuilder.DropTable(
-                name: "Warehouse");
-
-            migrationBuilder.DropTable(
                 name: "Appointment");
 
             migrationBuilder.DropTable(
@@ -1254,22 +1302,13 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "Supplier_Goods");
 
             migrationBuilder.DropTable(
-                name: "Store");
-
-            migrationBuilder.DropTable(
                 name: "Session");
-
-            migrationBuilder.DropTable(
-                name: "Team");
 
             migrationBuilder.DropTable(
                 name: "Goods");
 
             migrationBuilder.DropTable(
                 name: "Supplier");
-
-            migrationBuilder.DropTable(
-                name: "Location");
 
             migrationBuilder.DropTable(
                 name: "Catalogue");
@@ -1284,7 +1323,22 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "Position");
 
             migrationBuilder.DropTable(
+                name: "Store");
+
+            migrationBuilder.DropTable(
+                name: "Team");
+
+            migrationBuilder.DropTable(
+                name: "Warehouse");
+
+            migrationBuilder.DropTable(
                 name: "Department");
+
+            migrationBuilder.DropTable(
+                name: "Location");
+
+            migrationBuilder.DropTable(
+                name: "Budget");
         }
     }
 }

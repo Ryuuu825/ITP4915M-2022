@@ -4,6 +4,7 @@ namespace TheBetterLimited_Server.Data.Repositories;
 
 public interface IRepository<TEntity>
 {
+    abstract Task<List<TEntity>> GetAllAsync();
     abstract Task<TEntity?> GetByIdAsync(params object[] ids);
     abstract Task<List<TEntity>> GetBySQLAsync(string sql);
     abstract Task<bool> AddAsync(TEntity entity, bool saveNow = true);
@@ -12,6 +13,7 @@ public interface IRepository<TEntity>
     abstract Task<bool> IsRecordExistAsync(string id);
 
 
+    abstract List<TEntity> GetAll();
 
     abstract TEntity GetById(params object[] ids);
     abstract List<TEntity> GetBySQL(string sql);

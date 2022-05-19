@@ -18,10 +18,10 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(5)]
         [Column(TypeName = "char(5)")]
-        public string _operatorId { get; set;}
+        public string? _operatorId { get; set;}
 
         [ForeignKey("_operatorId")]
-        public virtual Staff Operator { get; set; }
+        public virtual Staff? Operator { get; set; }
 
 
         // warehouse

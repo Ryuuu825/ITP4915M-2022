@@ -5,14 +5,14 @@ public static class QueryStringBuilder
 {
     public static readonly string query = "SELECT @ATTRIBUTE FROM @TABLE WHERE @CONDITION";
 
-    public static string GetSqlStatement<T>(string condString , string table)
+    public static string GetSqlStatement<T>(string condString )
     {
         string queryStr;
 
         if (condString.Contains(":"))
-            queryStr = Helpers.Sql.QueryStringBuilder.CreateSQLQuery( condString , table);
+            queryStr = Helpers.Sql.QueryStringBuilder.CreateSQLQuery( condString , typeof(T).Name );
         else 
-            queryStr = Helpers.Sql.QueryStringBuilder.LazyCreateSQLQuery<T>( condString, table);
+            queryStr = Helpers.Sql.QueryStringBuilder.LazyCreateSQLQuery<T>( condString, typeof(T).Name);
 #if DEBUG
         Console.WriteLine(queryStr);
 #endif      

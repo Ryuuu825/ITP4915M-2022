@@ -21,17 +21,17 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]
-        public string _appointmentId { get; set; }
+        public string? _appointmentId { get; set; }
 
         [ForeignKey("_appointmentId")]
-        public virtual Appointment Appointment { get; set; }
+        public virtual Appointment? Appointment { get; set; }
 
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]
-        public string _bookingOrderId { get; set; }
+        public string? _bookingOrderId { get; set; }
 
         [ForeignKey("_bookingOrderId")]
-        public virtual BookingOrder BookingOrder { get; set; }
+        public virtual BookingOrder? BookingOrder { get; set; }
 
     }
 }

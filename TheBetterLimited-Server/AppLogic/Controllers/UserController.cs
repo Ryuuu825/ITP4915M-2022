@@ -80,7 +80,7 @@ public class UserController
 
     public async Task<List<AccountDto>> GetUsersByConditionString(string condString)
     {
-        string queryStr = Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>(condString, "accounts");
+        string queryStr = Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>(condString);
     
         return await GetUsersBySql(queryStr);
     }
@@ -122,7 +122,7 @@ public class UserController
 
     public async Task<List<AccountDto>> UpdateRangeUserAsync( string condString , List<UpdateObjectModel> updateContent, bool saveNow = true)
     {
-        List<Account> records = await _UserTable.GetBySQLAsync(Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>(condString , "accounts"));
+        List<Account> records = await _UserTable.GetBySQLAsync(Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>(condString ));
         foreach (var record in records)
         {
             await UpdateUserAsync(record.Id , updateContent, saveNow);

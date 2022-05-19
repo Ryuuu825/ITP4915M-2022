@@ -15,19 +15,34 @@ namespace TheBetterLimited_Server.API.Controller
         {
             controller = new MessageController(db);
         }
-        [HttpGet]
+        [HttpGet("unread")]
         [Authorize]
         public ReceiveMessageModel GetMessage()
         {
+            return controller.GetUnReadMessage( User.Identity.Name );
+        }
+
+        [HttpGet]
+        [Authorize]
+        public ReceiveMessageModel GetReadMessage()
+        {
             return controller.GetMessage( User.Identity.Name );
+
         }
 
         [HttpPost]
         [Authorize]
         public IActionResult SendMessage([FromBody] Data.Dto.SendMessageDto message)
         {
-            controller.SendMessage(User.Identity.Name , message);
-            return Ok();
+            try
+            {
+                controller.SendMessage(User.Identity.Name , message);
+                return Ok();
+            }catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
+
         }
     }
 }
