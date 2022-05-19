@@ -46,7 +46,7 @@ namespace TheBetterLimited.Views
             var result = loginController.ResetPassword(username, email);
             if (result.Code.Equals("200"))
             {
-                Msg.Text = "An email has been resent.";
+                Msg.Text = "Email has been resent! \n Please check your mail box (or junk box also).";
                 resendTimer.Start();
             }
             else

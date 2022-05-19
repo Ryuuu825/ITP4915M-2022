@@ -10,6 +10,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TheBetterLimited.Controller
 {
@@ -52,10 +53,16 @@ namespace TheBetterLimited.Controller
             var request = new RestRequest("/", Method.Post)
                         .AddHeader("lang",l)
                         .AddJsonBody(json);
-            var response = client.ExecuteAsync(request).GetAwaiter().GetResult();
-            var res = JObject.Parse(response.Content);
-            ResponseResult values = new ResponseResult(res["status"].ToString(), res["message"].ToString());
-            return values;
+            try
+            {
+                var response = client.ExecuteAsync(request).GetAwaiter().GetResult();
+                var res = JObject.Parse(response.Content);
+                ResponseResult values = new ResponseResult(res["status"].ToString(), res["message"].ToString());
+                return values;
+            }catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         /**
@@ -67,21 +74,30 @@ namespace TheBetterLimited.Controller
             var json = new { userName = username , password = pwd};
             var request = new RestRequest("/", Method.Post)
                         .AddJsonBody(json);
-            var response = client.ExecuteAsync(request).GetAwaiter().GetResult();
-            if (response.StatusCode == HttpStatusCode.OK)
+            try
             {
-                var res = JObject.Parse(response.Content);
-                GlobalsData.Token = res["token"].ToString();
-                GlobalsData.ExpireAt = res["expireAt"].ToString();
-                GlobalsData.Firstname = "Ben";
-                GlobalsData.Lastname = "Poon";
-                GlobalsData.JobTitle = "Admin";
-                //GlobalsData.UserId = user.Account.Id;
-                return "ok";
-            }else
+                var response = client.ExecuteAsync(request).GetAwaiter().GetResult();
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    var res = JObject.Parse(response.Content);
+                    GlobalsData.Token = res["token"].ToString();
+                    GlobalsData.ExpireAt = res["expireAt"].ToString();
+                    GlobalsData.Firstname = "Ben";
+                    GlobalsData.Lastname = "Poon";
+                    GlobalsData.JobTitle = "Admin";
+                    //GlobalsData.UserId = user.Account.Id;
+                    return "ok";
+                }
+                else
+                {
+                    var res = JObject.Parse(response.Content);
+                    return res["message"].ToString();
+                }
+            }
+            catch (Exception ex)
             {
-                var res = JObject.Parse(response.Content);
-                return res["message"].ToString();
+                Console.WriteLine(ex.Message);
+                return "Cannot link to server!";
             }
         }
     }

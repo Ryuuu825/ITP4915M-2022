@@ -4,6 +4,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheBetterLimited.CustomizeControl;
 
 namespace TheBetterLimited.Views
 {
@@ -32,6 +33,27 @@ namespace TheBetterLimited.Views
 
         private void LoadMain()
         {
+            int i = 1;
+            foreach (Control ctl in loginContainer.Controls)
+            {
+
+                if (ctl is CustomizeTextbox)
+                {
+                    if (((CustomizeTextbox)ctl).Texts.Length == 0)
+                    {
+                        var lable = loginContainer.Controls[i - 1].Text;
+                        var str = "Sorry! \nPlease enter " + lable + ".";
+                        MessageBox.Show(str, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ctl.Focus();
+                        return;
+                    };
+                    i += 2;
+                }
+            }
+
+            /**
+             * Request login
+             */
             var result = loginController.Login(username.Texts, password.Texts);
             if (result.Equals("ok"))
             {

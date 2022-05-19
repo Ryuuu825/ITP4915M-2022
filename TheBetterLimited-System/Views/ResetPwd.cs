@@ -17,8 +17,6 @@ namespace TheBetterLimited.Views
 {
     public partial class ResetPwd : Form
     {
-        private int responseCode;
-
         public ResetPwd()
         {
             InitializeComponent();
@@ -49,7 +47,11 @@ namespace TheBetterLimited.Views
              */
             LoginController loginController = new LoginController();
             ResponseResult result = loginController.ResetPassword(userName.Texts, email.Texts);
-            if (result.Code.Equals("200"))
+            if (result == null)
+            {
+                MessageBox.Show("Cannot link to server!", "Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (result.Code.Equals("200"))
             {
                 ResetPwdResult resetResult = new ResetPwdResult(userName.Texts, email.Texts, result.Message);
                 resetResult.Show();

@@ -36,14 +36,14 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.loginContainer = new System.Windows.Forms.Panel();
             this.ChangePassword = new System.Windows.Forms.LinkLabel();
+            this.loginBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.password = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.username = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.forgotPwd = new System.Windows.Forms.LinkLabel();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.Welcome = new System.Windows.Forms.Label();
             this.LoginTitle = new System.Windows.Forms.Label();
-            this.loginBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.password = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.username = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -109,13 +109,13 @@
             // loginContainer
             // 
             this.loginContainer.BackColor = System.Drawing.Color.White;
+            this.loginContainer.Controls.Add(this.usernameLabel);
+            this.loginContainer.Controls.Add(this.username);
+            this.loginContainer.Controls.Add(this.passwordLabel);
+            this.loginContainer.Controls.Add(this.password);
             this.loginContainer.Controls.Add(this.ChangePassword);
             this.loginContainer.Controls.Add(this.loginBtn);
-            this.loginContainer.Controls.Add(this.password);
-            this.loginContainer.Controls.Add(this.username);
             this.loginContainer.Controls.Add(this.forgotPwd);
-            this.loginContainer.Controls.Add(this.passwordLabel);
-            this.loginContainer.Controls.Add(this.usernameLabel);
             this.loginContainer.Controls.Add(this.Welcome);
             this.loginContainer.Controls.Add(this.LoginTitle);
             this.loginContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -140,65 +140,6 @@
             this.ChangePassword.Text = "Change password";
             this.ChangePassword.VisitedLinkColor = System.Drawing.Color.Black;
             this.ChangePassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ChangePassword_LinkClicked);
-            // 
-            // forgotPwd
-            // 
-            this.forgotPwd.ActiveLinkColor = System.Drawing.Color.Black;
-            this.forgotPwd.AutoSize = true;
-            this.forgotPwd.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.forgotPwd.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.forgotPwd.LinkColor = System.Drawing.Color.Black;
-            this.forgotPwd.Location = new System.Drawing.Point(446, 420);
-            this.forgotPwd.Name = "forgotPwd";
-            this.forgotPwd.Size = new System.Drawing.Size(169, 28);
-            this.forgotPwd.TabIndex = 3;
-            this.forgotPwd.TabStop = true;
-            this.forgotPwd.Text = "Forgot password?";
-            this.forgotPwd.VisitedLinkColor = System.Drawing.Color.Black;
-            this.forgotPwd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgotPwd_LinkClicked);
-            // 
-            // passwordLabel
-            // 
-            this.passwordLabel.AutoSize = true;
-            this.passwordLabel.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLabel.Location = new System.Drawing.Point(100, 307);
-            this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(93, 28);
-            this.passwordLabel.TabIndex = 3;
-            this.passwordLabel.Text = "Password";
-            this.passwordLabel.Click += new System.EventHandler(this.passwordLabel_Click);
-            // 
-            // usernameLabel
-            // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameLabel.Location = new System.Drawing.Point(100, 194);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(99, 28);
-            this.usernameLabel.TabIndex = 2;
-            this.usernameLabel.Text = "Username";
-            this.usernameLabel.Click += new System.EventHandler(this.usernameLabel_Click);
-            // 
-            // Welcome
-            // 
-            this.Welcome.AutoSize = true;
-            this.Welcome.Font = new System.Drawing.Font("Segoe UI", 14.10084F, System.Drawing.FontStyle.Bold);
-            this.Welcome.Location = new System.Drawing.Point(91, 80);
-            this.Welcome.Name = "Welcome";
-            this.Welcome.Size = new System.Drawing.Size(187, 32);
-            this.Welcome.TabIndex = 1;
-            this.Welcome.Text = "Welcome back!";
-            // 
-            // LoginTitle
-            // 
-            this.LoginTitle.AutoSize = true;
-            this.LoginTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
-            this.LoginTitle.ForeColor = System.Drawing.Color.SeaGreen;
-            this.LoginTitle.Location = new System.Drawing.Point(91, 117);
-            this.LoginTitle.Name = "LoginTitle";
-            this.LoginTitle.Size = new System.Drawing.Size(429, 54);
-            this.LoginTitle.TabIndex = 0;
-            this.LoginTitle.Text = "Login in your account";
             // 
             // loginBtn
             // 
@@ -259,6 +200,65 @@
             this.username.TabIndex = 0;
             this.username.Texts = "";
             this.username.UnderlinedStyle = false;
+            // 
+            // forgotPwd
+            // 
+            this.forgotPwd.ActiveLinkColor = System.Drawing.Color.Black;
+            this.forgotPwd.AutoSize = true;
+            this.forgotPwd.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.forgotPwd.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.forgotPwd.LinkColor = System.Drawing.Color.Black;
+            this.forgotPwd.Location = new System.Drawing.Point(446, 420);
+            this.forgotPwd.Name = "forgotPwd";
+            this.forgotPwd.Size = new System.Drawing.Size(169, 28);
+            this.forgotPwd.TabIndex = 3;
+            this.forgotPwd.TabStop = true;
+            this.forgotPwd.Text = "Forgot password?";
+            this.forgotPwd.VisitedLinkColor = System.Drawing.Color.Black;
+            this.forgotPwd.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forgotPwd_LinkClicked);
+            // 
+            // passwordLabel
+            // 
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordLabel.Location = new System.Drawing.Point(100, 307);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(93, 28);
+            this.passwordLabel.TabIndex = 3;
+            this.passwordLabel.Text = "Password";
+            this.passwordLabel.Click += new System.EventHandler(this.passwordLabel_Click);
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameLabel.Location = new System.Drawing.Point(100, 194);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(99, 28);
+            this.usernameLabel.TabIndex = 2;
+            this.usernameLabel.Text = "Username";
+            this.usernameLabel.Click += new System.EventHandler(this.usernameLabel_Click);
+            // 
+            // Welcome
+            // 
+            this.Welcome.AutoSize = true;
+            this.Welcome.Font = new System.Drawing.Font("Segoe UI", 14.10084F, System.Drawing.FontStyle.Bold);
+            this.Welcome.Location = new System.Drawing.Point(91, 80);
+            this.Welcome.Name = "Welcome";
+            this.Welcome.Size = new System.Drawing.Size(187, 32);
+            this.Welcome.TabIndex = 1;
+            this.Welcome.Text = "Welcome back!";
+            // 
+            // LoginTitle
+            // 
+            this.LoginTitle.AutoSize = true;
+            this.LoginTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
+            this.LoginTitle.ForeColor = System.Drawing.Color.SeaGreen;
+            this.LoginTitle.Location = new System.Drawing.Point(91, 117);
+            this.LoginTitle.Name = "LoginTitle";
+            this.LoginTitle.Size = new System.Drawing.Size(429, 54);
+            this.LoginTitle.TabIndex = 0;
+            this.LoginTitle.Text = "Login in your account";
             // 
             // Login
             // 
