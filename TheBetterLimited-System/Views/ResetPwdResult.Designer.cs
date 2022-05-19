@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResetPwdResult));
             this.Msg = new System.Windows.Forms.Label();
             this.resendBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.backBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.resendTimer = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Msg
@@ -72,17 +72,6 @@
             this.resendBtn.TextColor = System.Drawing.Color.White;
             this.resendBtn.UseVisualStyleBackColor = false;
             this.resendBtn.Click += new System.EventHandler(this.resendBtn_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::TheBetterLimited.Properties.Resources.stop;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(553, 132);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(157, 162);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // backBtn
             // 
@@ -119,6 +108,17 @@
             this.resendTimer.Interval = 1000;
             this.resendTimer.Tick += new System.EventHandler(this.resendTimer_Tick);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::TheBetterLimited.Properties.Resources.email;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(553, 132);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(157, 170);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // ResetPwdResult
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -131,8 +131,8 @@
             this.Name = "ResetPwdResult";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reset Password Result";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -97,7 +97,7 @@ namespace TheBetterLimited.Controller
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                return "Cannot link to server!";
+                return "Cannot connect to server!";
             }
         }
     }

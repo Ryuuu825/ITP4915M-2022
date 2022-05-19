@@ -194,9 +194,11 @@
             this.Controls.Add(this.changeInfo);
             this.Controls.Add(this.TitleContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "ResetPwd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Better Limited (Reset Password)";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ResetPwd_KeyDown);
             this.TitleContainer.ResumeLayout(false);
             this.TitleContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReturn)).EndInit();

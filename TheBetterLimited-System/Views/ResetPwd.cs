@@ -24,21 +24,26 @@ namespace TheBetterLimited.Views
 
         private void chgPwdBtn_Click(object sender, EventArgs e)
         {
+            ReserPassword();
+        }
+
+        private void ReserPassword()
+        {
             int i = 1;
-            foreach(Control ctl in changeInfo.Controls)
+            foreach (Control ctl in changeInfo.Controls)
             {
 
                 if (ctl is CustomizeTextbox)
                 {
                     if (((CustomizeTextbox)ctl).Texts.Length == 0)
                     {
-                        var lable = changeInfo.Controls[i-1].Text;
-                        var str = "Sorry! \nPlease enter "+ lable + ".";
+                        var lable = changeInfo.Controls[i - 1].Text;
+                        var str = "Sorry! \nPlease enter " + lable + ".";
                         MessageBox.Show(str, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         ctl.Focus();
                         return;
                     };
-                    i+=2;
+                    i += 2;
                 }
             }
 
@@ -49,7 +54,7 @@ namespace TheBetterLimited.Views
             ResponseResult result = loginController.ResetPassword(userName.Texts, email.Texts);
             if (result == null)
             {
-                MessageBox.Show("Cannot link to server!", "Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cannot connect to server!", "Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (result.Code.Equals("200"))
             {
@@ -63,6 +68,7 @@ namespace TheBetterLimited.Views
                 MessageBox.Show(str, "Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void picReturn_MouseHover(object sender, EventArgs e)
         {
             picReturn.BackgroundImage = Properties.Resources._return;
@@ -79,5 +85,12 @@ namespace TheBetterLimited.Views
             lg.Show();
         }
 
+        private void ResetPwd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ReserPassword();
+            }
+        }
     }
 }
