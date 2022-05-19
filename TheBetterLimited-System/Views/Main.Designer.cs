@@ -1,4 +1,4 @@
-﻿namespace SDPTest.Views
+﻿namespace TheBetterLimited.Views
 {
     partial class Main
     {
@@ -211,7 +211,7 @@
             // 
             // UserIcon
             // 
-            this.UserIcon.BackgroundImage = global::SDPTest.Properties.Resources.portrait_free_icon_font__1_;
+            this.UserIcon.BackgroundImage = global::TheBetterLimited.Properties.Resources.portrait_free_icon_font__1_;
             this.UserIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.UserIcon.Location = new System.Drawing.Point(11, 25);
             this.UserIcon.Name = "UserIcon";
@@ -255,7 +255,7 @@
             // 
             // CompanyIcon
             // 
-            this.CompanyIcon.Image = global::SDPTest.Properties.Resources.logo46;
+            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
             this.CompanyIcon.Location = new System.Drawing.Point(7, 25);
             this.CompanyIcon.Name = "CompanyIcon";
             this.CompanyIcon.Size = new System.Drawing.Size(50, 50);
@@ -285,7 +285,7 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::SDPTest.Properties.Resources.sign_out;
+            this.button1.Image = global::TheBetterLimited.Properties.Resources.sign_out;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(0, 50);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
@@ -306,7 +306,7 @@
             this.Logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
             this.Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Logout.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Logout.Image = global::SDPTest.Properties.Resources.sign_out;
+            this.Logout.Image = global::TheBetterLimited.Properties.Resources.sign_out;
             this.Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Logout.Location = new System.Drawing.Point(0, 0);
             this.Logout.Margin = new System.Windows.Forms.Padding(0);
@@ -385,7 +385,7 @@
             this.MenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
             this.MenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MenuButton.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuButton.Image = global::SDPTest.Properties.Resources.menu_burger_free_icon_font;
+            this.MenuButton.Image = global::TheBetterLimited.Properties.Resources.menu_burger_free_icon_font;
             this.MenuButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MenuButton.Location = new System.Drawing.Point(0, 0);
             this.MenuButton.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
@@ -414,7 +414,7 @@
             this.Home.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
             this.Home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Home.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Home.Image = global::SDPTest.Properties.Resources.home_free_icon_font;
+            this.Home.Image = global::TheBetterLimited.Properties.Resources.home_free_icon_font;
             this.Home.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Home.Location = new System.Drawing.Point(0, 0);
             this.Home.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
@@ -444,7 +444,7 @@
             this.POS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
             this.POS.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.POS.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.POS.Image = global::SDPTest.Properties.Resources.shopping_cart_free_icon_font;
+            this.POS.Image = global::TheBetterLimited.Properties.Resources.shopping_cart_free_icon_font;
             this.POS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.POS.Location = new System.Drawing.Point(0, 0);
             this.POS.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
@@ -474,7 +474,7 @@
             this.Inventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
             this.Inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Inventory.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Inventory.Image = global::SDPTest.Properties.Resources.cube_free_icon_font;
+            this.Inventory.Image = global::TheBetterLimited.Properties.Resources.cube_free_icon_font;
             this.Inventory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Inventory.Location = new System.Drawing.Point(0, 0);
             this.Inventory.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
@@ -504,7 +504,7 @@
             this.Purchase.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
             this.Purchase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Purchase.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Purchase.Image = global::SDPTest.Properties.Resources.shopping_bag_add_free_icon_font;
+            this.Purchase.Image = global::TheBetterLimited.Properties.Resources.shopping_bag_add_free_icon_font;
             this.Purchase.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Purchase.Location = new System.Drawing.Point(0, 0);
             this.Purchase.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
@@ -534,7 +534,7 @@
             this.Workman.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
             this.Workman.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Workman.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Workman.Image = global::SDPTest.Properties.Resources.truck_side_free_icon_font;
+            this.Workman.Image = global::TheBetterLimited.Properties.Resources.truck_side_free_icon_font;
             this.Workman.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Workman.Location = new System.Drawing.Point(0, 0);
             this.Workman.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
@@ -564,7 +564,7 @@
             this.Accounting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
             this.Accounting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Accounting.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Accounting.Image = global::SDPTest.Properties.Resources.chat_arrow_grow_free_icon_font;
+            this.Accounting.Image = global::TheBetterLimited.Properties.Resources.chat_arrow_grow_free_icon_font;
             this.Accounting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Accounting.Location = new System.Drawing.Point(0, 0);
             this.Accounting.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
@@ -594,7 +594,7 @@
             this.User.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
             this.User.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.User.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.User.Image = global::SDPTest.Properties.Resources.users_free_icon_font;
+            this.User.Image = global::TheBetterLimited.Properties.Resources.users_free_icon_font;
             this.User.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.User.Location = new System.Drawing.Point(0, 0);
             this.User.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
@@ -625,7 +625,7 @@
             this.Setting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
             this.Setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Setting.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Setting.Image = global::SDPTest.Properties.Resources.settings_free_icon_font;
+            this.Setting.Image = global::TheBetterLimited.Properties.Resources.settings_free_icon_font;
             this.Setting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Setting.Location = new System.Drawing.Point(0, 0);
             this.Setting.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);

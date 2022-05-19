@@ -1,4 +1,4 @@
-﻿namespace SDPTest.Views
+﻿namespace TheBetterLimited.Views
 {
     partial class ChangePwd
     {
@@ -39,11 +39,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.staffNoTip = new System.Windows.Forms.ToolTip(this.components);
             this.changeInfo = new System.Windows.Forms.Panel();
-            this.userName = new SDPTest.CustomizeControl.CustomizeTextbox();
-            this.originalPwd = new SDPTest.CustomizeControl.CustomizeTextbox();
-            this.firstNewPassword = new SDPTest.CustomizeControl.CustomizeTextbox();
-            this.secondNewPassword = new SDPTest.CustomizeControl.CustomizeTextbox();
-            this.chgPwdBtn = new SDPTest.CustomizeControl.RoundButton();
+            this.userName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.originalPwd = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.firstNewPassword = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.secondNewPassword = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.chgPwdBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.TitleContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReturn)).BeginInit();
             this.changeInfo.SuspendLayout();
@@ -74,7 +74,7 @@
             // 
             // picReturn
             // 
-            this.picReturn.BackgroundImage = global::SDPTest.Properties.Resources._return;
+            this.picReturn.BackgroundImage = global::TheBetterLimited.Properties.Resources._return;
             this.picReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picReturn.Location = new System.Drawing.Point(35, 34);

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SDPTest.CustomizeControl
+namespace TheBetterLimited.CustomizeControl
 {
     public partial class RoundTextbox : UserControl
     {

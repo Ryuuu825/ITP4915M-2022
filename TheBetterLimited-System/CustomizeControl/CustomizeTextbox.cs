@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SDPTest.CustomizeControl
+namespace TheBetterLimited.CustomizeControl
 {
     [DefaultEvent("_TextChanged")]
     public partial class CustomizeTextbox : UserControl

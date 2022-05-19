@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
-using SDPTest.CustomizeControl;
-using SDPTest.Models;
+using TheBetterLimited.CustomizeControl;
+using TheBetterLimited.Models;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -11,7 +11,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SDPTest.Controller
+namespace TheBetterLimited.Controller
 {
     internal class LoginController
     {

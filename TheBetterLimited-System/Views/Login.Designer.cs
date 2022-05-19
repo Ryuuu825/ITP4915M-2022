@@ -1,4 +1,4 @@
-﻿namespace SDPTest.Views
+﻿namespace TheBetterLimited.Views
 {
     partial class Login
     {
@@ -41,9 +41,9 @@
             this.usernameLabel = new System.Windows.Forms.Label();
             this.Welcome = new System.Windows.Forms.Label();
             this.LoginTitle = new System.Windows.Forms.Label();
-            this.loginBtn = new SDPTest.CustomizeControl.RoundButton();
-            this.password = new SDPTest.CustomizeControl.CustomizeTextbox();
-            this.username = new SDPTest.CustomizeControl.CustomizeTextbox();
+            this.loginBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.password = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.username = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.Logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -87,7 +87,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::SDPTest.Properties.Resources.logo46;
+            this.pictureBox1.BackgroundImage = global::TheBetterLimited.Properties.Resources.logo46;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(163, 105);

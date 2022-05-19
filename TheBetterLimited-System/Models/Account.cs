@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SDPTest.Models
+namespace TheBetterLimited.Models
 {
     internal class Account
     {

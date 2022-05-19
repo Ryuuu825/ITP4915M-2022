@@ -9,11 +9,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
-using SDPTest.Controller;
-using SDPTest.CustomizeControl;
-using SDPTest.Models;
+using TheBetterLimited.Controller;
+using TheBetterLimited.CustomizeControl;
+using TheBetterLimited.Models;
 
-namespace SDPTest.Views
+namespace TheBetterLimited.Views
 {
     public partial class ResetPwd : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace SDPTest.Views
+﻿namespace TheBetterLimited.Views
 {
     partial class ChangePwdResult
     {
@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePwdResult));
             this.Msg = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.backBtn = new SDPTest.CustomizeControl.RoundButton();
+            this.backBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +49,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::SDPTest.Properties.Resources.shield_check;
+            this.pictureBox1.BackgroundImage = global::TheBetterLimited.Properties.Resources.shield_check;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Location = new System.Drawing.Point(554, 176);

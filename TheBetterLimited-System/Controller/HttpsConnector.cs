@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using SDPTest.Models;
+using TheBetterLimited.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,7 +12,7 @@ using System.Net.Http;
 using RestSharp;
 using System.Threading;
 
-namespace SDPTest.Controller
+namespace TheBetterLimited.Controller
 {
     internal class HttpsConnector : Attribute
     {

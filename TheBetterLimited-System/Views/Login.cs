@@ -1,11 +1,11 @@
-﻿using SDPTest.Controller;
-using SDPTest.Views;
+﻿using TheBetterLimited.Controller;
+using TheBetterLimited.Views;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SDPTest.Views
+namespace TheBetterLimited.Views
 {
     public partial class Login : Form
     {

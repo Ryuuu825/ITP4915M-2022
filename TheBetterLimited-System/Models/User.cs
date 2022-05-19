@@ -7,7 +7,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace SDPTest.Models
+namespace TheBetterLimited.Models
 {
     public class User
     {

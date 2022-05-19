@@ -1,4 +1,4 @@
-﻿using SDPTest.Models;
+﻿using TheBetterLimited.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SDPTest.Views
+namespace TheBetterLimited.Views
 {
     public partial class Main : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace SDPTest.Views
+﻿namespace TheBetterLimited.Views
 {
     partial class ResetPwdResult
     {
@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResetPwdResult));
             this.Msg = new System.Windows.Forms.Label();
-            this.resendBtn = new SDPTest.CustomizeControl.RoundButton();
+            this.resendBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.backBtn = new SDPTest.CustomizeControl.RoundButton();
+            this.backBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.resendTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,7 +75,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::SDPTest.Properties.Resources.stop;
+            this.pictureBox1.BackgroundImage = global::TheBetterLimited.Properties.Resources.stop;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Location = new System.Drawing.Point(553, 132);

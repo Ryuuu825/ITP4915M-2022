@@ -1,4 +1,4 @@
-﻿namespace SDPTest.CustomizeControl
+﻿namespace TheBetterLimited.CustomizeControl
 {
     partial class RoundTextbox
     {
@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.roundPanel1 = new SDPTest.CustomizeControl.RoundPanel();
+            this.roundPanel1 = new TheBetterLimited.CustomizeControl.RoundPanel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.roundPanel1.SuspendLayout();
             this.SuspendLayout();

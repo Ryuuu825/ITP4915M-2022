@@ -1,4 +1,4 @@
-﻿namespace SDPTest.CustomizeControl
+﻿namespace TheBetterLimited.CustomizeControl
 {
     partial class CustomizeTextbox
     {

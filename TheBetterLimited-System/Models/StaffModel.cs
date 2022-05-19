@@ -1,4 +1,4 @@
-﻿namespace SDPTest.Models
+﻿namespace TheBetterLimited.Models
 {
     public class StaffModel
     {
