@@ -10,10 +10,10 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]
-        public string _sessionId { get; set;}
+        public string? _sessionId { get; set;}
 
         [ForeignKey("_sessionId")]
-        public virtual Session Session { get; set; }
+        public virtual Session? Session { get; set; }
 
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]
@@ -24,10 +24,10 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]
-        public string _teamId { get; set;}
+        public string? _teamId { get; set;}
 
         [ForeignKey("_teamId")]
-        public virtual Team Team { get; set; }
+        public virtual Team? Team { get; set; }
 
 
 

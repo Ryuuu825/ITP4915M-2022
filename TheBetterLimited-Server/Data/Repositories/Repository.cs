@@ -139,6 +139,16 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
         return ! (Entities.Find(id) is null);
     }
 
+    public List<TEntity> GetAll()
+    {
+        return Entities.ToList();
+    }
+
+    public async Task<List<TEntity>> GetAllAsync()
+    {
+        return await Entities.ToListAsync();
+    }
+
     public void Dispose()
     {
         

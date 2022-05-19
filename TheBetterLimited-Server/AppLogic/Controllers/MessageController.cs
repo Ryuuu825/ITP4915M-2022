@@ -25,7 +25,7 @@ public class MessageController
     {
         
         var account = _accountTable.GetBySQL(
-            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{username}" , "accounts")
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{username}" )
         ).FirstOrDefault();
 
         if (account is null)
@@ -34,7 +34,7 @@ public class MessageController
         }
 
         var messages = _receiveMessageTable.GetBySQL(
-            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Staff_Message>($"_receiverId:{account.Id}" , "staff_messages")
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Staff_Message>($"_receiverId:{account.Id}" )
         );
 
         List<ReceiveMessageDto> messageList = new List<ReceiveMessageDto>();
@@ -56,11 +56,62 @@ public class MessageController
 
         return messageModel;
     }
+
+    public Models.ReceiveMessageModel GetUnReadMessage(string username)
+    {
+        
+        var account = _accountTable.GetBySQL(
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{username}")
+        ).FirstOrDefault();
+
+        if (account is null)
+        {
+            throw new BadArgException("Account is not exist in database.");
+        }
+
+        var messages = _receiveMessageTable.GetBySQL(
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Staff_Message>($"_receiverId:{account.Id}" )
+        );
+
+        List<ReceiveMessageDto> messageList = new List<ReceiveMessageDto>();
+        foreach (var message in messages)
+        {
+           if (message.Status == Data.Entity.StaffMessageStatus.Unread)
+            {
+                message.Status = Data.Entity.StaffMessageStatus.Read;
+                _receiveMessageTable.Update(message);
+
+                messageList.Add(new ReceiveMessageDto
+                {
+                    senderName = message.message.sender.UserName,
+                    sentDate = message.message.SentDate.ToShortDateString(),
+                    content = message.message.Content
+
+                });
+            }
+        }
+        try
+        {
+            _db.SaveChanges();
+        }
+        catch (System.Exception)
+        {
+            throw new OperationFailException("Cannot update message status.");
+        }
+
+        Models.ReceiveMessageModel messageModel = new Models.ReceiveMessageModel
+        {
+            messageReceived = (short)messageList.Count,
+            messages = messageList
+        };
+
+        return messageModel;
+    }
     
     public void SendMessage(string sender , Data.Dto.SendMessageDto message)
     {
         var account = _accountTable.GetBySQL(
-            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{sender}" , "accounts")
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{sender}" )
         ).FirstOrDefault();
 
         if (account is null)
@@ -81,7 +132,8 @@ public class MessageController
         _db.SaveChanges();
 
 
-
+        bool isFailed = false;
+        StringBuilder failedUsername = new StringBuilder();
 
         foreach (var recevier in message.receiver)
         {
@@ -91,7 +143,20 @@ public class MessageController
                 message = newMessage,
                 _messageId = newMessage.Id,
             };
-            _receiveMessageTable.Add(receiverMessage);
+            try
+            {
+                _receiveMessageTable.Add(receiverMessage);
+            }
+            catch (System.Exception)
+            {
+                isFailed = true;
+                failedUsername.Append(recevier + ", ");
+            }
+        }
+
+        if (isFailed)
+        {
+            throw new BadArgException("Some user is not exist in database. " + failedUsername.ToString());
         }
 
         try
@@ -100,7 +165,11 @@ public class MessageController
 
         }catch(Exception e)
         {
-            throw new BadArgException("Send message failed.");
+            throw new OperationFailException("Send message failed.");
         }
+
+        
     }
+
+    
 }

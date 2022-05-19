@@ -36,9 +36,6 @@ public class AccountDto
     [MaxLength(5)]
     [Column(TypeName = "char(5)")]
     public string _StaffId {get; set; }
-
-
-
     [Column(TypeName = "varchar(100)")] public string? Remarks { get; set; }
 }
 

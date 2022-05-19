@@ -86,12 +86,10 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(10)");
 
                     b.Property<string>("_sessionId")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
                     b.Property<string>("_teamId")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
@@ -116,12 +114,10 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("SMALLINT");
 
                     b.Property<string>("Remarks")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("_appointmentId")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
@@ -246,7 +242,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(10)");
 
                     b.Property<string>("Remark")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
@@ -270,7 +265,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(10)");
 
                     b.Property<string>("_salesOrderId")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
@@ -304,11 +298,16 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(3)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("varchar(20)");
 
+                    b.Property<string>("_budgetId")
+                        .HasMaxLength(3)
+                        .HasColumnType("char(3)");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("_budgetId");
 
                     b.ToTable("Department");
                 });
@@ -361,7 +360,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("GTINNode")
-                        .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("varchar(15)");
 
@@ -374,7 +372,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("SMALLINT");
 
                     b.Property<string>("Size")
-                        .IsRequired()
                         .HasColumnType("char(1)");
 
                     b.Property<string>("Status")
@@ -520,7 +517,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(5)");
 
                     b.Property<string>("_operatorId")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .HasColumnType("char(5)");
 
@@ -687,12 +683,10 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(5)");
 
                     b.Property<string>("_appointmentId")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
                     b.Property<string>("_bookingOrderId")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
@@ -776,6 +770,18 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasMaxLength(3)
                         .HasColumnType("char(3)");
 
+                    b.Property<string>("_storeId")
+                        .HasMaxLength(3)
+                        .HasColumnType("char(3)");
+
+                    b.Property<string>("_teamId")
+                        .HasMaxLength(3)
+                        .HasColumnType("char(3)");
+
+                    b.Property<string>("_warehouseId")
+                        .HasMaxLength(3)
+                        .HasColumnType("char(3)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("_AccountId");
@@ -783,6 +789,12 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.HasIndex("_departmentId");
 
                     b.HasIndex("_positionId");
+
+                    b.HasIndex("_storeId");
+
+                    b.HasIndex("_teamId");
+
+                    b.HasIndex("_warehouseId");
 
                     b.ToTable("Staff");
 
@@ -800,6 +812,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Property<string>("_receiverId")
                         .HasMaxLength(5)
                         .HasColumnType("char(5)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.HasKey("_messageId", "_receiverId");
 
@@ -833,17 +848,14 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(5)");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Contact")
-                        .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("varchar(15)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("varchar(15)");
 
@@ -853,7 +865,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("varchar(15)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("varchar(15)");
 
@@ -876,7 +887,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
-                    b.Property<decimal>("_price")
+                    b.Property<decimal?>("_price")
                         .HasColumnType("DECIMAL(7,2)");
 
                     b.Property<string>("_supplierId")
@@ -1017,15 +1028,11 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Session", "Session")
                         .WithMany()
-                        .HasForeignKey("_sessionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("_sessionId");
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Team", "Team")
                         .WithMany()
-                        .HasForeignKey("_teamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("_teamId");
 
                     b.Navigation("Department");
 
@@ -1038,9 +1045,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 {
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Appointment", "Appointment")
                         .WithMany()
-                        .HasForeignKey("_appointmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("_appointmentId");
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Customer", "Customer")
                         .WithMany()
@@ -1091,9 +1096,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.SalesOrder", "SalesOrder")
                         .WithMany()
-                        .HasForeignKey("_salesOrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("_salesOrderId");
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Supplier_Goods_Stock", "SupplierGoodsStock")
                         .WithMany("DefectItemRecords")
@@ -1106,6 +1109,15 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Navigation("SupplierGoodsStock");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Department", b =>
+                {
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.Budget", "budget")
+                        .WithMany()
+                        .HasForeignKey("_budgetId");
+
+                    b.Navigation("budget");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.DisplayItem", b =>
@@ -1197,9 +1209,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Staff", "Operator")
                         .WithMany()
-                        .HasForeignKey("_operatorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("_operatorId");
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Warehouse", "Warehouse")
                         .WithMany()
@@ -1306,15 +1316,11 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 {
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Appointment", "Appointment")
                         .WithMany()
-                        .HasForeignKey("_appointmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("_appointmentId");
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.BookingOrder", "BookingOrder")
                         .WithMany()
-                        .HasForeignKey("_bookingOrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("_bookingOrderId");
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.SalesOrder", "SalesOrder")
                         .WithMany()
@@ -1364,11 +1370,29 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.Store", "store")
+                        .WithMany()
+                        .HasForeignKey("_storeId");
+
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.Team", "team")
+                        .WithMany()
+                        .HasForeignKey("_teamId");
+
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.Warehouse", "warehouse")
+                        .WithMany()
+                        .HasForeignKey("_warehouseId");
+
                     b.Navigation("acc");
 
                     b.Navigation("department");
 
                     b.Navigation("position");
+
+                    b.Navigation("store");
+
+                    b.Navigation("team");
+
+                    b.Navigation("warehouse");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Staff_Message", b =>

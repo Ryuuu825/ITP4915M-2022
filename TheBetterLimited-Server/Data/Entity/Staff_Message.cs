@@ -15,6 +15,14 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "char(5)")]
         public string _receiverId { get; set; }
 
+        public StaffMessageStatus Status { get; set; }
+
         public virtual Account receiver { get; set; }
+    }
+
+    public enum StaffMessageStatus
+    {
+        Unread,
+        Read
     }
 }

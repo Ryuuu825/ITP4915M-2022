@@ -10,14 +10,14 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(20)]
         [Column(TypeName = "varchar(20)")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
-        // [MaxLength(3)]
-        // [Column(TypeName = "char(3)")]
-        // public string _budgetId { get; set; }
+        [MaxLength(3)]
+        [Column(TypeName = "char(3)")]
+        public string? _budgetId { get; set; }
 
-        // [ForeignKey("_budgetId")]
-        // public Budget budget { get; set; }
+        [ForeignKey("_budgetId")]
+        public virtual Budget? budget { get; set; }
 
         public virtual ICollection<Staff> staffs { get; set; }
     }

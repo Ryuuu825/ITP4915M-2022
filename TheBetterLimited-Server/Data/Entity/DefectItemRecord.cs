@@ -15,10 +15,10 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]
-        public string _salesOrderId { get; set; }
+        public string? _salesOrderId { get; set; }
 
         [ForeignKey("_salesOrderId")]
-        public virtual SalesOrder SalesOrder { get; set; }
+        public virtual SalesOrder? SalesOrder { get; set; }
 
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]
@@ -42,7 +42,7 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(50)]
         [Column(TypeName = "varchar(50)")]
-        public string Remark { get; set; }
+        public string? Remark { get; set; }
         
 
     }

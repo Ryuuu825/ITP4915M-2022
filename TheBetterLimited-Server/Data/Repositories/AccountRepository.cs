@@ -25,10 +25,10 @@ public class AccountRepository : Repository<Account>
     {
         var staff = Staffs.Find(acc._StaffId);
         var checkKey = base.GetBySQL(
-            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"id:{acc.Id}" , "accounts")
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"id:{acc.Id}")
         );
         var checkUserName = base.GetBySQL(
-            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{acc.UserName}" , "accounts")
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{acc.UserName}" )
         );
 
         if ( acc._StaffId is not null && staff is null) // No foreign key match

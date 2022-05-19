@@ -20,7 +20,7 @@ namespace TheBetterLimited_Server.Data.Entity
         public virtual Goods Goods { get; set; }
 
         [Column(TypeName = "DECIMAL(7,2)")]
-        public decimal _price { get; set; }
+        public double? _price { get; set; }
 
 
         public virtual ICollection<Supplier_Goods_Stock> Supplier_Goods_Stocks { get; set; }

@@ -28,10 +28,10 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(15)]
         [Column(TypeName = "varchar(15)")]
-        public string GTINNode { get; set; }
+        public string? GTINNode { get; set; }
 
         [Column(TypeName = "char(1)")]
-        public GoodsSize Size { get; set; }
+        public GoodsSize? Size { get; set; }
 
 
         [Column(TypeName = "char(1)")]
