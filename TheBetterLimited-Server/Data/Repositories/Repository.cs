@@ -41,6 +41,7 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
         }
         catch (Exception e)
         {
+            ConsoleLogger.Debug(e.InnerException);
             throw new OperationFailException("Primary key duplicated!"); 
         }
 

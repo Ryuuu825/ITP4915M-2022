@@ -1,4 +1,7 @@
-namespace TheBetterLimited_Server.API.Controller
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using QRCoder;
+    namespace TheBetterLimited_Server.API.Controller
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
@@ -7,6 +10,7 @@ namespace TheBetterLimited_Server.API.Controller
     using TheBetterLimited_Server.AppLogic.Models;
     
     [Route("api/goods")]
+    // [Authorize]
     public class Goods : ControllerBase
     {
         // CURD: ADD, Modify, Delete, search 
@@ -19,76 +23,105 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> GetAllGoods()
+        public async Task<IActionResult> GetAllGoods([FromHeader] string Language)
         {
-            return Ok(await controller.GetAllGoods());
+            try
+            {
+                return Ok(await controller.GetAllGoods(Language));
+            }catch(ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
         }
 
-    //     [HttpGet("{id}")]
-    //     [Authorize]
-    //     public IActionResult GetGoodsById(int id)
-    //     {
-    //         return Ok(controller.GetGoodsById(id));
-    //     }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetGoodsById(string id)
+        {
+            return Ok(await controller.GetGoodsById(id));
+        }
 
-    //     [HttpPost]
-    //     [Authorize]
-    //     public IActionResult AddGoods([FromBody] Data.Dto.GoodsDto goods)
-    //     {
-    //         try
-    //         {
-    //             controller.AddGoods(goods);
-    //             return Ok();
-    //         }
-    //         catch (ICustException e)
-    //         {
-    //             return StatusCode(e.ReturnCode, e.GetHttpResult());
-    //         }
-    //     }
+        // return the number of photos related to the goods
+        [HttpGet("photo/{id}")]
+        public async Task<IActionResult> GetGoodsPhotoAmt(string id)
+        {
+            try
+            {
+                return Ok(new {result = await controller.GetGoodsPhotoAmt(id)});
+            }catch(ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
+        }
 
-    //     [HttpPut("{id}")]
-    //     [Authorize]
-    //     public IActionResult ModifyGoods(int id, [FromBody] Data.Dto.GoodsDto goods)
-    //     {
-    //         try
-    //         {
-    //             controller.ModifyGoods(id, goods);
-    //             return Ok();
-    //         }
-    //         catch (ICustException e)
-    //         {
-    //             return StatusCode(e.ReturnCode, e.GetHttpResult());
-    //         }
-    //     }
+        [HttpGet("photo/{id}/{index}")]
+        public async Task<IActionResult> GetGoodsPhoto(string id , int index)
+        {
+            try
+            {
+                Tuple<byte[]?,string> photo = await controller.GetGoodsPhoto(id , index);
+                return File(photo.Item1 , $"image/{photo.Item2}");
 
-    //     [HttpDelete("{id}")]
-    //     [Authorize]
-    //     public IActionResult DeleteGoods(int id)
-    //     {
-    //         try
-    //         {
-    //             controller.DeleteGoods(id);
-    //             return Ok();
-    //         }
-    //         catch (ICustException e)
-    //         {
-    //             return StatusCode(e.ReturnCode, e.GetHttpResult());
-    //         }
-    //     }
+            }catch( ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
+        
+        }
+        
 
-    //     [HttpGet("search")]
-    //     [Authorize]
-    //     public IActionResult SearchGoods(string queryString)
-    //     {
-    //         try
-    //         {
-    //             return Ok(controller.SearchGoods(queryString));
-    //         }
-    //         catch (ICustException e)
-    //         {
-    //             return StatusCode(e.ReturnCode, e.GetHttpResult());
-    //         }
-    //     }
+        [HttpPost]
+        public async Task<IActionResult> AddGoods([FromHeader] string Language , [FromBody] Data.Dto.GoodsDto goods)
+        {
+            try
+            {
+                await controller.AddGoods(Language, goods);
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> ModifyGoods(string id, [FromHeader] string Language , [FromBody] List<AppLogic.Models.UpdateObjectModel> content)
+        {
+            try
+            {
+                await controller.ModifyGoods(id, Language , content);
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteGoods(string id)
+        {
+            try
+            {
+                await controller.DeleteGoods(id);
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpGet("search")]
+        public async Task<IActionResult> SearchGoods(string queryString , [FromHeader] string Language = "en")
+        {
+            try
+            {
+                return Ok(await controller.SearchGoods(Language , queryString));
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
     }
 }

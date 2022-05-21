@@ -37,48 +37,49 @@ public class UserController
         return acc;
     }
 
-    public List<AccountDto> GetAllUsers()
+    public List<AccountOutDto> GetAllUsers()
     {
         var list = _UserTable.Entities.ToList();
-        var res = new List<AccountDto>();
-        foreach (var item in list)
-        {
-            res.Add(item.CopyAs<AccountDto>());
-        }
+        List<AccountOutDto> res = AccountToDto(in list);
         return res;
     }
     
-    public List<Account> GetUsers(int limit)
+    public List<AccountOutDto> GetUsers(int limit)
     {
         try
         {
-            return _UserTable.Entities.ToList().GetRange(0,limit);
+            var list =  _UserTable.Entities.ToList().GetRange(0,limit);
+            List<AccountOutDto> res = AccountToDto(in list);
+            return res;
         }catch (System.ArgumentException e)
         {
             throw new BadArgException("Limit is invalid.");
         }
     }
 
-    public async Task<List<AccountDto>> GetUsersBySql(string sql)
+    public List<AccountOutDto> AccountToDto(in List<Account> list)
+    {
+        List<AccountOutDto> res = new List<AccountOutDto>();
+        foreach(var entry in list)
+        {
+            var o = entry.CopyAs<AccountOutDto>();
+            o.StaffName = entry.Staff.FirstName + " " + entry.Staff.LastName;
+            res.Add(o);
+        }
+        return res;
+    }
+
+    public async Task<List<AccountOutDto>> GetUsersBySql(string sql)
     {
         var AccountList = await _UserTable.GetBySQLAsync(sql);
         if (AccountList.Count == 0)
         {
             throw new HasNoElementException("Not Found");
         }
-        var res = new List<AccountDto>();
-
-
-        foreach (var item in AccountList)
-        {
-            res.Add(item.CopyAs<AccountDto>());
-        }
-        
-
-        return res;
+        return AccountToDto(in AccountList);
     }
 
-    public async Task<List<AccountDto>> GetUsersByConditionString(string condString)
+    public async Task<List<AccountOutDto>> GetUsersByConditionString(string condString)
     {
         string queryStr = Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>(condString);
     

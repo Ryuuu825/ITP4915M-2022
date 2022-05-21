@@ -6,7 +6,7 @@ namespace TheBetterLimited_Server.Data.Entity
         [Key]
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]
-        public string ID { get; set;}
+        public string Id { get; set;}
 
         [MaxLength(5)]
         [Column(TypeName = "char(5)")]
@@ -17,10 +17,12 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(30)]
         [Column(TypeName = "varchar(30)")]
+        [AppLogic.Attribute.Translatable]
         public string Name { get; set; }
 
         [MaxLength(50)]
         [Column(TypeName = "varchar(50)")]
+        [AppLogic.Attribute.Translatable]
         public string Description { get; set; }
 
         [Column(TypeName = "SMALLINT")]
@@ -30,12 +32,13 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "varchar(15)")]
         public string? GTINNode { get; set; }
 
-        [Column(TypeName = "char(1)")]
         public GoodsSize? Size { get; set; }
 
-
-        [Column(TypeName = "char(1)")]
+        [Column(TypeName = "int(1)")]
         public GoodsStatus Status { get; set; }
+
+        [Column(TypeName = "TINYINT")]
+        public short PhotoAmt {get ; set;}
 
 
     }

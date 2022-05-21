@@ -6,7 +6,7 @@ namespace TheBetterLimited_Server.Data.Entity
         [Key]
         [MaxLength(3)]
         [Column(TypeName = "char(3)")]
-        public string ID { get; set;}
+        public string Id { get; set;}
 
         [MaxLength(20)]
         [Column(TypeName = "varchar(20)")]

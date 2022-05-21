@@ -27,6 +27,8 @@
         <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.4" />
         <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="7.0.2" />
+        <PackageReference Include="ZXing.Net" Version="0.16.8" />
+        <PackageReference Include="QRCoder" Version="1.4.3" />
     </ItemGroup>
 
     <ItemGroup>
@@ -60,6 +62,11 @@
         <None Remove="Helpers\Entity\" />
         <None Remove="API\Services\" />
         <None Remove="ResXResourceReader.NetStandard" />
+        <None Remove="BarcodeLib" />
+        <None Remove="Aspose.BarCode" />
+        <None Remove="Zen.Barcode.Rendering.Framework" />
+        <None Remove="ZXing.Net" />
+        <None Remove="QRCoder" />
     </ItemGroup>
     <ItemGroup>
         <Folder Include="AppLogic\" />
@@ -71,8 +78,6 @@
         <Folder Include="AppLogic\Exceptions\" />
         <Folder Include="etc\" />
         <Folder Include="Helpers\Sql\" />
-        <Folder Include="resource\" />
-        <Folder Include="resource\localization" />
         <Folder Include="Data\" />
         <Folder Include="Data\Migrations\" />
         <Folder Include="Data\Dto\" />

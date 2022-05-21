@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- create a translation table with list of class that contain {ID and content}  -->
+<root>
+    <meta>
+        <supported_languages>
+            <language>
+                <code>en</code>
+            </language>
+            <language>
+                <code>zh</code>
+            </language>
+        </supported_languages>
+    </meta>
+    <Translation>
+        <T0001>
+            <en>Apple Iphone 10</en>
+            <zh>苹果手机 10</zh>
+        </T0001>
+        <T0002>
+            <en>Apple Iphone 10</en>
+            <zh>苹果手机 10</zh>
+        </T0002>
+    </Translation>
+</root>

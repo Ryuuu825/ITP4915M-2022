@@ -21,7 +21,7 @@ public class MessageController
         _accountTable = new Data.Repositories.Repository<Data.Entity.Account>(dataContext);
     }
 
-    public Models.ReceiveMessageModel GetMessage(string username)
+    public Models.ReceiveMessageModel GetMessage(string username , uint limit = 0 )
     {
         
         var account = _accountTable.GetBySQL(
@@ -35,7 +35,13 @@ public class MessageController
 
         var messages = _receiveMessageTable.GetBySQL(
             Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Staff_Message>($"_receiverId:{account.Id}" )
-        );
+        ).OrderByDescending( m => m.message.SentDate ).ToList();
+
+        // do not show error message if the limit is not valid
+        if (limit != 0 && limit < messages.Count)
+        {
+            messages = messages.GetRange(0 , (int)limit);
+        }
 
         List<ReceiveMessageDto> messageList = new List<ReceiveMessageDto>();
         foreach (var message in messages)

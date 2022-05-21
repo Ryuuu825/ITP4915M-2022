@@ -24,9 +24,9 @@ namespace TheBetterLimited_Server.API.Controller
 
         [HttpGet]
         [Authorize]
-        public ReceiveMessageModel GetReadMessage()
+        public ReceiveMessageModel GetReadMessage(uint limit = 0)
         {
-            return controller.GetMessage( User.Identity.Name );
+            return controller.GetMessage( User.Identity.Name , limit );
 
         }
 
