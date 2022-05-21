@@ -30,6 +30,12 @@ namespace TheBetterLimited_Server.Helpers.Entity
                         var evalue = Enum.Parse(target.PropertyType, item.Value.ToString());
                         target.SetValue(o, evalue);
                     }
+                    // the target is nullable type
+                    else if (target.PropertyType.IsGenericType && target.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
+                    {
+                        var evalue = Convert.ChangeType(item.Value, target.PropertyType.GetGenericArguments()[0]);
+                        target.SetValue(o, evalue);
+                    }   
                     else
                     {   
                         // cast the value to the type of that property
@@ -40,7 +46,6 @@ namespace TheBetterLimited_Server.Helpers.Entity
                 catch(Exception e)
                 {
                     ConsoleLogger.Debug(e.Message);
-
                     throw new BadArgException($"Attribute is invalid.");
                 }
             }

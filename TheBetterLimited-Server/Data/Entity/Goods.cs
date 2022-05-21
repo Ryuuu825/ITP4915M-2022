@@ -40,7 +40,6 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "TINYINT")]
         public short PhotoAmt {get ; set;}
 
-
     }
 
     public enum GoodsSize

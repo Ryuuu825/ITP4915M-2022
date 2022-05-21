@@ -99,7 +99,7 @@ public class UserController
         await _UserTable.DeleteAsync( acc );
     }
 
-    public async Task<AccountDto> UpdateUserAsync(string id , List<UpdateObjectModel> updateContent,  bool saveNow = true)
+    public async Task<AccountOutDto> UpdateUserAsync(string id , List<UpdateObjectModel> updateContent,  bool saveNow = true)
     {
         Account record = await GetUserByIDAsync(id);
         if (record is null)
@@ -116,19 +116,19 @@ public class UserController
 
 
         if(await _UserTable.UpdateAsync(record , saveNow))
-            return record.CopyAs<AccountDto>();
+            return record.CopyAs<AccountOutDto>();
         else
             throw new OperationFailException("Update failed");
     }
 
-    public async Task<List<AccountDto>> UpdateRangeUserAsync( string condString , List<UpdateObjectModel> updateContent, bool saveNow = true)
+    public async Task<List<AccountOutDto>> UpdateRangeUserAsync( string condString , List<UpdateObjectModel> updateContent, bool saveNow = true)
     {
         List<Account> records = await _UserTable.GetBySQLAsync(Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>(condString ));
         foreach (var record in records)
         {
             await UpdateUserAsync(record.Id , updateContent, saveNow);
         }
-        return records.CopyAs<List<AccountDto>>();
+        return records.CopyAs<List<AccountOutDto>>();
     }
     
     public async Task LockUserAsync(string id , int lockDay)

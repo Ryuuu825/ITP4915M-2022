@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TheBetterLimited_Server.Data.EFMigrations
 {
-    public partial class CREATEALLTABLE : Migration
+    public partial class INIT : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,14 +16,14 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "Catalogue",
                 columns: table => new
                 {
-                    ID = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
+                    Id = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Name = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Catalogue", x => x.ID);
+                    table.PrimaryKey("PK_Catalogue", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -103,7 +103,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "Goods",
                 columns: table => new
                 {
-                    ID = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
+                    Id = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _catalogueId = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -114,19 +114,18 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     Price = table.Column<short>(type: "SMALLINT", nullable: false),
                     GTINNode = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Size = table.Column<string>(type: "char(1)", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    Status = table.Column<string>(type: "char(1)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                    Size = table.Column<int>(type: "int", nullable: true),
+                    Status = table.Column<int>(type: "int(1)", nullable: false),
+                    PhotoAmt = table.Column<sbyte>(type: "TINYINT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Goods", x => x.ID);
+                    table.PrimaryKey("PK_Goods", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Goods_Catalogue__catalogueId",
                         column: x => x._catalogueId,
                         principalTable: "Catalogue",
-                        principalColumn: "ID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -195,7 +194,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         name: "FK_DisplayItem_Goods__goodsId",
                         column: x => x._goodsId,
                         principalTable: "Goods",
-                        principalColumn: "ID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_DisplayItem_Location__locationId",
@@ -234,7 +233,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         name: "FK_Supplier_Goods_Goods__departmentId",
                         column: x => x._departmentId,
                         principalTable: "Goods",
-                        principalColumn: "ID",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Supplier_Goods_Supplier__supplierId",
@@ -287,12 +286,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 {
                     Id = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    LoginFailedCount = table.Column<int>(type: "int(1)", nullable: false),
-                    LoginFailedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    LastLogin = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    unlockDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    Icon = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
                     UserName = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Password = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
@@ -304,6 +297,12 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     _StaffId = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Remarks = table.Column<string>(type: "varchar(100)", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    LoginFailedCount = table.Column<int>(type: "int(1)", nullable: false),
+                    LoginFailedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    LastLogin = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    unlockDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    Icon = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>

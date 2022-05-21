@@ -169,7 +169,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Catalogue", b =>
                 {
-                    b.Property<string>("ID")
+                    b.Property<string>("Id")
                         .HasMaxLength(3)
                         .HasColumnType("char(3)");
 
@@ -178,7 +178,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasMaxLength(20)
                         .HasColumnType("varchar(20)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Catalogue");
                 });
@@ -350,7 +350,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Goods", b =>
                 {
-                    b.Property<string>("ID")
+                    b.Property<string>("Id")
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
@@ -385,7 +385,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasMaxLength(5)
                         .HasColumnType("char(5)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.HasIndex("_catalogueId");
 

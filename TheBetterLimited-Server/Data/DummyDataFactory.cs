@@ -72,7 +72,7 @@ namespace TheBetterLimited_Server.Data
                     LastLogin = null,
                     unlockDate = DateTime.Now,
                     Icon = null,
-                    UserName = "admin",
+                    UserName = "admin1",
                     Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
                     EmailAddress = "user@example.com",
                     Status = "N",
