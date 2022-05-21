@@ -14,8 +14,9 @@ namespace TheBetterLimited.Views
 {
     public partial class Main : Form
     {
-        bool sidebarExpand = true;
-        bool subSidebarExpand;
+        private bool sidebarExpand = true;
+        private bool subSidebarExpand;
+        private Form activeForm = null;
         public Main()
         {
             InitializeComponent();
@@ -122,7 +123,7 @@ namespace TheBetterLimited.Views
         private void User_Click(object sender, EventArgs e)
         {
             change_MenuButton_style(sender);
-            subSidebarTimer.Start();
+            openChildForm(new UserManagement());
         }
         private void POS_Click(object sender, EventArgs e)
         {
@@ -181,6 +182,21 @@ namespace TheBetterLimited.Views
             var th = new Thread(() => Application.Run(new Login()));
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
+        }
+
+        private void openChildForm(Form child)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = child;
+            child.TopLevel = false;
+            child.Dock = DockStyle.Fill; 
+            this.mainBox.Controls.Add(child);
+            this.mainBox.Tag = child;
+            child.BringToFront();
+            child.Show();
         }
     }
 }
