@@ -1,7 +1,4 @@
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using QRCoder;
-    namespace TheBetterLimited_Server.API.Controller
+namespace TheBetterLimited_Server.API.Controller
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Authorization;
@@ -11,33 +8,14 @@ using QRCoder;
 
     [Route("api/goods")]
     // [Authorize]
-    public class Goods : ControllerBase
+    public class Goods : APITranslatableControllerBase<Data.Entity.Goods>
     {
         // CURD: ADD, Modify, Delete, search 
 
-        private readonly GoodsController controller;
-
-        public Goods(DataContext db)
+        private readonly AppLogic.Controllers.GoodsController goodsController;
+        public Goods(DataContext db) : base(db)
         {
-            controller = new GoodsController(db);
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetAllGoods([FromHeader] string Language = "en")
-        {
-            try
-            {
-                return Ok(await controller.GetAllGoods(Language));
-            }catch(ICustException e)
-            {
-                return StatusCode(e.ReturnCode , e.GetHttpResult());
-            }
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetGoodsById(string id)
-        {
-            return Ok(await controller.GetGoodsById(id));
+            goodsController = new AppLogic.Controllers.GoodsController(db);
         }
 
         // return the number of photos related to the goods
@@ -46,7 +24,7 @@ using QRCoder;
         {
             try
             {
-                return Ok(new {result = await controller.GetGoodsPhotoAmt(id)});
+                return Ok(new {result = await goodsController.GetGoodsPhotoAmt(id)});
             }catch(ICustException e)
             {
                 return StatusCode(e.ReturnCode , e.GetHttpResult());
@@ -58,7 +36,7 @@ using QRCoder;
         {
             try
             {
-                Tuple<byte[]?,string> photo = await controller.GetGoodsPhoto(id , index);
+                Tuple<byte[]?,string> photo = await goodsController.GetGoodsPhoto(id , index);
                 return File(photo.Item1 , $"image/{photo.Item2}");
 
             }catch( ICustException e)
@@ -68,60 +46,5 @@ using QRCoder;
 
         }
 
-
-        [HttpPost]
-        public async Task<IActionResult> AddGoods( [FromBody] Data.Dto.GoodsDto goods, [FromHeader] string Language = "en")
-        {
-            try
-            {
-                await controller.AddGoods(Language, goods);
-                return Ok();
-            }
-            catch (ICustException e)
-            {
-                return StatusCode(e.ReturnCode, e.GetHttpResult());
-            }
-        }
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> ModifyGoods(string id, [FromHeader] string Language , [FromBody] List<AppLogic.Models.UpdateObjectModel> content)
-        {
-            try
-            {
-                await controller.ModifyGoods(id, Language , content);
-                return Ok();
-            }
-            catch (ICustException e)
-            {
-                return StatusCode(e.ReturnCode, e.GetHttpResult());
-            }
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteGoods(string id)
-        {
-            try
-            {
-                await controller.DeleteGoods(id);
-                return Ok();
-            }
-            catch (ICustException e)
-            {
-                return StatusCode(e.ReturnCode, e.GetHttpResult());
-            }
-        }
-
-        [HttpGet("search")]
-        public async Task<IActionResult> SearchGoods(string queryString , [FromHeader] string Language = "en")
-        {
-            try
-            {
-                return Ok(await controller.SearchGoods(Language , queryString));
-            }
-            catch (ICustException e)
-            {
-                return StatusCode(e.ReturnCode, e.GetHttpResult());
-            }
-        }
     }
 } 

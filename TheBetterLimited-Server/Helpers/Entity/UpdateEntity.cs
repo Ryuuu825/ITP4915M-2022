@@ -25,6 +25,7 @@ namespace TheBetterLimited_Server.Helpers.Entity
                             item.Value.ToString()
                         );
                     }
+                    // target is a enum type
                     else if (target.PropertyType.IsEnum)
                     {
                         var evalue = Enum.Parse(target.PropertyType, item.Value.ToString());

@@ -1,6 +1,7 @@
 namespace TheBetterLimited_Server.Data.Entity
 {
     [Table("Goods")]
+    [AppLogic.Attribute.Translatable]
     public class Goods
     {
         [Key]

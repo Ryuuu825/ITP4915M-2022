@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <meta>
+        <supported_languages>
+            <language>
+                <code>en</code>
+            </language>
+            <language>
+                <code>zh</code>
+            </language>
+        </supported_languages>
+    </meta>
+    <Translation>
+    </Translation>
+</root>
