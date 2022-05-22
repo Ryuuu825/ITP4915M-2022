@@ -12,7 +12,7 @@ namespace TheBetterLimited_Server.Helpers
         public static bool isLanguageSupported<T>( string language)
         {   
             XmlDocument xml = new XmlDocument();
-            xml.Load(string.Format(FilePath, "test" , language));
+            xml.Load(string.Format(FilePath, typeof(T).Name));
             var nodes = xml.SelectNodes("/root/meta/supported_languages/language");
             foreach (XmlNode node in nodes)
             {
