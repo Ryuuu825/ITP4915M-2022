@@ -89,8 +89,18 @@ public class Program
         app.UseCors("default");
         Console.Title = "The Better Limited Server";
 
-
-        using (var conn = new MySqlConnection(_Secret["ConnectionString"].Replace("Initial Catalog=TheBetterLimitedDevelopment;", "")))
+        // Data Source=localhost;Initial Catalog=TheBetterLimitedDev;User Id=root;password=;ConnectionTimeout=5
+        // remove Initial CataLog= ***** till first ';' after the Initial Catalog
+        StringBuilder TestConnString = new StringBuilder();
+        string[] ConnStringParts = _Secret["ConnectionString"].Split(';');
+        foreach(var part in ConnStringParts)
+        {
+            if(! part.Contains("Initial Catalog"))
+            {
+                TestConnString.Append(part + ";");
+            }
+        }
+        using (var conn = new MySqlConnection(TestConnString.ToString()))
         {
             try // test the connection with sql server
             {
