@@ -16,6 +16,7 @@ using TheBetterLimited_Server.AppLogic;
 using TheBetterLimited_Server.AppLogic.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
+using QRCoder;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -198,6 +199,17 @@ namespace TheBetterLimited_Server.API.Controllers
         public IActionResult Ping()
         {
             return Ok("pong");
+        }
+
+        [HttpGet("qrcode")]
+        public FileContentResult GetQRCode(string str)
+        {
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(str, QRCodeGenerator.ECCLevel.Q);
+            PngByteQRCode qrCode = new PngByteQRCode(qrCodeData);
+            byte[] qrCodeAsPngByteArr = qrCode.GetGraphic(20);
+
+            return File(qrCodeAsPngByteArr , "image/png");
         }
 
 

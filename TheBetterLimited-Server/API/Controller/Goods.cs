@@ -5,90 +5,46 @@ namespace TheBetterLimited_Server.API.Controller
     using TheBetterLimited_Server.Data;
     using TheBetterLimited_Server.AppLogic.Controllers;
     using TheBetterLimited_Server.AppLogic.Models;
-    
+
     [Route("api/goods")]
-    public class Goods : ControllerBase
+    // [Authorize]
+    public class Goods : APITranslatableControllerBase<Data.Entity.Goods>
     {
         // CURD: ADD, Modify, Delete, search 
 
-        private readonly GoodsController controller;
-
-        public Goods(DataContext db)
+        private readonly AppLogic.Controllers.GoodsController goodsController;
+        public Goods(DataContext db) : base(db)
         {
-            controller = new GoodsController(db);
+            goodsController = new AppLogic.Controllers.GoodsController(db);
         }
 
-        [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> GetAllGoods()
+        // return the number of photos related to the goods
+        [HttpGet("photo/{id}")]
+        public async Task<IActionResult> GetGoodsPhotoAmt(string id)
         {
-            return Ok(await controller.GetAllGoods());
+            try
+            {
+                return Ok(new {result = await goodsController.GetGoodsPhotoAmt(id)});
+            }catch(ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
         }
 
-    //     [HttpGet("{id}")]
-    //     [Authorize]
-    //     public IActionResult GetGoodsById(int id)
-    //     {
-    //         return Ok(controller.GetGoodsById(id));
-    //     }
+        [HttpGet("photo/{id}/{index}")]
+        public async Task<IActionResult> GetGoodsPhoto(string id , int index)
+        {
+            try
+            {
+                Tuple<byte[]?,string> photo = await goodsController.GetGoodsPhoto(id , index);
+                return File(photo.Item1 , $"image/{photo.Item2}");
 
-    //     [HttpPost]
-    //     [Authorize]
-    //     public IActionResult AddGoods([FromBody] Data.Dto.GoodsDto goods)
-    //     {
-    //         try
-    //         {
-    //             controller.AddGoods(goods);
-    //             return Ok();
-    //         }
-    //         catch (ICustException e)
-    //         {
-    //             return StatusCode(e.ReturnCode, e.GetHttpResult());
-    //         }
-    //     }
+            }catch( ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
 
-    //     [HttpPut("{id}")]
-    //     [Authorize]
-    //     public IActionResult ModifyGoods(int id, [FromBody] Data.Dto.GoodsDto goods)
-    //     {
-    //         try
-    //         {
-    //             controller.ModifyGoods(id, goods);
-    //             return Ok();
-    //         }
-    //         catch (ICustException e)
-    //         {
-    //             return StatusCode(e.ReturnCode, e.GetHttpResult());
-    //         }
-    //     }
+        }
 
-    //     [HttpDelete("{id}")]
-    //     [Authorize]
-    //     public IActionResult DeleteGoods(int id)
-    //     {
-    //         try
-    //         {
-    //             controller.DeleteGoods(id);
-    //             return Ok();
-    //         }
-    //         catch (ICustException e)
-    //         {
-    //             return StatusCode(e.ReturnCode, e.GetHttpResult());
-    //         }
-    //     }
-
-    //     [HttpGet("search")]
-    //     [Authorize]
-    //     public IActionResult SearchGoods(string queryString)
-    //     {
-    //         try
-    //         {
-    //             return Ok(controller.SearchGoods(queryString));
-    //         }
-    //         catch (ICustException e)
-    //         {
-    //             return StatusCode(e.ReturnCode, e.GetHttpResult());
-    //         }
-    //     }
     }
-}
+} 

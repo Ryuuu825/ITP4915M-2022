@@ -41,7 +41,10 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
         }
         catch (Exception e)
         {
-            throw new OperationFailException("Primary key duplicated!"); 
+            if (e.InnerException.ToString().Contains("Duplicate entry"))
+                throw new BadArgException("The entity already exists.");
+            else
+                throw new BadArgException("The entity is not valid. (no related foreign entity)");
         }
 
     }

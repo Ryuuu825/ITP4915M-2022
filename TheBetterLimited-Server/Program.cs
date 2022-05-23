@@ -8,6 +8,8 @@ global using System.Net;
 global using static TheBetterLimited_Server.Helpers.SecretConf;
 global using Newtonsoft.Json.Linq;
 global using TheBetterLimited_Server.Helpers.LogHelper;
+global using System.Collections;
+global using TheBetterLimited_Server;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -21,16 +23,7 @@ public class Program
 {
     private static void Main(string[] args)
     {
-        // using (var reader = new StreamReader("./resource/localization/test.csv"))
-        // using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-        // {
-        //     var records = csv.GetRecords<Foo>();
-        //     foreach (var record in records)
-        //     {
-        //         Console.WriteLine(record.Id);
-        //         Console.WriteLine(record.Name);
-        //     }
-        // }
+        
         var builder = WebApplication.CreateBuilder(args);
         // Add services to the container.
         builder.Services.AddControllers().AddNewtonsoftJson();
@@ -98,7 +91,18 @@ public class Program
         app.UseCors("default");
         Console.Title = "The Better Limited Server";
 
-        using (var conn = new MySqlConnection(_Secret["ConnectionString"]))
+        // Data Source=localhost;Initial Catalog=TheBetterLimitedDev;User Id=root;password=;ConnectionTimeout=5
+        // remove Initial CataLog= ***** till first ';' after the Initial Catalog
+        StringBuilder TestConnString = new StringBuilder();
+        string[] ConnStringParts = _Secret["ConnectionString"].Split(';');
+        foreach(var part in ConnStringParts)
+        {
+            if(! part.Contains("Initial Catalog"))
+            {
+                TestConnString.Append(part + ";");
+            }
+        }
+        using (var conn = new MySqlConnection(TestConnString.ToString()))
         {
             try // test the connection with sql server
             {
@@ -108,7 +112,9 @@ public class Program
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Timeout: {conn.ConnectionTimeout}s\nError occur during create a connection with MySQL server");
-                Console.WriteLine("Please make sure the connection string is right or Start the MySQL server");
+                Console.WriteLine("\t-Make sure you start the MySQL server");
+                Console.WriteLine("\t-Make sure your connection string is correct");
+                Console.WriteLine("\t-Make sure you have the right permissions");
                 return;
             }
             finally
@@ -118,6 +124,12 @@ public class Program
             }
         }
 
+        using (var serviceScope = app.Services.CreateScope())
+        {
+            var dbContext = serviceScope.ServiceProvider.GetRequiredService<DataContext>();
+            dbContext.Database.Migrate();
+            TheBetterLimited_Server.Data.DummyDataFactory.Create(dbContext);
+        }
 
         app.Run();
 

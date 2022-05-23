@@ -29,7 +29,7 @@ public class AccountDto
 
     [Required]
     [MaxLength(1)]
-    [RegularExpression("(O|N|L)")]
+    [RegularExpression("[NL]")]
     [Column(TypeName = "char(1)")]
     public string Status { get; set; }
 
@@ -37,5 +37,22 @@ public class AccountDto
     [Column(TypeName = "char(5)")]
     public string _StaffId {get; set; }
     [Column(TypeName = "varchar(100)")] public string? Remarks { get; set; }
+}
+
+public class AccountOutDto
+{
+    public string Id { get; set; }
+
+    public string UserName { get; set; }
+
+    public string StaffName {get; set; }
+
+
+    public string EmailAddress { get; set; }
+
+    public string Status { get; set; }
+
+    public string _StaffId {get; set; }
+    public string? Remarks { get; set; }
 }
 

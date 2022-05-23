@@ -9,8 +9,8 @@ public class DataContext : DbContext
 {
     public DataContext(DbContextOptions<DataContext> options) : base(options)
     {
-        
     }
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     => optionsBuilder
@@ -22,10 +22,6 @@ public class DataContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder md)
     {
-        // md.Entity<Account>()
-        //     .HasOne(a => a.Staff)
-        //     .WithOne(s => s.acc)
-        //     .HasForeignKey<Account>(a => a._StaffId);
         
         md.Entity<Permission>()
             .HasKey(p => new { p._menuId , p._positionId });

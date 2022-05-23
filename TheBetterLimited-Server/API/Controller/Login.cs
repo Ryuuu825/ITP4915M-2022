@@ -24,7 +24,7 @@ public class LoginController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Login([FromBody] LoginModel data)
+    public IActionResult Login([FromBody] LoginModel data)
     {
         try
         {
@@ -53,6 +53,7 @@ public class LoginController : ControllerBase
         try
         {
             controller.RequestForgetPW(data, lang);
+
             return Ok(new{status= 200 , message = "Email  is being sent to your mail box! Please check your mail box (or Junk box also) to reset your password."});
 
         }catch (ICustException e)
