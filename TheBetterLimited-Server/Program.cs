@@ -8,6 +8,8 @@ global using System.Net;
 global using static TheBetterLimited_Server.Helpers.SecretConf;
 global using Newtonsoft.Json.Linq;
 global using TheBetterLimited_Server.Helpers.LogHelper;
+global using System.Collections;
+global using TheBetterLimited_Server;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -21,7 +23,7 @@ public class Program
 {
     private static void Main(string[] args)
     {
-
+        
         var builder = WebApplication.CreateBuilder(args);
         // Add services to the container.
         builder.Services.AddControllers().AddNewtonsoftJson();

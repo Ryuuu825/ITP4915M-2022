@@ -74,6 +74,19 @@ namespace TheBetterLimited_Server.API.Controller
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
             }
         }
+        [HttpPut]
+        public async Task<IActionResult> ModifyRange(string queryString , [FromHeader] string Language , [FromBody] List<AppLogic.Models.UpdateObjectModel> content)
+        {
+            try
+            {
+                await controller.ModifyRange(queryString, content , Language);
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)

@@ -63,6 +63,20 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
+        [HttpPut]
+        public async Task<IActionResult> ModifyRange(string queryString , [FromBody] List<AppLogic.Models.UpdateObjectModel> content)
+        {
+            try
+            {
+                await controller.ModifyRange(queryString, content);
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> Modify(string id, [FromBody] List<AppLogic.Models.UpdateObjectModel> content)
         {

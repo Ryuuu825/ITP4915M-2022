@@ -5,11 +5,18 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
     {
         protected readonly Data.DataContext db;
         protected Data.Repositories.Repository<T> repository;
+        protected readonly Type DtoType;
 
         public AppTranslatableControllerBase(Data.DataContext dataContext)
         {
             db = dataContext;
             repository = new Data.Repositories.Repository<T>(dataContext);
+            DtoType = typeof(T).ToDto();
+        }
+
+        public async Task<List<string>> Index()
+        {
+            return DtoType.GetPropertiesToString();
         }
 
         public async Task<List<T>> GetAll(string lang = "en")
@@ -59,7 +66,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         }
         public async Task Add(T entity,string lang = "en")
         {
-            var newObj = entity.CopyAs<T>();
+            var newObj = entity.CopyAsDto().CopyAs<T>();
 
             foreach (var item in newObj.GetType().GetProperties())
             {
@@ -87,6 +94,23 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
             Helpers.Entity.EntityUpdater.Update<T>(ref potnetialObj, content);
             await repository.UpdateAsync(potnetialObj);
+            await db.SaveChangesAsync();
+        }
+
+                public async Task ModifyRange(string queryString , List<AppLogic.Models.UpdateObjectModel> content , string Language = "en")
+        {
+            var potnetialList = await repository.GetBySQLAsync(queryString);
+
+            for (int i = 0 ; i < potnetialList.Count ; i++)
+            {   
+                if (potnetialList[i] is not null)
+                {
+                    // A property or indexer may not be passed as an out or ref parameter [TheBetterLimited-Server]
+                    // wrong: TheBetterLimited_Server.Helpers.Entity.EntityUpdater.Update<T>(ref potnetialList[i], content);
+                    potnetialList[i] = TheBetterLimited_Server.Helpers.Entity.EntityUpdater.Update<T>(potnetialList[i] , content , Language);
+                    await repository.UpdateAsync(potnetialList[i]);
+                }
+            }
             await db.SaveChangesAsync();
         }
 
