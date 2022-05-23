@@ -8,6 +8,19 @@ namespace TheBetterLimited_Server.API.Controller
     {
         private readonly AppTranslatableControllerBase<T> controller;
 
+        [HttpGet("index")]
+        public async Task<IActionResult> Index()
+        {
+            try
+            {
+                return Ok(await controller.Index());
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
         [HttpGet]
         public async Task<IActionResult> Get(int limit)
         {
