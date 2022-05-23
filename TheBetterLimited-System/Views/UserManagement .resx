@@ -117,28 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Email.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Department.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="StaffName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Status.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Edit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
+        1wAAAdcBjJIIaAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAASeSURBVHhe7ZtL
+        yFVVFMe/LNFeFgimQkUh0kOSCmqiAyXISHo4EimiwEQRhKBGzpImBU0KAqUCJw0qaqIgFBlEUFA60kjQ
+        gh5UFDUos+fvB9+B22ady3neu0/eP/xGH3efdfbZe+2111rfXMdaAQ/BC/AOfA2/wz8J38BH8ArsgrUw
+        WK2EJ+EYpC9ah9PwPKyBQehmOAh/QPRCbXgP7oEstQxehb8hMr5LnIjbIRs9Cj9BZGxfuMKegUUwNV0G
+        LvfIwIizcBQOwF54GB6Dx0Gn514/AjrJ6PcRn8K1MHEth08gMmqUn+FFcO9eAlXlCbAPTkI07ijfwTqY
+        mK6DUxAZU/AlPAFLoK3uhY8hek7Br3AX9C6//LiXd28+B5dCl7oA7oevIHquOAkboTe558ct+8/gVuhT
+        S+FNiJ4vP8Jq6EXjHN77oHGT0lNQduTqN7rYev+RR130MHkdpnEc7YS/ILJpP3Qmg5yyc94vP82z2OMz
+        ssvVcTd0IiO86CHu+Uku+zK9DJF9boWLoJWM7aO9prfv2+FV1cVgQJTaKDuglcoc37OQk26DyB98AY1X
+        gVfa6FZnkNP1Od+Fyj7WA9BI3uejAY3wctTVcA5Sew9DIx2HdDBj+ysgV0VBktmnK6GWXP7pQGJaK2d5
+        b4js3ga1ZA4vGijbjMy8LoTvIbX7Jaglv3Q6iEspR+eX6i1IbfeYrKV3IR3EZMYQ5D0htV3nWOs4jK6d
+        ZnKGIK/Eqe1yDVRWlLc3jTUE3QSp7VIraxQN8AgMQVdBZP8mqKxogKFMwEKI7DejVFnRANthCPKkiuzf
+        DJUV3QB3wxBUFsTV8gHfQjqAefsh6E5IbZcbobKs0qYDWLQYgvRVqe1/wmKoLEvU6SBWbIagKIr9HGrJ
+        hGM6iAyhZn8CUrtfg1q6BdJB5GnIWTdAZHej1JjNCelAJhpzlvXE1Ga5HmpLrx8N5p07R5kcjU6vD6GR
+        bEtJBxMLldbqctMeiOy1dtBYdmNEg9YKKycg6xM/QGqntcLLobHMAKWDitflHIoihcqKI5047bJVYAIy
+        B22FyD5XRCcfyYaksq4vsy/TlNWpXyCyrXVVaFQ2JEUP8dJk0DQNrQKbKyO7PoAF0JmsAJfV3yxJtfK0
+        DeSXL3t5HV8vjVMOakNS9FDREXkW9y33fNmyl16j1fVgL070YHGV3AF9SIdW5u1HsR2v12DNbqxxk6Bf
+        sFBpra4LuaoMcqJzvozeJ8HUs3steniBuXiPSg2xYlNXXmyM7aPwtgq9T4LdWFUaGcVy1dvgsbkBTF2b
+        vbVYYfeZLfVmckxmeJ+PrrQRfgT3vC8b/b33SbAby4akKIfYNx51hbf3Jac2CcqGpKqroS36AoOc9Jyf
+        +iS4nDXsDERGtKVY7uPC26lPgtLhPQiHICqx1cX7vIFW1VtdFpNQyM4MmxOsz/vvM2V3igKzt/Yim8Nz
+        NTXK5KCsJmFUrg6rtAZUxhNbwIqNRQtb8rpsusx2EiYpC6K/QTQJbs/74H+v2SSg2SSg2SSg2SSg2SSg
+        cUfkG3BeKFoJ9hXXKqMPXaOTcN69fCG3g8t+Pgqdm/sX1jemh/a/aA0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="directorySearcher1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAALsAAAEAIACIAwMAFgAAACgAAAAAAQAAdgEAAAEAIAAAAAAAAOwCAAAAAAAAAAAAAAAAAAAA

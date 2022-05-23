@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheBetterLimited.Models;
 
 namespace TheBetterLimited.Models
 {
@@ -16,7 +17,7 @@ namespace TheBetterLimited.Models
         private string status;
         private string remarks;
 
-        public Account(string id, string userName, string password, string emailAddress, string status, string remarks)
+        public Account(string id, string userName, string password,string emailAddress, string status, string remarks)
         {
             this.id = id;
             this.userName = userName;

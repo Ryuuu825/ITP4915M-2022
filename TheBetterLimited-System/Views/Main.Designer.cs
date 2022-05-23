@@ -41,10 +41,16 @@
             this.UserInformation = new System.Windows.Forms.Panel();
             this.txtJobTitle = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.Label();
+            this.UserIcon = new System.Windows.Forms.PictureBox();
             this.CompanyInfo = new System.Windows.Forms.Panel();
             this.CompanyTitle1 = new System.Windows.Forms.Label();
             this.CompanyTitle0 = new System.Windows.Forms.Label();
+            this.CompanyIcon = new System.Windows.Forms.PictureBox();
             this.user_droplist = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.changePwd = new System.Windows.Forms.Button();
             this.subSidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -71,36 +77,32 @@
             this.mainBox = new System.Windows.Forms.Panel();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.MenuContainer = new System.Windows.Forms.Panel();
-            this.HomeContainer = new System.Windows.Forms.Panel();
-            this.POSContainer = new System.Windows.Forms.Panel();
-            this.InventoryContainer = new System.Windows.Forms.Panel();
-            this.PurchaseContainer = new System.Windows.Forms.Panel();
-            this.WorkmanContainer = new System.Windows.Forms.Panel();
-            this.AccountingContainer = new System.Windows.Forms.Panel();
-            this.UserContainer = new System.Windows.Forms.Panel();
-            this.SettingContainer = new System.Windows.Forms.Panel();
-            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.changePwd = new System.Windows.Forms.Button();
             this.MenuButton = new System.Windows.Forms.Button();
+            this.HomeContainer = new System.Windows.Forms.Panel();
             this.Home = new System.Windows.Forms.Button();
+            this.POSContainer = new System.Windows.Forms.Panel();
             this.POS = new System.Windows.Forms.Button();
+            this.InventoryContainer = new System.Windows.Forms.Panel();
             this.Inventory = new System.Windows.Forms.Button();
+            this.PurchaseContainer = new System.Windows.Forms.Panel();
             this.Purchase = new System.Windows.Forms.Button();
+            this.WorkmanContainer = new System.Windows.Forms.Panel();
             this.Workman = new System.Windows.Forms.Button();
+            this.AccountingContainer = new System.Windows.Forms.Panel();
             this.Accounting = new System.Windows.Forms.Button();
+            this.UserContainer = new System.Windows.Forms.Panel();
             this.User = new System.Windows.Forms.Button();
+            this.SettingContainer = new System.Windows.Forms.Panel();
             this.Setting = new System.Windows.Forms.Button();
-            this.UserIcon = new System.Windows.Forms.PictureBox();
-            this.CompanyIcon = new System.Windows.Forms.PictureBox();
+            this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.submenuContainer1.SuspendLayout();
             this.submenuContainer2.SuspendLayout();
             this.submenuContainer3.SuspendLayout();
             this.Header.SuspendLayout();
             this.UserInformation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UserIcon)).BeginInit();
             this.CompanyInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).BeginInit();
             this.user_droplist.SuspendLayout();
             this.subSidebar.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -120,8 +122,6 @@
             this.AccountingContainer.SuspendLayout();
             this.UserContainer.SuspendLayout();
             this.SettingContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UserIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // submenuContainer1
@@ -262,6 +262,19 @@
             this.txtUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.txtUsername.Click += new System.EventHandler(this.UserInformation_Click);
             // 
+            // UserIcon
+            // 
+            this.UserIcon.BackgroundImage = global::TheBetterLimited.Properties.Resources.portrait_free_icon_font__1_;
+            this.UserIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UserIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.UserIcon.Location = new System.Drawing.Point(11, 25);
+            this.UserIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.UserIcon.Name = "UserIcon";
+            this.UserIcon.Size = new System.Drawing.Size(51, 50);
+            this.UserIcon.TabIndex = 0;
+            this.UserIcon.TabStop = false;
+            this.UserIcon.Click += new System.EventHandler(this.UserInformation_Click);
+            // 
             // CompanyInfo
             // 
             this.CompanyInfo.Controls.Add(this.CompanyTitle1);
@@ -297,6 +310,18 @@
             this.CompanyTitle0.TabIndex = 2;
             this.CompanyTitle0.Text = "Better";
             // 
+            // CompanyIcon
+            // 
+            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
+            this.CompanyIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.CompanyIcon.Location = new System.Drawing.Point(7, 25);
+            this.CompanyIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CompanyIcon.Name = "CompanyIcon";
+            this.CompanyIcon.Size = new System.Drawing.Size(51, 50);
+            this.CompanyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CompanyIcon.TabIndex = 0;
+            this.CompanyIcon.TabStop = false;
+            // 
             // user_droplist
             // 
             this.user_droplist.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -312,6 +337,93 @@
             this.user_droplist.Size = new System.Drawing.Size(211, 201);
             this.user_droplist.TabIndex = 3;
             this.user_droplist.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.button4.Image = global::TheBetterLimited.Properties.Resources.profile;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button4.Location = new System.Drawing.Point(0, 0);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(211, 50);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "            Profile";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button2.Location = new System.Drawing.Point(0, 50);
+            this.button2.Margin = new System.Windows.Forms.Padding(0);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(211, 50);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "            Message";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.button1.Image = global::TheBetterLimited.Properties.Resources.sign_out;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button1.Location = new System.Drawing.Point(0, 150);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(211, 50);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "            Logout";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Logout_Click);
+            // 
+            // changePwd
+            // 
+            this.changePwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.changePwd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.changePwd.FlatAppearance.BorderSize = 0;
+            this.changePwd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.changePwd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.changePwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.changePwd.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.changePwd.Image = global::TheBetterLimited.Properties.Resources.lang;
+            this.changePwd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.changePwd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.changePwd.Location = new System.Drawing.Point(0, 100);
+            this.changePwd.Margin = new System.Windows.Forms.Padding(0);
+            this.changePwd.Name = "changePwd";
+            this.changePwd.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.changePwd.Size = new System.Drawing.Size(211, 50);
+            this.changePwd.TabIndex = 4;
+            this.changePwd.Text = "            Language";
+            this.changePwd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.changePwd.UseVisualStyleBackColor = false;
             // 
             // subSidebar
             // 
@@ -662,171 +774,6 @@
             this.MenuContainer.Size = new System.Drawing.Size(227, 58);
             this.MenuContainer.TabIndex = 0;
             // 
-            // HomeContainer
-            // 
-            this.HomeContainer.Controls.Add(this.Home);
-            this.HomeContainer.Location = new System.Drawing.Point(0, 62);
-            this.HomeContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.HomeContainer.Name = "HomeContainer";
-            this.HomeContainer.Size = new System.Drawing.Size(227, 58);
-            this.HomeContainer.TabIndex = 1;
-            // 
-            // POSContainer
-            // 
-            this.POSContainer.Controls.Add(this.POS);
-            this.POSContainer.Location = new System.Drawing.Point(0, 124);
-            this.POSContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.POSContainer.Name = "POSContainer";
-            this.POSContainer.Size = new System.Drawing.Size(227, 58);
-            this.POSContainer.TabIndex = 3;
-            // 
-            // InventoryContainer
-            // 
-            this.InventoryContainer.Controls.Add(this.Inventory);
-            this.InventoryContainer.Location = new System.Drawing.Point(0, 186);
-            this.InventoryContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.InventoryContainer.Name = "InventoryContainer";
-            this.InventoryContainer.Size = new System.Drawing.Size(227, 58);
-            this.InventoryContainer.TabIndex = 4;
-            // 
-            // PurchaseContainer
-            // 
-            this.PurchaseContainer.Controls.Add(this.Purchase);
-            this.PurchaseContainer.Location = new System.Drawing.Point(0, 248);
-            this.PurchaseContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.PurchaseContainer.Name = "PurchaseContainer";
-            this.PurchaseContainer.Size = new System.Drawing.Size(227, 58);
-            this.PurchaseContainer.TabIndex = 4;
-            // 
-            // WorkmanContainer
-            // 
-            this.WorkmanContainer.Controls.Add(this.Workman);
-            this.WorkmanContainer.Location = new System.Drawing.Point(0, 310);
-            this.WorkmanContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.WorkmanContainer.Name = "WorkmanContainer";
-            this.WorkmanContainer.Size = new System.Drawing.Size(227, 58);
-            this.WorkmanContainer.TabIndex = 5;
-            // 
-            // AccountingContainer
-            // 
-            this.AccountingContainer.Controls.Add(this.Accounting);
-            this.AccountingContainer.Location = new System.Drawing.Point(0, 372);
-            this.AccountingContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.AccountingContainer.Name = "AccountingContainer";
-            this.AccountingContainer.Size = new System.Drawing.Size(227, 58);
-            this.AccountingContainer.TabIndex = 6;
-            // 
-            // UserContainer
-            // 
-            this.UserContainer.Controls.Add(this.User);
-            this.UserContainer.Location = new System.Drawing.Point(0, 434);
-            this.UserContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.UserContainer.Name = "UserContainer";
-            this.UserContainer.Size = new System.Drawing.Size(227, 58);
-            this.UserContainer.TabIndex = 7;
-            // 
-            // SettingContainer
-            // 
-            this.SettingContainer.Controls.Add(this.Setting);
-            this.SettingContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.SettingContainer.Location = new System.Drawing.Point(0, 496);
-            this.SettingContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.SettingContainer.Name = "SettingContainer";
-            this.SettingContainer.Size = new System.Drawing.Size(227, 58);
-            this.SettingContainer.TabIndex = 8;
-            // 
-            // sidebarTimer
-            // 
-            this.sidebarTimer.Interval = 1;
-            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button4.Image = global::TheBetterLimited.Properties.Resources.profile;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button4.Location = new System.Drawing.Point(0, 0);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(211, 50);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "            Profile";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button2.Location = new System.Drawing.Point(0, 50);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(211, 50);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "            Message";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button1.Image = global::TheBetterLimited.Properties.Resources.sign_out;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(0, 150);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(211, 50);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "            Logout";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Logout_Click);
-            // 
-            // changePwd
-            // 
-            this.changePwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.changePwd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.changePwd.FlatAppearance.BorderSize = 0;
-            this.changePwd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.changePwd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.changePwd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.changePwd.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.changePwd.Image = global::TheBetterLimited.Properties.Resources.lang;
-            this.changePwd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changePwd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.changePwd.Location = new System.Drawing.Point(0, 100);
-            this.changePwd.Margin = new System.Windows.Forms.Padding(0);
-            this.changePwd.Name = "changePwd";
-            this.changePwd.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.changePwd.Size = new System.Drawing.Size(211, 50);
-            this.changePwd.TabIndex = 4;
-            this.changePwd.Text = "            Language";
-            this.changePwd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.changePwd.UseVisualStyleBackColor = false;
-            // 
             // MenuButton
             // 
             this.MenuButton.FlatAppearance.BorderSize = 0;
@@ -848,6 +795,15 @@
             this.MenuButton.UseVisualStyleBackColor = true;
             this.MenuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
+            // HomeContainer
+            // 
+            this.HomeContainer.Controls.Add(this.Home);
+            this.HomeContainer.Location = new System.Drawing.Point(0, 62);
+            this.HomeContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.HomeContainer.Name = "HomeContainer";
+            this.HomeContainer.Size = new System.Drawing.Size(227, 58);
+            this.HomeContainer.TabIndex = 1;
+            // 
             // Home
             // 
             this.Home.FlatAppearance.BorderSize = 0;
@@ -868,6 +824,15 @@
             this.Home.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Home.UseVisualStyleBackColor = true;
             this.Home.Click += new System.EventHandler(this.Home_Click);
+            // 
+            // POSContainer
+            // 
+            this.POSContainer.Controls.Add(this.POS);
+            this.POSContainer.Location = new System.Drawing.Point(0, 124);
+            this.POSContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.POSContainer.Name = "POSContainer";
+            this.POSContainer.Size = new System.Drawing.Size(227, 58);
+            this.POSContainer.TabIndex = 3;
             // 
             // POS
             // 
@@ -891,6 +856,15 @@
             this.POS.UseVisualStyleBackColor = true;
             this.POS.Click += new System.EventHandler(this.POS_Click);
             // 
+            // InventoryContainer
+            // 
+            this.InventoryContainer.Controls.Add(this.Inventory);
+            this.InventoryContainer.Location = new System.Drawing.Point(0, 186);
+            this.InventoryContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.InventoryContainer.Name = "InventoryContainer";
+            this.InventoryContainer.Size = new System.Drawing.Size(227, 58);
+            this.InventoryContainer.TabIndex = 4;
+            // 
             // Inventory
             // 
             this.Inventory.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -912,6 +886,15 @@
             this.Inventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Inventory.UseVisualStyleBackColor = true;
             this.Inventory.Click += new System.EventHandler(this.Inventory_Click);
+            // 
+            // PurchaseContainer
+            // 
+            this.PurchaseContainer.Controls.Add(this.Purchase);
+            this.PurchaseContainer.Location = new System.Drawing.Point(0, 248);
+            this.PurchaseContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.PurchaseContainer.Name = "PurchaseContainer";
+            this.PurchaseContainer.Size = new System.Drawing.Size(227, 58);
+            this.PurchaseContainer.TabIndex = 4;
             // 
             // Purchase
             // 
@@ -935,6 +918,15 @@
             this.Purchase.UseVisualStyleBackColor = true;
             this.Purchase.Click += new System.EventHandler(this.Purchase_Click);
             // 
+            // WorkmanContainer
+            // 
+            this.WorkmanContainer.Controls.Add(this.Workman);
+            this.WorkmanContainer.Location = new System.Drawing.Point(0, 310);
+            this.WorkmanContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.WorkmanContainer.Name = "WorkmanContainer";
+            this.WorkmanContainer.Size = new System.Drawing.Size(227, 58);
+            this.WorkmanContainer.TabIndex = 5;
+            // 
             // Workman
             // 
             this.Workman.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -956,6 +948,15 @@
             this.Workman.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Workman.UseVisualStyleBackColor = true;
             this.Workman.Click += new System.EventHandler(this.Workman_Click);
+            // 
+            // AccountingContainer
+            // 
+            this.AccountingContainer.Controls.Add(this.Accounting);
+            this.AccountingContainer.Location = new System.Drawing.Point(0, 372);
+            this.AccountingContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.AccountingContainer.Name = "AccountingContainer";
+            this.AccountingContainer.Size = new System.Drawing.Size(227, 58);
+            this.AccountingContainer.TabIndex = 6;
             // 
             // Accounting
             // 
@@ -979,6 +980,15 @@
             this.Accounting.UseVisualStyleBackColor = true;
             this.Accounting.Click += new System.EventHandler(this.Accounting_Click);
             // 
+            // UserContainer
+            // 
+            this.UserContainer.Controls.Add(this.User);
+            this.UserContainer.Location = new System.Drawing.Point(0, 434);
+            this.UserContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.UserContainer.Name = "UserContainer";
+            this.UserContainer.Size = new System.Drawing.Size(227, 58);
+            this.UserContainer.TabIndex = 7;
+            // 
             // User
             // 
             this.User.DialogResult = System.Windows.Forms.DialogResult.Cancel;
@@ -1000,6 +1010,16 @@
             this.User.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.User.UseVisualStyleBackColor = true;
             this.User.Click += new System.EventHandler(this.User_Click);
+            // 
+            // SettingContainer
+            // 
+            this.SettingContainer.Controls.Add(this.Setting);
+            this.SettingContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.SettingContainer.Location = new System.Drawing.Point(0, 496);
+            this.SettingContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.SettingContainer.Name = "SettingContainer";
+            this.SettingContainer.Size = new System.Drawing.Size(227, 58);
+            this.SettingContainer.TabIndex = 8;
             // 
             // Setting
             // 
@@ -1023,30 +1043,10 @@
             this.Setting.UseVisualStyleBackColor = true;
             this.Setting.Click += new System.EventHandler(this.Setting_Click);
             // 
-            // UserIcon
+            // sidebarTimer
             // 
-            this.UserIcon.BackgroundImage = global::TheBetterLimited.Properties.Resources.portrait_free_icon_font__1_;
-            this.UserIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.UserIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.UserIcon.Location = new System.Drawing.Point(11, 25);
-            this.UserIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.UserIcon.Name = "UserIcon";
-            this.UserIcon.Size = new System.Drawing.Size(51, 50);
-            this.UserIcon.TabIndex = 0;
-            this.UserIcon.TabStop = false;
-            this.UserIcon.Click += new System.EventHandler(this.UserInformation_Click);
-            // 
-            // CompanyIcon
-            // 
-            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
-            this.CompanyIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CompanyIcon.Location = new System.Drawing.Point(7, 25);
-            this.CompanyIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.CompanyIcon.Name = "CompanyIcon";
-            this.CompanyIcon.Size = new System.Drawing.Size(51, 50);
-            this.CompanyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CompanyIcon.TabIndex = 0;
-            this.CompanyIcon.TabStop = false;
+            this.sidebarTimer.Interval = 1;
+            this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
             // 
             // Main
             // 
@@ -1075,8 +1075,10 @@
             this.submenuContainer3.ResumeLayout(false);
             this.Header.ResumeLayout(false);
             this.UserInformation.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.UserIcon)).EndInit();
             this.CompanyInfo.ResumeLayout(false);
             this.CompanyInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).EndInit();
             this.user_droplist.ResumeLayout(false);
             this.subSidebar.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -1096,8 +1098,6 @@
             this.AccountingContainer.ResumeLayout(false);
             this.UserContainer.ResumeLayout(false);
             this.SettingContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.UserIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).EndInit();
             this.ResumeLayout(false);
 
         }

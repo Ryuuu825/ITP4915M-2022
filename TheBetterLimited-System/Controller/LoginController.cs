@@ -83,8 +83,8 @@ namespace TheBetterLimited.Controller
                     var res = JObject.Parse(response.Content);
                     GlobalsData.Token = res["token"].ToString();
                     GlobalsData.ExpireAt = res["expireAt"].ToString();
-                    GlobalsData.Firstname = "Ben";
-                    GlobalsData.Lastname = "Poon";
+                    GlobalsData.Firstname = "Admin1";
+                    GlobalsData.Lastname = "Pan";
                     GlobalsData.JobTitle = "Admin";
                     //GlobalsData.UserId = user.Account.Id;
                     return "ok";

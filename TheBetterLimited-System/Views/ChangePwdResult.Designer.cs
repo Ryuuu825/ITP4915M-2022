@@ -73,7 +73,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::TheBetterLimited.Properties.Resources.shield_check;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
+            this.pictureBox1.ErrorImage = null;
             this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pictureBox1.Location = new System.Drawing.Point(554, 176);
             this.pictureBox1.Name = "pictureBox1";

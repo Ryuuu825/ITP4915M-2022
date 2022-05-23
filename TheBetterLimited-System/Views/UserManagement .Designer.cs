@@ -35,41 +35,31 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserManagement));
             this.UserDataGrid = new System.Windows.Forms.DataGridView();
-            this.Bottom = new System.Windows.Forms.Panel();
-            this.ActionContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.curdAction = new System.Windows.Forms.Panel();
-            this.confirmAction = new System.Windows.Forms.Panel();
             this.Action = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.SearchBar = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.curdAction = new System.Windows.Forms.Panel();
             this.Header = new System.Windows.Forms.Panel();
+            this.CloseBtn = new FontAwesome.Sharp.IconButton();
+            this.RefreshBtn = new FontAwesome.Sharp.IconButton();
             this.Title = new System.Windows.Forms.Label();
             this.Data = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.CloseBtn = new FontAwesome.Sharp.IconButton();
-            this.RefreshBtn = new FontAwesome.Sharp.IconButton();
-            this.roundButton2 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.roundButton1 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.EditBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.directorySearcher1 = new System.DirectoryServices.DirectorySearcher();
+            this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.UnlockBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.LockBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.DeleteBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.AddBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Department = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StaffName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.UserDataGrid)).BeginInit();
-            this.Bottom.SuspendLayout();
-            this.ActionContainer.SuspendLayout();
-            this.curdAction.SuspendLayout();
-            this.confirmAction.SuspendLayout();
             this.Action.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.SearchBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.curdAction.SuspendLayout();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
             this.SuspendLayout();
@@ -99,15 +89,6 @@
             this.UserDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.UserDataGrid.ColumnHeadersHeight = 50;
             this.UserDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.UserDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.UserName,
-            this.Email,
-            this.Department,
-            this.StaffName,
-            this.Status,
-            this.Edit,
-            this.Delete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,7 +101,7 @@
             this.UserDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserDataGrid.EnableHeadersVisualStyles = false;
             this.UserDataGrid.GridColor = System.Drawing.Color.White;
-            this.UserDataGrid.Location = new System.Drawing.Point(10, 10);
+            this.UserDataGrid.Location = new System.Drawing.Point(0, 2);
             this.UserDataGrid.Margin = new System.Windows.Forms.Padding(0);
             this.UserDataGrid.Name = "UserDataGrid";
             this.UserDataGrid.ReadOnly = true;
@@ -133,6 +114,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.UserDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.UserDataGrid.RowHeadersVisible = false;
             this.UserDataGrid.RowHeadersWidth = 30;
             this.UserDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -143,89 +125,66 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.UserDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.UserDataGrid.RowTemplate.Height = 40;
+            this.UserDataGrid.RowTemplate.Height = 30;
             this.UserDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.UserDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.UserDataGrid.Size = new System.Drawing.Size(833, 521);
+            this.UserDataGrid.Size = new System.Drawing.Size(1037, 474);
             this.UserDataGrid.TabIndex = 3;
-            this.UserDataGrid.CancelRowEdit += new System.Windows.Forms.QuestionEventHandler(this.UserDataGrid_CancelRowEdit);
-            this.UserDataGrid.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.UserDataGrid_CellBeginEdit);
             this.UserDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserDataGrid_CellClick);
-            this.UserDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserDataGrid_CellContentClick_1);
             this.UserDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.UserDataGrid_CellFormatting);
-            // 
-            // Bottom
-            // 
-            this.Bottom.BackColor = System.Drawing.Color.Transparent;
-            this.Bottom.Controls.Add(this.ActionContainer);
-            this.Bottom.Controls.Add(this.Action);
-            this.Bottom.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Bottom.Location = new System.Drawing.Point(0, 50);
-            this.Bottom.Name = "Bottom";
-            this.Bottom.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.Bottom.Size = new System.Drawing.Size(194, 531);
-            this.Bottom.TabIndex = 7;
-            this.Bottom.Paint += new System.Windows.Forms.PaintEventHandler(this.Bottom_Paint);
-            // 
-            // ActionContainer
-            // 
-            this.ActionContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.ActionContainer.Controls.Add(this.curdAction);
-            this.ActionContainer.Controls.Add(this.confirmAction);
-            this.ActionContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ActionContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.ActionContainer.Location = new System.Drawing.Point(0, 67);
-            this.ActionContainer.Name = "ActionContainer";
-            this.ActionContainer.Size = new System.Drawing.Size(194, 464);
-            this.ActionContainer.TabIndex = 6;
-            this.ActionContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.ActionContainer_Paint);
-            // 
-            // curdAction
-            // 
-            this.curdAction.Controls.Add(this.roundButton2);
-            this.curdAction.Controls.Add(this.roundButton1);
-            this.curdAction.Controls.Add(this.EditBtn);
-            this.curdAction.Controls.Add(this.DeleteBtn);
-            this.curdAction.Controls.Add(this.AddBtn);
-            this.curdAction.Location = new System.Drawing.Point(3, 3);
-            this.curdAction.Name = "curdAction";
-            this.curdAction.Size = new System.Drawing.Size(188, 214);
-            this.curdAction.TabIndex = 6;
-            // 
-            // confirmAction
-            // 
-            this.confirmAction.Controls.Add(this.SaveBtn);
-            this.confirmAction.Controls.Add(this.CancelBtn);
-            this.confirmAction.Location = new System.Drawing.Point(3, 223);
-            this.confirmAction.Name = "confirmAction";
-            this.confirmAction.Size = new System.Drawing.Size(188, 86);
-            this.confirmAction.TabIndex = 7;
             // 
             // Action
             // 
             this.Action.BackColor = System.Drawing.Color.White;
-            this.Action.Controls.Add(this.label1);
+            this.Action.Controls.Add(this.panel1);
             this.Action.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Action.Location = new System.Drawing.Point(0, 10);
+            this.Action.Location = new System.Drawing.Point(0, 50);
             this.Action.Name = "Action";
-            this.Action.Size = new System.Drawing.Size(194, 57);
-            this.Action.TabIndex = 8;
-            this.Action.Paint += new System.Windows.Forms.PaintEventHandler(this.Action_Paint);
+            this.Action.Padding = new System.Windows.Forms.Padding(5, 1, 5, 1);
+            this.Action.Size = new System.Drawing.Size(1037, 55);
+            this.Action.TabIndex = 7;
             // 
-            // label1
+            // panel1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 7);
-            this.label1.Margin = new System.Windows.Forms.Padding(3);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(3);
-            this.label1.Size = new System.Drawing.Size(84, 42);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Action";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.panel1.Controls.Add(this.SearchBar);
+            this.panel1.Controls.Add(this.curdAction);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(5, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1027, 48);
+            this.panel1.TabIndex = 6;
+            // 
+            // SearchBar
+            // 
+            this.SearchBar.Controls.Add(this.pictureBox1);
+            this.SearchBar.Controls.Add(this.SearchBarTxt);
+            this.SearchBar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SearchBar.Location = new System.Drawing.Point(733, 0);
+            this.SearchBar.Name = "SearchBar";
+            this.SearchBar.Size = new System.Drawing.Size(294, 48);
+            this.SearchBar.TabIndex = 9;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // curdAction
+            // 
+            this.curdAction.Controls.Add(this.UnlockBtn);
+            this.curdAction.Controls.Add(this.LockBtn);
+            this.curdAction.Controls.Add(this.DeleteBtn);
+            this.curdAction.Controls.Add(this.AddBtn);
+            this.curdAction.Dock = System.Windows.Forms.DockStyle.Left;
+            this.curdAction.Location = new System.Drawing.Point(0, 0);
+            this.curdAction.Name = "curdAction";
+            this.curdAction.Size = new System.Drawing.Size(1031, 48);
+            this.curdAction.TabIndex = 6;
             // 
             // Header
             // 
@@ -240,66 +199,6 @@
             this.Header.Name = "Header";
             this.Header.Size = new System.Drawing.Size(1037, 50);
             this.Header.TabIndex = 5;
-            this.Header.Paint += new System.Windows.Forms.PaintEventHandler(this.Header_Paint);
-            // 
-            // Title
-            // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Segoe UI", 13.91597F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.ForeColor = System.Drawing.Color.Black;
-            this.Title.Location = new System.Drawing.Point(2, 9);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(167, 32);
-            this.Title.TabIndex = 1;
-            this.Title.Text = "User Account";
-            // 
-            // Data
-            // 
-            this.Data.Controls.Add(this.UserDataGrid);
-            this.Data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Data.Location = new System.Drawing.Point(194, 50);
-            this.Data.Name = "Data";
-            this.Data.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.Data.Size = new System.Drawing.Size(843, 531);
-            this.Data.TabIndex = 8;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn1.HeaderText = "Details";
-            this.dataGridViewImageColumn1.Image = global::TheBetterLimited.Properties.Resources.edit_free_icon_font;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn1.ToolTipText = "Edit";
-            this.dataGridViewImageColumn1.Width = 144;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn2.HeaderText = "Delete";
-            this.dataGridViewImageColumn2.Image = global::TheBetterLimited.Properties.Resources.trash_free_icon_font;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.MinimumWidth = 6;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn2.ToolTipText = "Delete";
-            this.dataGridViewImageColumn2.Width = 6;
-            // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn3.HeaderText = "";
-            this.dataGridViewImageColumn3.Image = global::TheBetterLimited.Properties.Resources.trash_free_icon_font;
-            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn3.MinimumWidth = 6;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn3.ToolTipText = "Delete";
-            this.dataGridViewImageColumn3.Width = 6;
             // 
             // CloseBtn
             // 
@@ -335,78 +234,149 @@
             this.RefreshBtn.UseVisualStyleBackColor = true;
             this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
-            // roundButton2
+            // Title
             // 
-            this.roundButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.roundButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.roundButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.roundButton2.BorderRadius = 10;
-            this.roundButton2.BorderSize = 0;
-            this.roundButton2.FlatAppearance.BorderSize = 0;
-            this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton2.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton2.ForeColor = System.Drawing.Color.White;
-            this.roundButton2.Location = new System.Drawing.Point(0, 167);
-            this.roundButton2.Name = "roundButton2";
-            this.roundButton2.Size = new System.Drawing.Size(188, 35);
-            this.roundButton2.TabIndex = 5;
-            this.roundButton2.Text = "Unlock";
-            this.roundButton2.TextColor = System.Drawing.Color.White;
-            this.roundButton2.UseVisualStyleBackColor = false;
+            this.Title.AutoSize = true;
+            this.Title.Font = new System.Drawing.Font("Segoe UI", 13.91597F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.ForeColor = System.Drawing.Color.Black;
+            this.Title.Location = new System.Drawing.Point(2, 9);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(167, 32);
+            this.Title.TabIndex = 1;
+            this.Title.Text = "User Account";
             // 
-            // roundButton1
+            // Data
             // 
-            this.roundButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.roundButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.roundButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.roundButton1.BorderRadius = 10;
-            this.roundButton1.BorderSize = 0;
-            this.roundButton1.FlatAppearance.BorderSize = 0;
-            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton1.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton1.ForeColor = System.Drawing.Color.White;
-            this.roundButton1.Location = new System.Drawing.Point(0, 126);
-            this.roundButton1.Name = "roundButton1";
-            this.roundButton1.Size = new System.Drawing.Size(188, 35);
-            this.roundButton1.TabIndex = 4;
-            this.roundButton1.Text = "Lock";
-            this.roundButton1.TextColor = System.Drawing.Color.White;
-            this.roundButton1.UseVisualStyleBackColor = false;
+            this.Data.Controls.Add(this.UserDataGrid);
+            this.Data.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Data.Location = new System.Drawing.Point(0, 105);
+            this.Data.Name = "Data";
+            this.Data.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.Data.Size = new System.Drawing.Size(1037, 476);
+            this.Data.TabIndex = 8;
             // 
-            // EditBtn
+            // dataGridViewImageColumn1
             // 
-            this.EditBtn.BackColor = System.Drawing.Color.DarkGray;
-            this.EditBtn.BackgroundColor = System.Drawing.Color.DarkGray;
-            this.EditBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.EditBtn.BorderRadius = 10;
-            this.EditBtn.BorderSize = 0;
-            this.EditBtn.FlatAppearance.BorderSize = 0;
-            this.EditBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditBtn.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditBtn.ForeColor = System.Drawing.Color.White;
-            this.EditBtn.Location = new System.Drawing.Point(0, 44);
-            this.EditBtn.Name = "EditBtn";
-            this.EditBtn.Size = new System.Drawing.Size(188, 35);
-            this.EditBtn.TabIndex = 2;
-            this.EditBtn.Text = "Edit";
-            this.EditBtn.TextColor = System.Drawing.Color.White;
-            this.EditBtn.UseVisualStyleBackColor = false;
-            this.EditBtn.Click += new System.EventHandler(this.roundButton3_Click);
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn1.HeaderText = "Details";
+            this.dataGridViewImageColumn1.Image = global::TheBetterLimited.Properties.Resources.pencil_free_icon_font;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn1.ToolTipText = "Edit";
+            this.dataGridViewImageColumn1.Width = 124;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn2.HeaderText = "Delete";
+            this.dataGridViewImageColumn2.Image = global::TheBetterLimited.Properties.Resources.trash_free_icon_font;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn2.ToolTipText = "Delete";
+            this.dataGridViewImageColumn2.Width = 124;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn3.HeaderText = "";
+            this.dataGridViewImageColumn3.Image = global::TheBetterLimited.Properties.Resources.trash_free_icon_font;
+            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn3.MinimumWidth = 6;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn3.ToolTipText = "Delete";
+            this.dataGridViewImageColumn3.Width = 124;
+            // 
+            // directorySearcher1
+            // 
+            this.directorySearcher1.ClientTimeout = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            this.directorySearcher1.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
+            // 
+            // SearchBarTxt
+            // 
+            this.SearchBarTxt.BackColor = System.Drawing.Color.White;
+            this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.SearchBarTxt.BorderRadius = 10;
+            this.SearchBarTxt.BorderSize = 1;
+            this.SearchBarTxt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SearchBarTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBarTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.SearchBarTxt.Location = new System.Drawing.Point(0, 0);
+            this.SearchBarTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.SearchBarTxt.MaxLength = 20;
+            this.SearchBarTxt.Multiline = true;
+            this.SearchBarTxt.Name = "SearchBarTxt";
+            this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(30, 10, 10, 7);
+            this.SearchBarTxt.PasswordChar = false;
+            this.SearchBarTxt.Size = new System.Drawing.Size(294, 48);
+            this.SearchBarTxt.TabIndex = 9;
+            this.SearchBarTxt.Texts = "Search";
+            this.SearchBarTxt.UnderlinedStyle = false;
+            this.SearchBarTxt.Enter += new System.EventHandler(this.SearchBarTxt_Enter);
+            this.SearchBarTxt.Leave += new System.EventHandler(this.SearchBarTxt_Leave);
+            // 
+            // UnlockBtn
+            // 
+            this.UnlockBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.UnlockBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.UnlockBtn.BorderColor = System.Drawing.Color.White;
+            this.UnlockBtn.BorderRadius = 10;
+            this.UnlockBtn.BorderSize = 0;
+            this.UnlockBtn.FlatAppearance.BorderSize = 0;
+            this.UnlockBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UnlockBtn.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UnlockBtn.ForeColor = System.Drawing.Color.White;
+            this.UnlockBtn.Location = new System.Drawing.Point(390, 0);
+            this.UnlockBtn.Name = "UnlockBtn";
+            this.UnlockBtn.Size = new System.Drawing.Size(107, 48);
+            this.UnlockBtn.TabIndex = 6;
+            this.UnlockBtn.Text = "Unlock";
+            this.UnlockBtn.TextColor = System.Drawing.Color.White;
+            this.UnlockBtn.UseVisualStyleBackColor = false;
+            this.UnlockBtn.Click += new System.EventHandler(this.UnlockBtn_Click);
+            // 
+            // LockBtn
+            // 
+            this.LockBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.LockBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.LockBtn.BorderColor = System.Drawing.Color.White;
+            this.LockBtn.BorderRadius = 10;
+            this.LockBtn.BorderSize = 0;
+            this.LockBtn.FlatAppearance.BorderSize = 0;
+            this.LockBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LockBtn.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LockBtn.ForeColor = System.Drawing.Color.White;
+            this.LockBtn.Location = new System.Drawing.Point(277, 0);
+            this.LockBtn.Name = "LockBtn";
+            this.LockBtn.Size = new System.Drawing.Size(107, 48);
+            this.LockBtn.TabIndex = 5;
+            this.LockBtn.Text = "Lock";
+            this.LockBtn.TextColor = System.Drawing.Color.White;
+            this.LockBtn.UseVisualStyleBackColor = false;
+            this.LockBtn.Click += new System.EventHandler(this.LockBtn_Click);
             // 
             // DeleteBtn
             // 
-            this.DeleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.DeleteBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.DeleteBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.DeleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.DeleteBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.DeleteBtn.BorderColor = System.Drawing.Color.White;
             this.DeleteBtn.BorderRadius = 10;
             this.DeleteBtn.BorderSize = 0;
             this.DeleteBtn.FlatAppearance.BorderSize = 0;
             this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteBtn.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteBtn.ForeColor = System.Drawing.Color.White;
-            this.DeleteBtn.Location = new System.Drawing.Point(0, 85);
+            this.DeleteBtn.Location = new System.Drawing.Point(127, 0);
             this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(188, 35);
+            this.DeleteBtn.Size = new System.Drawing.Size(144, 48);
             this.DeleteBtn.TabIndex = 3;
             this.DeleteBtn.Text = "Delete Seleted";
             this.DeleteBtn.TextColor = System.Drawing.Color.White;
@@ -415,152 +385,26 @@
             // 
             // AddBtn
             // 
-            this.AddBtn.BackColor = System.Drawing.Color.SteelBlue;
-            this.AddBtn.BackgroundColor = System.Drawing.Color.SteelBlue;
-            this.AddBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.AddBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.AddBtn.BorderColor = System.Drawing.Color.White;
             this.AddBtn.BorderRadius = 10;
             this.AddBtn.BorderSize = 0;
             this.AddBtn.FlatAppearance.BorderSize = 0;
             this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddBtn.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBtn.Location = new System.Drawing.Point(0, 3);
+            this.AddBtn.Image = global::TheBetterLimited.Properties.Resources.add;
+            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddBtn.Location = new System.Drawing.Point(1, 0);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(0);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(188, 35);
-            this.AddBtn.TabIndex = 0;
-            this.AddBtn.Text = "Add";
+            this.AddBtn.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.AddBtn.Size = new System.Drawing.Size(120, 48);
+            this.AddBtn.TabIndex = 4;
+            this.AddBtn.Text = "      New";
             this.AddBtn.TextColor = System.Drawing.Color.White;
             this.AddBtn.UseVisualStyleBackColor = false;
-            // 
-            // SaveBtn
-            // 
-            this.SaveBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.SaveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.SaveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.SaveBtn.BorderRadius = 10;
-            this.SaveBtn.BorderSize = 0;
-            this.SaveBtn.FlatAppearance.BorderSize = 0;
-            this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveBtn.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveBtn.Location = new System.Drawing.Point(0, 0);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(188, 35);
-            this.SaveBtn.TabIndex = 4;
-            this.SaveBtn.Text = "Save";
-            this.SaveBtn.TextColor = System.Drawing.Color.White;
-            this.SaveBtn.UseVisualStyleBackColor = false;
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.CancelBtn.BackgroundColor = System.Drawing.Color.LightSteelBlue;
-            this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.CancelBtn.BorderRadius = 10;
-            this.CancelBtn.BorderSize = 0;
-            this.CancelBtn.FlatAppearance.BorderSize = 0;
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.ForeColor = System.Drawing.Color.White;
-            this.CancelBtn.Location = new System.Drawing.Point(0, 41);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(188, 35);
-            this.CancelBtn.TabIndex = 5;
-            this.CancelBtn.Text = "Cancel";
-            this.CancelBtn.TextColor = System.Drawing.Color.White;
-            this.CancelBtn.UseVisualStyleBackColor = false;
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.HeaderText = "ID";
-            this.ID.MaxInputLength = 20;
-            this.ID.MinimumWidth = 10;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ID.ToolTipText = "User ID";
-            this.ID.Width = 66;
-            // 
-            // UserName
-            // 
-            this.UserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UserName.HeaderText = "Name";
-            this.UserName.MaxInputLength = 20;
-            this.UserName.MinimumWidth = 10;
-            this.UserName.Name = "UserName";
-            this.UserName.ReadOnly = true;
-            this.UserName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.UserName.ToolTipText = "User Name";
-            this.UserName.Width = 92;
-            // 
-            // Email
-            // 
-            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Email.HeaderText = "Email";
-            this.Email.MaxInputLength = 30;
-            this.Email.MinimumWidth = 10;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Email.ToolTipText = "User Email Address";
-            // 
-            // Department
-            // 
-            this.Department.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Department.HeaderText = "StaffID";
-            this.Department.MinimumWidth = 6;
-            this.Department.Name = "Department";
-            this.Department.ReadOnly = true;
-            this.Department.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Department.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // StaffName
-            // 
-            this.StaffName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.StaffName.HeaderText = "StaffName";
-            this.StaffName.MinimumWidth = 6;
-            this.StaffName.Name = "StaffName";
-            this.StaffName.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Status.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Status.ToolTipText = "Account Status";
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Edit.HeaderText = "";
-            this.Edit.Image = global::TheBetterLimited.Properties.Resources.pencil_free_icon_font;
-            this.Edit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Edit.ToolTipText = "Edit";
-            this.Edit.Width = 6;
-            // 
-            // Delete
-            // 
-            this.Delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Delete.HeaderText = "";
-            this.Delete.Image = global::TheBetterLimited.Properties.Resources.trash_free_icon_font;
-            this.Delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Delete.MinimumWidth = 6;
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Delete.ToolTipText = "Delete";
-            this.Delete.Width = 6;
             // 
             // UserManagement
             // 
@@ -569,18 +413,18 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(1037, 581);
             this.Controls.Add(this.Data);
-            this.Controls.Add(this.Bottom);
+            this.Controls.Add(this.Action);
             this.Controls.Add(this.Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UserManagement";
             this.Text = "UserManagement";
             ((System.ComponentModel.ISupportInitialize)(this.UserDataGrid)).EndInit();
-            this.Bottom.ResumeLayout(false);
-            this.ActionContainer.ResumeLayout(false);
-            this.curdAction.ResumeLayout(false);
-            this.confirmAction.ResumeLayout(false);
             this.Action.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.SearchBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.curdAction.ResumeLayout(false);
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             this.Data.ResumeLayout(false);
@@ -589,35 +433,25 @@
         }
 
         #endregion
-        private CustomizeControl.RoundButton EditBtn;
         private System.Windows.Forms.DataGridView UserDataGrid;
         private CustomizeControl.RoundButton DeleteBtn;
         private System.Windows.Forms.Panel Header;
-        private CustomizeControl.RoundButton CancelBtn;
-        private CustomizeControl.RoundButton SaveBtn;
         private System.Windows.Forms.Label Title;
-        private System.Windows.Forms.Panel Bottom;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.FlowLayoutPanel ActionContainer;
+        private System.Windows.Forms.Panel Action;
         private FontAwesome.Sharp.IconButton RefreshBtn;
         private FontAwesome.Sharp.IconButton CloseBtn;
-        private CustomizeControl.RoundButton AddBtn;
-        private System.Windows.Forms.Panel Action;
         private System.Windows.Forms.Panel Data;
         private System.Windows.Forms.Panel curdAction;
-        private System.Windows.Forms.Panel confirmAction;
-        private CustomizeControl.RoundButton roundButton2;
-        private CustomizeControl.RoundButton roundButton1;
+        private CustomizeControl.RoundButton LockBtn;
+        private CustomizeControl.RoundButton AddBtn;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Department;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StaffName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel SearchBar;
+        private CustomizeControl.CustomizeTextbox SearchBarTxt;
+        private System.Windows.Forms.Panel panel1;
+        private System.DirectoryServices.DirectorySearcher directorySearcher1;
+        private CustomizeControl.RoundButton UnlockBtn;
     }
 }
