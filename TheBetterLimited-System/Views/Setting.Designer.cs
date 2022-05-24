@@ -157,7 +157,6 @@
             // 
             this.Seleted.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.Seleted.HeaderText = "";
-            this.Seleted.Image = global::TheBetterLimited.Properties.Resources.square_free_icon_font;
             this.Seleted.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Seleted.MinimumWidth = 6;
             this.Seleted.Name = "Seleted";
@@ -248,7 +247,7 @@
             // 
             this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.delete.HeaderText = "";
-            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash_free_icon_font;
+            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash;
             this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.delete.MinimumWidth = 6;
             this.delete.Name = "delete";
@@ -503,7 +502,7 @@
             // 
             this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.dataGridViewImageColumn2.HeaderText = "Delete";
-            this.dataGridViewImageColumn2.Image = global::TheBetterLimited.Properties.Resources.trash_free_icon_font;
+            this.dataGridViewImageColumn2.Image = global::TheBetterLimited.Properties.Resources.trash;
             this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn2.MinimumWidth = 6;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
@@ -516,7 +515,7 @@
             // 
             this.dataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.dataGridViewImageColumn3.HeaderText = "";
-            this.dataGridViewImageColumn3.Image = global::TheBetterLimited.Properties.Resources.trash_free_icon_font;
+            this.dataGridViewImageColumn3.Image = global::TheBetterLimited.Properties.Resources.trash;
             this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn3.MinimumWidth = 6;
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";

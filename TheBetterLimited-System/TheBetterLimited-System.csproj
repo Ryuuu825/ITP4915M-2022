@@ -151,7 +151,6 @@
     <Compile Include="CustomizeControl\RoundTextbox.Designer.cs">
       <DependentUpon>RoundTextbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controller\HttpsConnector.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\ErrorMsg.cs" />
@@ -204,6 +203,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserManagement .cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +252,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserManagement .resx">
       <DependentUpon>UserManagement .cs</DependentUpon>
@@ -404,13 +412,31 @@
     <None Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\square-free-icon-font.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\eye.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\eye-crossed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unlock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />

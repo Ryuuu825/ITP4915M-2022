@@ -32,7 +32,7 @@ namespace TheBetterLimited.CustomizeControl
                 textBox1.Multiline = false;
                 this.Height = textBox1.Height + this.Padding.Top + this.Padding.Bottom;
                 this.Resize += new EventHandler(Textbox_Resize);
-                
+
             }
         }
 
@@ -45,7 +45,8 @@ namespace TheBetterLimited.CustomizeControl
         public int BorderRadius
         {
             get { return borderRadius; }
-            set { 
+            set
+            {
                 borderRadius = value;
                 this.Invalidate();
             }
@@ -156,7 +157,7 @@ namespace TheBetterLimited.CustomizeControl
             base.OnPaint(e);
             Graphics graph = e.Graphics;
             //Draw border
-            
+
             Rectangle rectSurface = this.ClientRectangle;
             Rectangle rectBorder = Rectangle.Inflate(rectSurface, -borderSize, -borderSize);
             int smoothSize = 1;

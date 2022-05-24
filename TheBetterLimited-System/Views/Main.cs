@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheBetterLimited.Controller;
 
 namespace TheBetterLimited.Views
 {
@@ -17,9 +18,15 @@ namespace TheBetterLimited.Views
         private bool sidebarExpand = true;
         private bool subSidebarExpand;
         private Form activeForm = null;
+        private UserController uc = new UserController();
         public Main()
         {
             InitializeComponent();
+        }
+
+        private void InitializeUserInfo()
+        {
+            
         }
 
         private void sidebarTimer_Tick(object sender, EventArgs e)
@@ -32,7 +39,7 @@ namespace TheBetterLimited.Views
                 {
                     sidebarExpand = false;
                     sidebarTimer.Stop();
-                } 
+                }
             }
             else
             {
@@ -48,25 +55,25 @@ namespace TheBetterLimited.Views
         private void subSidebarTimer_Tick(object sender, EventArgs e)
         {
             //Set the Minimum and Maximum size of the subSidebar
-                if (subSidebarExpand)
+            if (subSidebarExpand)
+            {
+                subSidebar.Width -= 50;
+                if (subSidebar.Width == subSidebar.MinimumSize.Width)
                 {
-                    subSidebar.Width -= 50;
-                    if (subSidebar.Width == subSidebar.MinimumSize.Width)
-                    {
-                        subSidebarExpand = false;
-                        subSidebarTimer.Stop();
-                    }
+                    subSidebarExpand = false;
+                    subSidebarTimer.Stop();
                 }
-                else
+            }
+            else
+            {
+                subSidebar.Width += 50;
+                if (subSidebar.Width == subSidebar.MaximumSize.Width)
                 {
-                    subSidebar.Width += 50;
-                    if (subSidebar.Width == subSidebar.MaximumSize.Width)
-                    {
-                        subSidebarExpand = true;
-                        subSidebarTimer.Stop();
-                    }
+                    subSidebarExpand = true;
+                    subSidebarTimer.Stop();
                 }
-        }     
+            }
+        }
 
         // Change the navigation button style
         private void change_MenuButton_style(object sender)
@@ -132,9 +139,9 @@ namespace TheBetterLimited.Views
 
         private void Main_Load(object sender, EventArgs e)
         {
-
-            txtUsername.Text = GlobalsData.Firstname + " " + GlobalsData.Lastname;
-            txtJobTitle.Text = GlobalsData.JobTitle;
+            txtUsername.Text = GlobalsData.currentUser["displayName"];
+            txtJobTitle.Text = GlobalsData.currentUser["position"];
+            UserIcon.BackgroundImage = uc.InitUserIcon();
             Menu_Init();
         }
 
@@ -144,7 +151,7 @@ namespace TheBetterLimited.Views
             {
                 sidebar.Controls[i].Hide();
             }
-            switch (GlobalsData.JobTitle)
+            switch (GlobalsData.currentUser["position"])
             {
                 case "Admin":
                     for (int i = 3; i < sidebar.Controls.Count - 1; i++)
@@ -158,8 +165,8 @@ namespace TheBetterLimited.Views
                     break;
                 case "Inventory":
                     InventoryContainer.Show();
-                    WorkmanContainer.Show(); 
-                    break ;
+                    WorkmanContainer.Show();
+                    break;
                 case "Purchase":
                     InventoryContainer.Show();
                     PurchaseContainer.Show();
@@ -173,12 +180,13 @@ namespace TheBetterLimited.Views
 
         private void UserInformation_Click(object sender, EventArgs e)
         {
-            user_droplist.Visible = user_droplist.Visible == true ? false:true;
+            user_droplist.Visible = user_droplist.Visible == true ? false : true;
         }
 
         private void Logout_Click(object sender, EventArgs e)
         {
             this.Dispose();
+            GlobalsData.currentUser.Clear();
             var th = new Thread(() => Application.Run(new Login()));
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
@@ -192,7 +200,7 @@ namespace TheBetterLimited.Views
             }
             activeForm = child;
             child.TopLevel = false;
-            child.Dock = DockStyle.Fill; 
+            child.Dock = DockStyle.Fill;
             this.mainBox.Controls.Add(child);
             this.mainBox.Tag = child;
             child.BringToFront();

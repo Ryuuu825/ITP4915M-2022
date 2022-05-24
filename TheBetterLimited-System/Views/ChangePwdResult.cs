@@ -34,7 +34,7 @@ namespace TheBetterLimited.Views
         {
             e.Cancel = true;
             this.Dispose();
-            Login login= new Login();
+            Login login = new Login();
             login.Show();
         }
     }

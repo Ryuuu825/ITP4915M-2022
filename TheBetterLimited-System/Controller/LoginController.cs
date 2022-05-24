@@ -23,25 +23,9 @@ namespace TheBetterLimited.Controller
         * change password
         */
         public string ChangePassword(string username, string oldPwd, string newPwd)
-         {
-            HttpsConnector http = new HttpsConnector(@"http://localhost:5233/api/login/requestresetpwd");
+        {
             var acc = new { userName = username, password = newPwd };
-            string json = JsonConvert.SerializeObject(acc);
-            var response = http.SendPostRequest(json);
-            Console.WriteLine("response:" + response);
-            if (response != null)
-            {
-                User user = JsonConvert.DeserializeObject<User>(response);
-                GlobalsData.Token = user.Token;
-                GlobalsData.ExpireAt = user.ExpireAt;
-                GlobalsData.Firstname = "Ben";
-                GlobalsData.Lastname = "Poon";
-                GlobalsData.JobTitle = "Admin";
-                Console.WriteLine(user.Status);
-
-                return user.Status;
-            }
-            return null;
+            return "";
         }
 
         /**
@@ -50,9 +34,9 @@ namespace TheBetterLimited.Controller
         public ResponseResult ResetPassword(string username, string email)
         {
             string l = CultureInfo.CurrentCulture.Name.Split('-')[0];
-            var json = new { userName = username, emailAddress = email, lang = l};
+            var json = new { userName = username, emailAddress = email, lang = l };
             var request = new RestRequest("/api/login/requestresetpwd", Method.Post)
-                        .AddHeader("lang",l)
+                        .AddHeader("lang", l)
                         .AddJsonBody(json);
             try
             {
@@ -60,7 +44,8 @@ namespace TheBetterLimited.Controller
                 var res = JObject.Parse(response.Content);
                 ResponseResult values = new ResponseResult(res["status"].ToString(), res["message"].ToString());
                 return values;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 return null;
             }
@@ -71,7 +56,7 @@ namespace TheBetterLimited.Controller
          */
         public string Login(string username, string pwd)
         {
-            var json = new { userName = username , password = pwd};
+            var json = new { userName = username, password = pwd };
             var request = new RestRequest("/api/login", Method.Post)
                         .AddJsonBody(json);
             try
@@ -80,12 +65,11 @@ namespace TheBetterLimited.Controller
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     var res = JObject.Parse(response.Content);
-                    GlobalsData.Token = res["token"].ToString();
-                    GlobalsData.ExpireAt = res["expireAt"].ToString();
-                    GlobalsData.Firstname = "Admin1";
-                    GlobalsData.Lastname = "Pan";
-                    GlobalsData.JobTitle = "Admin";
-                    //GlobalsData.UserId = user.Account.Id;
+                    GlobalsData.currentUser.Add("token", res["userToken"]["tokenString"].ToString());
+                    GlobalsData.currentUser.Add("expireAt", res["userToken"]["expireAt"].ToString());
+                    GlobalsData.currentUser.Add("displayName", res["initData"]["displayName"].ToString());
+                    GlobalsData.currentUser.Add("department", res["initData"]["department"].ToString());
+                    GlobalsData.currentUser.Add("position", res["initData"]["position"].ToString());
                     return "ok";
                 }
                 else

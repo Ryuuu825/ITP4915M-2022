@@ -20,8 +20,7 @@ namespace TheBetterLimited.Views
         public UserManagement()
         {
             InitializeComponent();
-            bs.DataSource = uc.GetAllAccount();
-            InitializeDataGridView();
+            GetAccount();//init user table
         }
 
         private void InitializeDataGridView()
@@ -36,11 +35,9 @@ namespace TheBetterLimited.Views
             UserDataGrid.Columns["status"].HeaderText = "Status";
             UserDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
             UserDataGrid.Columns["remarks"].HeaderText = "Remark";
-        }
 
-        private void roundButton3_Click(object sender, EventArgs e)
-        {
-            UserDataGrid.ReadOnly = false;
+            for(int i=0;i< UserDataGrid.RowCount;i++)
+                UserDataGrid["select", i].Tag = 0;
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
@@ -56,7 +53,7 @@ namespace TheBetterLimited.Views
 
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(UserDataGrid.SelectedRows);
+            Console.WriteLine(UserDataGrid.SelectedRows.Count);
             foreach (DataGridViewRow row in UserDataGrid.SelectedRows)
             {
                 try
@@ -92,26 +89,101 @@ namespace TheBetterLimited.Views
                     e.Value = "Locked";
                     e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
+                    UserDataGrid.Columns[e.ColumnIndex].ToolTipText = "Unlock";
+                    UserDataGrid.Rows[e.RowIndex].Cells["lockAcc"].Value = Properties.Resources.unlock;
+                    UserDataGrid.Rows[e.RowIndex].Cells["lockAcc"].Tag = 1;
                 }
                 else
                 {
                     e.Value = "Normal";
                     e.CellStyle.ForeColor = Color.SeaGreen;
                 }
-               
+
             }
         }
 
         private void UserDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == UserDataGrid.ColumnCount - 2)
+            if (e.ColumnIndex == UserDataGrid.Columns["select"].Index)
             {
-                
+                if (Convert.ToInt32(UserDataGrid["select", e.RowIndex].Tag) == 0)
+                {
+                    UserDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
+                    UserDataGrid["select", e.RowIndex].Tag = 1;
+                    UserDataGrid.Rows[e.RowIndex].Selected = true;
+                }
+                else
+                {
+                    UserDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
+                    UserDataGrid["select", e.RowIndex].Tag = 0;
+                    UserDataGrid.Rows[e.RowIndex].Selected = false;
+                    Console.WriteLine("unchecked");
+                }
             }
 
-            if (e.ColumnIndex == UserDataGrid.ColumnCount-1)
+            if (e.ColumnIndex == UserDataGrid.Columns["lockAcc"].Index)
             {
-                this.UserDataGrid.Rows.RemoveAt(e.RowIndex);
+                DialogResult choose;
+                if (Convert.ToInt32(UserDataGrid["lockAcc", e.RowIndex].Tag) == 1)
+                {
+                    //unlock account
+                    choose = MessageBox.Show("Do you really want to unlock the " + UserDataGrid["userName", e.RowIndex].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (choose == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow row in UserDataGrid.SelectedRows)
+                        {
+                            try
+                            {
+                                uc.UnlockAccount((string)UserDataGrid["id", row.Index].Value);
+                                MessageBox.Show("The " + UserDataGrid.SelectedRows.Count + "account(s) have been unlocked!", "Unlock Account Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                GetAccount();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Cannot unlock the account(s)", "Unlock Account Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
+                        }
+                    }
+                }
+                else
+                {
+                    // lock account
+                    choose = MessageBox.Show("Do you really want to lock the " + UserDataGrid.Rows[e.RowIndex].Cells["userName"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (choose == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow row in UserDataGrid.SelectedRows)
+                        {
+                            try
+                            {
+                                uc.LockAccount((string)UserDataGrid["id", row.Index].Value);
+                                MessageBox.Show("The " + UserDataGrid.SelectedRows.Count + "account(s) have been locked!", "Lock Account Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                GetAccount();
+                            }
+                            catch (InvalidOperationException ex)
+                            {
+                                MessageBox.Show("Cannot connect to the server", "Lock Account Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+
+                    }
+                }
+
+            }
+
+            if (e.ColumnIndex == UserDataGrid.Columns["edit"].Index)
+            {
+                foreach (DataGridRow row in UserDataGrid.SelectedRows)
+                {
+
+                    MessageBox.Show("You have selected row " + row + " cell");
+                }
+
+            }
+
+            if (e.ColumnIndex == UserDataGrid.Columns["delete"].Index)
+            {
+                UserDataGrid.Rows.RemoveAt(e.RowIndex);
             }
         }
 
@@ -133,63 +205,27 @@ namespace TheBetterLimited.Views
             }
         }
 
-        private void LockBtn_Click(object sender, EventArgs e)
-        {
-            var choose = MessageBox.Show("Do you really want to lock the " + UserDataGrid.SelectedRows.Count + " account(s)?", "Confirmation Request", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-            if(choose == DialogResult.Yes) 
-            { 
-                foreach (DataGridViewRow row in UserDataGrid.SelectedRows)
-                {
-                    try
-                    {
-                        uc.LockAccount((string)UserDataGrid["id", row.Index].Value);
-                        bs.DataSource = uc.GetAllAccount();
-                        UserDataGrid.DataSource = bs;
-                        InitializeDataGridView();
-                        MessageBox.Show("The account(s) have been locked!", "Lock Account Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (InvalidOperationException ex)
-                    {
-                        MessageBox.Show("Cannot connect to the server", "Lock Account Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                }
-            }
-        }
-
-        private void UnlockBtn_Click(object sender, EventArgs e)
-        {
-            var choose = MessageBox.Show("Do you really want to unlock the " + UserDataGrid.SelectedRows.Count + " account(s)?", "Confirmation Request", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-            if (choose == DialogResult.Yes)
-            {
-                foreach (DataGridViewRow row in UserDataGrid.SelectedRows)
-                {
-                    try
-                    {
-                        uc.UnlockAccount((string)UserDataGrid["id", row.Index].Value);
-                        bs.DataSource = uc.GetAllAccount();
-                        UserDataGrid.DataSource = bs;
-                        InitializeDataGridView();
-                        MessageBox.Show("The account(s) have been unlocked!", "Unlock Account Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Cannot unlock the account(s)", "Unlock Account Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                }
-            }
-        }
-
+        /**
+         * search bar text changed event
+         */
         private void SearchBarTxt__TextChanged(object sender, EventArgs e)
         {
-            string str = "id:"+ this.SearchBarTxt.Texts + "|userName:" + this.SearchBarTxt.Texts + "|emailAddress:" + this.SearchBarTxt.Texts;
-            Console.WriteLine(str);
-            if(this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
+            GetAccount();
+        }
+
+        /**
+         * Get 
+         */
+        private void GetAccount()
+        {
+            if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
                 bs.DataSource = uc.GetAllAccount();
-            }else
+            }
+            else
             {
+                string str = "_StaffId:" + this.SearchBarTxt.Texts + "|emailAddress:" + this.SearchBarTxt.Texts
+                            + "|userName:" + this.SearchBarTxt.Texts + "|emailAddress:" + this.SearchBarTxt.Texts;
                 bs.DataSource = uc.GetSpecificAccount(str);
             }
             UserDataGrid.DataSource = bs;

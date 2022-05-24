@@ -32,8 +32,10 @@
             this.Logo = new System.Windows.Forms.Panel();
             this.CompanyTitle1 = new System.Windows.Forms.Label();
             this.CompanyTitle0 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.loginContainer = new System.Windows.Forms.Panel();
+            this.showPwd = new System.Windows.Forms.PictureBox();
             this.usernameLabel = new System.Windows.Forms.Label();
             this.username = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.passwordLabel = new System.Windows.Forms.Label();
@@ -43,12 +45,10 @@
             this.forgotPwd = new System.Windows.Forms.LinkLabel();
             this.Welcome = new System.Windows.Forms.Label();
             this.LoginTitle = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.showPwd = new System.Windows.Forms.PictureBox();
             this.Logo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mainPanel.SuspendLayout();
             this.loginContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showPwd)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +89,19 @@
             this.CompanyTitle0.TabIndex = 4;
             this.CompanyTitle0.Text = "Better";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::TheBetterLimited.Properties.Resources.logo46;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox1.Location = new System.Drawing.Point(163, 105);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(225, 213);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.WaitOnLoad = true;
+            // 
             // mainPanel
             // 
             this.mainPanel.Controls.Add(this.loginContainer);
@@ -117,6 +130,17 @@
             this.loginContainer.Name = "loginContainer";
             this.loginContainer.Size = new System.Drawing.Size(712, 674);
             this.loginContainer.TabIndex = 1;
+            // 
+            // showPwd
+            // 
+            this.showPwd.BackgroundImage = global::TheBetterLimited.Properties.Resources.eye;
+            this.showPwd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.showPwd.Location = new System.Drawing.Point(571, 361);
+            this.showPwd.Name = "showPwd";
+            this.showPwd.Size = new System.Drawing.Size(30, 30);
+            this.showPwd.TabIndex = 6;
+            this.showPwd.TabStop = false;
+            this.showPwd.Click += new System.EventHandler(this.showPwd_Click);
             // 
             // usernameLabel
             // 
@@ -260,30 +284,6 @@
             this.LoginTitle.TabIndex = 0;
             this.LoginTitle.Text = "Login in your account";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::TheBetterLimited.Properties.Resources.logo46;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox1.Location = new System.Drawing.Point(163, 105);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 213);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.WaitOnLoad = true;
-            // 
-            // showPwd
-            // 
-            this.showPwd.BackgroundImage = global::TheBetterLimited.Properties.Resources.eye;
-            this.showPwd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.showPwd.Location = new System.Drawing.Point(571, 361);
-            this.showPwd.Name = "showPwd";
-            this.showPwd.Size = new System.Drawing.Size(30, 30);
-            this.showPwd.TabIndex = 6;
-            this.showPwd.TabStop = false;
-            this.showPwd.Click += new System.EventHandler(this.showPwd_Click);
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -302,10 +302,10 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Login_KeyDown);
             this.Logo.ResumeLayout(false);
             this.Logo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.mainPanel.ResumeLayout(false);
             this.loginContainer.ResumeLayout(false);
             this.loginContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.showPwd)).EndInit();
             this.ResumeLayout(false);
 
