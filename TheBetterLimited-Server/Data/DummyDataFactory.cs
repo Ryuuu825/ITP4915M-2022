@@ -14,7 +14,7 @@ namespace TheBetterLimited_Server.Data
                 await db.Set<Position>().AddRangeAsync(CreatePosition());
                 await db.Set<Catalogue>().AddRangeAsync(CreateCatalogue());
                 await db.Set<Goods>().AddRangeAsync(CreateGoods());
-                await db.SaveChangesAsync();
+                db.SaveChanges();
             }
             catch (Exception e)
             {

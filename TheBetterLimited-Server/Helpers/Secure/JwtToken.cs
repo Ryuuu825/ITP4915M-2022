@@ -15,7 +15,6 @@ public static class JwtToken
         var claims = new List<Claim>
         {
             new(ClaimTypes.Name, user.UserName),
-            new(ClaimTypes.Email, user.EmailAddress),
             new(ClaimTypes.Role, "admin")
         };
 

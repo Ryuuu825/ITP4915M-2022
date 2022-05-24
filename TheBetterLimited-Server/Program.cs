@@ -134,9 +134,11 @@ public class Program
             // create the database
             dbContext.Database.Migrate();
             // insert some dummy data
-            TheBetterLimited_Server.Data.DummyDataFactory.Create(dbContext);
+            TheBetterLimited_Server.Data.DummyDataFactory.Create(dbContext).GetAwaiter().GetResult();
         }
 #endif
+
+        ConsoleLogger.Debug("Version");
 
         app.Run();
 
