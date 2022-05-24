@@ -13,12 +13,13 @@ namespace TheBetterLimited.Controller
 {
     internal class UserController
     {
+        private RestClient client;
         /**
          * Search User
          */
         public DataTable GetAllAccount()
         {
-            RestClient client = new RestClient("http://localhost:5233/api/users");
+            client = new RestClient("http://localhost:5233/api/users");
             var request = new RestRequest("/", Method.Get)
                         .AddHeader("limit", 100);
             try
@@ -35,12 +36,13 @@ namespace TheBetterLimited.Controller
 
         public DataTable GetSpecificAccount(string qry)
         {
-            RestClient client = new RestClient("http://localhost:5233/api/users/sql");
+            client = new RestClient("http://localhost:5233/api/users/sql");
             var request = new RestRequest("/", Method.Get)
-                        .AddHeader("querystring", qry);
+                        .AddQueryParameter("querystring", qry );
             try
             {
                 var response = client.ExecuteAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine(response.Content);
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(response.Content, (typeof(DataTable)));
                 return dataTable;
             }
@@ -68,7 +70,7 @@ namespace TheBetterLimited.Controller
          */
         public String LockAccount(string uid)
         {
-            RestClient client = new RestClient("http://localhost:5233/api/users/lock");
+            client = new RestClient("http://localhost:5233/api/users/lock");
             var request = new RestRequest("/", Method.Post)
                         .AddJsonBody(new { id = uid, lockDay = 1 });
             try
@@ -89,7 +91,7 @@ namespace TheBetterLimited.Controller
          */
         public String UnlockAccount(string uid)
         {
-            RestClient client = new RestClient("http://localhost:5233/api/users/unlock");
+            client = new RestClient("http://localhost:5233/api/users/unlock");
             var request = new RestRequest("/", Method.Post)
                         .AddJsonBody(new { id = uid, lockDay = 1 });
             try

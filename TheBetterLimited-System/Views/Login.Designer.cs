@@ -44,10 +44,12 @@
             this.Welcome = new System.Windows.Forms.Label();
             this.LoginTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.showPwd = new System.Windows.Forms.PictureBox();
             this.Logo.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.loginContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showPwd)).BeginInit();
             this.SuspendLayout();
             // 
             // Logo
@@ -99,6 +101,7 @@
             // loginContainer
             // 
             this.loginContainer.BackColor = System.Drawing.Color.White;
+            this.loginContainer.Controls.Add(this.showPwd);
             this.loginContainer.Controls.Add(this.usernameLabel);
             this.loginContainer.Controls.Add(this.username);
             this.loginContainer.Controls.Add(this.passwordLabel);
@@ -270,6 +273,17 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
             // 
+            // showPwd
+            // 
+            this.showPwd.BackgroundImage = global::TheBetterLimited.Properties.Resources.eye;
+            this.showPwd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.showPwd.Location = new System.Drawing.Point(571, 361);
+            this.showPwd.Name = "showPwd";
+            this.showPwd.Size = new System.Drawing.Size(30, 30);
+            this.showPwd.TabIndex = 6;
+            this.showPwd.TabStop = false;
+            this.showPwd.Click += new System.EventHandler(this.showPwd_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -279,7 +293,6 @@
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Login";
@@ -293,6 +306,7 @@
             this.loginContainer.ResumeLayout(false);
             this.loginContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showPwd)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -314,5 +328,6 @@
         private CustomizeControl.CustomizeTextbox username;
         private System.Windows.Forms.LinkLabel ChangePassword;
         private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.PictureBox showPwd;
     }
 }

@@ -26,58 +26,21 @@ namespace TheBetterLimited.Views
 
         private void InitializeDataGridView()
         {
-            /**
-             * Select column
-             */
-            DataGridViewImageColumn dvSelect = new DataGridViewImageColumn();
-            dvSelect.Width = 6;
-            dvSelect.Image = Properties.Resources.square_free_icon_font;
-            dvSelect.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dvSelect.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            UserDataGrid.Columns.Add(dvSelect);
-
-            UserDataGrid.AutoGenerateColumns = true;
+            //Main data column
+            UserDataGrid.AutoGenerateColumns = false;
             UserDataGrid.DataSource = bs;
             UserDataGrid.Columns["id"].HeaderText = "ID";
             UserDataGrid.Columns["userName"].HeaderText = "User Name";
             UserDataGrid.Columns["staffName"].HeaderText = "Staff Name";
-            UserDataGrid.Columns["emailAddress"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             UserDataGrid.Columns["emailAddress"].HeaderText = "Email Address";
-            UserDataGrid.Columns["emailAddress"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             UserDataGrid.Columns["status"].HeaderText = "Status";
             UserDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
             UserDataGrid.Columns["remarks"].HeaderText = "Remark";
-
-            DataGridViewImageColumn dvEdit = new DataGridViewImageColumn();
-            dvEdit.Width = 6;
-            dvEdit.Image = Properties.Resources.pencil_free_icon_font;
-            dvEdit.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dvEdit.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            UserDataGrid.Columns.Add(dvEdit);
-
-            DataGridViewImageColumn dvDelete = new DataGridViewImageColumn();
-            dvDelete.Width = 6;
-            dvDelete.Image = Properties.Resources.trash_free_icon_font;
-            dvDelete.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dvDelete.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            UserDataGrid.Columns.Add(dvDelete);
-        }
-
-        private void UserDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void roundButton3_Click(object sender, EventArgs e)
         {
             UserDataGrid.ReadOnly = false;
-
-
-        }
-
-        private void confirmBtnContainer_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
@@ -109,14 +72,9 @@ namespace TheBetterLimited.Views
 
         }
 
-        private void UserDataGrid_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
-            this.Refresh();
+            this.Invalidate();
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -146,11 +104,12 @@ namespace TheBetterLimited.Views
 
         private void UserDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 6)
+            if (e.ColumnIndex == UserDataGrid.ColumnCount - 2)
             {
                 
             }
-            else if (e.ColumnIndex == 7)
+
+            if (e.ColumnIndex == UserDataGrid.ColumnCount-1)
             {
                 this.UserDataGrid.Rows.RemoveAt(e.RowIndex);
             }
@@ -172,12 +131,6 @@ namespace TheBetterLimited.Views
             {
                 SearchBarTxt.Texts = "Search";
             }
-            if (this.SearchBarTxt.Texts != "Search")
-            {
-                bs.DataSource = uc.GetSpecificAccount(this.SearchBarTxt.Texts);
-                UserDataGrid.DataSource = bs;
-                this.Invalidate();
-            }
         }
 
         private void LockBtn_Click(object sender, EventArgs e)
@@ -189,7 +142,6 @@ namespace TheBetterLimited.Views
                 {
                     try
                     {
-                        Console.WriteLine((string)UserDataGrid["ID", row.Index].Value);
                         MessageBox.Show(uc.LockAccount((string)UserDataGrid["id", row.Index].Value), "Lock Account Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (InvalidOperationException ex)
@@ -210,7 +162,6 @@ namespace TheBetterLimited.Views
                 {
                     try
                     {
-                        Console.WriteLine((string)UserDataGrid["ID", row.Index].Value);
                         MessageBox.Show(uc.UnlockAccount((string)UserDataGrid["id", row.Index].Value), "Unlock Account Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     catch (Exception ex)
@@ -220,6 +171,13 @@ namespace TheBetterLimited.Views
 
                 }
             }
+        }
+
+        private void SearchBarTxt__TextChanged(object sender, EventArgs e)
+        {
+            bs.DataSource = uc.GetSpecificAccount(this.SearchBarTxt.Texts);
+            UserDataGrid.DataSource = bs;
+            this.Invalidate();
         }
     }
 }

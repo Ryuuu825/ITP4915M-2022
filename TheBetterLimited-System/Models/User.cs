@@ -20,10 +20,5 @@ namespace TheBetterLimited.Models
         public string Token { get => token; set => token = value; }
         public string ExpireAt { get => expireAt; set => expireAt = value; }
         internal Account Account { get => account; set => account = value; }
-
-        public static implicit operator RestResponse(User v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
