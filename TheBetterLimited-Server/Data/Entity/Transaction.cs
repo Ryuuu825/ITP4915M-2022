@@ -19,5 +19,7 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "DECIMAL(7,2)")]
         [Range(0, 99999)]
         public decimal Amount { get; set; }
+
+        public DateTime CreatedAt { get; set; }
     }
 }
