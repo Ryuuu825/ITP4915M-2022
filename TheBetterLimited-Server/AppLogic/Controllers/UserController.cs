@@ -140,7 +140,18 @@ public class UserController
 
         // add lock day on unlock date
 
-        await UpdateUserAsync(id , new List<UpdateObjectModel>(1) { new UpdateObjectModel() { Attribute = "unlockDate" , Value = DateTime.Now.AddDays(lockDay) } }, true);
+        await UpdateUserAsync(id , 
+        new List<UpdateObjectModel>(2) { 
+            new UpdateObjectModel() { 
+                Attribute = "unlockDate" , 
+                Value = DateTime.Now.AddDays(lockDay) 
+            },
+            new UpdateObjectModel() {
+                Attribute = "Status" ,
+                Value = 'L'
+            }
+        }, 
+        true);
     }
 
      public async Task UnlockUserAsync(string id)

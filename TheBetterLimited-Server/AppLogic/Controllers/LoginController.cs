@@ -43,7 +43,6 @@ public class LoginController
 
             if (potentialUser.LoginFailedCount >= 10)
             {
-                ConsoleLogger.Debug($"The account {potentialUser.UserName} is locked");
                 potentialUser.Status = "L";
                 potentialUser.unlockDate = DateTime.Now.AddYears(1);
                 _UserTable.Update( in potentialUser);

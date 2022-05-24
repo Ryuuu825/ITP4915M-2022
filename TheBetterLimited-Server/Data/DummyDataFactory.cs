@@ -28,6 +28,26 @@ namespace TheBetterLimited_Server.Data
                     Sex = 'M',
                     Age = 18
                 },
+                new Staff()
+                {
+                    Id = "S0003",
+                    _departmentId = "050",
+                    _positionId = "002",
+                    FirstName = "Freerider",
+                    LastName = "Leung",
+                    Sex = 'M',
+                    Age = 20
+                },
+                new Staff()
+                {
+                    Id = "S0004",
+                    _departmentId = "040",
+                    _positionId = "003",
+                    FirstName = "Admin2",
+                    LastName = "Lam",
+                    Sex = 'M',
+                    Age = 20
+                }
 
             };
 
@@ -42,6 +62,21 @@ namespace TheBetterLimited_Server.Data
                 {
                     Id = "020",
                     Name = "Public Relation"
+                },
+                new Department
+                {
+                    Id = "030",
+                    Name = "Sales"
+                },
+                new Department
+                {
+                    Id = "040",
+                    Name = "IT"
+                },
+                new Department
+                {
+                    Id = "050",
+                    Name = "Freeride"
                 }
             };
             
@@ -77,7 +112,38 @@ namespace TheBetterLimited_Server.Data
                     EmailAddress = "user@example.com",
                     Status = "N",
                     Remarks = "none"
-                }
+                },
+                new Account
+                {
+                    Id = "A0003",
+                    _StaffId = "S0003",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.MaxValue,
+                    Icon = null,
+                    UserName = "admin2",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@example.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
+                new Account
+                {
+                    Id = "A0004",
+                    _StaffId = "S0004",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "admin3",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@example.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
+
             };
 
             var position = new Position[]
@@ -87,20 +153,43 @@ namespace TheBetterLimited_Server.Data
                     Id = "001",
                     jobTitle = "Admin",
                     _departmentId = "010"
+                },
+                new Position
+                {
+                    Id = "002",
+                    jobTitle = "Freerider",
+                    _departmentId = "050"
+                },
+                new Position
+                {
+                    Id = "003",
+                    jobTitle = "IT Manager",
+                    _departmentId = "040"
                 }
             };
 
+            // a electron retail store
             var Catalog = new Catalogue[]
             {
                 new Catalogue
                 {
                     Id = "100",
-                    Name = "Phone"
+                    Name = "Washer",
                 },
                 new Catalogue
                 {
                     Id = "020",
                     Name = "Computer"
+                },
+                new Catalogue
+                {
+                    Id = "030",
+                    Name = "Cloth Dryers"
+                },
+                new Catalogue
+                {
+                    Id = "001",
+                    Name = "Air Cooler"
                 }
             };
 

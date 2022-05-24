@@ -9,7 +9,6 @@ global using static TheBetterLimited_Server.Helpers.SecretConf;
 global using Newtonsoft.Json.Linq;
 global using TheBetterLimited_Server.Helpers.LogHelper;
 global using System.Collections;
-global using TheBetterLimited_Server;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -124,12 +123,18 @@ public class Program
             }
         }
 
+#if DEBUG
         using (var serviceScope = app.Services.CreateScope())
         {
             var dbContext = serviceScope.ServiceProvider.GetRequiredService<DataContext>();
+            // drop the database if it exists
+            dbContext.Database.ExecuteSqlRaw(
+                "DROP DATABASE IF EXISTS `TheBetterLimitedDev`;"
+            );
             dbContext.Database.Migrate();
             TheBetterLimited_Server.Data.DummyDataFactory.Create(dbContext);
         }
+#endif
 
         app.Run();
 

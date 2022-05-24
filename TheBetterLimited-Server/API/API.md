@@ -160,7 +160,7 @@ POST /api​/[Name]
 Update a range of entry that match the result from query string
 
 ```
-/api/Appointment?queryString={string}
+PUT /api/Appointment?queryString={string}
 ```
 
 - request body is needed, exmaple:
@@ -641,7 +641,7 @@ example response body:
     "messages": [
         {
             "senderName": "admin",
-            "sentDate": "05/17/2022",
+            "sentDate": "05/19/2022",
             "content": "string"
         },
         {
