@@ -4,9 +4,34 @@ namespace TheBetterLimited_Server.Data
 {
     public static class DummyDataFactory
     {
-        public static void Create(DbContext db)
+        public static async Task Create(DbContext db)
         {
-            var staff = new Staff[]
+            try
+            {
+                await db.Set<Staff>().AddRangeAsync(CreateStaff());
+                await db.Set<Department>().AddRangeAsync(CreateDepartment());
+                await db.Set<Account>().AddRangeAsync(CreateAccount());
+                await db.Set<Position>().AddRangeAsync(CreatePosition());
+                await db.Set<Catalogue>().AddRangeAsync(CreateCatalogue());
+                await db.Set<Goods>().AddRangeAsync(CreateGoods());
+                await db.SaveChangesAsync();
+            }
+            catch (Exception e)
+            {
+                // user may already inserted the data before
+                // so we just ignore the exception
+                ConsoleLogger.Debug("Please ignore the exception, you may already inserted the data before");
+            }
+            finally
+            {
+                db.Dispose();
+                GC.SuppressFinalize(db);
+            }
+        }
+
+        public static Staff[] CreateStaff()
+        {
+            return new Staff[]
             {
                 new Staff()
                 {
@@ -50,8 +75,11 @@ namespace TheBetterLimited_Server.Data
                 }
 
             };
+        }   
 
-            var department = new Department[] 
+        public static Department[] CreateDepartment()
+        {
+            return new Department[] 
             {
                 new Department
                 {
@@ -79,9 +107,11 @@ namespace TheBetterLimited_Server.Data
                     Name = "Freeride"
                 }
             };
-            
+        }
 
-            var account = new Account[]
+        public static Account[] CreateAccount()
+        {
+            return new Account[]
             {
                 new Account
                 {
@@ -124,7 +154,7 @@ namespace TheBetterLimited_Server.Data
                     Icon = null,
                     UserName = "admin2",
                     Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
-                    EmailAddress = "user@example.com",
+                    EmailAddress = "str@domain.com",
                     Status = "N",
                     Remarks = "none"
                 },
@@ -139,14 +169,17 @@ namespace TheBetterLimited_Server.Data
                     Icon = null,
                     UserName = "admin3",
                     Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
-                    EmailAddress = "user@example.com",
+                    EmailAddress = "user@domain.com",
                     Status = "N",
                     Remarks = "none"
                 },
 
             };
-
-            var position = new Position[]
+        }
+    
+        public static Position[] CreatePosition()
+        {
+            return new Position[]
             {
                 new Position
                 {
@@ -167,9 +200,11 @@ namespace TheBetterLimited_Server.Data
                     _departmentId = "040"
                 }
             };
-
-            // a electron retail store
-            var Catalog = new Catalogue[]
+        }
+    
+        public static Catalogue[] CreateCatalogue()
+        {
+            return new Catalogue[]
             {
                 new Catalogue
                 {
@@ -192,8 +227,11 @@ namespace TheBetterLimited_Server.Data
                     Name = "Air Cooler"
                 }
             };
+        }
 
-            var goods = new Goods[]
+        public static Goods[] CreateGoods()
+        {
+            return new Goods[]
             {
                 new Goods
                 {
@@ -220,32 +258,7 @@ namespace TheBetterLimited_Server.Data
                     PhotoAmt = 0
                 }
             };
-
-
-
-
-            try
-            {
-                db.Set<Staff>().AddRange(staff);
-                db.Set<Department>().AddRange(department);
-                db.Set<Account>().AddRange(account);
-                db.Set<Position>().AddRange(position);
-                db.Set<Catalogue>().AddRange(Catalog);
-                db.Set<Goods>().AddRange(goods);
-                db.SaveChanges();
-            }
-            catch (Exception e)
-            {
-                // user may already inserted the data before
-                // so we just ignore the exception
-                ConsoleLogger.Debug("Please ignore the exception, you may already inserted the data before");
-            }
-            finally
-            {
-                db.Dispose();
-                GC.SuppressFinalize(db);
-            }
         }
-            
+
     }
 }

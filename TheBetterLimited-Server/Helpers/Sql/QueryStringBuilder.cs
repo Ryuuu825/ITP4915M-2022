@@ -13,10 +13,10 @@ public static class QueryStringBuilder
             queryStr = Helpers.Sql.QueryStringBuilder.CreateSQLQuery( condString , typeof(T).Name );
         else 
             queryStr = Helpers.Sql.QueryStringBuilder.LazyCreateSQLQuery<T>( condString, typeof(T).Name);
+
 #if DEBUG
-        Console.WriteLine(queryStr);
+       ConsoleLogger.Debug(queryStr);
 #endif      
-        
         return queryStr;
     }
 
@@ -68,25 +68,31 @@ public static class QueryStringBuilder
 
     private static string ConditionBuilder(string condString)
     {
+        // if emailAddress:example.com|userName:example.com use OR
+        // else emailAddress:example.com;userName:example.com use AND
         var condBuilder = new StringBuilder();
 
-        var cond = condString.Split(";");
+        string sqlSeparter = condString.Contains("|") ? " OR " : " AND ";
+        var cond = condString.Contains("|") ? condString.Split('|') : condString.Split(';');
         var pair = cond[0].Split(":");
         
         if (pair[1].Equals("null"))
             condBuilder.Append($" {pair[0]} is {pair[1]}");
         else 
-            condBuilder.Append($" {pair[0]} = '{pair[1]}'");
+            condBuilder.Append($" {pair[0]} LIKE '%{pair[1]}%'");
         
         for (var i = 1;  i < cond.Length; i++)
         {
             if (!cond[i].Equals(""))
             {
+
+                condBuilder.Append($" {sqlSeparter} ");
+
                 pair = cond[i].Split(":");
                 if (pair[1].Equals("null"))
-                    condBuilder.Append($" AND {pair[0]} is {pair[1]}");
+                    condBuilder.Append($"{pair[0]} is {pair[1]}");
                 else
-                    condBuilder.Append($" AND {pair[0]} = '{pair[1]}'");
+                    condBuilder.Append($"{pair[0]} LIKE '%{pair[1]}%'");
             }
         }
 

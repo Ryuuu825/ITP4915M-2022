@@ -131,7 +131,9 @@ public class Program
             dbContext.Database.ExecuteSqlRaw(
                 "DROP DATABASE IF EXISTS `TheBetterLimitedDev`;"
             );
+            // create the database
             dbContext.Database.Migrate();
+            // insert some dummy data
             TheBetterLimited_Server.Data.DummyDataFactory.Create(dbContext);
         }
 #endif
