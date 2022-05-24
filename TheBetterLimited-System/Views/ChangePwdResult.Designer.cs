@@ -95,7 +95,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Password Result";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChangePwdResult_FormClosing);
-            this.Load += new System.EventHandler(this.PwdResult_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

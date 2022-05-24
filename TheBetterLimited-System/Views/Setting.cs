@@ -13,11 +13,11 @@ using TheBetterLimited.Models;
 
 namespace TheBetterLimited.Views
 {
-    public partial class UserManagement : Form
+    public partial class Setting : Form
     {
         private UserController uc = new UserController();
         private BindingSource bs = new BindingSource();
-        public UserManagement()
+        public Setting ()
         {
             InitializeComponent();
             bs.DataSource = uc.GetAllAccount();

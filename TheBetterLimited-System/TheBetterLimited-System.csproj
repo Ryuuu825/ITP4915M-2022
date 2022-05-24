@@ -60,18 +60,8 @@
     <Reference Include="Infragistics4.Win.AppStylistSupport.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.DataVisualization.Barcode.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.DataVisualization.Shared.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
-    <Reference Include="Infragistics4.Win.DataVisualization.UltraDataChart.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
-    <Reference Include="Infragistics4.Win.DataVisualization.UltraSparkline.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.Misc.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.Portable.Core.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
-    <Reference Include="Infragistics4.Win.UltraWinDataSource.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
-    <Reference Include="Infragistics4.Win.UltraWinEditors.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
-    <Reference Include="Infragistics4.Win.UltraWinExplorerBar.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
-    <Reference Include="Infragistics4.Win.UltraWinGrid.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
-    <Reference Include="Infragistics4.Win.UltraWinListView.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
-    <Reference Include="Infragistics4.Win.UltraWinTabControl.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
-    <Reference Include="Infragistics4.Win.UltraWinToolbars.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
-    <Reference Include="Infragistics4.Win.UltraWinTree.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Infragistics4.Win.v21.2, Version=21.2.20212.46, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -175,7 +165,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Utils\RequestClient.cs" />
+    <Compile Include="Utils\RestClientUtils.cs" />
     <Compile Include="Views\ResetPwdResult.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,7 +225,6 @@
     <EmbeddedResource Include="CustomizeControl\RoundTextbox.resx">
       <DependentUpon>RoundTextbox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Views\ResetPwdResult.resx">
       <DependentUpon>ResetPwdResult.cs</DependentUpon>
     </EmbeddedResource>

@@ -8,23 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheBetterLimited.Models;
+using TheBetterLimited.Utils;
 
 namespace TheBetterLimited.Controller
 {
     internal class UserController
     {
         private RestClient client;
+
         /**
          * Search User
          */
         public DataTable GetAllAccount()
         {
-            client = new RestClient("http://localhost:5233/api/users");
-            var request = new RestRequest("/", Method.Get)
+            var request = new RestRequest("/api/users", Method.Get)
                         .AddHeader("limit", 100);
             try
             {
-                var response = client.ExecuteAsync(request).GetAwaiter().GetResult();
+                var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(response.Content, (typeof(DataTable)));
                 return dataTable;
             }
@@ -36,12 +37,11 @@ namespace TheBetterLimited.Controller
 
         public DataTable GetSpecificAccount(string qry)
         {
-            client = new RestClient("http://localhost:5233/api/users/sql");
-            var request = new RestRequest("/", Method.Get)
+           var request = new RestRequest("/api/users/sql", Method.Get)
                         .AddQueryParameter("querystring", qry );
             try
             {
-                var response = client.ExecuteAsync(request).GetAwaiter().GetResult();
+                var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
                 Console.WriteLine(response.Content);
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(response.Content, (typeof(DataTable)));
                 return dataTable;
@@ -70,40 +70,40 @@ namespace TheBetterLimited.Controller
          */
         public String LockAccount(string uid)
         {
-            client = new RestClient("http://localhost:5233/api/users/lock");
-            var request = new RestRequest("/", Method.Post)
+            var request = new RestRequest("/api/users/lock", Method.Post)
                         .AddJsonBody(new { id = uid, lockDay = 1 });
             try
             {
-                var response = client.ExecuteAsync(request).GetAwaiter().GetResult();
+                var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
                 string res = JObject.Parse(response.Content).ToString();
                 Console.WriteLine(res);
                 return res;
             }
             catch (Exception ex)
             {
-                return null;
+                Console.WriteLine(ex.Message);
+                return "Cannot connect to server!";
             }
         }
 
         /**
-         * Lock User Account
+         * Unlock User Account
          */
         public String UnlockAccount(string uid)
         {
-            client = new RestClient("http://localhost:5233/api/users/unlock");
-            var request = new RestRequest("/", Method.Post)
-                        .AddJsonBody(new { id = uid, lockDay = 1 });
+            var request = new RestRequest("/api/users/unlock", Method.Post)
+                        .AddJsonBody(new { id = uid});
             try
             {
-                var response = client.ExecuteAsync(request).GetAwaiter().GetResult();
+                var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
                 string res = JObject.Parse(response.Content).ToString();
                 Console.WriteLine(res);
                 return res;
             }
             catch (Exception ex)
             {
-                return null;
+                Console.WriteLine(ex.Message);
+                return "Cannot connect to server!";
             }
         }
     }

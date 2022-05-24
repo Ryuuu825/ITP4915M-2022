@@ -14,14 +14,12 @@ namespace TheBetterLimited.Models
         private static string firstname;
         private static string lastname;
         private static string jobTitle;
-        private static string pwdMsg;
 
         public static string Token { get => token; set => token = value; }
         public static string ExpireAt { get => expireAt; set => expireAt = value; }
         public static string Firstname { get => firstname; set => firstname = value; }
         public static string Lastname { get => lastname; set => lastname = value; }
         public static string JobTitle { get => jobTitle; set => jobTitle = value; }
-        public static string PwdMsg { get => pwdMsg; set => pwdMsg = value; }
         public static string UserId { get => userId; set => userId = value; }
     }
 }
