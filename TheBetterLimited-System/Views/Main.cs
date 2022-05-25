@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheBetterLimited.Controller;
+using System.Drawing.Drawing2D;
 
 namespace TheBetterLimited.Views
 {
@@ -26,7 +27,7 @@ namespace TheBetterLimited.Views
 
         private void InitializeUserInfo()
         {
-            
+
         }
 
         private void sidebarTimer_Tick(object sender, EventArgs e)
@@ -141,7 +142,21 @@ namespace TheBetterLimited.Views
         {
             txtUsername.Text = GlobalsData.currentUser["displayName"];
             txtJobTitle.Text = GlobalsData.currentUser["position"];
-            UserIcon.BackgroundImage = uc.InitUserIcon();
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddEllipse(UserIcon.ClientRectangle);
+            Region region = new Region(gp);
+            UserIcon.Region = region;
+            Bitmap bitmap = uc.InitUserIcon();
+            if (bitmap == null)
+            {
+                UserIcon.Image = bitmap;
+            }
+            else
+            {
+                UserIcon.Image = Properties.Resources.portrait_free_icon_font;
+            }
+            gp.Dispose();
+            region.Dispose();
             Menu_Init();
         }
 

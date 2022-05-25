@@ -264,13 +264,15 @@
             // 
             // UserIcon
             // 
-            this.UserIcon.BackgroundImage = global::TheBetterLimited.Properties.Resources.portrait_free_icon_font__1_;
+            this.UserIcon.BackColor = System.Drawing.Color.White;
             this.UserIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.UserIcon.Image = global::TheBetterLimited.Properties.Resources.portrait_free_icon_font;
             this.UserIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.UserIcon.Location = new System.Drawing.Point(11, 25);
             this.UserIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UserIcon.Name = "UserIcon";
-            this.UserIcon.Size = new System.Drawing.Size(51, 50);
+            this.UserIcon.Size = new System.Drawing.Size(50, 50);
+            this.UserIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.UserIcon.TabIndex = 0;
             this.UserIcon.TabStop = false;
             this.UserIcon.Click += new System.EventHandler(this.UserInformation_Click);

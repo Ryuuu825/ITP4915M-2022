@@ -169,8 +169,8 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                string str = "_StaffId:" + this.SearchBarTxt.Texts + "|staffName:" + this.SearchBarTxt.Texts + "|emailAddress:" + this.SearchBarTxt.Texts
-                            + "|userName:" + this.SearchBarTxt.Texts + "|emailAddress:" + this.SearchBarTxt.Texts;
+                string str = "_StaffId:" + this.SearchBarTxt.Texts + "|emailAddress:" + this.SearchBarTxt.Texts
+                            + "|userName:" + this.SearchBarTxt.Texts + "|status:" + this.SearchBarTxt.Texts;
                 bs.DataSource = uc.GetSpecificAccount(str);
             }
             UserDataGrid.DataSource = bs;
@@ -287,5 +287,10 @@ namespace TheBetterLimited.Views
             }
         }
 
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            Usermanagement_Add userAdd = new Usermanagement_Add();
+            userAdd.Show();
+        }
     }
 }

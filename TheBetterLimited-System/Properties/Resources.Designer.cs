@@ -93,6 +93,16 @@ namespace TheBetterLimited.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap avatar {
+            get {
+                object obj = ResourceManager.GetObject("avatar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap chat_arrow_grow_free_icon_font {
             get {
                 object obj = ResourceManager.GetObject("chat-arrow-grow-free-icon-font", resourceCulture);
@@ -233,6 +243,36 @@ namespace TheBetterLimited.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap photo {
+            get {
+                object obj = ResourceManager.GetObject("photo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo__2_ {
+            get {
+                object obj = ResourceManager.GetObject("photo (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_upload {
+            get {
+                object obj = ResourceManager.GetObject("photo-upload", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap plus {
             get {
                 object obj = ResourceManager.GetObject("plus", resourceCulture);
@@ -253,9 +293,9 @@ namespace TheBetterLimited.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap portrait_free_icon_font__1_ {
+        internal static System.Drawing.Bitmap portrait_free_icon_font {
             get {
-                object obj = ResourceManager.GetObject("portrait-free-icon-font (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("portrait-free-icon-font", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
