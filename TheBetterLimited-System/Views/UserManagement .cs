@@ -17,6 +17,8 @@ namespace TheBetterLimited.Views
     {
         private UserController uc = new UserController();
         private BindingSource bs = new BindingSource();
+        private List<string> selecteUserId = new List<string>();
+        private DialogResult choose;
         public UserManagement()
         {
             InitializeComponent();
@@ -36,7 +38,7 @@ namespace TheBetterLimited.Views
             UserDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
             UserDataGrid.Columns["remarks"].HeaderText = "Remark";
 
-            for(int i=0;i< UserDataGrid.RowCount;i++)
+            for (int i = 0; i < UserDataGrid.RowCount; i++)
                 UserDataGrid["select", i].Tag = 0;
         }
 
@@ -54,19 +56,31 @@ namespace TheBetterLimited.Views
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             Console.WriteLine(UserDataGrid.SelectedRows.Count);
-            foreach (DataGridViewRow row in UserDataGrid.SelectedRows)
+            if (selecteUserId.Count > 0)
             {
-                try
+                choose = MessageBox.Show("Do you really want to lock the " + selecteUserId.Count + " account(s)?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                if (choose == DialogResult.Yes)
                 {
-                    UserDataGrid.Rows.Remove(row);
-                }
-                catch (InvalidOperationException ex)
-                {
-                    MessageBox.Show("Cannot delete the new line", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    try
+                    {
+                        foreach (string uid in selecteUserId)
+                        {
+                            uc.DeleteAccount(uid);
+                        }
+                        MessageBox.Show("The " + selecteUserId.Count + "account(s) have been deleted!", "Delete Account Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        GetAccount();
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        MessageBox.Show("Cannot delete the new line", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
+                }
             }
-
+            else
+            {
+                MessageBox.Show("You had not selected a user account.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            }
         }
 
         private void RefreshBtn_Click(object sender, EventArgs e)
@@ -111,6 +125,7 @@ namespace TheBetterLimited.Views
                     UserDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
                     UserDataGrid["select", e.RowIndex].Tag = 1;
                     UserDataGrid.Rows[e.RowIndex].Selected = true;
+                    selecteUserId.Add(UserDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
@@ -118,16 +133,16 @@ namespace TheBetterLimited.Views
                     UserDataGrid["select", e.RowIndex].Tag = 0;
                     UserDataGrid.Rows[e.RowIndex].Selected = false;
                     Console.WriteLine("unchecked");
+                    selecteUserId.Remove(UserDataGrid["id", e.RowIndex].Value.ToString());
                 }
             }
 
             if (e.ColumnIndex == UserDataGrid.Columns["lockAcc"].Index)
             {
-                DialogResult choose;
                 if (Convert.ToInt32(UserDataGrid["lockAcc", e.RowIndex].Tag) == 1)
                 {
                     //unlock account
-                    choose = MessageBox.Show("Do you really want to unlock the " + UserDataGrid["userName", e.RowIndex].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    choose = MessageBox.Show("Do you really want to unlock the " + UserDataGrid["userName", e.RowIndex].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
                     if (choose == DialogResult.Yes)
                     {
                         foreach (DataGridViewRow row in UserDataGrid.SelectedRows)
@@ -135,7 +150,7 @@ namespace TheBetterLimited.Views
                             try
                             {
                                 uc.UnlockAccount((string)UserDataGrid["id", row.Index].Value);
-                                MessageBox.Show("The " + UserDataGrid.SelectedRows.Count + "account(s) have been unlocked!", "Unlock Account Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("The " + UserDataGrid.Rows[e.RowIndex].Cells["userName"].Value + "account have been unlocked!", "Unlock Account Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                                 GetAccount();
                             }
                             catch (Exception ex)
@@ -149,7 +164,7 @@ namespace TheBetterLimited.Views
                 else
                 {
                     // lock account
-                    choose = MessageBox.Show("Do you really want to lock the " + UserDataGrid.Rows[e.RowIndex].Cells["userName"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    choose = MessageBox.Show("Do you really want to lock the " + UserDataGrid.Rows[e.RowIndex].Cells["userName"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
                     if (choose == DialogResult.Yes)
                     {
                         foreach (DataGridViewRow row in UserDataGrid.SelectedRows)
@@ -157,7 +172,7 @@ namespace TheBetterLimited.Views
                             try
                             {
                                 uc.LockAccount((string)UserDataGrid["id", row.Index].Value);
-                                MessageBox.Show("The " + UserDataGrid.SelectedRows.Count + "account(s) have been locked!", "Lock Account Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("The " + UserDataGrid.Rows[e.RowIndex].Cells["userName"].Value + "account have been locked!", "Lock Account Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                                 GetAccount();
                             }
                             catch (InvalidOperationException ex)
@@ -173,17 +188,26 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == UserDataGrid.Columns["edit"].Index)
             {
-                foreach (DataGridRow row in UserDataGrid.SelectedRows)
-                {
-
-                    MessageBox.Show("You have selected row " + row + " cell");
-                }
-
+                MessageBox.Show("You have selected row " + selecteUserId[0] + " cell");
             }
 
             if (e.ColumnIndex == UserDataGrid.Columns["delete"].Index)
             {
-                UserDataGrid.Rows.RemoveAt(e.RowIndex);
+                choose = MessageBox.Show("Do you really want to delete the " + UserDataGrid.Rows[e.RowIndex].Cells["userName"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                if (choose == DialogResult.Yes)
+                {
+                    try
+                    {
+                        uc.DeleteAccount(UserDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                        MessageBox.Show("The " + UserDataGrid.Rows[e.RowIndex].Cells["userName"].Value + " have been deleted!", "Delete Account Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        GetAccount();
+                    }
+                    catch (InvalidOperationException ex)
+                    {
+                        MessageBox.Show("Cannot delete the new line", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
             }
         }
 
@@ -224,7 +248,7 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                string str = "_StaffId:" + this.SearchBarTxt.Texts + "|emailAddress:" + this.SearchBarTxt.Texts
+                string str = "_StaffId:" + this.SearchBarTxt.Texts + "|staffName:" + this.SearchBarTxt.Texts + "|emailAddress:" + this.SearchBarTxt.Texts
                             + "|userName:" + this.SearchBarTxt.Texts + "|emailAddress:" + this.SearchBarTxt.Texts;
                 bs.DataSource = uc.GetSpecificAccount(str);
             }

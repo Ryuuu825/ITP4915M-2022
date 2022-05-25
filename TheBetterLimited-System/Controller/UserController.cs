@@ -23,8 +23,10 @@ namespace TheBetterLimited.Controller
          */
         public DataTable GetAllAccount()
         {
+            Console.WriteLine("Get all accounts");
             var request = new RestRequest("/api/users", Method.Get)
-                        .AddHeader("limit", 100);
+                        .AddHeader("limit", 100)
+                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
@@ -39,8 +41,10 @@ namespace TheBetterLimited.Controller
 
         public DataTable GetSpecificAccount(string qry)
         {
+            Console.WriteLine("Get accounts by " + qry);
             var request = new RestRequest("/api/users/sql", Method.Get)
-                         .AddQueryParameter("querystring", qry);
+                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
+                        .AddQueryParameter("querystring", qry);
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
@@ -66,13 +70,33 @@ namespace TheBetterLimited.Controller
         /**
          * Delete User
          */
+        public string DeleteAccount(string uid)
+        {
+            Console.WriteLine("Delete " + uid);
+            var request = new RestRequest("/api/users/" + uid, Method.Delete)
+                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
+            try
+            {
+                var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                string res = JObject.Parse(response.Content).ToString();
+                Console.WriteLine(res);
+                return res;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return "Cannot connect to server!";
+            }
+        }
 
         /**
          * Lock User Account
          */
-        public String LockAccount(string uid)
+        public string LockAccount(string uid)
         {
+            Console.WriteLine("Lock " + uid);
             var request = new RestRequest("/api/users/lock", Method.Post)
+                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
                         .AddJsonBody(new { id = uid, lockDay = 1 });
             try
             {
@@ -91,10 +115,11 @@ namespace TheBetterLimited.Controller
         /**
          * Unlock User Account
          */
-        public String UnlockAccount(string uid)
+        public string UnlockAccount(string uid)
         {
-            Console.WriteLine(uid);
+            Console.WriteLine("Unlock " + uid);
             var request = new RestRequest("/api/users/unlock", Method.Post)
+                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
                         .AddJsonBody(new { id = uid });
             try
             {
