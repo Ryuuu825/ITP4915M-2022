@@ -4,6 +4,7 @@ using DinkToPdf.Contracts;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.Loader;
+using System.Runtime.InteropServices;
 
 namespace TheBetterLimited_Server.Helpers.File
 {
@@ -15,12 +16,32 @@ namespace TheBetterLimited_Server.Helpers.File
         
         public PDFFactory()
         {
-            if (RuntimeInformation.OSArchitecture == Architecture.Arm64 && RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            {
+            // if (RuntimeInformation.OSArchitecture == Architecture.Arm64 && RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            // {
                 _process = new Process();
+                string os = "";
+
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    os = "win";
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    os = "linux";
+                }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    os = "osx";
+                }
+  
+                var arch = RuntimeInformation.OSArchitecture.ToString().ToLower();
+
+                ConsoleLogger.Debug($"{os}-{arch}");
+
+                string FileName = $"Lib/wkhtmltopdf/{os}-{arch}/wkhtmltopdf";
                 var startInfo = new ProcessStartInfo
                 {
-                    FileName = "Lib/wkhtmltopdf/osx-arm64/wkhtmltopdf",
+                    FileName = FileName,
                     UseShellExecute = false,
                     CreateNoWindow = true,
                     RedirectStandardOutput = true,
@@ -29,26 +50,26 @@ namespace TheBetterLimited_Server.Helpers.File
                 };
                 _process.StartInfo = startInfo;
                 _converter = null;
-            }
-            else 
-            {
-                CustomAssemblyLoadContext context = new CustomAssemblyLoadContext();
-                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                {
-                    context.LoadUnmanagedLibrary(AppDomain.CurrentDomain.BaseDirectory + "libwkhtmltox.dll");
-                }
-                // else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) || RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                // {
-                //     context.LoadUnmanagedLibrary(AppDomain.CurrentDomain.BaseDirectory + "libwkhtmltox.dylib");
-                // }
-                _converter = new SynchronizedConverter(new PdfTools());
-                _process = null;
-            }
+            // }
+            // else 
+            // {
+            //     CustomAssemblyLoadContext context = new CustomAssemblyLoadContext();
+            //     if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            //     {
+            //         context.LoadUnmanagedLibrary(AppDomain.CurrentDomain.BaseDirectory + "libwkhtmltox.dll");
+            //     }
+            //     // else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) || RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            //     // {
+            //     //     context.LoadUnmanagedLibrary(AppDomain.CurrentDomain.BaseDirectory + "libwkhtmltox.dylib");
+            //     // }
+            //     _converter = new SynchronizedConverter(new PdfTools());
+            //     _process = null;
+            // }
         }
         public byte[] Create(string HtmlContent)
         {
-            if (RuntimeInformation.OSArchitecture == Architecture.Arm64 && RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            {   
+            // if (RuntimeInformation.OSArchitecture == Architecture.Arm64 && RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            // {   
                 _process.Start();
                 string savePath = AppDomain.CurrentDomain.BaseDirectory + "/var/tmp/temp.pdf";
                 _process.StartInfo.Arguments = $" {HtmlContent} {savePath}";
@@ -73,11 +94,11 @@ namespace TheBetterLimited_Server.Helpers.File
                     }
                 }
                 return System.IO.File.ReadAllBytes(savePath);
-            }
-            else 
-            {
-                return new byte[]{};
-            }
+            // }
+            // else 
+            // {
+            //     return new byte[]{};
+            // }
                 
 // string htmlString = "<h1>Document</h1> <p>This is an HTML document which is converted to a pdf file.</p>";
             
