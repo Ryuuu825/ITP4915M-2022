@@ -160,7 +160,10 @@ public class UserController
         if (acc is null)
             throw new BadArgException("No such user");
 
-        await UpdateUserAsync(id , new List<UpdateObjectModel>(1) { new UpdateObjectModel() { Attribute = "unlockDate" , Value = DateTime.Now } }, true);
+        await UpdateUserAsync(id , new List<UpdateObjectModel>(2) { 
+            new UpdateObjectModel() { Attribute = "unlockDate" , Value = DateTime.Now },
+            new UpdateObjectModel() {Attribute = "Status" , Value = "N"} 
+        }, true);
      }
 
      public string GetUserIcon(string username , out byte[] icon )
