@@ -9,11 +9,9 @@ global using static TheBetterLimited_Server.Helpers.SecretConf;
 global using Newtonsoft.Json.Linq;
 global using TheBetterLimited_Server.Helpers.LogHelper;
 global using System.Collections;
-using System.Reflection;
+
+
 using System.Runtime.InteropServices;
-using System.Runtime.Loader;
-using DinkToPdf;
-using DinkToPdf.Contracts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -80,26 +78,7 @@ public class Program
         );
         ConsoleLogger.Debug(RuntimeInformation.OSArchitecture);
         // m1 mac is not supported
-        if (RuntimeInformation.OSArchitecture == Architecture.Arm64 && RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-        {
-            ConsoleLogger.Debug("M1 mac is not supported");
-        }
-        else 
-        {
-            CustomAssemblyLoadContext context = new CustomAssemblyLoadContext();
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                context.LoadUnmanagedLibrary(AppDomain.CurrentDomain.BaseDirectory + "libwkhtmltox.dll");
-            }
-
-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            {
-                context.LoadUnmanagedLibrary(AppDomain.CurrentDomain.BaseDirectory + "libwkhtmltox.dylib");
-            }
-            var converter = new SynchronizedConverter(new PdfTools());
-            builder.Services.AddSingleton(converter);
-            builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
-        }
+        
 
 
         
@@ -174,21 +153,5 @@ public class Program
 
         TempFileManager.CloseAllTempFile();
     }
-    
-    internal class CustomAssemblyLoadContext : AssemblyLoadContext
-    {
-        public IntPtr LoadUnmanagedLibrary(string absolutePath)
-        {
-            return LoadUnmanagedDll(absolutePath);
-        }
-        protected override IntPtr LoadUnmanagedDll(String unmanagedDllName)
-        {
-            return LoadUnmanagedDllFromPath(unmanagedDllName);
-        }
-
-        protected override Assembly Load(AssemblyName assemblyName)
-        {
-            throw new NotImplementedException();
-        }
-    }
 }
+    

@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using TheBetterLimited_Server.AppLogic.Controllers;
-using DinkToPdf.Contracts;
 
 namespace TheBetterLimited_Server.API.Controller
 {
@@ -145,9 +144,9 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
-        public APIControllerBase(Data.DataContext db , IConverter c)
+        public APIControllerBase(Data.DataContext db)
         {
-            controller = new AppControllerBase<T>(db , c);
+            controller = new AppControllerBase<T>(db);
         }
     }
 

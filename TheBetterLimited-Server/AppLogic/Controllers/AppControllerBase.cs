@@ -13,15 +13,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         protected readonly Data.DataContext db;
         protected readonly Data.Repositories.Repository<T> repository;
         protected readonly Type DtoType;
-        protected readonly IConverter _convertor;
 
-        public AppControllerBase(Data.DataContext dataContext , IConverter convertor)
+        public AppControllerBase(Data.DataContext dataContext )
 
         {
             db = dataContext;
             repository = new Data.Repositories.Repository<T>(dataContext);
             DtoType = typeof(T).ToDto();
-            _convertor = convertor;
         }
         public async Task<List<string>> Index()
         {
@@ -104,29 +102,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         public async Task<byte[]> GetPDF(string queryString)
         {
             List<T> list = await GetRecords(queryString);
-            
-            string htmlString = "<h1>Document</h1> <p>This is an HTML document which is converted to a pdf file.</p>";
-            
-            var doc = new HtmlToPdfDocument()
-            { 
-                GlobalSettings = {
-                    ColorMode = ColorMode.Color,
-                    Orientation = Orientation.Landscape,
-                    PaperSize = PaperKind.A4Plus,
-                },
-                Objects = {
-                    new ObjectSettings() {
-                        PagesCount = true,
-                        HtmlContent = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur mauris eget ultrices  iaculis. Ut                               odio viverra, molestie lectus nec, venenatis turpis.",
-                        WebSettings = { DefaultEncoding = "utf-8" },
-                        HeaderSettings = { FontSize = 9, Right = "Page [page] of [toPage]", Line = true, Spacing = 2.812 }
-                    }
-                }
-            };
 
-            return _convertor.Convert(doc);
-
-
+            return Helpers.File.PDFFactory.Instance.Create("http://127.0.0.1:5500/resources/template/Records.html");
         }
         
 
@@ -148,20 +125,5 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
     }
     
-    internal class CustomAssemblyLoadContext : AssemblyLoadContext
-    {
-        public IntPtr LoadUnmanagedLibrary(string absolutePath)
-        {
-            return LoadUnmanagedDll(absolutePath);
-        }
-        protected override IntPtr LoadUnmanagedDll(String unmanagedDllName)
-        {
-            return LoadUnmanagedDllFromPath(unmanagedDllName);
-        }
 
-        protected override Assembly Load(AssemblyName assemblyName)
-        {
-            throw new NotImplementedException();
-        }
-    }
 }
