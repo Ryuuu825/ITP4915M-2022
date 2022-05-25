@@ -25,24 +25,23 @@ namespace TheBetterLimited.Views
         private void chgPwdBtn_Click(object sender, EventArgs e)
         {
             int i = 1;
-            foreach(Control ctl in changeInfo.Controls)
+            foreach (Control ctl in changeInfo.Controls)
             {
-
                 if (ctl is CustomizeTextbox)
                 {
                     if (((CustomizeTextbox)ctl).Texts.Length == 0)
                     {
-                        var lable = changeInfo.Controls[i-1].Text;
-                        var str = "Sorry! \nPlease enter "+ lable + ".";
+                        var lable = changeInfo.Controls[i - 1].Text;
+                        var str = "Sorry! \nPlease enter " + lable + ".";
                         MessageBox.Show(str, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         ctl.Focus();
                         return;
                     };
-                    i+=2;
+                    i += 2;
                 }
             }
 
-            if(firstNewPassword.Texts.Length < 6)
+            if (firstNewPassword.Texts.Length < 6)
             {
                 var str = "Sorry! \nNew password is too short. \nPlease enter agin.";
                 MessageBox.Show(str, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -55,7 +54,7 @@ namespace TheBetterLimited.Views
                 MessageBox.Show(str, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 secondNewPassword.Focus();
             }
-            else 
+            else
             {
                 var str = "Are you sure to change your password?";
                 DialogResult dialogResult = MessageBox.Show(str, "Confirm change", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);

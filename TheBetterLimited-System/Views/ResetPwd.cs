@@ -69,15 +69,6 @@ namespace TheBetterLimited.Views
             }
         }
 
-        private void picReturn_MouseHover(object sender, EventArgs e)
-        {
-            picReturn.BackgroundImage = Properties.Resources._return;
-        }
-        private void picReturn_MouseLeave(object sender, EventArgs e)
-        {
-            picReturn.BackgroundImage = Properties.Resources._return;
-        }
-
         private void picReturn_Click(object sender, EventArgs e)
         {
             this.Dispose();

@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangePwdResult));
             this.Msg = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.backBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,24 +40,13 @@
             this.Msg.BackColor = System.Drawing.Color.Transparent;
             this.Msg.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.Msg.ForeColor = System.Drawing.Color.Black;
+            this.Msg.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Msg.Location = new System.Drawing.Point(381, 371);
             this.Msg.Name = "Msg";
             this.Msg.Size = new System.Drawing.Size(502, 99);
             this.Msg.TabIndex = 1;
             this.Msg.Text = "Congratulations!\r\nYour password  is changed successful.";
             this.Msg.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::TheBetterLimited.Properties.Resources.shield_check;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(554, 176);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(157, 162);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // backBtn
             // 
@@ -68,8 +57,9 @@
             this.backBtn.BorderSize = 0;
             this.backBtn.FlatAppearance.BorderSize = 0;
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Bold);
             this.backBtn.ForeColor = System.Drawing.Color.White;
+            this.backBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.backBtn.Location = new System.Drawing.Point(521, 495);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(222, 50);
@@ -78,6 +68,19 @@
             this.backBtn.TextColor = System.Drawing.Color.White;
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::TheBetterLimited.Properties.Resources.shield_check;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox1.Location = new System.Drawing.Point(554, 176);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(157, 162);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // ChangePwdResult
             // 
@@ -92,7 +95,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Change Password Result";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ChangePwdResult_FormClosing);
-            this.Load += new System.EventHandler(this.PwdResult_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

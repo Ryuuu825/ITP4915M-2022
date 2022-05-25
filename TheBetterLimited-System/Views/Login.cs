@@ -95,5 +95,18 @@ namespace TheBetterLimited.Views
                 LoadMain();
             }
         }
+
+        private void showPwd_Click(object sender, EventArgs e)
+        {
+            if (password.PasswordChar)
+            {
+                showPwd.BackgroundImage = Properties.Resources.eye_crossed;
+            }
+            else
+            {
+                showPwd.BackgroundImage = Properties.Resources.eye;
+            }
+            password.PasswordChar = password.PasswordChar == true ? false : true;
+        }
     }
 }

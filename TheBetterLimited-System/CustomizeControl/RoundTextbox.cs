@@ -23,22 +23,23 @@ namespace TheBetterLimited.CustomizeControl
 
 
         public object Texts { get; internal set; }
-        public Color FucusColor { 
-            get => fucusColor; 
+        public Color FucusColor
+        {
+            get => fucusColor;
             set
             {
-                fucusColor = value; 
+                fucusColor = value;
                 this.Invalidate();
             }
         }
 
-        private void textbox_Enter (object sender, EventArgs e)
+        private void textbox_Enter(object sender, EventArgs e)
         {
             this.textBox1.Focus();
             this.roundPanel1.BorderColor = fucusColor;
         }
 
-        private void textbox_Leave (object sender, EventArgs e)
+        private void textbox_Leave(object sender, EventArgs e)
         {
             this.roundPanel1.BorderColor = this.borderC;
         }

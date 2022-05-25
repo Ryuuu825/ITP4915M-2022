@@ -30,16 +30,11 @@ namespace TheBetterLimited.Views
             login.Show();
         }
 
-        private void PwdResult_Load(object sender, EventArgs e)
-        {
-            Msg.Text = GlobalsData.PwdMsg;
-        }
-
         private void ChangePwdResult_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true;
             this.Dispose();
-            Login login= new Login();
+            Login login = new Login();
             login.Show();
         }
     }

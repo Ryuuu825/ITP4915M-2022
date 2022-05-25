@@ -39,7 +39,7 @@
             this.textBox1.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(430, 94);
+            this.textBox1.Size = new System.Drawing.Size(316, 51);
             this.textBox1.TabIndex = 0;
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -59,7 +59,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "CustomizeTextbox";
             this.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.Size = new System.Drawing.Size(450, 108);
+            this.Size = new System.Drawing.Size(336, 65);
             this.ResumeLayout(false);
             this.PerformLayout();
 
