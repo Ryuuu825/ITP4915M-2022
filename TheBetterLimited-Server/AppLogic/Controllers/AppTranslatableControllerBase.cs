@@ -120,5 +120,29 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             await repository.DeleteAsync(potnetialObj);
             await db.SaveChangesAsync();
         }
+
+        public async Task<string> GetCSV(string lang , string queryString)
+        {
+            List<T> list;
+            if (queryString is not null)
+            {
+                list = await repository.GetBySQLAsync(
+                    Helpers.Sql.QueryStringBuilder.GetSqlStatement<T>(queryString)
+                );
+            }
+            else 
+            {
+                list = await repository.GetAllAsync();
+            }
+            
+            for(int i = 0 ; i < list.Count ; i++)
+            {
+                list[i] = Helpers.Localizer.TryLocalize<T>(lang , list[i]);
+            }
+
+            return Helpers.File.CSVFactory.Create<T>(list);
+
+            
+        }
     }
 }

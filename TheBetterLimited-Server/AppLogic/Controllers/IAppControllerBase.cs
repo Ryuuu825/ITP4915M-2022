@@ -11,5 +11,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         public Task Modify(string id, List<AppLogic.Models.UpdateObjectModel> content);
 
         public Task Delete(string id);
+
     }
 }

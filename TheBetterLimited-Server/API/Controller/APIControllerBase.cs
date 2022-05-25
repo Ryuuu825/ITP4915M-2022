@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using TheBetterLimited_Server.AppLogic.Controllers;
+using DinkToPdf.Contracts;
 
 namespace TheBetterLimited_Server.API.Controller
 {
@@ -15,6 +16,32 @@ namespace TheBetterLimited_Server.API.Controller
             try
             {
                 return Ok(await controller.Index());
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpGet("csv")]
+        public async Task<IActionResult> GetCSV(string queryStr)
+        {
+            try
+            {
+                return Ok(await controller.GetCSV(queryStr));
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpGet("pdf")]
+        public async Task<IActionResult> GetPDF(string queryStr)
+        {
+            try
+            {
+                return File(await controller.GetPDF(queryStr) , "application/pdf");
             }
             catch (ICustException e)
             {
@@ -118,9 +145,11 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
-        public APIControllerBase(Data.DataContext db)
+        public APIControllerBase(Data.DataContext db , IConverter c)
         {
-            controller = new AppControllerBase<T>(db);
+            controller = new AppControllerBase<T>(db , c);
         }
     }
+
+    
 }
