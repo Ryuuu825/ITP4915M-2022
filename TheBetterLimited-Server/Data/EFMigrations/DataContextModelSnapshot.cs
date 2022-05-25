@@ -298,8 +298,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(3)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<string>("_budgetId")
                         .HasMaxLength(3)
@@ -488,8 +488,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(3)");
 
                     b.Property<string>("jobTitle")
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.HasKey("Id");
 

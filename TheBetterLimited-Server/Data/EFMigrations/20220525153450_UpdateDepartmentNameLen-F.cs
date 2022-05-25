@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TheBetterLimited_Server.Data.EFMigrations
 {
-    public partial class INIT : Migration
+    public partial class UpdateDepartmentNameLenF : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -439,7 +439,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 {
                     Id = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Name = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true)
+                    Name = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _budgetId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
@@ -463,7 +463,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _departmentId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    jobTitle = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true)
+                    jobTitle = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -930,7 +930,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _salesOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Amount = table.Column<decimal>(type: "DECIMAL(7,2)", nullable: false)
+                    Amount = table.Column<decimal>(type: "DECIMAL(7,2)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {

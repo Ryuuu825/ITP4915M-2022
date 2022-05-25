@@ -8,8 +8,8 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "char(3)")]
         public string Id { get; set; }
 
-        [MaxLength(20)]
-        [Column(TypeName = "varchar(20)")]
+        [MaxLength(30)]
+        [Column(TypeName = "varchar(30)")]
         public string? Name { get; set; }
 
         [MaxLength(3)]

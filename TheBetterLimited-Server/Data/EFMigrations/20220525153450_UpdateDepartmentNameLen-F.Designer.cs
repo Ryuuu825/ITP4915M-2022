@@ -11,8 +11,8 @@ using TheBetterLimited_Server.Data;
 namespace TheBetterLimited_Server.Data.EFMigrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220522050357_INIT")]
-    partial class INIT
+    [Migration("20220525153450_UpdateDepartmentNameLen-F")]
+    partial class UpdateDepartmentNameLenF
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -300,8 +300,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(3)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<string>("_budgetId")
                         .HasMaxLength(3)
@@ -490,8 +490,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(3)");
 
                     b.Property<string>("jobTitle")
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.HasKey("Id");
 
@@ -980,6 +980,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("DECIMAL(7,2)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("_salesOrderId")
                         .IsRequired()

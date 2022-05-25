@@ -15,11 +15,12 @@ namespace TheBetterLimited_Server.Data.Entity
         [ForeignKey("_departmentId")]
         public virtual Department department { get; set; }
 
-        [MaxLength(20)]
-        [Column(TypeName = "varchar(20)")]
+        [MaxLength(30)]
+        [Column(TypeName = "varchar(30)")]
         public string? jobTitle { get; set; } = "admin";
 
         public virtual ICollection<Permission> permissions { get; set; }
+
 
     }
 }

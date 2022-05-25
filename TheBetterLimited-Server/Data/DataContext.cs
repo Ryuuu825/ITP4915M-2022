@@ -18,7 +18,8 @@ public class DataContext : DbContext
         .UseMySql(
             _Secret["ConnectionString"],
             ServerVersion.AutoDetect(_Secret["ConnectionString"])
-        );
+        )
+        .EnableSensitiveDataLogging(true);
     
     protected override void OnModelCreating(ModelBuilder md)
     {

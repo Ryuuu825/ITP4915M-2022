@@ -26,8 +26,8 @@ public class Program
     {
         
         var builder = WebApplication.CreateBuilder(args);
-        // Add services to the container.
-        builder.Services.AddControllers().AddNewtonsoftJson();
+        // // Add services to the container.
+        // builder.Services.AddControllers().AddNewtonsoftJson();
         builder.Services.AddDbContext<DataContext>(options =>
         {
             var ConnString = _Secret["ConnectionString"];
@@ -36,101 +36,94 @@ public class Program
                 ServerVersion.AutoDetect(ConnString)
             );
         });
-        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-            .AddJwtBearer(options =>
-            {
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
-                        .GetBytes(_Secret["Token"])),
-                    ValidateIssuer = false,
-                    ValidateAudience = false
-                };
-            });
+        // builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        //     .AddJwtBearer(options =>
+        //     {
+        //         options.TokenValidationParameters = new TokenValidationParameters
+        //         {
+        //             ValidateIssuerSigningKey = true,
+        //             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
+        //                 .GetBytes(_Secret["Token"])),
+        //             ValidateIssuer = false,
+        //             ValidateAudience = false
+        //         };
+        //     });
         
 
         
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen(options =>
-        {
-            options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-            {
-                Description = "Auth using the bearer",
-                In = ParameterLocation.Header,
-                Name = "Authorization",
-                Type = SecuritySchemeType.ApiKey
-            });
-            options.OperationFilter<SecurityRequirementsOperationFilter>();
-        });
-        builder.Services.AddCors(
-            options =>
-            {
-                options.AddPolicy("default",
-                    builder =>
-                    {
-                        builder.AllowAnyOrigin()
-                            .AllowAnyMethod()
-                            .AllowAnyHeader();
-                    });
-            }
-        );
-        ConsoleLogger.Debug(RuntimeInformation.OSArchitecture);
-        // m1 mac is not supported
-        
-
-
-        
-        
+        // // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        // builder.Services.AddEndpointsApiExplorer();
+        // builder.Services.AddSwaggerGen(options =>
+        // {
+        //     options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+        //     {
+        //         Description = "Auth using the bearer",
+        //         In = ParameterLocation.Header,
+        //         Name = "Authorization",
+        //         Type = SecuritySchemeType.ApiKey
+        //     });
+        //     options.OperationFilter<SecurityRequirementsOperationFilter>();
+        // });
+        // builder.Services.AddCors(
+        //     options =>
+        //     {
+        //         options.AddPolicy("default",
+        //             builder =>
+        //             {
+        //                 builder.AllowAnyOrigin()
+        //                     .AllowAnyMethod()
+        //                     .AllowAnyHeader();
+        //             });
+        //     }
+        // );
         
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
+        // // Configure the HTTP request pipeline.
+        // if (app.Environment.IsDevelopment())
+        // {
+        //     app.UseSwagger();
+        //     app.UseSwaggerUI();
+        // }
 
-        app.UseAuthentication();
-        app.UseAuthorization();
-        app.MapControllers();
-        app.UseCors("default");
-        Console.Title = "The Better Limited Server";
+        // app.UseAuthentication();
+        // app.UseAuthorization();
+        // app.MapControllers();
+        // app.UseCors("default");
+        // Console.Title = "The Better Limited Server";
 
-        // Data Source=localhost;Initial Catalog=TheBetterLimitedDev;User Id=root;password=;ConnectionTimeout=5
-        // remove Initial CataLog= ***** till first ';' after the Initial Catalog
-        StringBuilder TestConnString = new StringBuilder();
-        string[] ConnStringParts = _Secret["ConnectionString"].Split(';');
-        foreach(var part in ConnStringParts)
-        {
-            if(! part.Contains("Initial Catalog"))
-            {
-                TestConnString.Append(part + ";");
-            }
-        }
-        using (var conn = new MySqlConnection(TestConnString.ToString()))
-        {
-            try // test the connection with sql server
-            {
-                conn.Open();
-            }
-            catch (MySqlException e)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Timeout: {conn.ConnectionTimeout}s\nError occur during create a connection with MySQL server");
-                Console.WriteLine("\t-Make sure you start the MySQL server");
-                Console.WriteLine("\t-Make sure your connection string is correct");
-                Console.WriteLine("\t-Make sure you have the right permissions");
-                return;
-            }
-            finally
-            {
-                conn.Close();
-                Console.ResetColor();
-            }
-        }
+        // // Data Source=localhost;Initial Catalog=TheBetterLimitedDev;User Id=root;password=;ConnectionTimeout=5
+        // // remove Initial CataLog= ***** till first ';' after the Initial Catalog
+        // StringBuilder TestConnString = new StringBuilder();
+        // string[] ConnStringParts = _Secret["ConnectionString"].Split(';');
+        // foreach(var part in ConnStringParts)
+        // {
+        //     if(! part.Contains("Initial Catalog"))
+        //     {
+        //         TestConnString.Append(part + ";");
+        //     }
+        // }
+        // using (var conn = new MySqlConnection(TestConnString.ToString()))
+        // {
+        //     try // test the connection with sql server
+        //     {
+        //         conn.Open();
+        //     }
+        //     catch (MySqlException e)
+        //     {
+        //         Console.ForegroundColor = ConsoleColor.Red;
+        //         Console.WriteLine($"Timeout: {conn.ConnectionTimeout}s\nError occur during create a connection with MySQL server");
+        //         Console.WriteLine("\t-Make sure you start the MySQL server");
+        //         Console.WriteLine("\t-Make sure your connection string is correct");
+        //         Console.WriteLine("\t-Make sure you have the right permissions");
+        //         return;
+        //     }
+        //     finally
+        //     {
+        //         conn.Close();
+        //         Console.ResetColor();
+        //     }
+        // }
 
 #if DEBUG
         using (var serviceScope = app.Services.CreateScope())
@@ -147,11 +140,11 @@ public class Program
         }
 #endif
 
-        ConsoleLogger.Debug("Version");
+        // ConsoleLogger.Debug("Version");
 
-        app.Run();
+        // app.Run();
 
-        TempFileManager.CloseAllTempFile();
+        // TempFileManager.CloseAllTempFile();
     }
 }
     
