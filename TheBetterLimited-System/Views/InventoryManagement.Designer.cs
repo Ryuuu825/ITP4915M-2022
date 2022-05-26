@@ -1,6 +1,6 @@
 ﻿namespace TheBetterLimited.Views
 {
-    partial class UserManagement
+    partial class InventoryManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserManagement));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryManagement));
             this.UserDataGrid = new System.Windows.Forms.DataGridView();
             this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +52,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.curdAction = new System.Windows.Forms.Panel();
+            this.exportBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.DeleteBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.AddBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.Header = new System.Windows.Forms.Panel();
@@ -341,6 +342,7 @@
             // 
             // curdAction
             // 
+            this.curdAction.Controls.Add(this.exportBtn);
             this.curdAction.Controls.Add(this.DeleteBtn);
             this.curdAction.Controls.Add(this.AddBtn);
             this.curdAction.Dock = System.Windows.Forms.DockStyle.Left;
@@ -349,6 +351,27 @@
             this.curdAction.Name = "curdAction";
             this.curdAction.Size = new System.Drawing.Size(773, 38);
             this.curdAction.TabIndex = 6;
+            // 
+            // exportBtn
+            // 
+            this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.exportBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.exportBtn.BorderColor = System.Drawing.Color.White;
+            this.exportBtn.BorderRadius = 10;
+            this.exportBtn.BorderSize = 0;
+            this.exportBtn.FlatAppearance.BorderSize = 0;
+            this.exportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportBtn.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportBtn.ForeColor = System.Drawing.Color.White;
+            this.exportBtn.Location = new System.Drawing.Point(213, 0);
+            this.exportBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.exportBtn.Name = "exportBtn";
+            this.exportBtn.Size = new System.Drawing.Size(114, 38);
+            this.exportBtn.TabIndex = 5;
+            this.exportBtn.Text = "Export PDF";
+            this.exportBtn.TextColor = System.Drawing.Color.White;
+            this.exportBtn.UseVisualStyleBackColor = false;
+            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
             // DeleteBtn
             // 
@@ -451,9 +474,9 @@
             this.Title.Location = new System.Drawing.Point(2, 7);
             this.Title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(131, 25);
+            this.Title.Size = new System.Drawing.Size(70, 25);
             this.Title.TabIndex = 1;
-            this.Title.Text = "User Account";
+            this.Title.Text = "Goods";
             // 
             // Data
             // 
@@ -484,7 +507,7 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Width = 124;
             // 
-            // UserManagement
+            // InventoryManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -496,7 +519,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "UserManagement";
+            this.Name = "InventoryManagement";
             this.Text = "UserManagement";
             ((System.ComponentModel.ISupportInitialize)(this.UserDataGrid)).EndInit();
             this.Action.ResumeLayout(false);
@@ -540,5 +563,6 @@
         private System.Windows.Forms.DataGridViewImageColumn lockAcc;
         private System.Windows.Forms.DataGridViewImageColumn edit;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private CustomizeControl.RoundButton exportBtn;
     }
 }

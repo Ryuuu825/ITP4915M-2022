@@ -446,4 +446,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets'))" />
   </Target>
+  <Target Name="MakeDir" AfterTargets="Build">
+        <MakeDir Directories="$(OutDir)tmp" />
+    </Target>
 </Project>

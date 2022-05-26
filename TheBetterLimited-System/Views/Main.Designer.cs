@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.submenuContainer1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.submenu1 = new System.Windows.Forms.Button();
             this.submenuContainer2 = new System.Windows.Forms.Panel();
             this.submenu3 = new System.Windows.Forms.Button();
             this.submenuContainer3 = new System.Windows.Forms.Panel();
@@ -52,27 +51,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.changePwd = new System.Windows.Forms.Button();
             this.subSidebar = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.GoodsContainer = new System.Windows.Forms.Panel();
+            this.GoodsBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
             this.subSidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.mainBox = new System.Windows.Forms.Panel();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
@@ -105,7 +97,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).BeginInit();
             this.user_droplist.SuspendLayout();
             this.subSidebar.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.GoodsContainer.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -127,7 +119,6 @@
             // submenuContainer1
             // 
             this.submenuContainer1.Controls.Add(this.button3);
-            this.submenuContainer1.Controls.Add(this.submenu1);
             this.submenuContainer1.Location = new System.Drawing.Point(0, 186);
             this.submenuContainer1.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.submenuContainer1.Name = "submenuContainer1";
@@ -141,28 +132,13 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
             this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(0, 4);
+            this.button3.Location = new System.Drawing.Point(0, 0);
             this.button3.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(200, 50);
             this.button3.TabIndex = 2;
             this.button3.Text = "submenu";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // submenu1
-            // 
-            this.submenu1.FlatAppearance.BorderSize = 0;
-            this.submenu1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.submenu1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.submenu1.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.submenu1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.submenu1.Location = new System.Drawing.Point(0, 0);
-            this.submenu1.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.submenu1.Name = "submenu1";
-            this.submenu1.Size = new System.Drawing.Size(200, 50);
-            this.submenu1.TabIndex = 1;
-            this.submenu1.Text = "submenu";
-            this.submenu1.UseVisualStyleBackColor = true;
             // 
             // submenuContainer2
             // 
@@ -430,7 +406,7 @@
             // subSidebar
             // 
             this.subSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.subSidebar.Controls.Add(this.panel1);
+            this.subSidebar.Controls.Add(this.GoodsContainer);
             this.subSidebar.Controls.Add(this.submenuContainer2);
             this.subSidebar.Controls.Add(this.submenuContainer3);
             this.subSidebar.Controls.Add(this.submenuContainer1);
@@ -446,53 +422,37 @@
             this.subSidebar.MaximumSize = new System.Drawing.Size(200, 1200);
             this.subSidebar.MinimumSize = new System.Drawing.Size(0, 1200);
             this.subSidebar.Name = "subSidebar";
-            this.subSidebar.Size = new System.Drawing.Size(0, 1200);
+            this.subSidebar.Size = new System.Drawing.Size(200, 1200);
             this.subSidebar.TabIndex = 0;
             // 
-            // panel1
+            // GoodsContainer
             // 
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Location = new System.Drawing.Point(0, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 58);
-            this.panel1.TabIndex = 3;
+            this.GoodsContainer.Controls.Add(this.GoodsBtn);
+            this.GoodsContainer.Location = new System.Drawing.Point(0, 2);
+            this.GoodsContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.GoodsContainer.Name = "GoodsContainer";
+            this.GoodsContainer.Size = new System.Drawing.Size(200, 58);
+            this.GoodsContainer.TabIndex = 3;
             // 
-            // button5
+            // GoodsBtn
             // 
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button5.Location = new System.Drawing.Point(0, 4);
-            this.button5.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(200, 50);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "submenu";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button6.Location = new System.Drawing.Point(0, 0);
-            this.button6.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(200, 50);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "submenu";
-            this.button6.UseVisualStyleBackColor = true;
+            this.GoodsBtn.FlatAppearance.BorderSize = 0;
+            this.GoodsBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.GoodsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GoodsBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.GoodsBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.GoodsBtn.Location = new System.Drawing.Point(0, 0);
+            this.GoodsBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.GoodsBtn.Name = "GoodsBtn";
+            this.GoodsBtn.Size = new System.Drawing.Size(200, 50);
+            this.GoodsBtn.TabIndex = 2;
+            this.GoodsBtn.Text = "Goods";
+            this.GoodsBtn.UseVisualStyleBackColor = true;
+            this.GoodsBtn.Click += new System.EventHandler(this.GoodsBtn_Click);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button7);
-            this.panel2.Controls.Add(this.button8);
             this.panel2.Location = new System.Drawing.Point(0, 248);
             this.panel2.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.panel2.Name = "panel2";
@@ -506,7 +466,7 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
             this.button7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button7.Location = new System.Drawing.Point(0, 4);
+            this.button7.Location = new System.Drawing.Point(0, 0);
             this.button7.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(200, 50);
@@ -514,25 +474,9 @@
             this.button7.Text = "submenu";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button8
-            // 
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button8.Location = new System.Drawing.Point(0, 0);
-            this.button8.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(200, 50);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "submenu";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.button9);
-            this.panel3.Controls.Add(this.button10);
             this.panel3.Location = new System.Drawing.Point(0, 310);
             this.panel3.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.panel3.Name = "panel3";
@@ -546,7 +490,7 @@
             this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
             this.button9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button9.Location = new System.Drawing.Point(0, 4);
+            this.button9.Location = new System.Drawing.Point(0, 0);
             this.button9.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(200, 50);
@@ -554,25 +498,9 @@
             this.button9.Text = "submenu";
             this.button9.UseVisualStyleBackColor = true;
             // 
-            // button10
-            // 
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button10.Location = new System.Drawing.Point(0, 0);
-            this.button10.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(200, 50);
-            this.button10.TabIndex = 1;
-            this.button10.Text = "submenu";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.button11);
-            this.panel4.Controls.Add(this.button12);
             this.panel4.Location = new System.Drawing.Point(0, 372);
             this.panel4.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.panel4.Name = "panel4";
@@ -586,7 +514,7 @@
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
             this.button11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button11.Location = new System.Drawing.Point(0, 4);
+            this.button11.Location = new System.Drawing.Point(0, 0);
             this.button11.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(200, 50);
@@ -594,25 +522,9 @@
             this.button11.Text = "submenu";
             this.button11.UseVisualStyleBackColor = true;
             // 
-            // button12
-            // 
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button12.Location = new System.Drawing.Point(0, 0);
-            this.button12.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(200, 50);
-            this.button12.TabIndex = 1;
-            this.button12.Text = "submenu";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.button13);
-            this.panel5.Controls.Add(this.button14);
             this.panel5.Location = new System.Drawing.Point(0, 434);
             this.panel5.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.panel5.Name = "panel5";
@@ -626,7 +538,7 @@
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
             this.button13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button13.Location = new System.Drawing.Point(0, 4);
+            this.button13.Location = new System.Drawing.Point(0, 0);
             this.button13.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(200, 50);
@@ -634,25 +546,9 @@
             this.button13.Text = "submenu";
             this.button13.UseVisualStyleBackColor = true;
             // 
-            // button14
-            // 
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button14.Location = new System.Drawing.Point(0, 0);
-            this.button14.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(200, 50);
-            this.button14.TabIndex = 1;
-            this.button14.Text = "submenu";
-            this.button14.UseVisualStyleBackColor = true;
-            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.button15);
-            this.panel6.Controls.Add(this.button16);
             this.panel6.Location = new System.Drawing.Point(0, 496);
             this.panel6.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.panel6.Name = "panel6";
@@ -666,7 +562,7 @@
             this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button15.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
             this.button15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button15.Location = new System.Drawing.Point(0, 4);
+            this.button15.Location = new System.Drawing.Point(0, 0);
             this.button15.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(200, 50);
@@ -674,25 +570,9 @@
             this.button15.Text = "submenu";
             this.button15.UseVisualStyleBackColor = true;
             // 
-            // button16
-            // 
-            this.button16.FlatAppearance.BorderSize = 0;
-            this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button16.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button16.Location = new System.Drawing.Point(0, 0);
-            this.button16.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(200, 50);
-            this.button16.TabIndex = 1;
-            this.button16.Text = "submenu";
-            this.button16.UseVisualStyleBackColor = true;
-            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.button17);
-            this.panel7.Controls.Add(this.button18);
             this.panel7.Location = new System.Drawing.Point(0, 558);
             this.panel7.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.panel7.Name = "panel7";
@@ -706,28 +586,13 @@
             this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button17.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
             this.button17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button17.Location = new System.Drawing.Point(0, 4);
+            this.button17.Location = new System.Drawing.Point(0, 0);
             this.button17.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(200, 50);
             this.button17.TabIndex = 2;
             this.button17.Text = "submenu";
             this.button17.UseVisualStyleBackColor = true;
-            // 
-            // button18
-            // 
-            this.button18.FlatAppearance.BorderSize = 0;
-            this.button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button18.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button18.Location = new System.Drawing.Point(0, 0);
-            this.button18.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(200, 50);
-            this.button18.TabIndex = 1;
-            this.button18.Text = "submenu";
-            this.button18.UseVisualStyleBackColor = true;
             // 
             // subSidebarTimer
             // 
@@ -739,11 +604,11 @@
             this.mainBox.AutoScroll = true;
             this.mainBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
             this.mainBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainBox.Location = new System.Drawing.Point(227, 100);
+            this.mainBox.Location = new System.Drawing.Point(427, 100);
             this.mainBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainBox.Name = "mainBox";
             this.mainBox.Padding = new System.Windows.Forms.Padding(10);
-            this.mainBox.Size = new System.Drawing.Size(1037, 581);
+            this.mainBox.Size = new System.Drawing.Size(837, 581);
             this.mainBox.TabIndex = 4;
             // 
             // sidebar
@@ -1082,7 +947,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).EndInit();
             this.user_droplist.ResumeLayout(false);
             this.subSidebar.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.GoodsContainer.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -1105,7 +970,6 @@
 
         #endregion
         private System.Windows.Forms.Panel submenuContainer1;
-        private System.Windows.Forms.Button submenu1;
         private System.Windows.Forms.Panel submenuContainer2;
         private System.Windows.Forms.Panel submenuContainer3;
         private System.Windows.Forms.Button submenu3;
@@ -1148,27 +1012,20 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Panel GoodsContainer;
+        private System.Windows.Forms.Button GoodsBtn;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
     }
 }
 

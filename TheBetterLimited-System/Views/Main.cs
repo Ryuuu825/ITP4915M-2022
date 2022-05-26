@@ -221,5 +221,10 @@ namespace TheBetterLimited.Views
             child.BringToFront();
             child.Show();
         }
+
+        private void GoodsBtn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new InventoryManagement());
+        }
     }
 }
