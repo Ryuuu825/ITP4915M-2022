@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheBetterLimited.Controller;
@@ -20,8 +21,10 @@ namespace TheBetterLimited.Views
         private PositionController pc = new PositionController();
         private DepartmentController dc = new DepartmentController();
         private RestResponse result = new RestResponse();
+        private UserController user = new UserController();
         private bool isUpload = false;
         private Bitmap icon = null;
+
         public Usermanagement_Add()
         {
             InitializeComponent();
@@ -134,6 +137,71 @@ namespace TheBetterLimited.Views
         private void CreateUser_Click(object sender, EventArgs e)
         {
             //check 
+            UpdatePwdStrength();
+
+            if (StaffIDTxt.Texts.Equals("Please input staff ID"))
+            {
+                StaffIDTxt.BorderColor = Color.Red;
+                return;
+            }
+
+            if (userNameTxt.Texts.Equals("Please input user name"))
+            {
+                userNameTxt.BorderColor = Color.Red;
+                return;
+
+            }
+
+            if (TestPWStrength(this.pwdTxt.Texts) == 0 || !pwdTxt.Texts.Equals(pwdTxt2))
+            {
+                pwdTxt.BorderColor = Color.Red;
+                pwdTxt2.BorderColor = Color.Red;
+                return;
+            }
+
+            if (pwdTxt.Texts.Equals("Please input password"))
+            {
+                pwdTxt.BorderColor = Color.Red;
+                return;
+            }
+
+            if (pwdTxt2.Texts.Equals("Please input password again") )
+            {
+                pwdTxt2.BorderColor = Color.Red;
+                return;
+            }
+
+
+            if (emailTxt.Texts.Equals("Please input email address"))
+            {
+                emailTxt.BorderColor = Color.Red;
+                return;
+            }
+
+
+
+            /*
+             * {
+                   "Id": null,
+                   "UserName": null,
+                   "Password": null,
+                   "EmailAddress": null,
+                   "Status": null,
+                   "_StaffId": null,
+                   "Remarks": null
+               }
+             */
+            user.AddAccount(
+                    new
+                    {
+                        Id = "A" + Utils.RandomId.GenerateID(4),
+                        userName = userNameTxt.Text,
+                        Password = pwdTxt.Texts,
+                        EmailAddress = emailTxt,
+                        Status = "N",
+                        _StaffId = StaffIDTxt.Texts,
+                        Remarks = "Created at" + DateTime.Now
+                    });
         }
 
         private void UserIconPic_Click(object sender, EventArgs e)
@@ -152,5 +220,174 @@ namespace TheBetterLimited.Views
                 isUpload = true;
             }
         }
+
+        private void userNameTxt__TextChanged(object sender, EventArgs e)
+        {
+            userNameTxt.ForeColor = Color.Black;
+            userNameTxt.Texts = userNameTxt.Texts.Equals("Please input user name") ? "" : userNameTxt.Texts;
+        }
+
+        private void pwdTxt__TextChanged(object sender, EventArgs e)
+        {
+            pwdTxt.ForeColor = Color.Black;
+            pwdTxt.Texts = pwdTxt.Texts.Equals("Please input password") ? "" : pwdTxt.Texts;
+
+        }
+
+        private void customizeTextbox1__TextChanged(object sender, EventArgs e)
+        {
+            emailTxt.ForeColor = Color.Black;
+            emailTxt.Texts = emailTxt.Texts.Equals("Please input email address") ? "" : emailTxt.Texts;
+        }
+
+        private void pwdTxt2__TextChanged(object sender, EventArgs e)
+        {
+            pwdTxt2.ForeColor = Color.Black;
+            pwdTxt2.Texts = pwdTxt2.Texts.Equals("Please input password again") ? "" : pwdTxt2.Texts;
+        }
+
+
+        // leave
+        private void userNameTxt__Leave(object sender, EventArgs e)
+        {
+            userNameTxt.ForeColor = Color.LightGray;
+            userNameTxt.Texts = userNameTxt.Texts.Equals("") ? "Please input user name" : userNameTxt.Texts;
+        }
+
+        private void pwdTxt__Leave(object sender, EventArgs e)
+        {
+            pwdTxt.ForeColor = Color.LightGray;
+            pwdTxt.Texts = pwdTxt.Texts.Equals("") ? "Please input password" : pwdTxt.Texts;
+
+        }
+
+        private void customizeTextbox1__Leave(object sender, EventArgs e)
+        {
+            emailTxt.ForeColor = Color.LightGray;
+            emailTxt.Texts = emailTxt.Texts.Equals("") ? "Please input email address" : emailTxt.Texts;
+        }
+
+        private void pwdTxt2__Leave(object sender, EventArgs e)
+        {
+            pwdTxt2.ForeColor = Color.LightGray;
+            pwdTxt2.Texts = pwdTxt2.Texts.Equals("") ? "Please input password again" : pwdTxt2.Texts;
+        }
+
+        private void pwdTxt2__TextChanged_1(object sender, EventArgs e)
+        {
+            UpdatePwdStrength();
+        }
+
+        private void UpdatePwdStrength()
+        {
+            if (pwdTxt.Texts.Equals(pwdTxt.Texts))
+            {
+                this.pwdTxt2.BorderColor = Color.LightGray;
+            }
+            else
+            {
+                this.pwdTxt2.BorderColor = Color.Red;
+            }
+
+            if (this.pwdTxt.Texts.Equals("Please input password"))
+            {
+                return;
+            }
+
+
+            int mark = TestPWStrength(this.pwdTxt.Texts);
+
+            var parentSize = PwdStrengthBar.Size;
+
+            if (mark == 0) // 219, 30, 72
+            {
+                var len = this.pwdTxt.Texts.Length;
+
+                PwStrength.Size = new Size
+                {
+                    Width = len == 0 ? 0 : (  (int)(parentSize.Width * 0.3) / (8%len + 8)),
+                    Height = parentSize.Height
+                };
+                PwStrength.BackColor = Color.FromArgb(219, 30, 72);
+            }
+            else if (mark >= 1 && mark <= 4) // Gold // Fair
+            {
+                PwStrength.Size = new Size
+                {
+                    Width = ((int)(parentSize.Width * 0.4) + (int)(parentSize.Width * 0.1 * mark)),
+                    Height = parentSize.Height
+                };
+                PwStrength.BackColor = Color.Gold;
+
+            }
+            else // 60, 183, 84
+            {
+                PwStrength.Size = new Size
+                {
+                    Width = ((int)(parentSize.Width * 0.4) + (int)(parentSize.Width * 0.1 * mark)),
+                    Height = parentSize.Height
+                };
+                PwStrength.BackColor = Color.FromArgb(60, 183, 84);
+            }
+        }
+
+        private short TestPWStrength(string pwd)
+        {
+
+            short mark = 0;
+            if (pwd.Length <= 7)
+                return 0;
+
+            // check number
+            if (pwd.Any(char.IsDigit))
+            {
+                mark++;
+            }
+
+            // check special char
+            if (pwd.Any(char.IsPunctuation))
+            {
+                mark++;
+            }
+
+            // check upper case
+            if (pwd.Any(char.IsUpper))
+            {
+                mark++;
+            }
+
+            // check lower case
+            if (pwd.Any(char.IsLower))
+            {
+                mark++;
+            }
+
+            // check any repeat
+            if (pwd.All(c => pwd.IndexOf(c) == pwd.LastIndexOf(c)))
+            {
+                mark++;
+            }
+
+            // check username contain
+            if (!pwd.Contains(this.userNameTxt.Texts))
+            {
+                mark++;
+            }
+
+            return mark;
+
+        }
+
+        private void pwdTxt__TextChanged_1(object sender, EventArgs e)
+        {
+            UpdatePwdStrength();
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+        
     }
 }
