@@ -95,6 +95,7 @@
             this.Header.Name = "Header";
             this.Header.Size = new System.Drawing.Size(272, 600);
             this.Header.TabIndex = 0;
+            this.Header.Paint += new System.Windows.Forms.PaintEventHandler(this.Header_Paint);
             // 
             // Info
             // 
@@ -177,6 +178,7 @@
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.TextColor = System.Drawing.Color.White;
             this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click_1);
             // 
             // CreateUser
             // 
@@ -405,9 +407,9 @@
             this.pwdTxt.TabIndex = 22;
             this.pwdTxt.Texts = "Please input password";
             this.pwdTxt.UnderlinedStyle = false;
+            this.pwdTxt._TextChanged += new System.EventHandler(this.pwdTxt__TextChanged_1);
             this.pwdTxt.Click += new System.EventHandler(this.pwdTxt__TextChanged);
             this.pwdTxt.Leave += new System.EventHandler(this.pwdTxt__Leave);
-            this.pwdTxt._TextChanged += new System.EventHandler(this.pwdTxt__TextChanged_1);
             // 
             // AccountHeaderContainer
             // 

@@ -159,7 +159,7 @@ namespace TheBetterLimited.Views
         }
 
         //Get Account
-        private void GetAccount()
+        public void GetAccount()
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
@@ -309,6 +309,7 @@ namespace TheBetterLimited.Views
         {
             Usermanagement_Add userAdd = new Usermanagement_Add();
             userAdd.Show();
+            userAdd.OnExit += GetAccount;
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -145,19 +146,28 @@ namespace TheBetterLimited.Views
                 return;
             }
 
+            StaffIDTxt.BorderColor = Color.LightGray;
+
             if (userNameTxt.Texts.Equals("Please input user name"))
             {
                 userNameTxt.BorderColor = Color.Red;
                 return;
 
             }
+            userNameTxt.BorderColor = Color.LightGray;
+            Console.WriteLine(TestPWStrength(this.pwdTxt.Texts) == 0 || !pwdTxt.Texts.Equals(pwdTxt2));
+            Console.WriteLine(TestPWStrength(this.pwdTxt.Texts) == 0);
+            Console.WriteLine(TestPWStrength(this.pwdTxt.Texts));
+            Console.WriteLine(!pwdTxt.Texts.Equals(pwdTxt2.Texts));
 
-            if (TestPWStrength(this.pwdTxt.Texts) == 0 || !pwdTxt.Texts.Equals(pwdTxt2))
+
+            if (TestPWStrength(this.pwdTxt.Texts) == 0 || !pwdTxt.Texts.Equals(pwdTxt2.Texts))
             {
                 pwdTxt.BorderColor = Color.Red;
                 pwdTxt2.BorderColor = Color.Red;
                 return;
             }
+           
 
             if (pwdTxt.Texts.Equals("Please input password"))
             {
@@ -165,11 +175,16 @@ namespace TheBetterLimited.Views
                 return;
             }
 
+            pwdTxt.BorderColor = Color.LightGray;
+
+
+
             if (pwdTxt2.Texts.Equals("Please input password again") )
             {
                 pwdTxt2.BorderColor = Color.Red;
                 return;
             }
+            pwdTxt2.BorderColor = Color.LightGray;
 
 
             if (emailTxt.Texts.Equals("Please input email address"))
@@ -177,6 +192,7 @@ namespace TheBetterLimited.Views
                 emailTxt.BorderColor = Color.Red;
                 return;
             }
+            emailTxt.BorderColor = Color.LightGray;
 
 
 
@@ -191,18 +207,51 @@ namespace TheBetterLimited.Views
                    "Remarks": null
                }
              */
-            user.AddAccount(
+            try
+            {
+                var response = user.AddAccount(
                     new
                     {
                         Id = "A" + Utils.RandomId.GenerateID(4),
-                        userName = userNameTxt.Text,
+                        userName = userNameTxt.Texts,
                         Password = pwdTxt.Texts,
-                        EmailAddress = emailTxt,
+                        EmailAddress = emailTxt.Texts,
                         Status = "N",
                         _StaffId = StaffIDTxt.Texts,
                         Remarks = "Created at" + DateTime.Now
                     });
+
+                if (isUpload)
+                {
+
+                    var uploadIconRes = user.UploadUserIcon(
+                        (byte[]) (new ImageConverter().ConvertTo(this.UserIconPic.Image, typeof(byte[])))
+                    );
+
+                }
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    this.Close();
+                    this.Dispose();
+                    this.OnExit.Invoke();
+                    
+                }
+                else
+                {
+                    MessageBox.Show(
+                        response.Content, "Fail", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+                
+            }
+            catch (Exception exception )
+            {
+                MessageBox.Show(
+                    exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
+
 
         private void UserIconPic_Click(object sender, EventArgs e)
         {
@@ -219,6 +268,7 @@ namespace TheBetterLimited.Views
                 string imgName = open.FileName;
                 isUpload = true;
             }
+            
         }
 
         private void userNameTxt__TextChanged(object sender, EventArgs e)
@@ -331,6 +381,9 @@ namespace TheBetterLimited.Views
             }
         }
 
+        public event Action OnExit;
+        
+
         private short TestPWStrength(string pwd)
         {
 
@@ -388,6 +441,17 @@ namespace TheBetterLimited.Views
             this.Close();
             this.Dispose();
         }
-        
+
+        private void Header_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void CancelBtn_Click_1(object sender, EventArgs e)
+        {
+            this.OnExit.Invoke();
+            this.Close();
+            this.Dispose();
+        }
     }
 }

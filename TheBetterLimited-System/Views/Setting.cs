@@ -195,5 +195,10 @@ namespace TheBetterLimited.Views
             UserDataGrid.DataSource = bs;
             InitializeDataGridView();
         }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

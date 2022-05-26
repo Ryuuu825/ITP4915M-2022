@@ -234,7 +234,7 @@ namespace TheBetterLimited.Controller
         {
             var request = new RestRequest("/api/Image/2", Method.Post)
                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
-                       .AddBody(img);
+                       .AddBody(Convert.ToBase64String(img));
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
