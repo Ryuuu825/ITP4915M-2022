@@ -20,6 +20,8 @@ namespace TheBetterLimited.Views
         private PositionController pc = new PositionController();
         private DepartmentController dc = new DepartmentController();
         private RestResponse result = new RestResponse();
+        private bool isUpload = false;
+        private Bitmap icon = null;
         public Usermanagement_Add()
         {
             InitializeComponent();
@@ -37,12 +39,21 @@ namespace TheBetterLimited.Views
 
         private void UserIconPic_MouseHover(object sender, EventArgs e)
         {
+
             UserIconPic.Image = Properties.Resources.photo_upload;
         }
 
         private void UserIconPic_MouseLeave(object sender, EventArgs e)
         {
-            UserIconPic.Image = Properties.Resources.avatar;
+            if (isUpload)
+            {
+                UserIconPic.Image = icon;
+
+            }
+            else
+            {
+                UserIconPic.Image = Properties.Resources.avatar;
+            }
         }
 
         private void InitializeUserInfoForm()
@@ -61,7 +72,7 @@ namespace TheBetterLimited.Views
 
         private void StaffIDTxt_Leave(object sender, EventArgs e)
         {
-            StaffIDTxt.ForeColor = Color.LightGray ;
+            StaffIDTxt.ForeColor = Color.LightGray;
             if (StaffIDTxt.Texts == "")
             {
                 StaffIDTxt.Texts = "Please input staff ID";
@@ -80,7 +91,8 @@ namespace TheBetterLimited.Views
             {
                 StaffIDTxt.Focus();
                 MessageBox.Show("The length of Staff ID should be 5!");
-            } else
+            }
+            else
             {
                 GetStaff();
             }
@@ -97,7 +109,8 @@ namespace TheBetterLimited.Views
                 {
                     MaleGenderRadio.Checked = true;
                     FemaleGenderRadio.Checked = false;
-                } else
+                }
+                else
                 {
                     MaleGenderRadio.Checked = false;
                     FemaleGenderRadio.Checked = true;
@@ -121,6 +134,23 @@ namespace TheBetterLimited.Views
         private void CreateUser_Click(object sender, EventArgs e)
         {
             //check 
+        }
+
+        private void UserIconPic_Click(object sender, EventArgs e)
+        {
+            // open file dialog   
+            OpenFileDialog open = new OpenFileDialog();
+            // image filters  
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                icon = new Bitmap(open.FileName);
+                // display image in picture box  
+                UserIconPic.Image = icon;
+                // image file path  
+                string imgName = open.FileName;
+                isUpload = true;
+            }
         }
     }
 }
