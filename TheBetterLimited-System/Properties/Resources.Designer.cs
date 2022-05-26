@@ -123,6 +123,16 @@ namespace TheBetterLimited.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap corret {
+            get {
+                object obj = ResourceManager.GetObject("corret", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cube_free_icon_font {
             get {
                 object obj = ResourceManager.GetObject("cube-free-icon-font", resourceCulture);

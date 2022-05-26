@@ -16,10 +16,12 @@ namespace TheBetterLimited.CustomizeControl
     {
         //Fields
         private Color borderColor = Color.LightGray;
-        private int borderSize = 2;
+        private int borderSize = 1;
         private bool underlinedStyle = false;
         private Color borderFocusColor = Color.Black;
+        private Color tbBackColor = Color.Red;
         private bool isFocused = false;
+        private bool isError = false;
         private int borderRadius = 0;
 
         private void UpdateControlHeight()
@@ -33,6 +35,15 @@ namespace TheBetterLimited.CustomizeControl
                 this.Height = textBox1.Height + this.Padding.Top + this.Padding.Bottom;
                 this.Resize += new EventHandler(Textbox_Resize);
 
+            }
+        }
+        public bool IsError
+        {
+            get { return isError; }
+            set
+            {
+                isError = value;
+                this.Invalidate();
             }
         }
 
@@ -79,6 +90,7 @@ namespace TheBetterLimited.CustomizeControl
                 this.Invalidate();
             }
         }
+
         public bool PasswordChar
         {
             get { return textBox1.UseSystemPasswordChar; }
@@ -88,6 +100,21 @@ namespace TheBetterLimited.CustomizeControl
         {
             get { return textBox1.Multiline; }
             set { textBox1.Multiline = value; }
+        }
+        public bool ReadOnly
+        {
+            get { return textBox1.ReadOnly; }
+            set
+            {
+                textBox1.ReadOnly = value;
+                this.Invalidate();
+            }
+        }
+
+        public Color TbBackColor
+        {
+            get { return textBox1.BackColor; }
+            set { textBox1.BackColor = value; }
         }
 
         public override Color ForeColor
@@ -157,7 +184,6 @@ namespace TheBetterLimited.CustomizeControl
             base.OnPaint(e);
             Graphics graph = e.Graphics;
             //Draw border
-
             Rectangle rectSurface = this.ClientRectangle;
             Rectangle rectBorder = Rectangle.Inflate(rectSurface, -borderSize, -borderSize);
             int smoothSize = 1;
@@ -169,17 +195,20 @@ namespace TheBetterLimited.CustomizeControl
                 using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRadius - borderSize))
                 using (Pen penSurface = new Pen(this.Parent.BackColor, smoothSize))
                 using (Pen penBorder = new Pen(borderColor, borderSize))
+                using (Pen penResetBorder = new Pen(this.Parent.BackColor, borderSize))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     //textbox surface
                     this.Region = new Region(pathSurface);
                     //Draw surface border for HD result
-                    e.Graphics.DrawPath(penSurface, pathSurface);
+                    //e.Graphics.DrawPath(penSurface, pathSurface);
+                    e.Graphics.DrawPath(penResetBorder, pathBorder);
                     //textbox border                    
                     if (borderSize >= 1)
                         //Draw control border
                         e.Graphics.DrawPath(penBorder, pathBorder);
                     if (isFocused) penBorder.Color = borderFocusColor;//Set Border color in focus. Otherwise, normal border color
+                    if (isError) penBorder.Color = Color.Red;//Set Border color in focus. Otherwise, normal border color
                     if (underlinedStyle) //Line Style
                         graph.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
                     else //Normal Style
