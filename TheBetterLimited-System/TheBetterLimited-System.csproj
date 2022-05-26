@@ -218,6 +218,12 @@
     <Compile Include="Views\UserManagement .Designer.cs">
       <DependentUpon>UserManagement .cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Usermanagement-Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Usermanagement-Edit.Designer.cs">
+      <DependentUpon>Usermanagement-Edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Usermanagement-Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\UserManagement .resx">
       <DependentUpon>UserManagement .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Usermanagement-Edit.resx">
+      <DependentUpon>Usermanagement-Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Usermanagement-Add.resx">
       <DependentUpon>Usermanagement-Add.cs</DependentUpon>

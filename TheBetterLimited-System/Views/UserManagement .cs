@@ -99,7 +99,8 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == UserDataGrid.Columns["edit"].Index)
             {
-                MessageBox.Show("You have selected row " + selecteUserId[0] + " cell");
+                Usermanagement_Edit usa = new Usermanagement_Edit(UserDataGrid["id", e.RowIndex].Value.ToString());
+                usa.Show();
             }
 
             if (e.ColumnIndex == UserDataGrid.Columns["delete"].Index)

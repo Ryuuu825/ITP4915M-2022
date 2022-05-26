@@ -146,7 +146,7 @@ namespace TheBetterLimited.Views
             gp.AddEllipse(UserIcon.ClientRectangle);
             Region region = new Region(gp);
             UserIcon.Region = region;
-            Bitmap bitmap = uc.InitUserIcon();
+            Bitmap bitmap = uc.GetUserIcon();
             if (bitmap == null)
             {
                 UserIcon.Image = bitmap;
@@ -225,6 +225,7 @@ namespace TheBetterLimited.Views
         private void GoodsBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new InventoryManagement());
+            subSidebarTimer.Start();
         }
     }
 }

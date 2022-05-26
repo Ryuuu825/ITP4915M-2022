@@ -422,7 +422,7 @@
             this.subSidebar.MaximumSize = new System.Drawing.Size(200, 1200);
             this.subSidebar.MinimumSize = new System.Drawing.Size(0, 1200);
             this.subSidebar.Name = "subSidebar";
-            this.subSidebar.Size = new System.Drawing.Size(200, 1200);
+            this.subSidebar.Size = new System.Drawing.Size(0, 1200);
             this.subSidebar.TabIndex = 0;
             // 
             // GoodsContainer
@@ -604,11 +604,11 @@
             this.mainBox.AutoScroll = true;
             this.mainBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(232)))), ((int)(((byte)(232)))));
             this.mainBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainBox.Location = new System.Drawing.Point(427, 100);
+            this.mainBox.Location = new System.Drawing.Point(227, 100);
             this.mainBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainBox.Name = "mainBox";
             this.mainBox.Padding = new System.Windows.Forms.Padding(10);
-            this.mainBox.Size = new System.Drawing.Size(837, 581);
+            this.mainBox.Size = new System.Drawing.Size(1037, 581);
             this.mainBox.TabIndex = 4;
             // 
             // sidebar

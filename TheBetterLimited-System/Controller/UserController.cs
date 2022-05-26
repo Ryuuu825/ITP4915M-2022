@@ -19,11 +19,11 @@ namespace TheBetterLimited.Controller
         private RestClient client;
 
         /**
-         * Search User
+         * Search All User
          */
         public RestResponse GetAllAccount()
         {
-            Console.WriteLine("Get all departments");
+            Console.WriteLine("Get all users");
             var request = new RestRequest("/api/users", Method.Get)
                         .AddHeader("limit", 100)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
@@ -39,9 +39,12 @@ namespace TheBetterLimited.Controller
             }
         }
 
+        /**
+         * Search Specific User
+         */
         public RestResponse GetAccountByQry(string qry)
         {
-            Console.WriteLine("Get departments by " + qry);
+            Console.WriteLine("Get users by " + qry);
             var request = new RestRequest("/api/users/sql", Method.Get)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
                         .AddQueryParameter("querystring", qry);
@@ -57,6 +60,25 @@ namespace TheBetterLimited.Controller
             }
         }
 
+        /**
+         * Search Specific User by ID
+         */
+        public RestResponse GetAccountById(string uid)
+        {
+            Console.WriteLine("Get users by " + uid);
+            var request = new RestRequest("/api/users/"+uid, Method.Get)
+                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
+            try
+            {
+                var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                return response;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw ex;
+            }
+        }
 
         /**
          * Add User
@@ -82,6 +104,23 @@ namespace TheBetterLimited.Controller
         /**
          * Edit User
          */
+        public RestResponse UpdateAccount(object json)
+        {
+            Console.WriteLine("Update user by " + json.GetType().GetProperty("id").GetValue(json));
+            var request = new RestRequest("/api/users/sql", Method.Put)
+                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
+                        .AddJsonBody(json);
+            try
+            {
+                var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                return response;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw ex;
+            }
+        }
 
         /**
          * Delete User
@@ -146,11 +185,11 @@ namespace TheBetterLimited.Controller
         }
 
         /**
-         * User Icon
+         * Get User Icon
          */
-        public Bitmap InitUserIcon()
+        public Bitmap GetUserIcon()
         {
-            var request = new RestRequest("/api/goods/photo/001/1", Method.Get)
+            var request = new RestRequest("/api/users/icon", Method.Get)
                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {
@@ -160,6 +199,46 @@ namespace TheBetterLimited.Controller
                 Bitmap bmp = new Bitmap(ms);
                 ms.Close();
                 return bmp;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        public Bitmap GetUserIconById(string uid)
+        {
+            var request = new RestRequest("/api/users/icon"+uid, Method.Get)
+                       .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
+            try
+            {
+                var response = RestClientUtils.client.DownloadDataAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine(response);
+                var ms = new MemoryStream(response);
+                Bitmap bmp = new Bitmap(ms);
+                ms.Close();
+                return bmp;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
+        }
+
+        /**
+        * Upload User Icon
+        */
+        public RestResponse UploadUserIcon(byte[] img)
+        {
+            var request = new RestRequest("/api/Image/2", Method.Post)
+                       .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
+                       .AddBody(img);
+            try
+            {
+                var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                return response;
             }
             catch (Exception ex)
             {
