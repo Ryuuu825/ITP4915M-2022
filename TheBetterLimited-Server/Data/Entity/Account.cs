@@ -65,5 +65,5 @@ public class Account
     public DateTime? unlockDate { get; set; }
 
 
-    public string? Icon { get; set; }
+    public byte[]? Icon { get; set; }
 }

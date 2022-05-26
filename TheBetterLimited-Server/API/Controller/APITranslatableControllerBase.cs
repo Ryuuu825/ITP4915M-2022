@@ -3,10 +3,11 @@ using TheBetterLimited_Server.AppLogic.Controllers;
 
 namespace TheBetterLimited_Server.API.Controller
 {
-    public class APITranslatableControllerBase<T> : ControllerBase
+    [Route("api/[controller]")]
+    public class APIControllerBase<T> : ControllerBase
         where T : class
     {
-        private readonly AppTranslatableControllerBase<T> controller;
+        private readonly AppControllerBase<T> controller;
 
         [HttpGet("index")]
         public async Task<IActionResult> Index()
@@ -34,6 +35,33 @@ namespace TheBetterLimited_Server.API.Controller
                 {
                     return Ok(await controller.GetWithLimit(limit));
                 }
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+
+        [HttpGet("csv")]
+        public async Task<IActionResult> GetCSV(string queryStr)
+        {
+            try
+            {
+                return Ok(await controller.GetCSV(queryStr));
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpGet("pdf")]
+        public async Task<IActionResult> GetPDF(string queryStr)
+        {
+            try
+            {
+                return File(await controller.GetPDF(queryStr) , "application/pdf");
             }
             catch (ICustException e)
             {
@@ -92,7 +120,7 @@ namespace TheBetterLimited_Server.API.Controller
         {
             try
             {
-                await controller.ModifyRange(queryString, content , Language);
+                controller.ModifyRange(queryString, content , Language);
                 return Ok();
             }
             catch (ICustException e)
@@ -115,9 +143,9 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
-        public APITranslatableControllerBase(Data.DataContext db)
+        public APIControllerBase(Data.DataContext db)
         {
-            controller = new AppTranslatableControllerBase<T>(db);
+            controller = new AppControllerBase<T>(db);
         }
     }
 }

@@ -9,7 +9,6 @@ global using static TheBetterLimited_Server.Helpers.SecretConf;
 global using Newtonsoft.Json.Linq;
 global using TheBetterLimited_Server.Helpers.LogHelper;
 global using System.Collections;
-global using TheBetterLimited_Server;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -25,8 +24,11 @@ public class Program
     {
         
         var builder = WebApplication.CreateBuilder(args);
-        // Add services to the container.
-        builder.Services.AddControllers().AddNewtonsoftJson();
+        // // Add services to the container.
+        builder.Services.AddControllers()
+            .AddNewtonsoftJson(
+                options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
         builder.Services.AddDbContext<DataContext>(options =>
         {
             var ConnString = _Secret["ConnectionString"];
@@ -47,8 +49,9 @@ public class Program
                     ValidateAudience = false
                 };
             });
+        
 
-
+        
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen(options =>
@@ -74,8 +77,7 @@ public class Program
                     });
             }
         );
-
-
+        
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -91,8 +93,6 @@ public class Program
         app.UseCors("default");
         Console.Title = "The Better Limited Server";
 
-        // Data Source=localhost;Initial Catalog=TheBetterLimitedDev;User Id=root;password=;ConnectionTimeout=5
-        // remove Initial CataLog= ***** till first ';' after the Initial Catalog
         StringBuilder TestConnString = new StringBuilder();
         string[] ConnStringParts = _Secret["ConnectionString"].Split(';');
         foreach(var part in ConnStringParts)
@@ -124,15 +124,26 @@ public class Program
             }
         }
 
+#if DEBUG
         using (var serviceScope = app.Services.CreateScope())
         {
             var dbContext = serviceScope.ServiceProvider.GetRequiredService<DataContext>();
+            // drop the database if it exists
+            dbContext.Database.ExecuteSqlRaw(
+                "DROP DATABASE IF EXISTS `TheBetterLimitedDev`;"
+            );
+            // create the database
             dbContext.Database.Migrate();
-            TheBetterLimited_Server.Data.DummyDataFactory.Create(dbContext);
+            // insert some dummy data
+            TheBetterLimited_Server.Data.DummyDataFactory.Create(dbContext).GetAwaiter().GetResult();
         }
+#endif
+
+        ConsoleLogger.Debug("Version");
 
         app.Run();
 
         TempFileManager.CloseAllTempFile();
     }
 }
+    

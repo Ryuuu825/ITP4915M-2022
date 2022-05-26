@@ -29,8 +29,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("Icon")
-                        .HasColumnType("longtext");
+                    b.Property<byte[]>("Icon")
+                        .HasColumnType("longblob");
 
                     b.Property<DateTime?>("LastLogin")
                         .HasColumnType("datetime(6)");
@@ -298,8 +298,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(3)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<string>("_budgetId")
                         .HasMaxLength(3)
@@ -488,8 +488,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(3)");
 
                     b.Property<string>("jobTitle")
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.HasKey("Id");
 
@@ -978,6 +978,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.Property<decimal>("Amount")
                         .HasColumnType("DECIMAL(7,2)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("_salesOrderId")
                         .IsRequired()

@@ -8,7 +8,7 @@ namespace TheBetterLimited_Server.API.Controller
 
     [Route("api/goods")]
     // [Authorize]
-    public class Goods : APITranslatableControllerBase<Data.Entity.Goods>
+    public class Goods : APIControllerBase<Data.Entity.Goods>
     {
         // CURD: ADD, Modify, Delete, search 
 

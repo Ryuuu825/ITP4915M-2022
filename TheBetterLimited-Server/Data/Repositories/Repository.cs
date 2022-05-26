@@ -41,6 +41,7 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
         }
         catch (Exception e)
         {
+            ConsoleLogger.Debug(e.InnerException);
             if (e.InnerException.ToString().Contains("Duplicate entry"))
                 throw new BadArgException("The entity already exists.");
             else

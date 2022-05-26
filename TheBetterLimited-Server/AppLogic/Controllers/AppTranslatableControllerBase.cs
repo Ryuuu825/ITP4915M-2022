@@ -1,13 +1,13 @@
 namespace TheBetterLimited_Server.AppLogic.Controllers
 {
-    public class AppTranslatableControllerBase<T> : IAppTranslatableControllerBase<T>
+    public class AppControllerBase<T> : IAppTranslatableControllerBase<T>
         where T : class
     {
         protected readonly Data.DataContext db;
         protected Data.Repositories.Repository<T> repository;
         protected readonly Type DtoType;
 
-        public AppTranslatableControllerBase(Data.DataContext dataContext)
+        public AppControllerBase(Data.DataContext dataContext)
         {
             db = dataContext;
             repository = new Data.Repositories.Repository<T>(dataContext);
@@ -19,24 +19,36 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return DtoType.GetPropertiesToString();
         }
 
-        public async Task<List<T>> GetAll(string lang = "en")
+
+        public async Task<List<Hashtable>> GetAll(string lang = "en")
         {
-            if (Helpers.Localizer.isLanguageSupported<T>(lang))
+
+            var list = await repository.GetAllAsync();
+            for (var i = 0 ; i < list.Count ; i++)
             {
-                var list = await repository.GetAllAsync();
-                for (var i = 0 ; i < list.Count ; i++)
-                {
-                    list[i] = Helpers.Localizer.TryLocalize<T>(lang , list[i] );
-                }
-                return list;
+                list[i] = Helpers.Localizer.TryLocalize<T>(lang , list[i] );
             }
-            else
-            {
-                throw new BadArgException("The language type not support.");
-            }
+            return list.MapToDto<T>();
+
         }
 
-        public async Task<List<T>> GetWithLimit(int limit, string lang = "en")
+
+        public async Task<string> GetCSV(string queryString)
+        {
+            List<T> list = await GetRecords(queryString);
+            
+
+            return Helpers.File.CSVFactory.Create<T>(list);
+        }
+
+        public async Task<byte[]> GetPDF(string queryString)
+        {
+            List<T> list = await GetRecords(queryString);
+
+            return Helpers.File.PDFFactory.Instance.Create(AppDomain.CurrentDomain.BaseDirectory + "resources/template/Records.html");
+        }
+        
+        public async Task<List<Hashtable>> GetWithLimit(int limit, string lang = "en")
         {
             var list = (await repository.GetAllAsync()).AsReadOnly().ToList();
             limit = limit > list.Count ? list.Count : limit;
@@ -45,24 +57,26 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             {
                 list[i] = Helpers.Localizer.TryLocalize<T>(lang , list[i] );
             }
-            return list;
+            return list.MapToDto();
 
         }
 
-        public async Task<T> GetById(string id,string lang = "en")
+        public async Task<Hashtable> GetById(string id,string lang = "en")
         {
             var goods = await repository.GetByIdAsync(id);
-            return Helpers.Localizer.TryLocalize<T>(lang , goods);
+            return Helpers.Localizer.TryLocalize<T>(lang , goods).MapToDto();
         }
 
-        public async Task<List<T>> GetByQueryString(string queryString,string lang = "en")
+        public async Task<List<Hashtable>> GetByQueryString(string queryString,string lang = "en")
         {
-            var goods = await repository.GetBySQLAsync(queryString);
+            var goods = await repository.GetBySQLAsync(
+                Helpers.Sql.QueryStringBuilder.GetSqlStatement<T>(queryString)
+            );
             for (var i = 0 ; i < goods.Count ; i++)
             {
                 goods[i] = Helpers.Localizer.TryLocalize<T>(lang , goods[i] );
             }
-            return goods;
+            return goods.MapToDto();
         }
         public async Task Add(T entity,string lang = "en")
         {
@@ -97,21 +111,23 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             await db.SaveChangesAsync();
         }
 
-                public async Task ModifyRange(string queryString , List<AppLogic.Models.UpdateObjectModel> content , string Language = "en")
+        public unsafe async void ModifyRange(string queryString , List<AppLogic.Models.UpdateObjectModel> content , string Language = "en")
         {
-            var potnetialList = await repository.GetBySQLAsync(queryString);
+            var potnetialList = repository.GetBySQL(
+                Helpers.Sql.QueryStringBuilder.GetSqlStatement<T>(queryString)
+            );
 
             for (int i = 0 ; i < potnetialList.Count ; i++)
-            {   
-                if (potnetialList[i] is not null)
+            {
+                var potnetial = potnetialList[i];
+                if (potnetial is not null)
                 {
-                    // A property or indexer may not be passed as an out or ref parameter [TheBetterLimited-Server]
-                    // wrong: TheBetterLimited_Server.Helpers.Entity.EntityUpdater.Update<T>(ref potnetialList[i], content);
-                    potnetialList[i] = TheBetterLimited_Server.Helpers.Entity.EntityUpdater.Update<T>(potnetialList[i] , content , Language);
-                    await repository.UpdateAsync(potnetialList[i]);
+                    // pass a reference to the object to be updated
+                    Helpers.Entity.EntityUpdater.Update( ref potnetial, content);
+                    repository.Update(potnetial);
                 }
             }
-            await db.SaveChangesAsync();
+            db.SaveChanges();
         }
 
         public async Task Delete(string id)
@@ -119,6 +135,44 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             var potnetialObj = await repository.GetByIdAsync(id);
             await repository.DeleteAsync(potnetialObj);
             await db.SaveChangesAsync();
+        }
+
+        public async Task<string> GetCSV(string lang , string queryString)
+        {
+            List<T> list;
+            if (queryString is not null)
+            {
+                list = await repository.GetBySQLAsync(
+                    Helpers.Sql.QueryStringBuilder.GetSqlStatement<T>(queryString)
+                );
+            }
+            else 
+            {
+                list = await repository.GetAllAsync();
+            }
+            
+            for(int i = 0 ; i < list.Count ; i++)
+            {
+                list[i] = Helpers.Localizer.TryLocalize<T>(lang , list[i]);
+            }
+
+            return Helpers.File.CSVFactory.Create<T>(list);
+        }
+
+        public async Task<List<T>> GetRecords(string queryString)
+        {
+            List<T> list;
+            if (queryString is not null)
+            {
+                list = await repository.GetBySQLAsync(
+                    Helpers.Sql.QueryStringBuilder.GetSqlStatement<T>(queryString)
+                );
+            }
+            else 
+            {
+                list = await repository.GetAllAsync();
+            }
+            return list;
         }
     }
 }

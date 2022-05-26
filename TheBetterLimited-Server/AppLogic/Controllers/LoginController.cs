@@ -43,7 +43,6 @@ public class LoginController
 
             if (potentialUser.LoginFailedCount >= 10)
             {
-                ConsoleLogger.Debug($"The account {potentialUser.UserName} is locked");
                 potentialUser.Status = "L";
                 potentialUser.unlockDate = DateTime.Now.AddYears(1);
                 _UserTable.Update( in potentialUser);
@@ -66,11 +65,19 @@ public class LoginController
             potentialUser.LoginFailedCount = 0;
             potentialUser.Status = "N";
 
-            res.Token = JwtToken.Issue(potentialUser);
+            LoginOkModel.Token token = new LoginOkModel.Token();
+            token.TokenString = JwtToken.Issue(potentialUser);
+            token.ExpireAt = DateTime.Now.AddHours(10);
+            res.UserToken = token;
             res.Status = "Authenticated";
-            res.ExpireAt = DateTime.Now.AddHours(10);
-
-
+            
+            AppInitData data = new AppInitData()
+            {
+                DisplayName = potentialUser.Staff.FirstName + " " + potentialUser.Staff.LastName,
+                Position = potentialUser.Staff.position.jobTitle,
+                Department = potentialUser.Staff.department.Name
+            };
+            res.InitData = data;
 
             List<AppLogic.Models.Permission> permissions = new List<AppLogic.Models.Permission>();
             // foreach (var permission in potentialUser.Staff.position.permissions)
@@ -86,7 +93,7 @@ public class LoginController
             //     );
             // }
         
-            res.permissions = permissions;
+            // res.permissions = permissions;
 
             _UserTable.Update(in potentialUser);
 
