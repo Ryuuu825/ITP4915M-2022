@@ -166,26 +166,37 @@ public class UserController
         }, true);
      }
 
-     public string GetUserIcon(string username , out byte[] icon )
+     public Tuple<byte[], string> GetUserIcon(string username )
      {
          Account? acc = _UserTable.GetBySQL(
-                $"SELECT * FROM accounts WHERE username = '{username}'"
+                $"SELECT * FROM Account WHERE username = '{username}'"
          ).FirstOrDefault();
 
          if (acc is null)
              throw new BadArgException("No such user");
          
-        try
-        {
-            ConsoleLogger.Debug("GetUserIcon : Get icon from database " + acc.Icon);
-            icon = System.IO.File.ReadAllBytes("./resources/usericons/" + acc.Icon);
-            return acc.Icon.Split(".")[1];
 
-        } catch (System.IO.FileNotFoundException e)
+        if (acc.Icon is null)
         {
-            icon = System.IO.File.ReadAllBytes("./resources/usericons/" + "default.png");
-            return "png";
+            return new Tuple<byte[], string>(System.IO.File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + "resources/usericons/default.png"), "png");
         }
+        else
+        {
+            return new Tuple<byte[], string>(acc.Icon, "png");
+        }
+     }
+
+     public async Task UpdateUserIcon(string username , string base64Image)
+     {
+         Account? acc = (await _UserTable.GetBySQLAsync(
+                $"SELECT * FROM Account WHERE username = '{username}'"
+         )).FirstOrDefault();
+
+        if (acc is null)
+            throw new BadArgException("No such user");
+
+        acc.Icon = Convert.FromBase64String(base64Image);
+        await _UserTable.UpdateAsync(acc , true);
      }
 
 

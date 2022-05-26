@@ -9,7 +9,7 @@ namespace TheBetterLimited_Server.Helpers
     {
         private static readonly string FilePath = AppDomain.CurrentDomain.BaseDirectory + "./resources/localization/{0}.xml";
 
-        public static bool isLanguageSupported<T>( string language)
+        private static bool isLanguageSupported<T>( string language)
         {   
             XmlDocument xml = new XmlDocument();
             xml.Load(string.Format(FilePath, typeof(T).Name));
@@ -24,10 +24,25 @@ namespace TheBetterLimited_Server.Helpers
             return false;
         }
 
+        public static bool isTransalatable<T>()
+        {
+            dynamic instance = Activator.CreateInstance(typeof(T));
+            foreach (var property in typeof(T).GetProperties())
+            {
+                if (Attribute.IsDefined(property, typeof(AppLogic.Attribute.TranslatableAttribute)))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
 
 
         public static T TryLocalize<T>(string language , T target)
         {
+            if (! isTransalatable<T>())
+                return target;
 
             XmlDocument xml = new XmlDocument();
             xml.Load(string.Format(FilePath, typeof(T).Name ));

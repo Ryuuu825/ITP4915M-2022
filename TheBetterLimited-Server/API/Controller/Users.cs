@@ -168,9 +168,23 @@ public class UsersController : ControllerBase
     {
         try
         {
-            byte[] icon; 
-            string FileType = controller.GetUserIcon(User.Identity.Name , out icon);
-            return File(icon , $"image/{FileType}");
+            Tuple<byte[] , string> icon = controller.GetUserIcon(User.Identity.Name );
+            return File(icon.Item1 , $"image/{icon.Item2}");
+        }
+        catch (ICustException e)
+        {
+            return StatusCode(e.ReturnCode, e.GetHttpResult());
+        }
+    }
+
+    [HttpPost("icon")]
+    [Authorize]
+    public async Task<IActionResult> UpdateUserIcon([FromBody] string base64Image)
+    {
+        try
+        {
+            await controller.UpdateUserIcon(User.Identity.Name , base64Image);
+            return Ok();
         }
         catch (ICustException e)
         {

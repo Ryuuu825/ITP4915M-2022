@@ -171,7 +171,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
     // }
 
-    public class GoodsController : AppTranslatableControllerBase<Data.Entity.Goods>
+    public class GoodsController : AppControllerBase<Data.Entity.Goods>
     {
         public GoodsController(Data.DataContext db):base(db)
         {
