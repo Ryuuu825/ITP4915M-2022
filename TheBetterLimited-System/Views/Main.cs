@@ -104,6 +104,7 @@ namespace TheBetterLimited.Views
         private void Home_Click(object sender, EventArgs e)
         {
             change_MenuButton_style(sender);
+            openChildForm(new Home());
         }
 
         private void Inventory_Click(object sender, EventArgs e)
@@ -158,6 +159,8 @@ namespace TheBetterLimited.Views
             gp.Dispose();
             region.Dispose();
             Menu_Init();
+            openChildForm(new Home());
+            change_MenuButton_style(HomeBtn);
         }
 
         private void Menu_Init()
