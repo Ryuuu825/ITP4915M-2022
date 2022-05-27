@@ -206,18 +206,35 @@ public class UserController
         }
      }
 
-     public async Task UpdateUserIcon(string username , string base64Image)
+     public async Task UpdateUserIcon(Account acc, string base64Image)
+     {
+        acc.Icon = Convert.FromBase64String(base64Image);
+        await _UserTable.UpdateAsync(acc , true);
+     }
+
+     public async Task UpdateUserIcon(string id , string base64Image)
      {
          Account? acc = (await _UserTable.GetBySQLAsync(
-                $"SELECT * FROM Account WHERE username = '{username}'"
+                $"SELECT * FROM Account WHERE Id = '{id}'"
          )).FirstOrDefault();
 
         if (acc is null)
             throw new BadArgException("No such user");
 
-        acc.Icon = Convert.FromBase64String(base64Image);
-        await _UserTable.UpdateAsync(acc , true);
+        await UpdateUserIcon(acc , base64Image);
      }
 
+    public async Task UpdateMyUserIcon(string username , string base64Image)
+     {
+         Account? acc = (await _UserTable.GetBySQLAsync(
+                $"SELECT * FROM Account WHERE username = '{username}'"
+         )).FirstOrDefault();
+
+
+        if (acc is null)
+            throw new BadArgException("No such user");
+
+        await UpdateUserIcon(acc , base64Image);
+     }
 
 }

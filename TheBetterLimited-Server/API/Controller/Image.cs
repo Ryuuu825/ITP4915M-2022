@@ -33,7 +33,13 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 return BadRequest("ERROR: Audio could not be saved on server.");
             }
+        }
 
+
+        [HttpPost("get64string")]
+        public IActionResult ConvertToBase64String([FromBody] byte[] image)
+        {
+            return Ok(Convert.ToBase64String(image));
         }
     }
 

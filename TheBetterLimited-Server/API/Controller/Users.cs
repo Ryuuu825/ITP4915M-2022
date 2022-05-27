@@ -191,13 +191,27 @@ public class UsersController : ControllerBase
         }
     }
 
-    [HttpPost("icon")]
+    [HttpPost("myicon")]
     [Authorize]
     public async Task<IActionResult> UpdateUserIcon([FromBody] string base64Image)
     {
         try
         {
-            await controller.UpdateUserIcon(User.Identity.Name , base64Image);
+            await controller.UpdateMyUserIcon(User.Identity.Name , base64Image);
+            return Ok();
+        }
+        catch (ICustException e)
+        {
+            return StatusCode(e.ReturnCode, e.GetHttpResult());
+        }
+    }
+
+    [HttpPost("{id}/icon")]
+    public async Task<IActionResult> UpdateUserIcon(string id , [FromBody] string base64Image)
+    {
+        try
+        {
+            await controller.UpdateUserIcon(id, base64Image);
             return Ok();
         }
         catch (ICustException e)
