@@ -22,10 +22,22 @@ namespace TheBetterLimited.Controller
         /**
         * change password
         */
-        public string ChangePassword(string username, string oldPwd, string newPwd)
+        public RestResponse ChangePassword(string username, string newPwd)
         {
-            var acc = new { userName = username, password = newPwd };
-            return "";
+            var request = new RestRequest("/api/change", Method.Post)
+                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
+                        .AddQueryParameter("username", username)
+                        .AddQueryParameter("password", newPwd);
+            try
+            {
+                var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                return response;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
+            }
         }
 
         /**

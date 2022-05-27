@@ -8,9 +8,11 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheBetterLimited.Controller;
+using TheBetterLimited.CustomizeControl;
 
 namespace TheBetterLimited.Views
 {
@@ -23,74 +25,24 @@ namespace TheBetterLimited.Views
         private RestResponse result = new RestResponse();
         private bool isUpload = false;
         private Bitmap icon = null;
-        private string _uid;
+        public string _uid { get; set; }
         private string _staffId;
         private string _staffName;
         private string _deptName;
         private string _positionName;
         private string _userName;
         private string _email;
+        private string _status;
+        private string _remark;
 
         public Usermanagement_Edit()
         {
             InitializeComponent();
         }
 
-        public Usermanagement_Edit(string uid)
-        {
-            InitializeComponent();
-            _uid = uid;
-            UserIdTxt.Texts = uid;
-            UserIdTxt.ForeColor = Color.Black;
-        }
-
         private void Usermanagement_Edit_Load(object sender, EventArgs e)
         {
-            //init icon
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(UserIconPic.ClientRectangle);
-            Region region = new Region(gp);
-            UserIconPic.Region = region;
-            gp.Dispose();
-            region.Dispose();
-            Bitmap bitmap = uc.GetUserIcon();
-            if (bitmap != null)
-            {
-                UserIconPic.Image = bitmap;
-            }
-
-            //init user info
-            Console.WriteLine(_uid);
-            result = uc.GetAccountById(_uid);
-            Console.WriteLine(result.Content.ToString());
-            var res = JObject.Parse(result.Content);
-            if (res != null)
-            {
-                StaffIDTxt.Texts = res["_StaffId"].ToString();
-                StaffIDTxt.ForeColor = Color.Black;
-            }
-            GetStaff();
-
-            //init account info
-            GetAccount();
-        }
-
-        private void StaffIDTxt_Enter(object sender, EventArgs e)
-        {
-            StaffIDTxt.ForeColor = Color.Black;
-            if (StaffIDTxt.Texts == "Please input staff ID")
-            {
-                StaffIDTxt.Texts = "";
-            }
-        }
-
-        private void StaffIDTxt_Leave(object sender, EventArgs e)
-        {
-            if (StaffIDTxt.Texts == "")
-            {
-                StaffIDTxt.ForeColor = Color.LightGray;
-                StaffIDTxt.Texts = "Please input staff ID";
-            }
+            InitUserInfo();
         }
 
         private void SearchStaffBtn_Click(object sender, EventArgs e)
@@ -111,15 +63,54 @@ namespace TheBetterLimited.Views
             }
         }
 
+        public void InitUserInfo()
+        {
+            UserIdTxt.Texts = _uid;
+            //init icon
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddEllipse(UserIconPic.ClientRectangle);
+            Region region = new Region(gp);
+            UserIconPic.Region = region;
+            gp.Dispose();
+            region.Dispose();
+            Bitmap bitmap = uc.GetUserIconById(_uid);
+            if (bitmap != null)
+            {
+                UserIconPic.Image = bitmap;
+            }
+
+            //init user info
+            Console.WriteLine(_uid);
+            result = uc.GetAccountById(_uid);
+            Console.WriteLine(result.Content.ToString());
+            var res = JObject.Parse(result.Content);
+            _staffId = res["_StaffId"].ToString();
+            if (res != null)
+            {
+                StaffIDTxt.Texts = _staffId;
+            }
+            GetStaff();
+
+            //init account info
+            GetAccount();
+        }
+
         private void GetStaff()
         {
             result = sc.GetStaffById(StaffIDTxt.Texts);
-            var staff = JObject.Parse(result.Content);
+            JObject staff = null;
+            try
+            {
+                staff = JObject.Parse(result.Content);
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Not found the staff " + StaffIDTxt.Texts);
+            }
+            
             if (staff != null)
             {
                 _staffName = staff["FirstName"].ToString() + " " + staff["LastName"].ToString();
                 StaffNameTxt.Texts = _staffName;
-                StaffNameTxt.ForeColor = Color.Black;
                 if (staff["Sex"].ToString().Equals("M"))
                 {
                     MaleGenderRadio.Checked = true;
@@ -137,7 +128,6 @@ namespace TheBetterLimited.Views
             if (department != null)
             {
                 DeptTxt.Texts = department["Name"].ToString();
-                DeptTxt.ForeColor = Color.Black;
             }
 
             result = pc.GetPositionById(staff["_positionId"].ToString());
@@ -158,11 +148,12 @@ namespace TheBetterLimited.Views
 
                 _userName = user["userName"].ToString();
                 UserNameTxt.Texts = _userName;
-                UserNameTxt.ForeColor = Color.Black;
                 _email = user["emailAddress"].ToString();
-                EmainTxt.Texts = _email;
-                EmainTxt.ForeColor = Color.Black;
-                if (user["status"].ToString().Equals("N"))
+                EmailTxt.Texts = _email;
+                _status = user["status"].ToString();
+                _remark = user["remarks"].ToString();
+                RemarkTxt.Texts = _remark;
+                if (_status.Equals("N"))
                 {
                     NormalStatusRadio.Checked = true;
                     LockStatusRadio.Checked = false;
@@ -175,29 +166,11 @@ namespace TheBetterLimited.Views
             }
         }
 
-        private void SaveBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void UserNameTxt_Enter(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(UserNameTxt.Text))
             {
 
-            }
-        }
-        private void UserNameTxt_Leave(object sender, EventArgs e)
-        {
-
-            if (string.IsNullOrEmpty(UserNameTxt.Text))
-            {
-                UserNameTxt.Text = _userName;
-                UserNameTxt.ForeColor = Color.LightGray;
-            }
-            else
-            {
-                UserNameTxt.ForeColor = Color.Black;
             }
         }
 
@@ -229,7 +202,100 @@ namespace TheBetterLimited.Views
 
         private void Email_Click(object sender, EventArgs e)
         {
-            EmainTxt.Focus();
+            EmailTxt.Focus();
+        }
+
+        public event Action OnExit;
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            this.OnExit.Invoke();
+            this.Close();
+        }
+
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            List<object> updatedData = new List<object>();
+            if (!StaffIDTxt.Texts.Equals(_staffId) && !StaffIDTxt.Texts.Equals(StaffIDTxt.Placeholder))
+            {
+                var obj = new
+                {
+                    attribute = "_StaffId",
+                    value = StaffIDTxt.Texts
+                };
+                updatedData.Add(obj);
+            }
+
+            if (!UserNameTxt.Texts.Equals(_userName) && !UserNameTxt.Texts.Equals(UserNameTxt.Placeholder))
+            {
+                var obj = new
+                {
+                    attribute = "UserName",
+                    value = UserNameTxt.Texts
+                };
+                updatedData.Add(obj);
+            }
+
+            if (!EmailTxt.Texts.Equals(_email) && !EmailTxt.Texts.Equals(EmailTxt.Placeholder))
+            {
+                var obj = new
+                {
+                    attribute = "EmailAddress",
+                    value = EmailTxt.Texts
+                };
+                updatedData.Add(obj);
+            }
+
+            var tempStatus = "";
+            if (NormalStatusRadio.Checked == true) tempStatus = "N";
+            if (LockStatusRadio.Checked == true) tempStatus = "L";
+            if (!tempStatus.Equals(_status))
+            {
+                var obj = new
+                {
+                    attribute = "Status",
+                    value = tempStatus
+                };
+                updatedData.Add(obj);
+            }
+
+            if (!RemarkTxt.Texts.Equals(_remark) && !RemarkTxt.Texts.Equals(RemarkTxt.Placeholder))
+            {
+                var obj = new
+                {
+                    attribute = "Remarks",
+                    value = RemarkTxt.Texts
+                };
+                updatedData.Add(obj);
+            }else if (RemarkTxt.Texts.Equals(RemarkTxt.Placeholder))
+            {
+                var obj = new
+                {
+                    attribute = "Remarks",
+                    value = "update at " + DateTime.Now
+                };
+                updatedData.Add(obj);
+            }
+
+            var json = JsonSerializer.Serialize(updatedData);
+            try
+            {
+                Console.WriteLine(json);
+                result = uc.UpdateAccount(updatedData, _uid);
+                Console.WriteLine(result.StatusCode);
+                Console.WriteLine(result.Content);
+                if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    MessageBox.Show("User information has been updated!");
+                    this.Close();
+                    this.Dispose();
+                    this.OnExit.Invoke();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                MessageBox.Show("Sorry, user information update unsuccessfully");
+            }
         }
     }
 }

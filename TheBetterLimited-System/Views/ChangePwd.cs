@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using RestSharp;
 using TheBetterLimited.CustomizeControl;
 using TheBetterLimited.Models;
 
@@ -64,8 +65,8 @@ namespace TheBetterLimited.Views
                     * access Api to get the responseCode and msg
                     */
                     Controller.LoginController loginController = new Controller.LoginController();
-                    string responseCode = loginController.ChangePassword(userName.Texts, originalPwd.Texts, firstNewPassword.Texts);
-                    if (responseCode == "1")
+                    RestResponse response = loginController.ChangePassword(userName.Texts, firstNewPassword.Texts);
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         this.Dispose();
                         ChangePwdResult chgMsg = new ChangePwdResult();

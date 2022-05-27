@@ -147,7 +147,7 @@ namespace TheBetterLimited.Views
             Region region = new Region(gp);
             UserIcon.Region = region;
             Bitmap bitmap = uc.GetUserIcon();
-            if (bitmap == null)
+            if (bitmap != null)
             {
                 UserIcon.Image = bitmap;
             }

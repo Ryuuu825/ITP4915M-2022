@@ -23,6 +23,7 @@ namespace TheBetterLimited.Views
         private List<string> selecteUserId = new List<string>();
         private DialogResult choose;
         private RestResponse result;
+        private bool isEditing = false;
 
         public UserManagement()
         {
@@ -99,31 +100,22 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == UserDataGrid.Columns["edit"].Index)
             {
-                Usermanagement_Edit usa = new Usermanagement_Edit(UserDataGrid["id", e.RowIndex].Value.ToString());
+                Form EditUser = Application.OpenForms["Usermanagement_Edit"];
+                if (EditUser != null)
+                {
+                    EditUser.Close();
+                }
+                Usermanagement_Edit usa = new Usermanagement_Edit();
+                usa._uid = UserDataGrid["id", e.RowIndex].Value.ToString();
                 usa.Show();
+                usa.TopLevel = true;
+                usa.OnExit += GetAccount;
+
             }
 
             if (e.ColumnIndex == UserDataGrid.Columns["delete"].Index)
             {
                 DeleteAccount(e);
-            }
-        }
-
-        private void SearchBarTxt_Enter(object sender, EventArgs e)
-        {
-            if (this.SearchBarTxt.Texts == "Search")
-            {
-                SearchBarTxt.Texts = "";
-            }
-            this.SearchBarTxt.ForeColor = Color.Black;
-        }
-
-        private void SearchBarTxt_Leave(object sender, EventArgs e)
-        {
-            this.SearchBarTxt.ForeColor = Color.LightGray;
-            if (this.SearchBarTxt.Texts == "")
-            {
-                SearchBarTxt.Texts = "Search";
             }
         }
 
@@ -161,7 +153,7 @@ namespace TheBetterLimited.Views
         //Get Account
         public void GetAccount()
         {
-            if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
+            if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
             {
                 result = uc.GetAllAccount();
             }
@@ -292,13 +284,14 @@ namespace TheBetterLimited.Views
                     result = uc.DeleteAccount(UserDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
                     if (result != null)
                     {
-                        string res = JObject.Parse(result.Content).ToString();
-                        MessageBox.Show("The " + res + " have been deleted!", "Delete Account Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        string res = result.Content;
+                        MessageBox.Show("The user " + res + " have been deleted!", "Delete Account Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetAccount();
                     }
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
                     MessageBox.Show("Cannot delete the account", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
@@ -307,9 +300,20 @@ namespace TheBetterLimited.Views
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            Usermanagement_Add userAdd = new Usermanagement_Add();
-            userAdd.Show();
-            userAdd.OnExit += GetAccount;
+            Form addUser = Application.OpenForms["Usermanagement_Add"];
+            if (addUser == null || addUser.IsDisposed)
+            {
+                Usermanagement_Add userAdd = new Usermanagement_Add();
+                userAdd.Show();
+                userAdd.TopLevel = true;
+                userAdd.OnExit += GetAccount;
+            }
+            else
+            {
+                addUser.Activate();
+                addUser.WindowState = FormWindowState.Normal;
+            }
+
         }
     }
 }

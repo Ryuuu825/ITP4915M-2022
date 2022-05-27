@@ -25,7 +25,7 @@ namespace TheBetterLimited.Controller
         {
             Console.WriteLine("Get all users");
             var request = new RestRequest("/api/users", Method.Get)
-                        .AddHeader("limit", 100)
+                        .AddHeader("limit", 0)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {
@@ -35,7 +35,7 @@ namespace TheBetterLimited.Controller
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                throw ex;
+                return null;
             }
         }
 
@@ -56,7 +56,7 @@ namespace TheBetterLimited.Controller
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                throw ex;
+                return null;
             }
         }
 
@@ -66,7 +66,7 @@ namespace TheBetterLimited.Controller
         public RestResponse GetAccountById(string uid)
         {
             Console.WriteLine("Get users by " + uid);
-            var request = new RestRequest("/api/users/"+uid, Method.Get)
+            var request = new RestRequest($"/api/users/{uid}", Method.Get)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {
@@ -76,7 +76,7 @@ namespace TheBetterLimited.Controller
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                throw ex;
+                return null;
             }
         }
 
@@ -104,12 +104,30 @@ namespace TheBetterLimited.Controller
         /**
          * Edit User
          */
-        public RestResponse UpdateAccount(object json)
+        public RestResponse UpdateAccount(object json, string uid)
         {
-            Console.WriteLine("Update user by " + json.GetType().GetProperty("id").GetValue(json));
-            var request = new RestRequest("/api/users/sql", Method.Put)
+            Console.WriteLine("Update user by "+uid);
+            var request = new RestRequest($"/api/users/{uid}", Method.Put)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
-                        .AddJsonBody(json);
+                        .AddBody(json);
+            try
+            {
+                var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                return response;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                throw ex;
+            }
+        }
+
+        public RestResponse UpdatePersonalAccount(List<object> json)
+        {
+            Console.WriteLine("Update user");
+            var request = new RestRequest($"/api/users/", Method.Put)
+                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
+                        .AddBody(json);
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
@@ -128,7 +146,7 @@ namespace TheBetterLimited.Controller
         public RestResponse DeleteAccount(string uid)
         {
             Console.WriteLine("Delete " + uid);
-            var request = new RestRequest("/api/users/" + uid, Method.Delete)
+            var request = new RestRequest($"/api/users/{uid}", Method.Delete)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {
@@ -209,7 +227,9 @@ namespace TheBetterLimited.Controller
 
         public Bitmap GetUserIconById(string uid)
         {
-            var request = new RestRequest("/api/users/icon"+uid, Method.Get)
+            Console.WriteLine("Get icon by " + uid);
+            Console.WriteLine("/api/users/+" + uid + "/icon");
+            var request = new RestRequest($"/api/users/{uid}/icon", Method.Get)
                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {
@@ -230,9 +250,9 @@ namespace TheBetterLimited.Controller
         /**
         * Upload User Icon
         */
-        public RestResponse UploadUserIcon(byte[] img)
+        public RestResponse UploadUserIcon(byte[] img, string uid)
         {
-            var request = new RestRequest("/api/Image/2", Method.Post)
+            var request = new RestRequest($"/api/users/{uid}/icon", Method.Post)
                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
                        .AddBody(Convert.ToBase64String(img));
             try

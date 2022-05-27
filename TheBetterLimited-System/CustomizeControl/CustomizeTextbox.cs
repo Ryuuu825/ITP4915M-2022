@@ -23,7 +23,10 @@ namespace TheBetterLimited.CustomizeControl
         private bool isFocused = false;
         private bool isError = false;
         private int borderRadius = 0;
-
+        private string placeholder = "";
+        private bool passwordChar = false;
+        public enum TextAlignEnum { Left, Right, Center }
+        private TextAlignEnum textAlign = TextAlignEnum.Left;
         private void UpdateControlHeight()
         {
             if (textBox1.Multiline == false)
@@ -34,18 +37,67 @@ namespace TheBetterLimited.CustomizeControl
                 textBox1.Multiline = false;
                 this.Height = textBox1.Height + this.Padding.Top + this.Padding.Bottom;
                 this.Resize += new EventHandler(Textbox_Resize);
-
             }
         }
+        private void UpdateTextForeColor()
+        {
+            if (textBox1.Text.Equals(placeholder))
+            {
+                textBox1.ForeColor = Color.LightGray;
+            }else
+            {
+                textBox1.ForeColor = this.ForeColor;
+            }
+        }
+
         public bool IsError
         {
             get { return isError; }
             set
             {
                 isError = value;
+                textBox1.UseSystemPasswordChar = PasswordChar;
                 this.Invalidate();
             }
         }
+        public TextAlignEnum TextAlign
+        {
+            get
+            {
+                return textAlign;
+            }
+            set
+            {
+                textAlign = value;
+                switch (textAlign)
+                {
+                    case TextAlignEnum.Center:
+                        textBox1.TextAlign = HorizontalAlignment.Center;
+                        break;
+                    case TextAlignEnum.Left:
+                        textBox1.TextAlign = HorizontalAlignment.Left;
+                        break;
+                    case TextAlignEnum.Right:
+                        textBox1.TextAlign = HorizontalAlignment.Right;
+                        break;
+                }
+                this.Invalidate();
+            }
+        }
+
+        public string Placeholder
+        {
+            get { return placeholder; }
+            set
+            {
+                placeholder = value;
+                textBox1.Text = placeholder;
+                textBox1.ForeColor = Color.LightGray;
+                this.Invalidate();
+            }
+        }
+
+
 
         public int MaxLength
         {
@@ -93,8 +145,12 @@ namespace TheBetterLimited.CustomizeControl
 
         public bool PasswordChar
         {
-            get { return textBox1.UseSystemPasswordChar; }
-            set { textBox1.UseSystemPasswordChar = value; }
+            get { return passwordChar; }
+            set
+            {
+                passwordChar = value;
+                this.Invalidate();
+            }
         }
         public bool Multiline
         {
@@ -124,6 +180,7 @@ namespace TheBetterLimited.CustomizeControl
             {
                 base.ForeColor = value;
                 textBox1.ForeColor = value;
+                this.Invalidate ();
             }
         }
         public override Font Font
@@ -151,6 +208,7 @@ namespace TheBetterLimited.CustomizeControl
         public CustomizeTextbox()
         {
             InitializeComponent();
+
         }
         public event EventHandler _TextChanged;
         //TextBox-> TextChanged event
@@ -198,6 +256,8 @@ namespace TheBetterLimited.CustomizeControl
                 using (Pen penResetBorder = new Pen(this.Parent.BackColor, borderSize))
                 {
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                    e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
                     //textbox surface
                     this.Region = new Region(pathSurface);
                     //Draw surface border for HD result
@@ -251,17 +311,55 @@ namespace TheBetterLimited.CustomizeControl
         {
             base.OnLoad(e);
             UpdateControlHeight();
+            UpdateTextForeColor();
         }
 
+        public event EventHandler _Enter;
         //Change border color in focus mode
         private void textBox1_Enter(object sender, EventArgs e)
         {
+            if (_Enter != null)
+                _Enter.Invoke(sender, e);
             isFocused = true;
+            textBox1.ForeColor = this.ForeColor;
+            if (Texts.Equals(placeholder))
+            {
+                Texts = "";
+            }
+            else
+            {
+                Texts = textBox1.Text;
+            }
+            if (passwordChar == true) textBox1.UseSystemPasswordChar = true;
             this.Invalidate();
         }
+        public event EventHandler _Leave;
         private void textBox1_Leave(object sender, EventArgs e)
         {
+            if (_Leave != null)
+                _Leave.Invoke(sender, e);
             isFocused = false;
+            if (Texts.Equals(""))
+            {
+                textBox1.Text = placeholder;
+
+                textBox1.ForeColor = Color.LightGray;
+            }
+            else
+            {
+                Texts = textBox1.Text;
+            }
+            if (passwordChar == false)
+            {
+                textBox1.UseSystemPasswordChar = false;
+            }
+            else if (textBox1.Text.Equals(placeholder))
+            {
+                textBox1.UseSystemPasswordChar = false;
+            }else
+            {
+                textBox1.UseSystemPasswordChar = true;
+            }
             this.Invalidate();
         }
         private void textBox1_Click(object sender, EventArgs e)
