@@ -9,10 +9,12 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using TheBetterLimited.Controller;
+using TheBetterLimited.CustomizeControl;
 using TheBetterLimited.Models;
 
 namespace TheBetterLimited.Views
@@ -317,16 +319,18 @@ namespace TheBetterLimited.Views
         // Export Goods PDF
         private void exportBtn_Click(object sender, EventArgs e)
         {
-            // get "application/pdf"
+            Loading progress = new Loading();
+            progress.Show();
+            progress.Update("Fetch data from server ..." , 10);
             byte[] response = gc.GetGoodsPDF();
-            Console.WriteLine(response is null);
-
             string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/test.pdf";
+            progress.Update("Generating PDF ..." , 30);
+            progress.Update("Writing File ..." , 60);
             System.IO.File.WriteAllBytes(WriteFilePath, response);
+            progress.Update("Finish" , 99);
 
             choose = MessageBox.Show(
                 "Open in File Explorer?", "", MessageBoxButtons.YesNo);
-
             if (choose == DialogResult.Yes)
             {
 
@@ -335,11 +339,34 @@ namespace TheBetterLimited.Views
 
                 Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
             }
-
             else
             {
                 MessageBox.Show("Saved at");
             }
+
+            progress.End();
+
+            // BackgroundWorker bgw = new BackgroundWorker();
+            // CustomizeControl.Loading process = new Loading();
+            // process.Show();
+            // bgw.DoWork += new DoWorkEventHandler(((o, args) =>
+            // {
+            //     
+            // }));
+            // bgw.ProgressChanged += new ProgressChangedEventHandler(((o, args) =>
+            // {
+            // }));
+            // bgw.RunWorkerCompleted += (o, args) =>
+            // { 
+            // };
+            // bgw.RunWorkerAsync();
+            // get "application/pdf"
+
+
+
+
+
         }
+
     }
 }
