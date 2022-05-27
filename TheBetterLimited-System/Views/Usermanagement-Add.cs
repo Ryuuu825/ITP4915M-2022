@@ -67,38 +67,30 @@ namespace TheBetterLimited.Views
 
         private void StaffIDTxt_Enter(object sender, EventArgs e)
         {
+            StaffIDTxt.IsError = false;
             StaffIDTxt.ForeColor = Color.Black;
-            if (StaffIDTxt.Texts == "Please input staff ID")
-            {
-                StaffIDTxt.Texts = "";
-            }
+            StaffIDTxt.Texts = StaffIDTxt.Texts.Equals("Please input staff ID") ? "" : StaffIDTxt.Texts;
         }
 
         private void StaffIDTxt_Leave(object sender, EventArgs e)
         {
-            StaffIDTxt.ForeColor = Color.LightGray;
-            if (StaffIDTxt.Texts == "")
-            {
-                StaffIDTxt.Texts = "Please input staff ID";
-            }
+            StaffIDTxt.Texts = StaffIDTxt.Texts.Equals("") ? "Please input staff ID" : StaffIDTxt.Texts;
+            StaffIDTxt.ForeColor = StaffIDTxt.Texts.Equals("Please input staff ID") ? Color.LightGray : Color.Black;
         }
 
         private void SearchStaffBtn_Click(object sender, EventArgs e)
         {
-            if (StaffIDTxt.Texts.Substring(0, 1) != "S")
+            if (StaffIDTxt.Texts.Substring(0, 1).Equals("S") && StaffIDTxt.Texts.Substring(1, 4).All(char.IsDigit))
             {
-                StaffIDTxt.Focus();
-                StaffIDTxt.Texts = "";
-                MessageBox.Show("Staff ID should start with \"S\"! e.g. S0001 ");
-            }
-            else if (StaffIDTxt.Texts.Length < 5)
-            {
-                StaffIDTxt.Focus();
-                MessageBox.Show("The length of Staff ID should be 5!");
+                StaffIDTxt.IsError = false;
+                GetStaff();
             }
             else
             {
-                GetStaff();
+                StaffIDTxt.Focus();
+                StaffIDTxt.IsError = true;
+                StaffIDTxt.Texts = "";
+                MessageBox.Show("Staff ID should start with \"S\" and follow with 4 digits! \n e.g. S0001 ");
             }
         }
 
@@ -167,7 +159,7 @@ namespace TheBetterLimited.Views
                 pwdTxt2.BorderColor = Color.Red;
                 return;
             }
-           
+
 
             if (pwdTxt.Texts.Equals("Please input password"))
             {
@@ -179,7 +171,7 @@ namespace TheBetterLimited.Views
 
 
 
-            if (pwdTxt2.Texts.Equals("Please input password again") )
+            if (pwdTxt2.Texts.Equals("Please input password again"))
             {
                 pwdTxt2.BorderColor = Color.Red;
                 return;
@@ -225,7 +217,7 @@ namespace TheBetterLimited.Views
                 {
 
                     var uploadIconRes = user.UploadUserIcon(
-                        (byte[]) (new ImageConverter().ConvertTo(this.UserIconPic.Image, typeof(byte[])))
+                        (byte[])(new ImageConverter().ConvertTo(this.UserIconPic.Image, typeof(byte[])))
                     );
 
                 }
@@ -234,7 +226,7 @@ namespace TheBetterLimited.Views
                     this.Close();
                     this.Dispose();
                     this.OnExit.Invoke();
-                    
+
                 }
                 else
                 {
@@ -242,14 +234,14 @@ namespace TheBetterLimited.Views
                         response.Content, "Fail", MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
                 }
-                
+
             }
-            catch (Exception exception )
+            catch (Exception exception)
             {
                 MessageBox.Show(
                     exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
 
@@ -268,128 +260,113 @@ namespace TheBetterLimited.Views
                 string imgName = open.FileName;
                 isUpload = true;
             }
-            
-        }
-
-        private void userNameTxt__TextChanged(object sender, EventArgs e)
-        {
-            userNameTxt.ForeColor = Color.Black;
-            userNameTxt.Texts = userNameTxt.Texts.Equals("Please input user name") ? "" : userNameTxt.Texts;
-        }
-
-        private void pwdTxt__TextChanged(object sender, EventArgs e)
-        {
-            pwdTxt.ForeColor = Color.Black;
-            pwdTxt.Texts = pwdTxt.Texts.Equals("Please input password") ? "" : pwdTxt.Texts;
 
         }
 
-        private void customizeTextbox1__TextChanged(object sender, EventArgs e)
+        private void userNameTxt_Click(object sender, EventArgs e)
         {
-            emailTxt.ForeColor = Color.Black;
-            emailTxt.Texts = emailTxt.Texts.Equals("Please input email address") ? "" : emailTxt.Texts;
-        }
+            userNameTxt.IsError = false;
 
-        private void pwdTxt2__TextChanged(object sender, EventArgs e)
-        {
-            pwdTxt2.ForeColor = Color.Black;
-            pwdTxt2.Texts = pwdTxt2.Texts.Equals("Please input password again") ? "" : pwdTxt2.Texts;
         }
 
 
         // leave
         private void userNameTxt__Leave(object sender, EventArgs e)
         {
-            userNameTxt.ForeColor = Color.LightGray;
+            //userNameTxt.ForeColor = Color.LightGray;
             userNameTxt.Texts = userNameTxt.Texts.Equals("") ? "Please input user name" : userNameTxt.Texts;
+            userNameTxt.ForeColor = userNameTxt.Texts.Equals("Please input user name") ? Color.LightGray : Color.Black;
+            pwdTxt.ReadOnly = userNameTxt.Texts.Equals("Please input user name") ? true : false;
+        }
+        private void pwdTxt_Enter(object sender, EventArgs e)
+        {
+            pwdTxt.IsError = false;
+            pwdTxt2.IsError = false;
+            pwdTxt.ForeColor = Color.Black;
+            pwdTxt.Texts = pwdTxt.Texts.Equals("Please input password") ? "" : pwdTxt.Texts;
+            pwdTxt.PasswordChar = true;
         }
 
-        private void pwdTxt__Leave(object sender, EventArgs e)
+        private void pwdTxt_Leave(object sender, EventArgs e)
         {
-            pwdTxt.ForeColor = Color.LightGray;
             pwdTxt.Texts = pwdTxt.Texts.Equals("") ? "Please input password" : pwdTxt.Texts;
-
+            pwdTxt.PasswordChar = pwdTxt.Texts.Equals("Please input password") ? false : true;
+            pwdTxt.ForeColor = pwdTxt.Texts.Equals("Please input password") ? Color.LightGray : Color.Black;
         }
 
-        private void customizeTextbox1__Leave(object sender, EventArgs e)
+        private void pwdTxt2_Leave(object sender, EventArgs e)
         {
-            emailTxt.ForeColor = Color.LightGray;
-            emailTxt.Texts = emailTxt.Texts.Equals("") ? "Please input email address" : emailTxt.Texts;
-        }
-
-        private void pwdTxt2__Leave(object sender, EventArgs e)
-        {
-            pwdTxt2.ForeColor = Color.LightGray;
             pwdTxt2.Texts = pwdTxt2.Texts.Equals("") ? "Please input password again" : pwdTxt2.Texts;
+            pwdTxt2.PasswordChar = pwdTxt2.Texts.Equals("Please input password again") ? false : true;
+            pwdTxt2.ForeColor = pwdTxt2.Texts.Equals("Please input password again") ? Color.LightGray : Color.Black;
+            DoubleCheckCorrect.Visible = pwdTxt2.Texts.Equals(pwdTxt.Texts) ? true : false;
+            pwdTxt2.IsError = pwdTxt2.Texts.Equals(pwdTxt.Texts) 
+                            && !pwdTxt2.Texts.Equals("Please input password again") ? 
+                            false : true;
         }
 
-        private void pwdTxt2__TextChanged_1(object sender, EventArgs e)
+        private void pwdTxt2__TextChanged(object sender, EventArgs e)
         {
             UpdatePwdStrength();
         }
 
         private void UpdatePwdStrength()
         {
-            if (pwdTxt.Texts.Equals(pwdTxt.Texts))
-            {
-                this.pwdTxt2.BorderColor = Color.LightGray;
-            }
-            else
-            {
-                this.pwdTxt2.BorderColor = Color.Red;
-            }
-
-            if (this.pwdTxt.Texts.Equals("Please input password"))
+            DoubleCheckCorrect.Visible = false;
+            PwdCorrect.Visible = false;
+            pwdTxt2.ReadOnly = true;
+            if (pwdTxt.Texts.Equals("Please input password"))
             {
                 return;
             }
 
-
             int mark = TestPWStrength(this.pwdTxt.Texts);
 
-            var parentSize = PwdStrengthBar.Size;
-
-            if (mark == 0) // 219, 30, 72
+            if (mark == 0)
             {
-                var len = this.pwdTxt.Texts.Length;
-
-                PwStrength.Size = new Size
-                {
-                    Width = len == 0 ? 0 : (  (int)(parentSize.Width * 0.3) / (8%len + 8)),
-                    Height = parentSize.Height
-                };
-                PwStrength.BackColor = Color.FromArgb(219, 30, 72);
+                StrengthCircle1.BackColor = Color.LightGray;
+                StrengthCircle2.BackColor = Color.LightGray;
+                StrengthCircle3.BackColor = Color.LightGray;
             }
-            else if (mark >= 1 && mark <= 4) // Gold // Fair
+            else if (mark < 2) // 219, 30, 72
             {
-                PwStrength.Size = new Size
-                {
-                    Width = ((int)(parentSize.Width * 0.4) + (int)(parentSize.Width * 0.1 * mark)),
-                    Height = parentSize.Height
-                };
-                PwStrength.BackColor = Color.Gold;
-
+                StrengthCircle1.BackColor = Color.FromArgb(219, 30, 72);
+                StrengthCircle2.BackColor = Color.LightGray;
+                StrengthCircle3.BackColor = Color.LightGray;
+            }
+            else if (mark <= 3) // Gold // Fair
+            {
+                StrengthCircle1.BackColor = Color.Gold;
+                StrengthCircle2.BackColor = Color.Gold;
+                StrengthCircle3.BackColor = Color.LightGray;
             }
             else // 60, 183, 84
             {
-                PwStrength.Size = new Size
-                {
-                    Width = ((int)(parentSize.Width * 0.4) + (int)(parentSize.Width * 0.1 * mark)),
-                    Height = parentSize.Height
-                };
-                PwStrength.BackColor = Color.FromArgb(60, 183, 84);
+                StrengthCircle1.BackColor = Color.FromArgb(60, 183, 84);
+                StrengthCircle2.BackColor = Color.FromArgb(60, 183, 84);
+                StrengthCircle3.BackColor = Color.FromArgb(60, 183, 84);
+                PwdCorrect.Visible = true;
+                pwdTxt2.ReadOnly = false;
             }
         }
 
         public event Action OnExit;
-        
+
 
         private short TestPWStrength(string pwd)
         {
 
             short mark = 0;
+            if (pwd.Length == 0)
+            {
+                return mark;
+            }
+
+
             if (pwd.Length <= 7)
-                return 0;
+            {
+                return ++mark;
+            }
 
             // check number
             if (pwd.Any(char.IsDigit))
@@ -418,7 +395,7 @@ namespace TheBetterLimited.Views
             // check any repeat
             if (pwd.All(c => pwd.IndexOf(c) == pwd.LastIndexOf(c)))
             {
-                mark++;
+                mark--;
             }
 
             // check username contain
@@ -431,27 +408,99 @@ namespace TheBetterLimited.Views
 
         }
 
-        private void pwdTxt__TextChanged_1(object sender, EventArgs e)
+        private void pwdTxt__TextChanged(object sender, EventArgs e)
         {
             UpdatePwdStrength();
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.Dispose();
-        }
-
-        private void Header_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void CancelBtn_Click_1(object sender, EventArgs e)
-        {
             this.OnExit.Invoke();
             this.Close();
             this.Dispose();
         }
+
+        private void pwdTxt2_Enter(object sender, EventArgs e)
+        {
+            pwdTxt2.IsError = false;
+            pwdTxt2.ForeColor = Color.Black;
+            pwdTxt2.Texts = pwdTxt2.Texts.Equals("Please input password again") ? "" : pwdTxt2.Texts;
+            pwdTxt2.PasswordChar = true;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            StaffIDTxt.Focus();
+        }
+
+        private void userName_Click(object sender, EventArgs e)
+        {
+            userNameTxt.Focus();
+        }
+
+        private void password_Click(object sender, EventArgs e)
+        {
+            pwdTxt.Focus();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            pwdTxt2.Focus();
+        }
+
+        private void Email_Click(object sender, EventArgs e)
+        {
+            emailTxt.Focus();
+        }
+
+        private void emailTxt_Enter(object sender, EventArgs e)
+        {
+            emailTxt.ForeColor = Color.Black;
+            emailTxt.Texts = emailTxt.Texts.Equals("Please input email address") ? "" : emailTxt.Texts;
+        }
+
+        private void emailTxt_Leave(object sender, EventArgs e)
+        {
+            emailTxt.ForeColor = Color.LightGray;
+            emailTxt.Texts = emailTxt.Texts.Equals("") ? "Please input email address" : emailTxt.Texts;
+        }
+
+        private void StaffIDTxt_Click(object sender, EventArgs e)
+        {
+            StaffIDTxt.IsError = false;
+        }
+
+        private void userNameTxt_Enter(object sender, EventArgs e)
+        {
+            userNameTxt.IsError = false;
+            userNameTxt.ForeColor = Color.Black;
+            userNameTxt.Texts = userNameTxt.Texts.Equals("Please input user name") ? "" : userNameTxt.Texts;
+        }
+
+        private void CheckStep()
+        {
+            if (pwdTxt2.ReadOnly == true)
+            {
+                if (pwdTxt.ReadOnly == true)
+                {
+                    userNameTxt.Focus();
+                    userNameTxt.IsError = true;
+                    return;
+                }
+                pwdTxt.Focus();
+                pwdTxt.IsError = true;
+            }
+        }
+
+        private void pwdTxt_Click(object sender, EventArgs e)
+        {
+            pwdTxt.IsError = false;
+        }
+
+        private void pwdTxt2_Click(object sender, EventArgs e)
+        {
+            pwdTxt2.IsError = false;
+        }
+
     }
 }

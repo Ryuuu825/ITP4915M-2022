@@ -39,10 +39,16 @@
             this.MainForm = new System.Windows.Forms.Panel();
             this.AccountInfo = new System.Windows.Forms.Panel();
             this.AccountInfoContainer = new System.Windows.Forms.Panel();
+            this.StatusRadioGroup = new System.Windows.Forms.Panel();
+            this.LockStatusRadio = new System.Windows.Forms.RadioButton();
+            this.NormalStatusRadio = new System.Windows.Forms.RadioButton();
+            this.Status = new System.Windows.Forms.Label();
             this.Email = new System.Windows.Forms.Label();
             this.EmainTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.UserName = new System.Windows.Forms.Label();
             this.UserID = new System.Windows.Forms.Label();
             this.UserIdTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.UserNameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.AccountHeaderContainer = new System.Windows.Forms.Panel();
             this.AccountHeader = new System.Windows.Forms.Label();
             this.UserInfo = new System.Windows.Forms.Panel();
@@ -61,17 +67,13 @@
             this.FemaleGenderRadio = new System.Windows.Forms.RadioButton();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.UserInfoHeader = new System.Windows.Forms.Label();
-            this.UserNameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.UserName = new System.Windows.Forms.Label();
-            this.Status = new System.Windows.Forms.Label();
-            this.NormalStatusRadio = new System.Windows.Forms.RadioButton();
-            this.LockStatusRadio = new System.Windows.Forms.RadioButton();
             this.Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserIconPic)).BeginInit();
             this.BottomBtn.SuspendLayout();
             this.MainForm.SuspendLayout();
             this.AccountInfo.SuspendLayout();
             this.AccountInfoContainer.SuspendLayout();
+            this.StatusRadioGroup.SuspendLayout();
             this.AccountHeaderContainer.SuspendLayout();
             this.UserInfo.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -116,7 +118,7 @@
             // UserIconPic
             // 
             this.UserIconPic.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.UserIconPic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UserIconPic.Cursor = System.Windows.Forms.Cursors.Default;
             this.UserIconPic.Image = ((System.Drawing.Image)(resources.GetObject("UserIconPic.Image")));
             this.UserIconPic.Location = new System.Drawing.Point(21, 12);
             this.UserIconPic.Name = "UserIconPic";
@@ -208,8 +210,7 @@
             // AccountInfoContainer
             // 
             this.AccountInfoContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.AccountInfoContainer.Controls.Add(this.NormalStatusRadio);
-            this.AccountInfoContainer.Controls.Add(this.LockStatusRadio);
+            this.AccountInfoContainer.Controls.Add(this.StatusRadioGroup);
             this.AccountInfoContainer.Controls.Add(this.Status);
             this.AccountInfoContainer.Controls.Add(this.Email);
             this.AccountInfoContainer.Controls.Add(this.EmainTxt);
@@ -223,6 +224,52 @@
             this.AccountInfoContainer.Size = new System.Drawing.Size(492, 226);
             this.AccountInfoContainer.TabIndex = 25;
             // 
+            // StatusRadioGroup
+            // 
+            this.StatusRadioGroup.Controls.Add(this.LockStatusRadio);
+            this.StatusRadioGroup.Controls.Add(this.NormalStatusRadio);
+            this.StatusRadioGroup.Location = new System.Drawing.Point(166, 138);
+            this.StatusRadioGroup.Name = "StatusRadioGroup";
+            this.StatusRadioGroup.Size = new System.Drawing.Size(308, 25);
+            this.StatusRadioGroup.TabIndex = 30;
+            // 
+            // LockStatusRadio
+            // 
+            this.LockStatusRadio.AutoSize = true;
+            this.LockStatusRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LockStatusRadio.Location = new System.Drawing.Point(111, 4);
+            this.LockStatusRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.LockStatusRadio.Name = "LockStatusRadio";
+            this.LockStatusRadio.Size = new System.Drawing.Size(63, 19);
+            this.LockStatusRadio.TabIndex = 29;
+            this.LockStatusRadio.Text = "Locked";
+            this.LockStatusRadio.UseVisualStyleBackColor = true;
+            // 
+            // NormalStatusRadio
+            // 
+            this.NormalStatusRadio.AutoSize = true;
+            this.NormalStatusRadio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.NormalStatusRadio.FlatAppearance.CheckedBackColor = System.Drawing.Color.SeaGreen;
+            this.NormalStatusRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NormalStatusRadio.Location = new System.Drawing.Point(1, 4);
+            this.NormalStatusRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.NormalStatusRadio.Name = "NormalStatusRadio";
+            this.NormalStatusRadio.Size = new System.Drawing.Size(65, 19);
+            this.NormalStatusRadio.TabIndex = 28;
+            this.NormalStatusRadio.Text = "Normal";
+            this.NormalStatusRadio.UseVisualStyleBackColor = true;
+            // 
+            // Status
+            // 
+            this.Status.AutoSize = true;
+            this.Status.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Status.Location = new System.Drawing.Point(48, 140);
+            this.Status.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(59, 21);
+            this.Status.TabIndex = 28;
+            this.Status.Text = "Status*";
+            // 
             // Email
             // 
             this.Email.AutoSize = true;
@@ -233,6 +280,7 @@
             this.Email.Size = new System.Drawing.Size(115, 21);
             this.Email.TabIndex = 28;
             this.Email.Text = "Email Address*";
+            this.Email.Click += new System.EventHandler(this.Email_Click);
             // 
             // EmainTxt
             // 
@@ -250,10 +298,24 @@
             this.EmainTxt.Name = "EmainTxt";
             this.EmainTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.EmainTxt.PasswordChar = false;
+            this.EmainTxt.ReadOnly = false;
             this.EmainTxt.Size = new System.Drawing.Size(308, 35);
             this.EmainTxt.TabIndex = 29;
+            this.EmainTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.EmainTxt.Texts = "Please input email address";
             this.EmainTxt.UnderlinedStyle = false;
+            // 
+            // UserName
+            // 
+            this.UserName.AutoSize = true;
+            this.UserName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserName.Location = new System.Drawing.Point(34, 61);
+            this.UserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.UserName.Name = "UserName";
+            this.UserName.Size = new System.Drawing.Size(95, 21);
+            this.UserName.TabIndex = 7;
+            this.UserName.Text = "User Name*";
+            this.UserName.Click += new System.EventHandler(this.UserName_Click);
             // 
             // UserID
             // 
@@ -283,10 +345,36 @@
             this.UserIdTxt.Name = "UserIdTxt";
             this.UserIdTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.UserIdTxt.PasswordChar = true;
+            this.UserIdTxt.ReadOnly = false;
             this.UserIdTxt.Size = new System.Drawing.Size(308, 35);
             this.UserIdTxt.TabIndex = 23;
+            this.UserIdTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.UserIdTxt.Texts = "";
             this.UserIdTxt.UnderlinedStyle = false;
+            // 
+            // UserNameTxt
+            // 
+            this.UserNameTxt.BackColor = System.Drawing.Color.White;
+            this.UserNameTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.UserNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.UserNameTxt.BorderRadius = 10;
+            this.UserNameTxt.BorderSize = 1;
+            this.UserNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserNameTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.UserNameTxt.Location = new System.Drawing.Point(167, 54);
+            this.UserNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.UserNameTxt.MaxLength = 20;
+            this.UserNameTxt.Multiline = true;
+            this.UserNameTxt.Name = "UserNameTxt";
+            this.UserNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.UserNameTxt.PasswordChar = false;
+            this.UserNameTxt.ReadOnly = false;
+            this.UserNameTxt.Size = new System.Drawing.Size(308, 35);
+            this.UserNameTxt.TabIndex = 22;
+            this.UserNameTxt.TbBackColor = System.Drawing.SystemColors.Window;
+            this.UserNameTxt.Texts = "Please input user name";
+            this.UserNameTxt.UnderlinedStyle = false;
+            this.UserNameTxt.Enter += new System.EventHandler(this.UserNameTxt_Enter);
             // 
             // AccountHeaderContainer
             // 
@@ -350,6 +438,8 @@
             this.SearchStaffBtn.BorderRadius = 0;
             this.SearchStaffBtn.BorderSize = 0;
             this.SearchStaffBtn.FlatAppearance.BorderSize = 0;
+            this.SearchStaffBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.SearchStaffBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.SearchStaffBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchStaffBtn.ForeColor = System.Drawing.Color.White;
             this.SearchStaffBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -378,8 +468,10 @@
             this.StaffIDTxt.Name = "StaffIDTxt";
             this.StaffIDTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.StaffIDTxt.PasswordChar = false;
+            this.StaffIDTxt.ReadOnly = false;
             this.StaffIDTxt.Size = new System.Drawing.Size(274, 35);
             this.StaffIDTxt.TabIndex = 24;
+            this.StaffIDTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.StaffIDTxt.Texts = "Please input staff ID";
             this.StaffIDTxt.UnderlinedStyle = false;
             this.StaffIDTxt.Enter += new System.EventHandler(this.StaffIDTxt_Enter);
@@ -417,6 +509,7 @@
             this.label1.Size = new System.Drawing.Size(67, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Staff ID*";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // PositionTxt
             // 
@@ -435,8 +528,10 @@
             this.PositionTxt.Name = "PositionTxt";
             this.PositionTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.PositionTxt.PasswordChar = false;
+            this.PositionTxt.ReadOnly = false;
             this.PositionTxt.Size = new System.Drawing.Size(307, 35);
             this.PositionTxt.TabIndex = 26;
+            this.PositionTxt.TbBackColor = System.Drawing.Color.White;
             this.PositionTxt.Texts = "Cannot be inputted";
             this.PositionTxt.UnderlinedStyle = false;
             // 
@@ -468,8 +563,10 @@
             this.DeptTxt.Name = "DeptTxt";
             this.DeptTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.DeptTxt.PasswordChar = false;
+            this.DeptTxt.ReadOnly = false;
             this.DeptTxt.Size = new System.Drawing.Size(307, 35);
             this.DeptTxt.TabIndex = 25;
+            this.DeptTxt.TbBackColor = System.Drawing.Color.White;
             this.DeptTxt.Texts = "Cannot be inputted";
             this.DeptTxt.UnderlinedStyle = false;
             // 
@@ -501,8 +598,10 @@
             this.StaffNameTxt.Name = "StaffNameTxt";
             this.StaffNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.StaffNameTxt.PasswordChar = false;
+            this.StaffNameTxt.ReadOnly = true;
             this.StaffNameTxt.Size = new System.Drawing.Size(307, 35);
             this.StaffNameTxt.TabIndex = 22;
+            this.StaffNameTxt.TbBackColor = System.Drawing.Color.White;
             this.StaffNameTxt.Texts = "Cannot be inputted";
             this.StaffNameTxt.UnderlinedStyle = false;
             // 
@@ -555,77 +654,6 @@
             this.UserInfoHeader.TabIndex = 6;
             this.UserInfoHeader.Text = "User Information";
             // 
-            // UserNameTxt
-            // 
-            this.UserNameTxt.BackColor = System.Drawing.Color.White;
-            this.UserNameTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.UserNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.UserNameTxt.BorderRadius = 10;
-            this.UserNameTxt.BorderSize = 1;
-            this.UserNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNameTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.UserNameTxt.Location = new System.Drawing.Point(167, 54);
-            this.UserNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.UserNameTxt.MaxLength = 20;
-            this.UserNameTxt.Multiline = true;
-            this.UserNameTxt.Name = "UserNameTxt";
-            this.UserNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.UserNameTxt.PasswordChar = false;
-            this.UserNameTxt.Size = new System.Drawing.Size(308, 35);
-            this.UserNameTxt.TabIndex = 22;
-            this.UserNameTxt.Texts = "Please input user name";
-            this.UserNameTxt.UnderlinedStyle = false;
-            // 
-            // UserName
-            // 
-            this.UserName.AutoSize = true;
-            this.UserName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserName.Location = new System.Drawing.Point(34, 61);
-            this.UserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.UserName.Name = "UserName";
-            this.UserName.Size = new System.Drawing.Size(95, 21);
-            this.UserName.TabIndex = 7;
-            this.UserName.Text = "User Name*";
-            // 
-            // Status
-            // 
-            this.Status.AutoSize = true;
-            this.Status.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Status.Location = new System.Drawing.Point(48, 140);
-            this.Status.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(52, 21);
-            this.Status.TabIndex = 28;
-            this.Status.Text = "Status";
-            // 
-            // NormalStatusRadio
-            // 
-            this.NormalStatusRadio.AutoSize = true;
-            this.NormalStatusRadio.Enabled = false;
-            this.NormalStatusRadio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.NormalStatusRadio.FlatAppearance.CheckedBackColor = System.Drawing.Color.SeaGreen;
-            this.NormalStatusRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NormalStatusRadio.Location = new System.Drawing.Point(166, 140);
-            this.NormalStatusRadio.Margin = new System.Windows.Forms.Padding(2);
-            this.NormalStatusRadio.Name = "NormalStatusRadio";
-            this.NormalStatusRadio.Size = new System.Drawing.Size(65, 19);
-            this.NormalStatusRadio.TabIndex = 28;
-            this.NormalStatusRadio.Text = "Normal";
-            this.NormalStatusRadio.UseVisualStyleBackColor = true;
-            // 
-            // LockStatusRadio
-            // 
-            this.LockStatusRadio.AutoSize = true;
-            this.LockStatusRadio.Enabled = false;
-            this.LockStatusRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LockStatusRadio.Location = new System.Drawing.Point(273, 140);
-            this.LockStatusRadio.Margin = new System.Windows.Forms.Padding(2);
-            this.LockStatusRadio.Name = "LockStatusRadio";
-            this.LockStatusRadio.Size = new System.Drawing.Size(63, 19);
-            this.LockStatusRadio.TabIndex = 29;
-            this.LockStatusRadio.Text = "Locked";
-            this.LockStatusRadio.UseVisualStyleBackColor = true;
-            // 
             // Usermanagement_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -652,6 +680,8 @@
             this.AccountInfo.ResumeLayout(false);
             this.AccountInfoContainer.ResumeLayout(false);
             this.AccountInfoContainer.PerformLayout();
+            this.StatusRadioGroup.ResumeLayout(false);
+            this.StatusRadioGroup.PerformLayout();
             this.AccountHeaderContainer.ResumeLayout(false);
             this.AccountHeaderContainer.PerformLayout();
             this.UserInfo.ResumeLayout(false);
@@ -702,5 +732,6 @@
         private System.Windows.Forms.RadioButton NormalStatusRadio;
         private System.Windows.Forms.RadioButton LockStatusRadio;
         private System.Windows.Forms.Label Status;
+        private System.Windows.Forms.Panel StatusRadioGroup;
     }
 }

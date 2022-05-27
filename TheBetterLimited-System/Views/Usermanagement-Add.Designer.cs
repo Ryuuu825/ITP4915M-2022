@@ -40,13 +40,16 @@
             this.MainForm = new System.Windows.Forms.Panel();
             this.AccountInfo = new System.Windows.Forms.Panel();
             this.AccountInfoContainer = new System.Windows.Forms.Panel();
+            this.DoubleCheckCorrect = new System.Windows.Forms.PictureBox();
+            this.PwdCorrect = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.StrengthCircle3 = new TheBetterLimited.CustomizeControl.RoundPanel();
+            this.StrengthCircle2 = new TheBetterLimited.CustomizeControl.RoundPanel();
+            this.StrengthCircle1 = new TheBetterLimited.CustomizeControl.RoundPanel();
             this.Email = new System.Windows.Forms.Label();
             this.emailTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pwdTxt2 = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.PwdStrengthBar = new System.Windows.Forms.Panel();
-            this.PwStrength = new System.Windows.Forms.Panel();
             this.password = new System.Windows.Forms.Label();
             this.userName = new System.Windows.Forms.Label();
             this.userNameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
@@ -75,7 +78,9 @@
             this.MainForm.SuspendLayout();
             this.AccountInfo.SuspendLayout();
             this.AccountInfoContainer.SuspendLayout();
-            this.PwdStrengthBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DoubleCheckCorrect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PwdCorrect)).BeginInit();
+            this.panel2.SuspendLayout();
             this.AccountHeaderContainer.SuspendLayout();
             this.UserInfo.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -93,9 +98,8 @@
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Margin = new System.Windows.Forms.Padding(2);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(272, 600);
+            this.Header.Size = new System.Drawing.Size(272, 571);
             this.Header.TabIndex = 0;
-            this.Header.Paint += new System.Windows.Forms.PaintEventHandler(this.Header_Paint);
             // 
             // Info
             // 
@@ -152,7 +156,7 @@
             this.BottomBtn.Controls.Add(this.CreateUser);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(10, 536);
+            this.BottomBtn.Location = new System.Drawing.Point(10, 507);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
@@ -178,7 +182,7 @@
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.TextColor = System.Drawing.Color.White;
             this.CancelBtn.UseVisualStyleBackColor = false;
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click_1);
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // CreateUser
             // 
@@ -211,7 +215,7 @@
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
             this.MainForm.Padding = new System.Windows.Forms.Padding(10);
-            this.MainForm.Size = new System.Drawing.Size(512, 600);
+            this.MainForm.Size = new System.Drawing.Size(512, 571);
             this.MainForm.TabIndex = 2;
             // 
             // AccountInfo
@@ -223,18 +227,19 @@
             this.AccountInfo.Location = new System.Drawing.Point(10, 271);
             this.AccountInfo.Name = "AccountInfo";
             this.AccountInfo.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.AccountInfo.Size = new System.Drawing.Size(492, 319);
+            this.AccountInfo.Size = new System.Drawing.Size(492, 290);
             this.AccountInfo.TabIndex = 25;
             // 
             // AccountInfoContainer
             // 
             this.AccountInfoContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.AccountInfoContainer.Controls.Add(this.DoubleCheckCorrect);
+            this.AccountInfoContainer.Controls.Add(this.PwdCorrect);
+            this.AccountInfoContainer.Controls.Add(this.panel2);
             this.AccountInfoContainer.Controls.Add(this.Email);
             this.AccountInfoContainer.Controls.Add(this.emailTxt);
-            this.AccountInfoContainer.Controls.Add(this.label6);
             this.AccountInfoContainer.Controls.Add(this.label5);
             this.AccountInfoContainer.Controls.Add(this.pwdTxt2);
-            this.AccountInfoContainer.Controls.Add(this.PwdStrengthBar);
             this.AccountInfoContainer.Controls.Add(this.password);
             this.AccountInfoContainer.Controls.Add(this.userName);
             this.AccountInfoContainer.Controls.Add(this.userNameTxt);
@@ -242,19 +247,92 @@
             this.AccountInfoContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AccountInfoContainer.Location = new System.Drawing.Point(0, 50);
             this.AccountInfoContainer.Name = "AccountInfoContainer";
-            this.AccountInfoContainer.Size = new System.Drawing.Size(492, 269);
+            this.AccountInfoContainer.Size = new System.Drawing.Size(492, 240);
             this.AccountInfoContainer.TabIndex = 25;
+            // 
+            // DoubleCheckCorrect
+            // 
+            this.DoubleCheckCorrect.BackgroundImage = global::TheBetterLimited.Properties.Resources.corret;
+            this.DoubleCheckCorrect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.DoubleCheckCorrect.Location = new System.Drawing.Point(472, 107);
+            this.DoubleCheckCorrect.Name = "DoubleCheckCorrect";
+            this.DoubleCheckCorrect.Size = new System.Drawing.Size(15, 15);
+            this.DoubleCheckCorrect.TabIndex = 35;
+            this.DoubleCheckCorrect.TabStop = false;
+            this.DoubleCheckCorrect.Visible = false;
+            // 
+            // PwdCorrect
+            // 
+            this.PwdCorrect.BackgroundImage = global::TheBetterLimited.Properties.Resources.corret;
+            this.PwdCorrect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PwdCorrect.Location = new System.Drawing.Point(472, 64);
+            this.PwdCorrect.Name = "PwdCorrect";
+            this.PwdCorrect.Size = new System.Drawing.Size(15, 15);
+            this.PwdCorrect.TabIndex = 34;
+            this.PwdCorrect.TabStop = false;
+            this.PwdCorrect.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.StrengthCircle3);
+            this.panel2.Controls.Add(this.StrengthCircle2);
+            this.panel2.Controls.Add(this.StrengthCircle1);
+            this.panel2.Location = new System.Drawing.Point(412, 58);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(47, 27);
+            this.panel2.TabIndex = 33;
+            // 
+            // StrengthCircle3
+            // 
+            this.StrengthCircle3.BackColor = System.Drawing.Color.LightGray;
+            this.StrengthCircle3.BackgroundColor = System.Drawing.Color.LightGray;
+            this.StrengthCircle3.BorderColor = System.Drawing.Color.DimGray;
+            this.StrengthCircle3.BorderRadius = 6;
+            this.StrengthCircle3.BorderSize = 0;
+            this.StrengthCircle3.ForeColor = System.Drawing.Color.White;
+            this.StrengthCircle3.Location = new System.Drawing.Point(31, 7);
+            this.StrengthCircle3.Name = "StrengthCircle3";
+            this.StrengthCircle3.Size = new System.Drawing.Size(12, 12);
+            this.StrengthCircle3.TabIndex = 31;
+            // 
+            // StrengthCircle2
+            // 
+            this.StrengthCircle2.BackColor = System.Drawing.Color.LightGray;
+            this.StrengthCircle2.BackgroundColor = System.Drawing.Color.LightGray;
+            this.StrengthCircle2.BorderColor = System.Drawing.Color.DimGray;
+            this.StrengthCircle2.BorderRadius = 6;
+            this.StrengthCircle2.BorderSize = 0;
+            this.StrengthCircle2.ForeColor = System.Drawing.Color.White;
+            this.StrengthCircle2.Location = new System.Drawing.Point(17, 7);
+            this.StrengthCircle2.Name = "StrengthCircle2";
+            this.StrengthCircle2.Size = new System.Drawing.Size(12, 12);
+            this.StrengthCircle2.TabIndex = 31;
+            // 
+            // StrengthCircle1
+            // 
+            this.StrengthCircle1.BackColor = System.Drawing.Color.LightGray;
+            this.StrengthCircle1.BackgroundColor = System.Drawing.Color.LightGray;
+            this.StrengthCircle1.BorderColor = System.Drawing.Color.DimGray;
+            this.StrengthCircle1.BorderRadius = 6;
+            this.StrengthCircle1.BorderSize = 0;
+            this.StrengthCircle1.ForeColor = System.Drawing.Color.White;
+            this.StrengthCircle1.Location = new System.Drawing.Point(3, 7);
+            this.StrengthCircle1.Name = "StrengthCircle1";
+            this.StrengthCircle1.Size = new System.Drawing.Size(12, 12);
+            this.StrengthCircle1.TabIndex = 30;
             // 
             // Email
             // 
             this.Email.AutoSize = true;
             this.Email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Email.Location = new System.Drawing.Point(17, 175);
+            this.Email.Location = new System.Drawing.Point(23, 147);
             this.Email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(115, 21);
             this.Email.TabIndex = 28;
             this.Email.Text = "Email Address*";
+            this.Email.Click += new System.EventHandler(this.Email_Click);
             // 
             // emailTxt
             // 
@@ -265,30 +343,22 @@
             this.emailTxt.BorderSize = 1;
             this.emailTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.emailTxt.Location = new System.Drawing.Point(166, 168);
+            this.emailTxt.IsError = false;
+            this.emailTxt.Location = new System.Drawing.Point(159, 140);
             this.emailTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.emailTxt.MaxLength = 20;
             this.emailTxt.Multiline = true;
             this.emailTxt.Name = "emailTxt";
             this.emailTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.emailTxt.PasswordChar = false;
+            this.emailTxt.ReadOnly = false;
             this.emailTxt.Size = new System.Drawing.Size(308, 35);
             this.emailTxt.TabIndex = 29;
+            this.emailTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.emailTxt.Texts = "Please input email address";
             this.emailTxt.UnderlinedStyle = false;
-            this.emailTxt.Click += new System.EventHandler(this.customizeTextbox1__TextChanged);
-            this.emailTxt.Leave += new System.EventHandler(this.customizeTextbox1__Leave);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 141);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(139, 21);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Password Strength";
+            this.emailTxt.Enter += new System.EventHandler(this.emailTxt_Enter);
+            this.emailTxt.Leave += new System.EventHandler(this.emailTxt_Leave);
             // 
             // label5
             // 
@@ -300,6 +370,7 @@
             this.label5.Size = new System.Drawing.Size(127, 21);
             this.label5.TabIndex = 25;
             this.label5.Text = "Password Again*";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pwdTxt2
             // 
@@ -310,37 +381,23 @@
             this.pwdTxt2.BorderSize = 1;
             this.pwdTxt2.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwdTxt2.ForeColor = System.Drawing.Color.LightGray;
-            this.pwdTxt2.Location = new System.Drawing.Point(166, 97);
+            this.pwdTxt2.IsError = false;
+            this.pwdTxt2.Location = new System.Drawing.Point(159, 97);
             this.pwdTxt2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pwdTxt2.MaxLength = 20;
             this.pwdTxt2.Multiline = true;
             this.pwdTxt2.Name = "pwdTxt2";
             this.pwdTxt2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.pwdTxt2.PasswordChar = false;
+            this.pwdTxt2.ReadOnly = true;
             this.pwdTxt2.Size = new System.Drawing.Size(308, 35);
             this.pwdTxt2.TabIndex = 26;
+            this.pwdTxt2.TbBackColor = System.Drawing.SystemColors.Window;
             this.pwdTxt2.Texts = "Please input password again";
             this.pwdTxt2.UnderlinedStyle = false;
-            this.pwdTxt2._TextChanged += new System.EventHandler(this.pwdTxt2__TextChanged_1);
-            this.pwdTxt2.Click += new System.EventHandler(this.pwdTxt2__TextChanged);
-            this.pwdTxt2.Leave += new System.EventHandler(this.pwdTxt2__Leave);
-            // 
-            // PwdStrengthBar
-            // 
-            this.PwdStrengthBar.Controls.Add(this.PwStrength);
-            this.PwdStrengthBar.Location = new System.Drawing.Point(168, 144);
-            this.PwdStrengthBar.Name = "PwdStrengthBar";
-            this.PwdStrengthBar.Size = new System.Drawing.Size(306, 15);
-            this.PwdStrengthBar.TabIndex = 24;
-            // 
-            // PwStrength
-            // 
-            this.PwStrength.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(183)))), ((int)(((byte)(84)))));
-            this.PwStrength.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PwStrength.Location = new System.Drawing.Point(0, 0);
-            this.PwStrength.Name = "PwStrength";
-            this.PwStrength.Size = new System.Drawing.Size(306, 15);
-            this.PwStrength.TabIndex = 1;
+            this.pwdTxt2.Click += new System.EventHandler(this.pwdTxt2_Click);
+            this.pwdTxt2.Enter += new System.EventHandler(this.pwdTxt2_Enter);
+            this.pwdTxt2.Leave += new System.EventHandler(this.pwdTxt2_Leave);
             // 
             // password
             // 
@@ -352,6 +409,7 @@
             this.password.Size = new System.Drawing.Size(83, 21);
             this.password.TabIndex = 7;
             this.password.Text = "Password*";
+            this.password.Click += new System.EventHandler(this.password_Click);
             // 
             // userName
             // 
@@ -363,6 +421,7 @@
             this.userName.Size = new System.Drawing.Size(88, 21);
             this.userName.TabIndex = 6;
             this.userName.Text = "Username*";
+            this.userName.Click += new System.EventHandler(this.userName_Click);
             // 
             // userNameTxt
             // 
@@ -372,19 +431,23 @@
             this.userNameTxt.BorderRadius = 10;
             this.userNameTxt.BorderSize = 1;
             this.userNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userNameTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.userNameTxt.Location = new System.Drawing.Point(167, 11);
+            this.userNameTxt.ForeColor = System.Drawing.Color.Gainsboro;
+            this.userNameTxt.IsError = false;
+            this.userNameTxt.Location = new System.Drawing.Point(160, 11);
             this.userNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.userNameTxt.MaxLength = 20;
             this.userNameTxt.Multiline = true;
             this.userNameTxt.Name = "userNameTxt";
             this.userNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.userNameTxt.PasswordChar = true;
+            this.userNameTxt.PasswordChar = false;
+            this.userNameTxt.ReadOnly = false;
             this.userNameTxt.Size = new System.Drawing.Size(308, 35);
             this.userNameTxt.TabIndex = 23;
+            this.userNameTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.userNameTxt.Texts = "Please input user name";
             this.userNameTxt.UnderlinedStyle = false;
-            this.userNameTxt.Click += new System.EventHandler(this.userNameTxt__TextChanged);
+            this.userNameTxt.Click += new System.EventHandler(this.userNameTxt_Click);
+            this.userNameTxt.Enter += new System.EventHandler(this.userNameTxt_Enter);
             this.userNameTxt.Leave += new System.EventHandler(this.userNameTxt__Leave);
             // 
             // pwdTxt
@@ -396,20 +459,24 @@
             this.pwdTxt.BorderSize = 1;
             this.pwdTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwdTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.pwdTxt.Location = new System.Drawing.Point(167, 54);
+            this.pwdTxt.IsError = false;
+            this.pwdTxt.Location = new System.Drawing.Point(160, 54);
             this.pwdTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pwdTxt.MaxLength = 20;
             this.pwdTxt.Multiline = true;
             this.pwdTxt.Name = "pwdTxt";
             this.pwdTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.pwdTxt.PasswordChar = false;
+            this.pwdTxt.ReadOnly = true;
             this.pwdTxt.Size = new System.Drawing.Size(308, 35);
             this.pwdTxt.TabIndex = 22;
+            this.pwdTxt.TbBackColor = System.Drawing.Color.White;
             this.pwdTxt.Texts = "Please input password";
             this.pwdTxt.UnderlinedStyle = false;
-            this.pwdTxt._TextChanged += new System.EventHandler(this.pwdTxt__TextChanged_1);
-            this.pwdTxt.Click += new System.EventHandler(this.pwdTxt__TextChanged);
-            this.pwdTxt.Leave += new System.EventHandler(this.pwdTxt__Leave);
+            this.pwdTxt._TextChanged += new System.EventHandler(this.pwdTxt__TextChanged);
+            this.pwdTxt.Click += new System.EventHandler(this.pwdTxt_Click);
+            this.pwdTxt.Enter += new System.EventHandler(this.pwdTxt_Enter);
+            this.pwdTxt.Leave += new System.EventHandler(this.pwdTxt_Leave);
             // 
             // AccountHeaderContainer
             // 
@@ -473,10 +540,12 @@
             this.SearchStaffBtn.BorderRadius = 0;
             this.SearchStaffBtn.BorderSize = 0;
             this.SearchStaffBtn.FlatAppearance.BorderSize = 0;
+            this.SearchStaffBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.SearchStaffBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.SearchStaffBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchStaffBtn.ForeColor = System.Drawing.Color.White;
             this.SearchStaffBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SearchStaffBtn.Location = new System.Drawing.Point(445, 13);
+            this.SearchStaffBtn.Location = new System.Drawing.Point(438, 13);
             this.SearchStaffBtn.Name = "SearchStaffBtn";
             this.SearchStaffBtn.Size = new System.Drawing.Size(30, 30);
             this.SearchStaffBtn.TabIndex = 27;
@@ -494,17 +563,21 @@
             this.StaffIDTxt.BorderSize = 1;
             this.StaffIDTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffIDTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.StaffIDTxt.Location = new System.Drawing.Point(168, 11);
+            this.StaffIDTxt.IsError = false;
+            this.StaffIDTxt.Location = new System.Drawing.Point(161, 11);
             this.StaffIDTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.StaffIDTxt.MaxLength = 5;
             this.StaffIDTxt.Multiline = true;
             this.StaffIDTxt.Name = "StaffIDTxt";
             this.StaffIDTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.StaffIDTxt.PasswordChar = false;
+            this.StaffIDTxt.ReadOnly = false;
             this.StaffIDTxt.Size = new System.Drawing.Size(274, 35);
             this.StaffIDTxt.TabIndex = 24;
+            this.StaffIDTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.StaffIDTxt.Texts = "Please input staff ID";
             this.StaffIDTxt.UnderlinedStyle = false;
+            this.StaffIDTxt.Click += new System.EventHandler(this.StaffIDTxt_Click);
             this.StaffIDTxt.Enter += new System.EventHandler(this.StaffIDTxt_Enter);
             this.StaffIDTxt.Leave += new System.EventHandler(this.StaffIDTxt_Leave);
             // 
@@ -540,6 +613,7 @@
             this.label1.Size = new System.Drawing.Size(67, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Staff ID*";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // PositionTxt
             // 
@@ -551,15 +625,18 @@
             this.PositionTxt.Enabled = false;
             this.PositionTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PositionTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.PositionTxt.Location = new System.Drawing.Point(168, 140);
+            this.PositionTxt.IsError = false;
+            this.PositionTxt.Location = new System.Drawing.Point(161, 140);
             this.PositionTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PositionTxt.MaxLength = 32767;
             this.PositionTxt.Multiline = true;
             this.PositionTxt.Name = "PositionTxt";
             this.PositionTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.PositionTxt.PasswordChar = false;
+            this.PositionTxt.ReadOnly = false;
             this.PositionTxt.Size = new System.Drawing.Size(307, 35);
             this.PositionTxt.TabIndex = 26;
+            this.PositionTxt.TbBackColor = System.Drawing.Color.White;
             this.PositionTxt.Texts = "Cannot be inputted";
             this.PositionTxt.UnderlinedStyle = false;
             // 
@@ -584,15 +661,18 @@
             this.DeptTxt.Enabled = false;
             this.DeptTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeptTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.DeptTxt.Location = new System.Drawing.Point(168, 97);
+            this.DeptTxt.IsError = false;
+            this.DeptTxt.Location = new System.Drawing.Point(161, 97);
             this.DeptTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.DeptTxt.MaxLength = 32767;
             this.DeptTxt.Multiline = true;
             this.DeptTxt.Name = "DeptTxt";
             this.DeptTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.DeptTxt.PasswordChar = false;
+            this.DeptTxt.ReadOnly = false;
             this.DeptTxt.Size = new System.Drawing.Size(307, 35);
             this.DeptTxt.TabIndex = 25;
+            this.DeptTxt.TbBackColor = System.Drawing.Color.White;
             this.DeptTxt.Texts = "Cannot be inputted";
             this.DeptTxt.UnderlinedStyle = false;
             // 
@@ -617,15 +697,18 @@
             this.StaffNameTxt.Enabled = false;
             this.StaffNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffNameTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.StaffNameTxt.Location = new System.Drawing.Point(168, 54);
+            this.StaffNameTxt.IsError = false;
+            this.StaffNameTxt.Location = new System.Drawing.Point(161, 54);
             this.StaffNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.StaffNameTxt.MaxLength = 32767;
             this.StaffNameTxt.Multiline = true;
             this.StaffNameTxt.Name = "StaffNameTxt";
             this.StaffNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.StaffNameTxt.PasswordChar = false;
+            this.StaffNameTxt.ReadOnly = false;
             this.StaffNameTxt.Size = new System.Drawing.Size(307, 35);
             this.StaffNameTxt.TabIndex = 22;
+            this.StaffNameTxt.TbBackColor = System.Drawing.Color.White;
             this.StaffNameTxt.Texts = "Cannot be inputted";
             this.StaffNameTxt.UnderlinedStyle = false;
             // 
@@ -683,7 +766,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(784, 600);
+            this.ClientSize = new System.Drawing.Size(784, 571);
             this.Controls.Add(this.MainForm);
             this.Controls.Add(this.Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -704,7 +787,9 @@
             this.AccountInfo.ResumeLayout(false);
             this.AccountInfoContainer.ResumeLayout(false);
             this.AccountInfoContainer.PerformLayout();
-            this.PwdStrengthBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DoubleCheckCorrect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PwdCorrect)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.AccountHeaderContainer.ResumeLayout(false);
             this.AccountHeaderContainer.PerformLayout();
             this.UserInfo.ResumeLayout(false);
@@ -749,14 +834,17 @@
         private CustomizeControl.CustomizeTextbox DeptTxt;
         private System.Windows.Forms.Label label5;
         private CustomizeControl.CustomizeTextbox pwdTxt2;
-        private System.Windows.Forms.Panel PwdStrengthBar;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel PwStrength;
         private CustomizeControl.RoundButton CancelBtn;
         private CustomizeControl.RoundButton CreateUser;
         private CustomizeControl.RoundButton SearchStaffBtn;
         private System.Windows.Forms.Label Email;
         private CustomizeControl.CustomizeTextbox emailTxt;
+        private System.Windows.Forms.Panel panel2;
+        private CustomizeControl.RoundPanel StrengthCircle3;
+        private CustomizeControl.RoundPanel StrengthCircle2;
+        private CustomizeControl.RoundPanel StrengthCircle1;
+        private System.Windows.Forms.PictureBox PwdCorrect;
+        private System.Windows.Forms.PictureBox DoubleCheckCorrect;
     }
 }
