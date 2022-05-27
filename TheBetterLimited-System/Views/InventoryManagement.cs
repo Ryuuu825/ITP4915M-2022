@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,15 +17,16 @@ using TheBetterLimited.Models;
 
 namespace TheBetterLimited.Views
 {
-    public partial class UserManagement : Form
+    public partial class InventoryManagement : Form
     {
         private UserController uc = new UserController();
+        private GoodsController gc = new GoodsController();
         private BindingSource bs = new BindingSource();
         private List<string> selecteUserId = new List<string>();
         private DialogResult choose;
         private RestResponse result;
 
-        public UserManagement()
+        public InventoryManagement()
         {
             InitializeComponent();
             GetAccount();//init user table
@@ -99,8 +101,7 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == UserDataGrid.Columns["edit"].Index)
             {
-                Usermanagement_Edit usa = new Usermanagement_Edit(UserDataGrid["id", e.RowIndex].Value.ToString());
-                usa.Show();
+                MessageBox.Show("You have selected row " + selecteUserId[0] + " cell");
             }
 
             if (e.ColumnIndex == UserDataGrid.Columns["delete"].Index)
@@ -159,7 +160,7 @@ namespace TheBetterLimited.Views
         }
 
         //Get Account
-        public void GetAccount()
+        private void GetAccount()
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
@@ -309,7 +310,36 @@ namespace TheBetterLimited.Views
         {
             Usermanagement_Add userAdd = new Usermanagement_Add();
             userAdd.Show();
-            userAdd.OnExit += GetAccount;
+        }
+
+
+
+        // Export Goods PDF
+        private void exportBtn_Click(object sender, EventArgs e)
+        {
+            // get "application/pdf"
+            byte[] response = gc.GetGoodsPDF();
+            Console.WriteLine(response is null);
+
+            string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/test.pdf";
+            System.IO.File.WriteAllBytes(WriteFilePath, response);
+
+            choose = MessageBox.Show(
+                "Open in File Explorer?", "", MessageBoxButtons.YesNo);
+
+            if (choose == DialogResult.Yes)
+            {
+
+                if (WriteFilePath == null)
+                    throw new ArgumentNullException("filePath");
+
+                Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
+            }
+
+            else
+            {
+                MessageBox.Show("Saved at");
+            }
         }
     }
 }

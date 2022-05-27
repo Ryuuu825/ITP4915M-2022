@@ -190,10 +190,15 @@ namespace TheBetterLimited.Views
                 bs.DataSource = uc.GetAllAccount();
             }else
             {
-                bs.DataSource = uc.GetSpecificAccount(str);
+                bs.DataSource = uc.GetAccountByQry(str);
             }
             UserDataGrid.DataSource = bs;
             InitializeDataGridView();
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
