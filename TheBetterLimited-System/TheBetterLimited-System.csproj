@@ -130,6 +130,12 @@
     <Compile Include="CustomizeControl\CustomizeTextbox.Designer.cs">
       <DependentUpon>CustomizeTextbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomizeControl\Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomizeControl\Loading.Designer.cs">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomizeControl\RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </Compile>
     <EmbeddedResource Include="CustomizeControl\CustomizeTextbox.resx">
       <DependentUpon>CustomizeTextbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomizeControl\Loading.resx">
+      <DependentUpon>Loading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomizeControl\RoundTextbox.resx">
       <DependentUpon>RoundTextbox.cs</DependentUpon>
