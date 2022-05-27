@@ -9,6 +9,7 @@ namespace TheBetterLimited_Server.API.Controller
         [HttpPost("1")]
         public IActionResult Post([FromBody] string image)
         {
+            
             return File(Convert.FromBase64String(image), "image/jpeg");
         }
 

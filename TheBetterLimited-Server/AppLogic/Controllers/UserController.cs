@@ -166,11 +166,31 @@ public class UserController
         }, true);
      }
 
+
+
      public Tuple<byte[], string> GetUserIcon(string username )
      {
          Account? acc = _UserTable.GetBySQL(
                 $"SELECT * FROM Account WHERE username = '{username}'"
          ).FirstOrDefault();
+
+         if (acc is null)
+             throw new BadArgException("No such user");
+         
+
+        if (acc.Icon is null)
+        {
+            return new Tuple<byte[], string>(System.IO.File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + "resources/usericons/default.png"), "png");
+        }
+        else
+        {
+            return new Tuple<byte[], string>(acc.Icon, "png");
+        }
+     }
+
+     public Tuple<byte[], string> GetUserIconByID(string id )
+     {
+         Account? acc = _UserTable.GetById(id);
 
          if (acc is null)
              throw new BadArgException("No such user");

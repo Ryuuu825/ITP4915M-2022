@@ -177,6 +177,20 @@ public class UsersController : ControllerBase
         }
     }
 
+    [HttpGet("{id}/icon")]
+    public async Task<IActionResult> GetUserIconByID (string id)
+    {
+        try
+        {
+            Tuple <byte[] , string> icon = controller.GetUserIconByID(id);
+            return File(icon.Item1 , $"image/{icon.Item2}");
+        }
+        catch (ICustException e)
+        {
+            return StatusCode(e.ReturnCode, e.GetHttpResult());
+        }
+    }
+
     [HttpPost("icon")]
     [Authorize]
     public async Task<IActionResult> UpdateUserIcon([FromBody] string base64Image)
