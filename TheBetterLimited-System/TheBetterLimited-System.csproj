@@ -148,7 +148,6 @@
     <Compile Include="CustomizeControl\RoundTextbox.Designer.cs">
       <DependentUpon>RoundTextbox.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomizeEvent\ErrorValueChecked.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\ErrorMsg.cs" />
@@ -387,6 +386,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CustomizeEvent\" />
     <Folder Include="TestJson\" />
   </ItemGroup>
   <ItemGroup>
@@ -457,6 +457,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\corret.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\man.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\woman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\default.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />
