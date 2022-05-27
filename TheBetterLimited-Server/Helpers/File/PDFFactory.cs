@@ -68,59 +68,24 @@ namespace TheBetterLimited_Server.Helpers.File
         }
         public byte[] Create(string HtmlContent)
         {
-            // if (RuntimeInformation.OSArchitecture == Architecture.Arm64 && RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            // {   
-                _process.Start();
-                string savePath = AppDomain.CurrentDomain.BaseDirectory + "/var/tmp/temp.pdf";
-                _process.StartInfo.Arguments = $" {HtmlContent} {savePath}";
-                _process.Start();
-                // get the output of the process
-                var output = _process.StandardOutput.ReadToEnd();
-                var error = _process.StandardError.ReadToEnd();
+            _process.Start();
+            string savePath = AppDomain.CurrentDomain.BaseDirectory + "/var/tmp/temp.pdf";
+            _process.StartInfo.Arguments = $" {HtmlContent} {savePath}";
+            _process.Start();
+            // get the output of the process
+            var output = _process.StandardOutput.ReadToEnd();
+            var error = _process.StandardError.ReadToEnd();
 
-                ConsoleLogger.Debug(
-                    "Output of the process: " + output + "\n" + "Error of the process: " + error);
-                _process.WaitForExit();
+            ConsoleLogger.Debug(
+                "Output of the process: " + output + "\n" + "Error of the process: " + error);
+            _process.WaitForExit();
 
-                for(int i = 0 ; i < 2 ; i++)
-                {
-                    if (_process.HasExited)
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        System.Threading.Thread.Sleep(100);
-                    }
-                }
-                return System.IO.File.ReadAllBytes(savePath);
-            // }
-            // else 
-            // {
-            //     return new byte[]{};
-            // }
-                
-// string htmlString = "<h1>Document</h1> <p>This is an HTML document which is converted to a pdf file.</p>";
-            
-//             var doc = new HtmlToPdfDocument()
-//             { 
-//                 GlobalSettings = {
-//                     ColorMode = ColorMode.Color,
-//                     Orientation = Orientation.Landscape,
-//                     PaperSize = PaperKind.A4Plus,
-//                 },
-//                 Objects = {
-//                     new ObjectSettings() {
-//                         PagesCount = true,
-//                         HtmlContent = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur mauris eget ultrices  iaculis. Ut                               odio viverra, molestie lectus nec, venenatis turpis.",
-//                         WebSettings = { DefaultEncoding = "utf-8" },
-//                         HeaderSettings = { FontSize = 9, Right = "Page [page] of [toPage]", Line = true, Spacing = 2.812 }
-//                     }
-//                 }
-//             };
-
-//             return _convertor.Convert(doc);
-        }
+            while (!_process.HasExited)
+            {
+                Thread.Sleep(200);
+            }
+            return System.IO.File.ReadAllBytes(savePath);
+    }
     }
 
     internal class CustomAssemblyLoadContext : AssemblyLoadContext
