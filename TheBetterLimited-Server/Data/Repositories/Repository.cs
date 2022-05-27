@@ -100,12 +100,12 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
     {
         if (Helpers.Entity.EntityValidator.Validate<TEntity>(entity))
         {
-            Entities.Add(entity);
-            if (saveNow)
-                DbContext.SaveChanges();
-            return true;
+            throw new BadArgException("The entity is not valid.");
         }
-        return false;
+        Entities.Add(entity);
+        if (saveNow)
+            DbContext.SaveChanges();
+        return true;
     }
 
     public bool Update(in TEntity entity, bool saveNow = true)

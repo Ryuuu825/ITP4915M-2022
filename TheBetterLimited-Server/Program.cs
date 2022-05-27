@@ -124,20 +124,20 @@ public class Program
             }
         }
 
-#if DEBUG
-        using (var serviceScope = app.Services.CreateScope())
-        {
-            var dbContext = serviceScope.ServiceProvider.GetRequiredService<DataContext>();
-            // drop the database if it exists
-            dbContext.Database.ExecuteSqlRaw(
-                "DROP DATABASE IF EXISTS `TheBetterLimitedDev`;"
-            );
-            // create the database
-            dbContext.Database.Migrate();
-            // insert some dummy data
-            TheBetterLimited_Server.Data.DummyDataFactory.Create(dbContext).GetAwaiter().GetResult();
-        }
-#endif
+// #if DEBUG
+//         using (var serviceScope = app.Services.CreateScope())
+//         {
+//             var dbContext = serviceScope.ServiceProvider.GetRequiredService<DataContext>();
+//             // drop the database if it exists
+//             dbContext.Database.ExecuteSqlRaw(
+//                 "DROP DATABASE IF EXISTS `TheBetterLimitedDev`;"
+//             );
+//             // create the database
+//             dbContext.Database.Migrate();
+//             // insert some dummy data
+//             TheBetterLimited_Server.Data.DummyDataFactory.Create(dbContext).GetAwaiter().GetResult();
+//         }
+// #endif
 
         ConsoleLogger.Debug("Version");
 

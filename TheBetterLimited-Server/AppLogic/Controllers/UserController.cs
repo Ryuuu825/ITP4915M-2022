@@ -12,10 +12,12 @@ namespace TheBetterLimited_Server.AppLogic.Controllers;
 public class UserController
 {
     private readonly Data.Repositories.AccountRepository _UserTable;
+    private readonly Data.Repositories.Repository<Staff> _StaffTable;
 
     public UserController(DataContext dataContext)
     {
         _UserTable = new Data.Repositories.AccountRepository(dataContext);
+        _StaffTable = new Data.Repositories.Repository<Staff>(dataContext);
     }
 
     public async Task CreateUser(AccountDto acc, bool saveNow = true)
@@ -27,6 +29,8 @@ public class UserController
         newObj.LoginFailedCount = 0;
 
         _UserTable.CreateUser(ref newObj);
+
+        
     }
 
     public async Task<Account?> GetUserByIDAsync(string id)
@@ -208,26 +212,30 @@ public class UserController
 
      public async Task UpdateUserIcon(Account acc, string base64Image)
      {
-        acc.Icon = Convert.FromBase64String(base64Image);
+        try 
+        {
+            acc.Icon = Convert.FromBase64String(base64Image);
+        }catch (System.FormatException e)
+        {
+            throw new BadArgException("Invalid image format");
+        }
         await _UserTable.UpdateAsync(acc , true);
      }
 
      public async Task UpdateUserIcon(string id , string base64Image)
      {
-         Account? acc = (await _UserTable.GetBySQLAsync(
-                $"SELECT * FROM Account WHERE Id = '{id}'"
-         )).FirstOrDefault();
+         Account? acc = (await _StaffTable.GetByIdAsync(id))?.acc;
 
         if (acc is null)
-            throw new BadArgException("No such user");
+            throw new BadArgException("The staff does not have an account");
 
         await UpdateUserIcon(acc , base64Image);
      }
 
-    public async Task UpdateMyUserIcon(string username , string base64Image)
+    public async Task UpdateMyUserIcon(string IdentityName , string base64Image)
      {
          Account? acc = (await _UserTable.GetBySQLAsync(
-                $"SELECT * FROM Account WHERE username = '{username}'"
+                $"SELECT * FROM Account WHERE username = '{IdentityName}'"
          )).FirstOrDefault();
 
 
