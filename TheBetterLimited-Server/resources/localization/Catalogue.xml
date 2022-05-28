@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <meta>
+        <supported_languages>
+            <language>
+                <code>en</code>
+            </language>
+            <language>
+                <code>zh</code>
+            </language>
+        </supported_languages>
+    </meta>
+    <Translation>
+        <T100>
+            <en>TV and Audio</en>
+            <zh>电视和音频</zh>
+        </T100>
+        <T200>
+            <en>Refrigerators and Freezers</en>
+            <zh>冰箱和冷冻机</zh>
+        </T200>
+        <T300>
+            <en>Washers Machine</en>
+            <zh>洗衣机</zh>
+        </T300>
+        <T400>
+            <en>Air Conditioners</en>
+            <zh>空调</zh>
+        </T400>
+        <T500>
+            <en>Home and Kitchen Appliances</en>
+            <zh>家用电器</zh>
+        </T500>
+        <T600>
+            <en>Mobile and Communication</en>
+            <zh>手机和通信</zh>
+        </T600>
+        <T700>
+            <en>Computer and Office</en>
+            <zh>电脑和办公</zh>
+        </T700>
+    </Translation>
+</root>
