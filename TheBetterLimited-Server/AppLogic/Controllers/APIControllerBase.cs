@@ -45,78 +45,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
         public async Task<byte[]> GetPDF(string queryString , string lang = "en")
         {
-            var list = Helpers.Localizer.TryLocalize(lang, (await GetRecords(queryString)));
-
-            // get headers from the attributes of the item with type T
-            StringBuilder header = new StringBuilder();
-            var Instance = Activator.CreateInstance<T>();
-            foreach(var item in Instance.GetType().GetProperties())
+            var list = await GetRecords(queryString);
+            for (var i = 0 ; i < list.Count ; i++)
             {
-                // ignore the properties that are not mapped to dto and is a class or collection
-                if  (    
-                        System.Attribute.IsDefined(item , typeof(AppLogic.Attribute.NotMapToDtoAttribute)) ||
-                        item.PropertyType is ICollection || 
-                        item.GetAccessors()[0].IsVirtual
-                    )
-                    continue;
-
-                header.Append($"<th scope=\"col\">{item.Name}</th>");
+                list[i] = Helpers.Localizer.TryLocalize<T>(lang , list[i] );
             }
 
-            // create the html table
-            /**
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-             */
-            StringBuilder table = new StringBuilder();
-            foreach(var item in list)
-            {
-                table.Append($"<tr>");
-                foreach(var prop in item.GetType().GetProperties())
-                {
-                    if (    
-                        System.Attribute.IsDefined(prop , typeof(AppLogic.Attribute.NotMapToDtoAttribute)) ||
-                        prop.PropertyType is ICollection || 
-                        prop.GetAccessors()[0].IsVirtual // a foreign key object
-                    )
-                        continue;
-                    table.Append($"<td>{prop.GetValue(item)}</td>");
-                }
-                table.Append($"</tr>");
-            }
-
-            List<UpdateObjectModel> content = new List<UpdateObjectModel>
-            {
-                new UpdateObjectModel
-                {
-                    Attribute = "record",
-                    Value = typeof(T).Name
-                },
-                new UpdateObjectModel
-                {
-                    Attribute = "header",
-                    Value = header.ToString()
-                },
-                new UpdateObjectModel
-                {
-                    Attribute = "body",
-                    Value = table.ToString()
-                }
-            };
-
-            string temp = Helpers.File.DynamicFile.UpdatePlaceHolder("template/Records.html" , content);
-
-            // create a html file for wkhtmltopdf to convert
-            string htmlFilePath = AppDomain.CurrentDomain.BaseDirectory+ "var/tmp/record.html";
-            using (FileStream fs = new FileStream(htmlFilePath, FileMode.OpenOrCreate))
-            {
-                await fs.WriteAsync(Encoding.UTF8.GetBytes(temp));
-            }
-            return Helpers.File.PDFFactory.Instance.Create(htmlFilePath);
+            return await Helpers.File.PDFFactory.Instance.Create(list);
         }
         
         public async Task<List<Hashtable>> GetWithLimit(int limit, uint offset = 0 ,string lang = "en")

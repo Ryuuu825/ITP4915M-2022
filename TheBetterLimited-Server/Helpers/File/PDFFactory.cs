@@ -13,52 +13,37 @@ namespace TheBetterLimited_Server.Helpers.File
         
         public PDFFactory()
         {
-                _process = new Process();
-                string os = "";
+            _process = new Process();
+            string os = "";
 
-                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                {
-                    os = "win";
-                }
-                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                {
-                    os = "linux";
-                }
-                else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-                {
-                    os = "osx";
-                }
-  
-                var arch = RuntimeInformation.OSArchitecture.ToString().ToLower();
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                os = "win";
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                os = "linux";
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                os = "osx";
+            }
 
-                ConsoleLogger.Debug($"{os}-{arch}");
+            var arch = RuntimeInformation.OSArchitecture.ToString().ToLower();
 
-                string FileName = $"Lib/wkhtmltopdf/{os}-{arch}/wkhtmltopdf";
-                var startInfo = new ProcessStartInfo
-                {
-                    FileName = FileName,
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    RedirectStandardInput = true,
-                };
-                _process.StartInfo = startInfo;
-            // }
-            // else 
-            // {
-            //     CustomAssemblyLoadContext context = new CustomAssemblyLoadContext();
-            //     if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            //     {
-            //         context.LoadUnmanagedLibrary(AppDomain.CurrentDomain.BaseDirectory + "libwkhtmltox.dll");
-            //     }
-            //     // else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) || RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            //     // {
-            //     //     context.LoadUnmanagedLibrary(AppDomain.CurrentDomain.BaseDirectory + "libwkhtmltox.dylib");
-            //     // }
-            //     _converter = new SynchronizedConverter(new PdfTools());
-            //     _process = null;
-            // }
+            ConsoleLogger.Debug($"{os}-{arch}");
+
+            string FileName = $"Lib/wkhtmltopdf/{os}-{arch}/wkhtmltopdf";
+            var startInfo = new ProcessStartInfo
+            {
+                FileName = FileName,
+                UseShellExecute = false,
+                CreateNoWindow = true,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                RedirectStandardInput = true,
+            };
+            _process.StartInfo = startInfo;
         }
         public byte[] Create(string HtmlContent)
         {
@@ -79,7 +64,80 @@ namespace TheBetterLimited_Server.Helpers.File
                 Thread.Sleep(200);
             }
             return System.IO.File.ReadAllBytes(savePath);
-    }
+        } 
+        public async Task<byte[]> Create<T>(List<T> list)
+        {
+            // get headers from the attributes of the item with type T
+            StringBuilder header = new StringBuilder();
+            var Instance = Activator.CreateInstance<T>();
+            foreach(var item in Instance.GetType().GetProperties())
+            {
+                // ignore the properties that are not mapped to dto and is a class or collection
+                if  (    
+                        System.Attribute.IsDefined(item , typeof(AppLogic.Attribute.NotMapToDtoAttribute)) ||
+                        item.PropertyType is ICollection || 
+                        item.GetAccessors()[0].IsVirtual
+                    )
+                    continue;
+
+                header.Append($"<th scope=\"col\">{item.Name}</th>");
+            }
+
+            // create the html table
+            /**
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+             */
+            StringBuilder table = new StringBuilder();
+            foreach(var item in list)
+            {
+                table.Append($"<tr>");
+                foreach(var prop in item.GetType().GetProperties())
+                {
+                    if (    
+                        System.Attribute.IsDefined(prop , typeof(AppLogic.Attribute.NotMapToDtoAttribute)) ||
+                        prop.PropertyType is ICollection || 
+                        prop.GetAccessors()[0].IsVirtual // a foreign key object
+                    )
+                        continue;
+                    table.Append($"<td>{prop.GetValue(item)}</td>");
+                }
+                table.Append($"</tr>");
+            }
+
+            List<AppLogic.Models.UpdateObjectModel> content = new List<AppLogic.Models.UpdateObjectModel>
+            {
+                new AppLogic.Models.UpdateObjectModel
+                {
+                    Attribute = "record",
+                    Value = typeof(T).Name
+                },
+                new AppLogic.Models.UpdateObjectModel
+                {
+                    Attribute = "header",
+                    Value = header.ToString()
+                },
+                new AppLogic.Models.UpdateObjectModel
+                {
+                    Attribute = "body",
+                    Value = table.ToString()
+                }
+            };
+
+            string temp = Helpers.File.DynamicFile.UpdatePlaceHolder("template/Records.html" , content);
+
+            // create a html file for wkhtmltopdf to convert
+            string htmlFilePath = AppDomain.CurrentDomain.BaseDirectory+ "var/tmp/record.html";
+            using (FileStream fs = new FileStream(htmlFilePath, FileMode.OpenOrCreate))
+            {
+                await fs.WriteAsync(Encoding.UTF8.GetBytes(temp));
+            }
+            return Create(htmlFilePath);
+        }  
     }
 
     internal class CustomAssemblyLoadContext : AssemblyLoadContext
