@@ -64,11 +64,11 @@
             this.Action.BackColor = System.Drawing.Color.White;
             this.Action.Controls.Add(this.panel1);
             this.Action.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Action.Location = new System.Drawing.Point(0, 40);
+            this.Action.Location = new System.Drawing.Point(10, 50);
             this.Action.Margin = new System.Windows.Forms.Padding(2);
             this.Action.Name = "Action";
             this.Action.Padding = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.Action.Size = new System.Drawing.Size(778, 44);
+            this.Action.Size = new System.Drawing.Size(758, 44);
             this.Action.TabIndex = 7;
             // 
             // panel1
@@ -79,7 +79,7 @@
             this.panel1.Location = new System.Drawing.Point(4, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(770, 38);
+            this.panel1.Size = new System.Drawing.Size(750, 38);
             this.panel1.TabIndex = 6;
             // 
             // SearchBar
@@ -87,7 +87,7 @@
             this.SearchBar.Controls.Add(this.pictureBox1);
             this.SearchBar.Controls.Add(this.SearchBarTxt);
             this.SearchBar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SearchBar.Location = new System.Drawing.Point(550, 0);
+            this.SearchBar.Location = new System.Drawing.Point(530, 0);
             this.SearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(220, 38);
@@ -127,6 +127,7 @@
             this.curdAction.Location = new System.Drawing.Point(0, 0);
             this.curdAction.Margin = new System.Windows.Forms.Padding(2);
             this.curdAction.Name = "curdAction";
+            this.curdAction.Padding = new System.Windows.Forms.Padding(10);
             this.curdAction.Size = new System.Drawing.Size(773, 38);
             this.curdAction.TabIndex = 6;
             // 
@@ -138,10 +139,10 @@
             this.Header.Controls.Add(this.Title);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.ForeColor = System.Drawing.Color.White;
-            this.Header.Location = new System.Drawing.Point(0, 0);
+            this.Header.Location = new System.Drawing.Point(10, 10);
             this.Header.Margin = new System.Windows.Forms.Padding(0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(778, 40);
+            this.Header.Size = new System.Drawing.Size(758, 40);
             this.Header.TabIndex = 5;
             // 
             // Title
@@ -160,11 +161,11 @@
             // 
             this.Data.Controls.Add(this.splitContainer1);
             this.Data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Data.Location = new System.Drawing.Point(0, 84);
+            this.Data.Location = new System.Drawing.Point(10, 94);
             this.Data.Margin = new System.Windows.Forms.Padding(2);
             this.Data.Name = "Data";
             this.Data.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.Data.Size = new System.Drawing.Size(778, 381);
+            this.Data.Size = new System.Drawing.Size(758, 361);
             this.Data.TabIndex = 8;
             // 
             // splitContainer1
@@ -184,7 +185,7 @@
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.splitContainer1.Panel2.Controls.Add(this.pictureBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(778, 379);
+            this.splitContainer1.Size = new System.Drawing.Size(758, 359);
             this.splitContainer1.SplitterDistance = 259;
             this.splitContainer1.SplitterWidth = 10;
             this.splitContainer1.TabIndex = 0;
@@ -221,7 +222,7 @@
             this.pictureBox2.Image = global::TheBetterLimited.Properties.Resources.rRkznp;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(509, 379);
+            this.pictureBox2.Size = new System.Drawing.Size(489, 359);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -246,7 +247,7 @@
             this.CloseBtn.IconColor = System.Drawing.Color.Black;
             this.CloseBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CloseBtn.IconSize = 25;
-            this.CloseBtn.Location = new System.Drawing.Point(736, 4);
+            this.CloseBtn.Location = new System.Drawing.Point(716, 4);
             this.CloseBtn.Margin = new System.Windows.Forms.Padding(0);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(39, 36);
@@ -263,7 +264,7 @@
             this.RefreshBtn.IconColor = System.Drawing.Color.Black;
             this.RefreshBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RefreshBtn.IconSize = 25;
-            this.RefreshBtn.Location = new System.Drawing.Point(698, 4);
+            this.RefreshBtn.Location = new System.Drawing.Point(678, 4);
             this.RefreshBtn.Margin = new System.Windows.Forms.Padding(0);
             this.RefreshBtn.Name = "RefreshBtn";
             this.RefreshBtn.Size = new System.Drawing.Size(39, 36);
@@ -275,7 +276,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(778, 465);
             this.Controls.Add(this.Data);
             this.Controls.Add(this.Action);
@@ -284,6 +285,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Home";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "UserManagement";
             this.Action.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

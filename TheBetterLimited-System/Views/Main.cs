@@ -25,9 +25,28 @@ namespace TheBetterLimited.Views
             InitializeComponent();
         }
 
-        private void InitializeUserInfo()
+        private void Main_Load(object sender, EventArgs e)
         {
-
+            txtUsername.Text = GlobalsData.currentUser["displayName"];
+            txtJobTitle.Text = GlobalsData.currentUser["position"];
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddEllipse(UserIcon.ClientRectangle);
+            Region region = new Region(gp);
+            UserIcon.Region = region;
+            Bitmap bitmap = uc.GetUserIcon();
+            if (bitmap != null)
+            {
+                UserIcon.Image = bitmap;
+            }
+            else
+            {
+                UserIcon.Image = Properties.Resources.portrait_free_icon_font;
+            }
+            gp.Dispose();
+            region.Dispose();
+            Menu_Init();
+            openChildForm(new Home());
+            change_MenuButton_style(HomeBtn);
         }
 
         private void sidebarTimer_Tick(object sender, EventArgs e)
@@ -68,7 +87,7 @@ namespace TheBetterLimited.Views
             else
             {
                 subSidebar.Width += 50;
-                if (subSidebar.Width == subSidebar.MaximumSize.Width)
+                if (subSidebar.Width == 200)
                 {
                     subSidebarExpand = true;
                     subSidebarTimer.Stop();
@@ -137,30 +156,7 @@ namespace TheBetterLimited.Views
         private void POS_Click(object sender, EventArgs e)
         {
             change_MenuButton_style(sender);
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-            txtUsername.Text = GlobalsData.currentUser["displayName"];
-            txtJobTitle.Text = GlobalsData.currentUser["position"];
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(UserIcon.ClientRectangle);
-            Region region = new Region(gp);
-            UserIcon.Region = region;
-            Bitmap bitmap = uc.GetUserIcon();
-            if (bitmap != null)
-            {
-                UserIcon.Image = bitmap;
-            }
-            else
-            {
-                UserIcon.Image = Properties.Resources.portrait_free_icon_font;
-            }
-            gp.Dispose();
-            region.Dispose();
-            Menu_Init();
-            openChildForm(new Home());
-            change_MenuButton_style(HomeBtn);
+            openChildForm(new POS());
         }
 
         private void Menu_Init()
@@ -229,6 +225,12 @@ namespace TheBetterLimited.Views
         {
             openChildForm(new InventoryManagement());
             subSidebarTimer.Start();
+        }
+
+        private void Main_MaximumSizeChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("我最大化了");
+            subSidebar.Width = 200;
         }
     }
 }
