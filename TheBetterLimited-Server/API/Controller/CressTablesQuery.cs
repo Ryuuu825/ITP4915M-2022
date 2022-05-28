@@ -6,16 +6,22 @@ namespace TheBetterLimited_Server.API.Controller
     public class CrossTablesQuery : ControllerBase
     {
         private readonly AppLogic.Controllers.MulitTableQueryController mulitTableQueryController;
-        public CrossTablesQuery()
+        public CrossTablesQuery(Data.DataContext db)
         {
-            mulitTableQueryController = new AppLogic.Controllers.MulitTableQueryController();
+            mulitTableQueryController = new AppLogic.Controllers.MulitTableQueryController(db);
         }
 
         [HttpGet]
-        public async Task GetResult([FromQuery] string queryString , [FromQuery] string Tables, [FromHeader] string lang = "en")
+        public async Task<IActionResult> GetResult([FromQuery] string queryString , [FromQuery] string Tables, [FromHeader] string lang = "en")
         {
             List<string> tables = Tables.Split(',').ToList();
-            await mulitTableQueryController.Get(tables , queryString , lang);
+            try
+            {
+                return Ok(await mulitTableQueryController.Get(tables , queryString , lang));
+            }catch(ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
         }
     }
 }
