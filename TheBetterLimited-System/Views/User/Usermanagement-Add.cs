@@ -434,5 +434,19 @@ namespace TheBetterLimited.Views
         {
 
         }
+
+        private void showPwd_Click(object sender, EventArgs e)
+        {
+            if (pwdTxt2.PasswordChar)
+            {
+                showPwd.BackgroundImage = Properties.Resources.eye_crossed;
+            }
+            else
+            {
+                showPwd.BackgroundImage = Properties.Resources.eye;
+            }
+            pwdTxt.PasswordChar = pwdTxt.PasswordChar == true ? false : true;
+            pwdTxt2.PasswordChar = pwdTxt2.PasswordChar == true ? false : true;
+        }
     }
 }

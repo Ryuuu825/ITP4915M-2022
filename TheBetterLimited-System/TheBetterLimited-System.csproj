@@ -142,12 +142,6 @@
     <Compile Include="CustomizeControl\RoundPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomizeControl\RoundTextbox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CustomizeControl\RoundTextbox.Designer.cs">
-      <DependentUpon>RoundTextbox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\ErrorMsg.cs" />
@@ -163,40 +157,40 @@
     </Compile>
     <Compile Include="Utils\Random.cs" />
     <Compile Include="Utils\RestClientUtils.cs" />
-    <Compile Include="Views\InventoryManagement.cs">
+    <Compile Include="Views\Inventory\InventoryManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\InventoryManagement.Designer.cs">
+    <Compile Include="Views\Inventory\InventoryManagement.Designer.cs">
       <DependentUpon>InventoryManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ResetPwdResult.cs">
+    <Compile Include="Views\Login\ResetPwdResult.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ResetPwdResult.Designer.cs">
+    <Compile Include="Views\Login\ResetPwdResult.Designer.cs">
       <DependentUpon>ResetPwdResult.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ResetPwd.cs">
+    <Compile Include="Views\Login\ResetPwd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ResetPwd.Designer.cs">
+    <Compile Include="Views\Login\ResetPwd.Designer.cs">
       <DependentUpon>ResetPwd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ChangePwdResult.cs">
+    <Compile Include="Views\Login\ChangePwdResult.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ChangePwdResult.Designer.cs">
+    <Compile Include="Views\Login\ChangePwdResult.Designer.cs">
       <DependentUpon>ChangePwdResult.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\ChangePwd.cs">
+    <Compile Include="Views\Login\ChangePwd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\ChangePwd.Designer.cs">
+    <Compile Include="Views\Login\ChangePwd.Designer.cs">
       <DependentUpon>ChangePwd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Login.cs">
+    <Compile Include="Views\Login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Login.Designer.cs">
+    <Compile Include="Views\Login\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Main.cs">
@@ -207,10 +201,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Setting.cs">
+    <Compile Include="Views\POS\POS.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Setting.Designer.cs">
+    <Compile Include="Views\POS\POS.Designer.cs">
+      <DependentUpon>POS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Setting\Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Setting\Setting.Designer.cs">
       <DependentUpon>Setting.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Home.cs">
@@ -219,22 +219,22 @@
     <Compile Include="Views\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserManagement .cs">
+    <Compile Include="Views\User\UserManagement .cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\UserManagement .Designer.cs">
+    <Compile Include="Views\User\UserManagement .Designer.cs">
       <DependentUpon>UserManagement .cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Usermanagement-Edit.cs">
+    <Compile Include="Views\User\Usermanagement-Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Usermanagement-Edit.Designer.cs">
+    <Compile Include="Views\User\Usermanagement-Edit.Designer.cs">
       <DependentUpon>Usermanagement-Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Usermanagement-Add.cs">
+    <Compile Include="Views\User\Usermanagement-Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Usermanagement-Add.Designer.cs">
+    <Compile Include="Views\User\Usermanagement-Add.Designer.cs">
       <DependentUpon>Usermanagement-Add.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="CustomizeControl\CustomizeTextbox.resx">
@@ -243,25 +243,22 @@
     <EmbeddedResource Include="CustomizeControl\Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomizeControl\RoundTextbox.resx">
-      <DependentUpon>RoundTextbox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\InventoryManagement.resx">
+    <EmbeddedResource Include="Views\Inventory\InventoryManagement.resx">
       <DependentUpon>InventoryManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ResetPwdResult.resx">
+    <EmbeddedResource Include="Views\Login\ResetPwdResult.resx">
       <DependentUpon>ResetPwdResult.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ResetPwd.resx">
+    <EmbeddedResource Include="Views\Login\ResetPwd.resx">
       <DependentUpon>ResetPwd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ChangePwdResult.resx">
+    <EmbeddedResource Include="Views\Login\ChangePwdResult.resx">
       <DependentUpon>ChangePwdResult.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\ChangePwd.resx">
+    <EmbeddedResource Include="Views\Login\ChangePwd.resx">
       <DependentUpon>ChangePwd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Login.resx">
+    <EmbeddedResource Include="Views\Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main.resx">
@@ -272,19 +269,22 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Setting.resx">
+    <EmbeddedResource Include="Views\POS\POS.resx">
+      <DependentUpon>POS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Setting\Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\UserManagement .resx">
+    <EmbeddedResource Include="Views\User\UserManagement .resx">
       <DependentUpon>UserManagement .cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usermanagement-Edit.resx">
+    <EmbeddedResource Include="Views\User\Usermanagement-Edit.resx">
       <DependentUpon>Usermanagement-Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Usermanagement-Add.resx">
+    <EmbeddedResource Include="Views\User\Usermanagement-Add.resx">
       <DependentUpon>Usermanagement-Add.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -481,6 +481,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rRkznp.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-up.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />

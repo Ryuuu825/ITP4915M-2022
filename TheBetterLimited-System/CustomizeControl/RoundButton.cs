@@ -15,6 +15,7 @@ namespace TheBetterLimited.CustomizeControl
         private int borderSize = 0;
         private int borderRadius = 20;
         private Color borderColor = Color.PaleVioletRed;
+        private bool isChecked = false;
 
         public int BorderSize
         {
@@ -25,6 +26,16 @@ namespace TheBetterLimited.CustomizeControl
                 this.Invalidate();
             }
         }
+        public bool IsChecked
+        {
+            get { return isChecked; }
+            set
+            {
+                isChecked = value;
+                this.Invalidate();
+            }
+        }
+
         public int BorderRadius
         {
             get { return borderRadius; }

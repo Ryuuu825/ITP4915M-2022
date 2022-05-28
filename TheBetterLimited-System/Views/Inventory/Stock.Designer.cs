@@ -1,6 +1,6 @@
 ﻿namespace TheBetterLimited.Views
 {
-    partial class UserManagement
+    partial class Stock
     {
         /// <summary>
         /// Required designer variable.
@@ -33,24 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserManagement));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryManagement));
             this.UserDataGrid = new System.Windows.Forms.DataGridView();
-            this.Action = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.SearchBar = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.curdAction = new System.Windows.Forms.Panel();
-            this.DeleteBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.AddBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.Header = new System.Windows.Forms.Panel();
-            this.CloseBtn = new FontAwesome.Sharp.IconButton();
-            this.RefreshBtn = new FontAwesome.Sharp.IconButton();
-            this.Title = new System.Windows.Forms.Label();
-            this.Data = new System.Windows.Forms.Panel();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +46,23 @@
             this.lockAcc = new System.Windows.Forms.DataGridViewImageColumn();
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Action = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.SearchBar = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.curdAction = new System.Windows.Forms.Panel();
+            this.exportBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.DeleteBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.AddBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.Header = new System.Windows.Forms.Panel();
+            this.CloseBtn = new FontAwesome.Sharp.IconButton();
+            this.RefreshBtn = new FontAwesome.Sharp.IconButton();
+            this.Title = new System.Windows.Forms.Label();
+            this.Data = new System.Windows.Forms.Panel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.UserDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -155,6 +156,120 @@
             this.UserDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserDataGrid_CellClick);
             this.UserDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.UserDataGrid_CellFormatting);
             // 
+            // select
+            // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.select.HeaderText = "";
+            this.select.Image = global::TheBetterLimited.Properties.Resources.square;
+            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.select.MinimumWidth = 6;
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            this.select.Width = 6;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.ToolTipText = "User ID";
+            // 
+            // userName
+            // 
+            this.userName.DataPropertyName = "userName";
+            this.userName.HeaderText = "User Name";
+            this.userName.MinimumWidth = 6;
+            this.userName.Name = "userName";
+            this.userName.ReadOnly = true;
+            this.userName.ToolTipText = "User Name";
+            // 
+            // staffName
+            // 
+            this.staffName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.staffName.DataPropertyName = "staffName";
+            this.staffName.HeaderText = "Staff Name";
+            this.staffName.MinimumWidth = 6;
+            this.staffName.Name = "staffName";
+            this.staffName.ReadOnly = true;
+            this.staffName.ToolTipText = "Staff Name";
+            this.staffName.Width = 113;
+            // 
+            // emailAddress
+            // 
+            this.emailAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.emailAddress.DataPropertyName = "emailAddress";
+            this.emailAddress.HeaderText = "Email Address";
+            this.emailAddress.MinimumWidth = 6;
+            this.emailAddress.Name = "emailAddress";
+            this.emailAddress.ReadOnly = true;
+            this.emailAddress.ToolTipText = "Email Address";
+            this.emailAddress.Width = 131;
+            // 
+            // status
+            // 
+            this.status.DataPropertyName = "status";
+            this.status.HeaderText = "Status";
+            this.status.MinimumWidth = 6;
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.ToolTipText = "Account Status";
+            // 
+            // _StaffId
+            // 
+            this._StaffId.DataPropertyName = "_StaffId";
+            this._StaffId.HeaderText = "Staff ID";
+            this._StaffId.MinimumWidth = 6;
+            this._StaffId.Name = "_StaffId";
+            this._StaffId.ReadOnly = true;
+            this._StaffId.ToolTipText = "Staff ID";
+            // 
+            // remarks
+            // 
+            this.remarks.DataPropertyName = "remarks";
+            this.remarks.HeaderText = "Remark";
+            this.remarks.MinimumWidth = 6;
+            this.remarks.Name = "remarks";
+            this.remarks.ReadOnly = true;
+            this.remarks.ToolTipText = "Remark of Account";
+            // 
+            // lockAcc
+            // 
+            this.lockAcc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.lockAcc.HeaderText = "";
+            this.lockAcc.Image = global::TheBetterLimited.Properties.Resources.lock1;
+            this.lockAcc.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.lockAcc.MinimumWidth = 6;
+            this.lockAcc.Name = "lockAcc";
+            this.lockAcc.ReadOnly = true;
+            this.lockAcc.ToolTipText = "Lock";
+            this.lockAcc.Width = 6;
+            // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.edit.HeaderText = "";
+            this.edit.Image = global::TheBetterLimited.Properties.Resources.pencil_free_icon_font;
+            this.edit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.ToolTipText = "Edit";
+            this.edit.Width = 6;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.delete.HeaderText = "";
+            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash;
+            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.delete.MinimumWidth = 6;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.ToolTipText = "Delete";
+            this.delete.Width = 6;
+            // 
             // Action
             // 
             this.Action.BackColor = System.Drawing.Color.White;
@@ -210,7 +325,6 @@
             this.SearchBarTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SearchBarTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBarTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.SearchBarTxt.IsError = false;
             this.SearchBarTxt.Location = new System.Drawing.Point(0, 0);
             this.SearchBarTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.SearchBarTxt.MaxLength = 20;
@@ -218,18 +332,17 @@
             this.SearchBarTxt.Name = "SearchBarTxt";
             this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(22, 8, 8, 6);
             this.SearchBarTxt.PasswordChar = false;
-            this.SearchBarTxt.Placeholder = "Search by Keywords";
-            this.SearchBarTxt.ReadOnly = false;
             this.SearchBarTxt.Size = new System.Drawing.Size(220, 38);
             this.SearchBarTxt.TabIndex = 9;
-            this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.SearchBarTxt.Texts = "Search by Keywords";
+            this.SearchBarTxt.Texts = "Search";
             this.SearchBarTxt.UnderlinedStyle = false;
             this.SearchBarTxt._TextChanged += new System.EventHandler(this.SearchBarTxt__TextChanged);
+            this.SearchBarTxt.Enter += new System.EventHandler(this.SearchBarTxt_Enter);
+            this.SearchBarTxt.Leave += new System.EventHandler(this.SearchBarTxt_Leave);
             // 
             // curdAction
             // 
+            this.curdAction.Controls.Add(this.exportBtn);
             this.curdAction.Controls.Add(this.DeleteBtn);
             this.curdAction.Controls.Add(this.AddBtn);
             this.curdAction.Dock = System.Windows.Forms.DockStyle.Left;
@@ -238,6 +351,27 @@
             this.curdAction.Name = "curdAction";
             this.curdAction.Size = new System.Drawing.Size(773, 38);
             this.curdAction.TabIndex = 6;
+            // 
+            // exportBtn
+            // 
+            this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.exportBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.exportBtn.BorderColor = System.Drawing.Color.White;
+            this.exportBtn.BorderRadius = 10;
+            this.exportBtn.BorderSize = 0;
+            this.exportBtn.FlatAppearance.BorderSize = 0;
+            this.exportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportBtn.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportBtn.ForeColor = System.Drawing.Color.White;
+            this.exportBtn.Location = new System.Drawing.Point(213, 0);
+            this.exportBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.exportBtn.Name = "exportBtn";
+            this.exportBtn.Size = new System.Drawing.Size(114, 38);
+            this.exportBtn.TabIndex = 5;
+            this.exportBtn.Text = "Export PDF";
+            this.exportBtn.TextColor = System.Drawing.Color.White;
+            this.exportBtn.UseVisualStyleBackColor = false;
+            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
             // DeleteBtn
             // 
@@ -340,9 +474,9 @@
             this.Title.Location = new System.Drawing.Point(2, 7);
             this.Title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(131, 25);
+            this.Title.Size = new System.Drawing.Size(70, 25);
             this.Title.TabIndex = 1;
-            this.Title.Text = "User Account";
+            this.Title.Text = "Goods";
             // 
             // Data
             // 
@@ -373,129 +507,7 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Width = 124;
             // 
-            // select
-            // 
-            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.select.HeaderText = "";
-            this.select.Image = global::TheBetterLimited.Properties.Resources.square;
-            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.select.MinimumWidth = 6;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            this.select.Width = 6;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.ToolTipText = "User ID";
-            this.id.Width = 59;
-            // 
-            // userName
-            // 
-            this.userName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.userName.DataPropertyName = "userName";
-            this.userName.HeaderText = "User Name";
-            this.userName.MinimumWidth = 6;
-            this.userName.Name = "userName";
-            this.userName.ReadOnly = true;
-            this.userName.ToolTipText = "User Name";
-            this.userName.Width = 113;
-            // 
-            // staffName
-            // 
-            this.staffName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.staffName.DataPropertyName = "staffName";
-            this.staffName.HeaderText = "Staff Name";
-            this.staffName.MinimumWidth = 6;
-            this.staffName.Name = "staffName";
-            this.staffName.ReadOnly = true;
-            this.staffName.ToolTipText = "Staff Name";
-            this.staffName.Width = 113;
-            // 
-            // emailAddress
-            // 
-            this.emailAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.emailAddress.DataPropertyName = "emailAddress";
-            this.emailAddress.HeaderText = "Email Address";
-            this.emailAddress.MinimumWidth = 6;
-            this.emailAddress.Name = "emailAddress";
-            this.emailAddress.ReadOnly = true;
-            this.emailAddress.ToolTipText = "Email Address";
-            // 
-            // status
-            // 
-            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.status.DataPropertyName = "status";
-            this.status.HeaderText = "Status";
-            this.status.MinimumWidth = 6;
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.ToolTipText = "Account Status";
-            this.status.Width = 84;
-            // 
-            // _StaffId
-            // 
-            this._StaffId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._StaffId.DataPropertyName = "_StaffId";
-            this._StaffId.HeaderText = "Staff ID";
-            this._StaffId.MinimumWidth = 6;
-            this._StaffId.Name = "_StaffId";
-            this._StaffId.ReadOnly = true;
-            this._StaffId.ToolTipText = "Staff ID";
-            this._StaffId.Width = 90;
-            // 
-            // remarks
-            // 
-            this.remarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.remarks.DataPropertyName = "remarks";
-            this.remarks.HeaderText = "Remark";
-            this.remarks.MinimumWidth = 6;
-            this.remarks.Name = "remarks";
-            this.remarks.ReadOnly = true;
-            this.remarks.ToolTipText = "Remark of Account";
-            // 
-            // lockAcc
-            // 
-            this.lockAcc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.lockAcc.HeaderText = "";
-            this.lockAcc.Image = global::TheBetterLimited.Properties.Resources.lock1;
-            this.lockAcc.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.lockAcc.MinimumWidth = 6;
-            this.lockAcc.Name = "lockAcc";
-            this.lockAcc.ReadOnly = true;
-            this.lockAcc.ToolTipText = "Lock";
-            this.lockAcc.Width = 6;
-            // 
-            // edit
-            // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.edit.HeaderText = "";
-            this.edit.Image = global::TheBetterLimited.Properties.Resources.pencil_free_icon_font;
-            this.edit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.ToolTipText = "Edit";
-            this.edit.Width = 6;
-            // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.delete.HeaderText = "";
-            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash;
-            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.delete.MinimumWidth = 6;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.ToolTipText = "Delete";
-            this.delete.Width = 6;
-            // 
-            // UserManagement
+            // InventoryManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -507,7 +519,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "UserManagement";
+            this.Name = "InventoryManagement";
             this.Text = "UserManagement";
             ((System.ComponentModel.ISupportInitialize)(this.UserDataGrid)).EndInit();
             this.Action.ResumeLayout(false);
@@ -551,5 +563,6 @@
         private System.Windows.Forms.DataGridViewImageColumn lockAcc;
         private System.Windows.Forms.DataGridViewImageColumn edit;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private CustomizeControl.RoundButton exportBtn;
     }
 }

@@ -89,7 +89,6 @@ namespace TheBetterLimited.Views
 
         private void staffNoTip_Popup(object sender, PopupEventArgs e)
         {
-            staffNoTip.SetToolTip((RoundTextbox)sender, "Enter staff number");
         }
 
         private void picReturn_MouseHover(object sender, EventArgs e)
