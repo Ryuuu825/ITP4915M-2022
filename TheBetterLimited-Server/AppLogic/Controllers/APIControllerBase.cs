@@ -119,17 +119,17 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return Helpers.File.PDFFactory.Instance.Create(htmlFilePath);
         }
         
-        public async Task<List<Hashtable>> GetWithLimit(int limit, string lang = "en")
+        public async Task<List<Hashtable>> GetWithLimit(int limit, uint offset = 0 ,string lang = "en")
         {
             var list = (await repository.GetAllAsync()).AsReadOnly().ToList();
             limit = limit > list.Count ? list.Count : limit;
-            list = list.GetRange(0, limit);
+            offset = offset > list.Count ? (uint) list.Count : offset;
+            list = list.GetRange((int)offset, limit);
             for (var i = 0 ; i < list.Count ; i++)
             {
                 list[i] = Helpers.Localizer.TryLocalize<T>(lang , list[i] );
             }
             return list.MapToDto();
-
         }
 
         public async Task<Hashtable> GetById(string id,string lang = "en")

@@ -9,15 +9,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="CsvHelper" Version="27.2.1" />
-        <PackageReference Include="DinkToPdf" Version="1.0.8" />
-        <PackageReference Include="DinkToPdfCopyDependencies" Version="1.0.8" />
-        <PackageReference Include="LibWkHtmlToX-32" Version="0.12.6.1" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.4" />
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.0-preview.4.22229.2" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.5" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-        <PackageReference Include="RndUsr0.DinkToPdf" Version="1.0.9-20190207.1" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
         <PackageReference Include="MailKit" Version="3.2.0" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.4">

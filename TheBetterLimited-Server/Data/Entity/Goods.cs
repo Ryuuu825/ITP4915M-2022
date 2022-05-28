@@ -26,8 +26,8 @@ namespace TheBetterLimited_Server.Data.Entity
         [AppLogic.Attribute.Translatable]
         public string Description { get; set; }
 
-        [Column(TypeName = "SMALLINT")]
-        public double Price { get; set; }
+        [Column(TypeName = "MEDIUMINT")]
+        public decimal Price { get; set; }
 
         [MaxLength(15)]
         [Column(TypeName = "varchar(15)")]

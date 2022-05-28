@@ -175,8 +175,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.HasKey("Id");
 
@@ -371,8 +371,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Property<sbyte>("PhotoAmt")
                         .HasColumnType("TINYINT");
 
-                    b.Property<short>("Price")
-                        .HasColumnType("SMALLINT");
+                    b.Property<int>("Price")
+                        .HasColumnType("MEDIUMINT");
 
                     b.Property<int?>("Size")
                         .HasColumnType("int");

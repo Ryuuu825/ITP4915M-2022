@@ -77,7 +77,6 @@ namespace TheBetterLimited_Server.Helpers
 
         public static void UpdateWord<T>(string language , string id , string word)
         {
-            ConsoleLogger.Debug($"Add word {word} to {language} Type {typeof(T).Name}");
             XmlDocument xml = new XmlDocument();
             xml.Load(string.Format(FilePath, typeof(T).Name));
 
@@ -120,44 +119,6 @@ namespace TheBetterLimited_Server.Helpers
             xml.Save(string.Format(FilePath, typeof(T).Name ));
         }
 
-        // public static T TryLocalize<T>(string language , T target)
-        // {
-        //     if (language.ToLower().Equals("en"))  
-        //         return target;
-
-        //     try
-        //     {
-        //         var entity = target.CopyAs<T>();
-
-        //         using (var reader = new StreamReader(string.Format(FilePath , typeof(T).Name , language)))
-        //         using (var csv = new CsvReader(reader , System.Globalization.CultureInfo.CurrentCulture))
-        //         {
-        //             var records = csv.GetRecords<Foo>();
-                    
-        //             foreach (var item in entity.GetType().GetProperties())
-        //             {
-        //                 // check if the property value startwith @$
-        //                 if (item.GetValue(entity).ToString().StartsWith("@$"))
-        //                 {
-        //                     var key = item.GetValue(entity).ToString().Substring(2);
-        //                     var value = records.FirstOrDefault(x => x.Key == key);
-        //                     if (value is null)
-        //                     {
-        //                         throw new BadArgException("The key is not exist in localization file.");
-        //                     }
-        //                     item.SetValue(entity, value.Content);
-        //                 }
-        //             }
-        //         }
-
-        //         return entity;
-        //     }catch(System.IO.FileNotFoundException e)
-        //     {
-        //         ConsoleLogger.Debug(e.Message);
-        //         throw new BadArgException("The language type not support.");
-        //     }
-            
-        // }
     }
 
     internal class Foo

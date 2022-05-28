@@ -23,17 +23,17 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(int limit = 0, int offset = 0, [FromHeader] string Language = "en")
+        public async Task<IActionResult> Get(int limit = 0, uint offset = 0, [FromHeader] string Language = "en")
         {
             try
             {
                 if (limit == 0)
                 {
-                    return Ok(await controller.GetAll());
+                    return Ok(await controller.GetAll(Language));
                 }
                 else
                 {
-                    return Ok(await controller.GetWithLimit(limit));
+                    return Ok(await controller.GetWithLimit(limit , offset , Language));
                 }
             }
             catch (ICustException e)

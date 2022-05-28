@@ -49,6 +49,18 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
         }
 
     }
+
+    public async Task AddRangeAsync(List<TEntity> entities , bool saveNow = true)
+    {
+        foreach (var entity in entities)
+        {
+            if (!Helpers.Entity.EntityValidator.Validate<TEntity>(entity))
+                throw new BadArgException($"The entity is not valid. ({entity.GetType().GetProperties().Where(p => p.Name.ToLower() == "id").First().GetValue(entity)})");
+        }
+
+        await Entities.AddRangeAsync(entities);
+        await DbContext.SaveChangesAsync();
+    }
     
 
     public async Task<bool> UpdateAsync(TEntity entity, bool saveNow = true)

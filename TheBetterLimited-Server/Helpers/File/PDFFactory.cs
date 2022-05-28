@@ -13,8 +13,6 @@ namespace TheBetterLimited_Server.Helpers.File
         
         public PDFFactory()
         {
-            // if (RuntimeInformation.OSArchitecture == Architecture.Arm64 && RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-            // {
                 _process = new Process();
                 string os = "";
 

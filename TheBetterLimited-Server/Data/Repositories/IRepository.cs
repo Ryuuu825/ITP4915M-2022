@@ -8,6 +8,7 @@ public interface IRepository<TEntity>
     abstract Task<TEntity?> GetByIdAsync(params object[] ids);
     abstract Task<List<TEntity>> GetBySQLAsync(string sql);
     abstract Task<bool> AddAsync(TEntity entity, bool saveNow = true);
+    abstract Task AddRangeAsync(List<TEntity> entities, bool saveNow = true);
     abstract Task<bool> UpdateAsync(TEntity entity, bool saveNow = true);
     abstract Task DeleteAsync(TEntity entity, bool saveNow = true);
     abstract Task<bool> IsRecordExistAsync(string id);

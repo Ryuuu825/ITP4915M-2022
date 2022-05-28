@@ -24,7 +24,7 @@ public class Program
     {
         
         var builder = WebApplication.CreateBuilder(args);
-        // // Add services to the container.
+        // Add services to the container.
         builder.Services.AddControllers()
             .AddNewtonsoftJson(
                 options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
@@ -37,6 +37,7 @@ public class Program
                 ServerVersion.AutoDetect(ConnString)
             );
         });
+
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
@@ -49,8 +50,6 @@ public class Program
                     ValidateAudience = false
                 };
             });
-        
-
         
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -124,20 +123,20 @@ public class Program
             }
         }
 
-// #if DEBUG
-//         using (var serviceScope = app.Services.CreateScope())
-//         {
-//             var dbContext = serviceScope.ServiceProvider.GetRequiredService<DataContext>();
-//             // drop the database if it exists
-//             dbContext.Database.ExecuteSqlRaw(
-//                 "DROP DATABASE IF EXISTS `TheBetterLimitedDev`;"
-//             );
-//             // create the database
-//             dbContext.Database.Migrate();
-//             // insert some dummy data
-//             TheBetterLimited_Server.Data.DummyDataFactory.Create(dbContext).GetAwaiter().GetResult();
-//         }
-// #endif
+#if DEBUG
+        using (var serviceScope = app.Services.CreateScope())
+        {
+            var dbContext = serviceScope.ServiceProvider.GetRequiredService<DataContext>();
+            // drop the database if it exists
+            dbContext.Database.ExecuteSqlRaw(
+                "DROP DATABASE IF EXISTS `TheBetterLimitedDev`;"
+            );
+            // create the database
+            dbContext.Database.Migrate();
+            // insert some dummy data
+            TheBetterLimited_Server.Data.DummyDataFactory.Create(dbContext).GetAwaiter().GetResult();
+        }
+#endif
 
         ConsoleLogger.Debug("Version");
 
