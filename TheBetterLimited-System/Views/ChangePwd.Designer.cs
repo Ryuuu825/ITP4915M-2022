@@ -70,7 +70,7 @@
             this.TitleContainer.Controls.Add(this.chgPwdTitle);
             this.TitleContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitleContainer.Location = new System.Drawing.Point(0, 0);
-            this.TitleContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TitleContainer.Margin = new System.Windows.Forms.Padding(2);
             this.TitleContainer.Name = "TitleContainer";
             this.TitleContainer.Size = new System.Drawing.Size(960, 80);
             this.TitleContainer.TabIndex = 1;
@@ -82,7 +82,7 @@
             this.picReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picReturn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.picReturn.Location = new System.Drawing.Point(26, 27);
-            this.picReturn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picReturn.Margin = new System.Windows.Forms.Padding(2);
             this.picReturn.Name = "picReturn";
             this.picReturn.Size = new System.Drawing.Size(49, 52);
             this.picReturn.TabIndex = 1001;
@@ -163,7 +163,7 @@
             this.changeInfo.Cursor = System.Windows.Forms.Cursors.Default;
             this.changeInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.changeInfo.Location = new System.Drawing.Point(0, 80);
-            this.changeInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.changeInfo.Margin = new System.Windows.Forms.Padding(2);
             this.changeInfo.Name = "changeInfo";
             this.changeInfo.Size = new System.Drawing.Size(960, 496);
             this.changeInfo.TabIndex = 104;
@@ -176,6 +176,7 @@
             this.userName.BorderRadius = 20;
             this.userName.BorderSize = 1;
             this.userName.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.userName.IsError = false;
             this.userName.Location = new System.Drawing.Point(311, 69);
             this.userName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.userName.MaxLength = 10;
@@ -183,10 +184,12 @@
             this.userName.Name = "userName";
             this.userName.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.userName.PasswordChar = false;
+            this.userName.Placeholder = "";
             this.userName.ReadOnly = false;
             this.userName.Size = new System.Drawing.Size(338, 48);
             this.userName.TabIndex = 1;
             this.userName.TbBackColor = System.Drawing.SystemColors.Window;
+            this.userName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.userName.Texts = "";
             this.userName.UnderlinedStyle = false;
             this.userName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.displayTip);
@@ -199,6 +202,7 @@
             this.originalPwd.BorderRadius = 20;
             this.originalPwd.BorderSize = 1;
             this.originalPwd.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.originalPwd.IsError = false;
             this.originalPwd.Location = new System.Drawing.Point(311, 145);
             this.originalPwd.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.originalPwd.MaxLength = 20;
@@ -206,10 +210,12 @@
             this.originalPwd.Name = "originalPwd";
             this.originalPwd.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.originalPwd.PasswordChar = true;
+            this.originalPwd.Placeholder = "";
             this.originalPwd.ReadOnly = false;
             this.originalPwd.Size = new System.Drawing.Size(338, 48);
             this.originalPwd.TabIndex = 2;
             this.originalPwd.TbBackColor = System.Drawing.SystemColors.Window;
+            this.originalPwd.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.originalPwd.Texts = "";
             this.originalPwd.UnderlinedStyle = false;
             // 
@@ -221,6 +227,7 @@
             this.firstNewPassword.BorderRadius = 20;
             this.firstNewPassword.BorderSize = 1;
             this.firstNewPassword.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.firstNewPassword.IsError = false;
             this.firstNewPassword.Location = new System.Drawing.Point(311, 221);
             this.firstNewPassword.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.firstNewPassword.MaxLength = 20;
@@ -228,10 +235,12 @@
             this.firstNewPassword.Name = "firstNewPassword";
             this.firstNewPassword.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.firstNewPassword.PasswordChar = true;
+            this.firstNewPassword.Placeholder = "";
             this.firstNewPassword.ReadOnly = false;
             this.firstNewPassword.Size = new System.Drawing.Size(338, 48);
             this.firstNewPassword.TabIndex = 3;
             this.firstNewPassword.TbBackColor = System.Drawing.SystemColors.Window;
+            this.firstNewPassword.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.firstNewPassword.Texts = "";
             this.firstNewPassword.UnderlinedStyle = false;
             // 
@@ -243,6 +252,7 @@
             this.secondNewPassword.BorderRadius = 20;
             this.secondNewPassword.BorderSize = 1;
             this.secondNewPassword.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.secondNewPassword.IsError = false;
             this.secondNewPassword.Location = new System.Drawing.Point(311, 297);
             this.secondNewPassword.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.secondNewPassword.MaxLength = 20;
@@ -250,10 +260,12 @@
             this.secondNewPassword.Name = "secondNewPassword";
             this.secondNewPassword.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.secondNewPassword.PasswordChar = true;
+            this.secondNewPassword.Placeholder = "";
             this.secondNewPassword.ReadOnly = false;
             this.secondNewPassword.Size = new System.Drawing.Size(338, 48);
             this.secondNewPassword.TabIndex = 4;
             this.secondNewPassword.TbBackColor = System.Drawing.SystemColors.Window;
+            this.secondNewPassword.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.secondNewPassword.Texts = "";
             this.secondNewPassword.UnderlinedStyle = false;
             // 
@@ -273,7 +285,7 @@
             this.chgPwdBtn.ForeColor = System.Drawing.Color.White;
             this.chgPwdBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.chgPwdBtn.Location = new System.Drawing.Point(394, 379);
-            this.chgPwdBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chgPwdBtn.Margin = new System.Windows.Forms.Padding(2);
             this.chgPwdBtn.Name = "chgPwdBtn";
             this.chgPwdBtn.Size = new System.Drawing.Size(171, 42);
             this.chgPwdBtn.TabIndex = 5;
@@ -291,7 +303,8 @@
             this.Controls.Add(this.changeInfo);
             this.Controls.Add(this.TitleContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "ChangePwd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Better Limited (Change Password)";

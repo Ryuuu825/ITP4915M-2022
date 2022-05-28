@@ -60,6 +60,7 @@ namespace TheBetterLimited.CustomizeControl
                 this.Invalidate();
             }
         }
+
         public TextAlignEnum TextAlign
         {
             get
@@ -149,6 +150,14 @@ namespace TheBetterLimited.CustomizeControl
             set
             {
                 passwordChar = value;
+                if (textBox1.Text.Equals(Placeholder))
+                {
+                    textBox1.UseSystemPasswordChar = false;
+                }
+                else
+                {
+                    textBox1.UseSystemPasswordChar = passwordChar;
+                }
                 this.Invalidate();
             }
         }

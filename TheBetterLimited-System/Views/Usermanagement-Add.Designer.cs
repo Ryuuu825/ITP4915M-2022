@@ -71,6 +71,7 @@
             this.FemaleGenderRadio = new System.Windows.Forms.RadioButton();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.UserInfoHeader = new System.Windows.Forms.Label();
+            this.showPwd = new System.Windows.Forms.PictureBox();
             this.Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserIconPic)).BeginInit();
             this.BottomBtn.SuspendLayout();
@@ -84,6 +85,7 @@
             this.UserInfo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.UserInfoHeaderContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.showPwd)).BeginInit();
             this.SuspendLayout();
             // 
             // Header
@@ -232,6 +234,7 @@
             // AccountInfoContainer
             // 
             this.AccountInfoContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.AccountInfoContainer.Controls.Add(this.showPwd);
             this.AccountInfoContainer.Controls.Add(this.DoubleCheckCorrect);
             this.AccountInfoContainer.Controls.Add(this.PwdCorrect);
             this.AccountInfoContainer.Controls.Add(this.panel2);
@@ -776,6 +779,18 @@
             this.UserInfoHeader.TabIndex = 6;
             this.UserInfoHeader.Text = "User Information";
             // 
+            // showPwd
+            // 
+            this.showPwd.BackgroundImage = global::TheBetterLimited.Properties.Resources.eye;
+            this.showPwd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.showPwd.Location = new System.Drawing.Point(437, 104);
+            this.showPwd.Margin = new System.Windows.Forms.Padding(2);
+            this.showPwd.Name = "showPwd";
+            this.showPwd.Size = new System.Drawing.Size(22, 24);
+            this.showPwd.TabIndex = 36;
+            this.showPwd.TabStop = false;
+            this.showPwd.Click += new System.EventHandler(this.showPwd_Click);
+            // 
             // Usermanagement_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -811,6 +826,7 @@
             this.panel1.PerformLayout();
             this.UserInfoHeaderContainer.ResumeLayout(false);
             this.UserInfoHeaderContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.showPwd)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -860,5 +876,6 @@
         private CustomizeControl.RoundPanel StrengthCircle1;
         private System.Windows.Forms.PictureBox PwdCorrect;
         private System.Windows.Forms.PictureBox DoubleCheckCorrect;
+        private System.Windows.Forms.PictureBox showPwd;
     }
 }
