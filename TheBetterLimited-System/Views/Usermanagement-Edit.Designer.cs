@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usermanagement_Edit));
             this.Header = new System.Windows.Forms.Panel();
             this.Info = new System.Windows.Forms.Label();
             this.Title = new System.Windows.Forms.Label();
@@ -39,12 +38,14 @@
             this.MainForm = new System.Windows.Forms.Panel();
             this.AccountInfo = new System.Windows.Forms.Panel();
             this.AccountInfoContainer = new System.Windows.Forms.Panel();
+            this.Remark = new System.Windows.Forms.Label();
+            this.RemarkTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.StatusRadioGroup = new System.Windows.Forms.Panel();
             this.LockStatusRadio = new System.Windows.Forms.RadioButton();
             this.NormalStatusRadio = new System.Windows.Forms.RadioButton();
             this.Status = new System.Windows.Forms.Label();
             this.Email = new System.Windows.Forms.Label();
-            this.EmainTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.EmailTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserName = new System.Windows.Forms.Label();
             this.UserID = new System.Windows.Forms.Label();
             this.UserIdTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
@@ -90,7 +91,7 @@
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Margin = new System.Windows.Forms.Padding(2);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(272, 557);
+            this.Header.Size = new System.Drawing.Size(272, 639);
             this.Header.TabIndex = 0;
             // 
             // Info
@@ -117,9 +118,9 @@
             // 
             // UserIconPic
             // 
-            this.UserIconPic.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.UserIconPic.BackColor = System.Drawing.Color.Transparent;
             this.UserIconPic.Cursor = System.Windows.Forms.Cursors.Default;
-            this.UserIconPic.Image = ((System.Drawing.Image)(resources.GetObject("UserIconPic.Image")));
+            this.UserIconPic.Image = global::TheBetterLimited.Properties.Resources._default;
             this.UserIconPic.Location = new System.Drawing.Point(21, 12);
             this.UserIconPic.Name = "UserIconPic";
             this.UserIconPic.Size = new System.Drawing.Size(230, 230);
@@ -134,7 +135,7 @@
             this.BottomBtn.Controls.Add(this.SaveBtn);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(10, 493);
+            this.BottomBtn.Location = new System.Drawing.Point(10, 575);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
@@ -160,6 +161,7 @@
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.TextColor = System.Drawing.Color.White;
             this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // SaveBtn
             // 
@@ -192,7 +194,7 @@
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
             this.MainForm.Padding = new System.Windows.Forms.Padding(10);
-            this.MainForm.Size = new System.Drawing.Size(512, 557);
+            this.MainForm.Size = new System.Drawing.Size(512, 639);
             this.MainForm.TabIndex = 2;
             // 
             // AccountInfo
@@ -204,16 +206,18 @@
             this.AccountInfo.Location = new System.Drawing.Point(10, 271);
             this.AccountInfo.Name = "AccountInfo";
             this.AccountInfo.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.AccountInfo.Size = new System.Drawing.Size(492, 276);
+            this.AccountInfo.Size = new System.Drawing.Size(492, 358);
             this.AccountInfo.TabIndex = 25;
             // 
             // AccountInfoContainer
             // 
             this.AccountInfoContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.AccountInfoContainer.Controls.Add(this.Remark);
+            this.AccountInfoContainer.Controls.Add(this.RemarkTxt);
             this.AccountInfoContainer.Controls.Add(this.StatusRadioGroup);
             this.AccountInfoContainer.Controls.Add(this.Status);
             this.AccountInfoContainer.Controls.Add(this.Email);
-            this.AccountInfoContainer.Controls.Add(this.EmainTxt);
+            this.AccountInfoContainer.Controls.Add(this.EmailTxt);
             this.AccountInfoContainer.Controls.Add(this.UserName);
             this.AccountInfoContainer.Controls.Add(this.UserID);
             this.AccountInfoContainer.Controls.Add(this.UserIdTxt);
@@ -221,8 +225,45 @@
             this.AccountInfoContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AccountInfoContainer.Location = new System.Drawing.Point(0, 50);
             this.AccountInfoContainer.Name = "AccountInfoContainer";
-            this.AccountInfoContainer.Size = new System.Drawing.Size(492, 226);
+            this.AccountInfoContainer.Size = new System.Drawing.Size(492, 308);
             this.AccountInfoContainer.TabIndex = 25;
+            // 
+            // Remark
+            // 
+            this.Remark.AutoSize = true;
+            this.Remark.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Remark.Location = new System.Drawing.Point(45, 178);
+            this.Remark.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Remark.Name = "Remark";
+            this.Remark.Size = new System.Drawing.Size(64, 21);
+            this.Remark.TabIndex = 31;
+            this.Remark.Text = "Remark";
+            // 
+            // RemarkTxt
+            // 
+            this.RemarkTxt.BackColor = System.Drawing.Color.White;
+            this.RemarkTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.RemarkTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.RemarkTxt.BorderRadius = 10;
+            this.RemarkTxt.BorderSize = 1;
+            this.RemarkTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemarkTxt.ForeColor = System.Drawing.Color.Black;
+            this.RemarkTxt.IsError = false;
+            this.RemarkTxt.Location = new System.Drawing.Point(166, 171);
+            this.RemarkTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.RemarkTxt.MaxLength = 20;
+            this.RemarkTxt.Multiline = true;
+            this.RemarkTxt.Name = "RemarkTxt";
+            this.RemarkTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.RemarkTxt.PasswordChar = false;
+            this.RemarkTxt.Placeholder = "Please input remark";
+            this.RemarkTxt.ReadOnly = false;
+            this.RemarkTxt.Size = new System.Drawing.Size(308, 75);
+            this.RemarkTxt.TabIndex = 32;
+            this.RemarkTxt.TbBackColor = System.Drawing.SystemColors.Window;
+            this.RemarkTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.RemarkTxt.Texts = "";
+            this.RemarkTxt.UnderlinedStyle = false;
             // 
             // StatusRadioGroup
             // 
@@ -282,28 +323,31 @@
             this.Email.Text = "Email Address*";
             this.Email.Click += new System.EventHandler(this.Email_Click);
             // 
-            // EmainTxt
+            // EmailTxt
             // 
-            this.EmainTxt.BackColor = System.Drawing.Color.White;
-            this.EmainTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.EmainTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.EmainTxt.BorderRadius = 10;
-            this.EmainTxt.BorderSize = 1;
-            this.EmainTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EmainTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.EmainTxt.Location = new System.Drawing.Point(166, 97);
-            this.EmainTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.EmainTxt.MaxLength = 20;
-            this.EmainTxt.Multiline = true;
-            this.EmainTxt.Name = "EmainTxt";
-            this.EmainTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.EmainTxt.PasswordChar = false;
-            this.EmainTxt.ReadOnly = false;
-            this.EmainTxt.Size = new System.Drawing.Size(308, 35);
-            this.EmainTxt.TabIndex = 29;
-            this.EmainTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.EmainTxt.Texts = "Please input email address";
-            this.EmainTxt.UnderlinedStyle = false;
+            this.EmailTxt.BackColor = System.Drawing.Color.White;
+            this.EmailTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.EmailTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.EmailTxt.BorderRadius = 10;
+            this.EmailTxt.BorderSize = 1;
+            this.EmailTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailTxt.ForeColor = System.Drawing.Color.Black;
+            this.EmailTxt.IsError = false;
+            this.EmailTxt.Location = new System.Drawing.Point(166, 97);
+            this.EmailTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.EmailTxt.MaxLength = 20;
+            this.EmailTxt.Multiline = false;
+            this.EmailTxt.Name = "EmailTxt";
+            this.EmailTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.EmailTxt.PasswordChar = false;
+            this.EmailTxt.Placeholder = "Please input email address";
+            this.EmailTxt.ReadOnly = false;
+            this.EmailTxt.Size = new System.Drawing.Size(308, 38);
+            this.EmailTxt.TabIndex = 29;
+            this.EmailTxt.TbBackColor = System.Drawing.SystemColors.Window;
+            this.EmailTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.EmailTxt.Texts = "";
+            this.EmailTxt.UnderlinedStyle = false;
             // 
             // UserName
             // 
@@ -330,7 +374,7 @@
             // 
             // UserIdTxt
             // 
-            this.UserIdTxt.BackColor = System.Drawing.Color.White;
+            this.UserIdTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.UserIdTxt.BorderColor = System.Drawing.Color.LightGray;
             this.UserIdTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.UserIdTxt.BorderRadius = 10;
@@ -338,18 +382,21 @@
             this.UserIdTxt.Enabled = false;
             this.UserIdTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserIdTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.UserIdTxt.IsError = false;
             this.UserIdTxt.Location = new System.Drawing.Point(167, 11);
             this.UserIdTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.UserIdTxt.MaxLength = 20;
             this.UserIdTxt.Multiline = true;
             this.UserIdTxt.Name = "UserIdTxt";
             this.UserIdTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.UserIdTxt.PasswordChar = true;
+            this.UserIdTxt.PasswordChar = false;
+            this.UserIdTxt.Placeholder = "Cannot be inputted";
             this.UserIdTxt.ReadOnly = false;
             this.UserIdTxt.Size = new System.Drawing.Size(308, 35);
             this.UserIdTxt.TabIndex = 23;
-            this.UserIdTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.UserIdTxt.Texts = "";
+            this.UserIdTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
+            this.UserIdTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
+            this.UserIdTxt.Texts = "Cannot be inputted";
             this.UserIdTxt.UnderlinedStyle = false;
             // 
             // UserNameTxt
@@ -360,19 +407,22 @@
             this.UserNameTxt.BorderRadius = 10;
             this.UserNameTxt.BorderSize = 1;
             this.UserNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserNameTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.UserNameTxt.ForeColor = System.Drawing.Color.Black;
+            this.UserNameTxt.IsError = false;
             this.UserNameTxt.Location = new System.Drawing.Point(167, 54);
             this.UserNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.UserNameTxt.MaxLength = 20;
-            this.UserNameTxt.Multiline = true;
+            this.UserNameTxt.Multiline = false;
             this.UserNameTxt.Name = "UserNameTxt";
             this.UserNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.UserNameTxt.PasswordChar = false;
+            this.UserNameTxt.Placeholder = "Please input user name";
             this.UserNameTxt.ReadOnly = false;
-            this.UserNameTxt.Size = new System.Drawing.Size(308, 35);
+            this.UserNameTxt.Size = new System.Drawing.Size(308, 38);
             this.UserNameTxt.TabIndex = 22;
             this.UserNameTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.UserNameTxt.Texts = "Please input user name";
+            this.UserNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.UserNameTxt.Texts = "";
             this.UserNameTxt.UnderlinedStyle = false;
             this.UserNameTxt.Enter += new System.EventHandler(this.UserNameTxt_Enter);
             // 
@@ -460,7 +510,8 @@
             this.StaffIDTxt.BorderRadius = 10;
             this.StaffIDTxt.BorderSize = 1;
             this.StaffIDTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffIDTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.StaffIDTxt.ForeColor = System.Drawing.Color.Black;
+            this.StaffIDTxt.IsError = false;
             this.StaffIDTxt.Location = new System.Drawing.Point(168, 11);
             this.StaffIDTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.StaffIDTxt.MaxLength = 5;
@@ -468,14 +519,14 @@
             this.StaffIDTxt.Name = "StaffIDTxt";
             this.StaffIDTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.StaffIDTxt.PasswordChar = false;
+            this.StaffIDTxt.Placeholder = "Please input staff ID";
             this.StaffIDTxt.ReadOnly = false;
             this.StaffIDTxt.Size = new System.Drawing.Size(274, 35);
             this.StaffIDTxt.TabIndex = 24;
             this.StaffIDTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.StaffIDTxt.Texts = "Please input staff ID";
+            this.StaffIDTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.StaffIDTxt.Texts = "";
             this.StaffIDTxt.UnderlinedStyle = false;
-            this.StaffIDTxt.Enter += new System.EventHandler(this.StaffIDTxt_Enter);
-            this.StaffIDTxt.Leave += new System.EventHandler(this.StaffIDTxt_Leave);
             // 
             // label3
             // 
@@ -513,7 +564,7 @@
             // 
             // PositionTxt
             // 
-            this.PositionTxt.BackColor = System.Drawing.Color.White;
+            this.PositionTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PositionTxt.BorderColor = System.Drawing.Color.LightGray;
             this.PositionTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.PositionTxt.BorderRadius = 10;
@@ -521,6 +572,7 @@
             this.PositionTxt.Enabled = false;
             this.PositionTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PositionTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.PositionTxt.IsError = false;
             this.PositionTxt.Location = new System.Drawing.Point(168, 140);
             this.PositionTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PositionTxt.MaxLength = 32767;
@@ -528,11 +580,13 @@
             this.PositionTxt.Name = "PositionTxt";
             this.PositionTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.PositionTxt.PasswordChar = false;
+            this.PositionTxt.Placeholder = "Automatic Data Entry";
             this.PositionTxt.ReadOnly = false;
             this.PositionTxt.Size = new System.Drawing.Size(307, 35);
             this.PositionTxt.TabIndex = 26;
-            this.PositionTxt.TbBackColor = System.Drawing.Color.White;
-            this.PositionTxt.Texts = "Cannot be inputted";
+            this.PositionTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
+            this.PositionTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
+            this.PositionTxt.Texts = "Automatic Data Entry";
             this.PositionTxt.UnderlinedStyle = false;
             // 
             // position
@@ -548,7 +602,7 @@
             // 
             // DeptTxt
             // 
-            this.DeptTxt.BackColor = System.Drawing.Color.White;
+            this.DeptTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.DeptTxt.BorderColor = System.Drawing.Color.LightGray;
             this.DeptTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.DeptTxt.BorderRadius = 10;
@@ -556,6 +610,7 @@
             this.DeptTxt.Enabled = false;
             this.DeptTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeptTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.DeptTxt.IsError = false;
             this.DeptTxt.Location = new System.Drawing.Point(168, 97);
             this.DeptTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.DeptTxt.MaxLength = 32767;
@@ -563,11 +618,13 @@
             this.DeptTxt.Name = "DeptTxt";
             this.DeptTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.DeptTxt.PasswordChar = false;
+            this.DeptTxt.Placeholder = "Automatic Data Entry";
             this.DeptTxt.ReadOnly = false;
             this.DeptTxt.Size = new System.Drawing.Size(307, 35);
             this.DeptTxt.TabIndex = 25;
-            this.DeptTxt.TbBackColor = System.Drawing.Color.White;
-            this.DeptTxt.Texts = "Cannot be inputted";
+            this.DeptTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
+            this.DeptTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
+            this.DeptTxt.Texts = "Automatic Data Entry";
             this.DeptTxt.UnderlinedStyle = false;
             // 
             // gender
@@ -583,7 +640,7 @@
             // 
             // StaffNameTxt
             // 
-            this.StaffNameTxt.BackColor = System.Drawing.Color.White;
+            this.StaffNameTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.StaffNameTxt.BorderColor = System.Drawing.Color.LightGray;
             this.StaffNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.StaffNameTxt.BorderRadius = 10;
@@ -591,6 +648,7 @@
             this.StaffNameTxt.Enabled = false;
             this.StaffNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffNameTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.StaffNameTxt.IsError = false;
             this.StaffNameTxt.Location = new System.Drawing.Point(168, 54);
             this.StaffNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.StaffNameTxt.MaxLength = 32767;
@@ -598,11 +656,13 @@
             this.StaffNameTxt.Name = "StaffNameTxt";
             this.StaffNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.StaffNameTxt.PasswordChar = false;
+            this.StaffNameTxt.Placeholder = "Automatic Data Entry";
             this.StaffNameTxt.ReadOnly = true;
             this.StaffNameTxt.Size = new System.Drawing.Size(307, 35);
             this.StaffNameTxt.TabIndex = 22;
-            this.StaffNameTxt.TbBackColor = System.Drawing.Color.White;
-            this.StaffNameTxt.Texts = "Cannot be inputted";
+            this.StaffNameTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
+            this.StaffNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
+            this.StaffNameTxt.Texts = "Automatic Data Entry";
             this.StaffNameTxt.UnderlinedStyle = false;
             // 
             // MaleGenderRadio
@@ -659,7 +719,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(784, 557);
+            this.ClientSize = new System.Drawing.Size(784, 639);
             this.Controls.Add(this.MainForm);
             this.Controls.Add(this.Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -670,7 +730,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit User";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.Usermanagement_Edit_Load);
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
@@ -726,12 +785,14 @@
         private CustomizeControl.RoundButton SaveBtn;
         private CustomizeControl.RoundButton SearchStaffBtn;
         private System.Windows.Forms.Label Email;
-        private CustomizeControl.CustomizeTextbox EmainTxt;
+        private CustomizeControl.CustomizeTextbox EmailTxt;
         private System.Windows.Forms.Label UserName;
         private CustomizeControl.CustomizeTextbox UserNameTxt;
         private System.Windows.Forms.RadioButton NormalStatusRadio;
         private System.Windows.Forms.RadioButton LockStatusRadio;
         private System.Windows.Forms.Label Status;
         private System.Windows.Forms.Panel StatusRadioGroup;
+        private System.Windows.Forms.Label Remark;
+        private CustomizeControl.CustomizeTextbox RemarkTxt;
     }
 }

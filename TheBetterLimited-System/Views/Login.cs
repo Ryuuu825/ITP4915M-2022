@@ -58,7 +58,9 @@ namespace TheBetterLimited.Views
             if (result.Equals("ok"))
             {
                 this.Dispose();
-                var th = new Thread(() => Application.Run(new Main()));
+                Main main = new Main();
+                main.TopLevel = true;
+                var th = new Thread(() => Application.Run(main));
                 th.SetApartmentState(ApartmentState.STA);
                 th.Start();
             }

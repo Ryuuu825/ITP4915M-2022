@@ -35,6 +35,7 @@
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
             this.textBox1.Location = new System.Drawing.Point(10, 7);
             this.textBox1.Margin = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.textBox1.MaxLength = 30;

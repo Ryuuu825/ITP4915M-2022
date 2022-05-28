@@ -24,7 +24,7 @@ namespace TheBetterLimited.Views
         private RestResponse result = new RestResponse();
         private UserController user = new UserController();
         private bool isUpload = false;
-        private Bitmap icon = null;
+        private Bitmap icon = Properties.Resources._default;
 
         public Usermanagement_Add()
         {
@@ -49,47 +49,29 @@ namespace TheBetterLimited.Views
 
         private void UserIconPic_MouseLeave(object sender, EventArgs e)
         {
-            if (isUpload)
-            {
-                UserIconPic.Image = icon;
-
-            }
-            else
-            {
-                UserIconPic.Image = Properties.Resources.avatar;
-            }
-        }
-
-        private void InitializeUserInfoForm()
-        {
-
+            UserIconPic.Image = icon;
         }
 
         private void StaffIDTxt_Enter(object sender, EventArgs e)
         {
-            StaffIDTxt.IsError = false;
-            StaffIDTxt.ForeColor = Color.Black;
-            StaffIDTxt.Texts = StaffIDTxt.Texts.Equals("Please input staff ID") ? "" : StaffIDTxt.Texts;
-        }
-
-        private void StaffIDTxt_Leave(object sender, EventArgs e)
-        {
-            StaffIDTxt.Texts = StaffIDTxt.Texts.Equals("") ? "Please input staff ID" : StaffIDTxt.Texts;
-            StaffIDTxt.ForeColor = StaffIDTxt.Texts.Equals("Please input staff ID") ? Color.LightGray : Color.Black;
+            /*StaffIDTxt.IsError = false;*/
         }
 
         private void SearchStaffBtn_Click(object sender, EventArgs e)
         {
-            if (StaffIDTxt.Texts.Substring(0, 1).Equals("S") && StaffIDTxt.Texts.Substring(1, 4).All(char.IsDigit))
+            if (StaffIDTxt.Texts.StartsWith("S") && StaffIDTxt.Texts.Length == StaffIDTxt.MaxLength)
             {
-                StaffIDTxt.IsError = false;
-                GetStaff();
+                if (StaffIDTxt.Texts.Substring(1, 4).All(char.IsDigit))
+                {
+                    /*StaffIDTxt.IsError = false;*/
+                    GetStaff();
+                }
             }
             else
             {
                 StaffIDTxt.Focus();
-                StaffIDTxt.IsError = true;
                 StaffIDTxt.Texts = "";
+                StaffIDTxt.IsError = true;
                 MessageBox.Show("Staff ID should start with \"S\" and follow with 4 digits! \n e.g. S0001 ");
             }
         }
@@ -97,7 +79,15 @@ namespace TheBetterLimited.Views
         private void GetStaff()
         {
             result = sc.GetStaffById(StaffIDTxt.Texts);
-            var staff = JObject.Parse(result.Content);
+            JObject staff = null;
+            try
+            {
+                staff = JObject.Parse(result.Content);
+            }catch (Exception ex)
+            {
+                return;
+                MessageBox.Show("Not found the staff by " + StaffIDTxt.Texts);
+            }
             if (staff != null)
             {
                 StaffNameTxt.Texts = staff["FirstName"].ToString() + " " + staff["LastName"].ToString();
@@ -114,14 +104,14 @@ namespace TheBetterLimited.Views
             }
             result = dc.GetDepartmentById(staff["_departmentId"].ToString());
             var department = JObject.Parse(result.Content);
-            if (staff != null)
+            if (department != null)
             {
                 DeptTxt.Texts = department["Name"].ToString();
             }
 
             result = pc.GetPositionById(staff["_positionId"].ToString());
             var position = JObject.Parse(result.Content);
-            if (staff != null)
+            if (position != null)
             {
                 PositionTxt.Texts = position["jobTitle"].ToString();
             }
@@ -132,21 +122,20 @@ namespace TheBetterLimited.Views
             //check 
             UpdatePwdStrength();
 
-            if (StaffIDTxt.Texts.Equals("Please input staff ID"))
+            if (StaffIDTxt.Texts.Equals(StaffIDTxt.Placeholder))
             {
-                StaffIDTxt.BorderColor = Color.Red;
+                StaffIDTxt.IsError = true;
                 return;
             }
 
-            StaffIDTxt.BorderColor = Color.LightGray;
+            StaffIDTxt.IsError = false;
 
-            if (userNameTxt.Texts.Equals("Please input user name"))
+            if (userNameTxt.Texts.Equals(userNameTxt.Placeholder))
             {
-                userNameTxt.BorderColor = Color.Red;
+                userNameTxt.IsError = true;
                 return;
-
             }
-            userNameTxt.BorderColor = Color.LightGray;
+            userNameTxt.IsError = false;
             Console.WriteLine(TestPWStrength(this.pwdTxt.Texts) == 0 || !pwdTxt.Texts.Equals(pwdTxt2));
             Console.WriteLine(TestPWStrength(this.pwdTxt.Texts) == 0);
             Console.WriteLine(TestPWStrength(this.pwdTxt.Texts));
@@ -155,36 +144,36 @@ namespace TheBetterLimited.Views
 
             if (TestPWStrength(this.pwdTxt.Texts) == 0 || !pwdTxt.Texts.Equals(pwdTxt2.Texts))
             {
-                pwdTxt.BorderColor = Color.Red;
-                pwdTxt2.BorderColor = Color.Red;
+                pwdTxt.IsError = true;
+                pwdTxt.Texts = "";
                 return;
             }
 
 
-            if (pwdTxt.Texts.Equals("Please input password"))
+            if (pwdTxt.Texts.Equals(pwdTxt.Placeholder))
             {
-                pwdTxt.BorderColor = Color.Red;
+                pwdTxt.IsError = true;
                 return;
             }
 
-            pwdTxt.BorderColor = Color.LightGray;
+            pwdTxt.IsError = false;
 
 
 
-            if (pwdTxt2.Texts.Equals("Please input password again"))
+            if (pwdTxt2.Texts.Equals(pwdTxt2.Placeholder))
             {
-                pwdTxt2.BorderColor = Color.Red;
+                pwdTxt2.IsError = true;
                 return;
             }
-            pwdTxt2.BorderColor = Color.LightGray;
+            pwdTxt2.IsError = false;
 
 
-            if (emailTxt.Texts.Equals("Please input email address"))
+            if (emailTxt.Texts.Equals(emailTxt.Placeholder))
             {
-                emailTxt.BorderColor = Color.Red;
+                emailTxt.IsError = true;
                 return;
             }
-            emailTxt.BorderColor = Color.LightGray;
+            emailTxt.IsError = false;
 
 
 
@@ -201,23 +190,24 @@ namespace TheBetterLimited.Views
              */
             try
             {
+                
                 var response = user.AddAccount(
                     new
                     {
-                        Id = "A" + Utils.RandomId.GenerateID(4),
+                        Id = "A" + new Random().Next(10000),
                         userName = userNameTxt.Texts,
                         Password = pwdTxt.Texts,
                         EmailAddress = emailTxt.Texts,
                         Status = "N",
                         _StaffId = StaffIDTxt.Texts,
                         Remarks = "Created at" + DateTime.Now
-                    });
+                    }) ;
 
                 if (isUpload)
                 {
 
                     var uploadIconRes = user.UploadUserIcon(
-                        (byte[])(new ImageConverter().ConvertTo(this.UserIconPic.Image, typeof(byte[])))
+                        (byte[])(new ImageConverter().ConvertTo(this.UserIconPic.Image, typeof(byte[]))), (StaffIDTxt.Texts)
                     );
 
                 }
@@ -226,7 +216,6 @@ namespace TheBetterLimited.Views
                     this.Close();
                     this.Dispose();
                     this.OnExit.Invoke();
-
                 }
                 else
                 {
@@ -244,13 +233,12 @@ namespace TheBetterLimited.Views
 
         }
 
-
         private void UserIconPic_Click(object sender, EventArgs e)
         {
             // open file dialog   
             OpenFileDialog open = new OpenFileDialog();
             // image filters  
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.bmp; *.png)|*.jpg; *.jpeg; *.bmp; *.png";
             if (open.ShowDialog() == DialogResult.OK)
             {
                 icon = new Bitmap(open.FileName);
@@ -260,62 +248,29 @@ namespace TheBetterLimited.Views
                 string imgName = open.FileName;
                 isUpload = true;
             }
-
         }
 
         private void userNameTxt_Click(object sender, EventArgs e)
         {
             userNameTxt.IsError = false;
-
         }
-
 
         // leave
-        private void userNameTxt__Leave(object sender, EventArgs e)
-        {
-            //userNameTxt.ForeColor = Color.LightGray;
-            userNameTxt.Texts = userNameTxt.Texts.Equals("") ? "Please input user name" : userNameTxt.Texts;
-            userNameTxt.ForeColor = userNameTxt.Texts.Equals("Please input user name") ? Color.LightGray : Color.Black;
-            pwdTxt.ReadOnly = userNameTxt.Texts.Equals("Please input user name") ? true : false;
-        }
         private void pwdTxt_Enter(object sender, EventArgs e)
         {
             pwdTxt.IsError = false;
-            pwdTxt2.IsError = false;
-            pwdTxt.ForeColor = Color.Black;
-            pwdTxt.Texts = pwdTxt.Texts.Equals("Please input password") ? "" : pwdTxt.Texts;
-            pwdTxt.PasswordChar = true;
-        }
-
-        private void pwdTxt_Leave(object sender, EventArgs e)
-        {
-            pwdTxt.Texts = pwdTxt.Texts.Equals("") ? "Please input password" : pwdTxt.Texts;
-            pwdTxt.PasswordChar = pwdTxt.Texts.Equals("Please input password") ? false : true;
-            pwdTxt.ForeColor = pwdTxt.Texts.Equals("Please input password") ? Color.LightGray : Color.Black;
         }
 
         private void pwdTxt2_Leave(object sender, EventArgs e)
         {
-            pwdTxt2.Texts = pwdTxt2.Texts.Equals("") ? "Please input password again" : pwdTxt2.Texts;
-            pwdTxt2.PasswordChar = pwdTxt2.Texts.Equals("Please input password again") ? false : true;
-            pwdTxt2.ForeColor = pwdTxt2.Texts.Equals("Please input password again") ? Color.LightGray : Color.Black;
             DoubleCheckCorrect.Visible = pwdTxt2.Texts.Equals(pwdTxt.Texts) ? true : false;
-            pwdTxt2.IsError = pwdTxt2.Texts.Equals(pwdTxt.Texts) 
-                            && !pwdTxt2.Texts.Equals("Please input password again") ? 
-                            false : true;
-        }
-
-        private void pwdTxt2__TextChanged(object sender, EventArgs e)
-        {
-            UpdatePwdStrength();
         }
 
         private void UpdatePwdStrength()
         {
             DoubleCheckCorrect.Visible = false;
             PwdCorrect.Visible = false;
-            pwdTxt2.ReadOnly = true;
-            if (pwdTxt.Texts.Equals("Please input password"))
+            if (pwdTxt.Texts.Equals(pwdTxt.Placeholder))
             {
                 return;
             }
@@ -355,7 +310,6 @@ namespace TheBetterLimited.Views
 
         private short TestPWStrength(string pwd)
         {
-
             short mark = 0;
             if (pwd.Length == 0)
             {
@@ -410,6 +364,7 @@ namespace TheBetterLimited.Views
 
         private void pwdTxt__TextChanged(object sender, EventArgs e)
         {
+            pwdTxt.IsError = false;
             UpdatePwdStrength();
         }
 
@@ -423,9 +378,6 @@ namespace TheBetterLimited.Views
         private void pwdTxt2_Enter(object sender, EventArgs e)
         {
             pwdTxt2.IsError = false;
-            pwdTxt2.ForeColor = Color.Black;
-            pwdTxt2.Texts = pwdTxt2.Texts.Equals("Please input password again") ? "" : pwdTxt2.Texts;
-            pwdTxt2.PasswordChar = true;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -453,18 +405,6 @@ namespace TheBetterLimited.Views
             emailTxt.Focus();
         }
 
-        private void emailTxt_Enter(object sender, EventArgs e)
-        {
-            emailTxt.ForeColor = Color.Black;
-            emailTxt.Texts = emailTxt.Texts.Equals("Please input email address") ? "" : emailTxt.Texts;
-        }
-
-        private void emailTxt_Leave(object sender, EventArgs e)
-        {
-            emailTxt.ForeColor = Color.LightGray;
-            emailTxt.Texts = emailTxt.Texts.Equals("") ? "Please input email address" : emailTxt.Texts;
-        }
-
         private void StaffIDTxt_Click(object sender, EventArgs e)
         {
             StaffIDTxt.IsError = false;
@@ -473,23 +413,6 @@ namespace TheBetterLimited.Views
         private void userNameTxt_Enter(object sender, EventArgs e)
         {
             userNameTxt.IsError = false;
-            userNameTxt.ForeColor = Color.Black;
-            userNameTxt.Texts = userNameTxt.Texts.Equals("Please input user name") ? "" : userNameTxt.Texts;
-        }
-
-        private void CheckStep()
-        {
-            if (pwdTxt2.ReadOnly == true)
-            {
-                if (pwdTxt.ReadOnly == true)
-                {
-                    userNameTxt.Focus();
-                    userNameTxt.IsError = true;
-                    return;
-                }
-                pwdTxt.Focus();
-                pwdTxt.IsError = true;
-            }
         }
 
         private void pwdTxt_Click(object sender, EventArgs e)
@@ -502,5 +425,14 @@ namespace TheBetterLimited.Views
             pwdTxt2.IsError = false;
         }
 
+        private void StaffIDTxt__TextChanged(object sender, EventArgs e)
+        {
+            StaffIDTxt.IsError = false;
+        }
+
+        private void StaffIDTxt_Leave(object sender, EventArgs e)
+        {
+
+        }
     }
 }

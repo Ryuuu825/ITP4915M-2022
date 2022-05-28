@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usermanagement_Add));
             this.Header = new System.Windows.Forms.Panel();
             this.Info = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.Label();
@@ -136,9 +135,9 @@
             // 
             // UserIconPic
             // 
-            this.UserIconPic.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.UserIconPic.BackColor = System.Drawing.Color.Transparent;
             this.UserIconPic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UserIconPic.Image = ((System.Drawing.Image)(resources.GetObject("UserIconPic.Image")));
+            this.UserIconPic.Image = global::TheBetterLimited.Properties.Resources._default;
             this.UserIconPic.Location = new System.Drawing.Point(21, 12);
             this.UserIconPic.Name = "UserIconPic";
             this.UserIconPic.Size = new System.Drawing.Size(230, 230);
@@ -198,7 +197,7 @@
             this.CreateUser.Location = new System.Drawing.Point(346, 6);
             this.CreateUser.Name = "CreateUser";
             this.CreateUser.Size = new System.Drawing.Size(128, 40);
-            this.CreateUser.TabIndex = 0;
+            this.CreateUser.TabIndex = 6;
             this.CreateUser.Text = "Create User";
             this.CreateUser.TextColor = System.Drawing.Color.White;
             this.CreateUser.UseVisualStyleBackColor = false;
@@ -342,23 +341,23 @@
             this.emailTxt.BorderRadius = 10;
             this.emailTxt.BorderSize = 1;
             this.emailTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.emailTxt.ForeColor = System.Drawing.Color.Black;
             this.emailTxt.IsError = false;
             this.emailTxt.Location = new System.Drawing.Point(159, 140);
             this.emailTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.emailTxt.MaxLength = 20;
-            this.emailTxt.Multiline = true;
+            this.emailTxt.Multiline = false;
             this.emailTxt.Name = "emailTxt";
             this.emailTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.emailTxt.PasswordChar = false;
+            this.emailTxt.Placeholder = "Please enter email address";
             this.emailTxt.ReadOnly = false;
-            this.emailTxt.Size = new System.Drawing.Size(308, 35);
-            this.emailTxt.TabIndex = 29;
+            this.emailTxt.Size = new System.Drawing.Size(308, 38);
+            this.emailTxt.TabIndex = 5;
             this.emailTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.emailTxt.Texts = "Please input email address";
+            this.emailTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.emailTxt.Texts = "Please enter email address";
             this.emailTxt.UnderlinedStyle = false;
-            this.emailTxt.Enter += new System.EventHandler(this.emailTxt_Enter);
-            this.emailTxt.Leave += new System.EventHandler(this.emailTxt_Leave);
             // 
             // label5
             // 
@@ -380,21 +379,24 @@
             this.pwdTxt2.BorderRadius = 10;
             this.pwdTxt2.BorderSize = 1;
             this.pwdTxt2.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdTxt2.ForeColor = System.Drawing.Color.LightGray;
+            this.pwdTxt2.ForeColor = System.Drawing.Color.Black;
             this.pwdTxt2.IsError = false;
             this.pwdTxt2.Location = new System.Drawing.Point(159, 97);
             this.pwdTxt2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pwdTxt2.MaxLength = 20;
-            this.pwdTxt2.Multiline = true;
+            this.pwdTxt2.Multiline = false;
             this.pwdTxt2.Name = "pwdTxt2";
             this.pwdTxt2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.pwdTxt2.PasswordChar = false;
-            this.pwdTxt2.ReadOnly = true;
-            this.pwdTxt2.Size = new System.Drawing.Size(308, 35);
-            this.pwdTxt2.TabIndex = 26;
-            this.pwdTxt2.TbBackColor = System.Drawing.SystemColors.Window;
-            this.pwdTxt2.Texts = "Please input password again";
+            this.pwdTxt2.PasswordChar = true;
+            this.pwdTxt2.Placeholder = "Please enter password again";
+            this.pwdTxt2.ReadOnly = false;
+            this.pwdTxt2.Size = new System.Drawing.Size(308, 38);
+            this.pwdTxt2.TabIndex = 4;
+            this.pwdTxt2.TbBackColor = System.Drawing.Color.White;
+            this.pwdTxt2.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.pwdTxt2.Texts = "Please enter password again";
             this.pwdTxt2.UnderlinedStyle = false;
+            this.pwdTxt2._Leave += new System.EventHandler(this.pwdTxt2_Leave);
             this.pwdTxt2.Click += new System.EventHandler(this.pwdTxt2_Click);
             this.pwdTxt2.Enter += new System.EventHandler(this.pwdTxt2_Enter);
             this.pwdTxt2.Leave += new System.EventHandler(this.pwdTxt2_Leave);
@@ -431,24 +433,25 @@
             this.userNameTxt.BorderRadius = 10;
             this.userNameTxt.BorderSize = 1;
             this.userNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userNameTxt.ForeColor = System.Drawing.Color.Gainsboro;
+            this.userNameTxt.ForeColor = System.Drawing.Color.Black;
             this.userNameTxt.IsError = false;
             this.userNameTxt.Location = new System.Drawing.Point(160, 11);
             this.userNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.userNameTxt.MaxLength = 20;
-            this.userNameTxt.Multiline = true;
+            this.userNameTxt.Multiline = false;
             this.userNameTxt.Name = "userNameTxt";
             this.userNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.userNameTxt.PasswordChar = false;
+            this.userNameTxt.Placeholder = "Please enter user name";
             this.userNameTxt.ReadOnly = false;
-            this.userNameTxt.Size = new System.Drawing.Size(308, 35);
-            this.userNameTxt.TabIndex = 23;
+            this.userNameTxt.Size = new System.Drawing.Size(308, 38);
+            this.userNameTxt.TabIndex = 2;
             this.userNameTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.userNameTxt.Texts = "Please input user name";
+            this.userNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.userNameTxt.Texts = "Please enter user name";
             this.userNameTxt.UnderlinedStyle = false;
             this.userNameTxt.Click += new System.EventHandler(this.userNameTxt_Click);
             this.userNameTxt.Enter += new System.EventHandler(this.userNameTxt_Enter);
-            this.userNameTxt.Leave += new System.EventHandler(this.userNameTxt__Leave);
             // 
             // pwdTxt
             // 
@@ -458,25 +461,27 @@
             this.pwdTxt.BorderRadius = 10;
             this.pwdTxt.BorderSize = 1;
             this.pwdTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.pwdTxt.ForeColor = System.Drawing.Color.Black;
             this.pwdTxt.IsError = false;
             this.pwdTxt.Location = new System.Drawing.Point(160, 54);
             this.pwdTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pwdTxt.MaxLength = 20;
-            this.pwdTxt.Multiline = true;
+            this.pwdTxt.Multiline = false;
             this.pwdTxt.Name = "pwdTxt";
             this.pwdTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.pwdTxt.PasswordChar = false;
-            this.pwdTxt.ReadOnly = true;
-            this.pwdTxt.Size = new System.Drawing.Size(308, 35);
-            this.pwdTxt.TabIndex = 22;
+            this.pwdTxt.PasswordChar = true;
+            this.pwdTxt.Placeholder = "Please enter password";
+            this.pwdTxt.ReadOnly = false;
+            this.pwdTxt.Size = new System.Drawing.Size(308, 38);
+            this.pwdTxt.TabIndex = 3;
             this.pwdTxt.TbBackColor = System.Drawing.Color.White;
-            this.pwdTxt.Texts = "Please input password";
+            this.pwdTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.pwdTxt.Texts = "Please enter password";
             this.pwdTxt.UnderlinedStyle = false;
             this.pwdTxt._TextChanged += new System.EventHandler(this.pwdTxt__TextChanged);
+            this.pwdTxt._Enter += new System.EventHandler(this.pwdTxt_Enter);
             this.pwdTxt.Click += new System.EventHandler(this.pwdTxt_Click);
             this.pwdTxt.Enter += new System.EventHandler(this.pwdTxt_Enter);
-            this.pwdTxt.Leave += new System.EventHandler(this.pwdTxt_Leave);
             // 
             // AccountHeaderContainer
             // 
@@ -539,6 +544,7 @@
             this.SearchStaffBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.SearchStaffBtn.BorderRadius = 0;
             this.SearchStaffBtn.BorderSize = 0;
+            this.SearchStaffBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SearchStaffBtn.FlatAppearance.BorderSize = 0;
             this.SearchStaffBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.SearchStaffBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -562,21 +568,24 @@
             this.StaffIDTxt.BorderRadius = 10;
             this.StaffIDTxt.BorderSize = 1;
             this.StaffIDTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffIDTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.StaffIDTxt.ForeColor = System.Drawing.Color.Black;
             this.StaffIDTxt.IsError = false;
             this.StaffIDTxt.Location = new System.Drawing.Point(161, 11);
             this.StaffIDTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.StaffIDTxt.MaxLength = 5;
-            this.StaffIDTxt.Multiline = true;
+            this.StaffIDTxt.Multiline = false;
             this.StaffIDTxt.Name = "StaffIDTxt";
             this.StaffIDTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.StaffIDTxt.PasswordChar = false;
+            this.StaffIDTxt.Placeholder = "Please enter staff ID";
             this.StaffIDTxt.ReadOnly = false;
-            this.StaffIDTxt.Size = new System.Drawing.Size(274, 35);
-            this.StaffIDTxt.TabIndex = 24;
+            this.StaffIDTxt.Size = new System.Drawing.Size(274, 38);
+            this.StaffIDTxt.TabIndex = 1;
             this.StaffIDTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.StaffIDTxt.Texts = "Please input staff ID";
+            this.StaffIDTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.StaffIDTxt.Texts = "Please enter staff ID";
             this.StaffIDTxt.UnderlinedStyle = false;
+            this.StaffIDTxt._TextChanged += new System.EventHandler(this.StaffIDTxt__TextChanged);
             this.StaffIDTxt.Click += new System.EventHandler(this.StaffIDTxt_Click);
             this.StaffIDTxt.Enter += new System.EventHandler(this.StaffIDTxt_Enter);
             this.StaffIDTxt.Leave += new System.EventHandler(this.StaffIDTxt_Leave);
@@ -617,7 +626,7 @@
             // 
             // PositionTxt
             // 
-            this.PositionTxt.BackColor = System.Drawing.Color.White;
+            this.PositionTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PositionTxt.BorderColor = System.Drawing.Color.LightGray;
             this.PositionTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.PositionTxt.BorderRadius = 10;
@@ -629,15 +638,17 @@
             this.PositionTxt.Location = new System.Drawing.Point(161, 140);
             this.PositionTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PositionTxt.MaxLength = 32767;
-            this.PositionTxt.Multiline = true;
+            this.PositionTxt.Multiline = false;
             this.PositionTxt.Name = "PositionTxt";
             this.PositionTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.PositionTxt.PasswordChar = false;
+            this.PositionTxt.Placeholder = "";
             this.PositionTxt.ReadOnly = false;
-            this.PositionTxt.Size = new System.Drawing.Size(307, 35);
+            this.PositionTxt.Size = new System.Drawing.Size(307, 38);
             this.PositionTxt.TabIndex = 26;
-            this.PositionTxt.TbBackColor = System.Drawing.Color.White;
-            this.PositionTxt.Texts = "Cannot be inputted";
+            this.PositionTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
+            this.PositionTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
+            this.PositionTxt.Texts = "Automatic Data Entry";
             this.PositionTxt.UnderlinedStyle = false;
             // 
             // position
@@ -653,7 +664,7 @@
             // 
             // DeptTxt
             // 
-            this.DeptTxt.BackColor = System.Drawing.Color.White;
+            this.DeptTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.DeptTxt.BorderColor = System.Drawing.Color.LightGray;
             this.DeptTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.DeptTxt.BorderRadius = 10;
@@ -665,15 +676,17 @@
             this.DeptTxt.Location = new System.Drawing.Point(161, 97);
             this.DeptTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.DeptTxt.MaxLength = 32767;
-            this.DeptTxt.Multiline = true;
+            this.DeptTxt.Multiline = false;
             this.DeptTxt.Name = "DeptTxt";
             this.DeptTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.DeptTxt.PasswordChar = false;
+            this.DeptTxt.Placeholder = "";
             this.DeptTxt.ReadOnly = false;
-            this.DeptTxt.Size = new System.Drawing.Size(307, 35);
+            this.DeptTxt.Size = new System.Drawing.Size(307, 38);
             this.DeptTxt.TabIndex = 25;
-            this.DeptTxt.TbBackColor = System.Drawing.Color.White;
-            this.DeptTxt.Texts = "Cannot be inputted";
+            this.DeptTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
+            this.DeptTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
+            this.DeptTxt.Texts = "Automatic Data Entry";
             this.DeptTxt.UnderlinedStyle = false;
             // 
             // gender
@@ -689,7 +702,7 @@
             // 
             // StaffNameTxt
             // 
-            this.StaffNameTxt.BackColor = System.Drawing.Color.White;
+            this.StaffNameTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.StaffNameTxt.BorderColor = System.Drawing.Color.LightGray;
             this.StaffNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.StaffNameTxt.BorderRadius = 10;
@@ -701,15 +714,17 @@
             this.StaffNameTxt.Location = new System.Drawing.Point(161, 54);
             this.StaffNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.StaffNameTxt.MaxLength = 32767;
-            this.StaffNameTxt.Multiline = true;
+            this.StaffNameTxt.Multiline = false;
             this.StaffNameTxt.Name = "StaffNameTxt";
             this.StaffNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.StaffNameTxt.PasswordChar = false;
+            this.StaffNameTxt.Placeholder = "";
             this.StaffNameTxt.ReadOnly = false;
-            this.StaffNameTxt.Size = new System.Drawing.Size(307, 35);
+            this.StaffNameTxt.Size = new System.Drawing.Size(307, 38);
             this.StaffNameTxt.TabIndex = 22;
-            this.StaffNameTxt.TbBackColor = System.Drawing.Color.White;
-            this.StaffNameTxt.Texts = "Cannot be inputted";
+            this.StaffNameTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
+            this.StaffNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
+            this.StaffNameTxt.Texts = "Automatic Data Entry";
             this.StaffNameTxt.UnderlinedStyle = false;
             // 
             // MaleGenderRadio
@@ -777,7 +792,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add User";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.Usermanagement_Add_Load);
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();

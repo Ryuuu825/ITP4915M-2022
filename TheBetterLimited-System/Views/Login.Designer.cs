@@ -62,7 +62,7 @@
             this.Logo.Location = new System.Drawing.Point(0, 0);
             this.Logo.Margin = new System.Windows.Forms.Padding(0);
             this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(550, 674);
+            this.Logo.Size = new System.Drawing.Size(412, 539);
             this.Logo.TabIndex = 0;
             // 
             // CompanyTitle1
@@ -71,9 +71,10 @@
             this.CompanyTitle1.Font = new System.Drawing.Font("Segoe UI", 41.7479F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.CompanyTitle1.ForeColor = System.Drawing.Color.White;
             this.CompanyTitle1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CompanyTitle1.Location = new System.Drawing.Point(124, 426);
+            this.CompanyTitle1.Location = new System.Drawing.Point(93, 341);
+            this.CompanyTitle1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CompanyTitle1.Name = "CompanyTitle1";
-            this.CompanyTitle1.Size = new System.Drawing.Size(303, 92);
+            this.CompanyTitle1.Size = new System.Drawing.Size(246, 74);
             this.CompanyTitle1.TabIndex = 5;
             this.CompanyTitle1.Text = "Limited.";
             // 
@@ -83,9 +84,10 @@
             this.CompanyTitle0.Font = new System.Drawing.Font("Segoe UI", 41.7479F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.CompanyTitle0.ForeColor = System.Drawing.Color.SeaGreen;
             this.CompanyTitle0.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CompanyTitle0.Location = new System.Drawing.Point(157, 321);
+            this.CompanyTitle0.Location = new System.Drawing.Point(118, 257);
+            this.CompanyTitle0.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CompanyTitle0.Name = "CompanyTitle0";
-            this.CompanyTitle0.Size = new System.Drawing.Size(236, 92);
+            this.CompanyTitle0.Size = new System.Drawing.Size(190, 74);
             this.CompanyTitle0.TabIndex = 4;
             this.CompanyTitle0.Text = "Better";
             // 
@@ -95,9 +97,10 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox1.Location = new System.Drawing.Point(163, 105);
+            this.pictureBox1.Location = new System.Drawing.Point(122, 84);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(225, 213);
+            this.pictureBox1.Size = new System.Drawing.Size(169, 170);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
@@ -106,9 +109,10 @@
             // 
             this.mainPanel.Controls.Add(this.loginContainer);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.mainPanel.Location = new System.Drawing.Point(550, 0);
+            this.mainPanel.Location = new System.Drawing.Point(412, 0);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(712, 674);
+            this.mainPanel.Size = new System.Drawing.Size(534, 539);
             this.mainPanel.TabIndex = 5;
             // 
             // loginContainer
@@ -128,16 +132,17 @@
             this.loginContainer.Location = new System.Drawing.Point(0, 0);
             this.loginContainer.Margin = new System.Windows.Forms.Padding(0);
             this.loginContainer.Name = "loginContainer";
-            this.loginContainer.Size = new System.Drawing.Size(712, 674);
+            this.loginContainer.Size = new System.Drawing.Size(534, 539);
             this.loginContainer.TabIndex = 1;
             // 
             // showPwd
             // 
             this.showPwd.BackgroundImage = global::TheBetterLimited.Properties.Resources.eye;
             this.showPwd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.showPwd.Location = new System.Drawing.Point(571, 361);
+            this.showPwd.Location = new System.Drawing.Point(428, 289);
+            this.showPwd.Margin = new System.Windows.Forms.Padding(2);
             this.showPwd.Name = "showPwd";
-            this.showPwd.Size = new System.Drawing.Size(30, 30);
+            this.showPwd.Size = new System.Drawing.Size(22, 24);
             this.showPwd.TabIndex = 6;
             this.showPwd.TabStop = false;
             this.showPwd.Click += new System.EventHandler(this.showPwd_Click);
@@ -147,9 +152,10 @@
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
             this.usernameLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.usernameLabel.Location = new System.Drawing.Point(100, 194);
+            this.usernameLabel.Location = new System.Drawing.Point(75, 155);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(99, 28);
+            this.usernameLabel.Size = new System.Drawing.Size(87, 23);
             this.usernameLabel.TabIndex = 2;
             this.usernameLabel.Text = "Username";
             this.usernameLabel.Click += new System.EventHandler(this.usernameLabel_Click);
@@ -162,16 +168,21 @@
             this.username.BorderRadius = 20;
             this.username.BorderSize = 1;
             this.username.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.username.Location = new System.Drawing.Point(100, 236);
-            this.username.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.username.IsError = false;
+            this.username.Location = new System.Drawing.Point(75, 189);
+            this.username.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.username.MaxLength = 10;
             this.username.Multiline = false;
             this.username.Name = "username";
-            this.username.Padding = new System.Windows.Forms.Padding(15);
+            this.username.Padding = new System.Windows.Forms.Padding(20, 12, 20, 12);
             this.username.PasswordChar = false;
-            this.username.Size = new System.Drawing.Size(515, 59);
+            this.username.Placeholder = "Plese input user name";
+            this.username.ReadOnly = false;
+            this.username.Size = new System.Drawing.Size(386, 48);
             this.username.TabIndex = 0;
-            this.username.Texts = "";
+            this.username.TbBackColor = System.Drawing.SystemColors.Window;
+            this.username.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.username.Texts = "Plese input user name";
             this.username.UnderlinedStyle = false;
             // 
             // passwordLabel
@@ -179,9 +190,10 @@
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
             this.passwordLabel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.passwordLabel.Location = new System.Drawing.Point(100, 307);
+            this.passwordLabel.Location = new System.Drawing.Point(75, 246);
+            this.passwordLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.passwordLabel.Name = "passwordLabel";
-            this.passwordLabel.Size = new System.Drawing.Size(93, 28);
+            this.passwordLabel.Size = new System.Drawing.Size(80, 23);
             this.passwordLabel.TabIndex = 3;
             this.passwordLabel.Text = "Password";
             this.passwordLabel.Click += new System.EventHandler(this.passwordLabel_Click);
@@ -194,16 +206,21 @@
             this.password.BorderRadius = 20;
             this.password.BorderSize = 1;
             this.password.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.password.Location = new System.Drawing.Point(100, 347);
-            this.password.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.password.IsError = false;
+            this.password.Location = new System.Drawing.Point(75, 278);
+            this.password.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.password.MaxLength = 20;
             this.password.Multiline = false;
             this.password.Name = "password";
-            this.password.Padding = new System.Windows.Forms.Padding(15);
+            this.password.Padding = new System.Windows.Forms.Padding(20, 12, 20, 12);
             this.password.PasswordChar = true;
-            this.password.Size = new System.Drawing.Size(515, 59);
+            this.password.Placeholder = "Please input your password";
+            this.password.ReadOnly = false;
+            this.password.Size = new System.Drawing.Size(386, 48);
             this.password.TabIndex = 1;
-            this.password.Texts = "";
+            this.password.TbBackColor = System.Drawing.SystemColors.Window;
+            this.password.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.password.Texts = "Please input your password";
             this.password.UnderlinedStyle = false;
             // 
             // ChangePassword
@@ -214,9 +231,10 @@
             this.ChangePassword.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.ChangePassword.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.ChangePassword.LinkColor = System.Drawing.Color.Black;
-            this.ChangePassword.Location = new System.Drawing.Point(100, 420);
+            this.ChangePassword.Location = new System.Drawing.Point(75, 336);
+            this.ChangePassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ChangePassword.Name = "ChangePassword";
-            this.ChangePassword.Size = new System.Drawing.Size(166, 28);
+            this.ChangePassword.Size = new System.Drawing.Size(145, 23);
             this.ChangePassword.TabIndex = 2;
             this.ChangePassword.TabStop = true;
             this.ChangePassword.Text = "Change password";
@@ -235,9 +253,10 @@
             this.loginBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Bold);
             this.loginBtn.ForeColor = System.Drawing.Color.White;
             this.loginBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.loginBtn.Location = new System.Drawing.Point(188, 484);
+            this.loginBtn.Location = new System.Drawing.Point(141, 387);
+            this.loginBtn.Margin = new System.Windows.Forms.Padding(2);
             this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(339, 50);
+            this.loginBtn.Size = new System.Drawing.Size(254, 40);
             this.loginBtn.TabIndex = 4;
             this.loginBtn.Text = "Sign In";
             this.loginBtn.TextColor = System.Drawing.Color.White;
@@ -252,9 +271,10 @@
             this.forgotPwd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.forgotPwd.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.forgotPwd.LinkColor = System.Drawing.Color.Black;
-            this.forgotPwd.Location = new System.Drawing.Point(446, 420);
+            this.forgotPwd.Location = new System.Drawing.Point(334, 336);
+            this.forgotPwd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.forgotPwd.Name = "forgotPwd";
-            this.forgotPwd.Size = new System.Drawing.Size(169, 28);
+            this.forgotPwd.Size = new System.Drawing.Size(144, 23);
             this.forgotPwd.TabIndex = 3;
             this.forgotPwd.TabStop = true;
             this.forgotPwd.Text = "Forgot password?";
@@ -266,9 +286,10 @@
             this.Welcome.AutoSize = true;
             this.Welcome.Font = new System.Drawing.Font("Segoe UI", 14.10084F, System.Drawing.FontStyle.Bold);
             this.Welcome.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Welcome.Location = new System.Drawing.Point(91, 80);
+            this.Welcome.Location = new System.Drawing.Point(68, 64);
+            this.Welcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Welcome.Name = "Welcome";
-            this.Welcome.Size = new System.Drawing.Size(187, 32);
+            this.Welcome.Size = new System.Drawing.Size(146, 25);
             this.Welcome.TabIndex = 1;
             this.Welcome.Text = "Welcome back!";
             // 
@@ -278,22 +299,24 @@
             this.LoginTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
             this.LoginTitle.ForeColor = System.Drawing.Color.SeaGreen;
             this.LoginTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.LoginTitle.Location = new System.Drawing.Point(91, 117);
+            this.LoginTitle.Location = new System.Drawing.Point(68, 94);
+            this.LoginTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LoginTitle.Name = "LoginTitle";
-            this.LoginTitle.Size = new System.Drawing.Size(429, 54);
+            this.LoginTitle.Size = new System.Drawing.Size(345, 45);
             this.LoginTitle.TabIndex = 0;
             this.LoginTitle.Text = "Login in your account";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 674);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(946, 539);
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.mainPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
