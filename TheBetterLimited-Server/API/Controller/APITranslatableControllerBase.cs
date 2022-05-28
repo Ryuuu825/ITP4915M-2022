@@ -23,7 +23,7 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(int limit)
+        public async Task<IActionResult> Get(int limit = 0, int offset = 0, [FromHeader] string Language = "en")
         {
             try
             {
@@ -70,13 +70,13 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(string id , string Language = "en")
+        public async Task<IActionResult> GetById(string id , [FromHeader] string Language = "en")
         {
             return Ok(await controller.GetById(id,Language));
         }
 
         [HttpGet("search")]
-        public async Task<IActionResult> GetByQueryString(string queryString, string Language = "en")
+        public async Task<IActionResult> GetByQueryString(string queryString, [FromHeader] string Language = "en")
         {
             try
             {
@@ -89,7 +89,7 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] T entity , string Language = "en")
+        public async Task<IActionResult> Add([FromBody] T entity , [FromHeader] string Language = "en")
         {
             try
             {
@@ -103,7 +103,7 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Modify(string id, [FromBody] List<AppLogic.Models.UpdateObjectModel> content , string Language = "en")
+        public async Task<IActionResult> Modify(string id, [FromBody] List<AppLogic.Models.UpdateObjectModel> content , [FromHeader] string Language = "en")
         {
             try
             {
@@ -120,12 +120,18 @@ namespace TheBetterLimited_Server.API.Controller
         {
             try
             {
-                controller.ModifyRange(queryString, content , Language);
+                controller.ModifyRange(queryString, content, Language);
                 return Ok();
             }
-            catch (ICustException e)
+            catch (BadArgException e)
             {
+                ConsoleLogger.Debug("DF");
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+            catch (Exception e)
+            {
+                ConsoleLogger.Debug(e.Message);
+                return BadRequest();
             }
         }
 

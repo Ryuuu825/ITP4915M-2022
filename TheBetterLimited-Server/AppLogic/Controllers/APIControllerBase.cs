@@ -182,23 +182,32 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             await db.SaveChangesAsync();
         }
 
-        public unsafe async void ModifyRange(string queryString , List<AppLogic.Models.UpdateObjectModel> content , string Language = "en")
+        public void ModifyRange(string queryString , List<AppLogic.Models.UpdateObjectModel> content , string Language = "en")
         {
             var potnetialList = repository.GetBySQL(
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<T>(queryString)
             );
 
-            for (int i = 0 ; i < potnetialList.Count ; i++)
+            if (potnetialList.Count == 0)
             {
-                var potnetial = potnetialList[i];
-                if (potnetial is not null)
-                {
-                    // pass a reference to the object to be updated
-                    Helpers.Entity.EntityUpdater.Update( ref potnetial, content);
-                    repository.Update(potnetial);
-                }
+                throw new BadArgException($"The query return no result.");
             }
-            db.SaveChanges();
+            else
+            {
+                for (int i = 0 ; i < potnetialList.Count ; i++)
+                {
+                    var potnetial = potnetialList[i];
+                    if (potnetial is not null)
+                    {
+                        // pass a reference to the object to be updated
+                        Helpers.Entity.EntityUpdater.Update( ref potnetial, content);
+                        repository.Update(potnetial);
+                    }
+                }
+                db.SaveChanges();
+            }
+
+            
         }
 
         public async Task Delete(string id)
