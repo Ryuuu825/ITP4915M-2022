@@ -29,8 +29,6 @@ namespace TheBetterLimited_Server.Data
                 // user may already inserted the data before
                 // so we just ignore the exception
                 ConsoleLogger.Debug(e.Message);
-                ConsoleLogger.Debug(e.InnerException);
-
                 ConsoleLogger.Debug("Please ignore the exception, you may already inserted the data before");
             }
             finally
@@ -449,7 +447,6 @@ namespace TheBetterLimited_Server.Data
     
         public static Position[] CreatePosition()
         {
-            byte[] icon = System.IO.File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + @"/img/test.jpeg");
             return new Position[]
             {
                 new Position

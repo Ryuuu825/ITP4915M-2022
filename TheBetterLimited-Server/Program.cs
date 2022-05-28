@@ -22,7 +22,6 @@ public class Program
 {
     private static void Main(string[] args)
     {
-        
         var builder = WebApplication.CreateBuilder(args);
         // Add services to the container.
         builder.Services.AddControllers()
@@ -143,6 +142,7 @@ public class Program
         app.Run();
 
         TempFileManager.CloseAllTempFile();
+        TheBetterLimited_Server.Helpers.File.PDFFactory.Instance.Dispose();
     }
 }
     

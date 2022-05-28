@@ -2,14 +2,28 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.Loader;
-using System.Runtime.InteropServices;
+
 
 namespace TheBetterLimited_Server.Helpers.File
 {
-    public class PDFFactory
+    public class PDFFactory : IDisposable
     {
+
         public static PDFFactory Instance = new PDFFactory();
         private Process _process;
+        private bool isDisposed = false;
+
+        public void Dispose()
+        {
+            if (! isDisposed)
+            {
+                if (_process != null)
+                {
+                    _process.Dispose();
+                    Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "/Lib", true);
+                }
+            }
+        }
         
         public PDFFactory()
         {
@@ -32,6 +46,8 @@ namespace TheBetterLimited_Server.Helpers.File
             var arch = RuntimeInformation.OSArchitecture.ToString().ToLower();
 
             ConsoleLogger.Debug($"{os}-{arch}");
+            TheBetterLimited_Server.Helpers.File.ZipHelper.Decompress("/Lib.zip", "");
+
 
             string FileName = $"Lib/wkhtmltopdf/{os}-{arch}/wkhtmltopdf";
             var startInfo = new ProcessStartInfo
@@ -137,7 +153,8 @@ namespace TheBetterLimited_Server.Helpers.File
                 await fs.WriteAsync(Encoding.UTF8.GetBytes(temp));
             }
             return Create(htmlFilePath);
-        }  
+        } 
+
     }
 
     internal class CustomAssemblyLoadContext : AssemblyLoadContext

@@ -96,7 +96,11 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
-
+    <ItemGroup>
+        <None Update="./Lib.zip">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
     <!-- <ItemGroup>
         <None Remove="libwkhtmltox.dll" />
       </ItemGroup>
