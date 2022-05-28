@@ -48,7 +48,7 @@ public class AccountRepository : Repository<Account>
             acc.Staff = staff;
         }
 
-       base.Add(acc);
+        base.Add(acc);
 
         staff._AccountId = acc.Id;
         Staffs.Update(staff);

@@ -98,8 +98,9 @@ public class Repository<TEntity> : IRepository<TEntity>, IDisposable where TEnti
 
     public bool Add(TEntity entity, bool saveNow = true)
     {
-        if (Helpers.Entity.EntityValidator.Validate<TEntity>(entity))
+        if (!Helpers.Entity.EntityValidator.Validate<TEntity>(entity))
         {
+            ConsoleLogger.Debug(entity.Debug());
             throw new BadArgException("The entity is not valid.");
         }
         Entities.Add(entity);

@@ -29,7 +29,6 @@ public class UserController
         newObj.LoginFailedCount = 0;
 
         _UserTable.CreateUser(ref newObj);
-
         
     }
 
