@@ -1,6 +1,4 @@
 using System.Runtime.InteropServices;
-using DinkToPdf;
-using DinkToPdf.Contracts;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.Loader;
@@ -11,7 +9,6 @@ namespace TheBetterLimited_Server.Helpers.File
     public class PDFFactory
     {
         public static PDFFactory Instance = new PDFFactory();
-        private IConverter _converter;
         private Process _process;
         
         public PDFFactory()
@@ -49,7 +46,6 @@ namespace TheBetterLimited_Server.Helpers.File
                     RedirectStandardInput = true,
                 };
                 _process.StartInfo = startInfo;
-                _converter = null;
             // }
             // else 
             // {
