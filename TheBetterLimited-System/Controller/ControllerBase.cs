@@ -1,3 +1,9 @@
+using RestSharp;
+using System;
+using System.Collections.Generic;
+using TheBetterLimited.Models;
+using TheBetterLimited.Utils;
+
 namespace TheBetterLimited_System.Controller
 {
     public class ControllerBase
@@ -24,7 +30,7 @@ namespace TheBetterLimited_System.Controller
         {
             try 
             {
-                var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                var response = RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
                 return response;
             }catch (Exception ex)
             {
@@ -49,7 +55,7 @@ namespace TheBetterLimited_System.Controller
             return GetRestResponse(request);
         }
 
-        public RestResponse GetByQueryString(string QueryString, string lang = "en")
+        public RestResponse GetByQueryString(string qry, string lang = "en")
         {
             var request = new RestRequest("/api/" + ControllerName + "/search", Method.Get)
                         .AddHeader("Language", lang)
@@ -102,7 +108,7 @@ namespace TheBetterLimited_System.Controller
             return GetRestResponse(request);
         }
 
-        public RestResponse DeleteRange(List<string> ids, string lang = "en")
+        public IEnumerable<RestResponse> DeleteRange(List<string> ids, string lang = "en")
         {
             foreach (var item in ids)
             {

@@ -29,19 +29,12 @@ namespace TheBetterLimited.Views
         public POS()
         {
             InitializeComponent();
+            
         }
 
         /*
          * Dom Style/Event Process
          */
-        private void DeleteBtn_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void RefreshBtn_Click(object sender, EventArgs e)
-        {
-            this.Invalidate();
-        }
 
         private void CloseBtn_Click(object sender, EventArgs e)
         {
