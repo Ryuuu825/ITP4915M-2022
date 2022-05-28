@@ -49,14 +49,18 @@
             this.roundButton6 = new TheBetterLimited.CustomizeControl.RoundButton();
             this.roundButton7 = new TheBetterLimited.CustomizeControl.RoundButton();
             this.roundButton8 = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SearchBar.SuspendLayout();
@@ -66,8 +70,10 @@
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // Action
@@ -137,7 +143,7 @@
             this.SearchBarTxt.PasswordChar = false;
             this.SearchBarTxt.Placeholder = "Search by Keywords";
             this.SearchBarTxt.ReadOnly = false;
-            this.SearchBarTxt.Size = new System.Drawing.Size(280, 43);
+            this.SearchBarTxt.Size = new System.Drawing.Size(280, 40);
             this.SearchBarTxt.TabIndex = 9;
             this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
@@ -249,6 +255,7 @@
             this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundButton1.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundButton1.ForeColor = System.Drawing.Color.LightGray;
+            this.roundButton1.IsChecked = false;
             this.roundButton1.Location = new System.Drawing.Point(3, 10);
             this.roundButton1.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.roundButton1.Name = "roundButton1";
@@ -273,6 +280,7 @@
             this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundButton2.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundButton2.ForeColor = System.Drawing.Color.LightGray;
+            this.roundButton2.IsChecked = false;
             this.roundButton2.Location = new System.Drawing.Point(121, 10);
             this.roundButton2.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.roundButton2.Name = "roundButton2";
@@ -297,6 +305,7 @@
             this.roundButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundButton3.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundButton3.ForeColor = System.Drawing.Color.LightGray;
+            this.roundButton3.IsChecked = false;
             this.roundButton3.Location = new System.Drawing.Point(239, 10);
             this.roundButton3.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.roundButton3.Name = "roundButton3";
@@ -321,6 +330,7 @@
             this.roundButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundButton4.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundButton4.ForeColor = System.Drawing.Color.LightGray;
+            this.roundButton4.IsChecked = false;
             this.roundButton4.Location = new System.Drawing.Point(357, 10);
             this.roundButton4.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.roundButton4.Name = "roundButton4";
@@ -345,6 +355,7 @@
             this.roundButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundButton5.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundButton5.ForeColor = System.Drawing.Color.LightGray;
+            this.roundButton5.IsChecked = false;
             this.roundButton5.Location = new System.Drawing.Point(475, 10);
             this.roundButton5.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.roundButton5.Name = "roundButton5";
@@ -369,6 +380,7 @@
             this.roundButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundButton6.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundButton6.ForeColor = System.Drawing.Color.LightGray;
+            this.roundButton6.IsChecked = false;
             this.roundButton6.Location = new System.Drawing.Point(593, 10);
             this.roundButton6.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.roundButton6.Name = "roundButton6";
@@ -393,6 +405,7 @@
             this.roundButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundButton7.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundButton7.ForeColor = System.Drawing.Color.LightGray;
+            this.roundButton7.IsChecked = false;
             this.roundButton7.Location = new System.Drawing.Point(711, 10);
             this.roundButton7.Margin = new System.Windows.Forms.Padding(0, 0, 10, 0);
             this.roundButton7.Name = "roundButton7";
@@ -417,6 +430,7 @@
             this.roundButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundButton8.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.roundButton8.ForeColor = System.Drawing.Color.LightGray;
+            this.roundButton8.IsChecked = false;
             this.roundButton8.Location = new System.Drawing.Point(829, 10);
             this.roundButton8.Margin = new System.Windows.Forms.Padding(0);
             this.roundButton8.Name = "roundButton8";
@@ -427,6 +441,82 @@
             this.roundButton8.UseVisualStyleBackColor = false;
             this.roundButton8.Click += new System.EventHandler(this.CatalogBtn_Click);
             this.roundButton8.MouseHover += new System.EventHandler(this.CatalogBtn_MouseHover);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 501);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(600, 60);
+            this.flowLayoutPanel1.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel2.Controls.Add(this.flowLayoutPanel2);
+            this.panel2.Controls.Add(this.panel7);
+            this.panel2.Controls.Add(this.panel6);
+            this.panel2.Controls.Add(this.flowLayoutPanel4);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel2.Location = new System.Drawing.Point(610, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(407, 561);
+            this.panel2.TabIndex = 4;
+            // 
+            // flowLayoutPanel5
+            // 
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(9, 6);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel5.TabIndex = 1;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 401);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(407, 100);
+            this.flowLayoutPanel2.TabIndex = 0;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.flowLayoutPanel5);
+            this.panel7.Controls.Add(this.dataGridView1);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(0, 55);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(407, 446);
+            this.panel7.TabIndex = 3;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(407, 446);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(407, 55);
+            this.panel6.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(407, 55);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Shopping Cart";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel4
             // 
@@ -457,45 +547,6 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Width = 124;
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(407, 55);
-            this.panel6.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel2.Controls.Add(this.panel6);
-            this.panel2.Controls.Add(this.flowLayoutPanel4);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(610, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(407, 561);
-            this.panel2.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(407, 55);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Shopping Cart";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 501);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(600, 60);
-            this.flowLayoutPanel1.TabIndex = 10;
-            // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -518,8 +569,10 @@
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -553,5 +606,9 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
