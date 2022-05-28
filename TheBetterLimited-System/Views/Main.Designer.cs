@@ -964,7 +964,6 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Better Limited";
-            this.MaximumSizeChanged += new System.EventHandler(this.Main_MaximumSizeChanged);
             this.Load += new System.EventHandler(this.Main_Load);
             this.submenuContainer1.ResumeLayout(false);
             this.submenuContainer2.ResumeLayout(false);

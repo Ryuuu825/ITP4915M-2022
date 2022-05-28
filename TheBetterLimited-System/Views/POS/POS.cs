@@ -29,7 +29,10 @@ namespace TheBetterLimited.Views
         public POS()
         {
             InitializeComponent();
-            
+            CartItemGrid.Rows.Add("XXXXXxxxxxxxxxxxxxxxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXX", Properties.Resources.add_24, "1", Properties.Resources.add_24, "$35.00", "");
+            CartItemGrid.Rows.Add("XXXXxxxxxxxxxxxxxxxxxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", Properties.Resources.add_24, "1", Properties.Resources.add_24, "$35.00", "");
+            CartItemGrid.Rows.Add("XXXXXxxxxxxxxxxxxxxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", Properties.Resources.add_24, "1", Properties.Resources.add_24, "$35.00", "");
+            CartItemGrid.Rows.Add("XXXXXxxxxxxxxxxxxxxxxxxxxxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", Properties.Resources.add_24, "1", Properties.Resources.add_24, "$35.00", "");
         }
 
         /*
@@ -80,13 +83,24 @@ namespace TheBetterLimited.Views
 
         private void CatalogBtn_Click(object sender, EventArgs e)
         {
+            foreach (RoundButton rdb in CatalogBtnGroup.Controls)
+            {
+                Console.WriteLine("checked");
+                if (rdb.IsChecked == true)
+                {
+                    Console.WriteLine("checked");
+                    rdb.IsChecked = false;
+                    ResetBtn_Style(rdb);
+                    break;
+                } 
+            }
+            ((RoundButton)sender).IsChecked = true;
             ChangeCheckedBtn_Style((RoundButton)sender);
         }
 
         private void CatalogBtn_MouseHover(object sender, EventArgs e)
         {
-            ((RoundButton)sender).BorderColor = Color.SeaGreen;
-            ((RoundButton)sender).ForeColor = Color.SeaGreen;
+            ChangeCheckedBtn_Style((RoundButton)sender);
         }
 
         private void ChangeCheckedBtn_Style(RoundButton sender)
@@ -96,8 +110,16 @@ namespace TheBetterLimited.Views
         }
         private void ResetBtn_Style(RoundButton sender)
         {
-            sender.BorderColor = Color.DimGray;
-            sender.ForeColor = Color.DimGray;
+            if (sender.IsChecked == false)
+            {
+                sender.BorderColor = Color.LightGray;
+                sender.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void roundButton4_MouseLeave(object sender, EventArgs e)
+        {
+            ResetBtn_Style((RoundButton)sender);
         }
     }
 }
