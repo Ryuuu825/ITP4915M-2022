@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,14 +26,25 @@ namespace TheBetterLimited.Views
         private DialogResult choose;
         private RestResponse result;
         private bool isEditing = false;
+        private List<OrderItem> oi = new List<OrderItem>();
 
         public POS()
         {
             InitializeComponent();
-            CartItemGrid.Rows.Add("XXXXXxxxxxxxxxxxxxxxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXX", Properties.Resources.add_24, "1", Properties.Resources.add_24, "$35.00", "");
-            CartItemGrid.Rows.Add("XXXXxxxxxxxxxxxxxxxxxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", Properties.Resources.add_24, "1", Properties.Resources.add_24, "$35.00", "");
-            CartItemGrid.Rows.Add("XXXXXxxxxxxxxxxxxxxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", Properties.Resources.add_24, "1", Properties.Resources.add_24, "$35.00", "");
-            CartItemGrid.Rows.Add("XXXXXxxxxxxxxxxxxxxxxxxxxxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", Properties.Resources.add_24, "1", Properties.Resources.add_24, "$35.00", "");
+            this.CartItemGrid.Columns["Qty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            CartItemGrid.Rows.Add("SIEMENS WM12N270HK 7KG 1200RPM Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol + "35.00", "none");
+            CartItemGrid.Rows.Add("MIELE WCR860 W1 9KG 1600RPM Front Load WasherX", Properties.Resources.minus, "1", Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol+"35.00", "");
+            CartItemGrid.Rows.Add("MIELE WCA020 WCS Active 7KG 1400RPM Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol+"35.00", "");
+            CartItemGrid.Rows.Add("TOSHIBA TWBL85A2HWW 7.5KG 440mm Ultra Slim Inverter Front Loading Washing Machine Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol+"35.00", "");
+            for(int i=0; i < 20; i++)
+            {
+                ProductInfo productBox = new ProductInfo();
+                productBox.Title = "SIEMENS WM12N270HK 7KG 1200RPM Front Load Washer";
+                productBox.ProductPrice = 88.88;
+                productBox.Image = Properties.Resources.product;
+                productBox.BorderSelectedColor = Color.SeaGreen;
+                ProductInfoContainer.Controls.Add(productBox);
+            }
         }
 
         /*
@@ -120,6 +132,41 @@ namespace TheBetterLimited.Views
         private void roundButton4_MouseLeave(object sender, EventArgs e)
         {
             ResetBtn_Style((RoundButton)sender);
+        }
+
+        private void AddToCart(List<OrderItem> cartList)
+        {
+            foreach (OrderItem cart in cartList)
+            {
+                CartItemGrid.Rows.Add(cart.Name, Properties.Resources.minus, cart.Quantity, Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol + cart.Price, cart.Remark);
+            }
+            
+        }
+
+        private void HoldBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PayBtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void POS_Load(object sender, EventArgs e)
+        {
+            if(this.WindowState != FormWindowState.Maximized)
+            {
+                CatalogBtnGroup.Hide();
+            }
+        }
+
+        private void POS_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                CatalogBtnGroup.Show();
+            }
         }
     }
 }

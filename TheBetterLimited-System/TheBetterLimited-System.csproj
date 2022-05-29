@@ -153,6 +153,7 @@
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\ErrorMsg.cs" />
     <Compile Include="Models\GlobalsData.cs" />
+    <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\ResponseResult.cs" />
     <Compile Include="Models\StaffModel.cs" />
     <Compile Include="Models\Status.cs" />
@@ -213,6 +214,12 @@
     </Compile>
     <Compile Include="Views\POS\POS.Designer.cs">
       <DependentUpon>POS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\POS\GoodsDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\POS\GoodsDetails.Designer.cs">
+      <DependentUpon>GoodsDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Setting\Setting.cs">
       <SubType>Form</SubType>
@@ -281,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\POS\POS.resx">
       <DependentUpon>POS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\GoodsDetails.resx">
+      <DependentUpon>GoodsDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Setting\Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
@@ -503,6 +513,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />
