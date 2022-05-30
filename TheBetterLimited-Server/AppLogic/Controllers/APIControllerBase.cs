@@ -16,6 +16,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             DtoType = typeof(T).ToDto();
         }
 
+        public AppControllerBase(Data.DataContext dataContext , string prefix)
+        {
+            db = dataContext;
+            repository = new Data.Repositories.Repository<T>(dataContext);
+            DtoType = typeof(T).ToDto();
+        }
+
         public async Task<List<string>> Index()
         {
             return DtoType.GetPropertiesToString();
@@ -87,12 +94,20 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         public async Task Add(T entity,string lang = "en")
         {
             var newObj = entity.CopyAsDto().CopyAs<T>();
+            newObj  .GetType()
+                    .GetProperties()
+                    .Where(x => x.Name.ToLower() == "id")
+                    .FirstOrDefault()
+                    .SetValue(newObj , Helpers.Sql.PrimaryKeyGenerator.Get<T>(db));
 
+                
+
+            // update the word in the object
             foreach (var item in newObj.GetType().GetProperties())
             {
                 if (System.Attribute.IsDefined(item, typeof(AppLogic.Attribute.TranslatableAttribute)))
                 {
-                    string id =  "T" + Helpers.Secure.RandomId.GetID(4);
+                    string id =  "T" + Helpers.Secure.RandomId.GetID(9);
                     Helpers.Localizer.UpdateWord<Data.Entity.Goods>(
                         lang , 
                         id,

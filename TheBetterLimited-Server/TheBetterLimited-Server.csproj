@@ -6,6 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>TheBetterLimited_Server</RootNamespace>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <LangVersion>latestmajor</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -100,10 +101,10 @@
         <PublishSingleFile>true</PublishSingleFile>
     </PropertyGroup>
     
-    <Target Name="MakeDir" AfterTargets="Build">
+    <Target Name="MakeDir">
         <MakeDir Directories="$(OutDir)var\tmp" />
         <MakeDir Directories="$(OutDir)var\log" />
-        <MakeDir Directories="$(OutDir)template" />
     </Target>
+
 
 </Project>

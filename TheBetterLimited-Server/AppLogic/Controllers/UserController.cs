@@ -14,8 +14,10 @@ public class UserController
     private readonly Data.Repositories.AccountRepository _UserTable;
     private readonly Data.Repositories.Repository<Staff> _StaffTable;
 
+    private readonly Data.DataContext _db;
     public UserController(DataContext dataContext)
     {
+        _db = dataContext;
         _UserTable = new Data.Repositories.AccountRepository(dataContext);
         _StaffTable = new Data.Repositories.Repository<Staff>(dataContext);
     }
@@ -23,11 +25,15 @@ public class UserController
     public async Task CreateUser(AccountDto acc, bool saveNow = true)
     {
         var newObj = acc.CopyAs<Account>();
+
+        newObj.Id = Helpers.Sql.PrimaryKeyGenerator.Get<Account>(_db );
         newObj.Password = Helpers.Secure.Hasher.Hash(newObj.Password);
         newObj.unlockDate = DateTime.Now;
         newObj.unlockDate = DateTime.Now;
         newObj.LoginFailedCount = 0;
 
+
+        ConsoleLogger.Debug(newObj.Id);
         _UserTable.CreateUser(ref newObj);
         
     }
