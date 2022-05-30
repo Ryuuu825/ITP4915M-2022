@@ -21,6 +21,15 @@ namespace TheBetterLimited_Server.Helpers.File
                 {
                     _process.Dispose();
                     Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "/Lib", true);
+
+                if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + ".DS_Store"))
+                {
+                    System.IO.File.Delete(AppDomain.CurrentDomain.BaseDirectory + ".DS_Store");
+                }
+                if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "/__MACOSX"))
+                {
+                    Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "/__MACOSX" , true);
+                }
                 }
             }
         }

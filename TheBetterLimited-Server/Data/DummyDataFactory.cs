@@ -17,11 +17,16 @@ namespace TheBetterLimited_Server.Data
                 db.Set<Catalogue>().AddRange(CreateCatalogue());
                 db.Set<Goods>().AddRange(CreateGoods());
                 // db.Set<Supplier>().AddRange(CreateSupplier());
-                // db.SaveChanges();
+                db.SaveChanges();
 
-                using (Repositories.AccountRepository  acc = new Repositories.AccountRepository(db))
+                using (Repositories.AccountRepository _userTable = new Repositories.AccountRepository(db))
                 {
-                    await acc.AddRangeAsync(CreateAccount());
+                    var accs =  CreateAccount();
+                    foreach(var acc in accs)
+                    {
+                        var entity = acc;
+                        _userTable.CreateUser(ref entity);
+                    }
                 }
             }
             catch (Exception e)

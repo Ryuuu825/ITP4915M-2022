@@ -223,7 +223,7 @@ public class UserController
 
      public async Task UpdateUserIcon(string id , string base64Image)
      {
-         Account? acc = (await _StaffTable.GetByIdAsync(id))?.acc;
+        Account acc = (await _StaffTable.GetByIdAsync(id)).acc;
 
         if (acc is null)
             throw new BadArgException("The staff does not have an account");
