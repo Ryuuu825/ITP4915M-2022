@@ -276,6 +276,12 @@ namespace TheBetterLimited.Views
                 updatedData.Add(obj);
             }
 
+            if(updatedData.Count == 0)
+            {
+                MessageBox.Show("You have not change any information!");
+                return;
+            }
+
             var json = JsonSerializer.Serialize(updatedData);
             try
             {

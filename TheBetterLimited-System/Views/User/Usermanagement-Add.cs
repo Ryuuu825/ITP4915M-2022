@@ -117,6 +117,7 @@ namespace TheBetterLimited.Views
                 StaffIDTxt.IsError = true;
                 return;
             }
+            Console.WriteLine(StaffIDTxt.Texts);
 
             StaffIDTxt.IsError = false;
 
@@ -126,19 +127,19 @@ namespace TheBetterLimited.Views
                 return;
             }
             userNameTxt.IsError = false;
+            Console.WriteLine(userNameTxt.Texts);
             Console.WriteLine(TestPWStrength(this.pwdTxt.Texts) == 0 || !pwdTxt.Texts.Equals(pwdTxt2));
             Console.WriteLine(TestPWStrength(this.pwdTxt.Texts) == 0);
             Console.WriteLine(TestPWStrength(this.pwdTxt.Texts));
             Console.WriteLine(!pwdTxt.Texts.Equals(pwdTxt2.Texts));
 
-
-            if (TestPWStrength(this.pwdTxt.Texts) == 0 || !pwdTxt.Texts.Equals(pwdTxt2.Texts))
+            if (TestPWStrength(this.pwdTxt.Texts) < 2 || !pwdTxt.Texts.Equals(pwdTxt2.Texts))
             {
                 pwdTxt.IsError = true;
-                pwdTxt.Texts = "";
+                MessageBox.Show("");
                 return;
             }
-
+            pwdTxt.IsError = false;
 
             if (pwdTxt.Texts.Equals(pwdTxt.Placeholder))
             {
