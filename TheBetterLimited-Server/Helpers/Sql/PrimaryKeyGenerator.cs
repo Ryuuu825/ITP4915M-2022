@@ -11,15 +11,44 @@ namespace TheBetterLimited_Server.Helpers.Sql
             StringBuilder sb = new StringBuilder();
 
             var list = Table.ToList();
+            ConsoleLogger.Debug(list is null ? "list is null" : "list is not null");
 
             string Id;
             if (list.Count() == 0)
             {
-                Id = Prefix + "00000";
+                NoRecordExists:
+                // get the maximum length of the property from attribute MaxLength
+                T entity = Activator.CreateInstance<T>();
+                // var MaxLengthAttri = entity
+                //                     .GetType()
+                //                     .GetProperties()
+                //                     .FirstOrDefault(x => x.Name == "Id")
+                //                     .GetCustomAttributes(typeof(MaxLengthAttribute), false)
+                //                     .FirstOrDefault() as MaxLengthAttribute;
+                // int MaxLen = MaxLengthAttri.Length;
+
+                int MaxLen = 0;
+                foreach(var item in entity.GetType().GetProperties())
+                {
+                    if (Attribute.IsDefined( item , typeof(MaxLengthAttribute) ) && item.Name.ToLower() == "id")
+                    {
+                        var a  = item.GetCustomAttributes(typeof(MaxLengthAttribute), false)
+                                    .FirstOrDefault() as MaxLengthAttribute;
+                        MaxLen = a.Length;
+                    }
+                }
+                sb.Append(Prefix.PadLeft(MaxLen - Prefix.Length , '0'));
+                ConsoleLogger.Debug(MaxLen - Prefix.Length);
+                ConsoleLogger.Debug(sb.ToString());
+                return sb.ToString();
             }
             else 
             {
-                var last = Table.ToList()?.Last();
+                var last = Table.ToList().Last();
+                if (last is null)
+                {
+                    throw new Exception();
+                }
 
                 Id = last?.GetType()
                     ?.GetProperties()
