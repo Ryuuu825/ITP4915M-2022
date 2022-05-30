@@ -37,6 +37,7 @@ public class AccountDto
     [Column(TypeName = "char(5)")]
     public string _StaffId {get; set; }
     [Column(TypeName = "varchar(100)")] public string? Remarks { get; set; }
+
 }
 
 public class AccountOutDto

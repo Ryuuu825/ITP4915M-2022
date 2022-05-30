@@ -15,7 +15,7 @@ namespace TheBetterLimited_Server.Helpers.Entity
             {
                 try
                 {
-                    var target = o.GetType().GetProperties().Single(x => x.Name == item.Attribute);
+                    var target = o.GetType().GetProperties().Single(x => x.Name.ToLower() == item.Attribute.ToLower());
                     // if the target is a translatable attribute
                     if (System.Attribute.IsDefined(target, typeof(AppLogic.Attribute.TranslatableAttribute)))
                     {

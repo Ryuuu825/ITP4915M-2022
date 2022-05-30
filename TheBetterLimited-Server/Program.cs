@@ -22,9 +22,8 @@ public class Program
 {
     private static void Main(string[] args)
     {
-        
         var builder = WebApplication.CreateBuilder(args);
-        // // Add services to the container.
+        // Add services to the container.
         builder.Services.AddControllers()
             .AddNewtonsoftJson(
                 options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
@@ -37,6 +36,7 @@ public class Program
                 ServerVersion.AutoDetect(ConnString)
             );
         });
+
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
@@ -49,8 +49,6 @@ public class Program
                     ValidateAudience = false
                 };
             });
-        
-
         
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -144,6 +142,7 @@ public class Program
         app.Run();
 
         TempFileManager.CloseAllTempFile();
+        TheBetterLimited_Server.Helpers.File.PDFFactory.Instance.Dispose();
     }
 }
     

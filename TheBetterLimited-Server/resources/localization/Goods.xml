@@ -11,21 +11,277 @@
         </supported_languages>
     </meta>
     <Translation>
-        <T0001>
-            <en>Apple Iphone 10</en>
-            <zh>苹果手机 10</zh>
-        </T0001>
-        <T0002>
-            <en>Apple Iphone 10</en>
-            <zh>苹果手机 10</zh>
-        </T0002>
-        <T0003>
-            <en>Apple Mac Book Pro</en>
-            <zh>苹果 MacBook 专业版</zh>
-        </T0003>
-        <T0004>
-            <en>Apple Mac Book Pro</en>
-            <zh>苹果 MacBook 专业版</zh>
-        </T0004>
+        <TVA0000001N>
+            <en>HISENSE A55(0002) LED LCD TV</en>
+            <zh>HISENSE 海信 A55(0002) LED 液晶体电视</zh>
+        </TVA0000001N>
+        <TVA0000001D>
+            <en>43", UHD, Google Licensed, Android 11, Youtube, Google Play, Netflix, Disney+, Dolby Vision, Dolby Atmos, HDR10, Bluetooth</en>
+            <zh>43", UHD, Google 认证, Android 11, Google Play, Youtube, Netflix, Disney+, Dolby Vision, Dolby Atmos, HDR10, 蓝芽</zh>
+        </TVA0000001D>
+
+        <TVA0000002N>
+            <en>SONY X80K LED LCD TV</en>
+            <zh>SONY X80K LED 液晶体电视</zh>
+        </TVA0000002N>
+        <TVA0000002D>
+            <en>SONY X80K LED LCD TV</en>
+            <zh>SONY X80K LED 液晶体电视</zh>
+        </TVA0000002D>
+
+        <TVA0000003N>
+            <en>SONY X81K LED LCD TV</en>
+            <zh>TVA0000003N X81K LED 液晶体电视</zh>
+        </TVA0000003N>
+        <TVA0000003D>
+            <en>4K HDR PROCESSOR X1, TRILUMINOS PRO, MOTIONFLOW XR 400, 4K X-Reality PRO, X-Balanced Speaker, Google TV</en>
+            <zh>4K HDR 处理器 X1, TRILUMINOS PRO, MOTIONFLOW XR 400, 4K X-Reality PRO, X-Balanced Speaker, Google TV</zh>
+        </TVA0000003D>
+
+        <TVA0000004N>
+            <en>LG G2 OLED evo TV</en>
+            <zh>LG G2 OLED evo 电视</zh>
+        </TVA0000004N>
+        <TVA0000004D>
+            <en>LG OLED evo Gallery Edition, SELF-LIT OLED 4K Brightness Booster Max for up to 30% Brighter Picture α9 Gen5 AI Processor, Dynamic Tone Mapping Pro Flush-fit wall mount Dolby Vision IQ with Precision Detail, Dolby ATMOS</en>
+            <zh>LG OLED evo Gallery Edition, SELF-LIT OLED 4K 光亮增强器 Max 可达到 30% 更亮的图像 α9 Gen5 AI 处理器, 动态调色映射 Pro 干净贴边 Dolby Vision IQ 带精确细节, Dolby ATMOS</zh>
+        </TVA0000004D>
+
+
+        <TVA0000005N>
+            <en>SAMSUNG HW-S800B/ZK Soundbar</en>
+            <zh>三星电子 HW-S800B/ZK Soundbar</zh>
+        </TVA0000005N>
+
+        <TVA0000005D>
+            <en>SAMSUNG HW-S800B/ZK Soundbar</en>
+            <zh>三星电子 HW-S800B/ZK Soundbar</zh>
+        </TVA0000005D>
+
+        <TVA0000006N>
+            <en>SONY WH-1000XM5 Headphone</en>
+            <zh>SONY 索尼 WH-1000XM5 耳机</zh>
+        </TVA0000006N>
+
+        <TVA0000006D>
+            <en>Headband style High-Resolution Audio headphones with industry-leading noise cancellation, Adaptive Sound Control.</en>
+            <zh>头带式高解析度音讯耳机具备领先业界的降噪技术,提供适应性音效控制。</zh>
+        </TVA0000006D>
+
+        <!-- Refrigerators and Freezers 200 -->
+        <RFS1000007N>
+            <en>HITACHI R-WB490P9H/GBWB Hitachi French Bottom Freezer Inverter Refrigerator</en>
+            <zh>日立 R-WB490P9H/GBWB 日立法国底部冰箱逆变器冰冷冰柜</zh>
+        </RFS1000007N>
+
+        <RFS1000007D>
+            <en>nverter Compressor/ Eco Thermo-Sensor/ Dual Fan Cooling/ Fresh Select Compartment/ Touch Panel</en>
+            <zh>冰箱冷冻器/ 环保温感/ 双风扇冷却/ 新鲜选择冷藏室/ 触摸面板</zh>
+        </RFS1000007D>
+
+        <RFS1000008N>
+            <en>PHILCO PFTM32SV PHILCO Inverter Compressor Refrigerator</en>
+            <zh>PHILCO PFTM32SV PHILCO 逆变器冰箱冷冻器</zh>
+        </RFS1000008N>
+
+        <RFS1000008D>
+            <en>PHILCO Inverter Compressor Refrigerator</en>
+            <zh>PHILCO 逆变器冰箱冷冻器</zh>
+        </RFS1000008D>
+
+        <!-- Washing Machines -->
+        <WMF10000009N>
+            <en>SHARP ES-W850K-B 8.5KG 1200RPM Front Loading Washer</en>
+            <zh>SHARP 声宝 ES-W850K-B 8.5公斤1200转前置式洗衣机</zh>
+        </WMF10000009N>
+
+        <WMF10000009D>
+            <en>J-TECH Inverter. Reducing energy consumption by up to 47% compared to conventional motors and increasing the energy efficiency of washing machines. Steam Function can completely remove 99.9% bacteria and allergen.</en>
+            <zh>J-TECH 逆变器. 降低能耗至47%,比传统电机和洗衣机的能耗更低,洗衣机的能效更高。洗衣机的蒸汽功能可以完全消除99.9%的菌类和污染物。</zh>
+        </WMF10000009D>
+
+        <WMF10000010N>
+            <en>WHIRLPOOL TDLR70234 7 Kg Top Load Washer</en>
+            <zh>WHIRLPOOL 惠而浦 TDLR70234 7公斤上置式洗衣机</zh>
+        </WMF10000010N>
+
+        <WMF10000010D>
+            <en>Eliminates 99.9%* of bacteria at 60°C with a Sanitize wash program.</en>
+            <zh>特设高效杀菌程序,杀灭高达 99% 细菌* </zh>
+        </WMF10000010D>
+
+
+        <ACS1000011N>
+            <en>GENERAL AKWA9GNR 1HP Window Air Conditioner</en>
+            <zh>GENERAL 珍宝 AKWA9GNR 1匹窗口式冷气机</zh>
+        </ACS1000011N>
+
+        <ACS1000011D>
+            <en>Wide Airflow, the louver automatically swings to right and left. The direction and the angle of the airflow can be easily changed.</en>
+            <zh>宽阔气流风叶能自动左,右摇摆。风向角度可轻易变动。</zh>
+        </ACS1000011D>
+
+
+        <ACS100012N>
+            <en>MITSUBISHI HEAVY SRK50ZSH-S 2HP Inverter Wall Mount Split Type Air Conditioner with Heat Pump</en>
+            <zh>MITSUBISHI HEAVY 三菱重工 SRK50ZSH-S 2匹双频冷暖分体式冷气机</zh>
+        </ACS100012N>
+
+        <ACS100012D>
+            <en>Inverter Wall Mount Split Type Air Conditioner with Heat Pump</en>
+            <zh>双频冷暖分体式冷气机</zh>
+        </ACS100012D>
+
+        <HKA1000013N>
+            <zh>Bondini 雪白 BT290S 智能全自动电热除油易拆式 抽油烟机</zh>
+            <en>Bondini BT290S 70.5cm Auto-Clean Easy Dismantle Cookerhood</en>
+        </HKA1000013N>
+
+        <HKA1000013D>
+            <en>2800RPM,200W,Stainless steel,1140m3/h, Turbo, Intelligent automatic heating dissolve oil, Quiet low gear, Automatic power off safety device</en>
+            <zh>2800转速,200瓦,不锈钢,1140立方米/小时,易拆式,强力Turbo,智能全自动电热除油,至宁静低速档静音,自动断电安全装置</zh>
+        </HKA1000013D>
+
+        <HKA1000014N>
+            <zh>Bondini 雪白 BT700S1 69.5cm 自动电热除油强力Turbo 嵌入式抽油烟机</zh>
+            <en>Bondini BT700S1 69.5cm Auto Heat-Cleaning Turbo Functioning Built in Cookerhood</en>
+        </HKA1000014N>
+
+        <HKA1000014D>
+            <en>2800RPM,250W,Stainless steel,1050m3/h, Turbo, Quiet low gear, Intelligent automatic electric heating degreasing, LED Light Button</en>
+            <zh>2800转速,250瓦,不锈钢,1050立方米/小时,强力Turbo,至宁静低速档静音,智能全自动电热除油,LED蓝色冷光电子按键</zh>
+        </HKA1000014D>
+
+        <HKA1000015N>
+            <zh>Mi 小米 BHR5864HK 智能抽湿机</zh>
+            <en>Mi BHR5864HK Smart Dehumidifier</en>
+        </HKA1000015N>
+
+        <HKA1000015D>
+            <en>Maxmium Daily Dehumidifying Capacity 20L Operation Noise as low as 35.5 d(B)A 3 Dehumidifying Modes for different situation Adjust the intensity of Dehumidifying automatically</en>
+            <zh>五重降噪设计,低至35.5 d(B)A 3种抽湿模式,适合不同场景需要 监测湿度变化,自动调节抽湿</zh>
+        </HKA1000015D>
+
+        <HKA1000016N>
+            <zh>NOVEL NB8800 手提搅拌机</zh>
+            <en>NOVEL NB8800 Hand Blender</en>
+        </HKA1000016N>
+
+        <HKA1000016D>
+            <en>Hand Blender (with Safety lock) :Single-handed operation and speed control at the same time, Variable speed display LED light on the top. Ergonomically handle. Multiple purposes: Blending, shredding, chopping, whisking eggs, etc.</en>
+            <zh>手提搅拌机,单手操作,同时变速,备安全锁,放心易用,具速度显示灯,触感式多段速度按钮,人体工程学设计手柄,一机多用,集合搅拌、切碎、切丝、磨茸、打蛋、等多种功能 配件齐备:搅拌棒、碎肉器(600毫升)、双头打蛋器、搅拌杯(800毫升)</zh>
+        </HKA1000016D>
+
+        <HKA1000017N>
+            <zh>PHILIPS 飞利浦 GC1752/36 2000W 蒸气电熨斗</zh>
+            <en>PHILIPS GC1752/36 2000W Steam Iron</en>
+        </HKA1000017N>
+
+        <HKA1000017D>
+            <en>EasySpeed iron makes you are your ironing easy and effective with lots of steam to remove tough creases, ceramic soleplate for easy gliding on all fabrics and scratch resitance, Calc Clean function for durable performance.</en>
+            <zh>EasySpeed 熨斗使熨衫变得简易有效,可使用大量蒸气熨平顽固绉褶,陶瓷底板在各种衣物纤维上都顺滑无比,并具有防刮痕、钙化清洗功能,确保持久耐用.</zh>
+        </HKA1000017D>
+
+        <MCD1000018N>
+            <zh>SONY 索尼 Xperia 10 IV 智能手机</zh>
+            <en>SONY Xperia 10 IV Smartphone</en>
+        </MCD1000018N>
+
+        <MCD1000018D>
+            <en>Optical image stabilization (OIS) for clear photo and video performance with less blur/ Triple-lens camera with improved night mode and Auto HDR low light shooting/ Stunning selfies with AI Portrait/ Super bright 21:9 FHD OLED Display.</en>
+            <zh>全新光学影像稳定系统 (OIS),带来清晰的照片和影片效能/ 三镜头AI相机设计,改良夜间模式及Auto HDR低光拍摄/ AI人工智能提供出色自拍效果/ 超光亮 21:9全高清OLED显示屏/ 全球最轻5G智能手机,配备5000mAh顶级大容量电池/ 360 Reality Audio Upmix音效提升,支援3.5mm音讯插孔及microSD外置记忆卡/ 顶级Corning Victus强化玻璃,IP65/68防水防尘/ 高效能 Snapdragon 695 5G移动平台</zh>
+        </MCD1000018D>
+
+        <MCD1000019N>
+            <zh>Redmi 10A Smartphone</zh>
+            <en>Redmi 红米 10A 智能手机</en>
+        </MCD1000019N>
+
+        <MCD1000019D>
+            <en>6.53" Dot Drop Display, Rear Fingerprint Sensor 13MP Dual Camera, 5MP Selfie Camera 5000mAh (typ) High-capacity Battery, High Charge Cycle Count, longer lifespan MediaTek Helio G25, Octa-core Processor, up to 2.0GHz</en>
+            <zh>6.53" 高清大萤幕, 灵敏指纹解锁 1300万像素 双镜头组合, 500万像素超清自拍镜头 5000mAh 超大容量电池, 超长电池寿命 MediaTek Helio G25, 高性能八核处理器</zh>
+        </MCD1000019D>
+
+        <MCD1000020N>
+            <zh>Redmi 11A Smartphone</zh>
+            <en>Redmi 红米 11A 智能手机</en>
+        </MCD1000020N>
+
+        <MCD1000020D>
+            <en>6.53" Dot Drop Display, Rear Fingerprint Sensor 13MP Dual Camera, 5MP Selfie Camera 5000mAh (typ) High-capacity Battery, High Charge Cycle Count, longer lifespan MediaTek Helio G25, Octa-core Processor, up to 2.0GHz</en>
+            <zh>6.53" 高清大萤幕, 灵敏指纹解锁 1300万像素 双镜头组合, 500万像素超清自拍镜头 5000mAh 超大容量电池, 超长电池寿命 MediaTek Helio G25, 高性能八核处理器</zh>
+        </MCD1000020D>
+
+        <MCD1000021N>
+            <zh>一加 10 Pro 智能手机</zh>
+            <en>OnePlus 10 Pro Smartphone</en>
+        </MCD1000021N>
+
+        <MCD1000021D>
+            <en>Next-Gen Hasselblad Camera for Mobile. 2K + 120Hz 6.7”LTPO 10bit Display. 80W SUPERVOOC Charging and 50W Wireless charging. Qualcomm Snapdragon® 8 Gen 1 Mobile Platform. Supports 10-Bit Color and 150-Degree Ultra-Wide. OxygenOS 12.1</en>
+            <zh>第二代哈苏手机影像系统. 2K+120Hz 6.7”LTPO 10-bit屏幕. 骁龙8 Gen 1 5G 移动平台. 80W SUPERVOCC闪充 + 50W无线闪充. 支持10bit拍照显示及超广角拍照手机. OxygenOS 12.1 (基于Android 12)</zh>
+        </MCD1000021D>
+
+        <MCD1000022N>
+            <zh>Redmi 红米 Note 11 Pro+ 5G 智能手机</zh>
+            <en>Redmi Note 11 Pro+ 5G Smartphone</en>
+        </MCD1000022N>
+
+        <MCD1000022D>
+            <en>MediaTek Di0mensity 920 with 5G, 6nm Ultra-performance Processor 120W Xiaomi HyperCharge, 4500mAh (typ) Battery 108MP Pro-grade Main Camera, Ultra-wide and Macro Lenses 120Hz FHD+ AMOLED DotDisplay, Dual Speakers, SOUND BY JBL</en>
+            <zh>MediaTek Dimensity 920, 6nm 高性能5G处理器 120W Xiaomi HyperCharge, 4500mAh 大容量电池 1亿像素专业相机, 支援超广角及微距拍摄 120Hz AMOLED超流畅萤幕, JBL专业调音的立体声双喇叭</zh>
+        </MCD1000022D>
+
+        <COF1000023N>
+            <zh>ACER 宏碁 PREDATOR HELIOS 300 (PH315-55-716Z) 电竞手提电脑</zh>
+            <en>ACER PREDATOR HELIOS 300 (PH315-55-716Z) RTX3070 Gaming Notebook</en>
+        </COF1000023N>
+
+        <COF1000023D>
+            <en>The Helios 300, as a high-performance gaming laptop, includes only the best, state-of-the-art cooling: custom-engineered 5th Gen AeroBlade™ 3D Fan Technology.</en>
+            <zh>Helios 300 遊戏笔记型电脑配备最出色的顶尖散热系统：採用第 5 代 AeroBlade™ 特製 3D 风扇技术,以及散热效果出众的液态金属散热膏,配以领先业界的第 12 代 Intel CPU。</zh>
+        </COF1000023D>
+
+        <COF1000024N>
+            <zh>MSI 微星 Stealth 17M A12UE RTX3060 144Hz 电竞手提电脑
+            </zh>
+            <en>MSI Stealth 17M A12UE RTX3060 144Hz Gaming Notebook</en>
+        </COF1000024N>
+
+        <COF100024D>
+            <en>Inspired By Urban Style, The New Stealth 17M Is The Thinnest And Lightest 17-inch Gaming Laptop. Easily Speed Through Games And Daily Tasks.</en>
+            <zh>源自于都会风格的灵感,全新 Stealth 17M 是最轻巧纤薄的17吋电竞笔电,展现了轻薄与高效能的完美平衡。让遊戏玩家能畅玩遊戏大作,也能让年轻的商务人士轻鬆完成日常工作</zh>
+        </COF100024D>
+
+        <COF1000025N>
+            <zh>HP 惠普 15s-fq5056TU 手提电脑</zh>
+            <en>HP 15s-fq5056TU Notebook</en>
+        </COF1000025N>
+
+        <COF1000025D>
+            <en>Built to keep you productive and entertained from anywhere, the HP 15" laptop features reliable performance and an expansive display - letting you stream and speed through tasks from sun up to sun down</en>
+            <zh>HP 15s笔记型电脑专为保证您的工作效率和娱乐性而设计,具有可靠的性能和广阔的显示屏,让您可以从日出到日落进行流畅和加速完成任务。</zh>
+        </COF1000025D>
+
+        <COF1000026N>
+            <zh>ASUS 华硕 Vivobook 14X X1403ZA 手提电脑</zh>
+            <en>ASUS Vivobook 14X X1403ZA Notebook</en>
+        </COF1000026N>
+
+        <COF1000026D>
+            <en>Your journey of discovery starts here, with Vivobook 14X to power your exploration. Whatever your creative workload — scenes or spreadsheets, documents or designs,give you the fastest performance in an ultrathin laptop.</en>
+            <zh>源自于都会风格的灵感,全新 Stealth 17M 是最轻巧纤薄的17吋电竞笔电,展现了轻薄与高效能的完美平衡。让遊戏玩家能畅玩遊戏大作,也能让年轻的商务人士轻鬆完成日常工作</zh>
+        </COF1000026D>
+
+        <COF1000027N>
+            <zh>Razer 雷蛇 Blade 15 进阶机型 360Hz RTX3070Ti 电竞手提电脑</zh>
+            <en>Razer Blade 15 Advanced Model 360Hz RTX3070Ti Gaming Notebook</en>
+        </COF1000027N>
+
+        <COF1000027D>
+            <en>Think gaming laptops have reached their limit? Check out the new Razer Blade 15, powered by the latest 12th Gen Intel® Core™ processors (14 cores) and NVIDIA® GeForce RTX™ 30 series laptop GPU</en>
+            <zh>以为电竞笔电已经达到极限了吗？来瞧瞧新推出的 Razer Blade 15,搭载最新第 12 代 Intel® Core™ 处理器（14 核心）和 NVIDIA®GeForce RTX™30 系列笔记型电脑 GPU,带来了史上最强大的电竞笔电显卡性能。可自由选择 Full HD 360Hz、QHD 240Hz (G-Sync) 或全新的 UHD 144Hz 显示器,这轻薄无比的 15 吋 RTX 电竞笔电机箱里,蕴藏着无与伦比的效能。</zh>
+        </COF1000027D>
+
     </Translation>
 </root>

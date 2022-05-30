@@ -9,6 +9,7 @@ namespace TheBetterLimited_Server.API.Controller
         [HttpPost("1")]
         public IActionResult Post([FromBody] string image)
         {
+            
             return File(Convert.FromBase64String(image), "image/jpeg");
         }
 
@@ -32,7 +33,13 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 return BadRequest("ERROR: Audio could not be saved on server.");
             }
+        }
 
+
+        [HttpPost("get64string")]
+        public IActionResult ConvertToBase64String([FromBody] byte[] image)
+        {
+            return Ok(Convert.ToBase64String(image));
         }
     }
 

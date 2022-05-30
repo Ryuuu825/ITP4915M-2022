@@ -12,10 +12,12 @@ namespace TheBetterLimited_Server.AppLogic.Controllers;
 public class UserController
 {
     private readonly Data.Repositories.AccountRepository _UserTable;
+    private readonly Data.Repositories.Repository<Staff> _StaffTable;
 
     public UserController(DataContext dataContext)
     {
         _UserTable = new Data.Repositories.AccountRepository(dataContext);
+        _StaffTable = new Data.Repositories.Repository<Staff>(dataContext);
     }
 
     public async Task CreateUser(AccountDto acc, bool saveNow = true)
@@ -27,6 +29,7 @@ public class UserController
         newObj.LoginFailedCount = 0;
 
         _UserTable.CreateUser(ref newObj);
+        
     }
 
     public async Task<Account?> GetUserByIDAsync(string id)
@@ -166,6 +169,8 @@ public class UserController
         }, true);
      }
 
+
+
      public Tuple<byte[], string> GetUserIcon(string username )
      {
          Account? acc = _UserTable.GetBySQL(
@@ -186,18 +191,57 @@ public class UserController
         }
      }
 
-     public async Task UpdateUserIcon(string username , string base64Image)
+     public Tuple<byte[], string> GetUserIconByID(string id )
+     {
+         Account? acc = _UserTable.GetById(id);
+
+         if (acc is null)
+             throw new BadArgException("No such user");
+         
+
+        if (acc.Icon is null)
+        {
+            return new Tuple<byte[], string>(System.IO.File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + "resources/usericons/default.png"), "png");
+        }
+        else
+        {
+            return new Tuple<byte[], string>(acc.Icon, "png");
+        }
+     }
+
+     public async Task UpdateUserIcon(Account acc, string base64Image)
+     {
+        try 
+        {
+            acc.Icon = Convert.FromBase64String(base64Image);
+        }catch (System.FormatException e)
+        {
+            throw new BadArgException("Invalid image format");
+        }
+        await _UserTable.UpdateAsync(acc , true);
+     }
+
+     public async Task UpdateUserIcon(string id , string base64Image)
+     {
+        Account acc = (await _StaffTable.GetByIdAsync(id)).acc;
+
+        if (acc is null)
+            throw new BadArgException("The staff does not have an account");
+
+        await UpdateUserIcon(acc , base64Image);
+     }
+
+    public async Task UpdateMyUserIcon(string IdentityName , string base64Image)
      {
          Account? acc = (await _UserTable.GetBySQLAsync(
-                $"SELECT * FROM Account WHERE username = '{username}'"
+                $"SELECT * FROM Account WHERE username = '{IdentityName}'"
          )).FirstOrDefault();
+
 
         if (acc is null)
             throw new BadArgException("No such user");
 
-        acc.Icon = Convert.FromBase64String(base64Image);
-        await _UserTable.UpdateAsync(acc , true);
+        await UpdateUserIcon(acc , base64Image);
      }
-
 
 }

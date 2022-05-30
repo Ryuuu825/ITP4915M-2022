@@ -29,10 +29,12 @@ namespace TheBetterLimited_Server.API.Controllers
         private readonly IConfiguration _config;
         private readonly TheBetterLimited_Server.AppLogic.Controllers.TestController _testController;
         private readonly TheBetterLimited_Server.Data.Repositories.AccountRepository _accountRepository;
+        private readonly TheBetterLimited_Server.Data.DataContext db;
 
         public Test(IConfiguration config, DataContext data )
         {
             _config = config;
+            db = data;
             _testController = new AppLogic.Controllers.TestController(data);
             _accountRepository = new Data.Repositories.AccountRepository(data);
         }
@@ -210,6 +212,12 @@ namespace TheBetterLimited_Server.API.Controllers
             byte[] qrCodeAsPngByteArr = qrCode.GetGraphic(20);
 
             return File(qrCodeAsPngByteArr , "image/png");
+        }
+
+        [HttpGet("primarykey")]
+        public IActionResult GetPrimaryKey()
+        {
+            return Ok(TheBetterLimited_Server.Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.Account>(db));
         }
 
 

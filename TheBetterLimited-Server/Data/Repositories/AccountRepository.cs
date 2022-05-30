@@ -7,7 +7,7 @@ namespace TheBetterLimited_Server.Data.Repositories;
 
 public class AccountRepository : Repository<Account>
 {
-    protected readonly DataContext DbContext;
+    private readonly DataContext DbContext;
     private DbSet<Staff> Staffs;
     private DbSet<Menu> Menus;
     private DbSet<Position> Positions;
@@ -21,12 +21,16 @@ public class AccountRepository : Repository<Account>
     }
 
 
-    public bool CreateUser(ref Account acc)
+    public void CreateUser(ref Account acc)
     {
         var staff = Staffs.Find(acc._StaffId);
+
+        // check if primary key is exist
         var checkKey = base.GetBySQL(
             Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"id:{acc.Id}")
         );
+
+        // check if user name is exist
         var checkUserName = base.GetBySQL(
             Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{acc.UserName}" )
         );
@@ -42,10 +46,14 @@ public class AccountRepository : Repository<Account>
         else if (staff is not null) // assign the staff obj to the acc
         {
             acc.Staff = staff;
-            Console.WriteLine(staff.Debug());
         }
 
-        return base.Add(acc);
+        base.Add(acc);
+
+        staff._AccountId = acc.Id;
+        ConsoleLogger.Debug(staff._AccountId);
+        Staffs.Update(staff);
+        DbContext.SaveChanges();
 
     }
 
