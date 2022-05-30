@@ -21,7 +21,16 @@ namespace TheBetterLimited_Server.Helpers.Sql
 
             if (Prefix == "" )
             {
+                // get the prefix from the last entry's id
+                var _prefix = Id?.Substring(0 , Id.IndexOfAny("0123456789".ToCharArray()));
+                sb.Append(_prefix);
 
+                var sequence = Id?.Substring( Id.IndexOfAny("0123456789".ToCharArray()) , Id.Length - Id.IndexOfAny("0123456789".ToCharArray()));
+                int NewIdValue = sequence.ToInt() + 1;
+                // append the "0" to the front of the id, so that the length will some as the length of the id
+                sb.Append(NewIdValue.ToString().PadLeft(Id.Length , '0'));
+                ConsoleLogger.Debug(sb.ToString());
+                return sb.ToString();
             }
             return "";
         }

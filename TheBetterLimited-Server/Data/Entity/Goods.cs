@@ -31,7 +31,7 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(15)]
         [Column(TypeName = "varchar(15)")]
-        public string? GTINNode { get; set; }
+        public string? GTINCode { get; set; }
 
         public GoodsSize? Size { get; set; }
 
