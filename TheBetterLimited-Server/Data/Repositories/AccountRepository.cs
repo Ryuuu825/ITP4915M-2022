@@ -51,7 +51,9 @@ public class AccountRepository : Repository<Account>
         base.Add(acc);
 
         staff._AccountId = acc.Id;
+        ConsoleLogger.Debug(staff._AccountId);
         Staffs.Update(staff);
+        DbContext.SaveChanges();
 
     }
 
