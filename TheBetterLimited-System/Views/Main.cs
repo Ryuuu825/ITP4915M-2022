@@ -121,7 +121,7 @@ namespace TheBetterLimited.Views
         }
 
         private void Home_Click(object sender, EventArgs e)
-        {
+        {   
             change_MenuButton_style(sender);
             openChildForm(new Home());
         }
@@ -155,6 +155,7 @@ namespace TheBetterLimited.Views
         }
         private void POS_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
             change_MenuButton_style(sender);
             openChildForm(new POS());
         }
@@ -227,10 +228,5 @@ namespace TheBetterLimited.Views
             subSidebarTimer.Start();
         }
 
-        private void Main_MaximumSizeChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("我最大化了");
-            subSidebar.Width = 200;
-        }
     }
 }

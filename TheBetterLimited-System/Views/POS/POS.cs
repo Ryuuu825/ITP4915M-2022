@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,11 +26,25 @@ namespace TheBetterLimited.Views
         private DialogResult choose;
         private RestResponse result;
         private bool isEditing = false;
+        private List<OrderItem> oi = new List<OrderItem>();
 
         public POS()
         {
             InitializeComponent();
-            
+            this.CartItemGrid.Columns["Qty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            CartItemGrid.Rows.Add("SIEMENS WM12N270HK 7KG 1200RPM Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol + "35.00", "none");
+            CartItemGrid.Rows.Add("MIELE WCR860 W1 9KG 1600RPM Front Load WasherX", Properties.Resources.minus, "1", Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol+"35.00", "");
+            CartItemGrid.Rows.Add("MIELE WCA020 WCS Active 7KG 1400RPM Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol+"35.00", "");
+            CartItemGrid.Rows.Add("TOSHIBA TWBL85A2HWW 7.5KG 440mm Ultra Slim Inverter Front Loading Washing Machine Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol+"35.00", "");
+            for(int i=0; i < 20; i++)
+            {
+                ProductInfo productBox = new ProductInfo();
+                productBox.Title = "SIEMENS WM12N270HK 7KG 1200RPM Front Load Washer";
+                productBox.ProductPrice = 88.88;
+                productBox.Image = Properties.Resources.product;
+                productBox.BorderSelectedColor = Color.SeaGreen;
+                ProductInfoContainer.Controls.Add(productBox);
+            }
         }
 
         /*
@@ -80,13 +95,24 @@ namespace TheBetterLimited.Views
 
         private void CatalogBtn_Click(object sender, EventArgs e)
         {
+            foreach (RoundButton rdb in CatalogBtnGroup.Controls)
+            {
+                Console.WriteLine("checked");
+                if (rdb.IsChecked == true)
+                {
+                    Console.WriteLine("checked");
+                    rdb.IsChecked = false;
+                    ResetBtn_Style(rdb);
+                    break;
+                } 
+            }
+            ((RoundButton)sender).IsChecked = true;
             ChangeCheckedBtn_Style((RoundButton)sender);
         }
 
         private void CatalogBtn_MouseHover(object sender, EventArgs e)
         {
-            ((RoundButton)sender).BorderColor = Color.SeaGreen;
-            ((RoundButton)sender).ForeColor = Color.SeaGreen;
+            ChangeCheckedBtn_Style((RoundButton)sender);
         }
 
         private void ChangeCheckedBtn_Style(RoundButton sender)
@@ -96,8 +122,51 @@ namespace TheBetterLimited.Views
         }
         private void ResetBtn_Style(RoundButton sender)
         {
-            sender.BorderColor = Color.DimGray;
-            sender.ForeColor = Color.DimGray;
+            if (sender.IsChecked == false)
+            {
+                sender.BorderColor = Color.LightGray;
+                sender.ForeColor = Color.LightGray;
+            }
+        }
+
+        private void roundButton4_MouseLeave(object sender, EventArgs e)
+        {
+            ResetBtn_Style((RoundButton)sender);
+        }
+
+        private void AddToCart(List<OrderItem> cartList)
+        {
+            foreach (OrderItem cart in cartList)
+            {
+                CartItemGrid.Rows.Add(cart.Name, Properties.Resources.minus, cart.Quantity, Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol + cart.Price, cart.Remark);
+            }
+            
+        }
+
+        private void HoldBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PayBtn_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void POS_Load(object sender, EventArgs e)
+        {
+            if(this.WindowState != FormWindowState.Maximized)
+            {
+                CatalogBtnGroup.Hide();
+            }
+        }
+
+        private void POS_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Maximized)
+            {
+                CatalogBtnGroup.Show();
+            }
         }
     }
 }

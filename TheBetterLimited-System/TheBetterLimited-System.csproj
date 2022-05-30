@@ -118,6 +118,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ControllerBase.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\GoodsController.cs" />
     <Compile Include="Controller\LoginController.cs" />
@@ -136,6 +137,12 @@
     <Compile Include="CustomizeControl\Loading.Designer.cs">
       <DependentUpon>Loading.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomizeControl\ProductInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomizeControl\ProductInfo.Designer.cs">
+      <DependentUpon>ProductInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomizeControl\RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -146,6 +153,7 @@
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\ErrorMsg.cs" />
     <Compile Include="Models\GlobalsData.cs" />
+    <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\ResponseResult.cs" />
     <Compile Include="Models\StaffModel.cs" />
     <Compile Include="Models\Status.cs" />
@@ -207,6 +215,12 @@
     <Compile Include="Views\POS\POS.Designer.cs">
       <DependentUpon>POS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\POS\GoodsDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\POS\GoodsDetails.Designer.cs">
+      <DependentUpon>GoodsDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Setting\Setting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +257,9 @@
     <EmbeddedResource Include="CustomizeControl\Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomizeControl\ProductInfo.resx">
+      <DependentUpon>ProductInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\InventoryManagement.resx">
       <DependentUpon>InventoryManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -271,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\POS\POS.resx">
       <DependentUpon>POS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\GoodsDetails.resx">
+      <DependentUpon>GoodsDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Setting\Setting.resx">
       <DependentUpon>Setting.cs</DependentUpon>
@@ -484,6 +504,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test1.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />
