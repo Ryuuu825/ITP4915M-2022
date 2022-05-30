@@ -36,7 +36,7 @@ namespace TheBetterLimited.Views
             CartItemGrid.Rows.Add("MIELE WCR860 W1 9KG 1600RPM Front Load WasherX", Properties.Resources.minus, "1", Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol+"35.00", "");
             CartItemGrid.Rows.Add("MIELE WCA020 WCS Active 7KG 1400RPM Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol+"35.00", "");
             CartItemGrid.Rows.Add("TOSHIBA TWBL85A2HWW 7.5KG 440mm Ultra Slim Inverter Front Loading Washing Machine Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, NumberFormatInfo.CurrentInfo.CurrencySymbol+"35.00", "");
-            for(int i=0; i < 20; i++)
+            for(int i=0; i < 100; i++)
             {
                 ProductInfo productBox = new ProductInfo();
                 productBox.Title = "SIEMENS WM12N270HK 7KG 1200RPM Front Load Washer";

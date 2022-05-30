@@ -147,6 +147,7 @@
             this.UserIconPic.TabIndex = 2;
             this.UserIconPic.TabStop = false;
             this.UserIconPic.Click += new System.EventHandler(this.UserIconPic_Click);
+            this.UserIconPic.Paint += new System.Windows.Forms.PaintEventHandler(this.UserIconPic_Paint);
             this.UserIconPic.MouseLeave += new System.EventHandler(this.UserIconPic_MouseLeave);
             this.UserIconPic.MouseHover += new System.EventHandler(this.UserIconPic_MouseHover);
             // 
@@ -176,6 +177,7 @@
             this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelBtn.ForeColor = System.Drawing.Color.White;
+            this.CancelBtn.IsChecked = false;
             this.CancelBtn.Location = new System.Drawing.Point(212, 6);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(128, 40);
@@ -196,6 +198,7 @@
             this.CreateUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateUser.ForeColor = System.Drawing.Color.White;
+            this.CreateUser.IsChecked = false;
             this.CreateUser.Location = new System.Drawing.Point(346, 6);
             this.CreateUser.Name = "CreateUser";
             this.CreateUser.Size = new System.Drawing.Size(128, 40);
@@ -566,6 +569,7 @@
             this.SearchStaffBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchStaffBtn.ForeColor = System.Drawing.Color.White;
             this.SearchStaffBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SearchStaffBtn.IsChecked = false;
             this.SearchStaffBtn.Location = new System.Drawing.Point(438, 13);
             this.SearchStaffBtn.Name = "SearchStaffBtn";
             this.SearchStaffBtn.Size = new System.Drawing.Size(30, 30);
@@ -807,7 +811,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add User";
-            this.Load += new System.EventHandler(this.Usermanagement_Add_Load);
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserIconPic)).EndInit();

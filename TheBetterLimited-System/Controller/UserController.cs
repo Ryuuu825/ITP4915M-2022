@@ -30,6 +30,7 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine("StatusCode: " + response.StatusCode);
                 return response;
             }
             catch (Exception ex)
@@ -51,6 +52,7 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine("StatusCode: " + response.StatusCode);
                 return response;
             }
             catch (Exception ex)
@@ -71,6 +73,7 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine("StatusCode: " + response.StatusCode);
                 return response;
             }
             catch (Exception ex)
@@ -92,6 +95,7 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine("StatusCode: " + response.StatusCode);
                 return response;
             }
             catch (Exception ex)
@@ -113,6 +117,7 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine("StatusCode: " + response.StatusCode);
                 return response;
             }
             catch (Exception ex)
@@ -131,6 +136,7 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine("StatusCode: " + response.StatusCode);
                 return response;
             }
             catch (Exception ex)
@@ -151,6 +157,7 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine("StatusCode: " + response.StatusCode);
                 return response;
             }
             catch (Exception ex)
@@ -172,6 +179,7 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine("StatusCode: " + response.StatusCode);
                 return response;
             }
             catch (Exception ex)
@@ -193,6 +201,7 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine("StatusCode: " + response.StatusCode);
                 return response;
             }
             catch (Exception ex)
@@ -212,7 +221,7 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.DownloadDataAsync(request).GetAwaiter().GetResult();
-                Console.WriteLine(response);
+                Console.WriteLine("Content: " + response);
                 var ms = new MemoryStream(response);
                 Bitmap bmp = new Bitmap(ms);
                 ms.Close();
@@ -228,13 +237,13 @@ namespace TheBetterLimited.Controller
         public Bitmap GetUserIconById(string uid)
         {
             Console.WriteLine("Get icon by " + uid);
-            Console.WriteLine("/api/users/+" + uid + "/icon");
+            Console.WriteLine("/api/users/" + uid + "/icon");
             var request = new RestRequest($"/api/users/{uid}/icon", Method.Get)
                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {
                 var response = RestClientUtils.client.DownloadDataAsync(request).GetAwaiter().GetResult();
-                Console.WriteLine(response);
+                Console.WriteLine("Content: " + response);
                 var ms = new MemoryStream(response);
                 Bitmap bmp = new Bitmap(ms);
                 ms.Close();
@@ -252,12 +261,14 @@ namespace TheBetterLimited.Controller
         */
         public RestResponse UploadUserIcon(byte[] img, string uid)
         {
+            Console.WriteLine($"/api/users/{uid}/icon");
             var request = new RestRequest($"/api/users/{uid}/icon", Method.Post)
                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
                        .AddBody(Convert.ToBase64String(img));
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine("StatusCode: "+response.StatusCode);
                 return response;
             }
             catch (Exception ex)

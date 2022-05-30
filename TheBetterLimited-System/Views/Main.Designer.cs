@@ -255,6 +255,7 @@
             this.UserIcon.TabIndex = 0;
             this.UserIcon.TabStop = false;
             this.UserIcon.Click += new System.EventHandler(this.UserInformation_Click);
+            this.UserIcon.Paint += new System.Windows.Forms.PaintEventHandler(this.UserIcon_Paint);
             // 
             // CompanyInfo
             // 

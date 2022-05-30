@@ -31,16 +31,6 @@ namespace TheBetterLimited.Views
             InitializeComponent();
         }
 
-        private void Usermanagement_Add_Load(object sender, EventArgs e)
-        {
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(UserIconPic.ClientRectangle);
-            Region region = new Region(gp);
-            UserIconPic.Region = region;
-            gp.Dispose();
-            region.Dispose();
-        }
-
         private void UserIconPic_MouseHover(object sender, EventArgs e)
         {
 
@@ -190,11 +180,11 @@ namespace TheBetterLimited.Views
              */
             try
             {
-                
+                string id = "A" + new Random().Next(10000);
                 var response = user.AddAccount(
                     new
                     {
-                        Id = "A" + new Random().Next(10000),
+                        Id = id,
                         userName = userNameTxt.Texts,
                         Password = pwdTxt.Texts,
                         EmailAddress = emailTxt.Texts,
@@ -205,11 +195,9 @@ namespace TheBetterLimited.Views
 
                 if (isUpload)
                 {
-
                     var uploadIconRes = user.UploadUserIcon(
-                        (byte[])(new ImageConverter().ConvertTo(this.UserIconPic.Image, typeof(byte[]))), (StaffIDTxt.Texts)
+                        (byte[])(new ImageConverter().ConvertTo(this.UserIconPic.Image, typeof(byte[]))), StaffIDTxt.Texts
                     );
-
                 }
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
@@ -447,6 +435,20 @@ namespace TheBetterLimited.Views
             }
             pwdTxt.PasswordChar = pwdTxt.PasswordChar == true ? false : true;
             pwdTxt2.PasswordChar = pwdTxt2.PasswordChar == true ? false : true;
+        }
+
+        private void UserIconPic_Paint(object sender, PaintEventArgs e)
+        {
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddEllipse(UserIconPic.ClientRectangle);
+            Region region = new Region(gp);
+            UserIconPic.Region = region;
+            Pen pen = new Pen(Color.White, 50);
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            e.Graphics.DrawPath(pen, gp);
+            gp.Dispose();
+            region.Dispose();
+            pen.Dispose();
         }
     }
 }

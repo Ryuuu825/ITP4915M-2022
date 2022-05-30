@@ -297,5 +297,19 @@ namespace TheBetterLimited.Views
                 MessageBox.Show("Sorry, user information update unsuccessfully");
             }
         }
+
+        private void UserIconPic_Paint(object sender, PaintEventArgs e)
+        {
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddEllipse(UserIconPic.ClientRectangle);
+            Region region = new Region(gp);
+            UserIconPic.Region = region;
+            Pen pen = new Pen(Color.White, 10);
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            e.Graphics.DrawPath(pen, gp);
+            gp.Dispose();
+            region.Dispose();
+            pen.Dispose();
+        }
     }
 }

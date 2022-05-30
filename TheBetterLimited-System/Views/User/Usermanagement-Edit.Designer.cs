@@ -127,6 +127,7 @@
             this.UserIconPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.UserIconPic.TabIndex = 2;
             this.UserIconPic.TabStop = false;
+            this.UserIconPic.Paint += new System.Windows.Forms.PaintEventHandler(this.UserIconPic_Paint);
             // 
             // BottomBtn
             // 
@@ -154,6 +155,7 @@
             this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelBtn.ForeColor = System.Drawing.Color.White;
+            this.CancelBtn.IsChecked = false;
             this.CancelBtn.Location = new System.Drawing.Point(212, 6);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(128, 40);
@@ -174,6 +176,7 @@
             this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveBtn.ForeColor = System.Drawing.Color.White;
+            this.SaveBtn.IsChecked = false;
             this.SaveBtn.Location = new System.Drawing.Point(346, 6);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(128, 40);
@@ -493,6 +496,7 @@
             this.SearchStaffBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchStaffBtn.ForeColor = System.Drawing.Color.White;
             this.SearchStaffBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SearchStaffBtn.IsChecked = false;
             this.SearchStaffBtn.Location = new System.Drawing.Point(445, 13);
             this.SearchStaffBtn.Name = "SearchStaffBtn";
             this.SearchStaffBtn.Size = new System.Drawing.Size(30, 30);

@@ -29,10 +29,6 @@ namespace TheBetterLimited.Views
         {
             txtUsername.Text = GlobalsData.currentUser["displayName"];
             txtJobTitle.Text = GlobalsData.currentUser["position"];
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(UserIcon.ClientRectangle);
-            Region region = new Region(gp);
-            UserIcon.Region = region;
             Bitmap bitmap = uc.GetUserIcon();
             if (bitmap != null)
             {
@@ -42,8 +38,6 @@ namespace TheBetterLimited.Views
             {
                 UserIcon.Image = Properties.Resources.portrait_free_icon_font;
             }
-            gp.Dispose();
-            region.Dispose();
             Menu_Init();
             openChildForm(new Home());
             change_MenuButton_style(HomeBtn);
@@ -227,6 +221,34 @@ namespace TheBetterLimited.Views
             openChildForm(new InventoryManagement());
             subSidebarTimer.Start();
         }
+        
+        //Draw a circle icon
+        private Image CutEllipse(Image img, Rectangle rec, Size size)
+        {
+            Bitmap bitmap = new Bitmap(size.Width, size.Height);
+            using (Graphics g = Graphics.FromImage(bitmap))
+            {
+                using (TextureBrush br = new TextureBrush(img, System.Drawing.Drawing2D.WrapMode.Clamp, rec))
+                {
+                    br.ScaleTransform(bitmap.Width / (float)rec.Width, bitmap.Height / (float)rec.Height);
+                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                    g.FillEllipse(br, new Rectangle(Point.Empty, size));
+                }
+            }
+            return bitmap;
+        }
 
+        private void UserIcon_Paint(object sender, PaintEventArgs e)
+        {
+            GraphicsPath gp = new GraphicsPath();
+            gp.AddEllipse(UserIcon.ClientRectangle);
+            Region region = new Region(gp);
+            UserIcon.Region = region;
+            Pen pen = new Pen(Color.FromArgb(64,64,64), 1);
+            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            e.Graphics.DrawPath(pen, gp);
+            gp.Dispose();
+            region.Dispose();
+        }
     }
 }
