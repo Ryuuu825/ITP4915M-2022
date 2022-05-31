@@ -120,6 +120,7 @@
   <ItemGroup>
     <Compile Include="Controller\ControllerBase.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
+    <Compile Include="Controller\CatalogueController.cs" />
     <Compile Include="Controller\GoodsController.cs" />
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\PostionController.cs" />

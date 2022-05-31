@@ -24,14 +24,14 @@ namespace TheBetterLimited.Views
         private UserController uc = new UserController();
         private GoodsController gc = new GoodsController();
         private BindingSource bs = new BindingSource();
-        private List<string> selecteUserId = new List<string>();
+        private List<string> selectGoodsID = new List<string>();
         private DialogResult choose;
         private RestResponse result;
 
         public InventoryManagement()
         {
             InitializeComponent();
-            GetAccount();//init user table
+            GetGoods();//init user table
         }
 
         /*
@@ -39,13 +39,13 @@ namespace TheBetterLimited.Views
          */
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            DeleteSelectedAccount();
+            DeleteSelectedGoods();
         }
 
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.Invalidate();
-            GetAccount();
+            GetGoods();
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -53,62 +53,65 @@ namespace TheBetterLimited.Views
             this.Close();
         }
 
-        private void UserDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void GoodsDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (UserDataGrid.Columns[e.ColumnIndex].Name == "status")
+            if (GoodsDataGrid.Columns[e.ColumnIndex].Name == "Status")
             {
-                e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                if (e.Value.Equals("L"))
+                if (e.Value.Equals("0"))
                 {
-                    e.Value = "Locked";
-                    e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
-                    e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
-                    UserDataGrid.Columns[e.ColumnIndex].ToolTipText = "Unlock";
-                    UserDataGrid.Rows[e.RowIndex].Cells["lockAcc"].Value = Properties.Resources.unlock;
-                    UserDataGrid.Rows[e.RowIndex].Cells["lockAcc"].Tag = 1;
+                    e.Value = "Selling";
                 }
-                else
+                if (e.Value.Equals("1"))
                 {
-                    e.Value = "Normal";
-                    e.CellStyle.ForeColor = Color.SeaGreen;
+                    e.Value = "PhasingOut";
                 }
-
+                if (e.Value.Equals("2"))
+                {
+                    e.Value = "StopSelling";
+                }
             }
+
+            if (GoodsDataGrid.Columns[e.ColumnIndex].Name == "Size")
+            {
+                if (e.Value.Equals(0))
+                {
+                    e.Value = "Small";
+                }
+                if (e.Value.Equals(1))
+                {
+                    e.Value = "Medium";
+                }
+                if (e.Value.Equals(2))
+                {
+                    e.Value = "Large";
+                }
+            }
+
         }
 
-        private void UserDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void GoodsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == UserDataGrid.Columns["select"].Index)
+            if (e.ColumnIndex == GoodsDataGrid.Columns["select"].Index)
             {
-                if (Convert.ToInt32(UserDataGrid["select", e.RowIndex].Tag) == 0)
+                if (Convert.ToInt32(GoodsDataGrid["select", e.RowIndex].Tag) == 0)
                 {
-                    UserDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
-                    UserDataGrid["select", e.RowIndex].Tag = 1;
-                    UserDataGrid.Rows[e.RowIndex].Selected = true;
-                    selecteUserId.Add(UserDataGrid["id", e.RowIndex].Value.ToString());
+                    GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
+                    GoodsDataGrid["select", e.RowIndex].Tag = 1;
+                    GoodsDataGrid.Rows[e.RowIndex].Selected = true;
+                    selectGoodsID.Add(GoodsDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
-                    UserDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
-                    UserDataGrid["select", e.RowIndex].Tag = 0;
-                    UserDataGrid.Rows[e.RowIndex].Selected = false;
-                    selecteUserId.Remove(UserDataGrid["id", e.RowIndex].Value.ToString());
+                    GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
+                    GoodsDataGrid["select", e.RowIndex].Tag = 0;
+                    GoodsDataGrid.Rows[e.RowIndex].Selected = false;
+                    selectGoodsID.Remove(GoodsDataGrid["id", e.RowIndex].Value.ToString());
                 }
             }
 
-            if (e.ColumnIndex == UserDataGrid.Columns["lockAcc"].Index)
+            if (e.ColumnIndex == GoodsDataGrid.Columns["edit"].Index)
             {
-                DivideLockAccount(e);
-            }
-
-            if (e.ColumnIndex == UserDataGrid.Columns["edit"].Index)
-            {
-                MessageBox.Show("You have selected row " + selecteUserId[0] + " cell");
-            }
-
-            if (e.ColumnIndex == UserDataGrid.Columns["delete"].Index)
-            {
-                DeleteAccount(e);
+                MessageBox.Show("You have selected row " + selectGoodsID[0] + " cell");
             }
         }
 
@@ -133,7 +136,7 @@ namespace TheBetterLimited.Views
         //search bar text changed event
         private void SearchBarTxt__TextChanged(object sender, EventArgs e)
         {
-            GetAccount();
+            GetGoods();
         }
 
 
@@ -145,40 +148,52 @@ namespace TheBetterLimited.Views
         private void InitializeDataGridView()
         {
             //Main data column
-            UserDataGrid.AutoGenerateColumns = false;
-            UserDataGrid.DataSource = bs;
-            UserDataGrid.Columns["id"].HeaderText = "ID";
-            UserDataGrid.Columns["userName"].HeaderText = "User Name";
-            UserDataGrid.Columns["staffName"].HeaderText = "Staff Name";
-            UserDataGrid.Columns["emailAddress"].HeaderText = "Email Address";
-            UserDataGrid.Columns["status"].HeaderText = "Status";
-            UserDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
-            UserDataGrid.Columns["remarks"].HeaderText = "Remark";
+            GoodsDataGrid.AutoGenerateColumns = false;
+            GoodsDataGrid.DataSource = bs;
+            GoodsDataGrid.Columns["id"].HeaderText = "ID";
+            GoodsDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
+            GoodsDataGrid.Columns["name"].HeaderText = "Goods Name";
+            GoodsDataGrid.Columns["description"].HeaderText = "Description";
+            GoodsDataGrid.Columns["price"].HeaderText = "Price";
+            GoodsDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
+            GoodsDataGrid.Columns["size"].HeaderText = "Size";
+            GoodsDataGrid.Columns["status"].HeaderText = "Status";
+            // GoodsDataGrid.Columns["id"].HeaderText = "ID";
+            // GoodsDataGrid.Columns["userName"].HeaderText = "User Name";
+            // GoodsDataGrid.Columns["staffName"].HeaderText = "Staff Name";
+            // GoodsDataGrid.Columns["emailAddress"].HeaderText = "Email Address";
+            // GoodsDataGrid.Columns["status"].HeaderText = "Status";
+            // GoodsDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
+            // GoodsDataGrid.Columns["remarks"].HeaderText = "Remark";
 
-            for (int i = 0; i < UserDataGrid.RowCount; i++)
-                UserDataGrid["select", i].Tag = 0;
+            for (int i = 0; i < GoodsDataGrid.RowCount; i++)
+                GoodsDataGrid["select", i].Tag = 0;
 
-            selecteUserId.Clear();
+            selectGoodsID.Clear();
         }
 
-        //Get Account
-        private void GetAccount()
+        //Get Goods
+        private void GetGoods()
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
-                result = uc.GetAllAccount();
+                result = gc.GetAllGoods();
             }
             else
             {
-                string str = "_StaffId:" + this.SearchBarTxt.Texts + "|emailAddress:" + this.SearchBarTxt.Texts
-                            + "|userName:" + this.SearchBarTxt.Texts + "|status:" + this.SearchBarTxt.Texts;
-                result = uc.GetAccountByQry(str);
+                string str = "|id:" + this.SearchBarTxt.Texts
+                            + "|catelogue:" + this.SearchBarTxt.Texts + "|name:" + this.SearchBarTxt.Texts
+                            + "|description:" + this.SearchBarTxt.Texts + "|price:" + this.SearchBarTxt.Texts
+                            + "|gTINCode:" + this.SearchBarTxt.Texts + "|size:" + this.SearchBarTxt.Texts
+                            + "|status:" + this.SearchBarTxt.Texts;
+                result = gc.GetGoodsByQry(str);
             }
             try
             {
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
                 bs.DataSource = dataTable;
-                UserDataGrid.DataSource = bs;
+                GoodsDataGrid.AutoGenerateColumns = false;
+                GoodsDataGrid.DataSource = bs;
                 InitializeDataGridView();
             }
             catch (Exception ex)
@@ -187,122 +202,61 @@ namespace TheBetterLimited.Views
             }
         }
 
-        //Divide between lock and unlock account
-        private void DivideLockAccount(DataGridViewCellEventArgs e)
+        //Delete Selected Goods
+        private void DeleteSelectedGoods()
         {
-            if (Convert.ToInt32(UserDataGrid["lockAcc", e.RowIndex].Tag) == 1)
+            if (selectGoodsID.Count > 0)
             {
-                //unlock account
-                UnlockAccount(e);
-            }
-            else
-            {
-                // lock account
-                LockAccount(e);
-            }
-        }
-
-        //Lock Account
-        private void LockAccount(DataGridViewCellEventArgs e)
-        {
-            choose = MessageBox.Show("Do you really want to lock the " + UserDataGrid["userName", e.RowIndex].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-            if (choose == DialogResult.Yes)
-            {
-                try
-                {
-                    string res = "";
-                    result = uc.LockAccount((string)UserDataGrid["id", e.RowIndex].Value);
-                    if (result != null)
-                    {
-                        MessageBox.Show("The " + UserDataGrid["id", e.RowIndex].Value + " account have been locked!", "lock Account Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetAccount();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Cannot lock the account", "Lock Account Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        //Unlock Account
-        private void UnlockAccount(DataGridViewCellEventArgs e)
-        {
-            choose = MessageBox.Show("Do you really want to unlock the " + UserDataGrid["userName", e.RowIndex].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-            if (choose == DialogResult.Yes)
-            {
-                try
-                {
-                    string res = "";
-                    result = uc.UnlockAccount((string)UserDataGrid["id", e.RowIndex].Value);
-                    if (result != null)
-                    {
-                        MessageBox.Show("The " + UserDataGrid["id", e.RowIndex].Value + " account have been unlocked!", "Unlock Account Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetAccount();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Cannot unlock the account.", "Unlock Account Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        //Delete Selected Account
-        private void DeleteSelectedAccount()
-        {
-            if (selecteUserId.Count > 0)
-            {
-                choose = MessageBox.Show("Do you really want to delete the " + selecteUserId.Count + " account(s)?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                choose = MessageBox.Show("Do you really want to delete the " + selectGoodsID.Count + " goods?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
                 if (choose == DialogResult.Yes)
                 {
                     try
                     {
                         int countDeleted = 0;
                         string res;
-                        foreach (string uid in selecteUserId)
+                        foreach (string uid in selectGoodsID)
                         {
-                            result = uc.DeleteAccount(uid);
+                            result = gc.DeleteGoods(uid);
                             res = result.Content;
                             Console.WriteLine(res);
                             if (res == "\"" + uid + "\"")
                                 countDeleted++;
                         }
-                        MessageBox.Show("The " + countDeleted + " account(s) have been deleted!", "Delete Account Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetAccount();
+                        MessageBox.Show("The " + countDeleted + " Goods have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        GetGoods();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Cannot delete the account.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Cannot delete the goods.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
             }
             else
             {
-                MessageBox.Show("You had not selected a user account.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                MessageBox.Show("You had not selected a goods.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             }
         }
 
-        //Delete Account
-        private void DeleteAccount(DataGridViewCellEventArgs e)
+        //Delete Goods
+        private void DeleteGoods(DataGridViewCellEventArgs e)
         {
-            choose = MessageBox.Show("Do you really want to delete the " + UserDataGrid.Rows[e.RowIndex].Cells["userName"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            choose = MessageBox.Show("Do you really want to delete the " + GoodsDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (choose == DialogResult.Yes)
             {
                 try
                 {
-                    result = uc.DeleteAccount(UserDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    result = gc.DeleteGoods(GoodsDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
                     if (result != null)
                     {
                         string res = JObject.Parse(result.Content).ToString();
-                        MessageBox.Show("The " + res + " have been deleted!", "Delete Account Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetAccount();
+                        MessageBox.Show("The " + res + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        GetGoods();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Cannot delete the account", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Cannot delete the goods", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
@@ -310,8 +264,8 @@ namespace TheBetterLimited.Views
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            Usermanagement_Add userAdd = new Usermanagement_Add();
-            userAdd.Show();
+            //Goodsmanagement_Add goodsAdd = new Goodsmanagement_Add();
+            //goodsAdd.Show();
         }
 
 
@@ -368,5 +322,9 @@ namespace TheBetterLimited.Views
 
         }
 
+        private void curdAction_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
