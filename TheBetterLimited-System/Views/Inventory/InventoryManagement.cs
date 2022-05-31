@@ -59,15 +59,15 @@ namespace TheBetterLimited.Views
         {
             if (GoodsDataGrid.Columns[e.ColumnIndex].Name == "Status")
             {
-                if (e.Value.Equals("0"))
+                if (e.Value.ToString().Equals("0"))
                 {
                     e.Value = "Selling";
                 }
-                if (e.Value.Equals("1"))
+                if (e.Value.ToString().Equals("1"))
                 {
                     e.Value = "PhasingOut";
                 }
-                if (e.Value.Equals("2"))
+                if (e.Value.ToString().Equals("2"))
                 {
                     e.Value = "StopSelling";
                 }
@@ -75,15 +75,16 @@ namespace TheBetterLimited.Views
 
             if (GoodsDataGrid.Columns[e.ColumnIndex].Name == "Size")
             {
-                if (e.Value.Equals(0))
+
+                if (e.Value.ToString().Equals("0"))
                 {
                     e.Value = "Small";
                 }
-                if (e.Value.Equals(1))
+                if (e.Value.ToString().Equals("1"))
                 {
                     e.Value = "Medium";
                 }
-                if (e.Value.Equals(2))
+                if (e.Value.ToString().Equals("2"))
                 {
                     e.Value = "Large";
                 }
@@ -115,24 +116,12 @@ namespace TheBetterLimited.Views
             {
                 MessageBox.Show("You have selected row " + selectGoodsID[0] + " cell");
             }
-        }
 
-        private void SearchBarTxt_Enter(object sender, EventArgs e)
-        {
-            if (this.SearchBarTxt.Texts == "Search")
+            if (e.ColumnIndex == GoodsDataGrid.Columns["delete"].Index)
             {
-                SearchBarTxt.Texts = "";
+                DeleteGoods(e);
             }
-            this.SearchBarTxt.ForeColor = Color.Black;
-        }
 
-        private void SearchBarTxt_Leave(object sender, EventArgs e)
-        {
-            this.SearchBarTxt.ForeColor = Color.LightGray;
-            if (this.SearchBarTxt.Texts == "")
-            {
-                SearchBarTxt.Texts = "Search";
-            }
         }
 
         //search bar text changed event
@@ -183,24 +172,29 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                string str = "|id:" + this.SearchBarTxt.Texts
-                            + "|catelogue:" + this.SearchBarTxt.Texts + "|name:" + this.SearchBarTxt.Texts
+                string str = "id:" + this.SearchBarTxt.Texts
                             + "|description:" + this.SearchBarTxt.Texts + "|price:" + this.SearchBarTxt.Texts
-                            + "|gTINCode:" + this.SearchBarTxt.Texts + "|size:" + this.SearchBarTxt.Texts
+                            + "|gtincode:" + this.SearchBarTxt.Texts + "|size:" + this.SearchBarTxt.Texts
                             + "|status:" + this.SearchBarTxt.Texts;
                 result = gc.GetGoodsByQry(str);
             }
             try
             {
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
-                var res = JObject.Parse(result.Content);
+                var res = JArray.Parse(result.Content.ToString());
                 List<string> list = new List<string>();
-                foreach (string ctgID in res["_catelogueID"])
+                dataTable.Columns.Add("Catalogue");
+                foreach (var ctgID in res)
                 {
-                    list.Add((JObject.Parse(cbCatalogue.GetById(ctgID).Content))["Name"].ToString());
+                    list.Add(ctgID["_catalogueId"].ToString());
                 }
-                dataTable.Columns.Add("Catelogue");
-                dataTable.Rows.Add(list);
+                int index = 0;
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString()).Content)["Name"].ToString();
+                    index++;
+                }
                 bs.DataSource = dataTable;
                 GoodsDataGrid.AutoGenerateColumns = false;
                 GoodsDataGrid.DataSource = bs;
@@ -227,12 +221,8 @@ namespace TheBetterLimited.Views
                         foreach (string uid in selectGoodsID)
                         {
                             result = gc.DeleteGoods(uid);
-                            res = result.Content;
-                            Console.WriteLine(res);
-                            if (res == "\"" + uid + "\"")
-                                countDeleted++;
                         }
-                        MessageBox.Show("The " + countDeleted + " Goods have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show(selectGoodsID.Count + " records have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetGoods();
                     }
                     catch (Exception ex)
@@ -257,10 +247,9 @@ namespace TheBetterLimited.Views
                 try
                 {
                     result = gc.DeleteGoods(GoodsDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                    if (result != null)
+                    if (result.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        string res = JObject.Parse(result.Content).ToString();
-                        MessageBox.Show("The " + res + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("The " + GoodsDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetGoods();
                     }
                 }
@@ -285,13 +274,13 @@ namespace TheBetterLimited.Views
         {
             Loading progress = new Loading();
             progress.Show();
-            progress.Update("Fetch data from server ..." , 10);
+            progress.Update("Fetch data from server ...", 10);
             byte[] response = gc.GetGoodsPDF();
             string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/test.pdf";
-            progress.Update("Generating PDF ..." , 30);
-            progress.Update("Writing File ..." , 60);
+            progress.Update("Generating PDF ...", 30);
+            progress.Update("Writing File ...", 60);
             System.IO.File.WriteAllBytes(WriteFilePath, response);
-            progress.Update("Finish" , 99);
+            progress.Update("Finish", 99);
 
             choose = MessageBox.Show(
                 "Open in File Explorer?", "", MessageBoxButtons.YesNo);

@@ -329,8 +329,6 @@
             this.SearchBarTxt.Texts = "Search";
             this.SearchBarTxt.UnderlinedStyle = false;
             this.SearchBarTxt._TextChanged += new System.EventHandler(this.SearchBarTxt__TextChanged);
-            this.SearchBarTxt.Enter += new System.EventHandler(this.SearchBarTxt_Enter);
-            this.SearchBarTxt.Leave += new System.EventHandler(this.SearchBarTxt_Leave);
             // 
             // exportBtn
             // 
@@ -436,14 +434,13 @@
             // 
             // name
             // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.name.DataPropertyName = "Name";
             this.name.HeaderText = "Goods Name";
             this.name.MinimumWidth = 6;
             this.name.Name = "name";
             this.name.ReadOnly = true;
             this.name.ToolTipText = "Goods Name";
-            this.name.Width = 125;
             // 
             // description
             // 
@@ -469,7 +466,7 @@
             // gTINCode
             // 
             this.gTINCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.gTINCode.DataPropertyName = "GTINNode";
+            this.gTINCode.DataPropertyName = "GTINCode";
             this.gTINCode.HeaderText = "GTINCode";
             this.gTINCode.MinimumWidth = 6;
             this.gTINCode.Name = "gTINCode";

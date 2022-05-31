@@ -20,7 +20,7 @@ namespace TheBetterLimited.Controller
         {
             Console.WriteLine("Get all goods");
             var request = new RestRequest("/api/Goods", Method.Get)
-                        .AddHeader("limit", 100)
+                        .AddHeader("limit", 0)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {
