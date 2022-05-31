@@ -8,8 +8,8 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "char(5)")]
         public string ID { get; set;}
 
-        [MaxLength(15)]
-        [Column(TypeName = "varchar(15)")]
+        [MaxLength(30)]
+        [Column(TypeName = "varchar(30)")]
         public string Name { get; set; }
 
 
@@ -21,8 +21,8 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "varchar(15)")]
         public string? Contact { get; set; }
 
-        [MaxLength(15)]
-        [Column(TypeName = "varchar(15)")]
+        [MaxLength(30)]
+        [Column(TypeName = "varchar(30)")]
         public string? Email { get; set; }
 
         [MaxLength(50)]

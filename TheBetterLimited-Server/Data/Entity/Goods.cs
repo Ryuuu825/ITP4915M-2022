@@ -41,6 +41,8 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "TINYINT")]
         public short PhotoAmt {get ; set;}
 
+        public virtual ICollection<Supplier_Goods> Supplier_Goods { get; set; }
+
     }
 
     public enum GoodsSize

@@ -12,8 +12,8 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "char(3)")]
         public string Id { get; set; }
 
-        [MaxLength(50)]
-        [Column(TypeName = "varchar(50)")]
+        [MaxLength(100)]
+        [Column(TypeName = "varchar(100)")]
         [Description("The phyiscal location address of the location")]
         public string Loc { get; set; }
     }

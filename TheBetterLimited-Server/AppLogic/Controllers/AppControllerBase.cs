@@ -41,7 +41,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
         }
 
-
         public async Task<string> GetCSV(string queryString)
         {
             List<T> list = await GetRecords(queryString);

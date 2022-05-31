@@ -10,11 +10,11 @@ namespace TheBetterLimited_Server.Data.Entity
         [ForeignKey("_restockRequestId")]
         public virtual RestockRequest RestockRequest { get; set; }
 
-        [MaxLength(5)]
-        [Column(TypeName = "char(5)")]
+        [MaxLength(9)]
+        [Column(TypeName = "char(9)")]
         public string _supplierGoodsId { get; set;}
 
-        [ForeignKey("_supplierId")]
+        [ForeignKey("_supplierGoodsId")]
         public virtual Supplier_Goods Supplier_Goods { get; set; }
 
         [Column(TypeName = "MEDIUMINT")]

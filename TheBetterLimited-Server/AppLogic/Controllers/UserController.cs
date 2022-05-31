@@ -46,11 +46,11 @@ public class UserController
         return acc;
     }
 
-    public List<AccountOutDto> GetAllUsers()
+    public List<Account> GetAllUsers()
     {
         var list = _UserTable.Entities.ToList();
-        List<AccountOutDto> res = AccountToDto(in list);
-        return res;
+        // List<AccountOutDto> res = AccountToDto(in list);
+        return list;
     }
     
     public List<AccountOutDto> GetUsers(int limit)
@@ -105,6 +105,8 @@ public class UserController
         var acc = await _UserTable.GetByIdAsync(id);
         if (acc is null )
             throw new BadArgException("No such user");
+        _StaffTable.GetById(acc._StaffId);
+
         await _UserTable.DeleteAsync( acc );
     }
 

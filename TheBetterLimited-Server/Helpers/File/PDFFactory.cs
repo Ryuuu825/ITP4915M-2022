@@ -22,14 +22,14 @@ namespace TheBetterLimited_Server.Helpers.File
                     _process.Dispose();
                     Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "/Lib", true);
 
-                if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + ".DS_Store"))
-                {
-                    System.IO.File.Delete(AppDomain.CurrentDomain.BaseDirectory + ".DS_Store");
-                }
-                if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "/__MACOSX"))
-                {
-                    Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "/__MACOSX" , true);
-                }
+                    if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + ".DS_Store"))
+                    {
+                        System.IO.File.Delete(AppDomain.CurrentDomain.BaseDirectory + ".DS_Store");
+                    }
+                    if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "/__MACOSX"))
+                    {
+                        Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "/__MACOSX" , true);
+                    }
                 }
             }
         }
@@ -70,11 +70,12 @@ namespace TheBetterLimited_Server.Helpers.File
             };
             _process.StartInfo = startInfo;
         }
-        public byte[] Create(string HtmlContent)
+        public byte[] Create(string HtmlFilePath)
         {
             _process.Start();
             string savePath = AppDomain.CurrentDomain.BaseDirectory + "/var/tmp/temp.pdf";
-            _process.StartInfo.Arguments = $" {HtmlContent} {savePath}";
+            
+            _process.StartInfo.Arguments = $" --enable-local-file-access {HtmlFilePath} {savePath}";
             _process.Start();
             // get the output of the process
             var output = _process.StandardOutput.ReadToEnd();
@@ -150,6 +151,11 @@ namespace TheBetterLimited_Server.Helpers.File
                 {
                     Attribute = "body",
                     Value = table.ToString()
+                },
+                new AppLogic.Models.UpdateObjectModel
+                {
+                    Attribute = "icon",
+                    Value = AppDomain.CurrentDomain.BaseDirectory + "/resources/template/image/main.png"
                 }
             };
 

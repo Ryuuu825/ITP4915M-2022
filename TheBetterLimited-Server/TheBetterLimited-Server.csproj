@@ -106,5 +106,4 @@
         <MakeDir Directories="$(OutDir)var\log" />
     </Target>
 
-
 </Project>

@@ -39,6 +39,7 @@ namespace TheBetterLimited_Server.Data.Entity
 
     public enum SalesOrderStatus
     {
+        Placed,
         ReadyToDeliver,
         Delivering,
         Delivered,

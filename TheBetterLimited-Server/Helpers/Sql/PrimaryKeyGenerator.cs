@@ -4,7 +4,7 @@ namespace TheBetterLimited_Server.Helpers.Sql
 {
     public static class PrimaryKeyGenerator
     {
-        public static string Get<T>(DataContext db , string Prefix = "" , string lang = "en" , bool NumberOnly = true)
+        public static string Get<T>(in DataContext db , string Prefix = "" , string lang = "en" , bool NumberOnly = true)
             where T : class
         {
             var Table = db.Set<T>();

@@ -89,12 +89,12 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromBody] T entity , [FromHeader] string Language = "en")
+        public virtual async Task<IActionResult> Add([FromBody] T entity , [FromHeader] string Language = "en")
         {
             try
             {
                 await controller.Add(entity,Language);
-                return Ok();
+                return Ok(entity.GetType().GetProperties().Where(p => p.Name.ToLower() == "id").First().GetValue(entity));
             }
             catch (ICustException e)
             {

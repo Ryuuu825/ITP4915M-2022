@@ -38,11 +38,6 @@ public class DataContext : DbContext
         
         md.Entity<SalesOrderItem>()
             .HasKey(soi => new { soi._salesOrderId, soi._supplierGoodsStockId });
-        
-        md.Entity<Supplier_Goods>()
-            .HasOne(sg => sg.Supplier)
-            .WithMany(s => s.Supplier_Goods)
-            .HasForeignKey(sg => sg._supplierId);
 
         md.Entity<Supplier_Goods_Stock>()
             .HasKey(sg => new { sg._supplierGoodsId, sg._locationId });
@@ -52,21 +47,34 @@ public class DataContext : DbContext
             .WithMany(sgs => sgs.DefectItemRecords)
             .HasPrincipalKey(sgs => new { sgs._supplierGoodsId, sgs._locationId });
         
-        md.Entity<Supplier_Goods_Stock>()
-            .HasOne(sgs => sgs.Supplier_Goods)
-            .WithMany(sg => sg.Supplier_Goods_Stocks)
-            .HasPrincipalKey(sg => new {sg._goodsId , sg._supplierId});
+        // md.Entity<Supplier_Goods_Stock>()
+        //     .HasOne(sgs => sgs.Supplier_Goods)
+        //     .WithMany(sg => sg.Supplier_Goods_Stocks)
+        //     .HasForeignKey(sg => new {sg._goodsId , sg._supplierId});
         
         md.Entity<SalesOrderItem>()
             .HasOne(soi => soi.SupplierGoodsStock)
             .WithMany(sgs => sgs.SalesOrderItems)
             .HasPrincipalKey(sgs => new { sgs._supplierGoodsId, sgs._locationId });
 
-
         md.Entity<Staff>()
             .HasCheckConstraint("age_cc", "age >= 18 and age <= 60")
             .HasCheckConstraint("sex_cc" , "sex in ('M' , 'F') ");
         
+        md.Entity<PurchaseOrder_Supplier_Goods>()
+            .HasOne(posg => posg.Supplier_Goods)
+            .WithMany(sg => sg.PurchaseOrder_Supplier_Goodss)
+            .HasPrincipalKey(sg => sg.ID)
+            .HasForeignKey(posg => posg._supplierGoodsId);
+
+        md.Entity<RestockRequest_Supplier_Goods>()
+            .HasOne(rrsg => rrsg.Supplier_Goods)
+            .WithMany(sg => sg.RestockRequest_Supplier_Goodss)
+            .HasPrincipalKey(sg => sg.ID)
+            .HasForeignKey(rrsg => rrsg._supplierGoodsId);
+
+        md.Entity<Supplier_Goods>()
+            .HasKey(sg => sg.ID);
     }
     
     // create dbset for all entity in TheBetterLimited.Data.Entity

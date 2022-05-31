@@ -6,6 +6,8 @@ namespace TheBetterLimited_Server.Data
 {
     public static class DummyDataFactory
     {
+        public static Random ran = new Random();
+
         public static async Task Create(DataContext db)
         {
             try
@@ -16,7 +18,15 @@ namespace TheBetterLimited_Server.Data
                 db.Set<Position>().AddRange(CreatePosition());
                 db.Set<Catalogue>().AddRange(CreateCatalogue());
                 db.Set<Goods>().AddRange(CreateGoods());
-                // db.Set<Supplier>().AddRange(CreateSupplier());
+                db.Set<Supplier>().AddRange(CreateSupplier());
+                db.Set<Location>().AddRange(CreateLocation());
+                db.Set<Store>().AddRange(CreateStore());
+
+                db.SaveChanges();
+
+
+                db.Set<Supplier_Goods>().AddRange(CreateSupplier_Goods());
+                db.Set<Supplier_Goods_Stock>().AddRange(CreateSupplier_Goods_Stock());
                 db.SaveChanges();
 
                 using (Repositories.AccountRepository _userTable = new Repositories.AccountRepository(db))
@@ -1062,6 +1072,7 @@ namespace TheBetterLimited_Server.Data
                     Address = ", Hongkong",
                     Phone = "898-898-898",
                     Contact = "Mr. Hongkong",
+                    Email = "abc@domain.com"
                 },
                 new Supplier
                 {
@@ -1080,6 +1091,626 @@ namespace TheBetterLimited_Server.Data
                     Contact = "Miss. IVE TY",
                 }
             };
+        }
+
+        public static Location[] CreateLocation()
+        {
+            return new Location[]
+            {
+                new Location 
+                {
+                    Id = "001",
+                    Loc = "Admin",
+                },
+                new Location
+                {
+                    Id = "002",
+                    Loc = "Room 10 ,10F ,9 Sheung Yuet Road, Kowloon Bay, Kowloon"
+                },
+                new Location
+                {
+                    Id = "003",
+                    Loc = "59 Tai Yip Street Kowloon Bay Kolwoon, Hong Kong"
+                },
+                new Location
+                {
+                    Id = "004",
+                    Loc = "55 Chung On Street, Tsuen Wan 16/F, Emperor Plaza, Hong Kong"
+                },
+                new Location
+                {
+                    Id = "005",
+                    Loc = "Unit 34 on Level 2 of MegaBox, Enterprise Square Five, 38 Wang Chiu Road, Kowloon Bay, Kowloon"
+                }
+            };
+        }
+
+        public static Store[] CreateStore()
+        {
+            return new Store[]
+            {
+                new Store
+                {
+                    ID = "H01",
+                    _locationID = "004",
+                },
+                new Store 
+                {
+                    ID = "H02",
+                    _locationID = "005",
+                }
+            };
+        }
+        
+        public static Supplier_Goods[] CreateSupplier_Goods()
+        {
+            Supplier[] suppliers = CreateSupplier();
+            // get a random supplier
+            return new Supplier_Goods[]
+            {
+                new Supplier_Goods
+                {
+                    ID = "100000000",
+                    _supplierId = "001",
+                    _goodsId = "ACS1000011",
+                    Price = 15580
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000001",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "ACS1000012",
+                    Price = 10990
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000003",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "COF1000023",
+                    Price = 15999
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000004",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "COF1000024",
+                    Price = 15999
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000005",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "COF1000025",
+                    Price = 15999
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000006",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "COF1000026",
+                    Price = 15999
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000007",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "COF1000027",
+                    Price = 15999
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000008",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "HKA1000013",
+                    Price = 4990
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000009",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "HKA1000014",
+                    Price = 4990
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000010",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "HKA1000015",
+                    Price = 1899
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000011",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "HKA1000016",
+                    Price = 300
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000012",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "HKA1000017",
+                    Price = 1899
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000013",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "MCD1000018",
+                    Price = 1899
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000014",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "MCD1000019",
+                    Price = 700
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000015",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "MCD1000020",
+                    Price = 700
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000016",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "MCD1000021",
+                    Price = 6888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000017",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "MCD1000022",
+                    Price = 6888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000018",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "RFS1000007",
+                    Price = 7888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000019",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "RFS1000008",
+                    Price = 888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000020",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "TVA0000001",
+                    Price = 3888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000021",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "TVA0000002",
+                    Price = 3000
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000022",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "TVA0000003",
+                    Price = 3888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000023",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "TVA0000004",
+                    Price = 3888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000024",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "TVA0000005",
+                    Price = 3888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000025",
+                    _supplierId = "001",
+                    _goodsId = "TVA0000006",
+                    Price = 2888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000026",
+                    _supplierId = "002",
+                    _goodsId = "TVA0000006",
+                    Price = 3798
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000027",
+                    _supplierId = "003",
+                    _goodsId = "TVA0000006",
+                    Price = 2500
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000028",
+                    _supplierId = "004",
+                    _goodsId = "TVA0000006",
+                    Price = 1203
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000029",
+                    _supplierId = "005",
+                    _goodsId = "TVA0000006",
+                    Price = 3999
+                },
+            };
+        }
+
+        public static Supplier_Goods_Stock[] CreateSupplier_Goods_Stock()
+        {
+            return new Supplier_Goods_Stock[]
+            {
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000001",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000001",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000001",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000003",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000003",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000003",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000004",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000004",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000004",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000005",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000005",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000005",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000006",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000006",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000006",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000007",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000007",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000007",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000008",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000008",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000008",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000009",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000009",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000009",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000010",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000010",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000010",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000011",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000011",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000011",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000012",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000012",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000012",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000013",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000013",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000013",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "003",
+                    _supplierGoodsId = "100000014",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "004",
+                    _supplierGoodsId = "100000014",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    _locationId = "005",
+                    _supplierGoodsId = "100000014",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+            };
+                
         }
 
     }
