@@ -75,8 +75,8 @@ namespace TheBetterLimited.Views
                 staff = JObject.Parse(result.Content);
             }catch (Exception ex)
             {
-                return;
                 MessageBox.Show("Not found the staff by " + StaffIDTxt.Texts);
+                return;
             }
             if (staff != null)
             {
@@ -133,10 +133,10 @@ namespace TheBetterLimited.Views
             Console.WriteLine(TestPWStrength(this.pwdTxt.Texts));
             Console.WriteLine(!pwdTxt.Texts.Equals(pwdTxt2.Texts));
 
-            if (TestPWStrength(this.pwdTxt.Texts) < 2 || !pwdTxt.Texts.Equals(pwdTxt2.Texts))
+            if (TestPWStrength(this.pwdTxt.Texts) <= 3 || !pwdTxt.Texts.Equals(pwdTxt2.Texts))
             {
                 pwdTxt.IsError = true;
-                MessageBox.Show("");
+                MessageBox.Show("Password strength is not enough! \n Password should consist of at least one upper and lower case letters with wu");
                 return;
             }
             pwdTxt.IsError = false;
@@ -444,7 +444,7 @@ namespace TheBetterLimited.Views
             gp.AddEllipse(UserIconPic.ClientRectangle);
             Region region = new Region(gp);
             UserIconPic.Region = region;
-            Pen pen = new Pen(Color.White, 50);
+            Pen pen = new Pen(Color.White, 10);
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.DrawPath(pen, gp);
             gp.Dispose();

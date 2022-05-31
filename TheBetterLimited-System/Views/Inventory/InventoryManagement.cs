@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using TheBetterLimited.Controller;
 using TheBetterLimited.CustomizeControl;
 using TheBetterLimited.Models;
+using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
@@ -27,6 +28,7 @@ namespace TheBetterLimited.Views
         private List<string> selectGoodsID = new List<string>();
         private DialogResult choose;
         private RestResponse result;
+        private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
 
         public InventoryManagement()
         {
@@ -191,6 +193,14 @@ namespace TheBetterLimited.Views
             try
             {
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
+                var res = JObject.Parse(result.Content);
+                List<string> list = new List<string>();
+                foreach (string ctgID in res["_catelogueID"])
+                {
+                    list.Add((JObject.Parse(cbCatalogue.GetById(ctgID).Content))["Name"].ToString());
+                }
+                dataTable.Columns.Add("Catelogue");
+                dataTable.Rows.Add(list);
                 bs.DataSource = dataTable;
                 GoodsDataGrid.AutoGenerateColumns = false;
                 GoodsDataGrid.DataSource = bs;

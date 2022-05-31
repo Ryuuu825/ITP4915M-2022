@@ -105,6 +105,7 @@ namespace TheBetterLimited.Views
             }catch (Exception ex)
             {
                 MessageBox.Show("Not found the staff " + StaffIDTxt.Texts);
+                return;
             }
             
             if (staff != null)

@@ -167,6 +167,7 @@ namespace TheBetterLimited.Views
             {
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
                 bs.DataSource = dataTable;
+                UserDataGrid.AutoGenerateColumns = false;
                 UserDataGrid.DataSource = bs;
                 InitializeDataGridView();
             }

@@ -124,7 +124,7 @@
             this.UserIconPic.Location = new System.Drawing.Point(21, 12);
             this.UserIconPic.Name = "UserIconPic";
             this.UserIconPic.Size = new System.Drawing.Size(230, 230);
-            this.UserIconPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.UserIconPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.UserIconPic.TabIndex = 2;
             this.UserIconPic.TabStop = false;
             this.UserIconPic.Paint += new System.Windows.Forms.PaintEventHandler(this.UserIconPic_Paint);
