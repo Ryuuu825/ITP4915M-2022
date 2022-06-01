@@ -44,7 +44,6 @@ namespace TheBetterLimited.Views
             if (GoodsIDTxt.Texts.Substring(0, 1) != "S")
             {
                 GoodsIDTxt.Focus();
-                GoodsIDTxt.Texts = _staffId;
                 MessageBox.Show("Staff ID should start with \"S\"! e.g. S0001 ");
             }
             else if (GoodsIDTxt.Texts.Length < 5)
@@ -59,7 +58,7 @@ namespace TheBetterLimited.Views
 
         public void InitUserInfo()
         {
-            LocTxt.Texts = GoodsInfo.GetType().GetProperty("ID").GetValue(GoodsInfo).ToString();
+           // LocTxt.Texts = GoodsInfo.GetType().GetProperty("ID").GetValue(GoodsInfo).ToString();
             //init icon
             GraphicsPath gp = new GraphicsPath();
             gp.AddEllipse(UserIconPic.ClientRectangle);
@@ -67,21 +66,21 @@ namespace TheBetterLimited.Views
             UserIconPic.Region = region;
             gp.Dispose();
             region.Dispose();
-            Bitmap bitmap = uc.GetUserIconById(_uid);
-            if (bitmap != null)
+            //Bitmap bitmap = uc.GetUserIconById(_uid);
+            /*if (bitmap != null)
             {
                 UserIconPic.Image = bitmap;
-            }
+            }*/
 
             //init user info
-            Console.WriteLine(_uid);
-            result = uc.GetAccountById(_uid);
+            //Console.WriteLine(_uid);
+            //result = uc.GetAccountById(_uid);
             Console.WriteLine(result.Content.ToString());
             var res = JObject.Parse(result.Content);
-            _staffId = res["_StaffId"].ToString();
+            //_staffId = res["_StaffId"].ToString();
             if (res != null)
             {
-                GoodsIDTxt.Texts = _staffId;
+                //GoodsIDTxt.Texts = _staffId;
             }
             GetStaff();
 
@@ -91,7 +90,7 @@ namespace TheBetterLimited.Views
 
         private void GetStaff()
         {
-            result = sc.GetStaffById(GoodsIDTxt.Texts);
+            //result = sc.GetStaffById(GoodsIDTxt.Texts);
             JObject staff = null;
             try
             {
@@ -103,7 +102,7 @@ namespace TheBetterLimited.Views
             
             if (staff != null)
             {
-                _staffName = staff["FirstName"].ToString() + " " + staff["LastName"].ToString();
+                //_staffName = staff["FirstName"].ToString() + " " + staff["LastName"].ToString();
                 CatalogueTxt.Texts = _staffName;
                 if (staff["Sex"].ToString().Equals("M"))
                 {
@@ -112,39 +111,39 @@ namespace TheBetterLimited.Views
                 {
                 }
             }
-            result = dc.GetDepartmentById(staff["_departmentId"].ToString());
+            //result = dc.GetDepartmentById(staff["_departmentId"].ToString());
             var department = JObject.Parse(result.Content);
-            _deptName = department["Name"].ToString();
+            //_deptName = department["Name"].ToString();
             if (department != null)
             {
                 GTINCodeTxt.Texts = department["Name"].ToString();
             }
 
-            result = pc.GetPositionById(staff["_positionId"].ToString());
+            //result = pc.GetPositionById(staff["_positionId"].ToString());
             var position = JObject.Parse(result.Content);
-            _positionName = position["jobTitle"].ToString();
+            //_positionName = position["jobTitle"].ToString();
             if (position != null)
             {
-                PriceTxt.Texts = _positionName;
+                //PriceTxt.Texts = _positionName;
             }
         }
 
         private void GetAccount()
         {
-            result = uc.GetAccountById(_uid);
+            //result = uc.GetAccountById(_uid);
             var user = JObject.Parse(result.Content);
             if (user != null)
             {
 
-                _userName = user["userName"].ToString();
-                StockTxt.Texts = _userName;
-                _email = user["emailAddress"].ToString();
-                StockLevelTxt.Texts = _email;
-                _status = user["status"].ToString();
-                _remark = user["remarks"].ToString();
-                DescriptionTxt.Texts = _remark;
-                if (_status.Equals("N"))
-                {
+                //_userName = user["userName"].ToString();
+                //StockTxt.Texts = _userName;
+                //_email = user["emailAddress"].ToString();
+                //StockLevelTxt.Texts = _email;
+                // = user["status"].ToString();
+                //_remark = user["remarks"].ToString();
+                //DescriptionTxt.Texts = _remark;
+                //if (_status.Equals("N"))
+                /*{
                     NormalStatusRadio.Checked = true;
                     LockStatusRadio.Checked = false;
                 }
@@ -152,7 +151,7 @@ namespace TheBetterLimited.Views
                 {
                     NormalStatusRadio.Checked = false;
                     LockStatusRadio.Checked = true;
-                }
+                }*/
             }
         }
 
@@ -205,7 +204,7 @@ namespace TheBetterLimited.Views
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             List<object> updatedData = new List<object>();
-            if (!GoodsIDTxt.Texts.Equals(_staffId) && !GoodsIDTxt.Texts.Equals(GoodsIDTxt.Placeholder))
+            /*if (!GoodsIDTxt.Texts.Equals(_staffId) && !GoodsIDTxt.Texts.Equals(GoodsIDTxt.Placeholder))
             {
                 var obj = new
                 {
@@ -285,7 +284,7 @@ namespace TheBetterLimited.Views
             {
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("Sorry, user information update unsuccessfully");
-            }
+            }*/
         }
 
         private void GoodsIDTxt_Load(object sender, EventArgs e)

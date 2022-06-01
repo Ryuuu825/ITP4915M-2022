@@ -146,7 +146,7 @@ namespace TheBetterLimited.Views
             {
                 GoodsDetails gd = new GoodsDetails();
                 gd.Show();
-                gd.GoodsInfo(goods[se]);
+                //gd.GoodsInfo(goods[se]);
                 gd.TopLevel = true;
                 //goodsDetauks.OnExit += Refresh;
             }
