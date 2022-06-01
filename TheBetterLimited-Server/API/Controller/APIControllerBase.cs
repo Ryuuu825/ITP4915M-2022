@@ -23,7 +23,7 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(int limit = 0, uint offset = 0, [FromHeader] string Language = "en")
+        public virtual async Task<IActionResult> Get(int limit = 0, uint offset = 0, [FromHeader] string Language = "en")
         {
             try
             {

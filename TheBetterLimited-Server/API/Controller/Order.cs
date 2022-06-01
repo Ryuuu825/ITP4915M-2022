@@ -28,6 +28,26 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
+        [HttpGet]
+        public override async Task<IActionResult> Get(int limit = 0, uint offset = 0, [FromHeader] string Language = "en")
+        {
+            try
+            {
+                if (limit == 0)
+                {
+                    return Ok(await controller.GetAll(Language));
+                }
+                else
+                {
+                    return Ok(await controller.GetWithLimit(limit, offset, Language));
+                }
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
         [HttpPost]
         public override async Task<IActionResult> Add([FromBody] Data.Entity.SalesOrder entity, string language)
         {

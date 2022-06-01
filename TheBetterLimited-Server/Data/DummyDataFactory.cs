@@ -804,6 +804,8 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("10005"),    
                     Size = GoodsSize.Medium,
                     Status = GoodsStatus.Selling,
+                    Photo = images[ran.Next(0 , images.Count - 1)]
+
                 },
                 new Goods 
                 {
@@ -815,8 +817,6 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("10006"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
-                    Photo = images[ran.Next(0 , images.Count - 1)]
-
                 },
 
                 //  Refrigerators and Freezers 200
@@ -830,8 +830,6 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("10007"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    Photo = images[ran.Next(0 , images.Count - 1)]
-
                 },
                 new Goods 
                 {
@@ -843,6 +841,7 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("10008"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.PhasingOut,
+
                 },
 
                 // Washing Machines 300

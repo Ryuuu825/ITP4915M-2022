@@ -23,6 +23,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _StaffTable = new Data.Repositories.Repository<Staff>(db);
         }
 
+        
         public async Task CreateSalesOrder(OrderInDto order)
         {
             // first create the sales order
@@ -106,43 +107,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             {
                 _SalesOrderItemTable.Add(item);
             }
-
-
-
-
-            // List<SalesOrderItem> items = new List<SalesOrderItem>();
-
-            // Customer c;
-            // if (order.Customer is not null)
-            // {
-            //     c = new Customer()
-            //     {
-            //         ID = Helpers.Sql.PrimaryKeyGenerator.Get<Customer>(db),
-            //         Name = order.Customer.Name,
-            //         Phone = order.Customer.Phone,
-            //         Address = order.Customer.Address,
-            //     };
-            // }
-
-
-            // Appointment[]? appointments = new Appointment[2];
-            // if (order.Appointments is not null)
-            // {
-            //     for (int i = 0 ; i < 2 ; i++)
-            //     {
-            //         if (order.Appointments[i] is null)
-            //             break;
-
-            //         appointments[i] = new Appointment
-            //         {
-            //             ID = Helpers.Sql.PrimaryKeyGenerator.Get<Appointment>(db),
-            //             _sessionId = order.Appointments[i].SessionId,
-            //             _departmentId = order.Appointments[i].DepartmentId,
-            //             _teamId = null
-            //         };
-            //     };
-            // }
-
             await db.SaveChangesAsync();
         }
     }
