@@ -33,5 +33,8 @@ namespace TheBetterLimited_Server.Data.Entity
         [ForeignKey("_bookingOrderId")]
         public virtual BookingOrder? BookingOrder { get; set; }
 
+        // seafoods price
+            public int Price { get; set; }
+
     }
 }

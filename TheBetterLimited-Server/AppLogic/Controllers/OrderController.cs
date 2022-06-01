@@ -11,6 +11,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private readonly Data.Repositories.Repository<BookingOrder> _BookingOrderTable;
         private readonly Data.Repositories.Repository<Supplier_Goods_Stock> _Supplier_Goods_StockTable;
         private readonly Data.Repositories.Repository<Staff> _StaffTable;
+        private readonly Data.Repositories.Repository<Transaction> _TransactionTable;
         private readonly AppLogic.Controllers.MessageController _MessageController;
 
         public OrderController(Data.DataContext db) : base(db)
@@ -21,6 +22,76 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _Supplier_Goods_StockTable = new Data.Repositories.Repository<Supplier_Goods_Stock>(db);
             _MessageController = new AppLogic.Controllers.MessageController(db);
             _StaffTable = new Data.Repositories.Repository<Staff>(db);
+            _TransactionTable = new Data.Repositories.Repository<Transaction>(db);
+        }
+
+        public override async Task<List<Hashtable>> GetAll(string lang = "en")
+        {
+            var salesOrders = await repository.GetAllAsync();
+            List<Hashtable> res = new List<Hashtable>();
+
+            // all the sales record in the system
+            for (var i = 0; i < salesOrders.Count; i++)
+            {
+                // localize the sales record
+                salesOrders[i] = Helpers.Localizer.TryLocalize<SalesOrder>(lang, salesOrders[i]);
+               
+                // get the sales record items
+                var salesOrderItemList = await _SalesOrderItemTable.GetBySQLAsync(
+                    "SELECT * FROM SalesOrderItem WHERE _salesOrderId = " + salesOrders[i].ID
+                );
+
+                // tmp list to convert the sales order item to dto
+                List<SalesOrderItemOutDto> tmp = new List<SalesOrderItemOutDto>();
+
+                // convert the sales order item to dto
+                foreach(var salesOrderItem in salesOrderItemList)
+                {
+                    var salesOrderItemDto = salesOrderItem.CopyAs<SalesOrderItemOutDto>();
+                    salesOrderItemDto.SupplierGoodsStockId = salesOrderItem._supplierGoodsStockId;
+                    salesOrderItemDto.Name = salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods.Name;
+                    tmp.Add(salesOrderItemDto);
+                }
+
+                // get the store name
+                Store store = (await _StaffTable.GetByIdAsync(salesOrders[i]._creatorId)).store;
+
+                // get the amount paid
+                decimal paid = 0;
+                var transactionRecords = await _TransactionTable.GetBySQLAsync(
+                    "SELECT * FROM Transaction WHERE _salesOrderId = " + salesOrders[i].ID
+                );
+                foreach(var record in transactionRecords)
+                {
+                    paid += record.Amount;
+                }
+
+                decimal total = 0;
+                // get the price from the supplier goods stock record
+                // get the qty from the sales order item record
+                foreach(var salesOrderItem in salesOrderItemList)
+                {
+                    total += salesOrderItem.Price * salesOrderItem.Quantity;
+                }
+                
+
+                res.Add(
+                    new OrderOutDto
+                    {
+                        orderItems = tmp,
+                        _creatorId = salesOrders[i]._creatorId,
+                        _operatorId = salesOrders[i]._operatorId,
+                        store = store,
+                        createAt = salesOrders[i].createdAt,
+                        updateAt = salesOrders[i].updatedAt,
+                        status = salesOrders[i].Status.ToString(),
+                        total = total,
+                        paid = paid
+                    }.MapToDto()
+                );
+            }
+
+            return res;
         }
 
         
@@ -61,7 +132,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     {
                         _salesOrderId = newOrder.ID,
                         _supplierGoodsStockId = item.SupplierGoodsStockId,
-                        Quantity = item.Quantity
+                        Quantity = item.Quantity,
+                        Price = item.Price
                     }
                 );
 
@@ -69,8 +141,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>("Id:" + item.SupplierGoodsStockId)
                 )).FirstOrDefault();
 
-                ConsoleLogger.Debug (sgs.Quantity - item.Quantity);
-                ConsoleLogger.Debug (sgs.Quantity - item.Quantity < 0);
                 if (sgs.Quantity - item.Quantity < 0)
                 {
                     throw new NotEnoughStockException();
@@ -109,5 +179,30 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
             await db.SaveChangesAsync();
         }
+
+        public void CleanOrder(string id)
+        {
+            // delete the sales order and the sales order items
+            // delete the appointments
+            // delete the booking order
+
+            // get the sales order
+            var salesOrder = repository.GetById(id);
+            // get the sales order items
+            var salesOrderItems = _SalesOrderItemTable.GetBySQL(
+                "SELECT * FROM SalesOrderItem WHERE _salesOrderId = " + salesOrder.ID
+            );
+            foreach (var soi in salesOrderItems)
+            {
+                _SalesOrderItemTable.Delete(soi);
+            }
+            // TODO: delete the appointments
+            // TODO: delete the booking order
+
+            repository.Delete(salesOrder);
+
+        }
     }
+
+    
 }

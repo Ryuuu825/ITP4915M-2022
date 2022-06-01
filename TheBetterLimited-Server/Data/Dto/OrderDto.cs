@@ -2,10 +2,35 @@ using TheBetterLimited_Server.Data.Entity;
 
 namespace TheBetterLimited_Server.Data.Dto
 {
+    public class OrderOutDto 
+    {
+        /* { 
+            orderItem : [ { item1 xxx} , { item 2 xxx} ] ,
+             _creatorId : "" , 
+             _operatorId : "" , 
+             store : {} , 
+             createAt : "" , 
+             updateAt : "" , 
+             Status : "Selling" , 
+             total: 1000, 
+             paid:800}
+        
+        */
+        public List<SalesOrderItemOutDto> orderItems { get; set; }
+        public string _creatorId { get; set; }
+        public string _operatorId { get; set; }
+        public Store store { get; set; }
+        public DateTime createAt { get; set; }
+        public DateTime updateAt { get; set; }
+        public string status { get; set; }
+        public decimal total { get; set; }
+        public decimal paid { get; set; }
+
+    }
     public class OrderInDto
     {
         public SalesOrderDto SalesOrder { get; set; }
-        public List<SalesOrderItemDto> SalesOrderItems { get; set;}
+        public List<SalesOrderItemInDto> SalesOrderItems { get; set;}
         public List<AppointmentDto>? Appointments { get; set; }
         public CustomerDto? Customer { get; set; }
     }
@@ -21,13 +46,18 @@ namespace TheBetterLimited_Server.Data.Dto
         public string StoreId { get; set; }
     }
 
-    public class SalesOrderItemDto
+    public class SalesOrderItemInDto
     {
         public string SupplierGoodsStockId { get; set; }
         public int Quantity { get; set; }
+        public int Price { get; set; }
         public bool NeedDelivery { get; set; }
         public bool NeedInstall { get; set; }
         public bool NeedBooking { get; set; }
+    }
+    public class SalesOrderItemOutDto : SalesOrderItemInDto
+    {
+        public string Name { get; set; }
     }
 
     public class AppointmentDto
