@@ -153,12 +153,6 @@
     <Compile Include="CustomizeControl\RoundPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomizeControl\UserControl1.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CustomizeControl\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\ErrorMsg.cs" />
@@ -270,11 +264,11 @@
     <EmbeddedResource Include="CustomizeControl\ProductInfo.resx">
       <DependentUpon>ProductInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomizeControl\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\InventoryManagement.resx">
       <DependentUpon>InventoryManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Inventorymanagement-Add.resx">
+      <DependentUpon>Inventorymanagement-Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\ResetPwdResult.resx">
       <DependentUpon>ResetPwdResult.cs</DependentUpon>
