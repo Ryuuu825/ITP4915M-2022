@@ -56,8 +56,8 @@ namespace TheBetterLimited_Server.Migrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("char(10)");
+                        .HasMaxLength(15)
+                        .HasColumnType("char(15)");
 
                     b.Property<string>("_StaffId")
                         .IsRequired()
@@ -1387,7 +1387,7 @@ namespace TheBetterLimited_Server.Migrations
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Staff_Message", b =>
                 {
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Message", "message")
-                        .WithMany()
+                        .WithMany("staff_messages")
                         .HasForeignKey("_messageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1498,6 +1498,11 @@ namespace TheBetterLimited_Server.Migrations
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Menu", b =>
                 {
                     b.Navigation("permissions");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Message", b =>
+                {
+                    b.Navigation("staff_messages");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Position", b =>

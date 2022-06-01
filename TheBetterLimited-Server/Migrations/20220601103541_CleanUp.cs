@@ -282,7 +282,7 @@ namespace TheBetterLimited_Server.Migrations
                 {
                     Id = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    UserName = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
+                    UserName = table.Column<string>(type: "char(15)", maxLength: 15, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Password = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),

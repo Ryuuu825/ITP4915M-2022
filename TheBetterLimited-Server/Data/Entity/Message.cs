@@ -21,5 +21,7 @@ namespace TheBetterLimited_Server.Data.Entity
 
         public DateTime SentDate { get; set; }
 
+        public virtual ICollection<Staff_Message> staff_messages { get; set; }
+
     }
 }

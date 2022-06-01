@@ -24,7 +24,7 @@ namespace TheBetterLimited_Server.Data.Dto
     public class SalesOrderItemDto
     {
         public string SupplierGoodsStockId { get; set; }
-        public uint Quantity { get; set; }
+        public int Quantity { get; set; }
         public bool NeedDelivery { get; set; }
         public bool NeedInstall { get; set; }
         public bool NeedBooking { get; set; }

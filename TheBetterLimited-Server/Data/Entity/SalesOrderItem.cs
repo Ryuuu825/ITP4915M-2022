@@ -17,7 +17,7 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [Column(TypeName = "TINYINT")]
         [Range(0, 999)]
-        public uint Quantity { get; set; }
+        public int Quantity { get; set; }
 
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]

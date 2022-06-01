@@ -23,19 +23,19 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [Column(TypeName = "MEDIUMINT")]
         [Range(0, 99999)]
-        public uint Quantity { get; set; }
+        public int Quantity { get; set; }
 
         [Column(TypeName = "MEDIUMINT")]
         [Range(0, 99999)]
-        public uint MaxLimit { get; set; }
+        public int MaxLimit { get; set; }
 
         [Column(TypeName = "MEDIUMINT")]
         [Range(0, 99999)]
-        public uint MinLimit { get; set; }
+        public int MinLimit { get; set; }
 
         [Column(TypeName = "MEDIUMINT")]
         [Range(0, 99999)]
-        public uint ReorderLevel { get; set; }
+        public int ReorderLevel { get; set; }
 
         public virtual ICollection<DefectItemRecord> DefectItemRecords { get; set; }
         public virtual ICollection<SalesOrderItem> SalesOrderItems { get; set; }

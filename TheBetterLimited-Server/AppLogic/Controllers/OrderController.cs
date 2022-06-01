@@ -9,12 +9,18 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
         private readonly Data.Repositories.Repository<Appointment> _AppointmentTable; 
         private readonly Data.Repositories.Repository<BookingOrder> _BookingOrderTable;
+        private readonly Data.Repositories.Repository<Supplier_Goods_Stock> _Supplier_Goods_StockTable;
+        private readonly Data.Repositories.Repository<Staff> _StaffTable;
+        private readonly AppLogic.Controllers.MessageController _MessageController;
 
         public OrderController(Data.DataContext db) : base(db)
         {
             _SalesOrderItemTable = new Data.Repositories.Repository<SalesOrderItem>(db);
             _AppointmentTable = new Data.Repositories.Repository<Appointment>(db);
             _BookingOrderTable = new Data.Repositories.Repository<BookingOrder>(db);
+            _Supplier_Goods_StockTable = new Data.Repositories.Repository<Supplier_Goods_Stock>(db);
+            _MessageController = new AppLogic.Controllers.MessageController(db);
+            _StaffTable = new Data.Repositories.Repository<Staff>(db);
         }
 
         public async Task CreateSalesOrder(OrderInDto order)
@@ -57,8 +63,49 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         Quantity = item.Quantity
                     }
                 );
+
+                Supplier_Goods_Stock sgs = (await _Supplier_Goods_StockTable.GetBySQLAsync(
+                    Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>("Id:" + item.SupplierGoodsStockId)
+                )).FirstOrDefault();
+
+                ConsoleLogger.Debug (sgs.Quantity - item.Quantity);
+                ConsoleLogger.Debug (sgs.Quantity - item.Quantity < 0);
+                if (sgs.Quantity - item.Quantity < 0)
+                {
+                    throw new NotEnoughStockException();
+                }
+
+                sgs.Quantity = sgs.Quantity - item.Quantity;
+
+                if (sgs.Quantity < sgs.MinLimit)
+                {
+                    List<string> receivers = new List<string>();
+                    var staffs = (await _StaffTable.GetBySQLAsync(
+                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<Staff>($"_storeId:{newOrder._storeId};_positionId:202")
+                    ));
+
+                    foreach (var staff in staffs)
+                    {
+                        receivers.Add(staff.acc.UserName);
+                    }
+
+                    _MessageController.SendMessage("system" ,
+                        new SendMessageDto
+                        {
+                            receiver = receivers,
+                            content = $"The quantity of {sgs._supplierGoodsId} is less than the minimum limit. Please check the stock."
+                        }
+                    );
+                    
+                }
+
+                _Supplier_Goods_StockTable.Update(sgs);
             }
-            await _SalesOrderItemTable.AddRangeAsync(salesOrderItems);
+            // await _SalesOrderItemTable.AddRangeAsync(salesOrderItems);
+            foreach(var item in salesOrderItems)
+            {
+                _SalesOrderItemTable.Add(item);
+            }
 
 
 

@@ -28,7 +28,12 @@ public class DataContext : DbContext
             .HasKey(p => new { p._menuId , p._positionId });
         
         md.Entity<Staff_Message>()
-            .HasKey(sm => new { sm._messageId , sm._receiverId});
+            .HasOne(sm => sm.message)
+            .WithMany(m => m.staff_messages)
+            .HasForeignKey(sm => sm._messageId);
+        
+        md.Entity<Staff_Message>()
+            .HasKey(sm => new { sm._messageId , sm._receiverId });
         
         md.Entity<PurchaseOrder_Supplier_Goods>()
             .HasKey(posg => new { posg._purchaseOrderId, posg._supplierGoodsId });
