@@ -48,7 +48,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.POSActionGroup = new System.Windows.Forms.FlowLayoutPanel();
             this.roundButton2 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.roundButton3 = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.OrderBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.roundButton4 = new TheBetterLimited.CustomizeControl.RoundButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ProductActionBox = new System.Windows.Forms.FlowLayoutPanel();
@@ -216,7 +216,7 @@
             this.POSActionGroup.AutoSize = true;
             this.POSActionGroup.BackColor = System.Drawing.Color.White;
             this.POSActionGroup.Controls.Add(this.roundButton2);
-            this.POSActionGroup.Controls.Add(this.roundButton3);
+            this.POSActionGroup.Controls.Add(this.OrderBtn);
             this.POSActionGroup.Controls.Add(this.roundButton4);
             this.POSActionGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.POSActionGroup.Location = new System.Drawing.Point(0, 10);
@@ -246,26 +246,27 @@
             this.roundButton2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.roundButton2.UseVisualStyleBackColor = false;
             // 
-            // roundButton3
+            // OrderBtn
             // 
-            this.roundButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundButton3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton3.BorderRadius = 5;
-            this.roundButton3.BorderSize = 2;
-            this.roundButton3.FlatAppearance.BorderSize = 0;
-            this.roundButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton3.IsChecked = false;
-            this.roundButton3.Location = new System.Drawing.Point(188, 13);
-            this.roundButton3.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.roundButton3.Name = "roundButton3";
-            this.roundButton3.Size = new System.Drawing.Size(165, 40);
-            this.roundButton3.TabIndex = 4;
-            this.roundButton3.Text = "Order Management";
-            this.roundButton3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton3.UseVisualStyleBackColor = false;
+            this.OrderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.OrderBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.OrderBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.OrderBtn.BorderRadius = 5;
+            this.OrderBtn.BorderSize = 2;
+            this.OrderBtn.FlatAppearance.BorderSize = 0;
+            this.OrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OrderBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.OrderBtn.IsChecked = false;
+            this.OrderBtn.Location = new System.Drawing.Point(188, 13);
+            this.OrderBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.OrderBtn.Name = "OrderBtn";
+            this.OrderBtn.Size = new System.Drawing.Size(165, 40);
+            this.OrderBtn.TabIndex = 4;
+            this.OrderBtn.Text = "Order Management";
+            this.OrderBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.OrderBtn.UseVisualStyleBackColor = false;
+            this.OrderBtn.Click += new System.EventHandler(this.OrderBtn_Click);
             // 
             // roundButton4
             // 
@@ -907,7 +908,7 @@
         private System.Windows.Forms.Label TotalAmountTxt;
         private System.Windows.Forms.FlowLayoutPanel ProductActionBox;
         private CustomizeControl.RoundButton roundButton2;
-        private CustomizeControl.RoundButton roundButton3;
+        private CustomizeControl.RoundButton OrderBtn;
         private CustomizeControl.RoundButton roundButton4;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panel1;
