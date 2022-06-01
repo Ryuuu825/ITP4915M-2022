@@ -10,11 +10,20 @@ namespace TheBetterLimited.Models
     {
         private int id;
         private string name;
-        private string price;
+        private double price;
         private int quantity;
         private string remark;
 
-        public OrderItem(int id, string name, string price, int quantity, string remark)
+        public OrderItem()
+        {
+            this.id = 0;
+            this.name = "";
+            this.price = 0.0;
+            this.quantity = 0;
+            this.remark = String.Empty;
+        }
+
+        public OrderItem(int id, string name, double price, int quantity, string remark)
         {
             this.id = id;
             this.name = name;
@@ -25,7 +34,7 @@ namespace TheBetterLimited.Models
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
-        public string Price { get => price; set => price = value; }
+        public double Price { get => price; set => price = value; }
         public int Quantity { get => quantity; set => quantity = value; }
         public string Remark { get => remark; set => remark = value; }
     }

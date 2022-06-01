@@ -1,6 +1,8 @@
 ﻿using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -114,6 +116,29 @@ namespace TheBetterLimited.Controller
             {
                 Console.WriteLine(ex.Message);
                 throw ex;
+            }
+        }
+
+        /**
+         * Get Goods Image
+         */
+        public Bitmap GetGoodsImage(string id)
+        {
+            var request = new RestRequest($"/api/goods/photo/{id}", Method.Get)
+                       .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
+            try
+            {
+                var response = RestClientUtils.client.DownloadDataAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine("Content: " + response);
+                var ms = new MemoryStream(response);
+                Bitmap bmp = new Bitmap(ms);
+                ms.Close();
+                return bmp;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return null;
             }
         }
     }

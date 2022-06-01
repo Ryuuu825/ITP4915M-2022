@@ -16,7 +16,7 @@ using System.Windows.Forms;
 using TheBetterLimited.Controller;
 using TheBetterLimited.CustomizeControl;
 using TheBetterLimited.Models;
-using TabControl = System.Windows.Forms.TabControl;
+using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
@@ -28,7 +28,12 @@ namespace TheBetterLimited.Views
         private DialogResult choose;
         private RestResponse result;
         private bool isEditing = false;
-        private List<OrderItem> oi = new List<OrderItem>();
+        private List<object> goods = new List<object>();
+        private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
+        private ControllerBase cbGoods = new ControllerBase("Goods");
+        private GoodsController gc = new GoodsController();
+        private System.Windows.Controls.Control ctl = null;
+        private int selectedProduct;
 
         public POS()
         {
@@ -38,15 +43,7 @@ namespace TheBetterLimited.Views
             CartItemGrid.Rows.Add("MIELE WCR860 W1 9KG 1600RPM Front Load WasherX", Properties.Resources.minus, "1", Properties.Resources.plus24, "35.00", "");
             CartItemGrid.Rows.Add("MIELE WCA020 WCS Active 7KG 1400RPM Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, "35.00", "");
             CartItemGrid.Rows.Add("TOSHIBA TWBL85A2HWW 7.5KG 440mm Ultra Slim Inverter Front Loading Washing Machine Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, "35.00", "");
-            for(int i=0; i < 100; i++)
-            {
-                ProductInfo productBox = new ProductInfo();
-                productBox.Title = "SIEMENS WM12N270HK 7KG 1200RPM Front Load Washer";
-                productBox.ProductPrice = 88.88;
-                productBox.Image = Properties.Resources.product;
-                productBox.BorderSelectedColor = Color.SeaGreen;
-                ProductInfoContainer.Controls.Add(productBox);
-            }
+            GetAllGoods();
         }
 
         /*
@@ -73,7 +70,6 @@ namespace TheBetterLimited.Views
         private void InitializeDataGridView()
         {
             //Main data column
-
             selecteUserId.Clear();
         }
 
@@ -150,6 +146,7 @@ namespace TheBetterLimited.Views
             {
                 GoodsDetails gd = new GoodsDetails();
                 gd.Show();
+                //gd.GoodsInfo(goods[se]);
                 gd.TopLevel = true;
                 //goodsDetauks.OnExit += Refresh;
             }
@@ -234,6 +231,71 @@ namespace TheBetterLimited.Views
             this.Tag = od;
             od.BringToFront();
             od.Show();
+        }
+
+        private void CatalogueCombox_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetGoodsByCatalogue(CatalogueCombox.SelectedIndex);
+        }
+
+        private void CatalogueCombox_Load(object sender, EventArgs e)
+        {
+            var response = cbCatalogue.GetAll();
+            if (response.StatusCode == System.Net.HttpStatusCode.OK){
+                var catalogues = JArray.Parse(response.Content);
+                CatalogueCombox.Items.Add("All");
+                foreach (var c in catalogues)
+                {
+                    CatalogueCombox.AutoCompleteCustomSource.Add(c["Name"].ToString());
+                    CatalogueCombox.Items.Add(c["Name"].ToString());
+                }
+            }
+        }
+
+        private void ProductActionBox_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void GetAllGoods()
+        {
+            ProductInfoContainer.Controls.Clear();
+            var response = cbGoods.GetAll();
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                InitGoodsList(response.Content);
+            }
+        }
+        private void GetGoodsByCatalogue(int catalogueId)
+        {
+            ProductInfoContainer.Controls.Clear();
+            var response = cbGoods.GetByQueryString($"_catalogueId:{catalogueId}");
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                InitGoodsList(response.Content);
+            }
+        }
+
+        private void InitGoodsList(string json)
+        {
+            var goodsList = JArray.Parse(json);
+            foreach (var c in goodsList)
+            {
+                ProductInfo productBox = new ProductInfo();
+                productBox.Title = c["Name"].ToString();
+                productBox.ProductPrice = (double)c["Price"];
+                productBox.Image = gc.GetGoodsImage(c["Id"].ToString());
+                productBox.BorderSelectedColor = Color.SeaGreen;
+                productBox.PicInfoClicked += new EventHandler(PictureBox_Click);
+                ProductInfoContainer.Controls.Add(productBox);
+            }
+        }
+
+        private void PictureBox_Click(object sender, EventArgs e)
+        {
+            ((ProductInfo)ProductInfoContainer.Controls[selectedProduct]).IsSelected = false;
+            selectedProduct = ProductInfoContainer.Controls.IndexOf(((System.Windows.Forms.Control)sender).Parent);
+
         }
     }
 }

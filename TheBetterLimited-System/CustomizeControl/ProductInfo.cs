@@ -102,8 +102,11 @@ namespace TheBetterLimited.CustomizeControl
             }
         }
 
+        public event EventHandler PicInfoClicked;
         private void PicBox_Click(object sender, EventArgs e)
         {
+            if (PicInfoClicked != null)
+                PicInfoClicked(sender, new EventArgs());
             isSelected = isSelected == false ? true:false;
             this.Invalidate();
         }

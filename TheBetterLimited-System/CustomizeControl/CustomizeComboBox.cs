@@ -410,6 +410,18 @@ namespace TheBetterLimited.CustomizeControl
             base.OnResize(e);
             AdjustComboBoxDimensions();
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // CustomizeComboBox
+            // 
+            this.Name = "CustomizeComboBox";
+            this.Size = new System.Drawing.Size(325, 96);
+            this.ResumeLayout(false);
+
+        }
     }
 }
 
