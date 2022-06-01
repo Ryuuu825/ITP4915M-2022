@@ -15,11 +15,11 @@ namespace TheBetterLimited_Server.API.Controller
 
 
         [HttpPost("create")]
-        public IActionResult Add([FromBody] Data.Dto.OrderDto order , [FromHeader] string Language = "en")
+        public async Task<IActionResult> Add([FromBody] Data.Dto.OrderInDto order , [FromHeader] string Language = "en")
         {
             try 
             {   
-                controller.CreateSalesOrder(order);
+                await controller.CreateSalesOrder(order);
                 return Ok();
             }
             catch (ICustException e)

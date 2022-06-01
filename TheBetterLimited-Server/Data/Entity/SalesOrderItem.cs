@@ -24,7 +24,7 @@ namespace TheBetterLimited_Server.Data.Entity
         public string? _appointmentId { get; set; }
 
         [ForeignKey("_appointmentId")]
-        public virtual Appointment Appointment { get; set; }
+        public virtual Appointment? Appointment { get; set; }
 
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]

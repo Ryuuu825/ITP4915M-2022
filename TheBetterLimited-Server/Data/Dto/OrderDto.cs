@@ -2,7 +2,7 @@ using TheBetterLimited_Server.Data.Entity;
 
 namespace TheBetterLimited_Server.Data.Dto
 {
-    public class OrderDto
+    public class OrderInDto
     {
         public SalesOrderDto SalesOrder { get; set; }
         public List<SalesOrderItemDto> SalesOrderItems { get; set;}

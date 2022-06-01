@@ -1360,6 +1360,7 @@ namespace TheBetterLimited_Server.Data
             {
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000001",
                     _locationId = "003",
                     _supplierGoodsId = "100000001",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1369,6 +1370,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000002",
                     _locationId = "004",
                     _supplierGoodsId = "100000001",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1378,6 +1380,8 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000003",
+
                     _locationId = "005",
                     _supplierGoodsId = "100000001",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1387,6 +1391,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000004",
                     _locationId = "003",
                     _supplierGoodsId = "100000003",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1396,6 +1401,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000005",
                     _locationId = "004",
                     _supplierGoodsId = "100000003",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1405,6 +1411,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000006",
                     _locationId = "005",
                     _supplierGoodsId = "100000003",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1414,6 +1421,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000007",
                     _locationId = "003",
                     _supplierGoodsId = "100000004",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1423,6 +1431,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000008",
                     _locationId = "004",
                     _supplierGoodsId = "100000004",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1432,6 +1441,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000009",
                     _locationId = "005",
                     _supplierGoodsId = "100000004",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1441,6 +1451,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000010",
                     _locationId = "003",
                     _supplierGoodsId = "100000005",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1450,6 +1461,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000011",
                     _locationId = "004",
                     _supplierGoodsId = "100000005",
                     Quantity = (uint) ran.Next(0, 10000),
@@ -1459,6 +1471,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000012",
                     _locationId = "005",
                     _supplierGoodsId = "100000005",
                     Quantity = (uint) ran.Next(0, 10000),
@@ -1468,6 +1481,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000013",
                     _locationId = "003",
                     _supplierGoodsId = "100000006",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1477,6 +1491,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000014",
                     _locationId = "004",
                     _supplierGoodsId = "100000006",
                     Quantity = (uint) ran.Next(0, 10000),
@@ -1486,6 +1501,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000015",
                     _locationId = "005",
                     _supplierGoodsId = "100000006",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1495,6 +1511,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000097",
                     _locationId = "003",
                     _supplierGoodsId = "100000007",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1504,6 +1521,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000016",
                     _locationId = "004",
                     _supplierGoodsId = "100000007",
                     Quantity = (uint) ran.Next(0, 10000),
@@ -1513,6 +1531,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000017",
                     _locationId = "005",
                     _supplierGoodsId = "100000007",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1522,6 +1541,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000018",
                     _locationId = "003",
                     _supplierGoodsId = "100000008",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1531,6 +1551,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000098",
                     _locationId = "004",
                     _supplierGoodsId = "100000008",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1540,6 +1561,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000019",
                     _locationId = "005",
                     _supplierGoodsId = "100000008",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1549,6 +1571,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000020",
                     _locationId = "003",
                     _supplierGoodsId = "100000009",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1558,6 +1581,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000021",
                     _locationId = "004",
                     _supplierGoodsId = "100000009",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1567,6 +1591,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000022",
                     _locationId = "005",
                     _supplierGoodsId = "100000009",
                     Quantity = (uint) ran.Next(0, 10000),
@@ -1576,6 +1601,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000023",
                     _locationId = "003",
                     _supplierGoodsId = "100000010",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1585,6 +1611,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000024",
                     _locationId = "004",
                     _supplierGoodsId = "100000010",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1594,6 +1621,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000025",
                     _locationId = "005",
                     _supplierGoodsId = "100000010",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1603,6 +1631,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000026",
                     _locationId = "003",
                     _supplierGoodsId = "100000011",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1612,6 +1641,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000027",
                     _locationId = "004",
                     _supplierGoodsId = "100000011",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1621,6 +1651,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000099",
                     _locationId = "005",
                     _supplierGoodsId = "100000011",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1630,6 +1661,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000028",
                     _locationId = "003",
                     _supplierGoodsId = "100000012",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1639,6 +1671,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000029",
                     _locationId = "004",
                     _supplierGoodsId = "100000012",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1648,6 +1681,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000030",
                     _locationId = "005",
                     _supplierGoodsId = "100000012",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1657,6 +1691,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000031",
                     _locationId = "003",
                     _supplierGoodsId = "100000013",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1666,6 +1701,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000032",
                     _locationId = "004",
                     _supplierGoodsId = "100000013",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1675,6 +1711,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000033",
                     _locationId = "005",
                     _supplierGoodsId = "100000013",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1684,6 +1721,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000034",
                     _locationId = "003",
                     _supplierGoodsId = "100000014",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1693,6 +1731,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000035",
                     _locationId = "004",
                     _supplierGoodsId = "100000014",
                     Quantity = (uint) ran.Next(5000, 10000),
@@ -1702,6 +1741,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
+                    Id = "100000036",
                     _locationId = "005",
                     _supplierGoodsId = "100000014",
                     Quantity = (uint) ran.Next(5000, 10000),

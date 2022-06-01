@@ -39,9 +39,6 @@ public class DataContext : DbContext
         md.Entity<SalesOrderItem>()
             .HasKey(soi => new { soi._salesOrderId, soi._supplierGoodsStockId });
 
-        md.Entity<Supplier_Goods_Stock>()
-            .HasKey(sg => new { sg._supplierGoodsId, sg._locationId });
-
         md.Entity<DefectItemRecord>()
             .HasOne(d => d.SupplierGoodsStock)
             .WithMany(sgs => sgs.DefectItemRecords)
@@ -52,10 +49,16 @@ public class DataContext : DbContext
         //     .WithMany(sg => sg.Supplier_Goods_Stocks)
         //     .HasForeignKey(sg => new {sg._goodsId , sg._supplierId});
         
+        md.Entity<Supplier_Goods_Stock>()
+            .HasOne(sgs => sgs.Supplier_Goods)
+            .WithMany(sg => sg.Supplier_Goods_Stocks)
+            .HasForeignKey( sg => sg._supplierGoodsId);
+
         md.Entity<SalesOrderItem>()
             .HasOne(soi => soi.SupplierGoodsStock)
             .WithMany(sgs => sgs.SalesOrderItems)
-            .HasPrincipalKey(sgs => new { sgs._supplierGoodsId, sgs._locationId });
+            .HasPrincipalKey(soi => soi.Id)
+            .HasForeignKey(sgs => sgs._supplierGoodsStockId);
 
         md.Entity<Staff>()
             .HasCheckConstraint("age_cc", "age >= 18 and age <= 60")

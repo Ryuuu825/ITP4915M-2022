@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TheBetterLimited_Server.Data.EFMigrations
+namespace TheBetterLimited_Server.Migrations
 {
-    public partial class Update : Migration
+    public partial class CleanUp : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -245,6 +245,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "Supplier_Goods_Stock",
                 columns: table => new
                 {
+                    Id = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     _locationId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _supplierGoodsId = table.Column<string>(type: "char(9)", maxLength: 9, nullable: false)
@@ -256,7 +258,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Supplier_Goods_Stock", x => new { x._supplierGoodsId, x._locationId });
+                    table.PrimaryKey("PK_Supplier_Goods_Stock", x => new { x.Id, x._supplierGoodsId, x._locationId });
+                    table.UniqueConstraint("AK_Supplier_Goods_Stock__supplierGoodsId__locationId", x => new { x._supplierGoodsId, x._locationId });
+                    table.UniqueConstraint("AK_Supplier_Goods_Stock_Id", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Supplier_Goods_Stock_Location__locationId",
                         column: x => x._locationId,
@@ -874,10 +878,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _supplierGoodsStockId = table.Column<string>(type: "varchar(255)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    SupplierGoodsStock_supplierGoodsId = table.Column<string>(type: "char(9)", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    SupplierGoodsStock_locationId = table.Column<string>(type: "char(3)", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Quantity = table.Column<sbyte>(type: "TINYINT", nullable: false),
                     _appointmentId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -904,10 +904,11 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_SalesOrderItem_Supplier_Goods_Stock_SupplierGoodsStock_suppl~",
-                        columns: x => new { x.SupplierGoodsStock_supplierGoodsId, x.SupplierGoodsStock_locationId },
+                        name: "FK_SalesOrderItem_Supplier_Goods_Stock__supplierGoodsStockId",
+                        column: x => x._supplierGoodsStockId,
                         principalTable: "Supplier_Goods_Stock",
-                        principalColumns: new[] { "_supplierGoodsId", "_locationId" });
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -1100,9 +1101,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 column: "_bookingOrderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SalesOrderItem_SupplierGoodsStock_supplierGoodsId_SupplierGo~",
+                name: "IX_SalesOrderItem__supplierGoodsStockId",
                 table: "SalesOrderItem",
-                columns: new[] { "SupplierGoodsStock_supplierGoodsId", "SupplierGoodsStock_locationId" });
+                column: "_supplierGoodsStockId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Session__departmentId",

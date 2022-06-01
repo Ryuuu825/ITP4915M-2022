@@ -17,11 +17,12 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _BookingOrderTable = new Data.Repositories.Repository<BookingOrder>(db);
         }
 
-        public void CreateSalesOrder(OrderDto order)
+        public async Task CreateSalesOrder(OrderInDto order)
         {
             // first create the sales order
-            // then create appointments and booking orders
-            // and finally create sales order items
+            // and create sales order items
+            // and create appointments
+            // and last add appointment to the sales order item.
 
 
             var newOrder = new SalesOrder()
@@ -41,8 +42,25 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
             }catch(Exception e)
             {
+                // sales order should be created successfully first.
                 throw new BadArgException("Invalid CreatorId or StoreId");
             }
+
+            List<SalesOrderItem> salesOrderItems = new List<SalesOrderItem>();
+            foreach (var item in order.SalesOrderItems)
+            {
+                salesOrderItems.Add(
+                    new SalesOrderItem()
+                    {
+                        _salesOrderId = newOrder.ID,
+                        _supplierGoodsStockId = item.SupplierGoodsStockId,
+                        Quantity = item.Quantity
+                    }
+                );
+            }
+            await _SalesOrderItemTable.AddRangeAsync(salesOrderItems);
+
+
 
 
             // List<SalesOrderItem> items = new List<SalesOrderItem>();
@@ -78,22 +96,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             //     };
             // }
 
-
-            // foreach (var item in order.SalesOrderItems)
-            // {
-               
-            //     items.Add(
-            //         new SalesOrderItem()
-            //         {
-            //             _salesOrderId = newOrder.ID,
-            //             _supplierGoodsStockId = item.SupplierGoodsStockId,
-            //             Quantity = item.Quantity,
-            //             _appointmentId = appointments[0]?.ID,
-            //         }
-
-            //     );
-            // }
-            
+            await db.SaveChangesAsync();
         }
     }
 }

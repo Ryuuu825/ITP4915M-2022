@@ -1,8 +1,11 @@
 namespace TheBetterLimited_Server.Data.Entity
 {
     [Table("Supplier_Goods_Stock")]
+    [PrimaryKey("Id" , "_supplierGoodsId" , "_locationId")]
     public class Supplier_Goods_Stock
     {
+
+        public string Id  { get; set; }
 
         [MaxLength(3)]
         [Column(TypeName = "char(3)")]
