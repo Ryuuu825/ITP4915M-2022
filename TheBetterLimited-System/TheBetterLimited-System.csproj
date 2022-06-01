@@ -151,12 +151,6 @@
     <Compile Include="CustomizeControl\RoundButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CustomizeControl\RoundComboBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="CustomizeControl\RoundComboBox.Designer.cs">
-      <DependentUpon>RoundComboBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="CustomizeControl\RoundPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -291,9 +285,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomizeControl\ProductInfo.resx">
       <DependentUpon>ProductInfo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CustomizeControl\RoundComboBox.resx">
-      <DependentUpon>RoundComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\InventoryManagement.resx">
       <DependentUpon>InventoryManagement.cs</DependentUpon>
