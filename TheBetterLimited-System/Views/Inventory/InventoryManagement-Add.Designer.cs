@@ -1,6 +1,6 @@
 ﻿namespace TheBetterLimited.Views
 {
-    partial class InventoryManagement_Add
+    partial class Inventorymanagement_Add
     {
         /// <summary>
         /// Required designer variable.
@@ -37,52 +37,31 @@
             this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.CreateUser = new TheBetterLimited.CustomizeControl.RoundButton();
             this.MainForm = new System.Windows.Forms.Panel();
-            this.AccountInfo = new System.Windows.Forms.Panel();
-            this.AccountInfoContainer = new System.Windows.Forms.Panel();
-            this.showPwd = new System.Windows.Forms.PictureBox();
-            this.DoubleCheckCorrect = new System.Windows.Forms.PictureBox();
-            this.PwdCorrect = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.StrengthCircle3 = new TheBetterLimited.CustomizeControl.RoundPanel();
-            this.StrengthCircle2 = new TheBetterLimited.CustomizeControl.RoundPanel();
-            this.StrengthCircle1 = new TheBetterLimited.CustomizeControl.RoundPanel();
-            this.Email = new System.Windows.Forms.Label();
-            this.emailTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pwdTxt2 = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.password = new System.Windows.Forms.Label();
-            this.userName = new System.Windows.Forms.Label();
-            this.userNameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.pwdTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.AccountHeaderContainer = new System.Windows.Forms.Panel();
-            this.AccountHeader = new System.Windows.Forms.Label();
             this.UserInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SearchStaffBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.StaffIDTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.staffName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.GoodsIdTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.lblGoodsName = new System.Windows.Forms.Label();
+            this.lblCatalogue = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
             this.PositionTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.position = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.DeptTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.gender = new System.Windows.Forms.Label();
-            this.StaffNameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.MaleGenderRadio = new System.Windows.Forms.RadioButton();
-            this.FemaleGenderRadio = new System.Windows.Forms.RadioButton();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
-            this.UserInfoHeader = new System.Windows.Forms.Label();
+            this.GoodsInfoHeader = new System.Windows.Forms.Label();
+            this.customizeTextbox1 = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.customizeTextbox2 = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.lblGTIＮCode = new System.Windows.Forms.Label();
+            this.lblSize = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserIconPic)).BeginInit();
             this.BottomBtn.SuspendLayout();
             this.MainForm.SuspendLayout();
-            this.AccountInfo.SuspendLayout();
-            this.AccountInfoContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.showPwd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DoubleCheckCorrect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PwdCorrect)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.AccountHeaderContainer.SuspendLayout();
             this.UserInfo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.UserInfoHeaderContainer.SuspendLayout();
@@ -104,19 +83,18 @@
             // 
             // Info
             // 
-            this.Info.AutoSize = true;
             this.Info.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Info.Location = new System.Drawing.Point(17, 303);
             this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(240, 84);
+            this.Info.Size = new System.Drawing.Size(240, 110);
             this.Info.TabIndex = 5;
-            this.Info.Text = "Users belong to one organisation\r\nand can log in and use Better \r\nLimited System " +
-    "either using a \r\nusername and password.";
+            this.Info.Text = "Goods are items, articles, products, or commodities that companies sell. Users ca" +
+    "n add goods sold by Better Limited using this interface.";
             // 
             // tip
             // 
             this.tip.AutoSize = true;
-            this.tip.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic)
+            this.tip.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tip.Location = new System.Drawing.Point(84, 245);
             this.tip.Name = "tip";
@@ -131,15 +109,15 @@
             this.Title.ForeColor = System.Drawing.Color.SeaGreen;
             this.Title.Location = new System.Drawing.Point(16, 273);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(103, 30);
+            this.Title.Size = new System.Drawing.Size(123, 30);
             this.Title.TabIndex = 3;
-            this.Title.Text = "Add User";
+            this.Title.Text = "Add Goods";
             // 
             // UserIconPic
             // 
             this.UserIconPic.BackColor = System.Drawing.Color.Transparent;
             this.UserIconPic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.UserIconPic.Image = global::TheBetterLimited.Properties.Resources._default;
+            this.UserIconPic.Image = global::TheBetterLimited.Properties.Resources.photo_upload;
             this.UserIconPic.Location = new System.Drawing.Point(21, 12);
             this.UserIconPic.Name = "UserIconPic";
             this.UserIconPic.Size = new System.Drawing.Size(230, 230);
@@ -212,7 +190,6 @@
             // 
             this.MainForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.MainForm.Controls.Add(this.BottomBtn);
-            this.MainForm.Controls.Add(this.AccountInfo);
             this.MainForm.Controls.Add(this.UserInfo);
             this.MainForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainForm.Location = new System.Drawing.Point(272, 0);
@@ -222,306 +199,6 @@
             this.MainForm.Size = new System.Drawing.Size(512, 571);
             this.MainForm.TabIndex = 2;
             // 
-            // AccountInfo
-            // 
-            this.AccountInfo.BackColor = System.Drawing.Color.Transparent;
-            this.AccountInfo.Controls.Add(this.AccountInfoContainer);
-            this.AccountInfo.Controls.Add(this.AccountHeaderContainer);
-            this.AccountInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AccountInfo.Location = new System.Drawing.Point(10, 271);
-            this.AccountInfo.Name = "AccountInfo";
-            this.AccountInfo.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.AccountInfo.Size = new System.Drawing.Size(492, 290);
-            this.AccountInfo.TabIndex = 25;
-            // 
-            // AccountInfoContainer
-            // 
-            this.AccountInfoContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.AccountInfoContainer.Controls.Add(this.showPwd);
-            this.AccountInfoContainer.Controls.Add(this.DoubleCheckCorrect);
-            this.AccountInfoContainer.Controls.Add(this.PwdCorrect);
-            this.AccountInfoContainer.Controls.Add(this.panel2);
-            this.AccountInfoContainer.Controls.Add(this.Email);
-            this.AccountInfoContainer.Controls.Add(this.emailTxt);
-            this.AccountInfoContainer.Controls.Add(this.label5);
-            this.AccountInfoContainer.Controls.Add(this.pwdTxt2);
-            this.AccountInfoContainer.Controls.Add(this.password);
-            this.AccountInfoContainer.Controls.Add(this.userName);
-            this.AccountInfoContainer.Controls.Add(this.userNameTxt);
-            this.AccountInfoContainer.Controls.Add(this.pwdTxt);
-            this.AccountInfoContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AccountInfoContainer.Location = new System.Drawing.Point(0, 50);
-            this.AccountInfoContainer.Name = "AccountInfoContainer";
-            this.AccountInfoContainer.Size = new System.Drawing.Size(492, 240);
-            this.AccountInfoContainer.TabIndex = 25;
-            // 
-            // showPwd
-            // 
-            this.showPwd.BackgroundImage = global::TheBetterLimited.Properties.Resources.eye;
-            this.showPwd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.showPwd.Location = new System.Drawing.Point(437, 104);
-            this.showPwd.Margin = new System.Windows.Forms.Padding(2);
-            this.showPwd.Name = "showPwd";
-            this.showPwd.Size = new System.Drawing.Size(22, 24);
-            this.showPwd.TabIndex = 36;
-            this.showPwd.TabStop = false;
-            this.showPwd.Click += new System.EventHandler(this.showPwd_Click);
-            // 
-            // DoubleCheckCorrect
-            // 
-            this.DoubleCheckCorrect.BackgroundImage = global::TheBetterLimited.Properties.Resources.corret;
-            this.DoubleCheckCorrect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.DoubleCheckCorrect.Location = new System.Drawing.Point(472, 107);
-            this.DoubleCheckCorrect.Name = "DoubleCheckCorrect";
-            this.DoubleCheckCorrect.Size = new System.Drawing.Size(15, 15);
-            this.DoubleCheckCorrect.TabIndex = 35;
-            this.DoubleCheckCorrect.TabStop = false;
-            this.DoubleCheckCorrect.Visible = false;
-            // 
-            // PwdCorrect
-            // 
-            this.PwdCorrect.BackgroundImage = global::TheBetterLimited.Properties.Resources.corret;
-            this.PwdCorrect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PwdCorrect.Location = new System.Drawing.Point(472, 64);
-            this.PwdCorrect.Name = "PwdCorrect";
-            this.PwdCorrect.Size = new System.Drawing.Size(15, 15);
-            this.PwdCorrect.TabIndex = 34;
-            this.PwdCorrect.TabStop = false;
-            this.PwdCorrect.Visible = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.StrengthCircle3);
-            this.panel2.Controls.Add(this.StrengthCircle2);
-            this.panel2.Controls.Add(this.StrengthCircle1);
-            this.panel2.Location = new System.Drawing.Point(412, 60);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(47, 27);
-            this.panel2.TabIndex = 33;
-            // 
-            // StrengthCircle3
-            // 
-            this.StrengthCircle3.BackColor = System.Drawing.Color.LightGray;
-            this.StrengthCircle3.BackgroundColor = System.Drawing.Color.LightGray;
-            this.StrengthCircle3.BorderColor = System.Drawing.Color.DimGray;
-            this.StrengthCircle3.BorderRadius = 6;
-            this.StrengthCircle3.BorderSize = 0;
-            this.StrengthCircle3.ForeColor = System.Drawing.Color.White;
-            this.StrengthCircle3.Location = new System.Drawing.Point(31, 7);
-            this.StrengthCircle3.Name = "StrengthCircle3";
-            this.StrengthCircle3.Size = new System.Drawing.Size(12, 12);
-            this.StrengthCircle3.TabIndex = 31;
-            // 
-            // StrengthCircle2
-            // 
-            this.StrengthCircle2.BackColor = System.Drawing.Color.LightGray;
-            this.StrengthCircle2.BackgroundColor = System.Drawing.Color.LightGray;
-            this.StrengthCircle2.BorderColor = System.Drawing.Color.DimGray;
-            this.StrengthCircle2.BorderRadius = 6;
-            this.StrengthCircle2.BorderSize = 0;
-            this.StrengthCircle2.ForeColor = System.Drawing.Color.White;
-            this.StrengthCircle2.Location = new System.Drawing.Point(17, 7);
-            this.StrengthCircle2.Name = "StrengthCircle2";
-            this.StrengthCircle2.Size = new System.Drawing.Size(12, 12);
-            this.StrengthCircle2.TabIndex = 31;
-            // 
-            // StrengthCircle1
-            // 
-            this.StrengthCircle1.BackColor = System.Drawing.Color.LightGray;
-            this.StrengthCircle1.BackgroundColor = System.Drawing.Color.LightGray;
-            this.StrengthCircle1.BorderColor = System.Drawing.Color.DimGray;
-            this.StrengthCircle1.BorderRadius = 6;
-            this.StrengthCircle1.BorderSize = 0;
-            this.StrengthCircle1.ForeColor = System.Drawing.Color.White;
-            this.StrengthCircle1.Location = new System.Drawing.Point(3, 7);
-            this.StrengthCircle1.Name = "StrengthCircle1";
-            this.StrengthCircle1.Size = new System.Drawing.Size(12, 12);
-            this.StrengthCircle1.TabIndex = 30;
-            // 
-            // Email
-            // 
-            this.Email.AutoSize = true;
-            this.Email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Email.Location = new System.Drawing.Point(23, 147);
-            this.Email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(115, 21);
-            this.Email.TabIndex = 28;
-            this.Email.Text = "Email Address*";
-            this.Email.Click += new System.EventHandler(this.Email_Click);
-            // 
-            // emailTxt
-            // 
-            this.emailTxt.BackColor = System.Drawing.Color.White;
-            this.emailTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.emailTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.emailTxt.BorderRadius = 10;
-            this.emailTxt.BorderSize = 1;
-            this.emailTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTxt.ForeColor = System.Drawing.Color.Black;
-            this.emailTxt.IsError = false;
-            this.emailTxt.Location = new System.Drawing.Point(159, 140);
-            this.emailTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.emailTxt.MaxLength = 20;
-            this.emailTxt.Multiline = false;
-            this.emailTxt.Name = "emailTxt";
-            this.emailTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.emailTxt.PasswordChar = false;
-            this.emailTxt.Placeholder = "Please enter email address";
-            this.emailTxt.ReadOnly = false;
-            this.emailTxt.Size = new System.Drawing.Size(308, 38);
-            this.emailTxt.TabIndex = 5;
-            this.emailTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.emailTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.emailTxt.Texts = "Please enter email address";
-            this.emailTxt.UnderlinedStyle = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 104);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 21);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Password Again*";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // pwdTxt2
-            // 
-            this.pwdTxt2.BackColor = System.Drawing.Color.White;
-            this.pwdTxt2.BorderColor = System.Drawing.Color.LightGray;
-            this.pwdTxt2.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.pwdTxt2.BorderRadius = 10;
-            this.pwdTxt2.BorderSize = 1;
-            this.pwdTxt2.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdTxt2.ForeColor = System.Drawing.Color.Black;
-            this.pwdTxt2.IsError = false;
-            this.pwdTxt2.Location = new System.Drawing.Point(159, 97);
-            this.pwdTxt2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.pwdTxt2.MaxLength = 20;
-            this.pwdTxt2.Multiline = false;
-            this.pwdTxt2.Name = "pwdTxt2";
-            this.pwdTxt2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.pwdTxt2.PasswordChar = true;
-            this.pwdTxt2.Placeholder = "Please enter password again";
-            this.pwdTxt2.ReadOnly = false;
-            this.pwdTxt2.Size = new System.Drawing.Size(308, 38);
-            this.pwdTxt2.TabIndex = 4;
-            this.pwdTxt2.TbBackColor = System.Drawing.Color.White;
-            this.pwdTxt2.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.pwdTxt2.Texts = "Please enter password again";
-            this.pwdTxt2.UnderlinedStyle = false;
-            this.pwdTxt2._Leave += new System.EventHandler(this.pwdTxt2_Leave);
-            this.pwdTxt2.Click += new System.EventHandler(this.pwdTxt2_Click);
-            this.pwdTxt2.Enter += new System.EventHandler(this.pwdTxt2_Enter);
-            this.pwdTxt2.Leave += new System.EventHandler(this.pwdTxt2_Leave);
-            // 
-            // password
-            // 
-            this.password.AutoSize = true;
-            this.password.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(39, 61);
-            this.password.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(83, 21);
-            this.password.TabIndex = 7;
-            this.password.Text = "Password*";
-            this.password.Click += new System.EventHandler(this.password_Click);
-            // 
-            // userName
-            // 
-            this.userName.AutoSize = true;
-            this.userName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userName.Location = new System.Drawing.Point(37, 18);
-            this.userName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(88, 21);
-            this.userName.TabIndex = 6;
-            this.userName.Text = "Username*";
-            this.userName.Click += new System.EventHandler(this.userName_Click);
-            // 
-            // userNameTxt
-            // 
-            this.userNameTxt.BackColor = System.Drawing.Color.White;
-            this.userNameTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.userNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.userNameTxt.BorderRadius = 10;
-            this.userNameTxt.BorderSize = 1;
-            this.userNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userNameTxt.ForeColor = System.Drawing.Color.Black;
-            this.userNameTxt.IsError = false;
-            this.userNameTxt.Location = new System.Drawing.Point(160, 11);
-            this.userNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.userNameTxt.MaxLength = 20;
-            this.userNameTxt.Multiline = false;
-            this.userNameTxt.Name = "userNameTxt";
-            this.userNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.userNameTxt.PasswordChar = false;
-            this.userNameTxt.Placeholder = "Please enter user name";
-            this.userNameTxt.ReadOnly = false;
-            this.userNameTxt.Size = new System.Drawing.Size(308, 38);
-            this.userNameTxt.TabIndex = 2;
-            this.userNameTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.userNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.userNameTxt.Texts = "Please enter user name";
-            this.userNameTxt.UnderlinedStyle = false;
-            this.userNameTxt.Click += new System.EventHandler(this.userNameTxt_Click);
-            this.userNameTxt.Enter += new System.EventHandler(this.userNameTxt_Enter);
-            // 
-            // pwdTxt
-            // 
-            this.pwdTxt.BackColor = System.Drawing.Color.White;
-            this.pwdTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.pwdTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.pwdTxt.BorderRadius = 10;
-            this.pwdTxt.BorderSize = 1;
-            this.pwdTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pwdTxt.ForeColor = System.Drawing.Color.Black;
-            this.pwdTxt.IsError = false;
-            this.pwdTxt.Location = new System.Drawing.Point(160, 54);
-            this.pwdTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.pwdTxt.MaxLength = 20;
-            this.pwdTxt.Multiline = false;
-            this.pwdTxt.Name = "pwdTxt";
-            this.pwdTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.pwdTxt.PasswordChar = true;
-            this.pwdTxt.Placeholder = "Please enter password";
-            this.pwdTxt.ReadOnly = false;
-            this.pwdTxt.Size = new System.Drawing.Size(308, 38);
-            this.pwdTxt.TabIndex = 3;
-            this.pwdTxt.TbBackColor = System.Drawing.Color.White;
-            this.pwdTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.pwdTxt.Texts = "Please enter password";
-            this.pwdTxt.UnderlinedStyle = false;
-            this.pwdTxt._TextChanged += new System.EventHandler(this.pwdTxt__TextChanged);
-            this.pwdTxt._Enter += new System.EventHandler(this.pwdTxt_Enter);
-            this.pwdTxt.Click += new System.EventHandler(this.pwdTxt_Click);
-            this.pwdTxt.Enter += new System.EventHandler(this.pwdTxt_Enter);
-            // 
-            // AccountHeaderContainer
-            // 
-            this.AccountHeaderContainer.BackColor = System.Drawing.Color.White;
-            this.AccountHeaderContainer.Controls.Add(this.AccountHeader);
-            this.AccountHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AccountHeaderContainer.Location = new System.Drawing.Point(0, 10);
-            this.AccountHeaderContainer.Name = "AccountHeaderContainer";
-            this.AccountHeaderContainer.Size = new System.Drawing.Size(492, 40);
-            this.AccountHeaderContainer.TabIndex = 24;
-            // 
-            // AccountHeader
-            // 
-            this.AccountHeader.AutoSize = true;
-            this.AccountHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccountHeader.Location = new System.Drawing.Point(3, 7);
-            this.AccountHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.AccountHeader.Name = "AccountHeader";
-            this.AccountHeader.Size = new System.Drawing.Size(86, 25);
-            this.AccountHeader.TabIndex = 5;
-            this.AccountHeader.Text = "Account";
-            // 
             // UserInfo
             // 
             this.UserInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
@@ -530,27 +207,32 @@
             this.UserInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserInfo.Location = new System.Drawing.Point(10, 10);
             this.UserInfo.Name = "UserInfo";
-            this.UserInfo.Size = new System.Drawing.Size(492, 261);
+            this.UserInfo.Size = new System.Drawing.Size(492, 482);
             this.UserInfo.TabIndex = 24;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.comboBox3);
+            this.panel1.Controls.Add(this.comboBox2);
+            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.lblStatus);
+            this.panel1.Controls.Add(this.lblSize);
+            this.panel1.Controls.Add(this.customizeTextbox2);
+            this.panel1.Controls.Add(this.lblGTIＮCode);
+            this.panel1.Controls.Add(this.customizeTextbox1);
+            this.panel1.Controls.Add(this.lblPrice);
             this.panel1.Controls.Add(this.SearchStaffBtn);
-            this.panel1.Controls.Add(this.StaffIDTxt);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.staffName);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.GoodsIdTxt);
+            this.panel1.Controls.Add(this.lblGoodsName);
+            this.panel1.Controls.Add(this.lblCatalogue);
+            this.panel1.Controls.Add(this.lblId);
             this.panel1.Controls.Add(this.PositionTxt);
-            this.panel1.Controls.Add(this.position);
+            this.panel1.Controls.Add(this.lblDescription);
             this.panel1.Controls.Add(this.DeptTxt);
-            this.panel1.Controls.Add(this.gender);
-            this.panel1.Controls.Add(this.StaffNameTxt);
-            this.panel1.Controls.Add(this.MaleGenderRadio);
-            this.panel1.Controls.Add(this.FemaleGenderRadio);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(492, 221);
+            this.panel1.Size = new System.Drawing.Size(492, 442);
             this.panel1.TabIndex = 27;
             // 
             // SearchStaffBtn
@@ -570,7 +252,7 @@
             this.SearchStaffBtn.ForeColor = System.Drawing.Color.White;
             this.SearchStaffBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SearchStaffBtn.IsChecked = false;
-            this.SearchStaffBtn.Location = new System.Drawing.Point(438, 13);
+            this.SearchStaffBtn.Location = new System.Drawing.Point(442, 20);
             this.SearchStaffBtn.Name = "SearchStaffBtn";
             this.SearchStaffBtn.Size = new System.Drawing.Size(30, 30);
             this.SearchStaffBtn.TabIndex = 27;
@@ -578,70 +260,73 @@
             this.SearchStaffBtn.UseVisualStyleBackColor = false;
             this.SearchStaffBtn.Click += new System.EventHandler(this.SearchStaffBtn_Click);
             // 
-            // StaffIDTxt
+            // GoodsIdTxt
             // 
-            this.StaffIDTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.StaffIDTxt.BackColor = System.Drawing.Color.White;
-            this.StaffIDTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.StaffIDTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.StaffIDTxt.BorderRadius = 10;
-            this.StaffIDTxt.BorderSize = 1;
-            this.StaffIDTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffIDTxt.ForeColor = System.Drawing.Color.Black;
-            this.StaffIDTxt.IsError = false;
-            this.StaffIDTxt.Location = new System.Drawing.Point(161, 11);
-            this.StaffIDTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.StaffIDTxt.MaxLength = 5;
-            this.StaffIDTxt.Multiline = false;
-            this.StaffIDTxt.Name = "StaffIDTxt";
-            this.StaffIDTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.StaffIDTxt.PasswordChar = false;
-            this.StaffIDTxt.Placeholder = "Please enter staff ID";
-            this.StaffIDTxt.ReadOnly = false;
-            this.StaffIDTxt.Size = new System.Drawing.Size(274, 38);
-            this.StaffIDTxt.TabIndex = 1;
-            this.StaffIDTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.StaffIDTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.StaffIDTxt.Texts = "Please enter staff ID";
-            this.StaffIDTxt.UnderlinedStyle = false;
-            this.StaffIDTxt._TextChanged += new System.EventHandler(this.StaffIDTxt__TextChanged);
-            this.StaffIDTxt.Click += new System.EventHandler(this.StaffIDTxt_Click);
-            this.StaffIDTxt.Enter += new System.EventHandler(this.StaffIDTxt_Enter);
-            this.StaffIDTxt.Leave += new System.EventHandler(this.StaffIDTxt_Leave);
+            this.GoodsIdTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.GoodsIdTxt.BackColor = System.Drawing.Color.White;
+            this.GoodsIdTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.GoodsIdTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.GoodsIdTxt.BorderRadius = 10;
+            this.GoodsIdTxt.BorderSize = 1;
+            this.GoodsIdTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GoodsIdTxt.ForeColor = System.Drawing.Color.Black;
+            this.GoodsIdTxt.IsError = false;
+            this.GoodsIdTxt.Location = new System.Drawing.Point(161, 13);
+            this.GoodsIdTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.GoodsIdTxt.MaxLength = 5;
+            this.GoodsIdTxt.Multiline = false;
+            this.GoodsIdTxt.Name = "GoodsIdTxt";
+            this.GoodsIdTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.GoodsIdTxt.PasswordChar = false;
+            this.GoodsIdTxt.Placeholder = "Automatically Generated";
+            this.GoodsIdTxt.ReadOnly = true;
+            this.GoodsIdTxt.Size = new System.Drawing.Size(274, 38);
+            this.GoodsIdTxt.TabIndex = 1;
+            this.GoodsIdTxt.TbBackColor = System.Drawing.SystemColors.Window;
+            this.GoodsIdTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.GoodsIdTxt.Texts = "Automatically Generated";
+            this.GoodsIdTxt.UnderlinedStyle = false;
+            this.GoodsIdTxt._TextChanged += new System.EventHandler(this.StaffIDTxt__TextChanged);
+            this.GoodsIdTxt.Click += new System.EventHandler(this.StaffIDTxt_Click);
+            this.GoodsIdTxt.Enter += new System.EventHandler(this.StaffIDTxt_Enter);
+            this.GoodsIdTxt.Leave += new System.EventHandler(this.StaffIDTxt_Leave);
             // 
-            // label3
+            // lblGoodsName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(35, 104);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 21);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Department";
+            this.lblGoodsName.AutoSize = true;
+            this.lblGoodsName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGoodsName.Location = new System.Drawing.Point(35, 116);
+            this.lblGoodsName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGoodsName.Name = "lblGoodsName";
+            this.lblGoodsName.Size = new System.Drawing.Size(101, 21);
+            this.lblGoodsName.TabIndex = 3;
+            this.lblGoodsName.Text = "Goods Name";
+            this.lblGoodsName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // staffName
+            // lblCatalogue
             // 
-            this.staffName.AutoSize = true;
-            this.staffName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffName.Location = new System.Drawing.Point(38, 61);
-            this.staffName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.staffName.Name = "staffName";
-            this.staffName.Size = new System.Drawing.Size(87, 21);
-            this.staffName.TabIndex = 2;
-            this.staffName.Text = "Staff Name";
+            this.lblCatalogue.AutoSize = true;
+            this.lblCatalogue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatalogue.Location = new System.Drawing.Point(37, 70);
+            this.lblCatalogue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCatalogue.Name = "lblCatalogue";
+            this.lblCatalogue.Size = new System.Drawing.Size(80, 21);
+            this.lblCatalogue.TabIndex = 2;
+            this.lblCatalogue.Text = "Catalogue";
+            this.lblCatalogue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // lblId
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(48, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Staff ID*";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lblId.AutoSize = true;
+            this.lblId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(36, 13);
+            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(81, 21);
+            this.lblId.TabIndex = 1;
+            this.lblId.Text = "Goods ID*";
+            this.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblId.Click += new System.EventHandler(this.label1_Click);
             // 
             // PositionTxt
             // 
@@ -654,32 +339,33 @@
             this.PositionTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PositionTxt.ForeColor = System.Drawing.Color.LightGray;
             this.PositionTxt.IsError = false;
-            this.PositionTxt.Location = new System.Drawing.Point(161, 140);
+            this.PositionTxt.Location = new System.Drawing.Point(161, 172);
             this.PositionTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PositionTxt.MaxLength = 32767;
             this.PositionTxt.Multiline = false;
             this.PositionTxt.Name = "PositionTxt";
             this.PositionTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.PositionTxt.PasswordChar = false;
-            this.PositionTxt.Placeholder = "";
+            this.PositionTxt.Placeholder = "Please enter the description";
             this.PositionTxt.ReadOnly = false;
             this.PositionTxt.Size = new System.Drawing.Size(307, 38);
             this.PositionTxt.TabIndex = 26;
             this.PositionTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
-            this.PositionTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
-            this.PositionTxt.Texts = "Automatic Data Entry";
+            this.PositionTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.PositionTxt.Texts = "Please enter the description";
             this.PositionTxt.UnderlinedStyle = false;
             // 
-            // position
+            // lblDescription
             // 
-            this.position.AutoSize = true;
-            this.position.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.position.Location = new System.Drawing.Point(49, 147);
-            this.position.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.position.Name = "position";
-            this.position.Size = new System.Drawing.Size(65, 21);
-            this.position.TabIndex = 4;
-            this.position.Text = "Position";
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(35, 172);
+            this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(89, 21);
+            this.lblDescription.TabIndex = 4;
+            this.lblDescription.Text = "Description";
+            this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // DeptTxt
             // 
@@ -692,110 +378,173 @@
             this.DeptTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeptTxt.ForeColor = System.Drawing.Color.LightGray;
             this.DeptTxt.IsError = false;
-            this.DeptTxt.Location = new System.Drawing.Point(161, 97);
+            this.DeptTxt.Location = new System.Drawing.Point(161, 116);
             this.DeptTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.DeptTxt.MaxLength = 32767;
             this.DeptTxt.Multiline = false;
             this.DeptTxt.Name = "DeptTxt";
             this.DeptTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.DeptTxt.PasswordChar = false;
-            this.DeptTxt.Placeholder = "";
+            this.DeptTxt.Placeholder = "Please enter the name of the goods";
             this.DeptTxt.ReadOnly = false;
             this.DeptTxt.Size = new System.Drawing.Size(307, 38);
             this.DeptTxt.TabIndex = 25;
             this.DeptTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
-            this.DeptTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
-            this.DeptTxt.Texts = "Automatic Data Entry";
+            this.DeptTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.DeptTxt.Texts = "Please enter the name of the goods";
             this.DeptTxt.UnderlinedStyle = false;
-            // 
-            // gender
-            // 
-            this.gender.AutoSize = true;
-            this.gender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gender.Location = new System.Drawing.Point(51, 182);
-            this.gender.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.gender.Name = "gender";
-            this.gender.Size = new System.Drawing.Size(61, 21);
-            this.gender.TabIndex = 9;
-            this.gender.Text = "Gender";
-            // 
-            // StaffNameTxt
-            // 
-            this.StaffNameTxt.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.StaffNameTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.StaffNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.StaffNameTxt.BorderRadius = 10;
-            this.StaffNameTxt.BorderSize = 1;
-            this.StaffNameTxt.Enabled = false;
-            this.StaffNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffNameTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.StaffNameTxt.IsError = false;
-            this.StaffNameTxt.Location = new System.Drawing.Point(161, 54);
-            this.StaffNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.StaffNameTxt.MaxLength = 32767;
-            this.StaffNameTxt.Multiline = false;
-            this.StaffNameTxt.Name = "StaffNameTxt";
-            this.StaffNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.StaffNameTxt.PasswordChar = false;
-            this.StaffNameTxt.Placeholder = "";
-            this.StaffNameTxt.ReadOnly = false;
-            this.StaffNameTxt.Size = new System.Drawing.Size(307, 38);
-            this.StaffNameTxt.TabIndex = 22;
-            this.StaffNameTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
-            this.StaffNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
-            this.StaffNameTxt.Texts = "Automatic Data Entry";
-            this.StaffNameTxt.UnderlinedStyle = false;
-            // 
-            // MaleGenderRadio
-            // 
-            this.MaleGenderRadio.AutoSize = true;
-            this.MaleGenderRadio.Enabled = false;
-            this.MaleGenderRadio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.MaleGenderRadio.FlatAppearance.CheckedBackColor = System.Drawing.Color.SeaGreen;
-            this.MaleGenderRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaleGenderRadio.Location = new System.Drawing.Point(168, 183);
-            this.MaleGenderRadio.Margin = new System.Windows.Forms.Padding(2);
-            this.MaleGenderRadio.Name = "MaleGenderRadio";
-            this.MaleGenderRadio.Size = new System.Drawing.Size(51, 19);
-            this.MaleGenderRadio.TabIndex = 18;
-            this.MaleGenderRadio.Text = "Male";
-            this.MaleGenderRadio.UseVisualStyleBackColor = true;
-            // 
-            // FemaleGenderRadio
-            // 
-            this.FemaleGenderRadio.AutoSize = true;
-            this.FemaleGenderRadio.Enabled = false;
-            this.FemaleGenderRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FemaleGenderRadio.Location = new System.Drawing.Point(275, 183);
-            this.FemaleGenderRadio.Margin = new System.Windows.Forms.Padding(2);
-            this.FemaleGenderRadio.Name = "FemaleGenderRadio";
-            this.FemaleGenderRadio.Size = new System.Drawing.Size(63, 19);
-            this.FemaleGenderRadio.TabIndex = 19;
-            this.FemaleGenderRadio.Text = "Female";
-            this.FemaleGenderRadio.UseVisualStyleBackColor = true;
             // 
             // UserInfoHeaderContainer
             // 
             this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
-            this.UserInfoHeaderContainer.Controls.Add(this.UserInfoHeader);
+            this.UserInfoHeaderContainer.Controls.Add(this.GoodsInfoHeader);
             this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
             this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
             this.UserInfoHeaderContainer.Size = new System.Drawing.Size(492, 40);
             this.UserInfoHeaderContainer.TabIndex = 20;
             // 
-            // UserInfoHeader
+            // GoodsInfoHeader
             // 
-            this.UserInfoHeader.AutoSize = true;
-            this.UserInfoHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserInfoHeader.Location = new System.Drawing.Point(3, 7);
-            this.UserInfoHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.UserInfoHeader.Name = "UserInfoHeader";
-            this.UserInfoHeader.Size = new System.Drawing.Size(165, 25);
-            this.UserInfoHeader.TabIndex = 6;
-            this.UserInfoHeader.Text = "User Information";
+            this.GoodsInfoHeader.AutoSize = true;
+            this.GoodsInfoHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GoodsInfoHeader.Location = new System.Drawing.Point(3, 7);
+            this.GoodsInfoHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.GoodsInfoHeader.Name = "GoodsInfoHeader";
+            this.GoodsInfoHeader.Size = new System.Drawing.Size(183, 25);
+            this.GoodsInfoHeader.TabIndex = 6;
+            this.GoodsInfoHeader.Text = "Goods Information";
             // 
-            // Usermanagement_Add
+            // customizeTextbox1
+            // 
+            this.customizeTextbox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.customizeTextbox1.BorderColor = System.Drawing.Color.LightGray;
+            this.customizeTextbox1.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.customizeTextbox1.BorderRadius = 10;
+            this.customizeTextbox1.BorderSize = 1;
+            this.customizeTextbox1.Enabled = false;
+            this.customizeTextbox1.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customizeTextbox1.ForeColor = System.Drawing.Color.LightGray;
+            this.customizeTextbox1.IsError = false;
+            this.customizeTextbox1.Location = new System.Drawing.Point(161, 223);
+            this.customizeTextbox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.customizeTextbox1.MaxLength = 32767;
+            this.customizeTextbox1.Multiline = false;
+            this.customizeTextbox1.Name = "customizeTextbox1";
+            this.customizeTextbox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.customizeTextbox1.PasswordChar = false;
+            this.customizeTextbox1.Placeholder = "Please enter the price";
+            this.customizeTextbox1.ReadOnly = false;
+            this.customizeTextbox1.Size = new System.Drawing.Size(307, 38);
+            this.customizeTextbox1.TabIndex = 29;
+            this.customizeTextbox1.TbBackColor = System.Drawing.Color.WhiteSmoke;
+            this.customizeTextbox1.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.customizeTextbox1.Texts = "Please enter the price";
+            this.customizeTextbox1.UnderlinedStyle = false;
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(35, 223);
+            this.lblPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(44, 21);
+            this.lblPrice.TabIndex = 28;
+            this.lblPrice.Text = "Price";
+            this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // customizeTextbox2
+            // 
+            this.customizeTextbox2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.customizeTextbox2.BorderColor = System.Drawing.Color.LightGray;
+            this.customizeTextbox2.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.customizeTextbox2.BorderRadius = 10;
+            this.customizeTextbox2.BorderSize = 1;
+            this.customizeTextbox2.Enabled = false;
+            this.customizeTextbox2.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customizeTextbox2.ForeColor = System.Drawing.Color.LightGray;
+            this.customizeTextbox2.IsError = false;
+            this.customizeTextbox2.Location = new System.Drawing.Point(161, 273);
+            this.customizeTextbox2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.customizeTextbox2.MaxLength = 32767;
+            this.customizeTextbox2.Multiline = false;
+            this.customizeTextbox2.Name = "customizeTextbox2";
+            this.customizeTextbox2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.customizeTextbox2.PasswordChar = false;
+            this.customizeTextbox2.Placeholder = "Automatically Generated";
+            this.customizeTextbox2.ReadOnly = false;
+            this.customizeTextbox2.Size = new System.Drawing.Size(307, 38);
+            this.customizeTextbox2.TabIndex = 31;
+            this.customizeTextbox2.TbBackColor = System.Drawing.Color.WhiteSmoke;
+            this.customizeTextbox2.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.customizeTextbox2.Texts = "Automatically Generated";
+            this.customizeTextbox2.UnderlinedStyle = false;
+            // 
+            // lblGTIＮCode
+            // 
+            this.lblGTIＮCode.AutoSize = true;
+            this.lblGTIＮCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGTIＮCode.Location = new System.Drawing.Point(35, 273);
+            this.lblGTIＮCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGTIＮCode.Name = "lblGTIＮCode";
+            this.lblGTIＮCode.Size = new System.Drawing.Size(81, 21);
+            this.lblGTIＮCode.TabIndex = 30;
+            this.lblGTIＮCode.Text = "GTINCode";
+            this.lblGTIＮCode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblSize
+            // 
+            this.lblSize.AutoSize = true;
+            this.lblSize.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSize.Location = new System.Drawing.Point(35, 329);
+            this.lblSize.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSize.Name = "lblSize";
+            this.lblSize.Size = new System.Drawing.Size(38, 21);
+            this.lblSize.TabIndex = 32;
+            this.lblSize.Text = "Size";
+            this.lblSize.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(35, 373);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(52, 21);
+            this.lblStatus.TabIndex = 34;
+            this.lblStatus.Text = "Status";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("PMingLiU", 12.10084F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(161, 71);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(307, 24);
+            this.comboBox1.TabIndex = 36;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("PMingLiU", 12.10084F);
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(161, 330);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(307, 24);
+            this.comboBox2.TabIndex = 37;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Font = new System.Drawing.Font("PMingLiU", 12.10084F);
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(161, 374);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(307, 24);
+            this.comboBox3.TabIndex = 38;
+            // 
+            // Inventorymanagement_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -807,7 +556,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1200, 900);
-            this.Name = "Usermanagement_Add";
+            this.Name = "Inventorymanagement_Add";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add User";
@@ -816,15 +565,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.UserIconPic)).EndInit();
             this.BottomBtn.ResumeLayout(false);
             this.MainForm.ResumeLayout(false);
-            this.AccountInfo.ResumeLayout(false);
-            this.AccountInfoContainer.ResumeLayout(false);
-            this.AccountInfoContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.showPwd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DoubleCheckCorrect)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PwdCorrect)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.AccountHeaderContainer.ResumeLayout(false);
-            this.AccountHeaderContainer.PerformLayout();
             this.UserInfo.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -839,46 +579,32 @@
         private System.Windows.Forms.Panel Header;
         private System.Windows.Forms.Panel BottomBtn;
         private System.Windows.Forms.Panel MainForm;
-        private System.Windows.Forms.Label password;
-        private System.Windows.Forms.Label userName;
-        private System.Windows.Forms.Label AccountHeader;
-        private System.Windows.Forms.Label position;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label staffName;
-        private System.Windows.Forms.Label label1;
-        private CustomizeControl.CustomizeTextbox userNameTxt;
-        private CustomizeControl.CustomizeTextbox pwdTxt;
+        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.Label lblGoodsName;
+        private System.Windows.Forms.Label lblCatalogue;
+        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.PictureBox UserIconPic;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Label tip;
         private System.Windows.Forms.Label Info;
         private System.Windows.Forms.Panel UserInfo;
-        private System.Windows.Forms.Panel AccountInfo;
-        private System.Windows.Forms.Panel AccountHeaderContainer;
-        private System.Windows.Forms.Panel AccountInfoContainer;
         private System.Windows.Forms.Panel UserInfoHeaderContainer;
-        private System.Windows.Forms.Label UserInfoHeader;
-        private CustomizeControl.CustomizeTextbox StaffNameTxt;
-        private CustomizeControl.CustomizeTextbox StaffIDTxt;
-        private System.Windows.Forms.RadioButton FemaleGenderRadio;
-        private System.Windows.Forms.RadioButton MaleGenderRadio;
-        private System.Windows.Forms.Label gender;
+        private System.Windows.Forms.Label GoodsInfoHeader;
+        private CustomizeControl.CustomizeTextbox GoodsIdTxt;
         private CustomizeControl.CustomizeTextbox PositionTxt;
         private CustomizeControl.CustomizeTextbox DeptTxt;
-        private System.Windows.Forms.Label label5;
-        private CustomizeControl.CustomizeTextbox pwdTxt2;
         private System.Windows.Forms.Panel panel1;
         private CustomizeControl.RoundButton CancelBtn;
         private CustomizeControl.RoundButton CreateUser;
         private CustomizeControl.RoundButton SearchStaffBtn;
-        private System.Windows.Forms.Label Email;
-        private CustomizeControl.CustomizeTextbox emailTxt;
-        private System.Windows.Forms.Panel panel2;
-        private CustomizeControl.RoundPanel StrengthCircle3;
-        private CustomizeControl.RoundPanel StrengthCircle2;
-        private CustomizeControl.RoundPanel StrengthCircle1;
-        private System.Windows.Forms.PictureBox PwdCorrect;
-        private System.Windows.Forms.PictureBox DoubleCheckCorrect;
-        private System.Windows.Forms.PictureBox showPwd;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblSize;
+        private CustomizeControl.CustomizeTextbox customizeTextbox2;
+        private System.Windows.Forms.Label lblGTIＮCode;
+        private CustomizeControl.CustomizeTextbox customizeTextbox1;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

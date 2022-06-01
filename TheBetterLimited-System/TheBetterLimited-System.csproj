@@ -181,6 +181,12 @@
     <Compile Include="Views\Inventory\InventoryManagement.Designer.cs">
       <DependentUpon>InventoryManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Inventory\Inventorymanagement-Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\Inventorymanagement-Add.Designer.cs">
+      <DependentUpon>Inventorymanagement-Add.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login\ResetPwdResult.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\InventoryManagement.resx">
       <DependentUpon>InventoryManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Inventorymanagement-Add.resx">
+      <DependentUpon>Inventorymanagement-Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\ResetPwdResult.resx">
       <DependentUpon>ResetPwdResult.cs</DependentUpon>

@@ -16,7 +16,7 @@ using TheBetterLimited.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class InventoryManagement_Add : Form
+    public partial class Inventorymanagement_Add : Form
     {
         private StaffController sc = new StaffController();
         private PositionController pc = new PositionController();
@@ -26,7 +26,7 @@ namespace TheBetterLimited.Views
         private bool isUpload = false;
         private Bitmap icon = Properties.Resources._default;
 
-        public InventoryManagement_Add()
+        public Inventorymanagement_Add()
         {
             InitializeComponent();
         }
@@ -49,9 +49,9 @@ namespace TheBetterLimited.Views
 
         private void SearchStaffBtn_Click(object sender, EventArgs e)
         {
-            if (StaffIDTxt.Texts.StartsWith("S") && StaffIDTxt.Texts.Length == StaffIDTxt.MaxLength)
+            if (GoodsIdTxt.Texts.StartsWith("S") && GoodsIdTxt.Texts.Length == GoodsIdTxt.MaxLength)
             {
-                if (StaffIDTxt.Texts.Substring(1, 4).All(char.IsDigit))
+                if (GoodsIdTxt.Texts.Substring(1, 4).All(char.IsDigit))
                 {
                     /*StaffIDTxt.IsError = false;*/
                     GetStaff();
@@ -59,23 +59,23 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                StaffIDTxt.Focus();
-                StaffIDTxt.Texts = "";
-                StaffIDTxt.IsError = true;
+                GoodsIdTxt.Focus();
+                GoodsIdTxt.Texts = "";
+                GoodsIdTxt.IsError = true;
                 MessageBox.Show("Staff ID should start with \"S\" and follow with 4 digits! \n e.g. S0001 ");
             }
         }
 
         private void GetStaff()
         {
-            result = sc.GetStaffById(StaffIDTxt.Texts);
+            result = sc.GetStaffById(GoodsIdTxt.Texts);
             JObject staff = null;
             try
             {
                 staff = JObject.Parse(result.Content);
             }catch (Exception ex)
             {
-                MessageBox.Show("Not found the staff by " + StaffIDTxt.Texts);
+                MessageBox.Show("Not found the staff by " + GoodsIdTxt.Texts);
                 return;
             }
             if (staff != null)
@@ -112,14 +112,14 @@ namespace TheBetterLimited.Views
             //check 
             UpdatePwdStrength();
 
-            if (StaffIDTxt.Texts.Equals(StaffIDTxt.Placeholder))
+            if (GoodsIdTxt.Texts.Equals(GoodsIdTxt.Placeholder))
             {
-                StaffIDTxt.IsError = true;
+                GoodsIdTxt.IsError = true;
                 return;
             }
-            Console.WriteLine(StaffIDTxt.Texts);
+            Console.WriteLine(GoodsIdTxt.Texts);
 
-            StaffIDTxt.IsError = false;
+            GoodsIdTxt.IsError = false;
 
             if (userNameTxt.Texts.Equals(userNameTxt.Placeholder))
             {
@@ -190,14 +190,14 @@ namespace TheBetterLimited.Views
                         Password = pwdTxt.Texts,
                         EmailAddress = emailTxt.Texts,
                         Status = "N",
-                        _StaffId = StaffIDTxt.Texts,
+                        _StaffId = GoodsIdTxt.Texts,
                         Remarks = "Created at" + DateTime.Now
                     }) ;
 
                 if (isUpload)
                 {
                     var uploadIconRes = user.UploadUserIcon(
-                        (byte[])(new ImageConverter().ConvertTo(this.UserIconPic.Image, typeof(byte[]))), StaffIDTxt.Texts
+                        (byte[])(new ImageConverter().ConvertTo(this.UserIconPic.Image, typeof(byte[]))), GoodsIdTxt.Texts
                     );
                 }
                 if (response.StatusCode == HttpStatusCode.OK)
@@ -371,7 +371,7 @@ namespace TheBetterLimited.Views
 
         private void label1_Click(object sender, EventArgs e)
         {
-            StaffIDTxt.Focus();
+            GoodsIdTxt.Focus();
         }
 
         private void userName_Click(object sender, EventArgs e)
@@ -396,7 +396,7 @@ namespace TheBetterLimited.Views
 
         private void StaffIDTxt_Click(object sender, EventArgs e)
         {
-            StaffIDTxt.IsError = false;
+            GoodsIdTxt.IsError = false;
         }
 
         private void userNameTxt_Enter(object sender, EventArgs e)
@@ -416,7 +416,7 @@ namespace TheBetterLimited.Views
 
         private void StaffIDTxt__TextChanged(object sender, EventArgs e)
         {
-            StaffIDTxt.IsError = false;
+            GoodsIdTxt.IsError = false;
         }
 
         private void StaffIDTxt_Leave(object sender, EventArgs e)
