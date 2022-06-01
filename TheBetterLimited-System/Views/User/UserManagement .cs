@@ -24,10 +24,12 @@ namespace TheBetterLimited.Views
         private DialogResult choose;
         private RestResponse result;
         private bool isEditing = false;
+        private DataTable dataTable = new DataTable();
 
         public UserManagement()
         {
             InitializeComponent();
+            InitialzeDataTable();
             GetAccount();//init user table
         }
 
@@ -129,6 +131,18 @@ namespace TheBetterLimited.Views
         /*
         * Dom Event Handler
         */
+        //Initialize DataTable
+        private void InitialzeDataTable()
+        {
+            dataTable.Columns.Add("id");
+            dataTable.Columns.Add("userName");
+            dataTable.Columns.Add("staffName");
+            dataTable.Columns.Add("emailAddress");
+            dataTable.Columns.Add("status");
+            dataTable.Columns.Add("_StaffId");
+            dataTable.Columns.Add("remarks");
+        }
+
 
         //Initialize DataGridView
         private void InitializeDataGridView()
@@ -136,13 +150,13 @@ namespace TheBetterLimited.Views
             //Main data column
             UserDataGrid.AutoGenerateColumns = false;
             UserDataGrid.DataSource = bs;
-            UserDataGrid.Columns["id"].HeaderText = "ID";
+            /*UserDataGrid.Columns["id"].HeaderText = "ID";
             UserDataGrid.Columns["userName"].HeaderText = "User Name";
             UserDataGrid.Columns["staffName"].HeaderText = "Staff Name";
             UserDataGrid.Columns["emailAddress"].HeaderText = "Email Address";
             UserDataGrid.Columns["status"].HeaderText = "Status";
             UserDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
-            UserDataGrid.Columns["remarks"].HeaderText = "Remark";
+            UserDataGrid.Columns["remarks"].HeaderText = "Remark";*/
 
             for (int i = 0; i < UserDataGrid.RowCount; i++)
                 UserDataGrid["select", i].Tag = 0;
@@ -153,6 +167,7 @@ namespace TheBetterLimited.Views
         //Get Account
         public void GetAccount()
         {
+            dataTable.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
             {
                 result = uc.GetAllAccount();
@@ -165,7 +180,19 @@ namespace TheBetterLimited.Views
             }
             try
             {
-                DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
+                var data = JArray.Parse(result.Content.ToString());
+                foreach (var rowData in data)
+                {
+                    var row  = dataTable.NewRow();
+                    row["id"] = rowData["id"].ToString();
+                    row["userName"] = rowData["userName"].ToString();
+                    row["staffName"] = rowData["staff"]["firstName"].ToString() + " "+ rowData["staff"]["lastName"].ToString();
+                    row["emailAddress"] = rowData["emailAddress"].ToString();
+                    row["status"] = rowData["status"].ToString();
+                    row["_StaffId"] = rowData["_StaffId"].ToString();
+                    row["remarks"] = rowData["remarks"].ToString();
+                    dataTable.Rows.Add(row);
+                }
                 bs.DataSource = dataTable;
                 UserDataGrid.AutoGenerateColumns = false;
                 UserDataGrid.DataSource = bs;
@@ -253,12 +280,8 @@ namespace TheBetterLimited.Views
                         foreach (string uid in selecteUserId)
                         {
                             result = uc.DeleteAccount(uid);
-                            res = result.Content;
-                            Console.WriteLine(res);
-                            if (res == "\"" + uid + "\"")
-                                countDeleted++;
                         }
-                        MessageBox.Show("The " + countDeleted + " account(s) have been deleted!", "Delete Account Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("The " + selecteUserId.Count + " account(s) have been deleted!", "Delete Account Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetAccount();
                     }
                     catch (Exception ex)
@@ -316,5 +339,6 @@ namespace TheBetterLimited.Views
             }
 
         }
+
     }
 }

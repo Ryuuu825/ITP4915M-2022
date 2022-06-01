@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using TheBetterLimited.Controller;
 using TheBetterLimited.CustomizeControl;
 using TheBetterLimited.Models;
+using TabControl = System.Windows.Forms.TabControl;
 
 namespace TheBetterLimited.Views
 {
@@ -222,6 +223,17 @@ namespace TheBetterLimited.Views
                 }
             }
             TotalAmountTxt.Text = total.ToString();
+        }
+
+        private void OrderBtn_Click(object sender, EventArgs e)
+        {
+            OrderManagement od = new OrderManagement();
+            od.TopLevel = false;
+            od.Dock = DockStyle.Fill;
+            this.Controls.Add(od);
+            this.Tag = od;
+            od.BringToFront();
+            od.Show();
         }
     }
 }
