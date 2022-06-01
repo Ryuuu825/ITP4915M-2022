@@ -42,7 +42,7 @@ namespace TheBetterLimited.Views
 
         private void Usermanagement_Edit_Load(object sender, EventArgs e)
         {
-            InitUserInfo();
+            //InitUserInfo();
         }
 
         private void SearchStaffBtn_Click(object sender, EventArgs e)
