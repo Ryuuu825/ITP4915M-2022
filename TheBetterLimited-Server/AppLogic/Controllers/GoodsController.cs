@@ -178,28 +178,26 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
         }
 
-        public async Task<short?> GetGoodsPhotoAmt(string id)
-        {
-            var goods = await repository.GetByIdAsync(id);
-            if (goods is null)
-            {
-                throw new BadArgException("The goods not found.");
-            }
-            return goods.PhotoAmt;
-        }
-
-        public async Task<Tuple<byte[]?, string>> GetGoodsPhoto(string id, int index)
+        public async Task<List<string>> GetGoodsPhoto(string id)
         {
             string photoPath = AppDomain.CurrentDomain.BaseDirectory + $"resources/product/image/{id}";
             FileInfo[] dir = new DirectoryInfo(photoPath).GetFiles();
+            List<string> photos = new List<string>();
             foreach( var file in dir)
             {
-                if (file.Name.Split('.')[0] == index.ToString())
-                {
-                    return Tuple.Create<byte[]?,string>(await File.ReadAllBytesAsync(file.FullName) , file.Name.Split('.')[1] );
-                }
+                byte[] photo = await File.ReadAllBytesAsync(file.FullName);
+                photos.Add(Convert.ToBase64String(photo));
             }
-            throw new FileNotExistException("The photo not exist." , HttpStatusCode.NotFound);
+            return photos;
+        }
+
+        public async Task<string> GetGoodsFirstPhoto(string id )
+        {
+            string photoPath = AppDomain.CurrentDomain.BaseDirectory + $"resources/product/image/{id}";
+            FileInfo file = new DirectoryInfo(photoPath).GetFiles().FirstOrDefault();
+       
+            byte[] photo = await File.ReadAllBytesAsync(file.FullName);
+            return Convert.ToBase64String(photo);
         }
     }
 }

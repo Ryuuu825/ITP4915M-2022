@@ -7,7 +7,7 @@ using TheBetterLimited_Server.Data;
 
 #nullable disable
 
-namespace TheBetterLimited_Server.Migrations
+namespace TheBetterLimited_Server.Data.EFMigrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot
@@ -368,8 +368,8 @@ namespace TheBetterLimited_Server.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("varchar(30)");
 
-                    b.Property<sbyte>("PhotoAmt")
-                        .HasColumnType("TINYINT");
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("longblob");
 
                     b.Property<int>("Price")
                         .HasColumnType("MEDIUMINT");

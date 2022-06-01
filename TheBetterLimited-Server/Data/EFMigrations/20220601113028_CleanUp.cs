@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TheBetterLimited_Server.Migrations
+namespace TheBetterLimited_Server.Data.EFMigrations
 {
     public partial class CleanUp : Migration
     {
@@ -116,7 +116,7 @@ namespace TheBetterLimited_Server.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Size = table.Column<int>(type: "int", nullable: true),
                     Status = table.Column<int>(type: "int(1)", nullable: false),
-                    PhotoAmt = table.Column<sbyte>(type: "TINYINT", nullable: false)
+                    Photo = table.Column<byte[]>(type: "longblob", nullable: true)
                 },
                 constraints: table =>
                 {

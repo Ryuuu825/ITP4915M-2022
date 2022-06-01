@@ -8,10 +8,10 @@ using TheBetterLimited_Server.Data;
 
 #nullable disable
 
-namespace TheBetterLimited_Server.Migrations
+namespace TheBetterLimited_Server.Data.EFMigrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220601103541_CleanUp")]
+    [Migration("20220601113028_CleanUp")]
     partial class CleanUp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -370,8 +370,8 @@ namespace TheBetterLimited_Server.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("varchar(30)");
 
-                    b.Property<sbyte>("PhotoAmt")
-                        .HasColumnType("TINYINT");
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("longblob");
 
                     b.Property<int>("Price")
                         .HasColumnType("MEDIUMINT");

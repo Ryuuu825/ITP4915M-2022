@@ -736,10 +736,12 @@ namespace TheBetterLimited_Server.Data
 
         public static List<Goods> CreateGoods()
         {   
-            // Data Code Design for all type of goods:
-            // First three digits is reserved to represent the charactistic of the goods
-            // Last Seven digits is the sequence number of the goods
-
+            List<byte[]> images = new List<byte[]>(5);
+            FileInfo[] dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "resources/product/image").GetFiles();
+            foreach (var file in dir)
+            {
+                images.Add(File.ReadAllBytes(file.FullName));
+            }
             return new List<Goods>(30)
             {
                 new Goods
@@ -752,7 +754,8 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("00001"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    PhotoAmt = 0
+                    Photo = images[ran.Next(0 , images.Count - 1)]
+
                 },
                 new Goods
                 {
@@ -764,7 +767,8 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("00002"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    PhotoAmt = 0
+                    Photo = images[ran.Next(0 , images.Count - 1)]
+
                 },
                 new Goods 
                 {
@@ -776,7 +780,8 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("00003"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    PhotoAmt = 0
+                    Photo = images[ran.Next(0 , images.Count - 1)]
+
                 },
                 new Goods
                 {
@@ -788,7 +793,6 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("10004"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    PhotoAmt = 0
                 },
                 new Goods
                 {
@@ -800,7 +804,6 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("10005"),    
                     Size = GoodsSize.Medium,
                     Status = GoodsStatus.Selling,
-                    PhotoAmt = 0
                 },
                 new Goods 
                 {
@@ -812,7 +815,8 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("10006"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
-                    PhotoAmt = 0
+                    Photo = images[ran.Next(0 , images.Count - 1)]
+
                 },
 
                 //  Refrigerators and Freezers 200
@@ -826,7 +830,8 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("10007"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    PhotoAmt = 0
+                    Photo = images[ran.Next(0 , images.Count - 1)]
+
                 },
                 new Goods 
                 {
@@ -838,7 +843,6 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("10008"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.PhasingOut,
-                    PhotoAmt = 0
                 },
 
                 // Washing Machines 300
@@ -853,7 +857,6 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("10009"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    PhotoAmt = 0
                 },
                 new Goods
                 {
@@ -865,7 +868,6 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("100010"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.StopSelling,
-                    PhotoAmt = 0
                 },
 
                 // Air Conditioners 400
@@ -880,7 +882,7 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("100011"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    PhotoAmt = 0
+
                 },
                 new Goods
                 {
@@ -892,7 +894,8 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("100012"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    PhotoAmt = 0
+                    Photo = images[ran.Next(0 , images.Count - 1)]
+
                 },
 
                 // Home and Kitchen Appliances 500
@@ -905,7 +908,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 5990,
                     GTINCode = GTINGenerator.L("100013"),
                     Size = GoodsSize.Large,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 },
                 new Goods
                 {
@@ -927,7 +930,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 1999,
                     GTINCode = GTINGenerator.L("100015"),
                     Size = GoodsSize.Medium,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 },
                 new Goods
                 {
@@ -949,7 +952,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 1999,
                     GTINCode = GTINGenerator.L("100017"),
                     Size = GoodsSize.Small,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 },
                 // Mobile and Communication Devices 600
                 new Goods
@@ -961,7 +964,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 3799,
                     GTINCode = GTINGenerator.L("100018"),
                     Size = GoodsSize.Small,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 },
                 new Goods
                 {
@@ -972,7 +975,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 799,
                     GTINCode = GTINGenerator.L("100019"),
                     Size = GoodsSize.Small,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 },
                 new Goods
                 {
@@ -983,7 +986,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 1399,
                     GTINCode = GTINGenerator.L("100020"),
                     Size = GoodsSize.Small,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 },
                 new Goods
                 {
@@ -994,7 +997,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 7298,
                     GTINCode = GTINGenerator.L("100021"),
                     Size = GoodsSize.Small,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 },
                 new Goods
                 {
@@ -1005,7 +1008,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 7298,
                     GTINCode = GTINGenerator.L("100022"),
                     Size = GoodsSize.Small,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 },
 
                 // Computer and Offices 
@@ -1018,7 +1021,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 18898,
                     GTINCode = GTINGenerator.L("100023"),
                     Size = GoodsSize.Small,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 },
                 new Goods 
                 {
@@ -1029,9 +1032,9 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 15999,
                     GTINCode = GTINGenerator.L("100024"),
                     Size = GoodsSize.Small,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 },
-                                new Goods 
+                new Goods 
                 {
                     Id = "COF1000025",
                     Name = "@$COF1000025N",
@@ -1040,7 +1043,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 15999,
                     GTINCode = GTINGenerator.L("100025"),
                     Size = GoodsSize.Small,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 },
                                 new Goods 
                 {
@@ -1051,9 +1054,9 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 15999,
                     GTINCode = GTINGenerator.L("100026"),
                     Size = GoodsSize.Small,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 },
-                                new Goods 
+                new Goods 
                 {
                     Id = "COF1000027",
                     Name = "@$COF1000027N",
@@ -1062,7 +1065,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 15999,
                     GTINCode = GTINGenerator.L("100027"),
                     Size = GoodsSize.Small,
-                    Status = GoodsStatus.Selling,
+                    Status = GoodsStatus.Selling
                 }
             };
         }
