@@ -113,13 +113,9 @@ namespace TheBetterLimited.Views
                 StaffNameTxt.Texts = _staffName;
                 if (staff["Sex"].ToString().Equals("M"))
                 {
-                    MaleGenderRadio.Checked = true;
-                    FemaleGenderRadio.Checked = false;
                 }
                 else
                 {
-                    MaleGenderRadio.Checked = false;
-                    FemaleGenderRadio.Checked = true;
                 }
             }
             result = dc.GetDepartmentById(staff["_departmentId"].ToString());

@@ -29,25 +29,31 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POS));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SearchBar = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.curdAction = new System.Windows.Forms.Panel();
             this.AddLabelBtn = new System.Windows.Forms.Label();
             this.ProductContainer = new System.Windows.Forms.Panel();
             this.ProductInfoContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.CatalogBtnGroup = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.POSActionGroup = new System.Windows.Forms.FlowLayoutPanel();
+            this.roundButton2 = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.OrderBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.roundButton4 = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.ProductActionBox = new System.Windows.Forms.FlowLayoutPanel();
+            this.customizeComboBox1 = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.CartContainer = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.CartItemGrid = new System.Windows.Forms.DataGridView();
@@ -62,11 +68,15 @@
             this.RefreshBtn = new FontAwesome.Sharp.IconButton();
             this.Title = new System.Windows.Forms.Label();
             this.DiscountContainer = new System.Windows.Forms.Panel();
+            this.DiscountValue = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.DiscountLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.TotalAmountTxt = new System.Windows.Forms.Label();
             this.AmountTitle = new System.Windows.Forms.Label();
             this.OrderBtnGroup = new System.Windows.Forms.FlowLayoutPanel();
+            this.PayBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.HoldBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -74,30 +84,15 @@
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Catalog1 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.Catalog2 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.Catalog3 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.Catalog4 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.Catalog5 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.Catalog6 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.Catalog7 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.Catalog8 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.roundButton2 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.roundButton3 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.roundButton4 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.DiscountValue = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.PayBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.HoldBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.SearchBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.curdAction.SuspendLayout();
             this.ProductContainer.SuspendLayout();
-            this.CatalogBtnGroup.SuspendLayout();
             this.panel1.SuspendLayout();
             this.POSActionGroup.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.ProductActionBox.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.CartContainer.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CartItemGrid)).BeginInit();
@@ -111,7 +106,7 @@
             // 
             this.SearchBar.Controls.Add(this.pictureBox1);
             this.SearchBar.Controls.Add(this.SearchBarTxt);
-            this.SearchBar.Location = new System.Drawing.Point(2, 49);
+            this.SearchBar.Location = new System.Drawing.Point(0, 0);
             this.SearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(280, 43);
@@ -128,10 +123,38 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
+            // SearchBarTxt
+            // 
+            this.SearchBarTxt.BackColor = System.Drawing.Color.White;
+            this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.SearchBarTxt.BorderRadius = 10;
+            this.SearchBarTxt.BorderSize = 1;
+            this.SearchBarTxt.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SearchBarTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBarTxt.ForeColor = System.Drawing.Color.Black;
+            this.SearchBarTxt.IsError = false;
+            this.SearchBarTxt.Location = new System.Drawing.Point(0, 0);
+            this.SearchBarTxt.Margin = new System.Windows.Forms.Padding(200, 6, 4, 6);
+            this.SearchBarTxt.MaxLength = 20;
+            this.SearchBarTxt.Multiline = false;
+            this.SearchBarTxt.Name = "SearchBarTxt";
+            this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(30, 10, 10, 6);
+            this.SearchBarTxt.PasswordChar = false;
+            this.SearchBarTxt.Placeholder = "Search by Keywords";
+            this.SearchBarTxt.ReadOnly = false;
+            this.SearchBarTxt.Size = new System.Drawing.Size(280, 40);
+            this.SearchBarTxt.TabIndex = 9;
+            this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
+            this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.SearchBarTxt.Texts = "Search by Keywords";
+            this.SearchBarTxt.UnderlinedStyle = false;
+            this.SearchBarTxt._TextChanged += new System.EventHandler(this.SearchBarTxt__TextChanged);
+            // 
             // curdAction
             // 
             this.curdAction.Controls.Add(this.AddLabelBtn);
-            this.curdAction.Location = new System.Drawing.Point(2, 2);
+            this.curdAction.Location = new System.Drawing.Point(12, 12);
             this.curdAction.Margin = new System.Windows.Forms.Padding(2);
             this.curdAction.Name = "curdAction";
             this.curdAction.Size = new System.Drawing.Size(193, 43);
@@ -153,13 +176,13 @@
             this.AddLabelBtn.TabIndex = 0;
             this.AddLabelBtn.Text = "ADD NEW ITEAM";
             this.AddLabelBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AddLabelBtn.Click += new System.EventHandler(this.AddLabelBtn_Click);
             // 
             // ProductContainer
             // 
             this.ProductContainer.Controls.Add(this.ProductInfoContainer);
-            this.ProductContainer.Controls.Add(this.CatalogBtnGroup);
             this.ProductContainer.Controls.Add(this.panel1);
-            this.ProductContainer.Controls.Add(this.ProductActionBox);
+            this.ProductContainer.Controls.Add(this.panel4);
             this.ProductContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProductContainer.Location = new System.Drawing.Point(619, 10);
             this.ProductContainer.Name = "ProductContainer";
@@ -172,31 +195,10 @@
             this.ProductInfoContainer.AutoScroll = true;
             this.ProductInfoContainer.BackColor = System.Drawing.Color.White;
             this.ProductInfoContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProductInfoContainer.Location = new System.Drawing.Point(10, 283);
+            this.ProductInfoContainer.Location = new System.Drawing.Point(10, 100);
             this.ProductInfoContainer.Name = "ProductInfoContainer";
-            this.ProductInfoContainer.Size = new System.Drawing.Size(398, 184);
+            this.ProductInfoContainer.Size = new System.Drawing.Size(398, 367);
             this.ProductInfoContainer.TabIndex = 0;
-            // 
-            // CatalogBtnGroup
-            // 
-            this.CatalogBtnGroup.AutoScroll = true;
-            this.CatalogBtnGroup.AutoSize = true;
-            this.CatalogBtnGroup.BackColor = System.Drawing.Color.White;
-            this.CatalogBtnGroup.Controls.Add(this.Catalog1);
-            this.CatalogBtnGroup.Controls.Add(this.Catalog2);
-            this.CatalogBtnGroup.Controls.Add(this.Catalog3);
-            this.CatalogBtnGroup.Controls.Add(this.Catalog4);
-            this.CatalogBtnGroup.Controls.Add(this.Catalog5);
-            this.CatalogBtnGroup.Controls.Add(this.Catalog6);
-            this.CatalogBtnGroup.Controls.Add(this.Catalog7);
-            this.CatalogBtnGroup.Controls.Add(this.Catalog8);
-            this.CatalogBtnGroup.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CatalogBtnGroup.Location = new System.Drawing.Point(10, 94);
-            this.CatalogBtnGroup.Margin = new System.Windows.Forms.Padding(0);
-            this.CatalogBtnGroup.Name = "CatalogBtnGroup";
-            this.CatalogBtnGroup.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.CatalogBtnGroup.Size = new System.Drawing.Size(398, 189);
-            this.CatalogBtnGroup.TabIndex = 1;
             // 
             // panel1
             // 
@@ -214,7 +216,7 @@
             this.POSActionGroup.AutoSize = true;
             this.POSActionGroup.BackColor = System.Drawing.Color.White;
             this.POSActionGroup.Controls.Add(this.roundButton2);
-            this.POSActionGroup.Controls.Add(this.roundButton3);
+            this.POSActionGroup.Controls.Add(this.OrderBtn);
             this.POSActionGroup.Controls.Add(this.roundButton4);
             this.POSActionGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.POSActionGroup.Location = new System.Drawing.Point(0, 10);
@@ -223,17 +225,143 @@
             this.POSActionGroup.Size = new System.Drawing.Size(398, 84);
             this.POSActionGroup.TabIndex = 10;
             // 
+            // roundButton2
+            // 
+            this.roundButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.roundButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.roundButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.roundButton2.BorderRadius = 5;
+            this.roundButton2.BorderSize = 2;
+            this.roundButton2.FlatAppearance.BorderSize = 0;
+            this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.roundButton2.IsChecked = false;
+            this.roundButton2.Location = new System.Drawing.Point(13, 13);
+            this.roundButton2.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.roundButton2.Name = "roundButton2";
+            this.roundButton2.Size = new System.Drawing.Size(165, 40);
+            this.roundButton2.TabIndex = 3;
+            this.roundButton2.Text = "Handle Defect Item";
+            this.roundButton2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.roundButton2.UseVisualStyleBackColor = false;
+            // 
+            // OrderBtn
+            // 
+            this.OrderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.OrderBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.OrderBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.OrderBtn.BorderRadius = 5;
+            this.OrderBtn.BorderSize = 2;
+            this.OrderBtn.FlatAppearance.BorderSize = 0;
+            this.OrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OrderBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.OrderBtn.IsChecked = false;
+            this.OrderBtn.Location = new System.Drawing.Point(188, 13);
+            this.OrderBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.OrderBtn.Name = "OrderBtn";
+            this.OrderBtn.Size = new System.Drawing.Size(165, 40);
+            this.OrderBtn.TabIndex = 4;
+            this.OrderBtn.Text = "Order Management";
+            this.OrderBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.OrderBtn.UseVisualStyleBackColor = false;
+            this.OrderBtn.Click += new System.EventHandler(this.OrderBtn_Click);
+            // 
+            // roundButton4
+            // 
+            this.roundButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.roundButton4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.roundButton4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.roundButton4.BorderRadius = 5;
+            this.roundButton4.BorderSize = 2;
+            this.roundButton4.FlatAppearance.BorderSize = 0;
+            this.roundButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundButton4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.roundButton4.IsChecked = false;
+            this.roundButton4.Location = new System.Drawing.Point(13, 59);
+            this.roundButton4.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.roundButton4.Name = "roundButton4";
+            this.roundButton4.Size = new System.Drawing.Size(165, 40);
+            this.roundButton4.TabIndex = 5;
+            this.roundButton4.Text = "Settle  Account";
+            this.roundButton4.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.roundButton4.UseVisualStyleBackColor = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.White;
+            this.panel4.Controls.Add(this.ProductActionBox);
+            this.panel4.Controls.Add(this.panel3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(10, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(398, 100);
+            this.panel4.TabIndex = 7;
+            // 
             // ProductActionBox
             // 
             this.ProductActionBox.AutoSize = true;
             this.ProductActionBox.BackColor = System.Drawing.Color.White;
             this.ProductActionBox.Controls.Add(this.curdAction);
-            this.ProductActionBox.Controls.Add(this.SearchBar);
-            this.ProductActionBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ProductActionBox.Location = new System.Drawing.Point(10, 0);
+            this.ProductActionBox.Controls.Add(this.customizeComboBox1);
+            this.ProductActionBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProductActionBox.Location = new System.Drawing.Point(0, 0);
             this.ProductActionBox.Name = "ProductActionBox";
-            this.ProductActionBox.Size = new System.Drawing.Size(398, 94);
+            this.ProductActionBox.Padding = new System.Windows.Forms.Padding(10);
+            this.ProductActionBox.Size = new System.Drawing.Size(398, 100);
             this.ProductActionBox.TabIndex = 1;
+            // 
+            // customizeComboBox1
+            // 
+            this.customizeComboBox1.AutoCompleteCustomSource.AddRange(new string[] {
+            "Television & Audio",
+            "Refrigerators & Freezers",
+            "Washing Machines",
+            "Air Conditioners",
+            "Home & Kitchen Appliances",
+            "Mobile & Communication",
+            "Computer & Office"});
+            this.customizeComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.customizeComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.customizeComboBox1.BackColor = System.Drawing.Color.White;
+            this.customizeComboBox1.BorderColor = System.Drawing.Color.LightGray;
+            this.customizeComboBox1.BorderRadius = 0;
+            this.customizeComboBox1.BorderSize = 1;
+            this.customizeComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.customizeComboBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customizeComboBox1.ForeColor = System.Drawing.Color.SeaGreen;
+            this.customizeComboBox1.IconColor = System.Drawing.Color.SeaGreen;
+            this.customizeComboBox1.Items.AddRange(new object[] {
+            "All",
+            "Television & Audio",
+            "Refrigerators & Freezers",
+            "Washing Machines",
+            "Air Conditioners",
+            "Home & Kitchen Appliances",
+            "Mobile & Communication",
+            "Computer & Office"});
+            this.customizeComboBox1.ListBackColor = System.Drawing.Color.SeaGreen;
+            this.customizeComboBox1.ListTextColor = System.Drawing.Color.White;
+            this.customizeComboBox1.Location = new System.Drawing.Point(13, 60);
+            this.customizeComboBox1.MinimumSize = new System.Drawing.Size(200, 30);
+            this.customizeComboBox1.Name = "customizeComboBox1";
+            this.customizeComboBox1.Padding = new System.Windows.Forms.Padding(1);
+            this.customizeComboBox1.Size = new System.Drawing.Size(250, 40);
+            this.customizeComboBox1.TabIndex = 0;
+            this.customizeComboBox1.Texts = "Catalogue";
+            this.customizeComboBox1.UnderlinedStyle = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.SearchBar);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(368, 45);
+            this.panel3.TabIndex = 10;
             // 
             // CartContainer
             // 
@@ -264,23 +392,23 @@
             this.CartItemGrid.AllowUserToOrderColumns = true;
             this.CartItemGrid.AllowUserToResizeColumns = false;
             this.CartItemGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.CartItemGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.CartItemGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.CartItemGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.CartItemGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.CartItemGrid.BackgroundColor = System.Drawing.Color.White;
             this.CartItemGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CartItemGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.CartItemGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CartItemGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CartItemGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.CartItemGrid.ColumnHeadersHeight = 50;
             this.CartItemGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.CartItemGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -291,15 +419,15 @@
             this.price,
             this.remarks,
             this.delete});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CartItemGrid.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CartItemGrid.DefaultCellStyle = dataGridViewCellStyle7;
             this.CartItemGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CartItemGrid.EnableHeadersVisualStyles = false;
             this.CartItemGrid.GridColor = System.Drawing.Color.White;
@@ -308,24 +436,24 @@
             this.CartItemGrid.MultiSelect = false;
             this.CartItemGrid.Name = "CartItemGrid";
             this.CartItemGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CartItemGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CartItemGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.CartItemGrid.RowHeadersVisible = false;
             this.CartItemGrid.RowHeadersWidth = 30;
             this.CartItemGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle18.NullValue = null;
-            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
-            this.CartItemGrid.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle9.NullValue = null;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.CartItemGrid.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.CartItemGrid.RowTemplate.Height = 30;
             this.CartItemGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.CartItemGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -333,14 +461,15 @@
             this.CartItemGrid.Size = new System.Drawing.Size(606, 345);
             this.CartItemGrid.StandardTab = true;
             this.CartItemGrid.TabIndex = 4;
+            this.CartItemGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CartItemGrid_CellClick);
             // 
             // userName
             // 
             this.userName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.userName.DataPropertyName = "Name";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.userName.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.userName.DefaultCellStyle = dataGridViewCellStyle3;
             this.userName.HeaderText = "Name";
             this.userName.MinimumWidth = 6;
             this.userName.Name = "userName";
@@ -365,8 +494,10 @@
             // 
             this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.qty.DataPropertyName = "quantity";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.qty.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.qty.DefaultCellStyle = dataGridViewCellStyle4;
             this.qty.HeaderText = "Qty";
             this.qty.MinimumWidth = 6;
             this.qty.Name = "qty";
@@ -391,8 +522,8 @@
             // 
             this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.price.DataPropertyName = "Price";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.price.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.price.DefaultCellStyle = dataGridViewCellStyle5;
             this.price.HeaderText = "Price";
             this.price.MinimumWidth = 6;
             this.price.Name = "price";
@@ -404,8 +535,8 @@
             // 
             this.remarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.remarks.DataPropertyName = "remarks";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.remarks.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.remarks.DefaultCellStyle = dataGridViewCellStyle6;
             this.remarks.HeaderText = "Remark";
             this.remarks.MaxInputLength = 50;
             this.remarks.MinimumWidth = 6;
@@ -480,6 +611,33 @@
             this.DiscountContainer.Size = new System.Drawing.Size(606, 58);
             this.DiscountContainer.TabIndex = 1;
             // 
+            // DiscountValue
+            // 
+            this.DiscountValue.BackColor = System.Drawing.Color.White;
+            this.DiscountValue.BorderColor = System.Drawing.Color.Gainsboro;
+            this.DiscountValue.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.DiscountValue.BorderRadius = 5;
+            this.DiscountValue.BorderSize = 1;
+            this.DiscountValue.Dock = System.Windows.Forms.DockStyle.Right;
+            this.DiscountValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiscountValue.ForeColor = System.Drawing.Color.Gray;
+            this.DiscountValue.IsError = false;
+            this.DiscountValue.Location = new System.Drawing.Point(532, 10);
+            this.DiscountValue.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.DiscountValue.MaxLength = 2;
+            this.DiscountValue.Multiline = true;
+            this.DiscountValue.Name = "DiscountValue";
+            this.DiscountValue.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.DiscountValue.PasswordChar = false;
+            this.DiscountValue.Placeholder = "0";
+            this.DiscountValue.ReadOnly = false;
+            this.DiscountValue.Size = new System.Drawing.Size(64, 38);
+            this.DiscountValue.TabIndex = 1;
+            this.DiscountValue.TbBackColor = System.Drawing.SystemColors.Window;
+            this.DiscountValue.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
+            this.DiscountValue.Texts = "0";
+            this.DiscountValue.UnderlinedStyle = false;
+            // 
             // DiscountLabel
             // 
             this.DiscountLabel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -546,6 +704,77 @@
             this.OrderBtnGroup.Size = new System.Drawing.Size(606, 58);
             this.OrderBtnGroup.TabIndex = 2;
             // 
+            // PayBtn
+            // 
+            this.PayBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.PayBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.PayBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.PayBtn.BorderRadius = 5;
+            this.PayBtn.BorderSize = 1;
+            this.PayBtn.FlatAppearance.BorderSize = 0;
+            this.PayBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PayBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PayBtn.ForeColor = System.Drawing.Color.White;
+            this.PayBtn.IsChecked = false;
+            this.PayBtn.Location = new System.Drawing.Point(380, 8);
+            this.PayBtn.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
+            this.PayBtn.Name = "PayBtn";
+            this.PayBtn.Size = new System.Drawing.Size(216, 40);
+            this.PayBtn.TabIndex = 1;
+            this.PayBtn.Text = "Pay";
+            this.PayBtn.TextColor = System.Drawing.Color.White;
+            this.PayBtn.UseVisualStyleBackColor = false;
+            this.PayBtn.Click += new System.EventHandler(this.PayBtn_Click);
+            // 
+            // HoldBtn
+            // 
+            this.HoldBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.HoldBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.HoldBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.HoldBtn.BorderRadius = 5;
+            this.HoldBtn.BorderSize = 2;
+            this.HoldBtn.FlatAppearance.BorderSize = 0;
+            this.HoldBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.HoldBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HoldBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HoldBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.HoldBtn.IsChecked = false;
+            this.HoldBtn.Location = new System.Drawing.Point(255, 8);
+            this.HoldBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.HoldBtn.Name = "HoldBtn";
+            this.HoldBtn.Size = new System.Drawing.Size(115, 40);
+            this.HoldBtn.TabIndex = 0;
+            this.HoldBtn.Text = "Hold Order";
+            this.HoldBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.HoldBtn.UseVisualStyleBackColor = false;
+            this.HoldBtn.Click += new System.EventHandler(this.HoldBtn_Click);
+            this.HoldBtn.MouseLeave += new System.EventHandler(this.HoldBtn_MouseLeave);
+            this.HoldBtn.MouseHover += new System.EventHandler(this.HoldBtn_MouseHover);
+            // 
+            // CancelBtn
+            // 
+            this.CancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.CancelBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.CancelBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.CancelBtn.BorderRadius = 5;
+            this.CancelBtn.BorderSize = 2;
+            this.CancelBtn.FlatAppearance.BorderSize = 0;
+            this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.CancelBtn.IsChecked = false;
+            this.CancelBtn.Location = new System.Drawing.Point(130, 8);
+            this.CancelBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(115, 40);
+            this.CancelBtn.TabIndex = 1;
+            this.CancelBtn.Text = "Cancel Order";
+            this.CancelBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.MouseLeave += new System.EventHandler(this.CancelBtn_MouseLeave);
+            this.CancelBtn.MouseHover += new System.EventHandler(this.CancelBtn_MouseHover);
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.MinimumWidth = 6;
@@ -606,397 +835,6 @@
             this.dataGridViewImageColumn6.ReadOnly = true;
             this.dataGridViewImageColumn6.ToolTipText = "Delete";
             // 
-            // Catalog1
-            // 
-            this.Catalog1.BackColor = System.Drawing.Color.White;
-            this.Catalog1.BackgroundColor = System.Drawing.Color.White;
-            this.Catalog1.BorderColor = System.Drawing.Color.Gainsboro;
-            this.Catalog1.BorderRadius = 5;
-            this.Catalog1.BorderSize = 1;
-            this.Catalog1.FlatAppearance.BorderSize = 0;
-            this.Catalog1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Catalog1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.Catalog1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Catalog1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Catalog1.ForeColor = System.Drawing.Color.LightGray;
-            this.Catalog1.IsChecked = false;
-            this.Catalog1.Location = new System.Drawing.Point(10, 5);
-            this.Catalog1.Margin = new System.Windows.Forms.Padding(5);
-            this.Catalog1.Name = "Catalog1";
-            this.Catalog1.Size = new System.Drawing.Size(107, 53);
-            this.Catalog1.TabIndex = 0;
-            this.Catalog1.Text = "Product Menu";
-            this.Catalog1.TextColor = System.Drawing.Color.LightGray;
-            this.Catalog1.UseVisualStyleBackColor = false;
-            this.Catalog1.Click += new System.EventHandler(this.CatalogBtn_Click);
-            this.Catalog1.MouseLeave += new System.EventHandler(this.roundButton4_MouseLeave);
-            this.Catalog1.MouseHover += new System.EventHandler(this.CatalogBtn_MouseHover);
-            // 
-            // Catalog2
-            // 
-            this.Catalog2.BackColor = System.Drawing.Color.White;
-            this.Catalog2.BackgroundColor = System.Drawing.Color.White;
-            this.Catalog2.BorderColor = System.Drawing.Color.Gainsboro;
-            this.Catalog2.BorderRadius = 5;
-            this.Catalog2.BorderSize = 1;
-            this.Catalog2.FlatAppearance.BorderSize = 0;
-            this.Catalog2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Catalog2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.Catalog2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Catalog2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Catalog2.ForeColor = System.Drawing.Color.LightGray;
-            this.Catalog2.IsChecked = false;
-            this.Catalog2.Location = new System.Drawing.Point(127, 5);
-            this.Catalog2.Margin = new System.Windows.Forms.Padding(5);
-            this.Catalog2.Name = "Catalog2";
-            this.Catalog2.Size = new System.Drawing.Size(107, 53);
-            this.Catalog2.TabIndex = 1;
-            this.Catalog2.Text = "Product Menu";
-            this.Catalog2.TextColor = System.Drawing.Color.LightGray;
-            this.Catalog2.UseVisualStyleBackColor = false;
-            this.Catalog2.Click += new System.EventHandler(this.CatalogBtn_Click);
-            this.Catalog2.MouseLeave += new System.EventHandler(this.roundButton4_MouseLeave);
-            this.Catalog2.MouseHover += new System.EventHandler(this.CatalogBtn_MouseHover);
-            // 
-            // Catalog3
-            // 
-            this.Catalog3.BackColor = System.Drawing.Color.White;
-            this.Catalog3.BackgroundColor = System.Drawing.Color.White;
-            this.Catalog3.BorderColor = System.Drawing.Color.Gainsboro;
-            this.Catalog3.BorderRadius = 5;
-            this.Catalog3.BorderSize = 1;
-            this.Catalog3.FlatAppearance.BorderSize = 0;
-            this.Catalog3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Catalog3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.Catalog3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Catalog3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Catalog3.ForeColor = System.Drawing.Color.LightGray;
-            this.Catalog3.IsChecked = false;
-            this.Catalog3.Location = new System.Drawing.Point(244, 5);
-            this.Catalog3.Margin = new System.Windows.Forms.Padding(5);
-            this.Catalog3.Name = "Catalog3";
-            this.Catalog3.Size = new System.Drawing.Size(107, 53);
-            this.Catalog3.TabIndex = 2;
-            this.Catalog3.Text = "Product Menu";
-            this.Catalog3.TextColor = System.Drawing.Color.LightGray;
-            this.Catalog3.UseVisualStyleBackColor = false;
-            this.Catalog3.Click += new System.EventHandler(this.CatalogBtn_Click);
-            this.Catalog3.MouseLeave += new System.EventHandler(this.roundButton4_MouseLeave);
-            this.Catalog3.MouseHover += new System.EventHandler(this.CatalogBtn_MouseHover);
-            // 
-            // Catalog4
-            // 
-            this.Catalog4.BackColor = System.Drawing.Color.White;
-            this.Catalog4.BackgroundColor = System.Drawing.Color.White;
-            this.Catalog4.BorderColor = System.Drawing.Color.Gainsboro;
-            this.Catalog4.BorderRadius = 5;
-            this.Catalog4.BorderSize = 1;
-            this.Catalog4.FlatAppearance.BorderSize = 0;
-            this.Catalog4.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Catalog4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.Catalog4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Catalog4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Catalog4.ForeColor = System.Drawing.Color.LightGray;
-            this.Catalog4.IsChecked = false;
-            this.Catalog4.Location = new System.Drawing.Point(10, 68);
-            this.Catalog4.Margin = new System.Windows.Forms.Padding(5);
-            this.Catalog4.Name = "Catalog4";
-            this.Catalog4.Size = new System.Drawing.Size(107, 53);
-            this.Catalog4.TabIndex = 3;
-            this.Catalog4.Text = "Product Menu";
-            this.Catalog4.TextColor = System.Drawing.Color.LightGray;
-            this.Catalog4.UseVisualStyleBackColor = false;
-            this.Catalog4.Click += new System.EventHandler(this.CatalogBtn_Click);
-            this.Catalog4.MouseLeave += new System.EventHandler(this.roundButton4_MouseLeave);
-            this.Catalog4.MouseHover += new System.EventHandler(this.CatalogBtn_MouseHover);
-            // 
-            // Catalog5
-            // 
-            this.Catalog5.BackColor = System.Drawing.Color.White;
-            this.Catalog5.BackgroundColor = System.Drawing.Color.White;
-            this.Catalog5.BorderColor = System.Drawing.Color.Gainsboro;
-            this.Catalog5.BorderRadius = 5;
-            this.Catalog5.BorderSize = 1;
-            this.Catalog5.FlatAppearance.BorderSize = 0;
-            this.Catalog5.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Catalog5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.Catalog5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Catalog5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Catalog5.ForeColor = System.Drawing.Color.LightGray;
-            this.Catalog5.IsChecked = false;
-            this.Catalog5.Location = new System.Drawing.Point(127, 68);
-            this.Catalog5.Margin = new System.Windows.Forms.Padding(5);
-            this.Catalog5.Name = "Catalog5";
-            this.Catalog5.Size = new System.Drawing.Size(107, 53);
-            this.Catalog5.TabIndex = 4;
-            this.Catalog5.Text = "Product Menu";
-            this.Catalog5.TextColor = System.Drawing.Color.LightGray;
-            this.Catalog5.UseVisualStyleBackColor = false;
-            this.Catalog5.Click += new System.EventHandler(this.CatalogBtn_Click);
-            this.Catalog5.MouseLeave += new System.EventHandler(this.roundButton4_MouseLeave);
-            this.Catalog5.MouseHover += new System.EventHandler(this.CatalogBtn_MouseHover);
-            // 
-            // Catalog6
-            // 
-            this.Catalog6.BackColor = System.Drawing.Color.White;
-            this.Catalog6.BackgroundColor = System.Drawing.Color.White;
-            this.Catalog6.BorderColor = System.Drawing.Color.Gainsboro;
-            this.Catalog6.BorderRadius = 5;
-            this.Catalog6.BorderSize = 1;
-            this.Catalog6.FlatAppearance.BorderSize = 0;
-            this.Catalog6.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Catalog6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.Catalog6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Catalog6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Catalog6.ForeColor = System.Drawing.Color.LightGray;
-            this.Catalog6.IsChecked = false;
-            this.Catalog6.Location = new System.Drawing.Point(244, 68);
-            this.Catalog6.Margin = new System.Windows.Forms.Padding(5);
-            this.Catalog6.Name = "Catalog6";
-            this.Catalog6.Size = new System.Drawing.Size(107, 53);
-            this.Catalog6.TabIndex = 5;
-            this.Catalog6.Text = "Product Menu";
-            this.Catalog6.TextColor = System.Drawing.Color.LightGray;
-            this.Catalog6.UseVisualStyleBackColor = false;
-            this.Catalog6.Click += new System.EventHandler(this.CatalogBtn_Click);
-            this.Catalog6.MouseLeave += new System.EventHandler(this.roundButton4_MouseLeave);
-            this.Catalog6.MouseHover += new System.EventHandler(this.CatalogBtn_MouseHover);
-            // 
-            // Catalog7
-            // 
-            this.Catalog7.BackColor = System.Drawing.Color.White;
-            this.Catalog7.BackgroundColor = System.Drawing.Color.White;
-            this.Catalog7.BorderColor = System.Drawing.Color.Gainsboro;
-            this.Catalog7.BorderRadius = 5;
-            this.Catalog7.BorderSize = 1;
-            this.Catalog7.FlatAppearance.BorderSize = 0;
-            this.Catalog7.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Catalog7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.Catalog7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Catalog7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Catalog7.ForeColor = System.Drawing.Color.LightGray;
-            this.Catalog7.IsChecked = false;
-            this.Catalog7.Location = new System.Drawing.Point(10, 131);
-            this.Catalog7.Margin = new System.Windows.Forms.Padding(5);
-            this.Catalog7.Name = "Catalog7";
-            this.Catalog7.Size = new System.Drawing.Size(107, 53);
-            this.Catalog7.TabIndex = 6;
-            this.Catalog7.Text = "Product Menu";
-            this.Catalog7.TextColor = System.Drawing.Color.LightGray;
-            this.Catalog7.UseVisualStyleBackColor = false;
-            this.Catalog7.Click += new System.EventHandler(this.CatalogBtn_Click);
-            this.Catalog7.MouseLeave += new System.EventHandler(this.roundButton4_MouseLeave);
-            this.Catalog7.MouseHover += new System.EventHandler(this.CatalogBtn_MouseHover);
-            // 
-            // Catalog8
-            // 
-            this.Catalog8.BackColor = System.Drawing.Color.White;
-            this.Catalog8.BackgroundColor = System.Drawing.Color.White;
-            this.Catalog8.BorderColor = System.Drawing.Color.Gainsboro;
-            this.Catalog8.BorderRadius = 5;
-            this.Catalog8.BorderSize = 1;
-            this.Catalog8.FlatAppearance.BorderSize = 0;
-            this.Catalog8.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.Catalog8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.Catalog8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Catalog8.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Catalog8.ForeColor = System.Drawing.Color.LightGray;
-            this.Catalog8.IsChecked = false;
-            this.Catalog8.Location = new System.Drawing.Point(127, 131);
-            this.Catalog8.Margin = new System.Windows.Forms.Padding(5);
-            this.Catalog8.Name = "Catalog8";
-            this.Catalog8.Size = new System.Drawing.Size(107, 53);
-            this.Catalog8.TabIndex = 7;
-            this.Catalog8.Text = "Product Menu";
-            this.Catalog8.TextColor = System.Drawing.Color.LightGray;
-            this.Catalog8.UseVisualStyleBackColor = false;
-            this.Catalog8.Click += new System.EventHandler(this.CatalogBtn_Click);
-            this.Catalog8.MouseLeave += new System.EventHandler(this.roundButton4_MouseLeave);
-            this.Catalog8.MouseHover += new System.EventHandler(this.CatalogBtn_MouseHover);
-            // 
-            // roundButton2
-            // 
-            this.roundButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundButton2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton2.BorderRadius = 5;
-            this.roundButton2.BorderSize = 2;
-            this.roundButton2.FlatAppearance.BorderSize = 0;
-            this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton2.IsChecked = false;
-            this.roundButton2.Location = new System.Drawing.Point(13, 13);
-            this.roundButton2.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.roundButton2.Name = "roundButton2";
-            this.roundButton2.Size = new System.Drawing.Size(165, 40);
-            this.roundButton2.TabIndex = 3;
-            this.roundButton2.Text = "Handle Defect Item";
-            this.roundButton2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton2.UseVisualStyleBackColor = false;
-            // 
-            // roundButton3
-            // 
-            this.roundButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundButton3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundButton3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton3.BorderRadius = 5;
-            this.roundButton3.BorderSize = 2;
-            this.roundButton3.FlatAppearance.BorderSize = 0;
-            this.roundButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton3.IsChecked = false;
-            this.roundButton3.Location = new System.Drawing.Point(188, 13);
-            this.roundButton3.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.roundButton3.Name = "roundButton3";
-            this.roundButton3.Size = new System.Drawing.Size(165, 40);
-            this.roundButton3.TabIndex = 4;
-            this.roundButton3.Text = "Order Management";
-            this.roundButton3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton3.UseVisualStyleBackColor = false;
-            // 
-            // roundButton4
-            // 
-            this.roundButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundButton4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundButton4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton4.BorderRadius = 5;
-            this.roundButton4.BorderSize = 2;
-            this.roundButton4.FlatAppearance.BorderSize = 0;
-            this.roundButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton4.IsChecked = false;
-            this.roundButton4.Location = new System.Drawing.Point(13, 59);
-            this.roundButton4.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.roundButton4.Name = "roundButton4";
-            this.roundButton4.Size = new System.Drawing.Size(165, 40);
-            this.roundButton4.TabIndex = 5;
-            this.roundButton4.Text = "Settle  Account";
-            this.roundButton4.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton4.UseVisualStyleBackColor = false;
-            // 
-            // SearchBarTxt
-            // 
-            this.SearchBarTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchBarTxt.BackColor = System.Drawing.Color.White;
-            this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.SearchBarTxt.BorderRadius = 10;
-            this.SearchBarTxt.BorderSize = 1;
-            this.SearchBarTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBarTxt.ForeColor = System.Drawing.Color.Black;
-            this.SearchBarTxt.IsError = false;
-            this.SearchBarTxt.Location = new System.Drawing.Point(0, 0);
-            this.SearchBarTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.SearchBarTxt.MaxLength = 20;
-            this.SearchBarTxt.Multiline = false;
-            this.SearchBarTxt.Name = "SearchBarTxt";
-            this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(30, 10, 10, 6);
-            this.SearchBarTxt.PasswordChar = false;
-            this.SearchBarTxt.Placeholder = "Search by Keywords";
-            this.SearchBarTxt.ReadOnly = false;
-            this.SearchBarTxt.Size = new System.Drawing.Size(280, 40);
-            this.SearchBarTxt.TabIndex = 9;
-            this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.SearchBarTxt.Texts = "Search by Keywords";
-            this.SearchBarTxt.UnderlinedStyle = false;
-            this.SearchBarTxt._TextChanged += new System.EventHandler(this.SearchBarTxt__TextChanged);
-            // 
-            // DiscountValue
-            // 
-            this.DiscountValue.BackColor = System.Drawing.Color.White;
-            this.DiscountValue.BorderColor = System.Drawing.Color.Gainsboro;
-            this.DiscountValue.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.DiscountValue.BorderRadius = 5;
-            this.DiscountValue.BorderSize = 1;
-            this.DiscountValue.Dock = System.Windows.Forms.DockStyle.Right;
-            this.DiscountValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DiscountValue.ForeColor = System.Drawing.Color.Gray;
-            this.DiscountValue.IsError = false;
-            this.DiscountValue.Location = new System.Drawing.Point(532, 10);
-            this.DiscountValue.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.DiscountValue.MaxLength = 2;
-            this.DiscountValue.Multiline = true;
-            this.DiscountValue.Name = "DiscountValue";
-            this.DiscountValue.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.DiscountValue.PasswordChar = false;
-            this.DiscountValue.Placeholder = "0";
-            this.DiscountValue.ReadOnly = false;
-            this.DiscountValue.Size = new System.Drawing.Size(64, 38);
-            this.DiscountValue.TabIndex = 1;
-            this.DiscountValue.TbBackColor = System.Drawing.SystemColors.Window;
-            this.DiscountValue.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
-            this.DiscountValue.Texts = "0";
-            this.DiscountValue.UnderlinedStyle = false;
-            // 
-            // PayBtn
-            // 
-            this.PayBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.PayBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.PayBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.PayBtn.BorderRadius = 5;
-            this.PayBtn.BorderSize = 1;
-            this.PayBtn.FlatAppearance.BorderSize = 0;
-            this.PayBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PayBtn.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PayBtn.ForeColor = System.Drawing.Color.White;
-            this.PayBtn.IsChecked = false;
-            this.PayBtn.Location = new System.Drawing.Point(380, 8);
-            this.PayBtn.Margin = new System.Windows.Forms.Padding(3, 3, 0, 3);
-            this.PayBtn.Name = "PayBtn";
-            this.PayBtn.Size = new System.Drawing.Size(216, 40);
-            this.PayBtn.TabIndex = 1;
-            this.PayBtn.Text = "Pay";
-            this.PayBtn.TextColor = System.Drawing.Color.White;
-            this.PayBtn.UseVisualStyleBackColor = false;
-            this.PayBtn.Click += new System.EventHandler(this.PayBtn_Click);
-            // 
-            // HoldBtn
-            // 
-            this.HoldBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.HoldBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.HoldBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.HoldBtn.BorderRadius = 5;
-            this.HoldBtn.BorderSize = 2;
-            this.HoldBtn.FlatAppearance.BorderSize = 0;
-            this.HoldBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.HoldBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HoldBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.HoldBtn.IsChecked = false;
-            this.HoldBtn.Location = new System.Drawing.Point(255, 8);
-            this.HoldBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.HoldBtn.Name = "HoldBtn";
-            this.HoldBtn.Size = new System.Drawing.Size(115, 40);
-            this.HoldBtn.TabIndex = 0;
-            this.HoldBtn.Text = "Hold Order";
-            this.HoldBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.HoldBtn.UseVisualStyleBackColor = false;
-            this.HoldBtn.Click += new System.EventHandler(this.HoldBtn_Click);
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.CancelBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.CancelBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.CancelBtn.BorderRadius = 5;
-            this.CancelBtn.BorderSize = 2;
-            this.CancelBtn.FlatAppearance.BorderSize = 0;
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.CancelBtn.IsChecked = false;
-            this.CancelBtn.Location = new System.Drawing.Point(130, 8);
-            this.CancelBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(115, 40);
-            this.CancelBtn.TabIndex = 1;
-            this.CancelBtn.Text = "Cancel Order";
-            this.CancelBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.CancelBtn.UseVisualStyleBackColor = false;
-            // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1018,12 +856,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.curdAction.ResumeLayout(false);
             this.ProductContainer.ResumeLayout(false);
-            this.ProductContainer.PerformLayout();
-            this.CatalogBtnGroup.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.POSActionGroup.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ProductActionBox.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.CartContainer.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CartItemGrid)).EndInit();
@@ -1046,16 +885,7 @@
         private System.Windows.Forms.Panel SearchBar;
         private CustomizeControl.CustomizeTextbox SearchBarTxt;
         private System.Windows.Forms.Panel ProductContainer;
-        private System.Windows.Forms.FlowLayoutPanel CatalogBtnGroup;
         private System.Windows.Forms.FlowLayoutPanel OrderBtnGroup;
-        private CustomizeControl.RoundButton Catalog1;
-        private CustomizeControl.RoundButton Catalog2;
-        private CustomizeControl.RoundButton Catalog3;
-        private CustomizeControl.RoundButton Catalog4;
-        private CustomizeControl.RoundButton Catalog5;
-        private CustomizeControl.RoundButton Catalog6;
-        private CustomizeControl.RoundButton Catalog7;
-        private CustomizeControl.RoundButton Catalog8;
         private System.Windows.Forms.Label AddLabelBtn;
         private System.Windows.Forms.Panel CartContainer;
         private System.Windows.Forms.FlowLayoutPanel POSActionGroup;
@@ -1078,11 +908,14 @@
         private System.Windows.Forms.Label TotalAmountTxt;
         private System.Windows.Forms.FlowLayoutPanel ProductActionBox;
         private CustomizeControl.RoundButton roundButton2;
-        private CustomizeControl.RoundButton roundButton3;
+        private CustomizeControl.RoundButton OrderBtn;
         private CustomizeControl.RoundButton roundButton4;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn6;
+        private CustomizeControl.CustomizeComboBox customizeComboBox1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridViewTextBoxColumn userName;
         private System.Windows.Forms.DataGridViewImageColumn sub;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;

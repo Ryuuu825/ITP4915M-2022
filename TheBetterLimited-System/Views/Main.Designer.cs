@@ -33,7 +33,7 @@
             this.submenuContainer1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.submenuContainer2 = new System.Windows.Forms.Panel();
-            this.submenu3 = new System.Windows.Forms.Button();
+            this.supplierBtn = new System.Windows.Forms.Button();
             this.submenuContainer3 = new System.Windows.Forms.Panel();
             this.submenu2 = new System.Windows.Forms.Button();
             this.Header = new System.Windows.Forms.Panel();
@@ -145,27 +145,28 @@
             // 
             // submenuContainer2
             // 
-            this.submenuContainer2.Controls.Add(this.submenu3);
+            this.submenuContainer2.Controls.Add(this.supplierBtn);
             this.submenuContainer2.Location = new System.Drawing.Point(0, 62);
             this.submenuContainer2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.submenuContainer2.Name = "submenuContainer2";
             this.submenuContainer2.Size = new System.Drawing.Size(200, 58);
             this.submenuContainer2.TabIndex = 2;
             // 
-            // submenu3
+            // supplierBtn
             // 
-            this.submenu3.FlatAppearance.BorderSize = 0;
-            this.submenu3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.submenu3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.submenu3.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.submenu3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.submenu3.Location = new System.Drawing.Point(0, 0);
-            this.submenu3.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.submenu3.Name = "submenu3";
-            this.submenu3.Size = new System.Drawing.Size(200, 50);
-            this.submenu3.TabIndex = 0;
-            this.submenu3.Text = "submenu";
-            this.submenu3.UseVisualStyleBackColor = true;
+            this.supplierBtn.FlatAppearance.BorderSize = 0;
+            this.supplierBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.supplierBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.supplierBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.supplierBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.supplierBtn.Location = new System.Drawing.Point(0, 0);
+            this.supplierBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.supplierBtn.Name = "supplierBtn";
+            this.supplierBtn.Size = new System.Drawing.Size(200, 50);
+            this.supplierBtn.TabIndex = 0;
+            this.supplierBtn.Text = "Suppiler";
+            this.supplierBtn.UseVisualStyleBackColor = true;
+            this.supplierBtn.Click += new System.EventHandler(this.supplierBtn_Click);
             // 
             // submenuContainer3
             // 
@@ -1003,7 +1004,7 @@
         private System.Windows.Forms.Panel submenuContainer1;
         private System.Windows.Forms.Panel submenuContainer2;
         private System.Windows.Forms.Panel submenuContainer3;
-        private System.Windows.Forms.Button submenu3;
+        private System.Windows.Forms.Button supplierBtn;
         private System.Windows.Forms.Button submenu2;
         private System.Windows.Forms.FlowLayoutPanel subSidebar;
         private System.Windows.Forms.Timer subSidebarTimer;

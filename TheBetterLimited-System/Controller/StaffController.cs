@@ -65,6 +65,7 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
+                Console.WriteLine("StatusCode: " + response.StatusCode);
                 return response;
             }
             catch (Exception ex)

@@ -16,7 +16,7 @@ using TheBetterLimited.CustomizeControl;
 
 namespace TheBetterLimited.Views
 {
-    public partial class Usermanagement_Edit : Form
+    public partial class OrderDetails : Form
     {
         private UserController uc = new UserController();
         private StaffController sc = new StaffController();
@@ -25,7 +25,7 @@ namespace TheBetterLimited.Views
         private RestResponse result = new RestResponse();
         private bool isUpload = false;
         private Bitmap icon = null;
-        public string _uid { get; set; }
+        public string _oid { get; set; }
         private string _staffId;
         private string _staffName;
         private string _deptName;
@@ -35,14 +35,14 @@ namespace TheBetterLimited.Views
         private string _status;
         private string _remark;
 
-        public Usermanagement_Edit()
+        public OrderDetails()
         {
             InitializeComponent();
         }
 
         private void Usermanagement_Edit_Load(object sender, EventArgs e)
         {
-            InitUserInfo();
+            //InitUserInfo();
         }
 
         private void SearchStaffBtn_Click(object sender, EventArgs e)
@@ -63,25 +63,12 @@ namespace TheBetterLimited.Views
             }
         }
 
-        public void InitUserInfo()
+        public void InitOrderInfo()
         {
-            UserIdTxt.Texts = _uid;
-            //init icon
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(UserIconPic.ClientRectangle);
-            Region region = new Region(gp);
-            UserIconPic.Region = region;
-            gp.Dispose();
-            region.Dispose();
-            Bitmap bitmap = uc.GetUserIconById(_uid);
-            if (bitmap != null)
-            {
-                UserIconPic.Image = bitmap;
-            }
-
-            //init user info
-            Console.WriteLine(_uid);
-            result = uc.GetAccountById(_uid);
+            
+            //init Order info
+            Console.WriteLine(_oid);
+            result = uc.GetAccountById(_oid);
             Console.WriteLine(result.Content.ToString());
             var res = JObject.Parse(result.Content);
             _staffId = res["_StaffId"].ToString();
@@ -105,7 +92,6 @@ namespace TheBetterLimited.Views
             }catch (Exception ex)
             {
                 MessageBox.Show("Not found the staff " + StaffIDTxt.Texts);
-                return;
             }
             
             if (staff != null)
@@ -114,13 +100,9 @@ namespace TheBetterLimited.Views
                 StaffNameTxt.Texts = _staffName;
                 if (staff["Sex"].ToString().Equals("M"))
                 {
-                    MaleGenderRadio.Checked = true;
-                    FemaleGenderRadio.Checked = false;
                 }
                 else
                 {
-                    MaleGenderRadio.Checked = false;
-                    FemaleGenderRadio.Checked = true;
                 }
             }
             result = dc.GetDepartmentById(staff["_departmentId"].ToString());
@@ -136,43 +118,31 @@ namespace TheBetterLimited.Views
             _positionName = position["jobTitle"].ToString();
             if (position != null)
             {
-                PositionTxt.Texts = _positionName;
             }
         }
 
         private void GetAccount()
         {
-            result = uc.GetAccountById(_uid);
+            result = uc.GetAccountById(_oid);
             var user = JObject.Parse(result.Content);
             if (user != null)
             {
 
                 _userName = user["userName"].ToString();
-                UserNameTxt.Texts = _userName;
                 _email = user["emailAddress"].ToString();
-                EmailTxt.Texts = _email;
                 _status = user["status"].ToString();
                 _remark = user["remarks"].ToString();
-                RemarkTxt.Texts = _remark;
                 if (_status.Equals("N"))
                 {
-                    NormalStatusRadio.Checked = true;
-                    LockStatusRadio.Checked = false;
                 }
                 else
                 {
-                    NormalStatusRadio.Checked = false;
-                    LockStatusRadio.Checked = true;
                 }
             }
         }
 
         private void UserNameTxt_Enter(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(UserNameTxt.Text))
-            {
-
-            }
         }
 
         private void ValueUpdatedCheck()
@@ -181,14 +151,10 @@ namespace TheBetterLimited.Views
 
         private void NormalStatusRadio_CheckedChanged(object sender, EventArgs e)
         {
-            NormalStatusRadio.Checked = true;
-            LockStatusRadio.Checked = false;
         }
 
         private void LockStatusRadio_CheckedChanged(object sender, EventArgs e)
         {
-            NormalStatusRadio.Checked = false;
-            LockStatusRadio.Checked = true;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -198,12 +164,10 @@ namespace TheBetterLimited.Views
 
         private void UserName_Click(object sender, EventArgs e)
         {
-            UserNameTxt.Focus();
         }
 
         private void Email_Click(object sender, EventArgs e)
         {
-            EmailTxt.Focus();
         }
 
         public event Action OnExit;
@@ -226,29 +190,7 @@ namespace TheBetterLimited.Views
                 updatedData.Add(obj);
             }
 
-            if (!UserNameTxt.Texts.Equals(_userName) && !UserNameTxt.Texts.Equals(UserNameTxt.Placeholder))
-            {
-                var obj = new
-                {
-                    attribute = "UserName",
-                    value = UserNameTxt.Texts
-                };
-                updatedData.Add(obj);
-            }
-
-            if (!EmailTxt.Texts.Equals(_email) && !EmailTxt.Texts.Equals(EmailTxt.Placeholder))
-            {
-                var obj = new
-                {
-                    attribute = "EmailAddress",
-                    value = EmailTxt.Texts
-                };
-                updatedData.Add(obj);
-            }
-
             var tempStatus = "";
-            if (NormalStatusRadio.Checked == true) tempStatus = "N";
-            if (LockStatusRadio.Checked == true) tempStatus = "L";
             if (!tempStatus.Equals(_status))
             {
                 var obj = new
@@ -259,35 +201,11 @@ namespace TheBetterLimited.Views
                 updatedData.Add(obj);
             }
 
-            if (!RemarkTxt.Texts.Equals(_remark) && !RemarkTxt.Texts.Equals(RemarkTxt.Placeholder))
-            {
-                var obj = new
-                {
-                    attribute = "Remarks",
-                    value = RemarkTxt.Texts
-                };
-                updatedData.Add(obj);
-            }else if (RemarkTxt.Texts.Equals(RemarkTxt.Placeholder))
-            {
-                var obj = new
-                {
-                    attribute = "Remarks",
-                    value = "update at " + DateTime.Now
-                };
-                updatedData.Add(obj);
-            }
-
-            if(updatedData.Count == 0)
-            {
-                MessageBox.Show("You have not change any information!");
-                return;
-            }
-
             var json = JsonSerializer.Serialize(updatedData);
             try
             {
                 Console.WriteLine(json);
-                result = uc.UpdateAccount(updatedData, _uid);
+                result = uc.UpdateAccount(updatedData, _oid);
                 Console.WriteLine(result.StatusCode);
                 Console.WriteLine(result.Content);
                 if (result.StatusCode == System.Net.HttpStatusCode.OK)
@@ -303,20 +221,6 @@ namespace TheBetterLimited.Views
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("Sorry, user information update unsuccessfully");
             }
-        }
-
-        private void UserIconPic_Paint(object sender, PaintEventArgs e)
-        {
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(UserIconPic.ClientRectangle);
-            Region region = new Region(gp);
-            UserIconPic.Region = region;
-            Pen pen = new Pen(Color.White, 10);
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            e.Graphics.DrawPath(pen, gp);
-            gp.Dispose();
-            region.Dispose();
-            pen.Dispose();
         }
     }
 }

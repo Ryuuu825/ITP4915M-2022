@@ -250,5 +250,11 @@ namespace TheBetterLimited.Views
             gp.Dispose();
             region.Dispose();
         }
+
+        private void supplierBtn_Click(object sender, EventArgs e)
+        {
+            //openChildForm(new Su());
+            subSidebarTimer.Start();
+        }
     }
 }

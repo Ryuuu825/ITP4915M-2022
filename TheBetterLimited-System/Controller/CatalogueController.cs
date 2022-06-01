@@ -9,18 +9,18 @@ using TheBetterLimited.Utils;
 
 namespace TheBetterLimited.Controller
 {
-    internal class GoodsController
+    internal class CatalogueController
     {
         private RestClient client;
 
         /**
          * Search Department
          */
-        public RestResponse GetAllGoods()
+        public RestResponse GetAllCatalogue()
         {
-            Console.WriteLine("Get all goods");
-            var request = new RestRequest("/api/Goods", Method.Get)
-                        .AddHeader("limit", 0)
+            Console.WriteLine("Get all catalogues");
+            var request = new RestRequest("/api/Catalogue", Method.Get)
+                        .AddHeader("limit", 100)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {
@@ -34,10 +34,10 @@ namespace TheBetterLimited.Controller
             }
         }
 
-        public RestResponse GetGoodsByQry(string qry)
+        public RestResponse GetCatalogueByQry(string qry)
         {
-            Console.WriteLine("Get departments by " + qry);
-            var request = new RestRequest("/api/Goods/search", Method.Get)
+            Console.WriteLine("Get catalogue by " + qry);
+            var request = new RestRequest("/api/Catalogue/search", Method.Get)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
                         .AddQueryParameter("querystring", qry);
             try
@@ -52,10 +52,10 @@ namespace TheBetterLimited.Controller
             }
         }
 
-        public RestResponse GetGoodsById(string uid)
+        public RestResponse GetCatalogueById(string uid)
         {
-            Console.WriteLine("Get goods by " + uid);
-            var request = new RestRequest("/api/Goods/" + uid, Method.Get)
+            Console.WriteLine("Get catalogue by " + uid);
+            var request = new RestRequest("/api/Catalogue/" + uid, Method.Get)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {
@@ -80,10 +80,10 @@ namespace TheBetterLimited.Controller
         /**
          * Delete Goods
          */
-        public RestResponse DeleteGoods(string uid)
+        public RestResponse DeleteCatalogue(string uid)
         {
             Console.WriteLine("Delete " + uid);
-            var request = new RestRequest("/api/Goods/" + uid, Method.Delete)
+            var request = new RestRequest("/api/Catalogue/" + uid, Method.Delete)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {
@@ -100,9 +100,9 @@ namespace TheBetterLimited.Controller
         /**
          * Get Goods PDF
          */
-        public byte[] GetGoodsPDF()
+        public byte[] GetCataloguePDF()
         {
-            Console.WriteLine("Get Goods PDF");
+            Console.WriteLine("Get Catalogue PDF");
             var request = new RestRequest("/api/Warehouse/pdf", Method.Get)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
