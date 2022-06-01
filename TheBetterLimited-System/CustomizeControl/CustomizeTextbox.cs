@@ -37,6 +37,9 @@ namespace TheBetterLimited.CustomizeControl
                 textBox1.Multiline = false;
                 this.Height = textBox1.Height + this.Padding.Top + this.Padding.Bottom;
                 this.Resize += new EventHandler(Textbox_Resize);
+            }else
+            {
+                textBox1.ScrollBars = ScrollBars.Vertical;
             }
         }
         private void UpdateTextForeColor()

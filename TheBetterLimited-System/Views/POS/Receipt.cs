@@ -19,7 +19,7 @@ using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class GoodsDetails : Form
+    public partial class Receipt : Form
     {
         private GoodsController uc = new GoodsController();
         private ControllerBase cbSupplierGoodsStock = new ControllerBase("Supplier_Goods_Stock");
@@ -30,7 +30,7 @@ namespace TheBetterLimited.Views
         public JObject goodsData { get; set; }
         private OrderItem oi = new OrderItem();
 
-        public GoodsDetails()
+        public Receipt()
         {
             InitializeComponent();
         }

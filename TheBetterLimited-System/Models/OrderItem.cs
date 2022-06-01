@@ -11,6 +11,9 @@ namespace TheBetterLimited.Models
         private int id;
         private string name;
         private double price;
+        private string supplier;
+        private string Appointment;
+        private DateTime? created;
         private int quantity;
         private string remark;
 

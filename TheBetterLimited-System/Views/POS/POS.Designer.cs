@@ -174,7 +174,7 @@
             this.AddLabelBtn.Name = "AddLabelBtn";
             this.AddLabelBtn.Size = new System.Drawing.Size(193, 43);
             this.AddLabelBtn.TabIndex = 0;
-            this.AddLabelBtn.Text = "ADD NEW ITEAM";
+            this.AddLabelBtn.Text = "Add To Cart";
             this.AddLabelBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.AddLabelBtn.Click += new System.EventHandler(this.AddLabelBtn_Click);
             // 

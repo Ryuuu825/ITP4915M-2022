@@ -1,6 +1,6 @@
 ﻿namespace TheBetterLimited.Views
 {
-    partial class GoodsDetails
+    partial class Receipt
     {
         /// <summary>
         /// Required designer variable.
