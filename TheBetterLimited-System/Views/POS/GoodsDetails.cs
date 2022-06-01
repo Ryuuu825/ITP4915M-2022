@@ -36,7 +36,7 @@ namespace TheBetterLimited.Views
 
         private void Usermanagement_Edit_Load(object sender, EventArgs e)
         {
-            //InitUserInfo();
+            //InitGoodsInfo();
         }
 
         private void SearchStaffBtn_Click(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace TheBetterLimited.Views
             if (staff != null)
             {
                 //_staffName = staff["FirstName"].ToString() + " " + staff["LastName"].ToString();
-                CatalogueTxt.Texts = _staffName;
+                //CatalogueTxt.Texts = _staffName;
                 if (staff["Sex"].ToString().Equals("M"))
                 {
                 }
@@ -289,7 +289,7 @@ namespace TheBetterLimited.Views
 
         private void GoodsIDTxt_Load(object sender, EventArgs e)
         {
-            
         }
+
     }
 }
