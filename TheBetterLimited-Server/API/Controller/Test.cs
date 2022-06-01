@@ -217,7 +217,7 @@ namespace TheBetterLimited_Server.API.Controllers
         [HttpGet("primarykey")]
         public IActionResult GetPrimaryKey()
         {
-            return Ok(TheBetterLimited_Server.Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.Account>(db));
+            return Ok(TheBetterLimited_Server.Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.Catalogue>(db));
         }
 
 

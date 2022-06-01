@@ -14,8 +14,10 @@ public class UserController
     private readonly Data.Repositories.AccountRepository _UserTable;
     private readonly Data.Repositories.Repository<Staff> _StaffTable;
 
+    private readonly Data.DataContext _db;
     public UserController(DataContext dataContext)
     {
+        _db = dataContext;
         _UserTable = new Data.Repositories.AccountRepository(dataContext);
         _StaffTable = new Data.Repositories.Repository<Staff>(dataContext);
     }
@@ -23,11 +25,15 @@ public class UserController
     public async Task CreateUser(AccountDto acc, bool saveNow = true)
     {
         var newObj = acc.CopyAs<Account>();
+
+        newObj.Id = Helpers.Sql.PrimaryKeyGenerator.Get<Account>(_db );
         newObj.Password = Helpers.Secure.Hasher.Hash(newObj.Password);
         newObj.unlockDate = DateTime.Now;
         newObj.unlockDate = DateTime.Now;
         newObj.LoginFailedCount = 0;
 
+
+        ConsoleLogger.Debug(newObj.Id);
         _UserTable.CreateUser(ref newObj);
         
     }
@@ -40,11 +46,11 @@ public class UserController
         return acc;
     }
 
-    public List<AccountOutDto> GetAllUsers()
+    public List<Account> GetAllUsers()
     {
         var list = _UserTable.Entities.ToList();
-        List<AccountOutDto> res = AccountToDto(in list);
-        return res;
+        // List<AccountOutDto> res = AccountToDto(in list);
+        return list;
     }
     
     public List<AccountOutDto> GetUsers(int limit)
@@ -99,6 +105,10 @@ public class UserController
         var acc = await _UserTable.GetByIdAsync(id);
         if (acc is null )
             throw new BadArgException("No such user");
+        Staff s = _StaffTable.GetById(acc._StaffId);
+        s._AccountId = null;
+        await _StaffTable.UpdateAsync(s);
+
         await _UserTable.DeleteAsync( acc );
     }
 

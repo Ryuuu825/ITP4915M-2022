@@ -25,11 +25,6 @@ public class AccountRepository : Repository<Account>
     {
         var staff = Staffs.Find(acc._StaffId);
 
-        // check if primary key is exist
-        var checkKey = base.GetBySQL(
-            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"id:{acc.Id}")
-        );
-
         // check if user name is exist
         var checkUserName = base.GetBySQL(
             Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{acc.UserName}" )
@@ -39,9 +34,9 @@ public class AccountRepository : Repository<Account>
         {
             throw new BadArgException("Staff is not exist in database.");
         }
-        else if (checkKey.Count != 0 || checkUserName.Count != 0) // a staff can only has one account only, with unique id and user name
+        else if (checkUserName.Count != 0) // a staff can only has one account only, with unique id and user name
         {
-            throw new BadArgException("The staff already have a account");
+            throw new BadArgException("The username cannot be repeated.");
         }
         else if (staff is not null) // assign the staff obj to the acc
         {
@@ -49,9 +44,8 @@ public class AccountRepository : Repository<Account>
         }
 
         base.Add(acc);
-
         staff._AccountId = acc.Id;
-        ConsoleLogger.Debug(staff._AccountId);
+
         Staffs.Update(staff);
         DbContext.SaveChanges();
 

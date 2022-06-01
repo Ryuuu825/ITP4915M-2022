@@ -6,6 +6,8 @@ namespace TheBetterLimited_Server.Data
 {
     public static class DummyDataFactory
     {
+        public static Random ran = new Random();
+
         public static async Task Create(DataContext db)
         {
             try
@@ -16,7 +18,15 @@ namespace TheBetterLimited_Server.Data
                 db.Set<Position>().AddRange(CreatePosition());
                 db.Set<Catalogue>().AddRange(CreateCatalogue());
                 db.Set<Goods>().AddRange(CreateGoods());
-                // db.Set<Supplier>().AddRange(CreateSupplier());
+                db.Set<Supplier>().AddRange(CreateSupplier());
+                db.Set<Location>().AddRange(CreateLocation());
+                db.Set<Store>().AddRange(CreateStore());
+
+                db.SaveChanges();
+
+
+                db.Set<Supplier_Goods>().AddRange(CreateSupplier_Goods());
+                db.Set<Supplier_Goods_Stock>().AddRange(CreateSupplier_Goods_Stock());
                 db.SaveChanges();
 
                 using (Repositories.AccountRepository _userTable = new Repositories.AccountRepository(db))
@@ -706,7 +716,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "100",
                     Description = "@$TVA0000001D",
                     Price = (decimal) 4550,
-                    GTINNode = GTINGenerator.L("00001"),
+                    GTINCode = GTINGenerator.L("00001"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                     PhotoAmt = 0
@@ -718,7 +728,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "100",
                     Description = "@$TVA0000002D",
                     Price = (decimal) 3950,
-                    GTINNode = GTINGenerator.L("00002"),
+                    GTINCode = GTINGenerator.L("00002"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                     PhotoAmt = 0
@@ -730,7 +740,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "100",
                     Description = "@$TVA0000003D",
                     Price = (decimal) 7080,
-                    GTINNode = GTINGenerator.L("00003"),
+                    GTINCode = GTINGenerator.L("00003"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                     PhotoAmt = 0
@@ -742,7 +752,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "100",
                     Description = "@$TVA0000004D",
                     Price = (decimal) 116980,
-                    GTINNode = GTINGenerator.L("10004"),
+                    GTINCode = GTINGenerator.L("10004"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                     PhotoAmt = 0
@@ -754,7 +764,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "100",
                     Description = "@$TVA0000005D",
                     Price = 6399,
-                    GTINNode = GTINGenerator.L("10005"),    
+                    GTINCode = GTINGenerator.L("10005"),    
                     Size = GoodsSize.Medium,
                     Status = GoodsStatus.Selling,
                     PhotoAmt = 0
@@ -766,7 +776,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "100",
                     Description = "@$TVA0000006D",
                     Price = (decimal) 3199,
-                    GTINNode = GTINGenerator.L("10006"),
+                    GTINCode = GTINGenerator.L("10006"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                     PhotoAmt = 0
@@ -780,7 +790,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "200",
                     Description = "@$RFS1000007D",
                     Price = (decimal) 7814,
-                    GTINNode = GTINGenerator.L("10007"),
+                    GTINCode = GTINGenerator.L("10007"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                     PhotoAmt = 0
@@ -792,7 +802,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "200",
                     Description = "@$RFS1000008D",
                     Price = (decimal) 2599,
-                    GTINNode = GTINGenerator.L("10008"),
+                    GTINCode = GTINGenerator.L("10008"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.PhasingOut,
                     PhotoAmt = 0
@@ -807,7 +817,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "300",
                     Description = "@$WMF1000009D",
                     Price = (decimal) 5980,
-                    GTINNode = GTINGenerator.L("10009"),
+                    GTINCode = GTINGenerator.L("10009"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                     PhotoAmt = 0
@@ -819,7 +829,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "300",
                     Description = "@$WMF1000010D",
                     Price = (decimal) 4180,
-                    GTINNode = GTINGenerator.L("100010"),
+                    GTINCode = GTINGenerator.L("100010"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.StopSelling,
                     PhotoAmt = 0
@@ -834,7 +844,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "400",
                     Description = "@$ACS1000011D",
                     Price = (decimal) 15580,
-                    GTINNode = GTINGenerator.L("100011"),
+                    GTINCode = GTINGenerator.L("100011"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                     PhotoAmt = 0
@@ -846,7 +856,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "400",
                     Description = "@$ACS1000012D",
                     Price = (decimal) 12990,
-                    GTINNode = GTINGenerator.L("100012"),
+                    GTINCode = GTINGenerator.L("100012"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                     PhotoAmt = 0
@@ -860,7 +870,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "500",
                     Description = "@$HKA1000013D",
                     Price = (decimal) 5990,
-                    GTINNode = GTINGenerator.L("100013"),
+                    GTINCode = GTINGenerator.L("100013"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                 },
@@ -871,7 +881,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "500",
                     Description = "@$HKA1000014D",
                     Price = (decimal) 4990,
-                    GTINNode = GTINGenerator.L("100014"),
+                    GTINCode = GTINGenerator.L("100014"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.StopSelling,
                 },
@@ -882,7 +892,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "500",
                     Description = "@$HKA1000015D",
                     Price = (decimal) 1999,
-                    GTINNode = GTINGenerator.L("100015"),
+                    GTINCode = GTINGenerator.L("100015"),
                     Size = GoodsSize.Medium,
                     Status = GoodsStatus.Selling,
                 },
@@ -893,7 +903,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "500",
                     Description = "@$HKA1000016D",
                     Price = (decimal) 368,
-                    GTINNode = GTINGenerator.L("100016"),
+                    GTINCode = GTINGenerator.L("100016"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.PhasingOut,
                 },
@@ -904,7 +914,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "500",
                     Description = "@$HKA1000017D",
                     Price = (decimal) 1999,
-                    GTINNode = GTINGenerator.L("100017"),
+                    GTINCode = GTINGenerator.L("100017"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                 },
@@ -916,7 +926,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "600",
                     Description = "@$MCD1000018D",
                     Price = (decimal) 3799,
-                    GTINNode = GTINGenerator.L("100018"),
+                    GTINCode = GTINGenerator.L("100018"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                 },
@@ -927,7 +937,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "600",
                     Description = "@$MCD1000019D",
                     Price = (decimal) 799,
-                    GTINNode = GTINGenerator.L("100019"),
+                    GTINCode = GTINGenerator.L("100019"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                 },
@@ -938,7 +948,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "600",
                     Description = "@$MCD1000020D",
                     Price = (decimal) 1399,
-                    GTINNode = GTINGenerator.L("100020"),
+                    GTINCode = GTINGenerator.L("100020"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                 },
@@ -949,7 +959,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "600",
                     Description = "@$MCD1000021D",
                     Price = (decimal) 7298,
-                    GTINNode = GTINGenerator.L("100021"),
+                    GTINCode = GTINGenerator.L("100021"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                 },
@@ -960,7 +970,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "600",
                     Description = "@$MCD1000022D",
                     Price = (decimal) 7298,
-                    GTINNode = GTINGenerator.L("100022"),
+                    GTINCode = GTINGenerator.L("100022"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                 },
@@ -973,7 +983,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "700",
                     Description = "@$COF1000023D",
                     Price = (decimal) 18898,
-                    GTINNode = GTINGenerator.L("100023"),
+                    GTINCode = GTINGenerator.L("100023"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                 },
@@ -984,7 +994,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "700",
                     Description = "@$COF1000024D",
                     Price = (decimal) 15999,
-                    GTINNode = GTINGenerator.L("100024"),
+                    GTINCode = GTINGenerator.L("100024"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                 },
@@ -995,7 +1005,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "700",
                     Description = "@$COF1000025D",
                     Price = (decimal) 15999,
-                    GTINNode = GTINGenerator.L("100025"),
+                    GTINCode = GTINGenerator.L("100025"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                 },
@@ -1006,7 +1016,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "700",
                     Description = "@$COF1000026D",
                     Price = (decimal) 15999,
-                    GTINNode = GTINGenerator.L("100026"),
+                    GTINCode = GTINGenerator.L("100026"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                 },
@@ -1017,7 +1027,7 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "700",
                     Description = "@$COF1000027D",
                     Price = (decimal) 15999,
-                    GTINNode = GTINGenerator.L("100027"),
+                    GTINCode = GTINGenerator.L("100027"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                 }
@@ -1062,6 +1072,7 @@ namespace TheBetterLimited_Server.Data
                     Address = ", Hongkong",
                     Phone = "898-898-898",
                     Contact = "Mr. Hongkong",
+                    Email = "abc@domain.com"
                 },
                 new Supplier
                 {
@@ -1080,6 +1091,666 @@ namespace TheBetterLimited_Server.Data
                     Contact = "Miss. IVE TY",
                 }
             };
+        }
+
+        public static Location[] CreateLocation()
+        {
+            return new Location[]
+            {
+                new Location 
+                {
+                    Id = "001",
+                    Loc = "Admin",
+                },
+                new Location
+                {
+                    Id = "002",
+                    Loc = "Room 10 ,10F ,9 Sheung Yuet Road, Kowloon Bay, Kowloon"
+                },
+                new Location
+                {
+                    Id = "003",
+                    Loc = "59 Tai Yip Street Kowloon Bay Kolwoon, Hong Kong"
+                },
+                new Location
+                {
+                    Id = "004",
+                    Loc = "55 Chung On Street, Tsuen Wan 16/F, Emperor Plaza, Hong Kong"
+                },
+                new Location
+                {
+                    Id = "005",
+                    Loc = "Unit 34 on Level 2 of MegaBox, Enterprise Square Five, 38 Wang Chiu Road, Kowloon Bay, Kowloon"
+                }
+            };
+        }
+
+        public static Store[] CreateStore()
+        {
+            return new Store[]
+            {
+                new Store
+                {
+                    ID = "H01",
+                    _locationID = "004",
+                },
+                new Store 
+                {
+                    ID = "H02",
+                    _locationID = "005",
+                }
+            };
+        }
+        
+        public static Supplier_Goods[] CreateSupplier_Goods()
+        {
+            Supplier[] suppliers = CreateSupplier();
+            // get a random supplier
+            return new Supplier_Goods[]
+            {
+                new Supplier_Goods
+                {
+                    ID = "100000000",
+                    _supplierId = "001",
+                    _goodsId = "ACS1000011",
+                    Price = 15580
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000001",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "ACS1000012",
+                    Price = 10990
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000003",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "COF1000023",
+                    Price = 15999
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000004",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "COF1000024",
+                    Price = 15999
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000005",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "COF1000025",
+                    Price = 15999
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000006",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "COF1000026",
+                    Price = 15999
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000007",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "COF1000027",
+                    Price = 15999
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000008",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "HKA1000013",
+                    Price = 4990
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000009",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "HKA1000014",
+                    Price = 4990
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000010",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "HKA1000015",
+                    Price = 1899
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000011",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "HKA1000016",
+                    Price = 300
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000012",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "HKA1000017",
+                    Price = 1899
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000013",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "MCD1000018",
+                    Price = 1899
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000014",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "MCD1000019",
+                    Price = 700
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000015",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "MCD1000020",
+                    Price = 700
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000016",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "MCD1000021",
+                    Price = 6888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000017",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "MCD1000022",
+                    Price = 6888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000018",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "RFS1000007",
+                    Price = 7888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000019",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "RFS1000008",
+                    Price = 888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000020",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "TVA0000001",
+                    Price = 3888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000021",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "TVA0000002",
+                    Price = 3000
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000022",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "TVA0000003",
+                    Price = 3888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000023",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "TVA0000004",
+                    Price = 3888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000024",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "TVA0000005",
+                    Price = 3888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000025",
+                    _supplierId = "001",
+                    _goodsId = "TVA0000006",
+                    Price = 2888
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000026",
+                    _supplierId = "002",
+                    _goodsId = "TVA0000006",
+                    Price = 3798
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000027",
+                    _supplierId = "003",
+                    _goodsId = "TVA0000006",
+                    Price = 2500
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000028",
+                    _supplierId = "004",
+                    _goodsId = "TVA0000006",
+                    Price = 1203
+                },
+                new Supplier_Goods
+                {
+                    ID = "100000029",
+                    _supplierId = "005",
+                    _goodsId = "TVA0000006",
+                    Price = 3999
+                },
+            };
+        }
+
+        public static Supplier_Goods_Stock[] CreateSupplier_Goods_Stock()
+        {
+            return new Supplier_Goods_Stock[]
+            {
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000001",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000001",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000002",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000001",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000003",
+
+                    _locationId = "005",
+                    _supplierGoodsId = "100000001",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000004",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000003",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000005",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000003",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000006",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000003",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000007",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000004",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000008",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000004",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000009",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000004",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000010",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000005",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000011",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000005",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000012",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000005",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000013",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000006",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000014",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000006",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000015",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000006",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000097",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000007",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000016",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000007",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000017",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000007",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000018",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000008",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000098",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000008",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000019",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000008",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000020",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000009",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000021",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000009",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000022",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000009",
+                    Quantity = (uint) ran.Next(0, 10000),
+                    MaxLimit = (uint) ran.Next(0, 10000),
+                    MinLimit = (uint) ran.Next(0, 10000),
+                    ReorderLevel = (uint) ran.Next(0, 10000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000023",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000010",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000024",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000010",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000025",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000010",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000026",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000011",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000027",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000011",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000099",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000011",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000028",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000012",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000029",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000012",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000030",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000012",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000031",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000013",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000032",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000013",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000033",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000013",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000034",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000014",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000035",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000014",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000036",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000014",
+                    Quantity = (uint) ran.Next(5000, 10000),
+                    MaxLimit = (uint) ran.Next(10000, 15000),
+                    MinLimit = (uint) ran.Next(0 , 5000),
+                    ReorderLevel = (uint) ran.Next(5500 , 8000),
+                },
+            }; 
+                
         }
 
     }

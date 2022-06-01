@@ -31,7 +31,7 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(15)]
         [Column(TypeName = "varchar(15)")]
-        public string? GTINNode { get; set; }
+        public string? GTINCode { get; set; }
 
         public GoodsSize? Size { get; set; }
 
@@ -40,6 +40,8 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [Column(TypeName = "TINYINT")]
         public short PhotoAmt {get ; set;}
+
+        public virtual ICollection<Supplier_Goods> Supplier_Goods { get; set; }
 
     }
 

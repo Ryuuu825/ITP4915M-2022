@@ -1,8 +1,11 @@
 namespace TheBetterLimited_Server.Data.Entity
 {
     [Table("Supplier_Goods_Stock")]
+    [PrimaryKey("Id" , "_supplierGoodsId" , "_locationId")]
     public class Supplier_Goods_Stock
     {
+
+        public string Id  { get; set; }
 
         [MaxLength(3)]
         [Column(TypeName = "char(3)")]
@@ -11,11 +14,11 @@ namespace TheBetterLimited_Server.Data.Entity
         [ForeignKey("_locationId")]
         public virtual Location Location { get; set; }
 
-        [MaxLength(5)]
-        [Column(TypeName = "char(5)")]
+        [MaxLength(9)]
+        [Column(TypeName = "char(9)")]
         public string _supplierGoodsId { get; set;}
 
-        [ForeignKey("_supplierId")]
+        [ForeignKey("_supplierGoodsId")]
         public virtual Supplier_Goods Supplier_Goods { get; set; }
 
         [Column(TypeName = "MEDIUMINT")]

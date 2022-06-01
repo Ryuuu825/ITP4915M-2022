@@ -6,6 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>TheBetterLimited_Server</RootNamespace>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <LangVersion>latestmajor</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -86,45 +87,23 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Remove="etc\secret.json" />
-    </ItemGroup>
-    <ItemGroup>
         <None Update="etc\secret.conf">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
-        <None Update="resources\**">
+        <None Update="resources\**\*">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
-    </ItemGroup>
-    <ItemGroup>
         <None Update="./Lib.zip">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
-    <!-- <ItemGroup>
-        <None Remove="libwkhtmltox.dll" />
-      </ItemGroup>
-      
-      
-    <ItemGroup> 
-        <None Update="libwkhtmltox.dll"> 
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory> 
-            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory> 
-        </None> 
-        <None Update="libwkhtmltox.dylib"> 
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory> 
-            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-        </None> 
-        <None Update="libwkhtmltox.so"> 
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory> 
-            <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory> 
-        </None> 
-    </ItemGroup> -->
-
-    <Target Name="MakeDir" AfterTargets="Build">
+    <PropertyGroup>
+        <PublishSingleFile>true</PublishSingleFile>
+    </PropertyGroup>
+    
+    <Target Name="MakeDir">
         <MakeDir Directories="$(OutDir)var\tmp" />
         <MakeDir Directories="$(OutDir)var\log" />
-        <MakeDir Directories="$(OutDir)template" />
     </Target>
 
 </Project>

@@ -4,26 +4,75 @@ namespace TheBetterLimited_Server.Helpers.Sql
 {
     public static class PrimaryKeyGenerator
     {
-        public static string Get<T>(DataContext db , string Prefix = "" , string lang = "en" , bool NumberOnly = true)
+        public static string Get<T>(in DataContext db , string Prefix = "" , string lang = "en" , bool NumberOnly = true)
             where T : class
         {
             var Table = db.Set<T>();
             StringBuilder sb = new StringBuilder();
 
-            var last = Table.ToList().Last();
+            var list = Table.ToList();
+            ConsoleLogger.Debug(list is null ? "list is null" : "list is not null");
 
-            var Id = last?.GetType()
-                                ?.GetProperties()
-                                ?.Where(x => x.Name.ToLower() == "id")
-                                ?.FirstOrDefault()
-                                ?.GetValue(last)
-                                ?.ToString();
+            string Id;
+            if (list.Count() == 0)
+            {
+                NoRecordExists:
+                // get the maximum length of the property from attribute MaxLength
+                T entity = Activator.CreateInstance<T>();
+                // var MaxLengthAttri = entity
+                //                     .GetType()
+                //                     .GetProperties()
+                //                     .FirstOrDefault(x => x.Name == "Id")
+                //                     .GetCustomAttributes(typeof(MaxLengthAttribute), false)
+                //                     .FirstOrDefault() as MaxLengthAttribute;
+                // int MaxLen = MaxLengthAttri.Length;
 
+                int MaxLen = 0;
+                foreach(var item in entity.GetType().GetProperties())
+                {
+                    if (Attribute.IsDefined( item , typeof(MaxLengthAttribute) ) && item.Name.ToLower() == "id")
+                    {
+                        var a  = item.GetCustomAttributes(typeof(MaxLengthAttribute), false)
+                                    .FirstOrDefault() as MaxLengthAttribute;
+                        MaxLen = a.Length;
+                    }
+                }
+                sb.Append(Prefix.PadLeft(MaxLen - Prefix.Length , '0'));
+                ConsoleLogger.Debug(MaxLen - Prefix.Length);
+                ConsoleLogger.Debug(sb.ToString());
+                return sb.ToString();
+            }
+            else 
+            {
+                var last = Table.ToList().Last();
+                if (last is null)
+                {
+                    throw new Exception();
+                }
+
+                Id = last?.GetType()
+                    ?.GetProperties()
+                    ?.Where(x => x.Name.ToLower() == "id")
+                    ?.FirstOrDefault()
+                    ?.GetValue(last)
+                    ?.ToString();
+            }
+
+            string _prefix = Prefix;
             if (Prefix == "" )
             {
-
+                _prefix = Id?.Substring(0 , Id.IndexOfAny("0123456789".ToCharArray()));
             }
-            return "";
+
+            // get the prefix from the last entry's id
+            sb.Append(_prefix);
+
+            var sequence = Id?.Substring( Id.IndexOfAny("0123456789".ToCharArray()) , Id.Length - Id.IndexOfAny("0123456789".ToCharArray()));
+            int NewIdValue = sequence.ToInt() + 1;
+            // append the "0" to the front of the id, so that the length will some as the length of the id
+            sb.Append(NewIdValue.ToString().PadLeft(Id.Length - _prefix.Length, '0'));
+            ConsoleLogger.Debug(sb.ToString());
+            return sb.ToString();
         }
         
     }
