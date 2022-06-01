@@ -77,7 +77,6 @@
         <Folder Include="API\Controller\" />
         <Folder Include="API\Filter\" />
         <Folder Include="AppLogic\Exceptions\" />
-        <Folder Include="etc\" />
         <Folder Include="Helpers\Sql\" />
         <Folder Include="Data\" />
         <Folder Include="Data\Migrations\" />

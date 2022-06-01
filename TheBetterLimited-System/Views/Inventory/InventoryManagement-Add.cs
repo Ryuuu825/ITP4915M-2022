@@ -105,7 +105,7 @@ namespace TheBetterLimited.Views
         private void CreateUser_Click(object sender, EventArgs e)
         {
             //check 
-            UpdatePwdStrength();
+            
 
             if (GoodsIdTxt.Texts.Equals(GoodsIdTxt.Placeholder))
             {
