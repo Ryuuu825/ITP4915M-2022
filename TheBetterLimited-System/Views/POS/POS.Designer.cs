@@ -52,7 +52,7 @@
             this.roundButton4 = new TheBetterLimited.CustomizeControl.RoundButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ProductActionBox = new System.Windows.Forms.FlowLayoutPanel();
-            this.customizeComboBox1 = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.CatalogueCombox = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.CartContainer = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -305,53 +305,39 @@
             this.ProductActionBox.AutoSize = true;
             this.ProductActionBox.BackColor = System.Drawing.Color.White;
             this.ProductActionBox.Controls.Add(this.curdAction);
-            this.ProductActionBox.Controls.Add(this.customizeComboBox1);
+            this.ProductActionBox.Controls.Add(this.CatalogueCombox);
             this.ProductActionBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProductActionBox.Location = new System.Drawing.Point(0, 0);
             this.ProductActionBox.Name = "ProductActionBox";
             this.ProductActionBox.Padding = new System.Windows.Forms.Padding(10);
             this.ProductActionBox.Size = new System.Drawing.Size(398, 100);
             this.ProductActionBox.TabIndex = 1;
+            this.ProductActionBox.Paint += new System.Windows.Forms.PaintEventHandler(this.ProductActionBox_Paint);
             // 
-            // customizeComboBox1
+            // CatalogueCombox
             // 
-            this.customizeComboBox1.AutoCompleteCustomSource.AddRange(new string[] {
-            "Television & Audio",
-            "Refrigerators & Freezers",
-            "Washing Machines",
-            "Air Conditioners",
-            "Home & Kitchen Appliances",
-            "Mobile & Communication",
-            "Computer & Office"});
-            this.customizeComboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.customizeComboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.customizeComboBox1.BackColor = System.Drawing.Color.White;
-            this.customizeComboBox1.BorderColor = System.Drawing.Color.LightGray;
-            this.customizeComboBox1.BorderRadius = 0;
-            this.customizeComboBox1.BorderSize = 1;
-            this.customizeComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.customizeComboBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customizeComboBox1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.customizeComboBox1.IconColor = System.Drawing.Color.SeaGreen;
-            this.customizeComboBox1.Items.AddRange(new object[] {
-            "All",
-            "Television & Audio",
-            "Refrigerators & Freezers",
-            "Washing Machines",
-            "Air Conditioners",
-            "Home & Kitchen Appliances",
-            "Mobile & Communication",
-            "Computer & Office"});
-            this.customizeComboBox1.ListBackColor = System.Drawing.Color.SeaGreen;
-            this.customizeComboBox1.ListTextColor = System.Drawing.Color.White;
-            this.customizeComboBox1.Location = new System.Drawing.Point(13, 60);
-            this.customizeComboBox1.MinimumSize = new System.Drawing.Size(200, 30);
-            this.customizeComboBox1.Name = "customizeComboBox1";
-            this.customizeComboBox1.Padding = new System.Windows.Forms.Padding(1);
-            this.customizeComboBox1.Size = new System.Drawing.Size(250, 40);
-            this.customizeComboBox1.TabIndex = 0;
-            this.customizeComboBox1.Texts = "Catalogue";
-            this.customizeComboBox1.UnderlinedStyle = true;
+            this.CatalogueCombox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CatalogueCombox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CatalogueCombox.BackColor = System.Drawing.Color.White;
+            this.CatalogueCombox.BorderColor = System.Drawing.Color.LightGray;
+            this.CatalogueCombox.BorderRadius = 0;
+            this.CatalogueCombox.BorderSize = 1;
+            this.CatalogueCombox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CatalogueCombox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CatalogueCombox.ForeColor = System.Drawing.Color.SeaGreen;
+            this.CatalogueCombox.IconColor = System.Drawing.Color.SeaGreen;
+            this.CatalogueCombox.ListBackColor = System.Drawing.Color.White;
+            this.CatalogueCombox.ListTextColor = System.Drawing.Color.DimGray;
+            this.CatalogueCombox.Location = new System.Drawing.Point(13, 60);
+            this.CatalogueCombox.MinimumSize = new System.Drawing.Size(200, 30);
+            this.CatalogueCombox.Name = "CatalogueCombox";
+            this.CatalogueCombox.Padding = new System.Windows.Forms.Padding(1);
+            this.CatalogueCombox.Size = new System.Drawing.Size(289, 40);
+            this.CatalogueCombox.TabIndex = 0;
+            this.CatalogueCombox.Texts = "Catalogue";
+            this.CatalogueCombox.UnderlinedStyle = true;
+            this.CatalogueCombox.OnSelectedIndexChanged += new System.EventHandler(this.CatalogueCombox_OnSelectedIndexChanged);
+            this.CatalogueCombox.Load += new System.EventHandler(this.CatalogueCombox_Load);
             // 
             // panel3
             // 
@@ -913,7 +899,7 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn6;
-        private CustomizeControl.CustomizeComboBox customizeComboBox1;
+        private CustomizeControl.CustomizeComboBox CatalogueCombox;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridViewTextBoxColumn userName;

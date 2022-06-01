@@ -13,69 +13,42 @@ using System.Windows.Forms;
 namespace TheBetterLimited.CustomizeControl
 {
     [DefaultEvent("OnSelectedIndexChanged")]
-    public partial class CustomizeComboBox : UserControl
+    public partial class RoundComboBox : UserControl
     {
-        private Color backColor = Color.WhiteSmoke;
-        private Color iconColor = Color.MediumSlateBlue;
-        private Color listBackColor = Color.FromArgb(230, 228, 245);
+        private Color backColor = Color.White;
+        private Color iconColor = Color.SeaGreen;
+        private Color listBackColor = Color.White;
         private Color listTextColor = Color.DimGray;
-        private Color borderColor = Color.MediumSlateBlue;
+        private Color borderColor = Color.SeaGreen;
         private int borderSize = 1;
         private int borderRadius = 1;
         private bool underlinedStyle = false;
-        //Items
-        private ComboBox cmbList;
-        private Label lblText;
-        private Button btnIcon;
         //Events
         public event EventHandler OnSelectedIndexChanged;//Default event
-
-        public CustomizeComboBox()
+        public RoundComboBox()
         {
-            cmbList = new ComboBox();
-            lblText = new Label();
-            btnIcon = new Button();
-            this.SuspendLayout();
-            //ComboBox: Dropdown list
+            InitializeComponent();
             cmbList.BackColor = listBackColor;
             cmbList.Font = new Font(this.Font.Name, 10F);
             cmbList.ForeColor = listTextColor;
-            cmbList.Dock = DockStyle.Fill;
             cmbList.SelectedIndexChanged += new EventHandler(ComboBox_SelectedIndexChanged);//Default event
             cmbList.TextChanged += new EventHandler(ComboBox_TextChanged);//Refresh text
-                                                                          //Button: Icon
-            btnIcon.Dock = DockStyle.Right;
-            btnIcon.FlatStyle = FlatStyle.Flat;
-            btnIcon.FlatAppearance.BorderSize = 0;
+
             btnIcon.BackColor = backColor;
-            btnIcon.Size = new Size(30, 30);
+            btnIcon.Size = new Size(25, 25);
             btnIcon.Cursor = Cursors.Hand;
             btnIcon.Click += new EventHandler(Icon_Click);//Open dropdown list
             btnIcon.Paint += new PaintEventHandler(Icon_Paint);//Draw icon
-                                                               //Label: Text
-            lblText.Dock = DockStyle.Fill;
-            lblText.AutoSize = false;
+
             lblText.BackColor = backColor;
-            lblText.TextAlign = ContentAlignment.MiddleLeft;
-            lblText.Padding = new Padding(8, 0, 0, 0);
             lblText.Font = new Font(this.Font.Name, 10F);
             //->Attach label events to user control event
             lblText.Click += new EventHandler(Surface_Click);//Select combo box
             lblText.MouseEnter += new EventHandler(Surface_MouseEnter);
             lblText.MouseLeave += new EventHandler(Surface_MouseLeave);
-            //User Control
-            this.Controls.Add(lblText);//2
-            this.Controls.Add(btnIcon);//1
-            this.Controls.Add(cmbList);//0
-            this.MinimumSize = new Size(200, 30);
-            this.Size = new Size(200, 30);
-            this.ForeColor = Color.DimGray;
-            this.Padding = new Padding(borderSize);//Border Size
-            this.Font = new Font(this.Font.Name, 10F);
-            //base.BackColor = borderColor; //Border Color
-            this.ResumeLayout();
-            AdjustComboBoxDimensions();
+            AdjustSize();
         }
+
         private GraphicsPath GetFigurePath(Rectangle rect, float radius)
         {
             GraphicsPath path = new GraphicsPath();
@@ -99,7 +72,7 @@ namespace TheBetterLimited.CustomizeControl
             int smoothSize = 1;
             if (borderSize > 0)
                 smoothSize = borderSize;
-            if (borderRadius > 1) //Rounded button
+            if (borderRadius > 1) //Rounded
             {
                 using (GraphicsPath pathSurface = GetFigurePath(rectSurface, borderRadius))
                 using (GraphicsPath pathBorder = GetFigurePath(rectBorder, borderRadius - borderSize))
@@ -110,12 +83,12 @@ namespace TheBetterLimited.CustomizeControl
                     e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
                     e.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
                     e.Graphics.CompositingQuality = CompositingQuality.HighQuality;
-                    //textbox surface
+                    // surface
                     this.Region = new Region(pathSurface);
                     //Draw surface border for HD result
                     //e.Graphics.DrawPath(penSurface, pathSurface);
                     e.Graphics.DrawPath(penResetBorder, pathBorder);
-                    //textbox border                    
+                    // border                    
                     if (borderSize >= 1)
                         //Draw control border
                         e.Graphics.DrawPath(penBorder, pathBorder);
@@ -130,7 +103,7 @@ namespace TheBetterLimited.CustomizeControl
             else //Normal button
             {
                 e.Graphics.SmoothingMode = SmoothingMode.None;
-                //Button surface
+                //surface
                 this.Region = new Region(rectSurface);
                 //Button border
                 if (borderSize >= 1)
@@ -149,18 +122,6 @@ namespace TheBetterLimited.CustomizeControl
                 }
             }
         }
-
-        //Private methods
-        private void AdjustComboBoxDimensions()
-        {
-            cmbList.Width = lblText.Width;
-            cmbList.Location = new Point()
-            {
-                X = this.Width - this.Padding.Right - cmbList.Width,
-                Y = lblText.Bottom - cmbList.Height
-            };
-        }
-
         //Event methods
         //-> Default event
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -210,6 +171,7 @@ namespace TheBetterLimited.CustomizeControl
                 graph.DrawPath(pen, path);
             }
         }
+
         public new Color BackColor
         {
             get { return backColor; }
@@ -272,7 +234,6 @@ namespace TheBetterLimited.CustomizeControl
             set
             {
                 borderColor = value;
-                base.BackColor = borderColor; //Border Color
             }
         }
 
@@ -282,8 +243,6 @@ namespace TheBetterLimited.CustomizeControl
             set
             {
                 borderSize = value;
-                this.Padding = new Padding(borderSize);//Border Size
-                AdjustComboBoxDimensions();
             }
         }
 
@@ -408,20 +367,25 @@ namespace TheBetterLimited.CustomizeControl
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
-            AdjustComboBoxDimensions();
+            AdjustSize();
         }
 
-        private void InitializeComponent()
+        private void AdjustSize()
         {
-            this.SuspendLayout();
-            // 
-            // CustomizeComboBox
-            // 
-            this.Name = "CustomizeComboBox";
-            this.Size = new System.Drawing.Size(325, 96);
-            this.ResumeLayout(false);
-
+            cmbList.Width = lblText.Width;
+            cmbList.Location = new Point()
+            {
+                X = lblText.Location.X,
+                Y = this.Bottom - cmbList.Height - this.Padding.Bottom-borderSize-4
+            };
+            int txtHeight = TextRenderer.MeasureText("Text", this.Font).Height + 1;
+            lblText.MinimumSize = new Size(0, txtHeight);
+            btnIcon.Height = lblText.Height;
+            btnIcon.Location = new Point()
+            {
+                X = btnIcon.Location.X,
+                Y = lblText.Location.Y
+            };
         }
     }
 }
-

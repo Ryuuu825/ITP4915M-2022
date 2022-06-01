@@ -80,16 +80,11 @@ namespace TheBetterLimited.Views
             }
             if (staff != null)
             {
-                StaffNameTxt.Texts = staff["FirstName"].ToString() + " " + staff["LastName"].ToString();
                 if (staff["Sex"].ToString().Equals("M"))
                 {
-                    MaleGenderRadio.Checked = true;
-                    FemaleGenderRadio.Checked = false;
                 }
                 else
                 {
-                    MaleGenderRadio.Checked = false;
-                    FemaleGenderRadio.Checked = true;
                 }
             }
             result = dc.GetDepartmentById(staff["_departmentId"].ToString());
@@ -121,50 +116,7 @@ namespace TheBetterLimited.Views
 
             GoodsIdTxt.IsError = false;
 
-            if (userNameTxt.Texts.Equals(userNameTxt.Placeholder))
-            {
-                userNameTxt.IsError = true;
-                return;
-            }
-            userNameTxt.IsError = false;
-            Console.WriteLine(userNameTxt.Texts);
-            Console.WriteLine(TestPWStrength(this.pwdTxt.Texts) == 0 || !pwdTxt.Texts.Equals(pwdTxt2));
-            Console.WriteLine(TestPWStrength(this.pwdTxt.Texts) == 0);
-            Console.WriteLine(TestPWStrength(this.pwdTxt.Texts));
-            Console.WriteLine(!pwdTxt.Texts.Equals(pwdTxt2.Texts));
-
-            if (TestPWStrength(this.pwdTxt.Texts) <= 3 || !pwdTxt.Texts.Equals(pwdTxt2.Texts))
-            {
-                pwdTxt.IsError = true;
-                MessageBox.Show("Password strength is not enough! \n Password should consist of at least one upper and lower case letters with wu");
-                return;
-            }
-            pwdTxt.IsError = false;
-
-            if (pwdTxt.Texts.Equals(pwdTxt.Placeholder))
-            {
-                pwdTxt.IsError = true;
-                return;
-            }
-
-            pwdTxt.IsError = false;
-
-
-
-            if (pwdTxt2.Texts.Equals(pwdTxt2.Placeholder))
-            {
-                pwdTxt2.IsError = true;
-                return;
-            }
-            pwdTxt2.IsError = false;
-
-
-            if (emailTxt.Texts.Equals(emailTxt.Placeholder))
-            {
-                emailTxt.IsError = true;
-                return;
-            }
-            emailTxt.IsError = false;
+            
 
 
 
@@ -186,9 +138,6 @@ namespace TheBetterLimited.Views
                     new
                     {
                         Id = id,
-                        userName = userNameTxt.Texts,
-                        Password = pwdTxt.Texts,
-                        EmailAddress = emailTxt.Texts,
                         Status = "N",
                         _StaffId = GoodsIdTxt.Texts,
                         Remarks = "Created at" + DateTime.Now
@@ -241,57 +190,20 @@ namespace TheBetterLimited.Views
 
         private void userNameTxt_Click(object sender, EventArgs e)
         {
-            userNameTxt.IsError = false;
         }
 
         // leave
         private void pwdTxt_Enter(object sender, EventArgs e)
         {
-            pwdTxt.IsError = false;
         }
 
         private void pwdTxt2_Leave(object sender, EventArgs e)
         {
-            DoubleCheckCorrect.Visible = pwdTxt2.Texts.Equals(pwdTxt.Texts) ? true : false;
         }
 
         private void UpdatePwdStrength()
         {
-            DoubleCheckCorrect.Visible = false;
-            PwdCorrect.Visible = false;
-            if (pwdTxt.Texts.Equals(pwdTxt.Placeholder))
-            {
-                return;
-            }
 
-            int mark = TestPWStrength(this.pwdTxt.Texts);
-
-            if (mark == 0)
-            {
-                StrengthCircle1.BackColor = Color.LightGray;
-                StrengthCircle2.BackColor = Color.LightGray;
-                StrengthCircle3.BackColor = Color.LightGray;
-            }
-            else if (mark < 2) // 219, 30, 72
-            {
-                StrengthCircle1.BackColor = Color.FromArgb(219, 30, 72);
-                StrengthCircle2.BackColor = Color.LightGray;
-                StrengthCircle3.BackColor = Color.LightGray;
-            }
-            else if (mark <= 3) // Gold // Fair
-            {
-                StrengthCircle1.BackColor = Color.Gold;
-                StrengthCircle2.BackColor = Color.Gold;
-                StrengthCircle3.BackColor = Color.LightGray;
-            }
-            else // 60, 183, 84
-            {
-                StrengthCircle1.BackColor = Color.FromArgb(60, 183, 84);
-                StrengthCircle2.BackColor = Color.FromArgb(60, 183, 84);
-                StrengthCircle3.BackColor = Color.FromArgb(60, 183, 84);
-                PwdCorrect.Visible = true;
-                pwdTxt2.ReadOnly = false;
-            }
         }
 
         public event Action OnExit;
@@ -341,11 +253,6 @@ namespace TheBetterLimited.Views
                 mark--;
             }
 
-            // check username contain
-            if (!pwd.Contains(this.userNameTxt.Texts))
-            {
-                mark++;
-            }
 
             return mark;
 
@@ -353,7 +260,6 @@ namespace TheBetterLimited.Views
 
         private void pwdTxt__TextChanged(object sender, EventArgs e)
         {
-            pwdTxt.IsError = false;
             UpdatePwdStrength();
         }
 
@@ -366,7 +272,6 @@ namespace TheBetterLimited.Views
 
         private void pwdTxt2_Enter(object sender, EventArgs e)
         {
-            pwdTxt2.IsError = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -376,22 +281,18 @@ namespace TheBetterLimited.Views
 
         private void userName_Click(object sender, EventArgs e)
         {
-            userNameTxt.Focus();
         }
 
         private void password_Click(object sender, EventArgs e)
         {
-            pwdTxt.Focus();
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
-            pwdTxt2.Focus();
         }
 
         private void Email_Click(object sender, EventArgs e)
         {
-            emailTxt.Focus();
         }
 
         private void StaffIDTxt_Click(object sender, EventArgs e)
@@ -401,17 +302,14 @@ namespace TheBetterLimited.Views
 
         private void userNameTxt_Enter(object sender, EventArgs e)
         {
-            userNameTxt.IsError = false;
         }
 
         private void pwdTxt_Click(object sender, EventArgs e)
         {
-            pwdTxt.IsError = false;
         }
 
         private void pwdTxt2_Click(object sender, EventArgs e)
         {
-            pwdTxt2.IsError = false;
         }
 
         private void StaffIDTxt__TextChanged(object sender, EventArgs e)
@@ -426,16 +324,7 @@ namespace TheBetterLimited.Views
 
         private void showPwd_Click(object sender, EventArgs e)
         {
-            if (pwdTxt2.PasswordChar)
-            {
-                showPwd.BackgroundImage = Properties.Resources.eye_crossed;
-            }
-            else
-            {
-                showPwd.BackgroundImage = Properties.Resources.eye;
-            }
-            pwdTxt.PasswordChar = pwdTxt.PasswordChar == true ? false : true;
-            pwdTxt2.PasswordChar = pwdTxt2.PasswordChar == true ? false : true;
+
         }
 
         private void UserIconPic_Paint(object sender, PaintEventArgs e)

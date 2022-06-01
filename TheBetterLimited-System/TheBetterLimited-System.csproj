@@ -118,6 +118,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CatalogueEnum.cs" />
     <Compile Include="Controller\ControllerBase.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\GoodsController.cs" />
@@ -149,6 +150,12 @@
     </Compile>
     <Compile Include="CustomizeControl\RoundButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomizeControl\RoundComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomizeControl\RoundComboBox.Designer.cs">
+      <DependentUpon>RoundComboBox.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomizeControl\RoundPanel.cs">
       <SubType>Component</SubType>
@@ -273,6 +280,9 @@
     <Compile Include="Views\User\Usermanagement-Add.Designer.cs">
       <DependentUpon>Usermanagement-Add.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CustomizeControl\CustomizeComboBox.resx">
+      <DependentUpon>CustomizeComboBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomizeControl\CustomizeTextbox.resx">
       <DependentUpon>CustomizeTextbox.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomizeControl\ProductInfo.resx">
       <DependentUpon>ProductInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomizeControl\RoundComboBox.resx">
+      <DependentUpon>RoundComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\InventoryManagement.resx">
       <DependentUpon>InventoryManagement.cs</DependentUpon>
