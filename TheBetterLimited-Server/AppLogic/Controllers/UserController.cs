@@ -105,7 +105,9 @@ public class UserController
         var acc = await _UserTable.GetByIdAsync(id);
         if (acc is null )
             throw new BadArgException("No such user");
-        _StaffTable.GetById(acc._StaffId);
+        Staff s = _StaffTable.GetById(acc._StaffId);
+        s._AccountId = null;
+        await _StaffTable.UpdateAsync(s);
 
         await _UserTable.DeleteAsync( acc );
     }

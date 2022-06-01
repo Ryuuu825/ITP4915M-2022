@@ -38,6 +38,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             try 
             {
                 repository.Add(newOrder);
+
             }catch(Exception e)
             {
                 throw new BadArgException("Invalid CreatorId or StoreId");
