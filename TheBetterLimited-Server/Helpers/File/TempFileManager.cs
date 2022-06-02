@@ -106,4 +106,19 @@ public class TempFileManager
         }
         return String.Empty;
     }
+
+    // get the content from specify file name
+    public static string GetFileContent(string fileName)
+    {
+        var curr = head;
+        while (curr != null)
+        {
+            if (curr.GetFileName() == fileName)
+            {
+                return System.IO.File.ReadAllText(curr.GetFilePath());
+            }
+            curr = curr.next;
+        }
+        throw new FileNotFoundException();
+    }
 }

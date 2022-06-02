@@ -1,5 +1,6 @@
 using TheBetterLimited_Server.AppLogic.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using TheBetterLimited_Server.Data.Dto;
 namespace TheBetterLimited_Server.API.Controller
 {
     [Route("api/order")]
@@ -52,6 +53,52 @@ namespace TheBetterLimited_Server.API.Controller
         public override async Task<IActionResult> Add([FromBody] Data.Entity.SalesOrder entity, string language)
         {
             return StatusCode(301, "please use /api/order/create");
+        }
+
+        [HttpDelete("{id}")]
+        public override async Task<IActionResult> Delete(string id)
+        {
+            try
+            {
+                controller.CleanOrder(id);
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        
+        [HttpPost("hold")]
+        public IActionResult HoldOrder([FromBody] OrderInDto orderItems)
+        {
+            return Ok(controller.HoldOrder(orderItems));
+        }
+
+        [HttpGet("hold/{id}")]
+        public IActionResult RetreiveHoldedOrder(string id)
+        {
+            try 
+            {
+                return Ok(controller.GetHoldedOrder(id));
+            }catch(ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpDelete("hold/{id}")]
+        public IActionResult DeleteHoldedOrder( string id)
+        {
+            try
+            {
+                controller.DeleteHoldedOrder(id);
+                return Ok();
+            }catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
         }
 
 

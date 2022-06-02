@@ -34,7 +34,7 @@ namespace TheBetterLimited_Server.Data.Entity
         public virtual BookingOrder? BookingOrder { get; set; }
 
         // seafoods price
-            public int Price { get; set; }
+        public int Price { get; set; }
 
     }
 }

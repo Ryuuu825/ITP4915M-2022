@@ -136,7 +136,7 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
+        public virtual async Task<IActionResult> Delete(string id)
         {
             try
             {

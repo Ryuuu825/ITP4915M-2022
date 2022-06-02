@@ -25,9 +25,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _TransactionTable = new Data.Repositories.Repository<Transaction>(db);
         }
 
-        public override async Task<List<Hashtable>> GetAll(string lang = "en")
+        private async Task<List<Hashtable>> ToDto(List<SalesOrder> salesOrders ,  string lang = "en")
         {
-            var salesOrders = await repository.GetAllAsync();
             List<Hashtable> res = new List<Hashtable>();
 
             // all the sales record in the system
@@ -49,7 +48,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 {
                     var salesOrderItemDto = salesOrderItem.CopyAs<SalesOrderItemOutDto>();
                     salesOrderItemDto.SupplierGoodsStockId = salesOrderItem._supplierGoodsStockId;
-                    salesOrderItemDto.Name = salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods.Name;
+
+                    Goods goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
+                    salesOrderItemDto.Name = goods.Name;
                     tmp.Add(salesOrderItemDto);
                 }
 
@@ -92,6 +93,12 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
 
             return res;
+        }
+
+        public override async Task<List<Hashtable>> GetAll(string lang = "en")
+        {
+            var salesOrders = (await repository.GetAllAsync());
+            return await ToDto(salesOrders, lang);
         }
 
         
@@ -140,6 +147,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 Supplier_Goods_Stock sgs = (await _Supplier_Goods_StockTable.GetBySQLAsync(
                     Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>("Id:" + item.SupplierGoodsStockId)
                 )).FirstOrDefault();
+                if (sgs is null)
+                {
+                    CleanOrder(newOrder.ID);
+                    throw new BadArgException("Invalid goods stock id : " + item.SupplierGoodsStockId);
+                }
 
                 if (sgs.Quantity - item.Quantity < 0)
                 {
@@ -172,12 +184,22 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
                 _Supplier_Goods_StockTable.Update(sgs);
             }
-            // await _SalesOrderItemTable.AddRangeAsync(salesOrderItems);
-            foreach(var item in salesOrderItems)
+
+            try
             {
-                _SalesOrderItemTable.Add(item);
+                // await _SalesOrderItemTable.AddRangeAsync(salesOrderItems);
+                foreach(var item in salesOrderItems)
+                {
+                    _SalesOrderItemTable.Add(item);
+                }
+                await db.SaveChangesAsync();
+            }catch(Exception e)
+            {
+                // TODO: it does not work here.
+                CleanOrder(newOrder.ID);
+                throw new BadArgException("Invalid SalesOrderItem ");
             }
-            await db.SaveChangesAsync();
+
         }
 
         public void CleanOrder(string id)
@@ -185,9 +207,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             // delete the sales order and the sales order items
             // delete the appointments
             // delete the booking order
+            db.SaveChanges();
 
             // get the sales order
             var salesOrder = repository.GetById(id);
+
             // get the sales order items
             var salesOrderItems = _SalesOrderItemTable.GetBySQL(
                 "SELECT * FROM SalesOrderItem WHERE _salesOrderId = " + salesOrder.ID
@@ -200,7 +224,31 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             // TODO: delete the booking order
 
             repository.Delete(salesOrder);
+            db.SaveChanges();
+        }
 
+        public string HoldOrder(OrderInDto TmpOrder)
+        {
+            string json = JObject.FromObject(TmpOrder).ToString();
+            Helpers.File.TempFile tmp =  Helpers.File.TempFileManager.Create();
+            tmp.WriteAllText(json);
+            return tmp.GetFileName();
+        }
+
+        public void DeleteHoldedOrder(string HoldedOrderFileName)
+        {
+            Helpers.File.TempFileManager.CloseTempFile(HoldedOrderFileName);
+        }
+
+        public string GetHoldedOrder(string id)
+        {
+            try
+            {
+                return Helpers.File.TempFileManager.GetFileContent(id);
+            }catch(FileNotFoundException e)
+            {
+                throw new FileNotExistException("The Id is invalid" , HttpStatusCode.BadRequest);
+            }
         }
     }
 
