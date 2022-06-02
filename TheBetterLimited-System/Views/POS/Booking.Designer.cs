@@ -42,6 +42,8 @@
             this.StaffNameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.customizeTextbox1 = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.MainForm.SuspendLayout();
             this.BottomBtn.SuspendLayout();
             this.CustomerInfo.SuspendLayout();
@@ -58,7 +60,7 @@
             this.MainForm.Location = new System.Drawing.Point(0, 0);
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
-            this.MainForm.Size = new System.Drawing.Size(520, 337);
+            this.MainForm.Size = new System.Drawing.Size(520, 457);
             this.MainForm.TabIndex = 3;
             // 
             // BottomBtn
@@ -68,7 +70,7 @@
             this.BottomBtn.Controls.Add(this.SaveBtn);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(0, 283);
+            this.BottomBtn.Location = new System.Drawing.Point(0, 403);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
@@ -121,15 +123,17 @@
             this.CustomerInfo.BackColor = System.Drawing.Color.Transparent;
             this.CustomerInfo.Controls.Add(this.panel1);
             this.CustomerInfo.Controls.Add(this.UserInfoHeaderContainer);
-            this.CustomerInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CustomerInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomerInfo.Location = new System.Drawing.Point(0, 0);
             this.CustomerInfo.Name = "CustomerInfo";
-            this.CustomerInfo.Size = new System.Drawing.Size(520, 284);
+            this.CustomerInfo.Size = new System.Drawing.Size(520, 457);
             this.CustomerInfo.TabIndex = 24;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel1.Controls.Add(this.customizeTextbox1);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.StaffIDTxt);
             this.panel1.Controls.Add(this.GTINCode);
             this.panel1.Controls.Add(this.Catalogue);
@@ -141,7 +145,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel1.Size = new System.Drawing.Size(520, 244);
+            this.panel1.Size = new System.Drawing.Size(520, 417);
             this.panel1.TabIndex = 27;
             // 
             // StaffIDTxt
@@ -277,12 +281,49 @@
             this.GoodsInfoHeader.TabIndex = 6;
             this.GoodsInfoHeader.Text = "Customer Information";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(53, 235);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 21);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Deposit";
+            // 
+            // customizeTextbox1
+            // 
+            this.customizeTextbox1.BackColor = System.Drawing.Color.White;
+            this.customizeTextbox1.BorderColor = System.Drawing.Color.LightGray;
+            this.customizeTextbox1.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.customizeTextbox1.BorderRadius = 10;
+            this.customizeTextbox1.BorderSize = 1;
+            this.customizeTextbox1.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customizeTextbox1.ForeColor = System.Drawing.Color.LightGray;
+            this.customizeTextbox1.IsError = false;
+            this.customizeTextbox1.Location = new System.Drawing.Point(164, 226);
+            this.customizeTextbox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.customizeTextbox1.MaxLength = 32767;
+            this.customizeTextbox1.Multiline = false;
+            this.customizeTextbox1.Name = "customizeTextbox1";
+            this.customizeTextbox1.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.customizeTextbox1.PasswordChar = false;
+            this.customizeTextbox1.Placeholder = "";
+            this.customizeTextbox1.ReadOnly = true;
+            this.customizeTextbox1.Size = new System.Drawing.Size(307, 38);
+            this.customizeTextbox1.TabIndex = 27;
+            this.customizeTextbox1.TbBackColor = System.Drawing.Color.White;
+            this.customizeTextbox1.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
+            this.customizeTextbox1.Texts = "";
+            this.customizeTextbox1.UnderlinedStyle = false;
+            // 
             // Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(520, 337);
+            this.ClientSize = new System.Drawing.Size(520, 457);
             this.Controls.Add(this.MainForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -319,5 +360,7 @@
         private System.Windows.Forms.Panel BottomBtn;
         private CustomizeControl.RoundButton CancelBtn;
         private CustomizeControl.RoundButton SaveBtn;
+        private System.Windows.Forms.Label label2;
+        private CustomizeControl.CustomizeTextbox customizeTextbox1;
     }
 }

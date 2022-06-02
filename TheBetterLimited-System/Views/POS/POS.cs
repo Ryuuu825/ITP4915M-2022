@@ -322,5 +322,10 @@ namespace TheBetterLimited.Views
             }
             selectedProduct = ProductInfoContainer.Controls.IndexOf(((System.Windows.Forms.Control)sender).Parent);
         }
+
+        private void roundButton2_MouseHover(object sender, EventArgs e)
+        {
+
+        }
     }
 }

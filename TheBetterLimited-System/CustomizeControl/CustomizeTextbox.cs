@@ -40,6 +40,7 @@ namespace TheBetterLimited.CustomizeControl
             }else
             {
                 textBox1.ScrollBars = ScrollBars.Vertical;
+                textBox1.ForeColor = this.ForeColor;
             }
         }
         private void UpdateTextForeColor()
