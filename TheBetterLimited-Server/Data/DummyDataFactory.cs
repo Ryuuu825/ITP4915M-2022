@@ -21,6 +21,7 @@ namespace TheBetterLimited_Server.Data
                 db.Set<Supplier>().AddRange(CreateSupplier());
                 db.Set<Location>().AddRange(CreateLocation());
                 db.Set<Store>().AddRange(CreateStore());
+                db.Set<Warehouse>().AddRange(CreateWarehouse());
 
                 db.SaveChanges();
 
@@ -736,7 +737,7 @@ namespace TheBetterLimited_Server.Data
 
         public static List<Goods> CreateGoods()
         {   
-            List<byte[]> images = new List<byte[]>(5);
+            List<byte[]> images = new List<byte[]>(3);
             FileInfo[] dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "resources/product/image").GetFiles();
             foreach (var file in dir)
             {
@@ -754,8 +755,6 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("00001"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    Photo = images[ran.Next(0 , images.Count - 1)]
-
                 },
                 new Goods
                 {
@@ -767,8 +766,6 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("00002"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    Photo = images[ran.Next(0 , images.Count - 1)]
-
                 },
                 new Goods 
                 {
@@ -780,8 +777,6 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("00003"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    Photo = images[ran.Next(0 , images.Count - 1)]
-
                 },
                 new Goods
                 {
@@ -804,8 +799,6 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("10005"),    
                     Size = GoodsSize.Medium,
                     Status = GoodsStatus.Selling,
-                    Photo = images[ran.Next(0 , images.Count - 1)]
-
                 },
                 new Goods 
                 {
@@ -893,8 +886,6 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("100012"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
-                    Photo = images[ran.Next(0 , images.Count - 1)]
-
                 },
 
                 // Home and Kitchen Appliances 500
@@ -1156,6 +1147,18 @@ namespace TheBetterLimited_Server.Data
                 {
                     Id = "005",
                     Loc = "Unit 34 on Level 2 of MegaBox, Enterprise Square Five, 38 Wang Chiu Road, Kowloon Bay, Kowloon"
+                }
+            };
+        }
+
+        public static Warehouse[] CreateWarehouse()
+        {
+            return new Warehouse[]
+            {
+                new Warehouse
+                {
+                    ID = "001",
+                    _locationID = "003"
                 }
             };
         }

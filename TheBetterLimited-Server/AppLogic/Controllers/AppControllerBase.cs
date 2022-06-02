@@ -27,8 +27,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         {
             return DtoType.GetPropertiesToString();
         }
-
-
         public virtual async Task<List<Hashtable>> GetAll(string lang = "en")
         {
 
@@ -38,7 +36,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 list[i] = Helpers.Localizer.TryLocalize<T>(lang , list[i] );
             }
             return list.MapToDto<T>();
-
         }
 
         public virtual async Task<string> GetCSV(string queryString)
