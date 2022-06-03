@@ -77,7 +77,7 @@
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Margin = new System.Windows.Forms.Padding(2);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(272, 641);
+            this.Header.Size = new System.Drawing.Size(272, 647);
             this.Header.TabIndex = 0;
             // 
             // Info
@@ -135,7 +135,7 @@
             this.BottomBtn.Controls.Add(this.btnSave);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(10, 577);
+            this.BottomBtn.Location = new System.Drawing.Point(10, 583);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
@@ -195,7 +195,7 @@
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
             this.MainForm.Padding = new System.Windows.Forms.Padding(10);
-            this.MainForm.Size = new System.Drawing.Size(512, 641);
+            this.MainForm.Size = new System.Drawing.Size(512, 647);
             this.MainForm.TabIndex = 2;
             // 
             // UserInfo
@@ -240,7 +240,7 @@
             this.cbxStatus.BorderRadius = 1;
             this.cbxStatus.BorderSize = 1;
             this.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cbxStatus.Font = new System.Drawing.Font("PMingLiU", 10F);
+            this.cbxStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.cbxStatus.ForeColor = System.Drawing.Color.DimGray;
             this.cbxStatus.IconColor = System.Drawing.Color.LightGray;
             this.cbxStatus.ListBackColor = System.Drawing.Color.White;
@@ -261,7 +261,7 @@
             this.cbxSize.BorderRadius = 1;
             this.cbxSize.BorderSize = 1;
             this.cbxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cbxSize.Font = new System.Drawing.Font("PMingLiU", 10F);
+            this.cbxSize.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.cbxSize.ForeColor = System.Drawing.Color.DimGray;
             this.cbxSize.IconColor = System.Drawing.Color.LightGray;
             this.cbxSize.ListBackColor = System.Drawing.Color.White;
@@ -282,8 +282,8 @@
             this.cbxCatalogue.BorderRadius = 1;
             this.cbxCatalogue.BorderSize = 1;
             this.cbxCatalogue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cbxCatalogue.Font = new System.Drawing.Font("PMingLiU", 10F);
-            this.cbxCatalogue.ForeColor = System.Drawing.Color.DimGray;
+            this.cbxCatalogue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.cbxCatalogue.ForeColor = System.Drawing.Color.Black;
             this.cbxCatalogue.IconColor = System.Drawing.Color.LightGray;
             this.cbxCatalogue.ListBackColor = System.Drawing.Color.White;
             this.cbxCatalogue.ListTextColor = System.Drawing.Color.DimGray;
@@ -328,7 +328,7 @@
             this.txtGTINCode.BorderRadius = 10;
             this.txtGTINCode.BorderSize = 1;
             this.txtGTINCode.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGTINCode.ForeColor = System.Drawing.Color.LightGray;
+            this.txtGTINCode.ForeColor = System.Drawing.Color.Black;
             this.txtGTINCode.IsError = false;
             this.txtGTINCode.Location = new System.Drawing.Point(161, 387);
             this.txtGTINCode.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -366,7 +366,7 @@
             this.txtPrice.BorderRadius = 10;
             this.txtPrice.BorderSize = 1;
             this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.ForeColor = System.Drawing.Color.LightGray;
+            this.txtPrice.ForeColor = System.Drawing.Color.Black;
             this.txtPrice.IsError = false;
             this.txtPrice.Location = new System.Drawing.Point(161, 337);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -472,9 +472,9 @@
             this.txtDescription.BorderRadius = 10;
             this.txtDescription.BorderSize = 1;
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.ForeColor = System.Drawing.Color.LightGray;
+            this.txtDescription.ForeColor = System.Drawing.Color.Black;
             this.txtDescription.IsError = false;
-            this.txtDescription.Location = new System.Drawing.Point(161, 166);
+            this.txtDescription.Location = new System.Drawing.Point(161, 204);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtDescription.MaxLength = 32767;
             this.txtDescription.Multiline = true;
@@ -483,7 +483,7 @@
             this.txtDescription.PasswordChar = false;
             this.txtDescription.Placeholder = "Please enter the description";
             this.txtDescription.ReadOnly = false;
-            this.txtDescription.Size = new System.Drawing.Size(307, 159);
+            this.txtDescription.Size = new System.Drawing.Size(307, 121);
             this.txtDescription.TabIndex = 26;
             this.txtDescription.TbBackColor = System.Drawing.Color.White;
             this.txtDescription.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
@@ -494,7 +494,7 @@
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(42, 166);
+            this.lblDescription.Location = new System.Drawing.Point(46, 204);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(89, 21);
@@ -510,18 +510,18 @@
             this.txtGoodsName.BorderRadius = 10;
             this.txtGoodsName.BorderSize = 1;
             this.txtGoodsName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGoodsName.ForeColor = System.Drawing.Color.LightGray;
+            this.txtGoodsName.ForeColor = System.Drawing.Color.Black;
             this.txtGoodsName.IsError = false;
             this.txtGoodsName.Location = new System.Drawing.Point(161, 116);
             this.txtGoodsName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtGoodsName.MaxLength = 32767;
-            this.txtGoodsName.Multiline = false;
+            this.txtGoodsName.Multiline = true;
             this.txtGoodsName.Name = "txtGoodsName";
             this.txtGoodsName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtGoodsName.PasswordChar = false;
             this.txtGoodsName.Placeholder = "Please enter the name of the goods";
             this.txtGoodsName.ReadOnly = false;
-            this.txtGoodsName.Size = new System.Drawing.Size(307, 38);
+            this.txtGoodsName.Size = new System.Drawing.Size(307, 76);
             this.txtGoodsName.TabIndex = 25;
             this.txtGoodsName.TbBackColor = System.Drawing.Color.White;
             this.txtGoodsName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
@@ -554,7 +554,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(784, 641);
+            this.ClientSize = new System.Drawing.Size(784, 647);
             this.Controls.Add(this.MainForm);
             this.Controls.Add(this.Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

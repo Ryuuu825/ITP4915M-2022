@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
+<<<<<<< Updated upstream
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
@@ -8,6 +9,16 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>latestmajor</LangVersion>
     </PropertyGroup>
+=======
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>TheBetterLimited_Server</RootNamespace>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+    <SignAssembly>False</SignAssembly>
+  </PropertyGroup>
+>>>>>>> Stashed changes
 
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.4" />

@@ -114,7 +114,11 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == GoodsDataGrid.Columns["edit"].Index)
             {
-                MessageBox.Show("You have selected row " + selectGoodsID[0] + " cell");
+                string id = GoodsDataGrid["id" , e.RowIndex].Value.ToString();
+                Inventorymanagement_Edit editGoodsForm = new Inventorymanagement_Edit(id);
+                editGoodsForm.Show();
+                editGoodsForm.TopLevel = true;
+                editGoodsForm.OnExit += GetGoods;
             }
 
             if (e.ColumnIndex == GoodsDataGrid.Columns["delete"].Index)
@@ -144,7 +148,6 @@ namespace TheBetterLimited.Views
             GoodsDataGrid.Columns["id"].HeaderText = "ID";
             GoodsDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
             GoodsDataGrid.Columns["name"].HeaderText = "Goods Name";
-            GoodsDataGrid.Columns["description"].HeaderText = "Description";
             GoodsDataGrid.Columns["price"].HeaderText = "Price";
             GoodsDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
             GoodsDataGrid.Columns["size"].HeaderText = "Size";

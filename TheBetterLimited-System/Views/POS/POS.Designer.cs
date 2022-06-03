@@ -41,14 +41,19 @@
             this.SearchBar = new System.Windows.Forms.Panel();
             this.menuTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.curdAction = new System.Windows.Forms.Panel();
             this.AddLabelBtn = new System.Windows.Forms.Label();
             this.ProductContainer = new System.Windows.Forms.Panel();
             this.ProductInfoContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.POSActionGroup = new System.Windows.Forms.FlowLayoutPanel();
+            this.defectItemBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.OrderBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.settleAccBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ProductActionBox = new System.Windows.Forms.FlowLayoutPanel();
+            this.CatalogueCombox = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.CartContainer = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.CartItemGrid = new System.Windows.Forms.DataGridView();
@@ -63,11 +68,15 @@
             this.RefreshBtn = new FontAwesome.Sharp.IconButton();
             this.Title = new System.Windows.Forms.Label();
             this.DiscountContainer = new System.Windows.Forms.Panel();
+            this.DiscountValue = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.DiscountLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.TotalAmountTxt = new System.Windows.Forms.Label();
             this.AmountTitle = new System.Windows.Forms.Label();
             this.OrderBtnGroup = new System.Windows.Forms.FlowLayoutPanel();
+            this.PayBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.HoldBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -75,15 +84,6 @@
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.defectItemBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.OrderBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.settleAccBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.CatalogueCombox = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.DiscountValue = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.PayBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.HoldBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.SearchBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.curdAction.SuspendLayout();
@@ -136,6 +136,34 @@
             this.pictureBox1.Size = new System.Drawing.Size(19, 20);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
+            // 
+            // SearchBarTxt
+            // 
+            this.SearchBarTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchBarTxt.BackColor = System.Drawing.Color.White;
+            this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.SearchBarTxt.BorderRadius = 10;
+            this.SearchBarTxt.BorderSize = 1;
+            this.SearchBarTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchBarTxt.ForeColor = System.Drawing.Color.Black;
+            this.SearchBarTxt.IsError = false;
+            this.SearchBarTxt.Location = new System.Drawing.Point(117, 0);
+            this.SearchBarTxt.Margin = new System.Windows.Forms.Padding(200, 6, 4, 6);
+            this.SearchBarTxt.MaxLength = 20;
+            this.SearchBarTxt.Multiline = false;
+            this.SearchBarTxt.Name = "SearchBarTxt";
+            this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(30, 10, 10, 6);
+            this.SearchBarTxt.PasswordChar = false;
+            this.SearchBarTxt.Placeholder = "Search by Keywords";
+            this.SearchBarTxt.ReadOnly = false;
+            this.SearchBarTxt.Size = new System.Drawing.Size(261, 40);
+            this.SearchBarTxt.TabIndex = 9;
+            this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
+            this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.SearchBarTxt.Texts = "Search by Keywords";
+            this.SearchBarTxt.UnderlinedStyle = false;
+            this.SearchBarTxt._TextChanged += new System.EventHandler(this.SearchBarTxt__TextChanged);
             // 
             // curdAction
             // 
@@ -211,6 +239,81 @@
             this.POSActionGroup.Size = new System.Drawing.Size(398, 108);
             this.POSActionGroup.TabIndex = 10;
             // 
+            // defectItemBtn
+            // 
+            this.defectItemBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.defectItemBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.defectItemBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.defectItemBtn.BorderRadius = 5;
+            this.defectItemBtn.BorderSize = 2;
+            this.defectItemBtn.FlatAppearance.BorderSize = 0;
+            this.defectItemBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.defectItemBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.defectItemBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.defectItemBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.defectItemBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.defectItemBtn.IsChecked = false;
+            this.defectItemBtn.Location = new System.Drawing.Point(13, 13);
+            this.defectItemBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.defectItemBtn.Name = "defectItemBtn";
+            this.defectItemBtn.Size = new System.Drawing.Size(165, 40);
+            this.defectItemBtn.TabIndex = 3;
+            this.defectItemBtn.Text = "Handle Defect Item";
+            this.defectItemBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.defectItemBtn.UseVisualStyleBackColor = false;
+            this.defectItemBtn.MouseHover += new System.EventHandler(this.roundButton2_MouseHover);
+            // 
+            // OrderBtn
+            // 
+            this.OrderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.OrderBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.OrderBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.OrderBtn.BorderRadius = 5;
+            this.OrderBtn.BorderSize = 2;
+            this.OrderBtn.FlatAppearance.BorderSize = 0;
+            this.OrderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.OrderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.OrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OrderBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OrderBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.OrderBtn.IsChecked = false;
+            this.OrderBtn.Location = new System.Drawing.Point(188, 13);
+            this.OrderBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.OrderBtn.Name = "OrderBtn";
+            this.OrderBtn.Size = new System.Drawing.Size(165, 40);
+            this.OrderBtn.TabIndex = 4;
+            this.OrderBtn.Text = "Order Management";
+            this.OrderBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.OrderBtn.UseVisualStyleBackColor = false;
+            this.OrderBtn.Click += new System.EventHandler(this.OrderBtn_Click);
+            this.OrderBtn.MouseLeave += new System.EventHandler(this.HoldBtn_MouseLeave);
+            this.OrderBtn.MouseHover += new System.EventHandler(this.HoldBtn_MouseHover);
+            // 
+            // settleAccBtn
+            // 
+            this.settleAccBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.settleAccBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.settleAccBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.settleAccBtn.BorderRadius = 5;
+            this.settleAccBtn.BorderSize = 2;
+            this.settleAccBtn.FlatAppearance.BorderSize = 0;
+            this.settleAccBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.settleAccBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.settleAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settleAccBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settleAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.settleAccBtn.IsChecked = false;
+            this.settleAccBtn.Location = new System.Drawing.Point(13, 59);
+            this.settleAccBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.settleAccBtn.Name = "settleAccBtn";
+            this.settleAccBtn.Size = new System.Drawing.Size(165, 40);
+            this.settleAccBtn.TabIndex = 5;
+            this.settleAccBtn.Text = "Settle  Account";
+            this.settleAccBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.settleAccBtn.UseVisualStyleBackColor = false;
+            this.settleAccBtn.MouseLeave += new System.EventHandler(this.HoldBtn_MouseLeave);
+            this.settleAccBtn.MouseHover += new System.EventHandler(this.HoldBtn_MouseHover);
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
@@ -236,6 +339,31 @@
             this.ProductActionBox.Size = new System.Drawing.Size(378, 47);
             this.ProductActionBox.TabIndex = 1;
             this.ProductActionBox.Paint += new System.Windows.Forms.PaintEventHandler(this.ProductActionBox_Paint);
+            // 
+            // CatalogueCombox
+            // 
+            this.CatalogueCombox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CatalogueCombox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CatalogueCombox.BackColor = System.Drawing.Color.White;
+            this.CatalogueCombox.BorderColor = System.Drawing.Color.LightGray;
+            this.CatalogueCombox.BorderRadius = 0;
+            this.CatalogueCombox.BorderSize = 1;
+            this.CatalogueCombox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CatalogueCombox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CatalogueCombox.ForeColor = System.Drawing.Color.SeaGreen;
+            this.CatalogueCombox.IconColor = System.Drawing.Color.SeaGreen;
+            this.CatalogueCombox.ListBackColor = System.Drawing.Color.White;
+            this.CatalogueCombox.ListTextColor = System.Drawing.Color.DimGray;
+            this.CatalogueCombox.Location = new System.Drawing.Point(13, 50);
+            this.CatalogueCombox.MinimumSize = new System.Drawing.Size(200, 30);
+            this.CatalogueCombox.Name = "CatalogueCombox";
+            this.CatalogueCombox.Padding = new System.Windows.Forms.Padding(1);
+            this.CatalogueCombox.Size = new System.Drawing.Size(289, 40);
+            this.CatalogueCombox.TabIndex = 0;
+            this.CatalogueCombox.Texts = "Catalogue";
+            this.CatalogueCombox.UnderlinedStyle = true;
+            this.CatalogueCombox.OnSelectedIndexChanged += new System.EventHandler(this.CatalogueCombox_OnSelectedIndexChanged);
+            this.CatalogueCombox.Load += new System.EventHandler(this.CatalogueCombox_Load);
             // 
             // CartContainer
             // 
@@ -484,6 +612,33 @@
             this.DiscountContainer.Size = new System.Drawing.Size(606, 58);
             this.DiscountContainer.TabIndex = 1;
             // 
+            // DiscountValue
+            // 
+            this.DiscountValue.BackColor = System.Drawing.Color.White;
+            this.DiscountValue.BorderColor = System.Drawing.Color.Gainsboro;
+            this.DiscountValue.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.DiscountValue.BorderRadius = 5;
+            this.DiscountValue.BorderSize = 1;
+            this.DiscountValue.Dock = System.Windows.Forms.DockStyle.Right;
+            this.DiscountValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DiscountValue.ForeColor = System.Drawing.Color.Gray;
+            this.DiscountValue.IsError = false;
+            this.DiscountValue.Location = new System.Drawing.Point(532, 10);
+            this.DiscountValue.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.DiscountValue.MaxLength = 2;
+            this.DiscountValue.Multiline = false;
+            this.DiscountValue.Name = "DiscountValue";
+            this.DiscountValue.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.DiscountValue.PasswordChar = false;
+            this.DiscountValue.Placeholder = "0";
+            this.DiscountValue.ReadOnly = false;
+            this.DiscountValue.Size = new System.Drawing.Size(64, 36);
+            this.DiscountValue.TabIndex = 1;
+            this.DiscountValue.TbBackColor = System.Drawing.SystemColors.Window;
+            this.DiscountValue.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
+            this.DiscountValue.Texts = "0";
+            this.DiscountValue.UnderlinedStyle = false;
+            // 
             // DiscountLabel
             // 
             this.DiscountLabel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -550,221 +705,6 @@
             this.OrderBtnGroup.Padding = new System.Windows.Forms.Padding(5);
             this.OrderBtnGroup.Size = new System.Drawing.Size(606, 58);
             this.OrderBtnGroup.TabIndex = 2;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 124;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.MinimumWidth = 6;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 124;
-            // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.MinimumWidth = 6;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.Width = 124;
-            // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(616, 10);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 561);
-            this.splitter1.TabIndex = 11;
-            this.splitter1.TabStop = false;
-            // 
-            // dataGridViewImageColumn4
-            // 
-            this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn4.DataPropertyName = "status";
-            this.dataGridViewImageColumn4.HeaderText = "";
-            this.dataGridViewImageColumn4.Image = global::TheBetterLimited.Properties.Resources.add_up;
-            this.dataGridViewImageColumn4.MinimumWidth = 6;
-            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
-            this.dataGridViewImageColumn4.ReadOnly = true;
-            this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn4.ToolTipText = "Account Status";
-            // 
-            // dataGridViewImageColumn5
-            // 
-            this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn5.DataPropertyName = "status";
-            this.dataGridViewImageColumn5.HeaderText = "";
-            this.dataGridViewImageColumn5.Image = global::TheBetterLimited.Properties.Resources.trash;
-            this.dataGridViewImageColumn5.MinimumWidth = 6;
-            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
-            this.dataGridViewImageColumn5.ReadOnly = true;
-            this.dataGridViewImageColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn5.ToolTipText = "Delete";
-            // 
-            // dataGridViewImageColumn6
-            // 
-            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn6.HeaderText = "";
-            this.dataGridViewImageColumn6.Image = global::TheBetterLimited.Properties.Resources.trash;
-            this.dataGridViewImageColumn6.MinimumWidth = 6;
-            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
-            this.dataGridViewImageColumn6.ReadOnly = true;
-            this.dataGridViewImageColumn6.ToolTipText = "Delete";
-            // 
-            // defectItemBtn
-            // 
-            this.defectItemBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.defectItemBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.defectItemBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.defectItemBtn.BorderRadius = 5;
-            this.defectItemBtn.BorderSize = 2;
-            this.defectItemBtn.FlatAppearance.BorderSize = 0;
-            this.defectItemBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.defectItemBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.defectItemBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.defectItemBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defectItemBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.defectItemBtn.IsChecked = false;
-            this.defectItemBtn.Location = new System.Drawing.Point(13, 13);
-            this.defectItemBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.defectItemBtn.Name = "defectItemBtn";
-            this.defectItemBtn.Size = new System.Drawing.Size(165, 40);
-            this.defectItemBtn.TabIndex = 3;
-            this.defectItemBtn.Text = "Handle Defect Item";
-            this.defectItemBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.defectItemBtn.UseVisualStyleBackColor = false;
-            this.defectItemBtn.MouseHover += new System.EventHandler(this.roundButton2_MouseHover);
-            // 
-            // OrderBtn
-            // 
-            this.OrderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.OrderBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.OrderBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.OrderBtn.BorderRadius = 5;
-            this.OrderBtn.BorderSize = 2;
-            this.OrderBtn.FlatAppearance.BorderSize = 0;
-            this.OrderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.OrderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.OrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OrderBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OrderBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.OrderBtn.IsChecked = false;
-            this.OrderBtn.Location = new System.Drawing.Point(188, 13);
-            this.OrderBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.OrderBtn.Name = "OrderBtn";
-            this.OrderBtn.Size = new System.Drawing.Size(165, 40);
-            this.OrderBtn.TabIndex = 4;
-            this.OrderBtn.Text = "Order Management";
-            this.OrderBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.OrderBtn.UseVisualStyleBackColor = false;
-            this.OrderBtn.Click += new System.EventHandler(this.OrderBtn_Click);
-            this.OrderBtn.MouseLeave += new System.EventHandler(this.HoldBtn_MouseLeave);
-            this.OrderBtn.MouseHover += new System.EventHandler(this.HoldBtn_MouseHover);
-            // 
-            // settleAccBtn
-            // 
-            this.settleAccBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.settleAccBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.settleAccBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.settleAccBtn.BorderRadius = 5;
-            this.settleAccBtn.BorderSize = 2;
-            this.settleAccBtn.FlatAppearance.BorderSize = 0;
-            this.settleAccBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.settleAccBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.settleAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settleAccBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settleAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.settleAccBtn.IsChecked = false;
-            this.settleAccBtn.Location = new System.Drawing.Point(13, 59);
-            this.settleAccBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.settleAccBtn.Name = "settleAccBtn";
-            this.settleAccBtn.Size = new System.Drawing.Size(165, 40);
-            this.settleAccBtn.TabIndex = 5;
-            this.settleAccBtn.Text = "Settle  Account";
-            this.settleAccBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.settleAccBtn.UseVisualStyleBackColor = false;
-            this.settleAccBtn.MouseLeave += new System.EventHandler(this.HoldBtn_MouseLeave);
-            this.settleAccBtn.MouseHover += new System.EventHandler(this.HoldBtn_MouseHover);
-            // 
-            // CatalogueCombox
-            // 
-            this.CatalogueCombox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.CatalogueCombox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CatalogueCombox.BackColor = System.Drawing.Color.White;
-            this.CatalogueCombox.BorderColor = System.Drawing.Color.LightGray;
-            this.CatalogueCombox.BorderRadius = 0;
-            this.CatalogueCombox.BorderSize = 1;
-            this.CatalogueCombox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CatalogueCombox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CatalogueCombox.ForeColor = System.Drawing.Color.SeaGreen;
-            this.CatalogueCombox.IconColor = System.Drawing.Color.SeaGreen;
-            this.CatalogueCombox.ListBackColor = System.Drawing.Color.White;
-            this.CatalogueCombox.ListTextColor = System.Drawing.Color.DimGray;
-            this.CatalogueCombox.Location = new System.Drawing.Point(13, 50);
-            this.CatalogueCombox.MinimumSize = new System.Drawing.Size(200, 30);
-            this.CatalogueCombox.Name = "CatalogueCombox";
-            this.CatalogueCombox.Padding = new System.Windows.Forms.Padding(1);
-            this.CatalogueCombox.Size = new System.Drawing.Size(289, 40);
-            this.CatalogueCombox.TabIndex = 0;
-            this.CatalogueCombox.Texts = "Catalogue";
-            this.CatalogueCombox.UnderlinedStyle = true;
-            this.CatalogueCombox.OnSelectedIndexChanged += new System.EventHandler(this.CatalogueCombox_OnSelectedIndexChanged);
-            this.CatalogueCombox.Load += new System.EventHandler(this.CatalogueCombox_Load);
-            // 
-            // SearchBarTxt
-            // 
-            this.SearchBarTxt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SearchBarTxt.BackColor = System.Drawing.Color.White;
-            this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.SearchBarTxt.BorderRadius = 10;
-            this.SearchBarTxt.BorderSize = 1;
-            this.SearchBarTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBarTxt.ForeColor = System.Drawing.Color.Black;
-            this.SearchBarTxt.IsError = false;
-            this.SearchBarTxt.Location = new System.Drawing.Point(117, 0);
-            this.SearchBarTxt.Margin = new System.Windows.Forms.Padding(200, 6, 4, 6);
-            this.SearchBarTxt.MaxLength = 20;
-            this.SearchBarTxt.Multiline = false;
-            this.SearchBarTxt.Name = "SearchBarTxt";
-            this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(30, 10, 10, 6);
-            this.SearchBarTxt.PasswordChar = false;
-            this.SearchBarTxt.Placeholder = "Search by Keywords";
-            this.SearchBarTxt.ReadOnly = false;
-            this.SearchBarTxt.Size = new System.Drawing.Size(261, 40);
-            this.SearchBarTxt.TabIndex = 9;
-            this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.SearchBarTxt.Texts = "Search by Keywords";
-            this.SearchBarTxt.UnderlinedStyle = false;
-            this.SearchBarTxt._TextChanged += new System.EventHandler(this.SearchBarTxt__TextChanged);
-            // 
-            // DiscountValue
-            // 
-            this.DiscountValue.BackColor = System.Drawing.Color.White;
-            this.DiscountValue.BorderColor = System.Drawing.Color.Gainsboro;
-            this.DiscountValue.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.DiscountValue.BorderRadius = 5;
-            this.DiscountValue.BorderSize = 1;
-            this.DiscountValue.Dock = System.Windows.Forms.DockStyle.Right;
-            this.DiscountValue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DiscountValue.ForeColor = System.Drawing.Color.Gray;
-            this.DiscountValue.IsError = false;
-            this.DiscountValue.Location = new System.Drawing.Point(532, 10);
-            this.DiscountValue.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.DiscountValue.MaxLength = 2;
-            this.DiscountValue.Multiline = false;
-            this.DiscountValue.Name = "DiscountValue";
-            this.DiscountValue.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.DiscountValue.PasswordChar = false;
-            this.DiscountValue.Placeholder = "0";
-            this.DiscountValue.ReadOnly = false;
-            this.DiscountValue.Size = new System.Drawing.Size(64, 36);
-            this.DiscountValue.TabIndex = 1;
-            this.DiscountValue.TbBackColor = System.Drawing.SystemColors.Window;
-            this.DiscountValue.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
-            this.DiscountValue.Texts = "0";
-            this.DiscountValue.UnderlinedStyle = false;
             // 
             // PayBtn
             // 
@@ -836,6 +776,66 @@
             this.CancelBtn.UseVisualStyleBackColor = false;
             this.CancelBtn.MouseLeave += new System.EventHandler(this.CancelBtn_MouseLeave);
             this.CancelBtn.MouseHover += new System.EventHandler(this.CancelBtn_MouseHover);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 124;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 124;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.MinimumWidth = 6;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.Width = 124;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(616, 10);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 561);
+            this.splitter1.TabIndex = 11;
+            this.splitter1.TabStop = false;
+            // 
+            // dataGridViewImageColumn4
+            // 
+            this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn4.DataPropertyName = "status";
+            this.dataGridViewImageColumn4.HeaderText = "";
+            this.dataGridViewImageColumn4.Image = global::TheBetterLimited.Properties.Resources.add_up;
+            this.dataGridViewImageColumn4.MinimumWidth = 6;
+            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            this.dataGridViewImageColumn4.ReadOnly = true;
+            this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn4.ToolTipText = "Account Status";
+            // 
+            // dataGridViewImageColumn5
+            // 
+            this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn5.DataPropertyName = "status";
+            this.dataGridViewImageColumn5.HeaderText = "";
+            this.dataGridViewImageColumn5.Image = global::TheBetterLimited.Properties.Resources.trash;
+            this.dataGridViewImageColumn5.MinimumWidth = 6;
+            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
+            this.dataGridViewImageColumn5.ReadOnly = true;
+            this.dataGridViewImageColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn5.ToolTipText = "Delete";
+            // 
+            // dataGridViewImageColumn6
+            // 
+            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn6.HeaderText = "";
+            this.dataGridViewImageColumn6.Image = global::TheBetterLimited.Properties.Resources.trash;
+            this.dataGridViewImageColumn6.MinimumWidth = 6;
+            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
+            this.dataGridViewImageColumn6.ReadOnly = true;
+            this.dataGridViewImageColumn6.ToolTipText = "Delete";
             // 
             // POS
             // 

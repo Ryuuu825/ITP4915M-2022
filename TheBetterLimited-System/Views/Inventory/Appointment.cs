@@ -139,8 +139,9 @@ namespace TheBetterLimited.Views
         private void InitializeDataGridView()
         {
             //Main data column
-            AppointmentDataGrid.AutoGenerateColumns = false;
+            AppointmentDataGrid.AutoGenerateColumns = true;
             AppointmentDataGrid.DataSource = bs;
+            /*
             AppointmentDataGrid.Columns["id"].HeaderText = "ID";
             AppointmentDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
             AppointmentDataGrid.Columns["name"].HeaderText = "Goods Name";
@@ -149,6 +150,7 @@ namespace TheBetterLimited.Views
             AppointmentDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
             AppointmentDataGrid.Columns["size"].HeaderText = "Size";
             AppointmentDataGrid.Columns["status"].HeaderText = "Status";
+            */
             // GoodsDataGrid.Columns["id"].HeaderText = "ID";
             // GoodsDataGrid.Columns["userName"].HeaderText = "User Name";
             // GoodsDataGrid.Columns["staffName"].HeaderText = "Staff Name";
