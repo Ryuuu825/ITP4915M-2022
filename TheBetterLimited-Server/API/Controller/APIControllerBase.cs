@@ -70,7 +70,7 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(string id , [FromHeader] string Language = "en")
+        public virtual async Task<IActionResult> GetById(string id , [FromHeader] string Language = "en")
         {
             return Ok(await controller.GetById(id,Language));
         }

@@ -14,7 +14,6 @@ namespace TheBetterLimited_Server.API.Controller
             controller = new OrderController(db);
         }
 
-
         [HttpPost("create")]
         public async Task<IActionResult> Add([FromBody] Data.Dto.OrderInDto order , [FromHeader] string Language = "en")
         {
@@ -42,6 +41,19 @@ namespace TheBetterLimited_Server.API.Controller
                 {
                     return Ok(await controller.GetWithLimit(limit, offset, Language));
                 }
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpGet("{id}")]
+        public override async Task<IActionResult> GetById(string id, [FromHeader] string Language = "en")
+        {
+            try
+            {
+                return Ok(await controller.GetById(id, Language));
             }
             catch (ICustException e)
             {

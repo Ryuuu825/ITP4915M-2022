@@ -101,6 +101,30 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return await ToDto(salesOrders, lang);
         }
 
+        public override async Task<List<Hashtable>> GetByQueryString(string sql, string lang = "en")
+        {
+            var salesOrders = (await repository.GetBySQLAsync(sql));
+            return await ToDto(salesOrders, lang);
+        }
+
+        public override async Task<Hashtable> GetById(string id, string lang = "en")
+        {
+            var salesOrder = (await repository.GetByIdAsync(id));
+            return (await ToDto(new List<SalesOrder> { salesOrder }, lang))[0];
+        }
+
+        public virtual async Task<List<Hashtable>> GetWithLimit(int limit, uint offset = 0 ,string lang = "en")
+        {
+            var list = (await repository.GetAllAsync()).AsReadOnly().ToList();
+            limit = limit > list.Count ? list.Count : limit;
+            offset = offset > list.Count ? (uint) list.Count : offset;
+            list = list.GetRange((int)offset, limit);
+            return await ToDto(list, lang);
+        }
+
+
+
+
         
         public async Task CreateSalesOrder(OrderInDto order)
         {
@@ -108,8 +132,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             // and create sales order items
             // and create appointments
             // and last add appointment to the sales order item.
-
-
             var newOrder = new SalesOrder()
             {
                 ID = Helpers.Sql.PrimaryKeyGenerator.Get<SalesOrder>(db),
