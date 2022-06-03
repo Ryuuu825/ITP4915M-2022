@@ -35,8 +35,6 @@
             this.UserInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSupplierName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.Info = new System.Windows.Forms.Label();
-            this.Title = new System.Windows.Forms.Label();
             this.txtContact = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.txtAddress = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.lblAddress = new System.Windows.Forms.Label();
@@ -141,8 +139,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.txtSupplierName);
-            this.panel1.Controls.Add(this.Info);
-            this.panel1.Controls.Add(this.Title);
             this.panel1.Controls.Add(this.txtContact);
             this.panel1.Controls.Add(this.txtAddress);
             this.panel1.Controls.Add(this.lblAddress);
@@ -185,27 +181,6 @@
             this.txtSupplierName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtSupplierName.Texts = "Please enter the name of the supplier";
             this.txtSupplierName.UnderlinedStyle = false;
-            // 
-            // Info
-            // 
-            this.Info.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Info.Location = new System.Drawing.Point(511, 45);
-            this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(240, 110);
-            this.Info.TabIndex = 5;
-            this.Info.Text = "SupplierSupplierSupplierSupplierSupplierSupplierSupplierSupplierSupplierSupplierS" +
-    "upplierSupplierSupplier";
-            // 
-            // Title
-            // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.ForeColor = System.Drawing.Color.SeaGreen;
-            this.Title.Location = new System.Drawing.Point(510, 15);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(139, 30);
-            this.Title.TabIndex = 3;
-            this.Title.Text = "Edit Supplier";
             // 
             // txtContact
             // 
@@ -482,8 +457,6 @@
         private CustomizeControl.CustomizeTextbox txtAddress;
         private System.Windows.Forms.Label lblAddress;
         private CustomizeControl.CustomizeTextbox txtContact;
-        private System.Windows.Forms.Label Info;
-        private System.Windows.Forms.Label Title;
         private CustomizeControl.CustomizeTextbox txtSupplierName;
     }
 }

@@ -37,8 +37,6 @@
             this.txtReorderLevel = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.lblReorderLevel = new System.Windows.Forms.Label();
             this.txtLocId = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.Info = new System.Windows.Forms.Label();
-            this.Title = new System.Windows.Forms.Label();
             this.txtQuantity = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.txtMinLimit = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.lblMinLimit = new System.Windows.Forms.Label();
@@ -70,7 +68,7 @@
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.BottomBtn.Size = new System.Drawing.Size(764, 54);
+            this.BottomBtn.Size = new System.Drawing.Size(530, 54);
             this.BottomBtn.TabIndex = 1;
             // 
             // btnCancel
@@ -86,7 +84,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.IsChecked = false;
-            this.btnCancel.Location = new System.Drawing.Point(478, 6);
+            this.btnCancel.Location = new System.Drawing.Point(265, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(128, 40);
             this.btnCancel.TabIndex = 1;
@@ -107,7 +105,7 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.IsChecked = false;
-            this.btnSave.Location = new System.Drawing.Point(623, 6);
+            this.btnSave.Location = new System.Drawing.Point(399, 6);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(128, 40);
             this.btnSave.TabIndex = 6;
@@ -126,7 +124,7 @@
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
             this.MainForm.Padding = new System.Windows.Forms.Padding(10);
-            this.MainForm.Size = new System.Drawing.Size(784, 536);
+            this.MainForm.Size = new System.Drawing.Size(550, 536);
             this.MainForm.TabIndex = 2;
             // 
             // StockInfo
@@ -137,7 +135,7 @@
             this.StockInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.StockInfo.Location = new System.Drawing.Point(10, 10);
             this.StockInfo.Name = "StockInfo";
-            this.StockInfo.Size = new System.Drawing.Size(764, 457);
+            this.StockInfo.Size = new System.Drawing.Size(530, 457);
             this.StockInfo.TabIndex = 24;
             // 
             // panel1
@@ -145,8 +143,6 @@
             this.panel1.Controls.Add(this.txtReorderLevel);
             this.panel1.Controls.Add(this.lblReorderLevel);
             this.panel1.Controls.Add(this.txtLocId);
-            this.panel1.Controls.Add(this.Info);
-            this.panel1.Controls.Add(this.Title);
             this.panel1.Controls.Add(this.txtQuantity);
             this.panel1.Controls.Add(this.txtMinLimit);
             this.panel1.Controls.Add(this.lblMinLimit);
@@ -161,7 +157,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(764, 417);
+            this.panel1.Size = new System.Drawing.Size(530, 417);
             this.panel1.TabIndex = 27;
             // 
             // txtReorderLevel
@@ -227,27 +223,6 @@
             this.txtLocId.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtLocId.Texts = "Automatically generated";
             this.txtLocId.UnderlinedStyle = false;
-            // 
-            // Info
-            // 
-            this.Info.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Info.Location = new System.Drawing.Point(522, 45);
-            this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(240, 110);
-            this.Info.TabIndex = 5;
-            this.Info.Text = "StockStockStockStockStockStockStockStockStockStockStockStockStockStockStockStockS" +
-    "tockStockStockStockStockStockStockStockStockStockStock";
-            // 
-            // Title
-            // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.ForeColor = System.Drawing.Color.SeaGreen;
-            this.Title.Location = new System.Drawing.Point(521, 14);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(111, 30);
-            this.Title.TabIndex = 3;
-            this.Title.Text = "Edit Stock";
             // 
             // txtQuantity
             // 
@@ -464,7 +439,7 @@
             this.StockInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.StockInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
             this.StockInfoHeaderContainer.Name = "StockInfoHeaderContainer";
-            this.StockInfoHeaderContainer.Size = new System.Drawing.Size(764, 40);
+            this.StockInfoHeaderContainer.Size = new System.Drawing.Size(530, 40);
             this.StockInfoHeaderContainer.TabIndex = 20;
             // 
             // StockInfoHeader
@@ -483,7 +458,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(784, 536);
+            this.ClientSize = new System.Drawing.Size(550, 536);
             this.Controls.Add(this.MainForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -516,8 +491,6 @@
         private CustomizeControl.CustomizeTextbox txtReorderLevel;
         private System.Windows.Forms.Label lblReorderLevel;
         private CustomizeControl.CustomizeTextbox txtLocId;
-        private System.Windows.Forms.Label Info;
-        private System.Windows.Forms.Label Title;
         private CustomizeControl.CustomizeTextbox txtQuantity;
         private CustomizeControl.CustomizeTextbox txtMinLimit;
         private System.Windows.Forms.Label lblMinLimit;

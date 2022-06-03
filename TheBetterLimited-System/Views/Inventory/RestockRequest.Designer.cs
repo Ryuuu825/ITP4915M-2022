@@ -1,6 +1,6 @@
 ﻿namespace TheBetterLimited.Views
 {
-    partial class Appointment
+    partial class RestockRequest
     {
         /// <summary>
         /// Required designer variable.
@@ -33,8 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appointment));
-            this.AppointmentDataGrid = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RestockRequest));
+            this.RestockRequestDataGrid = new System.Windows.Forms.DataGridView();
             this.Action = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SearchBar = new System.Windows.Forms.Panel();
@@ -54,12 +54,15 @@
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._sessionId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._departmentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._teamId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._createrId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._operatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._storeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RestockRequestDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SearchBar.SuspendLayout();
@@ -69,19 +72,19 @@
             this.Data.SuspendLayout();
             this.SuspendLayout();
             // 
-            // AppointmentDataGrid
+            // RestockRequestDataGrid
             // 
-            this.AppointmentDataGrid.AllowUserToAddRows = false;
-            this.AppointmentDataGrid.AllowUserToResizeColumns = false;
-            this.AppointmentDataGrid.AllowUserToResizeRows = false;
+            this.RestockRequestDataGrid.AllowUserToAddRows = false;
+            this.RestockRequestDataGrid.AllowUserToResizeColumns = false;
+            this.RestockRequestDataGrid.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            this.AppointmentDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.AppointmentDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.AppointmentDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.AppointmentDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.AppointmentDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.AppointmentDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.RestockRequestDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.RestockRequestDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.RestockRequestDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.RestockRequestDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RestockRequestDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.RestockRequestDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -90,15 +93,18 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.AppointmentDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.AppointmentDataGrid.ColumnHeadersHeight = 50;
-            this.AppointmentDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.AppointmentDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RestockRequestDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.RestockRequestDataGrid.ColumnHeadersHeight = 50;
+            this.RestockRequestDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.RestockRequestDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.select,
             this.id,
-            this._sessionId,
-            this._departmentId,
-            this._teamId,
+            this._createrId,
+            this._operatorId,
+            this._storeId,
+            this.createTime,
+            this.operateTime,
+            this.Status,
             this.edit,
             this.delete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -109,16 +115,16 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.AppointmentDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
-            this.AppointmentDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AppointmentDataGrid.EnableHeadersVisualStyles = false;
-            this.AppointmentDataGrid.GridColor = System.Drawing.Color.White;
-            this.AppointmentDataGrid.Location = new System.Drawing.Point(0, 2);
-            this.AppointmentDataGrid.Margin = new System.Windows.Forms.Padding(0);
-            this.AppointmentDataGrid.MultiSelect = false;
-            this.AppointmentDataGrid.Name = "AppointmentDataGrid";
-            this.AppointmentDataGrid.ReadOnly = true;
-            this.AppointmentDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.RestockRequestDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.RestockRequestDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RestockRequestDataGrid.EnableHeadersVisualStyles = false;
+            this.RestockRequestDataGrid.GridColor = System.Drawing.Color.White;
+            this.RestockRequestDataGrid.Location = new System.Drawing.Point(0, 2);
+            this.RestockRequestDataGrid.Margin = new System.Windows.Forms.Padding(0);
+            this.RestockRequestDataGrid.MultiSelect = false;
+            this.RestockRequestDataGrid.Name = "RestockRequestDataGrid";
+            this.RestockRequestDataGrid.ReadOnly = true;
+            this.RestockRequestDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,10 +132,10 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SeaGreen;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppointmentDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.AppointmentDataGrid.RowHeadersVisible = false;
-            this.AppointmentDataGrid.RowHeadersWidth = 30;
-            this.AppointmentDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.RestockRequestDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.RestockRequestDataGrid.RowHeadersVisible = false;
+            this.RestockRequestDataGrid.RowHeadersWidth = 30;
+            this.RestockRequestDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -137,15 +143,15 @@
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.AppointmentDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.AppointmentDataGrid.RowTemplate.Height = 30;
-            this.AppointmentDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.AppointmentDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AppointmentDataGrid.Size = new System.Drawing.Size(778, 379);
-            this.AppointmentDataGrid.StandardTab = true;
-            this.AppointmentDataGrid.TabIndex = 3;
-            this.AppointmentDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
-            this.AppointmentDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GoodsDataGrid_CellFormatting);
+            this.RestockRequestDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.RestockRequestDataGrid.RowTemplate.Height = 30;
+            this.RestockRequestDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.RestockRequestDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.RestockRequestDataGrid.Size = new System.Drawing.Size(778, 379);
+            this.RestockRequestDataGrid.StandardTab = true;
+            this.RestockRequestDataGrid.TabIndex = 3;
+            this.RestockRequestDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
+            this.RestockRequestDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GoodsDataGrid_CellFormatting);
             // 
             // Action
             // 
@@ -358,13 +364,13 @@
             this.Title.Location = new System.Drawing.Point(2, 7);
             this.Title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(131, 25);
+            this.Title.Size = new System.Drawing.Size(157, 25);
             this.Title.TabIndex = 1;
-            this.Title.Text = "Appointment";
+            this.Title.Text = "Restock Request";
             // 
             // Data
             // 
-            this.Data.Controls.Add(this.AppointmentDataGrid);
+            this.Data.Controls.Add(this.RestockRequestDataGrid);
             this.Data.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Data.Location = new System.Drawing.Point(0, 84);
             this.Data.Margin = new System.Windows.Forms.Padding(2);
@@ -413,38 +419,62 @@
             this.id.ToolTipText = "ID";
             this.id.Width = 59;
             // 
-            // _sessionId
+            // _createrId
             // 
-            this._sessionId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._sessionId.DataPropertyName = "_sessionId";
-            this._sessionId.HeaderText = "Session ID";
-            this._sessionId.MinimumWidth = 6;
-            this._sessionId.Name = "_sessionId";
-            this._sessionId.ReadOnly = true;
-            this._sessionId.ToolTipText = "Session ID";
-            this._sessionId.Width = 108;
+            this._createrId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this._createrId.DataPropertyName = "_createrId";
+            this._createrId.HeaderText = "Creater ID";
+            this._createrId.MinimumWidth = 6;
+            this._createrId.Name = "_createrId";
+            this._createrId.ReadOnly = true;
+            this._createrId.ToolTipText = "Creater ID";
+            this._createrId.Width = 107;
             // 
-            // _departmentId
+            // _operatorId
             // 
-            this._departmentId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._departmentId.DataPropertyName = "_departmentId";
-            this._departmentId.HeaderText = "Department ID";
-            this._departmentId.MinimumWidth = 6;
-            this._departmentId.Name = "_departmentId";
-            this._departmentId.ReadOnly = true;
-            this._departmentId.ToolTipText = "Department ID";
-            this._departmentId.Width = 136;
+            this._operatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this._operatorId.DataPropertyName = "_operatorId";
+            this._operatorId.HeaderText = "Operator ID";
+            this._operatorId.MinimumWidth = 6;
+            this._operatorId.Name = "_operatorId";
+            this._operatorId.ReadOnly = true;
+            this._operatorId.ToolTipText = "Operator ID";
+            this._operatorId.Width = 118;
             // 
-            // _teamId
+            // _storeId
             // 
-            this._teamId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._teamId.DataPropertyName = "_teamId";
-            this._teamId.HeaderText = "Team ID";
-            this._teamId.MinimumWidth = 6;
-            this._teamId.Name = "_teamId";
-            this._teamId.ReadOnly = true;
-            this._teamId.ToolTipText = "Team ID";
-            this._teamId.Width = 95;
+            this._storeId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this._storeId.DataPropertyName = "_storeId";
+            this._storeId.HeaderText = "Store ID";
+            this._storeId.MinimumWidth = 6;
+            this._storeId.Name = "_storeId";
+            this._storeId.ReadOnly = true;
+            this._storeId.ToolTipText = "Store ID";
+            this._storeId.Width = 95;
+            // 
+            // createTime
+            // 
+            this.createTime.DataPropertyName = "createTime";
+            this.createTime.HeaderText = "Create Time";
+            this.createTime.Name = "createTime";
+            this.createTime.ReadOnly = true;
+            this.createTime.ToolTipText = "Create Time";
+            // 
+            // operateTime
+            // 
+            this.operateTime.DataPropertyName = "operateTime";
+            this.operateTime.HeaderText = "Operate Time";
+            this.operateTime.Name = "operateTime";
+            this.operateTime.ReadOnly = true;
+            this.operateTime.ToolTipText = "Operate Time";
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.ToolTipText = "Status";
             // 
             // edit
             // 
@@ -470,7 +500,7 @@
             this.delete.ToolTipText = "Delete";
             this.delete.Width = 6;
             // 
-            // Appointment
+            // RestockRequest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -482,9 +512,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Appointment";
+            this.Name = "RestockRequest";
             this.Text = "InventoryManagement";
-            ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RestockRequestDataGrid)).EndInit();
             this.Action.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.SearchBar.ResumeLayout(false);
@@ -498,7 +528,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView AppointmentDataGrid;
+        private System.Windows.Forms.DataGridView RestockRequestDataGrid;
         private CustomizeControl.RoundButton DeleteBtn;
         private System.Windows.Forms.Panel Header;
         private System.Windows.Forms.Label Title;
@@ -518,9 +548,12 @@
         private CustomizeControl.RoundButton exportBtn;
         private System.Windows.Forms.DataGridViewImageColumn select;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _sessionId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _departmentId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _teamId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _createrId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _operatorId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _storeId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn createTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn operateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewImageColumn edit;
         private System.Windows.Forms.DataGridViewImageColumn delete;
     }

@@ -20,7 +20,7 @@ using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class Appointment : Form
+    public partial class RestockRequest : Form
     {
         private UserController uc = new UserController();
         private GoodsController gc = new GoodsController();
@@ -30,7 +30,7 @@ namespace TheBetterLimited.Views
         private RestResponse result;
         private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
 
-        public Appointment()
+        public RestockRequest()
         {
             InitializeComponent();
             GetGoods();//init user table
@@ -57,7 +57,7 @@ namespace TheBetterLimited.Views
 
         private void GoodsDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (AppointmentDataGrid.Columns[e.ColumnIndex].Name == "Status")
+            if (RestockRequestDataGrid.Columns[e.ColumnIndex].Name == "Status")
             {
                 if (e.Value.ToString().Equals("0"))
                 {
@@ -73,7 +73,7 @@ namespace TheBetterLimited.Views
                 }
             }
 
-            if (AppointmentDataGrid.Columns[e.ColumnIndex].Name == "Size")
+            if (RestockRequestDataGrid.Columns[e.ColumnIndex].Name == "Size")
             {
 
                 if (e.Value.ToString().Equals("0"))
@@ -94,30 +94,30 @@ namespace TheBetterLimited.Views
 
         private void GoodsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == AppointmentDataGrid.Columns["select"].Index)
+            if (e.ColumnIndex == RestockRequestDataGrid.Columns["select"].Index)
             {
-                if (Convert.ToInt32(AppointmentDataGrid["select", e.RowIndex].Tag) == 0)
+                if (Convert.ToInt32(RestockRequestDataGrid["select", e.RowIndex].Tag) == 0)
                 {
-                    AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
-                    AppointmentDataGrid["select", e.RowIndex].Tag = 1;
-                    AppointmentDataGrid.Rows[e.RowIndex].Selected = true;
-                    selectGoodsID.Add(AppointmentDataGrid["id", e.RowIndex].Value.ToString());
+                    RestockRequestDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
+                    RestockRequestDataGrid["select", e.RowIndex].Tag = 1;
+                    RestockRequestDataGrid.Rows[e.RowIndex].Selected = true;
+                    selectGoodsID.Add(RestockRequestDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
-                    AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
-                    AppointmentDataGrid["select", e.RowIndex].Tag = 0;
-                    AppointmentDataGrid.Rows[e.RowIndex].Selected = false;
-                    selectGoodsID.Remove(AppointmentDataGrid["id", e.RowIndex].Value.ToString());
+                    RestockRequestDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
+                    RestockRequestDataGrid["select", e.RowIndex].Tag = 0;
+                    RestockRequestDataGrid.Rows[e.RowIndex].Selected = false;
+                    selectGoodsID.Remove(RestockRequestDataGrid["id", e.RowIndex].Value.ToString());
                 }
             }
 
-            if (e.ColumnIndex == AppointmentDataGrid.Columns["edit"].Index)
+            if (e.ColumnIndex == RestockRequestDataGrid.Columns["edit"].Index)
             {
                 MessageBox.Show("You have selected row " + selectGoodsID[0] + " cell");
             }
 
-            if (e.ColumnIndex == AppointmentDataGrid.Columns["delete"].Index)
+            if (e.ColumnIndex == RestockRequestDataGrid.Columns["delete"].Index)
             {
                 DeleteGoods(e);
             }
@@ -139,16 +139,16 @@ namespace TheBetterLimited.Views
         private void InitializeDataGridView()
         {
             //Main data column
-            AppointmentDataGrid.AutoGenerateColumns = false;
-            AppointmentDataGrid.DataSource = bs;
-            AppointmentDataGrid.Columns["id"].HeaderText = "ID";
-            AppointmentDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
-            AppointmentDataGrid.Columns["name"].HeaderText = "Goods Name";
-            AppointmentDataGrid.Columns["description"].HeaderText = "Description";
-            AppointmentDataGrid.Columns["price"].HeaderText = "Price";
-            AppointmentDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
-            AppointmentDataGrid.Columns["size"].HeaderText = "Size";
-            AppointmentDataGrid.Columns["status"].HeaderText = "Status";
+            RestockRequestDataGrid.AutoGenerateColumns = false;
+            RestockRequestDataGrid.DataSource = bs;
+            RestockRequestDataGrid.Columns["id"].HeaderText = "ID";
+            RestockRequestDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
+            RestockRequestDataGrid.Columns["name"].HeaderText = "Goods Name";
+            RestockRequestDataGrid.Columns["description"].HeaderText = "Description";
+            RestockRequestDataGrid.Columns["price"].HeaderText = "Price";
+            RestockRequestDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
+            RestockRequestDataGrid.Columns["size"].HeaderText = "Size";
+            RestockRequestDataGrid.Columns["status"].HeaderText = "Status";
             // GoodsDataGrid.Columns["id"].HeaderText = "ID";
             // GoodsDataGrid.Columns["userName"].HeaderText = "User Name";
             // GoodsDataGrid.Columns["staffName"].HeaderText = "Staff Name";
@@ -157,8 +157,8 @@ namespace TheBetterLimited.Views
             // GoodsDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
             // GoodsDataGrid.Columns["remarks"].HeaderText = "Remark";
 
-            for (int i = 0; i < AppointmentDataGrid.RowCount; i++)
-                AppointmentDataGrid["select", i].Tag = 0;
+            for (int i = 0; i < RestockRequestDataGrid.RowCount; i++)
+                RestockRequestDataGrid["select", i].Tag = 0;
 
             selectGoodsID.Clear();
         }
@@ -196,8 +196,8 @@ namespace TheBetterLimited.Views
                     index++;
                 }
                 bs.DataSource = dataTable;
-                AppointmentDataGrid.AutoGenerateColumns = false;
-                AppointmentDataGrid.DataSource = bs;
+                RestockRequestDataGrid.AutoGenerateColumns = false;
+                RestockRequestDataGrid.DataSource = bs;
                 InitializeDataGridView();
             }
             catch (Exception ex)
@@ -241,15 +241,15 @@ namespace TheBetterLimited.Views
         //Delete Goods
         private void DeleteGoods(DataGridViewCellEventArgs e)
         {
-            choose = MessageBox.Show("Do you really want to delete the " + AppointmentDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            choose = MessageBox.Show("Do you really want to delete the " + RestockRequestDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (choose == DialogResult.Yes)
             {
                 try
                 {
-                    result = gc.DeleteGoods(AppointmentDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    result = gc.DeleteGoods(RestockRequestDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
                     if (result.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        MessageBox.Show("The " + AppointmentDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("The " + RestockRequestDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetGoods();
                     }
                 }
