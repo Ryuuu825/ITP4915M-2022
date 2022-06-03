@@ -482,6 +482,12 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Department
                 {
+                    Id = "600",
+                    Name = "Technical"
+                },
+                
+                new Department
+                {
                     Id = "900",
                     Name = "Management"
                 },
