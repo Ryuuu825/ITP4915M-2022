@@ -22,6 +22,7 @@ namespace TheBetterLimited_Server.Data
                 db.Set<Location>().AddRange(CreateLocation());
                 db.Set<Store>().AddRange(CreateStore());
                 db.Set<Warehouse>().AddRange(CreateWarehouse());
+                db.Set<Session>().AddRange(CreateSession());
 
                 db.SaveChanges();
 
@@ -482,7 +483,7 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Department
                 {
-                    Id = "600",
+                    Id = "700",
                     Name = "Technical"
                 },
                 
@@ -1795,6 +1796,123 @@ namespace TheBetterLimited_Server.Data
                 },
             }; 
                 
+        }
+
+        public static List<Session> CreateSession()
+        {
+            TimeOnly morningS = new TimeOnly(9, 0, 0);
+            TimeOnly morningE = new TimeOnly(12, 0, 0);
+            TimeOnly AfterS = new TimeOnly(13, 0, 0);
+            TimeOnly AfterE = new TimeOnly(17, 0, 0);
+            TimeOnly EvenS = new TimeOnly(18, 0, 0);
+            TimeOnly EvenE = new TimeOnly(22, 0, 0);
+
+            List<TimeOnly> sessionRange = new List<TimeOnly>()
+            {
+                morningS, morningE, AfterS, AfterE, EvenS, EvenE
+            };
+            List<Session> sessions = new List<Session>();
+
+            int counter = 0;
+            for(int i = 0 ; i < 200; )
+            {
+                if (counter >= sessionRange.Count)
+                    counter = 0;
+                ConsoleLogger.Debug(counter);
+                i++;
+                sessions.Add(
+                    new Session
+                    {
+                        // padding the id with 0s automatically
+                        ID = i.ToString("D9"),
+                        _departmentId = "300",
+                        StartTime = sessionRange[counter++],
+                        EndTime = sessionRange[counter++],
+                        Date = GenDate()
+                    }
+                );
+                i++;
+
+                sessions.Add(
+                    new Session
+                    {
+                        ID = i.ToString("D9"),
+                        _departmentId = "700",
+                        StartTime = sessionRange[counter-2],
+                        EndTime = sessionRange[counter-1],
+                        Date = GenDate()
+                    }
+                );
+            }
+
+            return sessions;
+
+            // return new Session[]
+            // {
+            //     new Session
+            //     {
+            //         ID = "000000001",
+            //         _departmentId = "300",
+            //         StartTime = morningS,
+            //         EndTime = morningE,
+            //         Date = GenDate()
+            //     },
+            //     new Session
+            //     {
+            //         ID = "000000002",
+            //         _departmentId = "300",
+            //         StartTime = AfterS,
+            //         EndTime = AfterE,
+            //         Date = GenDate()
+            //     },
+            //     new Session
+            //     {
+            //         ID = "000000003",
+            //         _departmentId = "300",
+            //         StartTime = EvenS,
+            //         EndTime = EvenE,
+            //         Date = GenDate()
+            //     },new Session
+            //     {
+            //         ID = "000000004",
+            //         _departmentId = "700",
+            //         StartTime = morningS,
+            //         EndTime = morningE,
+            //         Date = GenDate()
+            //     },
+            //     new Session
+            //     {
+            //         ID = "000000005",
+            //         _departmentId = "700",
+            //         StartTime = AfterS,
+            //         EndTime = AfterE,
+            //         Date = GenDate()
+            //     },
+            //     new Session
+            //     {
+            //         ID = "000000006",
+            //         _departmentId = "700",
+            //         StartTime = EvenS,
+            //         EndTime = EvenE,
+            //         Date = GenDate()
+            //     }
+
+            // };
+        }
+
+        private static DateOnly last = DateOnly.FromDateTime(DateTime.Now);
+
+        private static int counter = 0;
+
+        public static DateOnly GenDate()
+        {
+            counter++;
+            if (counter > 6)
+            {
+                last = last.AddDays(1);
+                counter = 0;
+            }
+            return last;
         }
 
     }
