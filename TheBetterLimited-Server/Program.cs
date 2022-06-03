@@ -137,7 +137,6 @@ public class Program
         }
 #endif
 
-<<<<<<< Updated upstream
         ConsoleLogger.Debug("Version");
 
         app.Run();
@@ -147,8 +146,3 @@ public class Program
     }
 }
     
-=======
-app.Run();
-
-
->>>>>>> Stashed changes
