@@ -9,6 +9,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private Data.Repositories.Repository<Data.Entity.Location> _LocTable;
         private Data.Repositories.Repository<Data.Entity.Account> _AccTable;
         private Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock> _Supplier_Goods_StockTable;
+        private Data.Repositories.Repository<Data.Entity.Supplier_Goods> _Supplier_GoodsTable;
         private Data.Repositories.Repository<Data.Entity.Warehouse> _WarehouseTable;
         public GoodsController(Data.DataContext dataContext) : base(dataContext)
         {
@@ -18,6 +19,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _Supplier_Goods_StockTable = new Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock>(dataContext);
             _WarehouseTable = new Data.Repositories.Repository<Data.Entity.Warehouse>(dataContext);
             _GoodsTable = new Data.Repositories.Repository<Data.Entity.Goods>(dataContext);
+            _Supplier_GoodsTable = new Data.Repositories.Repository<Data.Entity.Supplier_Goods>(dataContext);
         }
         
         public Hashtable ToOutDto(Goods entry, string UserName , string lang = "en")
@@ -34,13 +36,19 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             // localized the cataloge
             var localizedCat = Helpers.Localizer.TryLocalize<Catalogue>(lang , localizedEntry.Catalogue);
             
+            // get all the supplier goods from the goods
+            var supplierGoods = _Supplier_GoodsTable.GetBySQL(
+                Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods>("_goodsId:"+entry.Id)
+            ).FirstOrDefault(); // we assume there is only one supplier goods per goods in this stage
             // get the location from the user account 
             Location loc = user.Staff.store.Location;
-            // get the stock level in the store that user belongs to
-            int InstoreStock = _Supplier_Goods_StockTable.GetBySQL(
-                Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>($"_locationId:{loc.Id}")
-            ).FirstOrDefault().Quantity;
 
+            // get the stock level in the store that user belongs to
+            Supplier_Goods_Stock InstoreStock = _Supplier_Goods_StockTable.GetBySQL(
+                Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>($"_locationId:{loc.Id};_supplierGoodsId:{supplierGoods.ID}")
+            ).FirstOrDefault();
+            int InStoreStockQty = InstoreStock.Quantity;
+            GoodsStockStatus InstoreStockStatus = InStoreStockQty < InstoreStock.MinLimit ? GoodsStockStatus.OutOfStock : InStoreStockQty < InstoreStock.ReorderLevel ? GoodsStockStatus.LowStock : GoodsStockStatus.InStock;
             // get all warehouse to return the supplier_goods stock level in the warehouse
             List<GoodsStockOutDto.GoodsWarehouseStockOutDto> WarehouseStock = new List<GoodsStockOutDto.GoodsWarehouseStockOutDto>();
             var Warehouses = _WarehouseTable.GetAll();
@@ -48,13 +56,14 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             foreach(var warehouse in Warehouses)
             {
                 var Warehouse_SupplierGoods = _Supplier_Goods_StockTable.GetBySQL(
-                    Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>($"_locationId:{warehouse.Location.Id}")
+                    Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>($"_locationId:{warehouse.Location.Id};_supplierGoodsId:{supplierGoods.ID}")
                 ).FirstOrDefault();
                 WarehouseStock.Add(
                     new GoodsStockOutDto.GoodsWarehouseStockOutDto
                     {
                         Location = warehouse.Location.Loc,
-                        Stock = Warehouse_SupplierGoods.Quantity
+                        Stock = Warehouse_SupplierGoods.Quantity,
+                        Status = Warehouse_SupplierGoods.Quantity < Warehouse_SupplierGoods.MinLimit ? GoodsStockStatus.OutOfStock : Warehouse_SupplierGoods.Quantity < Warehouse_SupplierGoods.ReorderLevel ? GoodsStockStatus.LowStock : GoodsStockStatus.InStock
                     }
                 );
             }
@@ -62,6 +71,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return new GoodsOutDto()
                 {
                     GoodsId = localizedEntry.Id,
+                    GoodsName = localizedEntry.Name,
                     Catalogue = localizedCat.Name,
                     GTINCode = localizedEntry.GTINCode,
                     Price = localizedEntry.Price,
@@ -69,10 +79,16 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     GoodsStatus = localizedEntry.Status,
                     StockLevel = new GoodsStockOutDto
                     {
-                        InStoreStock = InstoreStock,
-                        WarehouseStock = WarehouseStock
+                        WarehouseStock = WarehouseStock,
+                        InStoreStock = new GoodsStockOutDto.GoodsStoreStockOutDto
+                        {
+                            InStoreStock = InStoreStockQty,
+                            Status = InstoreStockStatus 
+                        }
+
                     },
-                    Description = localizedEntry.Description
+                    Description = localizedEntry.Description,
+                    Photo = localizedEntry.Photo 
 
                 }.MapToDto();
         }
@@ -101,9 +117,17 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 // get the location from the user account 
                 Location loc = user.Staff.store.Location;
                 // get the stock level in the store that user belongs to
-                int InstoreStock = _Supplier_Goods_StockTable.GetBySQL(
+                List<Supplier_Goods_Stock> InstoreStock = _Supplier_Goods_StockTable.GetBySQL(
                     Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>($"_locationId:{loc.Id}")
-                ).FirstOrDefault().Quantity;
+                );
+
+                int InStoreStockQty = 0 ;
+                foreach( var sg in InstoreStock )
+                {
+                    InStoreStockQty += sg.Quantity;
+                }
+
+                GoodsStockStatus InstoreStockStatus = InStoreStockQty < InstoreStock[0].MinLimit ? GoodsStockStatus.OutOfStock : InStoreStockQty < InstoreStock[0].ReorderLevel ? GoodsStockStatus.LowStock : GoodsStockStatus.InStock;
 
                 // get all warehouse to return the supplier_goods stock level in the warehouse
                 List<GoodsStockOutDto.GoodsWarehouseStockOutDto> WarehouseStock = new List<GoodsStockOutDto.GoodsWarehouseStockOutDto>();
@@ -134,7 +158,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         GoodsStatus = localizedEntry.Status,
                         StockLevel = new GoodsStockOutDto
                         {
-                            InStoreStock = InstoreStock,
+                            InStoreStock = new GoodsStockOutDto.GoodsStoreStockOutDto
+                            {
+                                Status = InstoreStockStatus,
+                                InStoreStock = InStoreStockQty
+                            },
                             WarehouseStock = WarehouseStock
                         },
                         Description = localizedEntry.Description

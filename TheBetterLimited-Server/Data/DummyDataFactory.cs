@@ -755,6 +755,7 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("00001"),
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
+                    Photo = images[0],
                 },
                 new Goods
                 {
