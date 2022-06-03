@@ -52,6 +52,11 @@ namespace TheBetterLimited.CustomizeControl
             {
                 textBox1.ForeColor = this.ForeColor;
             }
+
+            if (textBox1.ReadOnly == true)
+            {
+                textBox1.ForeColor = this.ForeColor;
+            }
         }
 
         public bool IsError
@@ -176,6 +181,7 @@ namespace TheBetterLimited.CustomizeControl
             set
             {
                 textBox1.ReadOnly = value;
+                textBox1.ForeColor = this.ForeColor;
                 this.Invalidate();
             }
         }

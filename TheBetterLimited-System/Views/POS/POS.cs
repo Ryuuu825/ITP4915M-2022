@@ -25,10 +25,12 @@ namespace TheBetterLimited.Views
     {
         private UserController uc = new UserController();
         private BindingSource bs = new BindingSource();
+        private DataTable dt = new DataTable();
         private DialogResult choose;
         private RestResponse result;
         private bool isEditing = false;
         private List<JObject> goods = new List<JObject>();
+        private List<OrderItem> orderItems = new List<OrderItem>();
         private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
         private ControllerBase cbGoods = new ControllerBase("Goods");
         private GoodsController gc = new GoodsController();
@@ -41,10 +43,6 @@ namespace TheBetterLimited.Views
             InitializeComponent();
             this.CartItemGrid.Columns["Price"].HeaderText = "Price("+ NumberFormatInfo.CurrentInfo.CurrencySymbol + ")";
             this.CartItemGrid.Columns["Qty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            CartItemGrid.Rows.Add("SIEMENS WM12N270HK 7KG 1200RPM Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, "35.00", "none");
-            CartItemGrid.Rows.Add("MIELE WCR860 W1 9KG 1600RPM Front Load WasherX", Properties.Resources.minus, "1", Properties.Resources.plus24, "35.00", "");
-            CartItemGrid.Rows.Add("MIELE WCA020 WCS Active 7KG 1400RPM Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, "35.00", "");
-            CartItemGrid.Rows.Add("TOSHIBA TWBL85A2HWW 7.5KG 440mm Ultra Slim Inverter Front Loading Washing Machine Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, "35.00", "");
             //GetAll();
         }
 
@@ -69,10 +67,43 @@ namespace TheBetterLimited.Views
         */
 
         //Initialize DataGridView
-        private void InitializeDataGridView()
+        private void InitializeCartGridView()
         {
             //Main data column
-            //selecteUserId.Clear();
+            dt = JsonConvert.DeserializeObject<DataTable>(JsonConvert.SerializeObject(orderItems));
+            bs.DataSource = dt;
+            CartItemGrid.AutoGenerateColumns = false;
+            CartItemGrid.DataSource = dt;
+            CalculateTotal();
+            this.Invalidate();
+        }
+
+        private void AddItem()
+        {
+            if (orderItems.Count == 0)
+            {
+                orderItems.Add(GlobalsData.orderitem);
+            }else
+            {
+                for (int i=0; i < orderItems.Count;i++)
+                {
+                    //Check if an order item exists in the shopping cart
+                    if (orderItems[i].SupplierGoodsStockId == GlobalsData.orderitem.SupplierGoodsStockId)
+                    {
+                        orderItems[i].Quantity += 1;
+                        Console.WriteLine("++");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("new");
+                        orderItems.Add(GlobalsData.orderitem);
+                    }
+
+                }
+            }
+            GlobalsData.orderitem = null;
+            InitializeCartGridView();
         }
 
 
@@ -154,7 +185,7 @@ namespace TheBetterLimited.Views
                 gd.goodsData = goods[selectedProduct];
                 gd.Show();
                 gd.TopLevel = true;
-                //goodsDetauks.OnExit += Refresh;
+                gd.OnExit += AddItem;
             }
             else
             {
@@ -169,6 +200,7 @@ namespace TheBetterLimited.Views
             {
                 int qty = Convert.ToInt32(CartItemGrid["qty", e.RowIndex].Value);
                 CartItemGrid["qty", e.RowIndex].Value = ++qty;
+                orderItems[e.RowIndex].Quantity = qty;
             }
             else if(e.ColumnIndex == CartItemGrid.Columns["sub"].Index)
             {
@@ -180,6 +212,7 @@ namespace TheBetterLimited.Views
                     return;
                 }
                 CartItemGrid["qty", e.RowIndex].Value = --qty;
+                orderItems[e.RowIndex].Quantity = qty;
             }
             CalculateTotal();
             this.Invalidate();
@@ -209,7 +242,8 @@ namespace TheBetterLimited.Views
         {
             int qty = 1;
             double price = 0.0;
-            double total = 0;
+            double total = 0.0;
+            double subTotal = 0.0;
             foreach (DataGridViewRow row in CartItemGrid.Rows)
             {
                 foreach (DataGridViewCell cell in row.Cells)
@@ -222,10 +256,11 @@ namespace TheBetterLimited.Views
                     {
                         price = Convert.ToDouble(cell.Value);
                     }
-                    total += qty * price;
+                    subTotal = qty * price;
                 }
+                total += subTotal;
             }
-            TotalAmountTxt.Text = total.ToString();
+            TotalAmountTxt.Text = String.Format("{0:C2}", total);
         }
 
         private void OrderBtn_Click(object sender, EventArgs e)
@@ -241,7 +276,14 @@ namespace TheBetterLimited.Views
 
         private void CatalogueCombox_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            GetByQry(CatalogueCombox.SelectedIndex);
+            if(CatalogueCombox.SelectedIndex != 0)
+            {
+                GetByQry(CatalogueCombox.SelectedIndex);
+            }
+            else
+            {
+                GetAll();
+            }
         }
 
         private void CatalogueCombox_Load(object sender, EventArgs e)
@@ -289,6 +331,12 @@ namespace TheBetterLimited.Views
             var list = JArray.Parse(json);
             foreach (JObject c in list)
             {
+                JToken storeStock = c["StockLevel"]["inStoreStock"];
+                JToken warehouseStock = c["StockLevel"]["warehouseStock"];
+                if (storeStock.Type == JTokenType.Null && warehouseStock.Type == JTokenType.Null)
+                {
+                    continue;
+                }
                 goods.Add(c);
                 Bitmap img = null;
                 JToken token = c["Photo"];
@@ -304,13 +352,12 @@ namespace TheBetterLimited.Views
                     img = Properties.Resources.product;
                 }
                 ProductInfo productBox = new ProductInfo();
-                productBox.Title = c["Name"].ToString();
+                productBox.Title = c["GoodsName"].ToString();
                 productBox.ProductPrice = (double)c["Price"];
                 productBox.Image = img;
                 productBox.BorderSelectedColor = Color.SeaGreen;
                 productBox.PicInfoClicked += new EventHandler(PictureBox_Click);
                 ProductInfoContainer.Controls.Add(productBox);
-
             }
         }
 
@@ -324,6 +371,16 @@ namespace TheBetterLimited.Views
         }
 
         private void roundButton2_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TotalAmountTxt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CartItemGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
 
         }

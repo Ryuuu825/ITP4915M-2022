@@ -29,32 +29,17 @@ namespace TheBetterLimited.Views
         private Bitmap icon = null;
         public JObject goodsData { get; set; }
         private OrderItem oi = new OrderItem();
+        private int stock;
+        private int stockLevel;
+        private string goodsId;
 
         public GoodsDetails()
         {
             InitializeComponent();
         }
 
-        private void SearchStaffBtn_Click(object sender, EventArgs e)
-        {
-            if (GoodsIDTxt.Texts.Substring(0, 1) != "S")
-            {
-                GoodsIDTxt.Focus();
-                MessageBox.Show("Staff ID should start with \"S\"! e.g. S0001 ");
-            }
-            else if (GoodsIDTxt.Texts.Length < 5)
-            {
-                MessageBox.Show("The length of Staff ID should be 5!");
-            }
-            else
-            {
-                GetStaff();
-            }
-        }
-
         public void InitInfo()
         {
-            // LocTxt.Texts = GoodsInfo.GetType().GetProperty("ID").GetValue(GoodsInfo).ToString();
             //init icon
             JToken token = goodsData["Photo"];
             if (token.Type != JTokenType.Null)
@@ -62,138 +47,72 @@ namespace TheBetterLimited.Views
                 byte[] byteBuffer = Convert.FromBase64String(goodsData["Photo"].ToString());
                 MemoryStream memoryStream = new MemoryStream(byteBuffer);
                 IconPic.Image = new Bitmap(memoryStream);
-                memoryStream.Close(); 
+                memoryStream.Close();
             }
             else
             {
                 IconPic.Image = Properties.Resources.product;
             }
-            
-            GoodsIDTxt.Texts = goodsData["Id"].ToString();
+
+            GoodsIDTxt.Texts = goodsData["GoodsId"].ToString();
             GTINCodeTxt.Texts = goodsData["GTINCode"].ToString();
             DescriptionTxt.Texts = goodsData["Description"].ToString();
-            PriceTxt.Texts = String.Format("{0:C2}",goodsData["Price"]); 
-            Info.Text = goodsData["Name"].ToString();
-
-            //cbSupplierGoods
-
-
-            //var res = JObject.Parse(result.Content);
-            //_staffId = res["_StaffId"].ToString();
-            /*if (res != null)
+            PriceTxt.Texts = String.Format("{0:C2}", goodsData["Price"]);
+            Console.WriteLine(goodsData["StockLevel"]["inStoreStock"]);
+            JToken jt = goodsData["StockLevel"]["inStoreStock"];
+            if (jt.Type != JTokenType.Null)
             {
-                GoodsIDTxt.Texts = _staffId;
-            }*/
-            //GetStaff();
-
-            //init account info
-            //GetAccount();
+                LocTxt.Texts = "In Store";
+                stock = (int)goodsData["StockLevel"]["inStoreStock"]["inStoreStock"];
+                StockTxt.Texts = stock.ToString();
+                stockLevel = (int)goodsData["StockLevel"]["inStoreStock"]["status"];
+                ShowStockLevel(stockLevel);
+                goodsId = goodsData["StockLevel"]["inStoreStock"]["_supplier_Goods_Stock_Id"].ToString();
+            }
+            else
+            {
+                LocTxt.Texts = "In Warehouse";
+                StockTxt.Texts = goodsData["StockLevel"]["warehouseStock"]["stock"].ToString();
+                stockLevel = (int)goodsData["StockLevel"]["warehouseStock"]["status"];
+                ShowStockLevel(stockLevel);
+                goodsId = goodsData["StockLevel"]["warehouseStock"]["_supplier_Goods_Stock_Id"].ToString();
+            }
+            CatalogueTxt.Texts = goodsData["Catalogue"].ToString();
+            ((RadioButton)SizeRadioGroup.Controls[(int)goodsData["GoodsSize"]]).Checked = true;
+            ((RadioButton)SizeRadioGroup.Controls[(int)goodsData["GoodsSize"]]).ForeColor = Color.SeaGreen;
+            ((RadioButton)StatusRadioGroup.Controls[(int)goodsData["GoodsStatus"]]).Checked = true;
+            ((RadioButton)StatusRadioGroup.Controls[(int)goodsData["GoodsStatus"]]).ForeColor = Color.SeaGreen;
+            Info.Text = goodsData["GoodsName"].ToString();
         }
 
-        private void GetStaff()
+        private void ShowStockLevel(int status)
         {
-            //result = sc.GetStaffById(GoodsIDTxt.Texts);
-            JObject staff = null;
-            try
+            switch (status)
             {
-                staff = JObject.Parse(result.Content);
-            }catch (Exception ex)
-            {
-                MessageBox.Show("Not found the staff " + GoodsIDTxt.Texts);
+                case 0:
+                    StockLevelTxt.Texts = "Out of Stock";
+                    StockLevelTxt.ForeColor = Color.FromArgb(203, 32, 39);
+                    break;
+                case 1:
+                    StockLevelTxt.Texts = "Re-oder";
+                    StockLevelTxt.ForeColor = Color.Gold;
+                    break;
+                case 2:
+                    StockLevelTxt.Texts = "Normal";
+                    break;
             }
-            
-            if (staff != null)
-            {
-                //_staffName = staff["FirstName"].ToString() + " " + staff["LastName"].ToString();
-                //CatalogueTxt.Texts = _staffName;
-                if (staff["Sex"].ToString().Equals("M"))
-                {
-                }
-                else
-                {
-                }
-            }
-            //result = dc.GetDepartmentById(staff["_departmentId"].ToString());
-            var department = JObject.Parse(result.Content);
-            //_deptName = department["Name"].ToString();
-            if (department != null)
-            {
-                GTINCodeTxt.Texts = department["Name"].ToString();
-            }
-
-            //result = pc.GetPositionById(staff["_positionId"].ToString());
-            var position = JObject.Parse(result.Content);
-            //_positionName = position["jobTitle"].ToString();
-            if (position != null)
-            {
-                //PriceTxt.Texts = _positionName;
-            }
-        }
-
-        private void GetAccount()
-        {
-            //result = uc.GetAccountById(_uid);
-            var user = JObject.Parse(result.Content);
-            if (user != null)
-            {
-
-                //_userName = user["userName"].ToString();
-                //StockTxt.Texts = _userName;
-                //_email = user["emailAddress"].ToString();
-                //StockLevelTxt.Texts = _email;
-                // = user["status"].ToString();
-                //_remark = user["remarks"].ToString();
-                //DescriptionTxt.Texts = _remark;
-                //if (_status.Equals("N"))
-                /*{
-                    NormalStatusRadio.Checked = true;
-                    LockStatusRadio.Checked = false;
-                }
-                else
-                {
-                    NormalStatusRadio.Checked = false;
-                    LockStatusRadio.Checked = true;
-                }*/
-            }
-        }
-
-        private void UserNameTxt_Enter(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(StockTxt.Text))
-            {
-
-            }
-        }
-
-        private void ValueUpdatedCheck()
-        {
         }
 
         private void NormalStatusRadio_CheckedChanged(object sender, EventArgs e)
         {
-            NormalStatusRadio.Checked = true;
-            LockStatusRadio.Checked = false;
+            sellRadio.Checked = true;
+            phaseOutRadio.Checked = false;
         }
 
         private void LockStatusRadio_CheckedChanged(object sender, EventArgs e)
         {
-            NormalStatusRadio.Checked = false;
-            LockStatusRadio.Checked = true;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            GoodsIDTxt.Focus();
-        }
-
-        private void UserName_Click(object sender, EventArgs e)
-        {
-            StockTxt.Focus();
-        }
-
-        private void Email_Click(object sender, EventArgs e)
-        {
-            StockLevelTxt.Focus();
+            sellRadio.Checked = false;
+            phaseOutRadio.Checked = true;
         }
 
         public event Action OnExit;
@@ -203,12 +122,6 @@ namespace TheBetterLimited.Views
             this.Dispose();
         }
 
-        private void SaveBtn_Click(object sender, EventArgs e)
-        {
-            List<object> updatedData = new List<object>();
-            
-        }
-
         private void GoodsDetails_Load(object sender, EventArgs e)
         {
             InitInfo();
@@ -216,7 +129,23 @@ namespace TheBetterLimited.Views
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            if (stockLevel == 0)
+            {
+                DialogResult result = MessageBox.Show("Current product is out of stock! \n Are you need to book this product?", "Warming", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+            }
 
+            GlobalsData.orderitem = new OrderItem();
+            GlobalsData.orderitem.SupplierGoodsStockId = goodsId;
+            GlobalsData.orderitem.Name = goodsData["GoodsName"].ToString();
+            GlobalsData.orderitem.Price = (double)goodsData["Price"];
+            GlobalsData.orderitem.Stock = stock;
+            this.OnExit.Invoke();
+            this.Close();
+            this.Dispose();
         }
     }
 }
