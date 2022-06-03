@@ -37,6 +37,10 @@ namespace TheBetterLimited.CustomizeControl
                 textBox1.Multiline = false;
                 this.Height = textBox1.Height + this.Padding.Top + this.Padding.Bottom;
                 this.Resize += new EventHandler(Textbox_Resize);
+            }else
+            {
+                textBox1.ScrollBars = ScrollBars.Vertical;
+                textBox1.ForeColor = this.ForeColor;
             }
         }
         private void UpdateTextForeColor()
@@ -45,6 +49,11 @@ namespace TheBetterLimited.CustomizeControl
             {
                 textBox1.ForeColor = Color.LightGray;
             }else
+            {
+                textBox1.ForeColor = this.ForeColor;
+            }
+
+            if (textBox1.ReadOnly == true)
             {
                 textBox1.ForeColor = this.ForeColor;
             }
@@ -172,6 +181,7 @@ namespace TheBetterLimited.CustomizeControl
             set
             {
                 textBox1.ReadOnly = value;
+                textBox1.ForeColor = this.ForeColor;
                 this.Invalidate();
             }
         }
