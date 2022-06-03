@@ -182,12 +182,6 @@
     <Compile Include="Views\Inventory\Appointment.Designer.cs">
       <DependentUpon>Appointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Inventory\Stock-Add - Copy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Inventory\Stock-Add - Copy.Designer.cs">
-      <DependentUpon>Stock-Add - Copy.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Inventory\Stock-Edit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -372,9 +366,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\Appointment.resx">
       <DependentUpon>Appointment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\Stock-Add - Copy.resx">
-      <DependentUpon>Stock-Add - Copy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\Stock-Edit.resx">
       <DependentUpon>Stock-Edit.cs</DependentUpon>

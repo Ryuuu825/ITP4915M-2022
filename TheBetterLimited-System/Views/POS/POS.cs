@@ -80,6 +80,7 @@ namespace TheBetterLimited.Views
 
         private void AddItem()
         {
+            bool isExist = false;
             if (orderItems.Count == 0)
             {
                 orderItems.Add(GlobalsData.orderitem);
@@ -91,15 +92,13 @@ namespace TheBetterLimited.Views
                     if (orderItems[i].SupplierGoodsStockId == GlobalsData.orderitem.SupplierGoodsStockId)
                     {
                         orderItems[i].Quantity += 1;
-                        Console.WriteLine("++");
+                        isExist = true;
                         break;
                     }
-                    else
-                    {
-                        Console.WriteLine("new");
-                        orderItems.Add(GlobalsData.orderitem);
-                    }
-
+                }
+                if (isExist == false)
+                {
+                    orderItems.Add(GlobalsData.orderitem);
                 }
             }
             GlobalsData.orderitem = null;
@@ -199,6 +198,10 @@ namespace TheBetterLimited.Views
             if (e.ColumnIndex == CartItemGrid.Columns["plus"].Index)
             {
                 int qty = Convert.ToInt32(CartItemGrid["qty", e.RowIndex].Value);
+                if(qty >= orderItems[e.RowIndex].Stock)
+                {
+                    MessageBox.Show("Product is out of stock! \n Do you need to pre-order this product?");
+                }
                 CartItemGrid["qty", e.RowIndex].Value = ++qty;
                 orderItems[e.RowIndex].Quantity = qty;
             }
