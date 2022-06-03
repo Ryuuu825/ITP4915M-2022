@@ -32,6 +32,7 @@ namespace TheBetterLimited.Views
         private int stock;
         private int stockLevel;
         private string goodsId;
+        private bool needDelivery;
 
         public GoodsDetails()
         {
@@ -129,16 +130,18 @@ namespace TheBetterLimited.Views
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            GlobalsData.orderitem = new OrderItem();
             if (stockLevel == 0)
             {
-                DialogResult result = MessageBox.Show("Current product is out of stock! \n Are you need to book this product?", "Warming", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Product is out of stock! \n Do you need to book this product?", "Warming", MessageBoxButtons.YesNo);
                 if (result == DialogResult.No)
                 {
                     return;
+                }else
+                {
+                    GlobalsData.orderitem.IsBook = true;
                 }
             }
-
-            GlobalsData.orderitem = new OrderItem();
             GlobalsData.orderitem.SupplierGoodsStockId = goodsId;
             GlobalsData.orderitem.Name = goodsData["GoodsName"].ToString();
             GlobalsData.orderitem.Price = (double)goodsData["Price"];

@@ -14,6 +14,7 @@ namespace TheBetterLimited.Models
         private int stock;
         private bool inStore;
         private bool isDisplay;
+        private bool isBook;
         private int quantity;
         private string remark;
 
@@ -26,6 +27,7 @@ namespace TheBetterLimited.Models
             this.quantity = 1;
             this.inStore = true;
             this.isDisplay = false;
+            this.isBook = false;
             this.remark = String.Empty;
         }
 
@@ -37,5 +39,6 @@ namespace TheBetterLimited.Models
         public bool IsDisplay { get => isDisplay; set => isDisplay = value; }
         public int Quantity { get => quantity; set => quantity = value; }
         public string Remark { get => remark; set => remark = value; }
+        public bool IsBook { get => isBook; set => isBook = value; }
     }
 }

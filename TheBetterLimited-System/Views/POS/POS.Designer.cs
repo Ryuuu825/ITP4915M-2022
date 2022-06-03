@@ -51,6 +51,7 @@
             this.defectItemBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.OrderBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.settleAccBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.roundButton1 = new TheBetterLimited.CustomizeControl.RoundButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ProductActionBox = new System.Windows.Forms.FlowLayoutPanel();
             this.CatalogueCombox = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
@@ -232,6 +233,7 @@
             this.POSActionGroup.Controls.Add(this.defectItemBtn);
             this.POSActionGroup.Controls.Add(this.OrderBtn);
             this.POSActionGroup.Controls.Add(this.settleAccBtn);
+            this.POSActionGroup.Controls.Add(this.roundButton1);
             this.POSActionGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.POSActionGroup.Location = new System.Drawing.Point(0, 10);
             this.POSActionGroup.Name = "POSActionGroup";
@@ -261,7 +263,6 @@
             this.defectItemBtn.Text = "Handle Defect Item";
             this.defectItemBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.defectItemBtn.UseVisualStyleBackColor = false;
-            this.defectItemBtn.MouseHover += new System.EventHandler(this.roundButton2_MouseHover);
             // 
             // OrderBtn
             // 
@@ -314,6 +315,29 @@
             this.settleAccBtn.MouseLeave += new System.EventHandler(this.HoldBtn_MouseLeave);
             this.settleAccBtn.MouseHover += new System.EventHandler(this.HoldBtn_MouseHover);
             // 
+            // roundButton1
+            // 
+            this.roundButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.roundButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.roundButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.roundButton1.BorderRadius = 5;
+            this.roundButton1.BorderSize = 2;
+            this.roundButton1.FlatAppearance.BorderSize = 0;
+            this.roundButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.roundButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.roundButton1.IsChecked = false;
+            this.roundButton1.Location = new System.Drawing.Point(188, 59);
+            this.roundButton1.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.roundButton1.Name = "roundButton1";
+            this.roundButton1.Size = new System.Drawing.Size(165, 40);
+            this.roundButton1.TabIndex = 6;
+            this.roundButton1.Text = "Settle  Account";
+            this.roundButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.roundButton1.UseVisualStyleBackColor = false;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
@@ -328,6 +352,7 @@
             // 
             // ProductActionBox
             // 
+            this.ProductActionBox.AutoScroll = true;
             this.ProductActionBox.AutoSize = true;
             this.ProductActionBox.BackColor = System.Drawing.Color.White;
             this.ProductActionBox.Controls.Add(this.curdAction);
@@ -338,7 +363,6 @@
             this.ProductActionBox.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
             this.ProductActionBox.Size = new System.Drawing.Size(378, 47);
             this.ProductActionBox.TabIndex = 1;
-            this.ProductActionBox.Paint += new System.Windows.Forms.PaintEventHandler(this.ProductActionBox_Paint);
             // 
             // CatalogueCombox
             // 
@@ -361,7 +385,7 @@
             this.CatalogueCombox.Size = new System.Drawing.Size(289, 40);
             this.CatalogueCombox.TabIndex = 0;
             this.CatalogueCombox.Texts = "Catalogue";
-            this.CatalogueCombox.UnderlinedStyle = true;
+            this.CatalogueCombox.UnderlinedStyle = false;
             this.CatalogueCombox.OnSelectedIndexChanged += new System.EventHandler(this.CatalogueCombox_OnSelectedIndexChanged);
             this.CatalogueCombox.Load += new System.EventHandler(this.CatalogueCombox_Load);
             // 
@@ -676,7 +700,6 @@
             this.TotalAmountTxt.TabIndex = 3;
             this.TotalAmountTxt.Text = "HK$0.00";
             this.TotalAmountTxt.UseMnemonic = false;
-            this.TotalAmountTxt.Click += new System.EventHandler(this.TotalAmountTxt_Click);
             // 
             // AmountTitle
             // 
@@ -749,7 +772,6 @@
             this.HoldBtn.Text = "Hold Order";
             this.HoldBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.HoldBtn.UseVisualStyleBackColor = false;
-            this.HoldBtn.Click += new System.EventHandler(this.HoldBtn_Click);
             this.HoldBtn.MouseLeave += new System.EventHandler(this.HoldBtn_MouseLeave);
             this.HoldBtn.MouseHover += new System.EventHandler(this.HoldBtn_MouseHover);
             // 
@@ -771,7 +793,7 @@
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(115, 40);
             this.CancelBtn.TabIndex = 1;
-            this.CancelBtn.Text = "Cancel Order";
+            this.CancelBtn.Text = "Clear Cart";
             this.CancelBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.CancelBtn.UseVisualStyleBackColor = false;
             this.CancelBtn.MouseLeave += new System.EventHandler(this.CancelBtn_MouseLeave);
@@ -852,8 +874,6 @@
             this.Name = "POS";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "POS";
-            this.Load += new System.EventHandler(this.POS_Load);
-            this.Resize += new System.EventHandler(this.POS_Resize);
             this.SearchBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.curdAction.ResumeLayout(false);
@@ -917,6 +937,7 @@
         private CustomizeControl.CustomizeComboBox CatalogueCombox;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label menuTitle;
+        private CustomizeControl.RoundButton roundButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn userName;
         private System.Windows.Forms.DataGridViewImageColumn sub;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;

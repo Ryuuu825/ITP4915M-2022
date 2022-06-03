@@ -343,7 +343,7 @@
             this.SearchBarTxt.Location = new System.Drawing.Point(0, 0);
             this.SearchBarTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.SearchBarTxt.MaxLength = 20;
-            this.SearchBarTxt.Multiline = true;
+            this.SearchBarTxt.Multiline = false;
             this.SearchBarTxt.Name = "SearchBarTxt";
             this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(22, 8, 8, 6);
             this.SearchBarTxt.PasswordChar = false;

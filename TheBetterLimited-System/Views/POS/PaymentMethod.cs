@@ -30,6 +30,8 @@ namespace TheBetterLimited.Views
         public JObject goodsData { get; set; }
         private OrderItem oi = new OrderItem();
 
+        public event Action OnExit;
+
         public PaymentMethod()
         {
             InitializeComponent();

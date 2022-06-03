@@ -255,7 +255,7 @@
             this.RemarkTxt.Location = new System.Drawing.Point(166, 171);
             this.RemarkTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.RemarkTxt.MaxLength = 20;
-            this.RemarkTxt.Multiline = true;
+            this.RemarkTxt.Multiline = false;
             this.RemarkTxt.Name = "RemarkTxt";
             this.RemarkTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.RemarkTxt.PasswordChar = false;
@@ -389,7 +389,7 @@
             this.UserIdTxt.Location = new System.Drawing.Point(167, 11);
             this.UserIdTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.UserIdTxt.MaxLength = 20;
-            this.UserIdTxt.Multiline = true;
+            this.UserIdTxt.Multiline = false;
             this.UserIdTxt.Name = "UserIdTxt";
             this.UserIdTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.UserIdTxt.PasswordChar = false;
@@ -519,7 +519,7 @@
             this.StaffIDTxt.Location = new System.Drawing.Point(168, 11);
             this.StaffIDTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.StaffIDTxt.MaxLength = 5;
-            this.StaffIDTxt.Multiline = true;
+            this.StaffIDTxt.Multiline = false;
             this.StaffIDTxt.Name = "StaffIDTxt";
             this.StaffIDTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.StaffIDTxt.PasswordChar = false;
@@ -580,7 +580,7 @@
             this.PositionTxt.Location = new System.Drawing.Point(168, 140);
             this.PositionTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PositionTxt.MaxLength = 32767;
-            this.PositionTxt.Multiline = true;
+            this.PositionTxt.Multiline = false;
             this.PositionTxt.Name = "PositionTxt";
             this.PositionTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.PositionTxt.PasswordChar = false;
@@ -618,7 +618,7 @@
             this.DeptTxt.Location = new System.Drawing.Point(168, 97);
             this.DeptTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.DeptTxt.MaxLength = 32767;
-            this.DeptTxt.Multiline = true;
+            this.DeptTxt.Multiline = false;
             this.DeptTxt.Name = "DeptTxt";
             this.DeptTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.DeptTxt.PasswordChar = false;
@@ -656,7 +656,7 @@
             this.StaffNameTxt.Location = new System.Drawing.Point(168, 54);
             this.StaffNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.StaffNameTxt.MaxLength = 32767;
-            this.StaffNameTxt.Multiline = true;
+            this.StaffNameTxt.Multiline = false;
             this.StaffNameTxt.Name = "StaffNameTxt";
             this.StaffNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.StaffNameTxt.PasswordChar = false;

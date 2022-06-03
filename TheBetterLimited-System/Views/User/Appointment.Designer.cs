@@ -1,6 +1,6 @@
 ﻿namespace TheBetterLimited.Views
 {
-    partial class Appointment_Add
+    partial class Appointment
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.MainForm = new System.Windows.Forms.Panel();
-            this.BottomBtn = new System.Windows.Forms.Panel();
-            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.InstallSessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
@@ -52,18 +49,21 @@
             this.GTINCode = new System.Windows.Forms.Label();
             this.Catalogue = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.DeptTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.StaffNameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
+            this.DeptTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.BottomBtn = new System.Windows.Forms.Panel();
+            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.MainForm.SuspendLayout();
-            this.BottomBtn.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.CustomerInfo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.UserInfoHeaderContainer.SuspendLayout();
+            this.BottomBtn.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainForm
@@ -78,61 +78,6 @@
             this.MainForm.Name = "MainForm";
             this.MainForm.Size = new System.Drawing.Size(520, 671);
             this.MainForm.TabIndex = 3;
-            // 
-            // BottomBtn
-            // 
-            this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.BottomBtn.Controls.Add(this.CancelBtn);
-            this.BottomBtn.Controls.Add(this.SaveBtn);
-            this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(0, 617);
-            this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.BottomBtn.Name = "BottomBtn";
-            this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.BottomBtn.Size = new System.Drawing.Size(520, 54);
-            this.BottomBtn.TabIndex = 34;
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.BackColor = System.Drawing.Color.Silver;
-            this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
-            this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.CancelBtn.BorderRadius = 10;
-            this.CancelBtn.BorderSize = 0;
-            this.CancelBtn.FlatAppearance.BorderSize = 0;
-            this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.ForeColor = System.Drawing.Color.White;
-            this.CancelBtn.IsChecked = false;
-            this.CancelBtn.Location = new System.Drawing.Point(86, 6);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(145, 40);
-            this.CancelBtn.TabIndex = 1;
-            this.CancelBtn.Text = "Cancel";
-            this.CancelBtn.TextColor = System.Drawing.Color.White;
-            this.CancelBtn.UseVisualStyleBackColor = false;
-            // 
-            // SaveBtn
-            // 
-            this.SaveBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.SaveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.SaveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.SaveBtn.BorderRadius = 10;
-            this.SaveBtn.BorderSize = 0;
-            this.SaveBtn.FlatAppearance.BorderSize = 0;
-            this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveBtn.IsChecked = false;
-            this.SaveBtn.Location = new System.Drawing.Point(285, 6);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(145, 40);
-            this.SaveBtn.TabIndex = 0;
-            this.SaveBtn.Text = "Save";
-            this.SaveBtn.TextColor = System.Drawing.Color.White;
-            this.SaveBtn.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -404,32 +349,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Name";
             // 
-            // DeptTxt
-            // 
-            this.DeptTxt.BackColor = System.Drawing.Color.White;
-            this.DeptTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.DeptTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.DeptTxt.BorderRadius = 10;
-            this.DeptTxt.BorderSize = 1;
-            this.DeptTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeptTxt.ForeColor = System.Drawing.Color.Black;
-            this.DeptTxt.IsError = false;
-            this.DeptTxt.Location = new System.Drawing.Point(163, 105);
-            this.DeptTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.DeptTxt.MaxLength = 32767;
-            this.DeptTxt.Multiline = true;
-            this.DeptTxt.Name = "DeptTxt";
-            this.DeptTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.DeptTxt.PasswordChar = false;
-            this.DeptTxt.Placeholder = "";
-            this.DeptTxt.ReadOnly = false;
-            this.DeptTxt.Size = new System.Drawing.Size(307, 109);
-            this.DeptTxt.TabIndex = 25;
-            this.DeptTxt.TbBackColor = System.Drawing.Color.White;
-            this.DeptTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
-            this.DeptTxt.Texts = "";
-            this.DeptTxt.UnderlinedStyle = false;
-            // 
             // StaffNameTxt
             // 
             this.StaffNameTxt.BackColor = System.Drawing.Color.White;
@@ -477,6 +396,87 @@
             this.GoodsInfoHeader.TabIndex = 6;
             this.GoodsInfoHeader.Text = "Customer Information";
             // 
+            // DeptTxt
+            // 
+            this.DeptTxt.BackColor = System.Drawing.Color.White;
+            this.DeptTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.DeptTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.DeptTxt.BorderRadius = 10;
+            this.DeptTxt.BorderSize = 1;
+            this.DeptTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeptTxt.ForeColor = System.Drawing.Color.Black;
+            this.DeptTxt.IsError = false;
+            this.DeptTxt.Location = new System.Drawing.Point(163, 105);
+            this.DeptTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.DeptTxt.MaxLength = 32767;
+            this.DeptTxt.Multiline = true;
+            this.DeptTxt.Name = "DeptTxt";
+            this.DeptTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.DeptTxt.PasswordChar = false;
+            this.DeptTxt.Placeholder = "";
+            this.DeptTxt.ReadOnly = false;
+            this.DeptTxt.Size = new System.Drawing.Size(307, 109);
+            this.DeptTxt.TabIndex = 25;
+            this.DeptTxt.TbBackColor = System.Drawing.Color.White;
+            this.DeptTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
+            this.DeptTxt.Texts = "";
+            this.DeptTxt.UnderlinedStyle = false;
+            // 
+            // BottomBtn
+            // 
+            this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.BottomBtn.Controls.Add(this.CancelBtn);
+            this.BottomBtn.Controls.Add(this.SaveBtn);
+            this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BottomBtn.Location = new System.Drawing.Point(0, 617);
+            this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.BottomBtn.Name = "BottomBtn";
+            this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
+            this.BottomBtn.Size = new System.Drawing.Size(520, 54);
+            this.BottomBtn.TabIndex = 34;
+            // 
+            // CancelBtn
+            // 
+            this.CancelBtn.BackColor = System.Drawing.Color.Silver;
+            this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
+            this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.CancelBtn.BorderRadius = 10;
+            this.CancelBtn.BorderSize = 0;
+            this.CancelBtn.FlatAppearance.BorderSize = 0;
+            this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
+            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelBtn.ForeColor = System.Drawing.Color.White;
+            this.CancelBtn.IsChecked = false;
+            this.CancelBtn.Location = new System.Drawing.Point(86, 6);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(145, 40);
+            this.CancelBtn.TabIndex = 1;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.TextColor = System.Drawing.Color.White;
+            this.CancelBtn.UseVisualStyleBackColor = false;
+            // 
+            // SaveBtn
+            // 
+            this.SaveBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.SaveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.SaveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.SaveBtn.BorderRadius = 10;
+            this.SaveBtn.BorderSize = 0;
+            this.SaveBtn.FlatAppearance.BorderSize = 0;
+            this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveBtn.ForeColor = System.Drawing.Color.White;
+            this.SaveBtn.IsChecked = false;
+            this.SaveBtn.Location = new System.Drawing.Point(285, 6);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(145, 40);
+            this.SaveBtn.TabIndex = 0;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.TextColor = System.Drawing.Color.White;
+            this.SaveBtn.UseVisualStyleBackColor = false;
+            // 
             // Appointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -491,9 +491,8 @@
             this.Name = "Appointment";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Appointment-Info";
+            this.Text = "Appointment";
             this.MainForm.ResumeLayout(false);
-            this.BottomBtn.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -504,6 +503,7 @@
             this.panel1.PerformLayout();
             this.UserInfoHeaderContainer.ResumeLayout(false);
             this.UserInfoHeaderContainer.PerformLayout();
+            this.BottomBtn.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
