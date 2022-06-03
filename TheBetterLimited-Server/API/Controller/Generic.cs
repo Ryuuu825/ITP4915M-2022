@@ -123,6 +123,11 @@ namespace TheBetterLimited_Server.API.Controller
     {
         public Transaction(Data.DataContext db) : base(db) {}
     }
+
+    public class Goods : APIControllerBase<Data.Entity.Goods>
+    {
+        public Goods(Data.DataContext db) : base(db) {}
+    }
     
 
 

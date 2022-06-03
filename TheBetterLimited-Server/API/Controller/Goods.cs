@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace TheBetterLimited_Server.API.Controller
 {
-    [Route("api/[controller]")]
+    [Route("/api/pos/goods")]
     [Authorize]
-    public class Goods : ControllerBase
+    public class POSGoods : ControllerBase
     {
         private readonly AppLogic.Controllers.GoodsController gc;
-        public Goods(Data.DataContext db) 
+        public POSGoods(Data.DataContext db) 
         {
             gc = new AppLogic.Controllers.GoodsController(db);
         }
