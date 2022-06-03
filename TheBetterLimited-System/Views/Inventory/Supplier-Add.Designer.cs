@@ -64,7 +64,7 @@
             this.BottomBtn.Controls.Add(this.btnAddSupplier);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(10, 577);
+            this.BottomBtn.Location = new System.Drawing.Point(10, 415);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
@@ -124,7 +124,7 @@
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
             this.MainForm.Padding = new System.Windows.Forms.Padding(10);
-            this.MainForm.Size = new System.Drawing.Size(784, 641);
+            this.MainForm.Size = new System.Drawing.Size(784, 479);
             this.MainForm.TabIndex = 2;
             // 
             // UserInfo
@@ -135,7 +135,7 @@
             this.UserInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserInfo.Location = new System.Drawing.Point(10, 10);
             this.UserInfo.Name = "UserInfo";
-            this.UserInfo.Size = new System.Drawing.Size(764, 562);
+            this.UserInfo.Size = new System.Drawing.Size(764, 395);
             this.UserInfo.TabIndex = 24;
             // 
             // panel1
@@ -157,7 +157,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(764, 522);
+            this.panel1.Size = new System.Drawing.Size(764, 355);
             this.panel1.TabIndex = 27;
             // 
             // txtEmail
@@ -441,7 +441,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(784, 641);
+            this.ClientSize = new System.Drawing.Size(784, 479);
             this.Controls.Add(this.MainForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);

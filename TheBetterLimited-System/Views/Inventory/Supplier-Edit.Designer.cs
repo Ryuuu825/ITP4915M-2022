@@ -1,6 +1,6 @@
 ﻿namespace TheBetterLimited.Views
 {
-    partial class Supplier_Add
+    partial class Supplier_Edit
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,16 @@
         {
             this.BottomBtn = new System.Windows.Forms.Panel();
             this.btnCancel = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.btnAddSupplier = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.btnSave = new TheBetterLimited.CustomizeControl.RoundButton();
             this.MainForm = new System.Windows.Forms.Panel();
             this.UserInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSupplierName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.Info = new System.Windows.Forms.Label();
+            this.Title = new System.Windows.Forms.Label();
+            this.txtContact = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.txtAddress = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.lblAddress = new System.Windows.Forms.Label();
             this.txtEmail = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtSupplierId = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
@@ -44,12 +50,6 @@
             this.txtPhone = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.SupplierInfoHeader = new System.Windows.Forms.Label();
-            this.txtAddress = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.lblAddress = new System.Windows.Forms.Label();
-            this.txtContact = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.Info = new System.Windows.Forms.Label();
-            this.Title = new System.Windows.Forms.Label();
-            this.txtSupplierName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.BottomBtn.SuspendLayout();
             this.MainForm.SuspendLayout();
             this.UserInfo.SuspendLayout();
@@ -61,10 +61,10 @@
             // 
             this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.BottomBtn.Controls.Add(this.btnCancel);
-            this.BottomBtn.Controls.Add(this.btnAddSupplier);
+            this.BottomBtn.Controls.Add(this.btnSave);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(10, 577);
+            this.BottomBtn.Location = new System.Drawing.Point(10, 407);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
@@ -93,26 +93,26 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
-            // btnAddSupplier
+            // btnSave
             // 
-            this.btnAddSupplier.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAddSupplier.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.btnAddSupplier.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAddSupplier.BorderRadius = 10;
-            this.btnAddSupplier.BorderSize = 0;
-            this.btnAddSupplier.FlatAppearance.BorderSize = 0;
-            this.btnAddSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddSupplier.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddSupplier.ForeColor = System.Drawing.Color.White;
-            this.btnAddSupplier.IsChecked = false;
-            this.btnAddSupplier.Location = new System.Drawing.Point(623, 6);
-            this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(128, 40);
-            this.btnAddSupplier.TabIndex = 6;
-            this.btnAddSupplier.Text = "Add Supplier";
-            this.btnAddSupplier.TextColor = System.Drawing.Color.White;
-            this.btnAddSupplier.UseVisualStyleBackColor = false;
-            this.btnAddSupplier.Click += new System.EventHandler(this.CreateUser_Click);
+            this.btnSave.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.BorderSize = 0;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.IsChecked = false;
+            this.btnSave.Location = new System.Drawing.Point(623, 6);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(128, 40);
+            this.btnSave.TabIndex = 6;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextColor = System.Drawing.Color.White;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.CreateUser_Click);
             // 
             // MainForm
             // 
@@ -124,7 +124,7 @@
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
             this.MainForm.Padding = new System.Windows.Forms.Padding(10);
-            this.MainForm.Size = new System.Drawing.Size(784, 641);
+            this.MainForm.Size = new System.Drawing.Size(784, 471);
             this.MainForm.TabIndex = 2;
             // 
             // UserInfo
@@ -135,7 +135,7 @@
             this.UserInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserInfo.Location = new System.Drawing.Point(10, 10);
             this.UserInfo.Name = "UserInfo";
-            this.UserInfo.Size = new System.Drawing.Size(764, 562);
+            this.UserInfo.Size = new System.Drawing.Size(764, 391);
             this.UserInfo.TabIndex = 24;
             // 
             // panel1
@@ -157,8 +157,119 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(764, 522);
+            this.panel1.Size = new System.Drawing.Size(764, 351);
             this.panel1.TabIndex = 27;
+            // 
+            // txtSupplierName
+            // 
+            this.txtSupplierName.BackColor = System.Drawing.Color.White;
+            this.txtSupplierName.BorderColor = System.Drawing.Color.LightGray;
+            this.txtSupplierName.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtSupplierName.BorderRadius = 10;
+            this.txtSupplierName.BorderSize = 1;
+            this.txtSupplierName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupplierName.ForeColor = System.Drawing.Color.LightGray;
+            this.txtSupplierName.IsError = false;
+            this.txtSupplierName.Location = new System.Drawing.Point(161, 66);
+            this.txtSupplierName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtSupplierName.MaxLength = 32767;
+            this.txtSupplierName.Multiline = false;
+            this.txtSupplierName.Name = "txtSupplierName";
+            this.txtSupplierName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtSupplierName.PasswordChar = false;
+            this.txtSupplierName.Placeholder = "Please enter the name of the supplier";
+            this.txtSupplierName.ReadOnly = false;
+            this.txtSupplierName.Size = new System.Drawing.Size(307, 38);
+            this.txtSupplierName.TabIndex = 41;
+            this.txtSupplierName.TbBackColor = System.Drawing.Color.White;
+            this.txtSupplierName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtSupplierName.Texts = "Please enter the name of the supplier";
+            this.txtSupplierName.UnderlinedStyle = false;
+            // 
+            // Info
+            // 
+            this.Info.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Info.Location = new System.Drawing.Point(511, 45);
+            this.Info.Name = "Info";
+            this.Info.Size = new System.Drawing.Size(240, 110);
+            this.Info.TabIndex = 5;
+            this.Info.Text = "SupplierSupplierSupplierSupplierSupplierSupplierSupplierSupplierSupplierSupplierS" +
+    "upplierSupplierSupplier";
+            // 
+            // Title
+            // 
+            this.Title.AutoSize = true;
+            this.Title.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.ForeColor = System.Drawing.Color.SeaGreen;
+            this.Title.Location = new System.Drawing.Point(510, 15);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(139, 30);
+            this.Title.TabIndex = 3;
+            this.Title.Text = "Edit Supplier";
+            // 
+            // txtContact
+            // 
+            this.txtContact.BackColor = System.Drawing.Color.White;
+            this.txtContact.BorderColor = System.Drawing.Color.LightGray;
+            this.txtContact.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtContact.BorderRadius = 10;
+            this.txtContact.BorderSize = 1;
+            this.txtContact.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContact.ForeColor = System.Drawing.Color.LightGray;
+            this.txtContact.IsError = false;
+            this.txtContact.Location = new System.Drawing.Point(161, 172);
+            this.txtContact.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtContact.MaxLength = 32767;
+            this.txtContact.Multiline = false;
+            this.txtContact.Name = "txtContact";
+            this.txtContact.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtContact.PasswordChar = false;
+            this.txtContact.Placeholder = "Please enter the contact";
+            this.txtContact.ReadOnly = false;
+            this.txtContact.Size = new System.Drawing.Size(307, 38);
+            this.txtContact.TabIndex = 40;
+            this.txtContact.TbBackColor = System.Drawing.Color.White;
+            this.txtContact.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtContact.Texts = "Please enter the contact";
+            this.txtContact.UnderlinedStyle = false;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.BackColor = System.Drawing.Color.White;
+            this.txtAddress.BorderColor = System.Drawing.Color.LightGray;
+            this.txtAddress.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtAddress.BorderRadius = 10;
+            this.txtAddress.BorderSize = 1;
+            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.ForeColor = System.Drawing.Color.LightGray;
+            this.txtAddress.IsError = false;
+            this.txtAddress.Location = new System.Drawing.Point(161, 284);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtAddress.MaxLength = 32767;
+            this.txtAddress.Multiline = false;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtAddress.PasswordChar = false;
+            this.txtAddress.Placeholder = "Please enter the address";
+            this.txtAddress.ReadOnly = false;
+            this.txtAddress.Size = new System.Drawing.Size(307, 38);
+            this.txtAddress.TabIndex = 31;
+            this.txtAddress.TbBackColor = System.Drawing.Color.White;
+            this.txtAddress.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtAddress.Texts = "Please enter the address";
+            this.txtAddress.UnderlinedStyle = false;
+            // 
+            // lblAddress
+            // 
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddress.Location = new System.Drawing.Point(60, 293);
+            this.lblAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(66, 21);
+            this.lblAddress.TabIndex = 30;
+            this.lblAddress.Text = "Address";
+            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtEmail
             // 
@@ -325,132 +436,21 @@
             this.SupplierInfoHeader.TabIndex = 6;
             this.SupplierInfoHeader.Text = "Supplier Information";
             // 
-            // txtAddress
-            // 
-            this.txtAddress.BackColor = System.Drawing.Color.White;
-            this.txtAddress.BorderColor = System.Drawing.Color.LightGray;
-            this.txtAddress.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.txtAddress.BorderRadius = 10;
-            this.txtAddress.BorderSize = 1;
-            this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.ForeColor = System.Drawing.Color.LightGray;
-            this.txtAddress.IsError = false;
-            this.txtAddress.Location = new System.Drawing.Point(161, 284);
-            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtAddress.MaxLength = 32767;
-            this.txtAddress.Multiline = false;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtAddress.PasswordChar = false;
-            this.txtAddress.Placeholder = "Please enter the address";
-            this.txtAddress.ReadOnly = false;
-            this.txtAddress.Size = new System.Drawing.Size(307, 38);
-            this.txtAddress.TabIndex = 31;
-            this.txtAddress.TbBackColor = System.Drawing.Color.White;
-            this.txtAddress.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.txtAddress.Texts = "Please enter the address";
-            this.txtAddress.UnderlinedStyle = false;
-            // 
-            // lblAddress
-            // 
-            this.lblAddress.AutoSize = true;
-            this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(60, 293);
-            this.lblAddress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(66, 21);
-            this.lblAddress.TabIndex = 30;
-            this.lblAddress.Text = "Address";
-            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtContact
-            // 
-            this.txtContact.BackColor = System.Drawing.Color.White;
-            this.txtContact.BorderColor = System.Drawing.Color.LightGray;
-            this.txtContact.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.txtContact.BorderRadius = 10;
-            this.txtContact.BorderSize = 1;
-            this.txtContact.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContact.ForeColor = System.Drawing.Color.LightGray;
-            this.txtContact.IsError = false;
-            this.txtContact.Location = new System.Drawing.Point(161, 172);
-            this.txtContact.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtContact.MaxLength = 32767;
-            this.txtContact.Multiline = false;
-            this.txtContact.Name = "txtContact";
-            this.txtContact.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtContact.PasswordChar = false;
-            this.txtContact.Placeholder = "Please enter the contact";
-            this.txtContact.ReadOnly = false;
-            this.txtContact.Size = new System.Drawing.Size(307, 38);
-            this.txtContact.TabIndex = 40;
-            this.txtContact.TbBackColor = System.Drawing.Color.White;
-            this.txtContact.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.txtContact.Texts = "Please enter the contact";
-            this.txtContact.UnderlinedStyle = false;
-            // 
-            // Info
-            // 
-            this.Info.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Info.Location = new System.Drawing.Point(511, 45);
-            this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(240, 110);
-            this.Info.TabIndex = 5;
-            this.Info.Text = "SupplierSupplierSupplierSupplierSupplierSupplierSupplierSupplierSupplierSupplierS" +
-    "upplierSupplierSupplier";
-            // 
-            // Title
-            // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.ForeColor = System.Drawing.Color.SeaGreen;
-            this.Title.Location = new System.Drawing.Point(510, 15);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(142, 30);
-            this.Title.TabIndex = 3;
-            this.Title.Text = "Add Supplier";
-            // 
-            // txtSupplierName
-            // 
-            this.txtSupplierName.BackColor = System.Drawing.Color.White;
-            this.txtSupplierName.BorderColor = System.Drawing.Color.LightGray;
-            this.txtSupplierName.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.txtSupplierName.BorderRadius = 10;
-            this.txtSupplierName.BorderSize = 1;
-            this.txtSupplierName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierName.ForeColor = System.Drawing.Color.LightGray;
-            this.txtSupplierName.IsError = false;
-            this.txtSupplierName.Location = new System.Drawing.Point(161, 66);
-            this.txtSupplierName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtSupplierName.MaxLength = 32767;
-            this.txtSupplierName.Multiline = false;
-            this.txtSupplierName.Name = "txtSupplierName";
-            this.txtSupplierName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtSupplierName.PasswordChar = false;
-            this.txtSupplierName.Placeholder = "Please enter the name of the supplier";
-            this.txtSupplierName.ReadOnly = false;
-            this.txtSupplierName.Size = new System.Drawing.Size(307, 38);
-            this.txtSupplierName.TabIndex = 41;
-            this.txtSupplierName.TbBackColor = System.Drawing.Color.White;
-            this.txtSupplierName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.txtSupplierName.Texts = "Please enter the name of the supplier";
-            this.txtSupplierName.UnderlinedStyle = false;
-            // 
-            // Supplier_Add
+            // Supplier_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(784, 641);
+            this.ClientSize = new System.Drawing.Size(784, 471);
             this.Controls.Add(this.MainForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1200, 900);
-            this.Name = "Supplier_Add";
+            this.Name = "Supplier_Edit";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Supplier";
+            this.Text = "Edit Supplier";
             this.BottomBtn.ResumeLayout(false);
             this.MainForm.ResumeLayout(false);
             this.UserInfo.ResumeLayout(false);
@@ -476,7 +476,7 @@
         private CustomizeControl.CustomizeTextbox txtPhone;
         private System.Windows.Forms.Panel panel1;
         private CustomizeControl.RoundButton btnCancel;
-        private CustomizeControl.RoundButton btnAddSupplier;
+        private CustomizeControl.RoundButton btnSave;
         private CustomizeControl.CustomizeTextbox txtEmail;
         private System.Windows.Forms.Label lblEmail;
         private CustomizeControl.CustomizeTextbox txtAddress;

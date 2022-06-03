@@ -16,7 +16,7 @@ using TheBetterLimited.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class Inventorymanagement_Add : Form
+    public partial class Inventorymanagement_Edit : Form
     {
         private StaffController sc = new StaffController();
         private PositionController pc = new PositionController();
@@ -26,7 +26,7 @@ namespace TheBetterLimited.Views
         private bool isUpload = false;
         private Bitmap icon = Properties.Resources._default;
 
-        public Inventorymanagement_Add()
+        public Inventorymanagement_Edit()
         {
             InitializeComponent();
         }

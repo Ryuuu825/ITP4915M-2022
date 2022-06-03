@@ -1,6 +1,6 @@
 ﻿namespace TheBetterLimited.Views
 {
-    partial class Inventorymanagement_Add
+    partial class Inventorymanagement_Edit
     {
         /// <summary>
         /// Required designer variable.
@@ -32,12 +32,16 @@
             this.Info = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.Label();
             this.Title = new System.Windows.Forms.Label();
+            this.GoodsPic = new System.Windows.Forms.PictureBox();
             this.BottomBtn = new System.Windows.Forms.Panel();
             this.btnCancel = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.btnAddGoods = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.btnSave = new TheBetterLimited.CustomizeControl.RoundButton();
             this.MainForm = new System.Windows.Forms.Panel();
             this.UserInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbxStatus = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.cbxSize = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.cbxCatalogue = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
             this.txtGTINCode = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
@@ -53,17 +57,13 @@
             this.txtGoodsName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
-            this.cbxCatalogue = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.cbxSize = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.cbxStatus = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.GoodsPic = new System.Windows.Forms.PictureBox();
             this.Header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GoodsPic)).BeginInit();
             this.BottomBtn.SuspendLayout();
             this.MainForm.SuspendLayout();
             this.UserInfo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.UserInfoHeaderContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GoodsPic)).BeginInit();
             this.SuspendLayout();
             // 
             // Header
@@ -108,15 +108,31 @@
             this.Title.ForeColor = System.Drawing.Color.SeaGreen;
             this.Title.Location = new System.Drawing.Point(16, 273);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(123, 30);
+            this.Title.Size = new System.Drawing.Size(120, 30);
             this.Title.TabIndex = 3;
-            this.Title.Text = "Add Goods";
+            this.Title.Text = "Edit Goods";
+            // 
+            // GoodsPic
+            // 
+            this.GoodsPic.BackColor = System.Drawing.Color.Transparent;
+            this.GoodsPic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GoodsPic.Image = global::TheBetterLimited.Properties.Resources.photo_upload;
+            this.GoodsPic.Location = new System.Drawing.Point(21, 12);
+            this.GoodsPic.Name = "GoodsPic";
+            this.GoodsPic.Size = new System.Drawing.Size(230, 230);
+            this.GoodsPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.GoodsPic.TabIndex = 2;
+            this.GoodsPic.TabStop = false;
+            this.GoodsPic.Click += new System.EventHandler(this.UserIconPic_Click);
+            this.GoodsPic.Paint += new System.Windows.Forms.PaintEventHandler(this.UserIconPic_Paint);
+            this.GoodsPic.MouseLeave += new System.EventHandler(this.UserIconPic_MouseLeave);
+            this.GoodsPic.MouseHover += new System.EventHandler(this.UserIconPic_MouseHover);
             // 
             // BottomBtn
             // 
             this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.BottomBtn.Controls.Add(this.btnCancel);
-            this.BottomBtn.Controls.Add(this.btnAddGoods);
+            this.BottomBtn.Controls.Add(this.btnSave);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BottomBtn.Location = new System.Drawing.Point(10, 577);
@@ -148,26 +164,26 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
-            // btnAddGoods
+            // btnSave
             // 
-            this.btnAddGoods.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAddGoods.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.btnAddGoods.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAddGoods.BorderRadius = 10;
-            this.btnAddGoods.BorderSize = 0;
-            this.btnAddGoods.FlatAppearance.BorderSize = 0;
-            this.btnAddGoods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddGoods.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddGoods.ForeColor = System.Drawing.Color.White;
-            this.btnAddGoods.IsChecked = false;
-            this.btnAddGoods.Location = new System.Drawing.Point(346, 6);
-            this.btnAddGoods.Name = "btnAddGoods";
-            this.btnAddGoods.Size = new System.Drawing.Size(128, 40);
-            this.btnAddGoods.TabIndex = 6;
-            this.btnAddGoods.Text = "Add Goods";
-            this.btnAddGoods.TextColor = System.Drawing.Color.White;
-            this.btnAddGoods.UseVisualStyleBackColor = false;
-            this.btnAddGoods.Click += new System.EventHandler(this.CreateUser_Click);
+            this.btnSave.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.BorderSize = 0;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.IsChecked = false;
+            this.btnSave.Location = new System.Drawing.Point(346, 6);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(128, 40);
+            this.btnSave.TabIndex = 6;
+            this.btnSave.Text = "Save";
+            this.btnSave.TextColor = System.Drawing.Color.White;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.CreateUser_Click);
             // 
             // MainForm
             // 
@@ -216,6 +232,69 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(492, 522);
             this.panel1.TabIndex = 27;
+            // 
+            // cbxStatus
+            // 
+            this.cbxStatus.BackColor = System.Drawing.Color.White;
+            this.cbxStatus.BorderColor = System.Drawing.Color.LightGray;
+            this.cbxStatus.BorderRadius = 1;
+            this.cbxStatus.BorderSize = 1;
+            this.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxStatus.Font = new System.Drawing.Font("PMingLiU", 10F);
+            this.cbxStatus.ForeColor = System.Drawing.Color.DimGray;
+            this.cbxStatus.IconColor = System.Drawing.Color.LightGray;
+            this.cbxStatus.ListBackColor = System.Drawing.Color.White;
+            this.cbxStatus.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbxStatus.Location = new System.Drawing.Point(161, 470);
+            this.cbxStatus.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbxStatus.Name = "cbxStatus";
+            this.cbxStatus.Padding = new System.Windows.Forms.Padding(1);
+            this.cbxStatus.Size = new System.Drawing.Size(307, 30);
+            this.cbxStatus.TabIndex = 41;
+            this.cbxStatus.Texts = "";
+            this.cbxStatus.UnderlinedStyle = false;
+            // 
+            // cbxSize
+            // 
+            this.cbxSize.BackColor = System.Drawing.Color.White;
+            this.cbxSize.BorderColor = System.Drawing.Color.LightGray;
+            this.cbxSize.BorderRadius = 1;
+            this.cbxSize.BorderSize = 1;
+            this.cbxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxSize.Font = new System.Drawing.Font("PMingLiU", 10F);
+            this.cbxSize.ForeColor = System.Drawing.Color.DimGray;
+            this.cbxSize.IconColor = System.Drawing.Color.LightGray;
+            this.cbxSize.ListBackColor = System.Drawing.Color.White;
+            this.cbxSize.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbxSize.Location = new System.Drawing.Point(161, 434);
+            this.cbxSize.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbxSize.Name = "cbxSize";
+            this.cbxSize.Padding = new System.Windows.Forms.Padding(1);
+            this.cbxSize.Size = new System.Drawing.Size(307, 30);
+            this.cbxSize.TabIndex = 40;
+            this.cbxSize.Texts = "";
+            this.cbxSize.UnderlinedStyle = false;
+            // 
+            // cbxCatalogue
+            // 
+            this.cbxCatalogue.BackColor = System.Drawing.Color.White;
+            this.cbxCatalogue.BorderColor = System.Drawing.Color.LightGray;
+            this.cbxCatalogue.BorderRadius = 1;
+            this.cbxCatalogue.BorderSize = 1;
+            this.cbxCatalogue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxCatalogue.Font = new System.Drawing.Font("PMingLiU", 10F);
+            this.cbxCatalogue.ForeColor = System.Drawing.Color.DimGray;
+            this.cbxCatalogue.IconColor = System.Drawing.Color.LightGray;
+            this.cbxCatalogue.ListBackColor = System.Drawing.Color.White;
+            this.cbxCatalogue.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbxCatalogue.Location = new System.Drawing.Point(161, 70);
+            this.cbxCatalogue.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbxCatalogue.Name = "cbxCatalogue";
+            this.cbxCatalogue.Padding = new System.Windows.Forms.Padding(1);
+            this.cbxCatalogue.Size = new System.Drawing.Size(307, 30);
+            this.cbxCatalogue.TabIndex = 39;
+            this.cbxCatalogue.Texts = "";
+            this.cbxCatalogue.UnderlinedStyle = false;
             // 
             // lblStatus
             // 
@@ -470,86 +549,7 @@
             this.GoodsInfoHeader.TabIndex = 6;
             this.GoodsInfoHeader.Text = "Goods Information";
             // 
-            // cbxCatalogue
-            // 
-            this.cbxCatalogue.BackColor = System.Drawing.Color.White;
-            this.cbxCatalogue.BorderColor = System.Drawing.Color.LightGray;
-            this.cbxCatalogue.BorderRadius = 1;
-            this.cbxCatalogue.BorderSize = 1;
-            this.cbxCatalogue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cbxCatalogue.Font = new System.Drawing.Font("PMingLiU", 10F);
-            this.cbxCatalogue.ForeColor = System.Drawing.Color.DimGray;
-            this.cbxCatalogue.IconColor = System.Drawing.Color.LightGray;
-            this.cbxCatalogue.ListBackColor = System.Drawing.Color.White;
-            this.cbxCatalogue.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbxCatalogue.Location = new System.Drawing.Point(161, 70);
-            this.cbxCatalogue.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cbxCatalogue.Name = "cbxCatalogue";
-            this.cbxCatalogue.Padding = new System.Windows.Forms.Padding(1);
-            this.cbxCatalogue.Size = new System.Drawing.Size(307, 30);
-            this.cbxCatalogue.TabIndex = 39;
-            this.cbxCatalogue.Texts = "";
-            this.cbxCatalogue.UnderlinedStyle = false;
-            // 
-            // cbxSize
-            // 
-            this.cbxSize.BackColor = System.Drawing.Color.White;
-            this.cbxSize.BorderColor = System.Drawing.Color.LightGray;
-            this.cbxSize.BorderRadius = 1;
-            this.cbxSize.BorderSize = 1;
-            this.cbxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cbxSize.Font = new System.Drawing.Font("PMingLiU", 10F);
-            this.cbxSize.ForeColor = System.Drawing.Color.DimGray;
-            this.cbxSize.IconColor = System.Drawing.Color.LightGray;
-            this.cbxSize.ListBackColor = System.Drawing.Color.White;
-            this.cbxSize.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbxSize.Location = new System.Drawing.Point(161, 434);
-            this.cbxSize.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cbxSize.Name = "cbxSize";
-            this.cbxSize.Padding = new System.Windows.Forms.Padding(1);
-            this.cbxSize.Size = new System.Drawing.Size(307, 30);
-            this.cbxSize.TabIndex = 40;
-            this.cbxSize.Texts = "";
-            this.cbxSize.UnderlinedStyle = false;
-            // 
-            // cbxStatus
-            // 
-            this.cbxStatus.BackColor = System.Drawing.Color.White;
-            this.cbxStatus.BorderColor = System.Drawing.Color.LightGray;
-            this.cbxStatus.BorderRadius = 1;
-            this.cbxStatus.BorderSize = 1;
-            this.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cbxStatus.Font = new System.Drawing.Font("PMingLiU", 10F);
-            this.cbxStatus.ForeColor = System.Drawing.Color.DimGray;
-            this.cbxStatus.IconColor = System.Drawing.Color.LightGray;
-            this.cbxStatus.ListBackColor = System.Drawing.Color.White;
-            this.cbxStatus.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbxStatus.Location = new System.Drawing.Point(161, 470);
-            this.cbxStatus.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cbxStatus.Name = "cbxStatus";
-            this.cbxStatus.Padding = new System.Windows.Forms.Padding(1);
-            this.cbxStatus.Size = new System.Drawing.Size(307, 30);
-            this.cbxStatus.TabIndex = 41;
-            this.cbxStatus.Texts = "";
-            this.cbxStatus.UnderlinedStyle = false;
-            // 
-            // GoodsPic
-            // 
-            this.GoodsPic.BackColor = System.Drawing.Color.Transparent;
-            this.GoodsPic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GoodsPic.Image = global::TheBetterLimited.Properties.Resources.photo_upload;
-            this.GoodsPic.Location = new System.Drawing.Point(21, 12);
-            this.GoodsPic.Name = "GoodsPic";
-            this.GoodsPic.Size = new System.Drawing.Size(230, 230);
-            this.GoodsPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.GoodsPic.TabIndex = 2;
-            this.GoodsPic.TabStop = false;
-            this.GoodsPic.Click += new System.EventHandler(this.UserIconPic_Click);
-            this.GoodsPic.Paint += new System.Windows.Forms.PaintEventHandler(this.UserIconPic_Paint);
-            this.GoodsPic.MouseLeave += new System.EventHandler(this.UserIconPic_MouseLeave);
-            this.GoodsPic.MouseHover += new System.EventHandler(this.UserIconPic_MouseHover);
-            // 
-            // Inventorymanagement_Add
+            // Inventorymanagement_Edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -561,12 +561,13 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1200, 900);
-            this.Name = "Inventorymanagement_Add";
+            this.Name = "Inventorymanagement_Edit";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Goods";
+            this.Text = "Edit Goods";
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GoodsPic)).EndInit();
             this.BottomBtn.ResumeLayout(false);
             this.MainForm.ResumeLayout(false);
             this.UserInfo.ResumeLayout(false);
@@ -574,7 +575,6 @@
             this.panel1.PerformLayout();
             this.UserInfoHeaderContainer.ResumeLayout(false);
             this.UserInfoHeaderContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GoodsPic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -600,7 +600,7 @@
         private CustomizeControl.CustomizeTextbox txtGoodsName;
         private System.Windows.Forms.Panel panel1;
         private CustomizeControl.RoundButton btnCancel;
-        private CustomizeControl.RoundButton btnAddGoods;
+        private CustomizeControl.RoundButton btnSave;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblSize;
         private CustomizeControl.CustomizeTextbox txtGTINCode;

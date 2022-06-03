@@ -170,6 +170,60 @@
     </Compile>
     <Compile Include="Utils\Random.cs" />
     <Compile Include="Utils\RestClientUtils.cs" />
+    <Compile Include="Views\Inventory\Appointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\Appointment.Designer.cs">
+      <DependentUpon>Appointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\Stock-Add - Copy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\Stock-Add - Copy.Designer.cs">
+      <DependentUpon>Stock-Add - Copy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\Stock-Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\Stock-Edit.Designer.cs">
+      <DependentUpon>Stock-Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\Stock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\Stock.Designer.cs">
+      <DependentUpon>Stock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\Stock-Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\Stock-Add.Designer.cs">
+      <DependentUpon>Stock-Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\Supplier-Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\Supplier-Edit.Designer.cs">
+      <DependentUpon>Supplier-Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\Supplier-Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\Supplier-Add.Designer.cs">
+      <DependentUpon>Supplier-Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\Supplier.Designer.cs">
+      <DependentUpon>Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\InventoryManagement-Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\InventoryManagement-Edit.Designer.cs">
+      <DependentUpon>InventoryManagement-Edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Inventory\InventoryManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +339,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomizeControl\ProductInfo.resx">
       <DependentUpon>ProductInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Appointment.resx">
+      <DependentUpon>Appointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Stock-Add - Copy.resx">
+      <DependentUpon>Stock-Add - Copy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Stock-Edit.resx">
+      <DependentUpon>Stock-Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Stock.resx">
+      <DependentUpon>Stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Stock-Add.resx">
+      <DependentUpon>Stock-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Supplier-Edit.resx">
+      <DependentUpon>Supplier-Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Supplier-Add.resx">
+      <DependentUpon>Supplier-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Supplier.resx">
+      <DependentUpon>Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\InventoryManagement-Edit.resx">
+      <DependentUpon>InventoryManagement-Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\InventoryManagement.resx">
       <DependentUpon>InventoryManagement.cs</DependentUpon>

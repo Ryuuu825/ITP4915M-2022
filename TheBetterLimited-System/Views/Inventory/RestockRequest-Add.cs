@@ -16,7 +16,7 @@ using TheBetterLimited.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class Supplier_Add : Form
+    public partial class RestockRequest_Add : Form
     {
         private StaffController sc = new StaffController();
         private PositionController pc = new PositionController();
@@ -26,7 +26,7 @@ namespace TheBetterLimited.Views
         private bool isUpload = false;
         private Bitmap icon = Properties.Resources._default;
 
-        public Supplier_Add()
+        public RestockRequest_Add()
         {
             InitializeComponent();
         }
@@ -49,9 +49,9 @@ namespace TheBetterLimited.Views
 
         private void SearchStaffBtn_Click(object sender, EventArgs e)
         {
-            if (txtSupplierId.Texts.StartsWith("S") && txtSupplierId.Texts.Length == txtSupplierId.MaxLength)
+            if (txtId.Texts.StartsWith("S") && txtId.Texts.Length == txtId.MaxLength)
             {
-                if (txtSupplierId.Texts.Substring(1, 4).All(char.IsDigit))
+                if (txtId.Texts.Substring(1, 4).All(char.IsDigit))
                 {
                     /*StaffIDTxt.IsError = false;*/
                     GetStaff();
@@ -59,23 +59,23 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                txtSupplierId.Focus();
-                txtSupplierId.Texts = "";
-                txtSupplierId.IsError = true;
+                txtId.Focus();
+                txtId.Texts = "";
+                txtId.IsError = true;
                 MessageBox.Show("Staff ID should start with \"S\" and follow with 4 digits! \n e.g. S0001 ");
             }
         }
 
         private void GetStaff()
         {
-            result = sc.GetStaffById(txtSupplierId.Texts);
+            result = sc.GetStaffById(txtId.Texts);
             JObject staff = null;
             try
             {
                 staff = JObject.Parse(result.Content);
             }catch (Exception ex)
             {
-                MessageBox.Show("Not found the staff by " + txtSupplierId.Texts);
+                MessageBox.Show("Not found the staff by " + txtId.Texts);
                 return;
             }
             if (staff != null)
@@ -91,7 +91,7 @@ namespace TheBetterLimited.Views
             var department = JObject.Parse(result.Content);
             if (department != null)
             {
-                txtPhone.Texts = department["Name"].ToString();
+                txtOperatorId.Texts = department["Name"].ToString();
             }
 
             result = pc.GetPositionById(staff["_positionId"].ToString());
@@ -107,14 +107,14 @@ namespace TheBetterLimited.Views
             //check 
             
 
-            if (txtSupplierId.Texts.Equals(txtSupplierId.Placeholder))
+            if (txtId.Texts.Equals(txtId.Placeholder))
             {
-                txtSupplierId.IsError = true;
+                txtId.IsError = true;
                 return;
             }
-            Console.WriteLine(txtSupplierId.Texts);
+            Console.WriteLine(txtId.Texts);
 
-            txtSupplierId.IsError = false;
+            txtId.IsError = false;
 
             
 
@@ -139,7 +139,7 @@ namespace TheBetterLimited.Views
                     {
                         Id = id,
                         Status = "N",
-                        _StaffId = txtSupplierId.Texts,
+                        _StaffId = txtId.Texts,
                         Remarks = "Created at" + DateTime.Now
                     }) ;
 
@@ -276,7 +276,7 @@ namespace TheBetterLimited.Views
 
         private void label1_Click(object sender, EventArgs e)
         {
-            txtSupplierId.Focus();
+            txtId.Focus();
         }
 
         private void userName_Click(object sender, EventArgs e)
@@ -297,7 +297,7 @@ namespace TheBetterLimited.Views
 
         private void StaffIDTxt_Click(object sender, EventArgs e)
         {
-            txtSupplierId.IsError = false;
+            txtId.IsError = false;
         }
 
         private void userNameTxt_Enter(object sender, EventArgs e)
@@ -314,7 +314,7 @@ namespace TheBetterLimited.Views
 
         private void StaffIDTxt__TextChanged(object sender, EventArgs e)
         {
-            txtSupplierId.IsError = false;
+            txtId.IsError = false;
         }
 
         private void StaffIDTxt_Leave(object sender, EventArgs e)
@@ -339,6 +339,11 @@ namespace TheBetterLimited.Views
             gp.Dispose();
             region.Dispose();
             pen.Dispose();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -20,7 +20,7 @@ using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class Supplier : Form
+    public partial class Stock : Form
     {
         private UserController uc = new UserController();
         private GoodsController gc = new GoodsController();
@@ -30,7 +30,7 @@ namespace TheBetterLimited.Views
         private RestResponse result;
         private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
 
-        public Supplier()
+        public Stock()
         {
             InitializeComponent();
             GetGoods();//init user table
@@ -57,7 +57,7 @@ namespace TheBetterLimited.Views
 
         private void GoodsDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (SupplierDataGrid.Columns[e.ColumnIndex].Name == "Status")
+            if (StockDataGrid.Columns[e.ColumnIndex].Name == "Status")
             {
                 if (e.Value.ToString().Equals("0"))
                 {
@@ -73,7 +73,7 @@ namespace TheBetterLimited.Views
                 }
             }
 
-            if (SupplierDataGrid.Columns[e.ColumnIndex].Name == "Size")
+            if (StockDataGrid.Columns[e.ColumnIndex].Name == "Size")
             {
 
                 if (e.Value.ToString().Equals("0"))
@@ -94,30 +94,30 @@ namespace TheBetterLimited.Views
 
         private void GoodsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == SupplierDataGrid.Columns["select"].Index)
+            if (e.ColumnIndex == StockDataGrid.Columns["select"].Index)
             {
-                if (Convert.ToInt32(SupplierDataGrid["select", e.RowIndex].Tag) == 0)
+                if (Convert.ToInt32(StockDataGrid["select", e.RowIndex].Tag) == 0)
                 {
-                    SupplierDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
-                    SupplierDataGrid["select", e.RowIndex].Tag = 1;
-                    SupplierDataGrid.Rows[e.RowIndex].Selected = true;
-                    selectGoodsID.Add(SupplierDataGrid["id", e.RowIndex].Value.ToString());
+                    StockDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
+                    StockDataGrid["select", e.RowIndex].Tag = 1;
+                    StockDataGrid.Rows[e.RowIndex].Selected = true;
+                    selectGoodsID.Add(StockDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
-                    SupplierDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
-                    SupplierDataGrid["select", e.RowIndex].Tag = 0;
-                    SupplierDataGrid.Rows[e.RowIndex].Selected = false;
-                    selectGoodsID.Remove(SupplierDataGrid["id", e.RowIndex].Value.ToString());
+                    StockDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
+                    StockDataGrid["select", e.RowIndex].Tag = 0;
+                    StockDataGrid.Rows[e.RowIndex].Selected = false;
+                    selectGoodsID.Remove(StockDataGrid["id", e.RowIndex].Value.ToString());
                 }
             }
 
-            if (e.ColumnIndex == SupplierDataGrid.Columns["edit"].Index)
+            if (e.ColumnIndex == StockDataGrid.Columns["edit"].Index)
             {
                 MessageBox.Show("You have selected row " + selectGoodsID[0] + " cell");
             }
 
-            if (e.ColumnIndex == SupplierDataGrid.Columns["delete"].Index)
+            if (e.ColumnIndex == StockDataGrid.Columns["delete"].Index)
             {
                 DeleteGoods(e);
             }
@@ -139,16 +139,16 @@ namespace TheBetterLimited.Views
         private void InitializeDataGridView()
         {
             //Main data column
-            SupplierDataGrid.AutoGenerateColumns = false;
-            SupplierDataGrid.DataSource = bs;
-            SupplierDataGrid.Columns["id"].HeaderText = "ID";
-            SupplierDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
-            SupplierDataGrid.Columns["name"].HeaderText = "Goods Name";
-            SupplierDataGrid.Columns["description"].HeaderText = "Description";
-            SupplierDataGrid.Columns["price"].HeaderText = "Price";
-            SupplierDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
-            SupplierDataGrid.Columns["size"].HeaderText = "Size";
-            SupplierDataGrid.Columns["status"].HeaderText = "Status";
+            StockDataGrid.AutoGenerateColumns = false;
+            StockDataGrid.DataSource = bs;
+            StockDataGrid.Columns["id"].HeaderText = "ID";
+            StockDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
+            StockDataGrid.Columns["name"].HeaderText = "Goods Name";
+            StockDataGrid.Columns["description"].HeaderText = "Description";
+            StockDataGrid.Columns["price"].HeaderText = "Price";
+            StockDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
+            StockDataGrid.Columns["size"].HeaderText = "Size";
+            StockDataGrid.Columns["status"].HeaderText = "Status";
             // GoodsDataGrid.Columns["id"].HeaderText = "ID";
             // GoodsDataGrid.Columns["userName"].HeaderText = "User Name";
             // GoodsDataGrid.Columns["staffName"].HeaderText = "Staff Name";
@@ -157,8 +157,8 @@ namespace TheBetterLimited.Views
             // GoodsDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
             // GoodsDataGrid.Columns["remarks"].HeaderText = "Remark";
 
-            for (int i = 0; i < SupplierDataGrid.RowCount; i++)
-                SupplierDataGrid["select", i].Tag = 0;
+            for (int i = 0; i < StockDataGrid.RowCount; i++)
+                StockDataGrid["select", i].Tag = 0;
 
             selectGoodsID.Clear();
         }
@@ -196,8 +196,8 @@ namespace TheBetterLimited.Views
                     index++;
                 }
                 bs.DataSource = dataTable;
-                SupplierDataGrid.AutoGenerateColumns = false;
-                SupplierDataGrid.DataSource = bs;
+                StockDataGrid.AutoGenerateColumns = false;
+                StockDataGrid.DataSource = bs;
                 InitializeDataGridView();
             }
             catch (Exception ex)
@@ -241,15 +241,15 @@ namespace TheBetterLimited.Views
         //Delete Goods
         private void DeleteGoods(DataGridViewCellEventArgs e)
         {
-            choose = MessageBox.Show("Do you really want to delete the " + SupplierDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            choose = MessageBox.Show("Do you really want to delete the " + StockDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (choose == DialogResult.Yes)
             {
                 try
                 {
-                    result = gc.DeleteGoods(SupplierDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    result = gc.DeleteGoods(StockDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
                     if (result.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        MessageBox.Show("The " + SupplierDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("The " + StockDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetGoods();
                     }
                 }
