@@ -35,63 +35,27 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
             // localized the cataloge
             var localizedCat = Helpers.Localizer.TryLocalize<Catalogue>(lang , localizedEntry.Catalogue);
-            
-            // get all the supplier goods from the goods
+
+
             var supplierGoods = _Supplier_GoodsTable.GetBySQL(
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods>("_goodsId:"+entry.Id)
-            ).FirstOrDefault(); // we assume there is only one supplier goods per goods in this stage
-            // get the location from the user account 
-            Location loc = user.Staff.store.Location;
-
-            // get the stock level in the store that user belongs to
-            Supplier_Goods_Stock InstoreStock = _Supplier_Goods_StockTable.GetBySQL(
-                Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>($"_locationId:{loc.Id};_supplierGoodsId:{supplierGoods.ID}")
-            ).FirstOrDefault();
-            int InStoreStockQty = InstoreStock.Quantity;
-            GoodsStockStatus InstoreStockStatus = InStoreStockQty < InstoreStock.MinLimit ? GoodsStockStatus.OutOfStock : InStoreStockQty < InstoreStock.ReorderLevel ? GoodsStockStatus.LowStock : GoodsStockStatus.InStock;
-            // get all warehouse to return the supplier_goods stock level in the warehouse
-            List<GoodsStockOutDto.GoodsWarehouseStockOutDto> WarehouseStock = new List<GoodsStockOutDto.GoodsWarehouseStockOutDto>();
-            var Warehouses = _WarehouseTable.GetAll();
-
-            foreach(var warehouse in Warehouses)
-            {
-                var Warehouse_SupplierGoods = _Supplier_Goods_StockTable.GetBySQL(
-                    Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>($"_locationId:{warehouse.Location.Id};_supplierGoodsId:{supplierGoods.ID}")
-                ).FirstOrDefault();
-                WarehouseStock.Add(
-                    new GoodsStockOutDto.GoodsWarehouseStockOutDto
-                    {
-                        Location = warehouse.Location.Loc,
-                        Stock = Warehouse_SupplierGoods.Quantity,
-                        Status = Warehouse_SupplierGoods.Quantity < Warehouse_SupplierGoods.MinLimit ? GoodsStockStatus.OutOfStock : Warehouse_SupplierGoods.Quantity < Warehouse_SupplierGoods.ReorderLevel ? GoodsStockStatus.LowStock : GoodsStockStatus.InStock
-                    }
-                );
-            }
+            ).FirstOrDefault(); // we assume there is only one suppli
 
             return new GoodsOutDto()
-                {
-                    GoodsId = localizedEntry.Id,
-                    GoodsName = localizedEntry.Name,
-                    Catalogue = localizedCat.Name,
-                    GTINCode = localizedEntry.GTINCode,
-                    Price = localizedEntry.Price,
-                    GoodsSize = localizedEntry.Size,
-                    GoodsStatus = localizedEntry.Status,
-                    StockLevel = new GoodsStockOutDto
-                    {
-                        WarehouseStock = WarehouseStock,
-                        InStoreStock = new GoodsStockOutDto.GoodsStoreStockOutDto
-                        {
-                            InStoreStock = InStoreStockQty,
-                            Status = InstoreStockStatus 
-                        }
+            {
+                GoodsId = localizedEntry.Id,
+                Catalogue = localizedCat.Name,
+                GoodsName = localizedEntry.Name,
+                GTINCode = localizedEntry.GTINCode,
+                Price = localizedEntry.Price,
+                GoodsSize = localizedEntry.Size,
+                GoodsStatus = localizedEntry.Status,
+                StockLevel = GetGoodsStockOutDtoAsync(user , supplierGoods , localizedEntry , lang).Result,
+                Description = localizedEntry.Description
 
-                    },
-                    Description = localizedEntry.Description,
-                    Photo = localizedEntry.Photo 
-
-                }.MapToDto();
+            }.MapToDto(); // convert the object to hashmap
         }
+
 
         public async Task<List<Hashtable>> ToOutDto(List<Goods> entries , string UserName, string lang = "en")
         {
@@ -114,57 +78,22 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 // localized the cataloge
                 var localizedCat = Helpers.Localizer.TryLocalize<Catalogue>(lang , localizedEntry.Catalogue);
                 
-                // get the location from the user account 
-                Location loc = user.Staff.store.Location;
-                // get the stock level in the store that user belongs to
-                List<Supplier_Goods_Stock> InstoreStock = _Supplier_Goods_StockTable.GetBySQL(
-                    Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>($"_locationId:{loc.Id}")
-                );
-
-                int InStoreStockQty = 0 ;
-                foreach( var sg in InstoreStock )
-                {
-                    InStoreStockQty += sg.Quantity;
-                }
-
-                GoodsStockStatus InstoreStockStatus = InStoreStockQty < InstoreStock[0].MinLimit ? GoodsStockStatus.OutOfStock : InStoreStockQty < InstoreStock[0].ReorderLevel ? GoodsStockStatus.LowStock : GoodsStockStatus.InStock;
-
-                // get all warehouse to return the supplier_goods stock level in the warehouse
-                List<GoodsStockOutDto.GoodsWarehouseStockOutDto> WarehouseStock = new List<GoodsStockOutDto.GoodsWarehouseStockOutDto>();
-                var Warehouses = _WarehouseTable.GetAll();
-
-                foreach(var warehouse in Warehouses)
-                {
-                    var Warehouse_SupplierGoods = _Supplier_Goods_StockTable.GetBySQL(
-                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>($"_locationId:{warehouse.Location.Id}")
-                    ).FirstOrDefault();
-                    WarehouseStock.Add(
-                        new GoodsStockOutDto.GoodsWarehouseStockOutDto
-                        {
-                            Location = warehouse.Location.Loc,
-                            Stock = Warehouse_SupplierGoods.Quantity
-                        }
-                    );
-                }
+                var supplierGoods = _Supplier_GoodsTable.GetBySQL(
+                    Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods>("_goodsId:"+entry.Id)
+                ).FirstOrDefault(); // we assume there is only one suppli
+                
 
                 returnList.Add(
                      new GoodsOutDto()
                     {
                         GoodsId = localizedEntry.Id,
+                        GoodsName = localizedEntry.Name,
                         Catalogue = localizedCat.Name,
                         GTINCode = localizedEntry.GTINCode,
                         Price = localizedEntry.Price,
                         GoodsSize = localizedEntry.Size,
                         GoodsStatus = localizedEntry.Status,
-                        StockLevel = new GoodsStockOutDto
-                        {
-                            InStoreStock = new GoodsStockOutDto.GoodsStoreStockOutDto
-                            {
-                                Status = InstoreStockStatus,
-                                InStoreStock = InStoreStockQty
-                            },
-                            WarehouseStock = WarehouseStock
-                        },
+                        StockLevel = GetGoodsStockOutDtoAsync(user , supplierGoods , localizedEntry , lang).Result,
                         Description = localizedEntry.Description
 
                     }.MapToDto() // convert the object to hashmap
@@ -173,10 +102,78 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
             return returnList;
         }
+        private async Task<GoodsStockOutDto> GetGoodsStockOutDtoAsync(Account user , Supplier_Goods supplierGoods , Goods entry, string lang = "en")
+        {
+            GoodsStockOutDto GoodsStockInfo = new GoodsStockOutDto();
+
+                // try to get any instore stock
+                try {
+                
+                    // get the location from the user account 
+                    Location loc = user.Staff.store.Location;
+                    // get the stock level in the store that user belongs to
+                    List<Supplier_Goods_Stock> InstoreStock = _Supplier_Goods_StockTable.GetBySQL(
+                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>($"_locationId:{loc.Id};_supplierGoodsId:{supplierGoods.ID}")
+                    );
+
+                    int InStoreStockQty = 0 ;
+                    foreach( var sg in InstoreStock )
+                    {
+                        InStoreStockQty += sg.Quantity;
+                    }
+
+                    GoodsStockStatus InstoreStockStatus = InStoreStockQty < InstoreStock[0].MinLimit ? GoodsStockStatus.OutOfStock : InStoreStockQty < InstoreStock[0].ReorderLevel ? GoodsStockStatus.LowStock : GoodsStockStatus.InStock;
+                    GoodsStockInfo.InStoreStock = new GoodsStockOutDto.GoodsStoreStockOutDto
+                    {
+                        Status = InstoreStockStatus,
+                        InStoreStock = InStoreStockQty,
+                        _supplier_Goods_Stock_Id = InstoreStock[0].Id
+                    };
+                }catch (Exception e)
+                {
+                    GoodsStockInfo.InStoreStock = null;
+                }
+
+                // try to get any warehouse stock
+                try{
+                    // get all warehouse to return the supplier_goods stock level in the warehouse
+                    List<GoodsStockOutDto.GoodsWarehouseStockOutDto> WarehouseStock = new List<GoodsStockOutDto.GoodsWarehouseStockOutDto>();
+                    var Warehouses = _WarehouseTable.GetAll();
+
+                    foreach(var warehouse in Warehouses)
+                    {
+                        var Warehouse_SupplierGoods = _Supplier_Goods_StockTable.GetBySQL(
+                            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>($"_locationId:{warehouse.Location.Id};_supplierGoodsId:{supplierGoods.ID}")
+                        ).FirstOrDefault();
+                        WarehouseStock.Add(
+                            new GoodsStockOutDto.GoodsWarehouseStockOutDto
+                            {
+                                Location = warehouse.Location.Loc,
+                                Stock = Warehouse_SupplierGoods.Quantity,
+                                _supplier_Goods_Stock_Id = Warehouse_SupplierGoods.Id
+                            }
+                        );
+                    }
+
+                    GoodsStockInfo.WarehouseStock = WarehouseStock;
+
+                }catch(Exception e)
+                {
+                    GoodsStockInfo.WarehouseStock = null;
+                }
+
+                return GoodsStockInfo;
+        }
 
         public async Task<List<Hashtable>> GetAll(string UserName , string lang = "en")
         {
-           return await ToOutDto(await _GoodsTable.GetAllAsync() , UserName , lang);
+            try
+            {
+                return await ToOutDto(await _GoodsTable.GetAllAsync() , UserName , lang);
+            }catch (ArgumentOutOfRangeException ex)
+            {
+                throw new BadArgException("Invalid Id");
+            }
         }
 
         public async Task<List<Hashtable>> GetWithLimit(string UserName , int limit = 0 , uint offset = 0 , string lang = "en")
@@ -189,7 +186,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             offset = offset > res.Count() ? (uint) res.Count() : offset; 
             res = res.GetRange((int)offset , (int)limit);
 
-            return await ToOutDto(res , UserName , lang);
+            try
+            {
+                return await ToOutDto(res , UserName , lang);
+            }catch (ArgumentOutOfRangeException ex)
+            {
+                throw new BadArgException("Invalid Id");
+            }
         }
 
         public async Task<Hashtable> GetById(string UserName , string id , string lang = "en")
@@ -203,7 +206,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             List<Goods> res = await _GoodsTable.GetBySQLAsync(
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<Goods>(queryString)
             );
-            return await ToOutDto(res , Username , lang);
+            try
+            {
+                return await ToOutDto(res , Username , lang);
+            }catch (ArgumentOutOfRangeException ex)
+            {
+                throw new BadArgException("Invalid Id");
+            }
         }
 
     }
