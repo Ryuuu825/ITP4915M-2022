@@ -31,7 +31,7 @@
             this.Header = new System.Windows.Forms.Panel();
             this.Info = new System.Windows.Forms.Label();
             this.Title = new System.Windows.Forms.Label();
-            this.UserIconPic = new System.Windows.Forms.PictureBox();
+            this.IconPic = new System.Windows.Forms.PictureBox();
             this.BottomBtn = new System.Windows.Forms.Panel();
             this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
@@ -46,6 +46,7 @@
             this.DescriptionTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.GTINCode = new System.Windows.Forms.Label();
             this.StatusRadioGroup = new System.Windows.Forms.Panel();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.LockStatusRadio = new System.Windows.Forms.RadioButton();
             this.NormalStatusRadio = new System.Windows.Forms.RadioButton();
             this.Status = new System.Windows.Forms.Label();
@@ -64,9 +65,9 @@
             this.CatalogueTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.Header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UserIconPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconPic)).BeginInit();
             this.BottomBtn.SuspendLayout();
             this.MainForm.SuspendLayout();
             this.UserInfo.SuspendLayout();
@@ -81,21 +82,20 @@
             this.Header.BackColor = System.Drawing.Color.White;
             this.Header.Controls.Add(this.Info);
             this.Header.Controls.Add(this.Title);
-            this.Header.Controls.Add(this.UserIconPic);
+            this.Header.Controls.Add(this.IconPic);
             this.Header.Dock = System.Windows.Forms.DockStyle.Left;
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Margin = new System.Windows.Forms.Padding(2);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(272, 620);
+            this.Header.Size = new System.Drawing.Size(272, 671);
             this.Header.TabIndex = 0;
             // 
             // Info
             // 
-            this.Info.AutoSize = true;
             this.Info.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Info.Location = new System.Drawing.Point(17, 303);
             this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(147, 21);
+            this.Info.Size = new System.Drawing.Size(234, 169);
             this.Info.TabIndex = 5;
             this.Info.Text = "Goods name details";
             // 
@@ -110,17 +110,17 @@
             this.Title.TabIndex = 3;
             this.Title.Text = "Goods Details";
             // 
-            // UserIconPic
+            // IconPic
             // 
-            this.UserIconPic.BackColor = System.Drawing.Color.Transparent;
-            this.UserIconPic.Cursor = System.Windows.Forms.Cursors.Default;
-            this.UserIconPic.Image = global::TheBetterLimited.Properties.Resources._default;
-            this.UserIconPic.Location = new System.Drawing.Point(21, 12);
-            this.UserIconPic.Name = "UserIconPic";
-            this.UserIconPic.Size = new System.Drawing.Size(230, 230);
-            this.UserIconPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.UserIconPic.TabIndex = 2;
-            this.UserIconPic.TabStop = false;
+            this.IconPic.BackColor = System.Drawing.Color.Transparent;
+            this.IconPic.Cursor = System.Windows.Forms.Cursors.Default;
+            this.IconPic.Image = global::TheBetterLimited.Properties.Resources._default;
+            this.IconPic.Location = new System.Drawing.Point(21, 12);
+            this.IconPic.Name = "IconPic";
+            this.IconPic.Size = new System.Drawing.Size(230, 230);
+            this.IconPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.IconPic.TabIndex = 2;
+            this.IconPic.TabStop = false;
             // 
             // BottomBtn
             // 
@@ -129,7 +129,7 @@
             this.BottomBtn.Controls.Add(this.SaveBtn);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(10, 556);
+            this.BottomBtn.Location = new System.Drawing.Point(10, 607);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
@@ -177,7 +177,7 @@
             this.SaveBtn.Text = "Add To Cart";
             this.SaveBtn.TextColor = System.Drawing.Color.White;
             this.SaveBtn.UseVisualStyleBackColor = false;
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            this.SaveBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // MainForm
             // 
@@ -189,7 +189,7 @@
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
             this.MainForm.Padding = new System.Windows.Forms.Padding(10);
-            this.MainForm.Size = new System.Drawing.Size(512, 620);
+            this.MainForm.Size = new System.Drawing.Size(512, 671);
             this.MainForm.TabIndex = 2;
             // 
             // UserInfo
@@ -200,7 +200,7 @@
             this.UserInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserInfo.Location = new System.Drawing.Point(10, 10);
             this.UserInfo.Name = "UserInfo";
-            this.UserInfo.Size = new System.Drawing.Size(492, 546);
+            this.UserInfo.Size = new System.Drawing.Size(492, 592);
             this.UserInfo.TabIndex = 24;
             // 
             // panel1
@@ -228,11 +228,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(492, 506);
+            this.panel1.Size = new System.Drawing.Size(492, 552);
             this.panel1.TabIndex = 27;
             // 
             // SizeRadioPanel
             // 
+            this.SizeRadioPanel.Controls.Add(this.radioButton4);
             this.SizeRadioPanel.Controls.Add(this.radioButton1);
             this.SizeRadioPanel.Controls.Add(this.radioButton2);
             this.SizeRadioPanel.Enabled = false;
@@ -245,12 +246,12 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(111, 4);
+            this.radioButton1.Location = new System.Drawing.Point(103, 4);
             this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(63, 19);
+            this.radioButton1.Size = new System.Drawing.Size(70, 19);
             this.radioButton1.TabIndex = 29;
-            this.radioButton1.Text = "Locked";
+            this.radioButton1.Text = "Medium";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // radioButton2
@@ -262,9 +263,9 @@
             this.radioButton2.Location = new System.Drawing.Point(1, 4);
             this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(65, 19);
+            this.radioButton2.Size = new System.Drawing.Size(54, 19);
             this.radioButton2.TabIndex = 28;
-            this.radioButton2.Text = "Normal";
+            this.radioButton2.Text = "Small";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // Remark
@@ -305,16 +306,15 @@
             this.GoodsIDTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
             this.GoodsIDTxt.Texts = "";
             this.GoodsIDTxt.UnderlinedStyle = false;
-            this.GoodsIDTxt.Load += new System.EventHandler(this.GoodsIDTxt_Load);
             // 
             // DescriptionTxt
             // 
+            this.DescriptionTxt.AutoScroll = true;
             this.DescriptionTxt.BackColor = System.Drawing.Color.White;
             this.DescriptionTxt.BorderColor = System.Drawing.Color.LightGray;
             this.DescriptionTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.DescriptionTxt.BorderRadius = 10;
             this.DescriptionTxt.BorderSize = 1;
-            this.DescriptionTxt.Enabled = false;
             this.DescriptionTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DescriptionTxt.ForeColor = System.Drawing.Color.Black;
             this.DescriptionTxt.IsError = false;
@@ -326,11 +326,11 @@
             this.DescriptionTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.DescriptionTxt.PasswordChar = false;
             this.DescriptionTxt.Placeholder = "";
-            this.DescriptionTxt.ReadOnly = false;
-            this.DescriptionTxt.Size = new System.Drawing.Size(308, 75);
+            this.DescriptionTxt.ReadOnly = true;
+            this.DescriptionTxt.Size = new System.Drawing.Size(308, 126);
             this.DescriptionTxt.TabIndex = 32;
             this.DescriptionTxt.TbBackColor = System.Drawing.Color.White;
-            this.DescriptionTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
+            this.DescriptionTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.DescriptionTxt.Texts = "";
             this.DescriptionTxt.UnderlinedStyle = false;
             // 
@@ -355,6 +355,18 @@
             this.StatusRadioGroup.Name = "StatusRadioGroup";
             this.StatusRadioGroup.Size = new System.Drawing.Size(308, 25);
             this.StatusRadioGroup.TabIndex = 30;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3.Location = new System.Drawing.Point(221, 4);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(84, 19);
+            this.radioButton3.TabIndex = 30;
+            this.radioButton3.Text = "StopSelling";
+            this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // LockStatusRadio
             // 
@@ -389,9 +401,9 @@
             this.Status.Location = new System.Drawing.Point(56, 385);
             this.Status.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(59, 21);
+            this.Status.Size = new System.Drawing.Size(52, 21);
             this.Status.TabIndex = 28;
-            this.Status.Text = "Status*";
+            this.Status.Text = "Status";
             // 
             // Catalogue
             // 
@@ -437,7 +449,7 @@
             this.PriceTxt.BorderSize = 1;
             this.PriceTxt.Enabled = false;
             this.PriceTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PriceTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.PriceTxt.ForeColor = System.Drawing.Color.Black;
             this.PriceTxt.IsError = false;
             this.PriceTxt.Location = new System.Drawing.Point(167, 152);
             this.PriceTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -591,7 +603,7 @@
             this.LocTxt.BorderSize = 1;
             this.LocTxt.Enabled = false;
             this.LocTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LocTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.LocTxt.ForeColor = System.Drawing.Color.Black;
             this.LocTxt.IsError = false;
             this.LocTxt.Location = new System.Drawing.Point(166, 236);
             this.LocTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -618,7 +630,7 @@
             this.CatalogueTxt.BorderSize = 1;
             this.CatalogueTxt.Enabled = false;
             this.CatalogueTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CatalogueTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.CatalogueTxt.ForeColor = System.Drawing.Color.Black;
             this.CatalogueTxt.IsError = false;
             this.CatalogueTxt.Location = new System.Drawing.Point(167, 58);
             this.CatalogueTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -657,24 +669,24 @@
             this.GoodsInfoHeader.TabIndex = 6;
             this.GoodsInfoHeader.Text = "Goods Information";
             // 
-            // radioButton3
+            // radioButton4
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(221, 4);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(84, 19);
-            this.radioButton3.TabIndex = 30;
-            this.radioButton3.Text = "StopSelling";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton4.Location = new System.Drawing.Point(221, 4);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(2);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(54, 19);
+            this.radioButton4.TabIndex = 30;
+            this.radioButton4.Text = "Large";
+            this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // GoodsDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(784, 620);
+            this.ClientSize = new System.Drawing.Size(784, 671);
             this.Controls.Add(this.MainForm);
             this.Controls.Add(this.Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -685,10 +697,10 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Goods Details";
-            this.Load += new System.EventHandler(this.Usermanagement_Edit_Load);
+            this.Load += new System.EventHandler(this.GoodsDetails_Load);
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UserIconPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IconPic)).EndInit();
             this.BottomBtn.ResumeLayout(false);
             this.MainForm.ResumeLayout(false);
             this.UserInfo.ResumeLayout(false);
@@ -715,7 +727,7 @@
         private System.Windows.Forms.Label Catalogue;
         private System.Windows.Forms.Label label1;
         private CustomizeControl.CustomizeTextbox LocTxt;
-        private System.Windows.Forms.PictureBox UserIconPic;
+        private System.Windows.Forms.PictureBox IconPic;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Label Info;
         private System.Windows.Forms.Panel UserInfo;
@@ -743,5 +755,6 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }

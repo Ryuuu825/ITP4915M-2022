@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -24,26 +25,27 @@ namespace TheBetterLimited.Views
     {
         private UserController uc = new UserController();
         private BindingSource bs = new BindingSource();
-        private List<string> selecteUserId = new List<string>();
         private DialogResult choose;
         private RestResponse result;
         private bool isEditing = false;
-        private List<object> goods = new List<object>();
+        private List<JObject> goods = new List<JObject>();
         private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
         private ControllerBase cbGoods = new ControllerBase("Goods");
         private GoodsController gc = new GoodsController();
         private System.Windows.Controls.Control ctl = null;
-        private int selectedProduct;
+        private int selectedProduct = -1;
+        private Bitmap selectedProductImg = null;
 
         public POS()
         {
             InitializeComponent();
+            this.CartItemGrid.Columns["Price"].HeaderText = "Price("+ NumberFormatInfo.CurrentInfo.CurrencySymbol + ")";
             this.CartItemGrid.Columns["Qty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             CartItemGrid.Rows.Add("SIEMENS WM12N270HK 7KG 1200RPM Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, "35.00", "none");
             CartItemGrid.Rows.Add("MIELE WCR860 W1 9KG 1600RPM Front Load WasherX", Properties.Resources.minus, "1", Properties.Resources.plus24, "35.00", "");
             CartItemGrid.Rows.Add("MIELE WCA020 WCS Active 7KG 1400RPM Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, "35.00", "");
             CartItemGrid.Rows.Add("TOSHIBA TWBL85A2HWW 7.5KG 440mm Ultra Slim Inverter Front Loading Washing Machine Front Load Washer", Properties.Resources.minus, "1", Properties.Resources.plus24, "35.00", "");
-            GetAllGoods();
+            //GetAll();
         }
 
         /*
@@ -70,7 +72,7 @@ namespace TheBetterLimited.Views
         private void InitializeDataGridView()
         {
             //Main data column
-            selecteUserId.Clear();
+            //selecteUserId.Clear();
         }
 
 
@@ -88,7 +90,6 @@ namespace TheBetterLimited.Views
                 addUser.Activate();
                 addUser.WindowState = FormWindowState.Normal;
             }
-
         }
 
         private void ChangeCheckedBtn_Style(RoundButton sender)
@@ -141,12 +142,17 @@ namespace TheBetterLimited.Views
 
         private void AddLabelBtn_Click(object sender, EventArgs e)
         {
+            if (selectedProduct == -1)
+            {
+                MessageBox.Show("You have not selected a product!");
+                return;
+            }
             Form goodsDetauks = Application.OpenForms["GoodsDetails"];
             if (goodsDetauks == null || goodsDetauks.IsDisposed)
             {
                 GoodsDetails gd = new GoodsDetails();
+                gd.goodsData = goods[selectedProduct];
                 gd.Show();
-                //gd.GoodsInfo(goods[se]);
                 gd.TopLevel = true;
                 //goodsDetauks.OnExit += Refresh;
             }
@@ -235,7 +241,7 @@ namespace TheBetterLimited.Views
 
         private void CatalogueCombox_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            GetGoodsByCatalogue(CatalogueCombox.SelectedIndex);
+            GetByQry(CatalogueCombox.SelectedIndex);
         }
 
         private void CatalogueCombox_Load(object sender, EventArgs e)
@@ -257,44 +263,68 @@ namespace TheBetterLimited.Views
 
         }
 
-        private void GetAllGoods()
+        private void GetAll()
         {
             ProductInfoContainer.Controls.Clear();
+            goods.Clear();
             var response = cbGoods.GetAll();
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                InitGoodsList(response.Content);
+                InitList(response.Content);
             }
         }
-        private void GetGoodsByCatalogue(int catalogueId)
+        private void GetByQry(int catalogueId)
         {
             ProductInfoContainer.Controls.Clear();
+            goods.Clear();
             var response = cbGoods.GetByQueryString($"_catalogueId:{catalogueId}");
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                InitGoodsList(response.Content);
+                InitList(response.Content);
             }
         }
 
-        private void InitGoodsList(string json)
+        private void InitList(string json)
         {
-            var goodsList = JArray.Parse(json);
-            foreach (var c in goodsList)
+            var list = JArray.Parse(json);
+            foreach (JObject c in list)
             {
+                goods.Add(c);
+                Bitmap img = null;
+                JToken token = c["Photo"];
+                if (token.Type != JTokenType.Null)
+                {
+                    byte[] byteBuffer = Convert.FromBase64String(c["Photo"].ToString());
+                    MemoryStream memoryStream = new MemoryStream(byteBuffer);
+                    img = new Bitmap(memoryStream);
+                    memoryStream.Close();
+                }
+                else
+                {
+                    img = Properties.Resources.product;
+                }
                 ProductInfo productBox = new ProductInfo();
                 productBox.Title = c["Name"].ToString();
                 productBox.ProductPrice = (double)c["Price"];
-                productBox.Image = gc.GetGoodsImage(c["Id"].ToString());
+                productBox.Image = img;
                 productBox.BorderSelectedColor = Color.SeaGreen;
                 productBox.PicInfoClicked += new EventHandler(PictureBox_Click);
                 ProductInfoContainer.Controls.Add(productBox);
+
             }
         }
 
         private void PictureBox_Click(object sender, EventArgs e)
         {
-            ((ProductInfo)ProductInfoContainer.Controls[selectedProduct]).IsSelected = false;
+            if (selectedProduct != -1)
+            {
+                ((ProductInfo)ProductInfoContainer.Controls[selectedProduct]).IsSelected = false;
+            }
             selectedProduct = ProductInfoContainer.Controls.IndexOf(((System.Windows.Forms.Control)sender).Parent);
+        }
+
+        private void roundButton2_MouseHover(object sender, EventArgs e)
+        {
 
         }
     }
