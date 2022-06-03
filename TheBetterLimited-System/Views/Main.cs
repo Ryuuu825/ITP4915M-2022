@@ -254,6 +254,25 @@ namespace TheBetterLimited.Views
         private void supplierBtn_Click(object sender, EventArgs e)
         {
             //openChildForm(new Su());
+            openChildForm(new Supplier());
+            subSidebarTimer.Start();
+        }
+
+        private void stockBtn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Stock());
+            subSidebarTimer.Start();
+        }
+
+        private void appointmentBtn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Appointment());
+            subSidebarTimer.Start();
+        }
+
+        private void restockRequestBtn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new RestockRequest());
             subSidebarTimer.Start();
         }
     }
