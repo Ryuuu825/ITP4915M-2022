@@ -1,6 +1,7 @@
 ﻿using TheBetterLimited.Controller;
 using TheBetterLimited.Views;
 using System;
+using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,6 +12,7 @@ namespace TheBetterLimited.Views
     public partial class Login : Form
     {
         private LoginController loginController = new LoginController();
+        private System.ComponentModel.BackgroundWorker bgWorker;
         public Login()
         {
             InitializeComponent();
@@ -28,6 +30,7 @@ namespace TheBetterLimited.Views
         [STAThread]
         private void loginBtn_Click(object sender, EventArgs e)
         {
+            this.loginBtn.Enabled = false;
             LoadMain();
         }
 
@@ -51,24 +54,36 @@ namespace TheBetterLimited.Views
                 }
             }
 
-            /**
-             * Request login
-             */
-            var result = loginController.Login(username.Texts, password.Texts);
-            if (result.Equals("ok"))
+            bgWorker = new BackgroundWorker();
+            string result = "";
+            bgWorker.DoWork += new DoWorkEventHandler((sender , e) =>
             {
-                this.Dispose();
-                Main main = new Main();
-                main.TopLevel = true;
-                var th = new Thread(() => Application.Run(main));
-                th.SetApartmentState(ApartmentState.STA);
-                th.Start();
-            }
-            else if (result != null)
+                result = loginController.Login(username.Texts, password.Texts);
+            });
+            bgWorker.RunWorkerCompleted += (sender, args) =>
             {
-                var str = result;
-                MessageBox.Show(str, "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                /**
+                 * Request login
+                 */
+                if (result.Equals("ok"))
+                {
+                    this.Dispose();
+                    Main main = new Main();
+                    main.TopLevel = true;
+                    var th = new Thread(() => Application.Run(main));
+                    th.SetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
+                else if (result != null)
+                {
+                    var str = result;
+                    MessageBox.Show(str, "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.loginBtn.Enabled = true;
+                }
+            };
+            bgWorker.RunWorkerAsync();
+
+
         }
 
         private void forgotPwd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
