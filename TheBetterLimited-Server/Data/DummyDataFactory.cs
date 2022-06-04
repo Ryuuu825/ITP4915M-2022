@@ -1834,12 +1834,19 @@ namespace TheBetterLimited_Server.Data
             List<SessionSetting> sessionRange = db.Set<SessionSetting>().ToList();
             List<Session> sessions = new List<Session>();
 
-            int counter = 0;
-            for(int i = 0 ; i < 200; )
+            int scounter = 0;
+            // sessions.Add (new Session
+            // {
+            //     ID = "001",
+            //     StartTime = sessionRange[scounter].StartTime,
+            //     EndTime = sessionRange[scounter].EndTime,
+            //     NumOfAppointments = sessionRange[scounter].NumOfAppointments,
+            //     SessionSettingID = sessionRange[scounter].ID
+            // });
+            for(int i = 1 ; i < 188; )
             {
-                if (counter >= sessionRange.Count)
-                    counter = 0;
-                ConsoleLogger.Debug(counter);
+                if (scounter >= sessionRange.Count)
+                    scounter = 0;
                 i++;
                 sessions.Add(
                     new Session
@@ -1847,78 +1854,26 @@ namespace TheBetterLimited_Server.Data
                         // padding the id with 0s automatically
                         ID = i.ToString("D9"),
                         _departmentId = "300",
-                        StartTime = sessionRange[counter].StartTime,
-                        EndTime = sessionRange[counter].EndTime,
+                        StartTime = sessionRange[scounter].StartTime,
+                        EndTime = sessionRange[scounter].EndTime,
                         Date = GenDate()
                     }
                 );
                 i++;
-
                 sessions.Add(
                     new Session
                     {
                         ID = i.ToString("D9"),
                         _departmentId = "700",
-                        StartTime = sessionRange[counter].StartTime,
-                        EndTime = sessionRange[counter].EndTime,
+                        StartTime = sessionRange[scounter].StartTime,
+                        EndTime = sessionRange[scounter].EndTime,
                         Date = GenDate()
                     }
                 );
+                scounter++;
             }
 
             return sessions;
-
-            // return new Session[]
-            // {
-            //     new Session
-            //     {
-            //         ID = "000000001",
-            //         _departmentId = "300",
-            //         StartTime = morningS,
-            //         EndTime = morningE,
-            //         Date = GenDate()
-            //     },
-            //     new Session
-            //     {
-            //         ID = "000000002",
-            //         _departmentId = "300",
-            //         StartTime = AfterS,
-            //         EndTime = AfterE,
-            //         Date = GenDate()
-            //     },
-            //     new Session
-            //     {
-            //         ID = "000000003",
-            //         _departmentId = "300",
-            //         StartTime = EvenS,
-            //         EndTime = EvenE,
-            //         Date = GenDate()
-            //     },new Session
-            //     {
-            //         ID = "000000004",
-            //         _departmentId = "700",
-            //         StartTime = morningS,
-            //         EndTime = morningE,
-            //         Date = GenDate()
-            //     },
-            //     new Session
-            //     {
-            //         ID = "000000005",
-            //         _departmentId = "700",
-            //         StartTime = AfterS,
-            //         EndTime = AfterE,
-            //         Date = GenDate()
-            //     },
-            //     new Session
-            //     {
-            //         ID = "000000006",
-            //         _departmentId = "700",
-            //         StartTime = EvenS,
-            //         EndTime = EvenE,
-            //         Date = GenDate()
-            //     }
-
-            // };
         }
 
         private static DateOnly last = DateOnly.FromDateTime(DateTime.Now);
@@ -1927,12 +1882,13 @@ namespace TheBetterLimited_Server.Data
 
         public static DateOnly GenDate()
         {
-            counter++;
-            if (counter > 6)
+            if (counter >= 6)
             {
                 last = last.AddDays(1);
                 counter = 0;
             }
+            counter++;
+
             return last;
         }
 
