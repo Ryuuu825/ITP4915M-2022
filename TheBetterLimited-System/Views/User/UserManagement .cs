@@ -150,13 +150,6 @@ namespace TheBetterLimited.Views
             //Main data column
             UserDataGrid.AutoGenerateColumns = false;
             UserDataGrid.DataSource = bs;
-            /*UserDataGrid.Columns["id"].HeaderText = "ID";
-            UserDataGrid.Columns["userName"].HeaderText = "User Name";
-            UserDataGrid.Columns["staffName"].HeaderText = "Staff Name";
-            UserDataGrid.Columns["emailAddress"].HeaderText = "Email Address";
-            UserDataGrid.Columns["status"].HeaderText = "Status";
-            UserDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
-            UserDataGrid.Columns["remarks"].HeaderText = "Remark";*/
 
             for (int i = 0; i < UserDataGrid.RowCount; i++)
                 UserDataGrid["select", i].Tag = 0;

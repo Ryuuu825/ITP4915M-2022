@@ -27,6 +27,7 @@ namespace TheBetterLimited.Views
         private bool isSawDetails = false;
         private ControllerBase cbOrder = new ControllerBase("Order");
         private string _storeId;
+        private List<JArray> orderItems = new List<JArray>();
 
         public OrderManagement()
         {
@@ -99,7 +100,7 @@ namespace TheBetterLimited.Views
                     order.Close();
                 }
                 OrderDetails od = new OrderDetails();
-                od._oid = OrderDataGrid["id", e.RowIndex].Value.ToString();
+                od.SetOrderItems(orderItems[e.RowIndex]);
                 od.Show();
                 od.TopLevel = true;
                 od.OnExit += GetOrder;
@@ -152,6 +153,11 @@ namespace TheBetterLimited.Views
             try
             {
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
+                JArray orderList = JArray.Parse(result.Content);
+                foreach (var row in orderList)
+                {
+                    orderItems.Add((JArray)row["orderItems"]);
+                }
                 bs.DataSource = dataTable;
                 OrderDataGrid.AutoGenerateColumns = false;
                 OrderDataGrid.DataSource = bs;

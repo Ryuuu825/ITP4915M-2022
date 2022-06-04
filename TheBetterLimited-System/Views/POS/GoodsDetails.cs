@@ -77,7 +77,8 @@ namespace TheBetterLimited.Views
                 stock = (int)goodsData["StockLevel"]["warehouseStock"][0]["stock"];
                 StockTxt.Texts = stock.ToString();
                 stockLevel = (int)goodsData["StockLevel"]["warehouseStock"][0]["status"];
-                ShowStockLevel(stockLevel);
+                //ShowStockLevel(stockLevel);
+                StockLevelTxt.Texts = "Normal";
                 goodsId = goodsData["StockLevel"]["warehouseStock"][0]["_supplier_Goods_Stock_Id"].ToString();
                 needDelivery = true;
             }
@@ -99,7 +100,7 @@ namespace TheBetterLimited.Views
                     break;
                 case 1:
                     StockLevelTxt.Texts = "Re-oder";
-                    StockLevelTxt.ForeColor = Color.Gold;
+                    StockLevelTxt.ForeColor = Color.FromArgb(250, 182, 99);
                     break;
                 case 2:
                     StockLevelTxt.Texts = "Normal";
@@ -133,7 +134,7 @@ namespace TheBetterLimited.Views
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if (stockLevel == 0)
+            if (stockLevel == 0 && LocTxt.Texts.Equals("In Stock"))
             {
                 DialogResult result = MessageBox.Show("Product is out of stock! \nDo you need to book this product?", "Warming", MessageBoxButtons.YesNo);
                 if (result == DialogResult.No)

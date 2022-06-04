@@ -8,17 +8,13 @@ namespace TheBetterLimited.Models
 {
     internal class AppointmentInfo
     {
-        private DateTime deliveryDate;
-        private int deliverySession;
-        private DateTime installDate;
-        private int installSession;
+        private DateTime Date;
+        private int Session;
 
-        public AppointmentInfo(DateTime deliveryDate, int deliverySession, DateTime installDate, int installSession)
+        public AppointmentInfo(DateTime date, int session)
         {
-            this.deliveryDate = deliveryDate;
-            this.deliverySession = deliverySession;
-            this.installDate = installDate;
-            this.installSession = installSession;
+            Date = date;
+            Session = session;
         }
     }
 }

@@ -25,150 +25,75 @@ namespace TheBetterLimited.Views
         private RestResponse result = new RestResponse();
         private bool isUpload = false;
         private Bitmap icon = null;
-        public string _oid { get; set; }
-        private string _staffId;
-        private string _staffName;
-        private string _deptName;
-        private string _positionName;
-        private string _userName;
-        private string _email;
-        private string _status;
-        private string _remark;
+        private DataTable orderTable = new DataTable();
+        private BindingSource bs = new BindingSource();
+        JArray orderItems = new JArray();
 
         public OrderDetails()
         {
             InitializeComponent();
-        }
-
-        private void Usermanagement_Edit_Load(object sender, EventArgs e)
-        {
-            //InitUserInfo();
-        }
-
-        private void SearchStaffBtn_Click(object sender, EventArgs e)
-        {
-            if (StaffIDTxt.Texts.Substring(0, 1) != "S")
-            {
-                StaffIDTxt.Focus();
-                StaffIDTxt.Texts = _staffId;
-                MessageBox.Show("Staff ID should start with \"S\"! e.g. S0001 ");
-            }
-            else if (StaffIDTxt.Texts.Length < 5)
-            {
-                MessageBox.Show("The length of Staff ID should be 5!");
-            }
-            else
-            {
-                GetStaff();
-            }
-        }
-
-        public void InitOrderInfo()
-        {
             
-            //init Order info
-            Console.WriteLine(_oid);
-            result = uc.GetAccountById(_oid);
-            Console.WriteLine(result.Content.ToString());
-            var res = JObject.Parse(result.Content);
-            _staffId = res["_StaffId"].ToString();
-            if (res != null)
-            {
-                StaffIDTxt.Texts = _staffId;
-            }
-            GetStaff();
-
-            //init account info
-            GetAccount();
         }
 
-        private void GetStaff()
+        public void SetOrderItems(JArray orderItems)
         {
-            result = sc.GetStaffById(StaffIDTxt.Texts);
-            JObject staff = null;
-            try
+            this.orderItems = orderItems;
+            InitializeOrderItemTable();
+        }
+
+        private void InitializeOrderItemTable()
+        {
+            orderTable.Columns.Add("goodsName");
+            orderTable.Columns.Add("supplierGoodsStockId");
+            orderTable.Columns.Add("quantity");
+            orderTable.Columns.Add("price");
+            orderTable.Columns.Add("isDelivery");
+            orderTable.Columns.Add("isInstall");
+            orderTable.Columns.Add("isBooking");
+            //
+            foreach (var item in orderItems)
             {
-                staff = JObject.Parse(result.Content);
-            }catch (Exception ex)
-            {
-                MessageBox.Show("Not found the staff " + StaffIDTxt.Texts);
-            }
-            
-            if (staff != null)
-            {
-                _staffName = staff["FirstName"].ToString() + " " + staff["LastName"].ToString();
-                StaffNameTxt.Texts = _staffName;
-                if (staff["Sex"].ToString().Equals("M"))
+                var row = orderTable.NewRow();
+                row["goodsName"] = item["name"].ToString();
+                row["supplierGoodsStockId"] = item["supplierGoodsStockId"].ToString();
+                row["quantity"] = item["quantity"].ToString();
+                row["price"] = item["price"].ToString();
+                if((bool)item["needDelivery"] == false)
                 {
+                    Console.WriteLine("needDelivery");
+                    row["isDelivery"] = Properties.Resources.square;
+                }else
+                {
+                    row["isDelivery"] = Properties.Resources.check;
+                }
+                if ((bool)item["needInstall"] == false)
+                {
+                    Console.WriteLine("needInstall");
+                    row["isInstall"] = Properties.Resources.square;
                 }
                 else
                 {
+                    Console.WriteLine("isInstall");
+                    row["isInstall"] = Properties.Resources.check;
                 }
-            }
-            result = dc.GetDepartmentById(staff["_departmentId"].ToString());
-            var department = JObject.Parse(result.Content);
-            _deptName = department["Name"].ToString();
-            if (department != null)
-            {
-                DeptTxt.Texts = department["Name"].ToString();
-            }
-
-            result = pc.GetPositionById(staff["_positionId"].ToString());
-            var position = JObject.Parse(result.Content);
-            _positionName = position["jobTitle"].ToString();
-            if (position != null)
-            {
-            }
-        }
-
-        private void GetAccount()
-        {
-            result = uc.GetAccountById(_oid);
-            var user = JObject.Parse(result.Content);
-            if (user != null)
-            {
-
-                _userName = user["userName"].ToString();
-                _email = user["emailAddress"].ToString();
-                _status = user["status"].ToString();
-                _remark = user["remarks"].ToString();
-                if (_status.Equals("N"))
+                if ((bool)item["needBooking"] == false)
                 {
+                    Console.WriteLine("needBooking");
+                    row["isBooking"] = Properties.Resources.square;
                 }
                 else
                 {
+                    row["isBooking"] = Properties.Resources.check;
                 }
+                orderTable.Rows.Add(row);
             }
+
+            bs.DataSource = orderTable;
+            OrderDataGrid.AutoGenerateColumns = false;
+            OrderDataGrid.DataSource = bs;
+
         }
 
-        private void UserNameTxt_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void ValueUpdatedCheck()
-        {
-        }
-
-        private void NormalStatusRadio_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void LockStatusRadio_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            StaffIDTxt.Focus();
-        }
-
-        private void UserName_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Email_Click(object sender, EventArgs e)
-        {
-        }
 
         public event Action OnExit;
         private void CancelBtn_Click(object sender, EventArgs e)
@@ -177,7 +102,7 @@ namespace TheBetterLimited.Views
             this.Close();
         }
 
-        private void SaveBtn_Click(object sender, EventArgs e)
+        /*private void SaveBtn_Click(object sender, EventArgs e)
         {
             List<object> updatedData = new List<object>();
             if (!StaffIDTxt.Texts.Equals(_staffId) && !StaffIDTxt.Texts.Equals(StaffIDTxt.Placeholder))
@@ -221,6 +146,6 @@ namespace TheBetterLimited.Views
                 Console.WriteLine(ex.Message);
                 MessageBox.Show("Sorry, user information update unsuccessfully");
             }
-        }
+        }*/
     }
 }

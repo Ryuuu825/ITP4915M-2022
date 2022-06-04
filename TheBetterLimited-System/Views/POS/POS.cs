@@ -39,6 +39,7 @@ namespace TheBetterLimited.Views
         private Bitmap selectedProductImg = null;
         private OrderItem oi = null;
         private CustomerInfo cusInfo = null;
+        private List<object> appointments = null;
         private double totalAmount;
         private int discount;
 
@@ -417,11 +418,51 @@ namespace TheBetterLimited.Views
                     break;
                 }
             }
-            if (isBook)
+
+            // check delivery
+            foreach (OrderItem item in orderItems)
             {
-                OpenBooking();
+                // if an item need to book
+                if (item.NeedDelivery == true)
+                {
+                    //search whether all items need to book
+                    foreach (OrderItem item1 in orderItems)
+                    {
+                        //not all -> show error message
+                        if (item1.NeedDelivery == false)
+                        {
+                            MessageBox.Show("Unable to combine the goods that need to \nbe picked up and delivered in one order. \nPlease orders them to divide into 2 orders.");
+                            return;
+                        }
+                    }
+                    isDelivery = true;
+                    break;
+                }
             }
-            else
+
+            if (isBook && isDelivery) //need book and delivery
+            {
+                DialogResult dialogResult = MessageBox.Show("Since the item(s) is/are out of stock in warehouse." +
+                    "\nUnable to predict the arrival time. \nDo you want to continue to place the order?","Warming",MessageBoxButtons.YesNo);
+                if(dialogResult == DialogResult.Yes)
+                {
+                    OpenBooking();
+                }
+            }
+            else if (isBook) //need book but not need to deliver
+            {
+                DialogResult dialogResult = MessageBox.Show("Since the item(s) is/are out of stock in store." +
+                    "\nUnable to predict the arrival time. \nDo you want to continue to place the order?", "Warming", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    OpenBooking();
+                }
+            }else if (isDelivery)//need to deliver but not book
+            {
+                DialogResult dialogResult = MessageBox.Show("The item(s) should be delivered from the warehouse." +
+                    "\nPlease enter the customer information.", "Warming");
+                OpenAppointment();
+            }else
             {
                 OpenPaymentMethod();
             }
@@ -448,18 +489,6 @@ namespace TheBetterLimited.Views
             PaymentMethod payment = new PaymentMethod();
             payment.totalAmount = totalAmount;
             payment.ShowDialog();
-        }
-
-        private string cusName;
-        private string cusPhone;
-        private string cusAddress;
-        private DateTime deliveryDate;
-        private int deliverySession;
-        private DateTime installDate;
-        private int installSession;
-
-        public void GetAppointmentInfo(List<object> app)
-        {
         }
 
         private void DiscountValue__TextChanged(object sender, EventArgs e)
@@ -531,6 +560,15 @@ namespace TheBetterLimited.Views
                 booking.Dispose();
             }
             InitializeCartGridView();
+        }
+
+        public void SetCusInfo(object customer)
+        {
+            this.cusInfo = (CustomerInfo)customer;
+        }
+        public void SetAppointments(List<object> appointments)
+        {
+            this.appointments = appointments;
         }
     }
 }
