@@ -34,6 +34,7 @@ namespace TheBetterLimited.Views
             LoadMain();
         }
 
+        private Main main;
         private void LoadMain()
         {
             int i = 1;
@@ -68,7 +69,7 @@ namespace TheBetterLimited.Views
                 if (result.Equals("ok"))
                 {
                     this.Dispose();
-                    Main main = new Main();
+                    main = new Main();
                     main.TopLevel = true;
                     var th = new Thread(() => Application.Run(main));
                     th.SetApartmentState(ApartmentState.STA);
@@ -82,8 +83,6 @@ namespace TheBetterLimited.Views
                 }
             };
             bgWorker.RunWorkerAsync();
-
-
         }
 
         private void forgotPwd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
