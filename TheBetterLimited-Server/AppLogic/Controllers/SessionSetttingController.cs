@@ -67,9 +67,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     Date = DateOnly.FromDateTime(nextMonth),
                     NumOfAppointments = (byte) newVersion[i].NumOfAppointments
                 };
-
                 _SessionTable.Add(ESession);
-
             }
 
         }
