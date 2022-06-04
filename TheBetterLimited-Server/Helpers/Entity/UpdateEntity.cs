@@ -23,7 +23,7 @@ namespace TheBetterLimited_Server.Helpers.Entity
                     if (System.Attribute.IsDefined(target, typeof(AppLogic.Attribute.TranslatableAttribute)))
                     {
                         Helpers.Localizer.UpdateWord<T>(
-                            lang , 
+                            lang ,
                             target.GetValue(o).ToString() ,
                             item.Value.ToString()
                         );

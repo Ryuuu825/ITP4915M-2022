@@ -117,6 +117,7 @@ public class DataContext : DbContext
     public DbSet<Team> team {get; }
     public DbSet<Transaction> transaction {get; }
     public DbSet<Warehouse> warehouse {get; }
+    public DbSet<SessionSetting> sessionSetting {get; }
 
 
 

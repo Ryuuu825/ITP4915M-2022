@@ -9,9 +9,7 @@ namespace TheBetterLimited_Server.Helpers.Sql
         {
             var Table = db.Set<T>();
             StringBuilder sb = new StringBuilder();
-
             var list = Table.ToList();
-            ConsoleLogger.Debug(list is null ? "list is null" : "list is not null");
 
             string Id;
             if (list.Count() == 0)
@@ -19,13 +17,6 @@ namespace TheBetterLimited_Server.Helpers.Sql
                 NoRecordExists:
                 // get the maximum length of the property from attribute MaxLength
                 T entity = Activator.CreateInstance<T>();
-                // var MaxLengthAttri = entity
-                //                     .GetType()
-                //                     .GetProperties()
-                //                     .FirstOrDefault(x => x.Name == "Id")
-                //                     .GetCustomAttributes(typeof(MaxLengthAttribute), false)
-                //                     .FirstOrDefault() as MaxLengthAttribute;
-                // int MaxLen = MaxLengthAttri.Length;
 
                 int MaxLen = 0;
                 foreach(var item in entity.GetType().GetProperties())

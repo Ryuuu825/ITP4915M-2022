@@ -22,11 +22,11 @@ namespace TheBetterLimited_Server.Data
                 db.Set<Location>().AddRange(CreateLocation());
                 db.Set<Store>().AddRange(CreateStore());
                 db.Set<Warehouse>().AddRange(CreateWarehouse());
-                db.Set<Session>().AddRange(CreateSession());
+                db.Set<SessionSetting>().AddRange(CreateSessionSetting());
 
                 db.SaveChanges();
 
-
+                db.Set<Session>().AddRange(CreateSession(db));
                 db.Set<Supplier_Goods>().AddRange(CreateSupplier_Goods());
                 db.Set<Supplier_Goods_Stock>().AddRange(CreateSupplier_Goods_Stock());
                 db.SaveChanges();
@@ -1798,19 +1798,40 @@ namespace TheBetterLimited_Server.Data
                 
         }
 
-        public static List<Session> CreateSession()
+        public static List<SessionSetting> CreateSessionSetting()
         {
-            TimeOnly morningS = new TimeOnly(9, 0, 0);
-            TimeOnly morningE = new TimeOnly(12, 0, 0);
-            TimeOnly AfterS = new TimeOnly(13, 0, 0);
-            TimeOnly AfterE = new TimeOnly(17, 0, 0);
-            TimeOnly EvenS = new TimeOnly(18, 0, 0);
-            TimeOnly EvenE = new TimeOnly(22, 0, 0);
-
-            List<TimeOnly> sessionRange = new List<TimeOnly>()
+            return new List<SessionSetting>
             {
-                morningS, morningE, AfterS, AfterE, EvenS, EvenE
+                new SessionSetting
+                {
+                    ID = "001",
+                    StartTime = new TimeOnly(9, 0, 0),
+                    EndTime = new TimeOnly(12, 0, 0),
+                    NumOfAppointments = 5
+                },
+                new SessionSetting
+                {
+                    ID = "002",
+                    StartTime = new TimeOnly(13, 0, 0),
+                    EndTime = new TimeOnly(17, 0, 0),
+                    NumOfAppointments = 5
+                },
+                new SessionSetting
+                {
+                    ID = "003",
+                    StartTime = new TimeOnly(18, 0, 0),
+                    EndTime = new TimeOnly(22, 0, 0),
+                    NumOfAppointments = 5
+                }
             };
+        }
+
+
+        public static List<Session> CreateSession(DataContext db)
+        {
+            
+
+            List<SessionSetting> sessionRange = db.Set<SessionSetting>().ToList();
             List<Session> sessions = new List<Session>();
 
             int counter = 0;
@@ -1826,8 +1847,8 @@ namespace TheBetterLimited_Server.Data
                         // padding the id with 0s automatically
                         ID = i.ToString("D9"),
                         _departmentId = "300",
-                        StartTime = sessionRange[counter++],
-                        EndTime = sessionRange[counter++],
+                        StartTime = sessionRange[counter].StartTime,
+                        EndTime = sessionRange[counter].EndTime,
                         Date = GenDate()
                     }
                 );
@@ -1838,8 +1859,8 @@ namespace TheBetterLimited_Server.Data
                     {
                         ID = i.ToString("D9"),
                         _departmentId = "700",
-                        StartTime = sessionRange[counter-2],
-                        EndTime = sessionRange[counter-1],
+                        StartTime = sessionRange[counter].StartTime,
+                        EndTime = sessionRange[counter].EndTime,
                         Date = GenDate()
                     }
                 );

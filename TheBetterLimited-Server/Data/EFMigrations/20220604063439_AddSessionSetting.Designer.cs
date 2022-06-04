@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheBetterLimited_Server.Data;
 
@@ -10,9 +11,10 @@ using TheBetterLimited_Server.Data;
 namespace TheBetterLimited_Server.Data.EFMigrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220604063439_AddSessionSetting")]
+    partial class AddSessionSetting
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -722,26 +724,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.HasIndex("_departmentId");
 
                     b.ToTable("Session");
-                });
-
-            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.SessionSetting", b =>
-                {
-                    b.Property<string>("ID")
-                        .HasMaxLength(10)
-                        .HasColumnType("char(10)");
-
-                    b.Property<TimeOnly>("EndTime")
-                        .HasColumnType("time(6)");
-
-                    b.Property<sbyte>("NumOfAppointments")
-                        .HasColumnType("TINYINT");
-
-                    b.Property<TimeOnly>("StartTime")
-                        .HasColumnType("time(6)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("sessionSetting");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Staff", b =>
