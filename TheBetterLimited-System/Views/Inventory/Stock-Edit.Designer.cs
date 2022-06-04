@@ -168,7 +168,7 @@
             this.txtReorderLevel.BorderRadius = 10;
             this.txtReorderLevel.BorderSize = 1;
             this.txtReorderLevel.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReorderLevel.ForeColor = System.Drawing.Color.LightGray;
+            this.txtReorderLevel.ForeColor = System.Drawing.Color.Black;
             this.txtReorderLevel.IsError = false;
             this.txtReorderLevel.Location = new System.Drawing.Point(198, 346);
             this.txtReorderLevel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -206,7 +206,7 @@
             this.txtLocId.BorderRadius = 10;
             this.txtLocId.BorderSize = 1;
             this.txtLocId.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLocId.ForeColor = System.Drawing.Color.LightGray;
+            this.txtLocId.ForeColor = System.Drawing.Color.Black;
             this.txtLocId.IsError = false;
             this.txtLocId.Location = new System.Drawing.Point(197, 67);
             this.txtLocId.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -232,7 +232,7 @@
             this.txtQuantity.BorderRadius = 10;
             this.txtQuantity.BorderSize = 1;
             this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.ForeColor = System.Drawing.Color.LightGray;
+            this.txtQuantity.ForeColor = System.Drawing.Color.Black;
             this.txtQuantity.IsError = false;
             this.txtQuantity.Location = new System.Drawing.Point(197, 173);
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -258,7 +258,7 @@
             this.txtMinLimit.BorderRadius = 10;
             this.txtMinLimit.BorderSize = 1;
             this.txtMinLimit.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMinLimit.ForeColor = System.Drawing.Color.LightGray;
+            this.txtMinLimit.ForeColor = System.Drawing.Color.Black;
             this.txtMinLimit.IsError = false;
             this.txtMinLimit.Location = new System.Drawing.Point(197, 285);
             this.txtMinLimit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -296,7 +296,7 @@
             this.txtMaxLimit.BorderRadius = 10;
             this.txtMaxLimit.BorderSize = 1;
             this.txtMaxLimit.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaxLimit.ForeColor = System.Drawing.Color.LightGray;
+            this.txtMaxLimit.ForeColor = System.Drawing.Color.Black;
             this.txtMaxLimit.IsError = false;
             this.txtMaxLimit.Location = new System.Drawing.Point(197, 224);
             this.txtMaxLimit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -414,7 +414,7 @@
             this.txtSupplierGoodsId.BorderRadius = 10;
             this.txtSupplierGoodsId.BorderSize = 1;
             this.txtSupplierGoodsId.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierGoodsId.ForeColor = System.Drawing.Color.LightGray;
+            this.txtSupplierGoodsId.ForeColor = System.Drawing.Color.Black;
             this.txtSupplierGoodsId.IsError = false;
             this.txtSupplierGoodsId.Location = new System.Drawing.Point(197, 117);
             this.txtSupplierGoodsId.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);

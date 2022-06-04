@@ -66,7 +66,7 @@
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.BottomBtn.Size = new System.Drawing.Size(764, 54);
+            this.BottomBtn.Size = new System.Drawing.Size(503, 54);
             this.BottomBtn.TabIndex = 1;
             // 
             // btnCancel
@@ -82,7 +82,7 @@
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.IsChecked = false;
-            this.btnCancel.Location = new System.Drawing.Point(478, 6);
+            this.btnCancel.Location = new System.Drawing.Point(193, 7);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(128, 40);
             this.btnCancel.TabIndex = 1;
@@ -103,7 +103,7 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.IsChecked = false;
-            this.btnSave.Location = new System.Drawing.Point(623, 6);
+            this.btnSave.Location = new System.Drawing.Point(338, 7);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(128, 40);
             this.btnSave.TabIndex = 6;
@@ -122,7 +122,7 @@
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
             this.MainForm.Padding = new System.Windows.Forms.Padding(10);
-            this.MainForm.Size = new System.Drawing.Size(784, 471);
+            this.MainForm.Size = new System.Drawing.Size(523, 471);
             this.MainForm.TabIndex = 2;
             // 
             // UserInfo
@@ -133,7 +133,7 @@
             this.UserInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserInfo.Location = new System.Drawing.Point(10, 10);
             this.UserInfo.Name = "UserInfo";
-            this.UserInfo.Size = new System.Drawing.Size(764, 391);
+            this.UserInfo.Size = new System.Drawing.Size(503, 391);
             this.UserInfo.TabIndex = 24;
             // 
             // panel1
@@ -151,9 +151,10 @@
             this.panel1.Controls.Add(this.lblContact);
             this.panel1.Controls.Add(this.txtPhone);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.ForeColor = System.Drawing.Color.Black;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(764, 351);
+            this.panel1.Size = new System.Drawing.Size(503, 351);
             this.panel1.TabIndex = 27;
             // 
             // txtSupplierName
@@ -164,7 +165,7 @@
             this.txtSupplierName.BorderRadius = 10;
             this.txtSupplierName.BorderSize = 1;
             this.txtSupplierName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupplierName.ForeColor = System.Drawing.Color.LightGray;
+            this.txtSupplierName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtSupplierName.IsError = false;
             this.txtSupplierName.Location = new System.Drawing.Point(161, 66);
             this.txtSupplierName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -190,7 +191,7 @@
             this.txtContact.BorderRadius = 10;
             this.txtContact.BorderSize = 1;
             this.txtContact.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContact.ForeColor = System.Drawing.Color.LightGray;
+            this.txtContact.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtContact.IsError = false;
             this.txtContact.Location = new System.Drawing.Point(161, 172);
             this.txtContact.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -216,7 +217,7 @@
             this.txtAddress.BorderRadius = 10;
             this.txtAddress.BorderSize = 1;
             this.txtAddress.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.ForeColor = System.Drawing.Color.LightGray;
+            this.txtAddress.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtAddress.IsError = false;
             this.txtAddress.Location = new System.Drawing.Point(161, 284);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -254,7 +255,7 @@
             this.txtEmail.BorderRadius = 10;
             this.txtEmail.BorderSize = 1;
             this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.ForeColor = System.Drawing.Color.LightGray;
+            this.txtEmail.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtEmail.IsError = false;
             this.txtEmail.Location = new System.Drawing.Point(161, 223);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -372,7 +373,7 @@
             this.txtPhone.BorderRadius = 10;
             this.txtPhone.BorderSize = 1;
             this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.ForeColor = System.Drawing.Color.LightGray;
+            this.txtPhone.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtPhone.IsError = false;
             this.txtPhone.Location = new System.Drawing.Point(161, 116);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -397,7 +398,7 @@
             this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
             this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
-            this.UserInfoHeaderContainer.Size = new System.Drawing.Size(764, 40);
+            this.UserInfoHeaderContainer.Size = new System.Drawing.Size(503, 40);
             this.UserInfoHeaderContainer.TabIndex = 20;
             // 
             // SupplierInfoHeader
@@ -416,7 +417,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(784, 471);
+            this.ClientSize = new System.Drawing.Size(523, 471);
             this.Controls.Add(this.MainForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
