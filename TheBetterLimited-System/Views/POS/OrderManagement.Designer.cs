@@ -64,6 +64,7 @@
             this.UpdateAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.details = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGrid)).BeginInit();
@@ -111,6 +112,7 @@
             this.UpdateAt,
             this.TotalAmount,
             this.Paid,
+            this.Status,
             this.details,
             this.delete});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -156,8 +158,8 @@
             this.OrderDataGrid.Size = new System.Drawing.Size(768, 379);
             this.OrderDataGrid.StandardTab = true;
             this.OrderDataGrid.TabIndex = 3;
-            this.OrderDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UserDataGrid_CellClick);
-            this.OrderDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.UserDataGrid_CellFormatting);
+            this.OrderDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrderDataGrid_CellClick);
+            this.OrderDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.OrderDataGrid_CellFormatting);
             // 
             // Action
             // 
@@ -218,7 +220,7 @@
             this.SearchBarTxt.Location = new System.Drawing.Point(0, 0);
             this.SearchBarTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.SearchBarTxt.MaxLength = 20;
-            this.SearchBarTxt.Multiline = true;
+            this.SearchBarTxt.Multiline = false;
             this.SearchBarTxt.Name = "SearchBarTxt";
             this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(22, 8, 8, 6);
             this.SearchBarTxt.PasswordChar = false;
@@ -406,7 +408,7 @@
             // ID
             // 
             this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.DataPropertyName = "id";
+            this.ID.DataPropertyName = "ID";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.ID.DefaultCellStyle = dataGridViewCellStyle3;
             this.ID.HeaderText = "ID";
@@ -419,7 +421,7 @@
             // _StaffId
             // 
             this._StaffId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._StaffId.DataPropertyName = "_StaffId";
+            this._StaffId.DataPropertyName = "_storeId";
             this._StaffId.HeaderText = "Store";
             this._StaffId.MinimumWidth = 6;
             this._StaffId.Name = "_StaffId";
@@ -431,23 +433,23 @@
             // 
             this.CreatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CreatorId.DataPropertyName = "_creatorId";
-            this.CreatorId.HeaderText = "Creator Id";
+            this.CreatorId.HeaderText = "Creator";
             this.CreatorId.MinimumWidth = 6;
             this.CreatorId.Name = "CreatorId";
             this.CreatorId.ReadOnly = true;
             this.CreatorId.ToolTipText = "Creator\'s staff ID of the order";
-            this.CreatorId.Width = 107;
+            this.CreatorId.Width = 91;
             // 
             // OperatorId
             // 
             this.OperatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.OperatorId.DataPropertyName = "_operatorId ";
-            this.OperatorId.HeaderText = "Operator Id ";
+            this.OperatorId.HeaderText = "Operator";
             this.OperatorId.MinimumWidth = 6;
             this.OperatorId.Name = "OperatorId";
             this.OperatorId.ReadOnly = true;
             this.OperatorId.ToolTipText = "Operator\'s staff ID of the order";
-            this.OperatorId.Width = 121;
+            this.OperatorId.Width = 101;
             // 
             // CreateAt
             // 
@@ -462,7 +464,7 @@
             // UpdateAt
             // 
             this.UpdateAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UpdateAt.DataPropertyName = "updateAt";
+            this.UpdateAt.DataPropertyName = "updatedAt";
             this.UpdateAt.HeaderText = "UpdateAt";
             this.UpdateAt.MinimumWidth = 6;
             this.UpdateAt.Name = "UpdateAt";
@@ -472,7 +474,7 @@
             // TotalAmount
             // 
             this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TotalAmount.DataPropertyName = "totalAmount";
+            this.TotalAmount.DataPropertyName = "total";
             this.TotalAmount.HeaderText = "Total Amount";
             this.TotalAmount.MinimumWidth = 6;
             this.TotalAmount.Name = "TotalAmount";
@@ -487,6 +489,13 @@
             this.Paid.Name = "Paid";
             this.Paid.ReadOnly = true;
             this.Paid.Width = 72;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
             // 
             // details
             // 
@@ -570,6 +579,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdateAt;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Paid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewImageColumn details;
         private System.Windows.Forms.DataGridViewImageColumn delete;
     }

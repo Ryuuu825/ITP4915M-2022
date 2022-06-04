@@ -12,12 +12,11 @@ namespace TheBetterLimited.Models
         private string name;
         private double price;
         private int stock;
-        private bool inStore;
+        private bool needDelivery;
         private bool isDisplay;
-        private bool isBook;
+        private bool needBooking;
         private int quantity;
         private string remark;
-
         public OrderItem()
         {
             this.supplierGoodsStockId = "0";
@@ -25,9 +24,9 @@ namespace TheBetterLimited.Models
             this.name = "";
             this.price = 0.0;
             this.quantity = 1;
-            this.inStore = true;
+            this.needDelivery = false;
             this.isDisplay = false;
-            this.isBook = false;
+            this.needBooking = false;
             this.remark = String.Empty;
         }
 
@@ -35,10 +34,10 @@ namespace TheBetterLimited.Models
         public string Name { get => name; set => name = value; }
         public double Price { get => price; set => price = value; }
         public int Stock { get => stock; set => stock = value; }
-        public bool InStore { get => inStore; set => inStore = value; }
+        public bool NeedDelivery { get => needDelivery; set => needDelivery = value; }
         public bool IsDisplay { get => isDisplay; set => isDisplay = value; }
         public int Quantity { get => quantity; set => quantity = value; }
         public string Remark { get => remark; set => remark = value; }
-        public bool IsBook { get => isBook; set => isBook = value; }
+        public bool NeedBooking { get => needBooking; set => needBooking = value; }
     }
 }

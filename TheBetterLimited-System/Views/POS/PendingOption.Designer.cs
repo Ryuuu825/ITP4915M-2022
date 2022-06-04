@@ -34,10 +34,10 @@
             this.ConfirmBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.CustomerInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
-            this.Title = new System.Windows.Forms.Label();
             this.pendingOptionPicBox2 = new TheBetterLimited.CustomizeControl.PendingOptionPicBox();
             this.pendingOptionPicBox1 = new TheBetterLimited.CustomizeControl.PendingOptionPicBox();
+            this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
+            this.Title = new System.Windows.Forms.Label();
             this.MainForm.SuspendLayout();
             this.BottomBtn.SuspendLayout();
             this.CustomerInfo.SuspendLayout();
@@ -54,7 +54,7 @@
             this.MainForm.Location = new System.Drawing.Point(0, 0);
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
-            this.MainForm.Size = new System.Drawing.Size(497, 362);
+            this.MainForm.Size = new System.Drawing.Size(497, 341);
             this.MainForm.TabIndex = 3;
             // 
             // BottomBtn
@@ -64,7 +64,7 @@
             this.BottomBtn.Controls.Add(this.ConfirmBtn);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(0, 296);
+            this.BottomBtn.Location = new System.Drawing.Point(0, 275);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
@@ -120,7 +120,7 @@
             this.CustomerInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomerInfo.Location = new System.Drawing.Point(0, 0);
             this.CustomerInfo.Name = "CustomerInfo";
-            this.CustomerInfo.Size = new System.Drawing.Size(497, 362);
+            this.CustomerInfo.Size = new System.Drawing.Size(497, 341);
             this.CustomerInfo.TabIndex = 24;
             // 
             // panel1
@@ -133,29 +133,8 @@
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel1.Size = new System.Drawing.Size(497, 322);
+            this.panel1.Size = new System.Drawing.Size(497, 301);
             this.panel1.TabIndex = 27;
-            // 
-            // UserInfoHeaderContainer
-            // 
-            this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
-            this.UserInfoHeaderContainer.Controls.Add(this.Title);
-            this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
-            this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
-            this.UserInfoHeaderContainer.Size = new System.Drawing.Size(497, 40);
-            this.UserInfoHeaderContainer.TabIndex = 20;
-            // 
-            // Title
-            // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.Location = new System.Drawing.Point(3, 7);
-            this.Title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(226, 25);
-            this.Title.TabIndex = 6;
-            this.Title.Text = "Pending Pick Up Option";
             // 
             // pendingOptionPicBox2
             // 
@@ -191,12 +170,33 @@
             this.pendingOptionPicBox1.TabIndex = 0;
             this.pendingOptionPicBox1.Title = "Booking";
             // 
+            // UserInfoHeaderContainer
+            // 
+            this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
+            this.UserInfoHeaderContainer.Controls.Add(this.Title);
+            this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
+            this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
+            this.UserInfoHeaderContainer.Size = new System.Drawing.Size(497, 40);
+            this.UserInfoHeaderContainer.TabIndex = 20;
+            // 
+            // Title
+            // 
+            this.Title.AutoSize = true;
+            this.Title.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.Location = new System.Drawing.Point(3, 7);
+            this.Title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(226, 25);
+            this.Title.TabIndex = 6;
+            this.Title.Text = "Pending Pick Up Option";
+            // 
             // PendingOption
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(497, 362);
+            this.ClientSize = new System.Drawing.Size(497, 341);
             this.Controls.Add(this.MainForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);

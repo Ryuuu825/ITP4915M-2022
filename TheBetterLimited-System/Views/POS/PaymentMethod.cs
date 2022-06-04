@@ -21,16 +21,14 @@ namespace TheBetterLimited.Views
 {
     public partial class PaymentMethod : Form
     {
-        private GoodsController uc = new GoodsController();
-        private ControllerBase cbSupplierGoodsStock = new ControllerBase("Supplier_Goods_Stock");
-        private ControllerBase cbSupplierGoods = new ControllerBase("Supplier_Goods");
         private RestResponse response = new RestResponse();
-        private bool isUpload = false;
-        private Bitmap icon = null;
-        public JObject goodsData { get; set; }
-        private OrderItem oi = new OrderItem();
+        private ControllerBase cbOrder= new ControllerBase("Order/Create");
         public double totalAmount { get; set; }
         private int selectedMethod = 0;
+        private List<object> orderItems = null;
+        private CustomerInfo cusInfo = null;
+        private List<object> appointmentInfos = null;
+        private Dictionary<string, object> orderInfo= new Dictionary<string, object>();
 
         public event Action OnExit;
 
@@ -65,10 +63,21 @@ namespace TheBetterLimited.Views
             if (result == DialogResult.Yes)
             {
                 //Create order
-                Receipt receipt = new Receipt();
-                this.Hide();
-                receipt.ShowDialog();
-                receipt.OnExit += ClearForm;
+                try
+                {
+                    response = cbOrder.Create(orderInfo);
+                    if(response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        Receipt receipt = new Receipt();
+                        receipt.ShowDialog();
+                        this.Close();
+                        this.Dispose();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Create Unsuccessflu");
+                }
             }
             else if (result == DialogResult.Cancel)
             {
@@ -104,5 +113,28 @@ namespace TheBetterLimited.Views
         {
             ClearForm();
         }
+
+        public void SetOrderList(List<object> orderItems)
+        {
+            this.orderItems = orderItems;
+            orderInfo.Add("salesOrderItems", orderItems);
+        }
+        public void SetCusInfo(object cusInfo)
+        {
+            this.cusInfo = (CustomerInfo)cusInfo;
+            orderInfo.Add("customer", cusInfo);
+        }
+
+        public void SetAppointmentInfo(List<object> appInfos)
+        {
+            this.appointmentInfos = appInfos;
+            orderInfo.Add("appointments", appInfos);
+        }
+
+        private void CreateOrder()
+        {
+            
+        }
+
     }
 }

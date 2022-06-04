@@ -45,8 +45,6 @@ namespace TheBetterLimited.Views
         public POS()
         {
             InitializeComponent();
-            this.CartItemGrid.Columns["Price"].HeaderText = "Price(" + NumberFormatInfo.CurrentInfo.CurrencySymbol + ")";
-            this.CartItemGrid.Columns["Qty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             GetAll();
         }
 
@@ -94,6 +92,7 @@ namespace TheBetterLimited.Views
             bs.DataSource = dt;
             CartItemGrid.AutoGenerateColumns = false;
             CartItemGrid.DataSource = dt;
+            DiscountValue.Texts = discount.ToString(); 
             CalculateTotal();
             this.Invalidate();
         }
@@ -177,8 +176,8 @@ namespace TheBetterLimited.Views
                 MessageBox.Show("You have not selected a product!");
                 return;
             }
-            Form goodsDetauks = Application.OpenForms["GoodsDetails"];
-            if (goodsDetauks == null || goodsDetauks.IsDisposed)
+            Form goodsDetailss = Application.OpenForms["GoodsDetails"];
+            if (goodsDetailss == null || goodsDetailss.IsDisposed)
             {
                 GoodsDetails gd = new GoodsDetails();
                 gd.goodsData = goods[selectedProduct];
@@ -189,8 +188,8 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                goodsDetauks.Activate();
-                goodsDetauks.WindowState = FormWindowState.Normal;
+                goodsDetailss.Activate();
+                goodsDetailss.WindowState = FormWindowState.Normal;
             }
         }
 
@@ -199,7 +198,7 @@ namespace TheBetterLimited.Views
             if (e.ColumnIndex == CartItemGrid.Columns["plus"].Index)
             {
                 int qty = Convert.ToInt32(CartItemGrid["qty", e.RowIndex].Value);
-                if (qty >= ((OrderItem)orderItems[e.RowIndex]).Stock && ((OrderItem)orderItems[e.RowIndex]).IsBook == false)
+                if (qty >= ((OrderItem)orderItems[e.RowIndex]).Stock && ((OrderItem)orderItems[e.RowIndex]).NeedBooking == false)
                 {
                     MessageBox.Show("Product is out of stock! \n You should click the booking button to \n create a booking order.");
                     return;
@@ -240,12 +239,12 @@ namespace TheBetterLimited.Views
 
         private void CancelBtn_MouseHover(object sender, EventArgs e)
         {
-            CancelBtn.ForeColor = Color.White;
+            ClearBtn.ForeColor = Color.White;
         }
 
         private void CancelBtn_MouseLeave(object sender, EventArgs e)
         {
-            CancelBtn.ForeColor = CancelBtn.BorderColor;
+            ClearBtn.ForeColor = ClearBtn.BorderColor;
         }
 
         private void CalculateTotal()
@@ -273,7 +272,7 @@ namespace TheBetterLimited.Views
             if (DiscountValue.Texts != "")
             {
                 Console.WriteLine(discount);
-                total *= (100.0-discount)/100;
+                total *= (100.0 - discount) / 100;
                 Console.WriteLine(total);
             }
             totalAmount = total;
@@ -351,6 +350,10 @@ namespace TheBetterLimited.Views
                 {
                     continue;
                 }
+                if((int)c["GoodsStatus"] == 2)
+                {
+                    continue;
+                }
                 goods.Add(c);
                 Bitmap img = null;
                 JToken token = c["Photo"];
@@ -398,13 +401,13 @@ namespace TheBetterLimited.Views
             foreach (OrderItem item in orderItems)
             {
                 // if an item need to book
-                if (item.IsBook == true)
+                if (item.NeedBooking == true)
                 {
                     //search whether all items need to book
-                    foreach (var item1 in orderItems)
+                    foreach (OrderItem item1 in orderItems)
                     {
                         //not all -> show error message
-                        if (item.IsBook == false)
+                        if (item1.NeedBooking == false)
                         {
                             MessageBox.Show("Unable to combine current sale items and pre-order items in one order. \nPlease orders them to divide into 2 orders.");
                             return;
@@ -427,6 +430,7 @@ namespace TheBetterLimited.Views
         private void OpenBooking()
         {
             Booking book = new Booking();
+            book.totalAmount = totalAmount;
             book.ShowDialog();
             book.OnExit += OpenPaymentMethod;
         }
@@ -444,7 +448,6 @@ namespace TheBetterLimited.Views
             PaymentMethod payment = new PaymentMethod();
             payment.totalAmount = totalAmount;
             payment.ShowDialog();
-            payment.OnExit += OpenPaymentMethod;
         }
 
         private string cusName;
@@ -480,7 +483,7 @@ namespace TheBetterLimited.Views
                     MessageBox.Show("Discount cannot more than 100!");
                     DiscountValue.Texts = "";
                     return;
-            }
+                }
             }
             catch (Exception ex)
             {
@@ -493,6 +496,41 @@ namespace TheBetterLimited.Views
         private void DiscountValue__Leave(object sender, EventArgs e)
         {
             CalculateTotal();
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ClearOrder();
+        }
+
+        public void ClearOrder()
+        {
+            discount = 0;
+            totalAmount = 0;
+            orderItems.Clear();
+            cusInfo = null;
+            oi = null;
+            Form payment = Application.OpenForms["PaymentMethod"];
+            if (payment != null)
+            {
+                payment.Close();
+                payment.Dispose();
+            }
+
+            Form appointment = Application.OpenForms["Appointment_Add"];
+            if (appointment != null)
+            {
+                appointment.Close();
+                appointment.Dispose();
+            }
+
+            Form booking = Application.OpenForms["Booking"];
+            if (booking != null)
+            {
+                booking.Close();
+                booking.Dispose();
+            }
+            InitializeCartGridView();
         }
     }
 }

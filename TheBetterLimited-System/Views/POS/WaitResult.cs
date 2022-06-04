@@ -45,7 +45,7 @@ namespace TheBetterLimited.Views
         {
             timer.Stop();
             Receipt receipt = new Receipt();
-            this.Hide();
+            this.Close();
             receipt.ShowDialog();
         }
     }

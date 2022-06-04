@@ -54,7 +54,7 @@
             this.PaymentMethodBox.Location = new System.Drawing.Point(0, 0);
             this.PaymentMethodBox.Name = "PaymentMethodBox";
             this.PaymentMethodBox.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.PaymentMethodBox.Size = new System.Drawing.Size(532, 358);
+            this.PaymentMethodBox.Size = new System.Drawing.Size(532, 347);
             this.PaymentMethodBox.TabIndex = 0;
             // 
             // paymentPicBox1
@@ -172,7 +172,7 @@
             this.BottomBtn.Controls.Add(this.SaveBtn);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(0, 358);
+            this.BottomBtn.Location = new System.Drawing.Point(0, 347);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
@@ -227,7 +227,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(532, 412);
+            this.ClientSize = new System.Drawing.Size(532, 401);
             this.Controls.Add(this.PaymentMethodBox);
             this.Controls.Add(this.BottomBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

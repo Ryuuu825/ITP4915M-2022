@@ -21,7 +21,7 @@ namespace TheBetterLimited.Views
     {
         private UserController uc = new UserController();
         private BindingSource bs = new BindingSource();
-        private List<string> selecteUserId = new List<string>();
+        private List<string> selecteOrderId = new List<string>();
         private DialogResult choose;
         private RestResponse result;
         private bool isSawDetails = false;
@@ -53,30 +53,25 @@ namespace TheBetterLimited.Views
             this.Close();
         }
 
-        private void UserDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void OrderDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (OrderDataGrid.Columns[e.ColumnIndex].Name == "status")
             {
                 e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                if (e.Value.Equals("L"))
+                if (e.Value.Equals("Cancel"))
                 {
-                    e.Value = "Cancel";
                     e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
-                    OrderDataGrid.Columns[e.ColumnIndex].ToolTipText = "Unlock";
-                    OrderDataGrid.Rows[e.RowIndex].Cells["lockAcc"].Value = Properties.Resources.unlock;
-                    OrderDataGrid.Rows[e.RowIndex].Cells["lockAcc"].Tag = 1;
                 }
                 else
                 {
-                    e.Value = "Normal";
                     e.CellStyle.ForeColor = Color.SeaGreen;
                 }
 
             }
         }
 
-        private void UserDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void OrderDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == OrderDataGrid.Columns["select"].Index)
             {
@@ -85,14 +80,14 @@ namespace TheBetterLimited.Views
                     OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
                     OrderDataGrid["select", e.RowIndex].Tag = 1;
                     OrderDataGrid.Rows[e.RowIndex].Selected = true;
-                    selecteUserId.Add(OrderDataGrid["id", e.RowIndex].Value.ToString());
+                    selecteOrderId.Add(OrderDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
                     OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
                     OrderDataGrid["select", e.RowIndex].Tag = 0;
                     OrderDataGrid.Rows[e.RowIndex].Selected = false;
-                    selecteUserId.Remove(OrderDataGrid["id", e.RowIndex].Value.ToString());
+                    selecteOrderId.Remove(OrderDataGrid["id", e.RowIndex].Value.ToString());
                 }
             }
 
@@ -138,7 +133,7 @@ namespace TheBetterLimited.Views
             for (int i = 0; i < OrderDataGrid.RowCount; i++)
                 OrderDataGrid["select", i].Tag = 0;
 
-            selecteUserId.Clear();
+            selecteOrderId.Clear();
         }
 
         //Get Order
@@ -146,30 +141,17 @@ namespace TheBetterLimited.Views
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
             {
-                result = cbOrder.GetByQueryString("storeId:");
+                result = cbOrder.GetAll();
             }
             else
             {
-                string str = "id:" + this.SearchBarTxt.Texts + "|emailAddress:" + this.SearchBarTxt.Texts
-                            + "|userName:" + this.SearchBarTxt.Texts + "|status:" + this.SearchBarTxt.Texts;
+                string str = "id:" + this.SearchBarTxt.Texts + "|_creatorId:" + this.SearchBarTxt.Texts
+                            + "|status:" + this.SearchBarTxt.Texts + "|createAt:" + this.SearchBarTxt.Texts;
                 result = cbOrder.GetByQueryString(str);
             }
             try
             {
-                //DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
-                DataTable dataTable = new DataTable();
-                dataTable.Columns.Add("id");
-                dataTable.Columns.Add("id2");
-                dataTable.Columns.Add("id3");
-                dataTable.Columns.Add("id4");
-                dataTable.Columns.Add("id5");
-                dataTable.Columns.Add("id6");
-                dataTable.Columns.Add("id7");
-                dataTable.Columns.Add("id8");
-                dataTable.Columns.Add("id9");
-                dataTable.Columns.Add("id10");
-                dataTable.Columns.Add("id11");
-                dataTable.Rows.Add(Properties.Resources.check, "1","1","1","1","1","1","1","1", Properties.Resources.check, Properties.Resources.check) ;
+                DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
                 bs.DataSource = dataTable;
                 OrderDataGrid.AutoGenerateColumns = false;
                 OrderDataGrid.DataSource = bs;
@@ -184,15 +166,15 @@ namespace TheBetterLimited.Views
         //Delete Selected Order
         private void DeleteSelectedOrder()
         {
-            if (selecteUserId.Count > 0)
+            if (selecteOrderId.Count > 0)
             {
-                choose = MessageBox.Show("Do you really want to delete the " + selecteUserId.Count + " Order(s)?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                choose = MessageBox.Show("Do you really want to delete the " + selecteOrderId.Count + " Order(s)?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
                 if (choose == DialogResult.Yes)
                 {
                     try
                     {
                         int countDeleted = 0;
-                        foreach (string uid in selecteUserId)
+                        foreach (string uid in selecteOrderId)
                         {
                             result = cbOrder.Delete(uid);
                             if(result.StatusCode != System.Net.HttpStatusCode.OK)
@@ -200,7 +182,7 @@ namespace TheBetterLimited.Views
                                 throw new Exception(result.ErrorMessage);
                             }
                         }
-                        MessageBox.Show("The " + selecteUserId.Count + " order(s) have been deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("The " + selecteOrderId.Count + " order(s) have been deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetOrder();
                     }
                     catch (Exception ex)

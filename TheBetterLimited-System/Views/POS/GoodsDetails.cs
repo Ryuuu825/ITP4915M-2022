@@ -69,14 +69,17 @@ namespace TheBetterLimited.Views
                 stockLevel = (int)goodsData["StockLevel"]["inStoreStock"]["status"];
                 ShowStockLevel(stockLevel);
                 goodsId = goodsData["StockLevel"]["inStoreStock"]["_supplier_Goods_Stock_Id"].ToString();
+                needDelivery = false;
             }
             else
             {
                 LocTxt.Texts = "In Warehouse";
-                StockTxt.Texts = goodsData["StockLevel"]["warehouseStock"]["stock"].ToString();
-                stockLevel = (int)goodsData["StockLevel"]["warehouseStock"]["status"];
+                stock = (int)goodsData["StockLevel"]["warehouseStock"][0]["stock"];
+                StockTxt.Texts = stock.ToString();
+                stockLevel = (int)goodsData["StockLevel"]["warehouseStock"][0]["status"];
                 ShowStockLevel(stockLevel);
-                goodsId = goodsData["StockLevel"]["warehouseStock"]["_supplier_Goods_Stock_Id"].ToString();
+                goodsId = goodsData["StockLevel"]["warehouseStock"][0]["_supplier_Goods_Stock_Id"].ToString();
+                needDelivery = true;
             }
             CatalogueTxt.Texts = goodsData["Catalogue"].ToString();
             ((RadioButton)SizeRadioGroup.Controls[(int)goodsData["GoodsSize"]]).Checked = true;
@@ -130,22 +133,23 @@ namespace TheBetterLimited.Views
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-
             if (stockLevel == 0)
             {
-                DialogResult result = MessageBox.Show("Product is out of stock! \n Do you need to book this product?", "Warming", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Product is out of stock! \nDo you need to book this product?", "Warming", MessageBoxButtons.YesNo);
                 if (result == DialogResult.No)
                 {
                     return;
                 }else
                 {
-                    ((OrderItem)oi).IsBook = true;
+                    ((OrderItem)oi).NeedBooking = true;
                 }
             }
+
             ((OrderItem)oi).SupplierGoodsStockId = goodsId;
             ((OrderItem)oi).Name = goodsData["GoodsName"].ToString();
             ((OrderItem)oi).Price = (double)goodsData["Price"];
             ((OrderItem)oi).Stock = stock;
+            ((OrderItem)oi).NeedDelivery = needDelivery;
             this.OnExit.Invoke();
             this.Close();
             this.Dispose();

@@ -62,7 +62,8 @@ namespace TheBetterLimited.Views
 
         private void Receipt_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            Form appointment = Application.OpenForms["POS"];
+            ((POS)appointment).ClearOrder();
         }
     }
 }
