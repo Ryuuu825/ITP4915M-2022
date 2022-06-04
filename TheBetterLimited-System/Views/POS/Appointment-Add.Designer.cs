@@ -35,9 +35,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.InstallSessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.DelieverySessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DeliverySessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.InstallDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.DeliveryDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -133,7 +133,7 @@
             this.SaveBtn.Text = "Save";
             this.SaveBtn.TextColor = System.Drawing.Color.White;
             this.SaveBtn.UseVisualStyleBackColor = false;
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click_1);
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // panel3
             // 
@@ -150,9 +150,9 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.panel4.Controls.Add(this.InstallSessionCombo);
-            this.panel4.Controls.Add(this.DelieverySessionCombo);
-            this.panel4.Controls.Add(this.dateTimePicker2);
-            this.panel4.Controls.Add(this.dateTimePicker1);
+            this.panel4.Controls.Add(this.DeliverySessionCombo);
+            this.panel4.Controls.Add(this.InstallDatePicker);
+            this.panel4.Controls.Add(this.DeliveryDatePicker);
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.label6);
@@ -190,49 +190,50 @@
             this.InstallSessionCombo.Texts = "Installation Session";
             this.InstallSessionCombo.UnderlinedStyle = false;
             // 
-            // DelieverySessionCombo
+            // DeliverySessionCombo
             // 
-            this.DelieverySessionCombo.BackColor = System.Drawing.Color.White;
-            this.DelieverySessionCombo.BorderColor = System.Drawing.Color.LightGray;
-            this.DelieverySessionCombo.BorderRadius = 1;
-            this.DelieverySessionCombo.BorderSize = 1;
-            this.DelieverySessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DelieverySessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DelieverySessionCombo.ForeColor = System.Drawing.Color.DimGray;
-            this.DelieverySessionCombo.IconColor = System.Drawing.Color.LightGray;
-            this.DelieverySessionCombo.Items.AddRange(new object[] {
+            this.DeliverySessionCombo.BackColor = System.Drawing.Color.White;
+            this.DeliverySessionCombo.BorderColor = System.Drawing.Color.LightGray;
+            this.DeliverySessionCombo.BorderRadius = 1;
+            this.DeliverySessionCombo.BorderSize = 1;
+            this.DeliverySessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DeliverySessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeliverySessionCombo.ForeColor = System.Drawing.Color.DimGray;
+            this.DeliverySessionCombo.IconColor = System.Drawing.Color.LightGray;
+            this.DeliverySessionCombo.Items.AddRange(new object[] {
             "09:00 - 12:00",
             "13:00 - 17:00",
             "18:00 - 22:00"});
-            this.DelieverySessionCombo.ListBackColor = System.Drawing.Color.White;
-            this.DelieverySessionCombo.ListTextColor = System.Drawing.Color.DimGray;
-            this.DelieverySessionCombo.Location = new System.Drawing.Point(165, 86);
-            this.DelieverySessionCombo.MinimumSize = new System.Drawing.Size(200, 30);
-            this.DelieverySessionCombo.Name = "DelieverySessionCombo";
-            this.DelieverySessionCombo.Padding = new System.Windows.Forms.Padding(1);
-            this.DelieverySessionCombo.Size = new System.Drawing.Size(305, 30);
-            this.DelieverySessionCombo.TabIndex = 5;
-            this.DelieverySessionCombo.Texts = "Delivery Session";
-            this.DelieverySessionCombo.UnderlinedStyle = false;
+            this.DeliverySessionCombo.ListBackColor = System.Drawing.Color.White;
+            this.DeliverySessionCombo.ListTextColor = System.Drawing.Color.DimGray;
+            this.DeliverySessionCombo.Location = new System.Drawing.Point(165, 86);
+            this.DeliverySessionCombo.MinimumSize = new System.Drawing.Size(200, 30);
+            this.DeliverySessionCombo.Name = "DeliverySessionCombo";
+            this.DeliverySessionCombo.Padding = new System.Windows.Forms.Padding(1);
+            this.DeliverySessionCombo.Size = new System.Drawing.Size(305, 30);
+            this.DeliverySessionCombo.TabIndex = 5;
+            this.DeliverySessionCombo.Texts = "Delivery Session";
+            this.DeliverySessionCombo.UnderlinedStyle = false;
+            this.DeliverySessionCombo.OnSelectedIndexChanged += new System.EventHandler(this.DeliverySessionCombo_OnSelectedIndexChanged);
             // 
-            // dateTimePicker2
+            // InstallDatePicker
             // 
-            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(164, 177);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(306, 29);
-            this.dateTimePicker2.TabIndex = 6;
+            this.InstallDatePicker.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InstallDatePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InstallDatePicker.Location = new System.Drawing.Point(164, 177);
+            this.InstallDatePicker.Name = "InstallDatePicker";
+            this.InstallDatePicker.Size = new System.Drawing.Size(306, 29);
+            this.InstallDatePicker.TabIndex = 6;
             // 
-            // dateTimePicker1
+            // DeliveryDatePicker
             // 
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(165, 40);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(305, 29);
-            this.dateTimePicker1.TabIndex = 4;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.DeliveryDatePicker.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeliveryDatePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeliveryDatePicker.Location = new System.Drawing.Point(165, 40);
+            this.DeliveryDatePicker.Name = "DeliveryDatePicker";
+            this.DeliveryDatePicker.Size = new System.Drawing.Size(305, 29);
+            this.DeliveryDatePicker.TabIndex = 4;
+            this.DeliveryDatePicker.ValueChanged += new System.EventHandler(this.DeliveryDatePicker_ValueChanged);
             // 
             // label7
             // 
@@ -527,9 +528,9 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private CustomizeControl.CustomizeComboBox InstallSessionCombo;
-        private CustomizeControl.CustomizeComboBox DelieverySessionCombo;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private CustomizeControl.CustomizeComboBox DeliverySessionCombo;
+        private System.Windows.Forms.DateTimePicker InstallDatePicker;
+        private System.Windows.Forms.DateTimePicker DeliveryDatePicker;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;

@@ -5,12 +5,16 @@ using System.Windows.Forms;
 
 namespace TheBetterLimited.Views
 {
-    public partial class PrintReceipt : Form
+    public partial class Receipt : Form
     {
         Bitmap memoryImage;
-        public PrintReceipt()
+        Timer timer = new Timer();
+        public Receipt()
         {
             InitializeComponent();
+            timer.Interval = 1000;
+            timer.Start();
+            timer.Tick += new System.EventHandler(OnTimerEvent);
         }
 
         private void printDocument1_PrintPage(System.Object sender,
@@ -19,8 +23,21 @@ namespace TheBetterLimited.Views
             e.Graphics.DrawImage(memoryImage, 0, 0);
         }
 
-        void printButton_Click(object sender, EventArgs e)
+
+        private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
         {
+            e.Graphics.DrawImage(memoryImage, 0, 0);
+        }
+
+        private void OnTimerEvent(object sender, EventArgs e)
+        {
+            Console.WriteLine("..");
+            timer.Stop();
+            print();
+        }
+
+        private void print() 
+        { 
             Panel panel = new Panel();
             this.Controls.Add(panel);
             Graphics grp = panel.CreateGraphics();
@@ -31,14 +48,21 @@ namespace TheBetterLimited.Views
             grp.CopyFromScreen(panelLocation.X, panelLocation.Y, 0, 0, formSize);
             printDocument2.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", 750, 950);
             printDocument2.DefaultPageSettings.Landscape = true;
+            
             printPreviewDialog1.Document = printDocument2;
             printPreviewDialog1.PrintPreviewControl.Zoom = 1;
             printPreviewDialog1.ShowDialog();
         }
-
-        private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
+        public event Action OnExit;
+        private void printDocument2_EndPrint(object sender, PrintEventArgs e)
         {
-            e.Graphics.DrawImage(memoryImage, 0, 0);
+            Console.WriteLine("close");
+            this.Close();
+        }
+
+        private void Receipt_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }

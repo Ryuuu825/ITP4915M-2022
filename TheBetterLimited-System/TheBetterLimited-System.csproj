@@ -173,6 +173,8 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AppointmentInfo.cs" />
+    <Compile Include="Models\CustomerInfo.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\ErrorMsg.cs" />
     <Compile Include="Models\GlobalsData.cs" />

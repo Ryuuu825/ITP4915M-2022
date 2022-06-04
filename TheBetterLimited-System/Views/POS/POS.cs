@@ -30,18 +30,22 @@ namespace TheBetterLimited.Views
         private RestResponse result;
         private bool isEditing = false;
         private List<JObject> goods = new List<JObject>();
-        private List<OrderItem> orderItems = new List<OrderItem>();
+        private List<object> orderItems = new List<object>();
         private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
         private ControllerBase cbGoods = new ControllerBase("pos/Goods");
         private GoodsController gc = new GoodsController();
         private System.Windows.Controls.Control ctl = null;
         private int selectedProduct = -1;
         private Bitmap selectedProductImg = null;
+        private OrderItem oi = null;
+        private CustomerInfo cusInfo = null;
+        private double totalAmount;
+        private int discount;
 
         public POS()
         {
             InitializeComponent();
-            this.CartItemGrid.Columns["Price"].HeaderText = "Price("+ NumberFormatInfo.CurrentInfo.CurrencySymbol + ")";
+            this.CartItemGrid.Columns["Price"].HeaderText = "Price(" + NumberFormatInfo.CurrentInfo.CurrencySymbol + ")";
             this.CartItemGrid.Columns["Qty"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             GetAll();
         }
@@ -55,7 +59,7 @@ namespace TheBetterLimited.Views
             this.Close();
         }
 
-       
+
         //search bar text changed event
         private void SearchBarTxt__TextChanged(object sender, EventArgs e)
         {
@@ -73,7 +77,7 @@ namespace TheBetterLimited.Views
                     str += $"|_catalogueId:{CatalogueCombox.SelectedIndex}";
                 }
                 GetByQry(str);
-                
+
             }
         }
 
@@ -99,25 +103,26 @@ namespace TheBetterLimited.Views
             bool isExist = false;
             if (orderItems.Count == 0)
             {
-                orderItems.Add(GlobalsData.orderitem);
-            }else
+                orderItems.Add(oi);
+            }
+            else
             {
-                for (int i=0; i < orderItems.Count;i++)
+                for (int i = 0; i < orderItems.Count; i++)
                 {
                     //Check if an order item exists in the shopping cart
-                    if (orderItems[i].SupplierGoodsStockId == GlobalsData.orderitem.SupplierGoodsStockId)
+                    if (((OrderItem)orderItems[i]).SupplierGoodsStockId == oi.SupplierGoodsStockId)
                     {
-                        orderItems[i].Quantity += 1;
+                        ((OrderItem)orderItems[i]).Quantity += 1;
                         isExist = true;
                         break;
                     }
                 }
                 if (isExist == false)
                 {
-                    orderItems.Add(GlobalsData.orderitem);
+                    orderItems.Add(oi);
                 }
             }
-            GlobalsData.orderitem = null;
+            oi = null;
             InitializeCartGridView();
         }
 
@@ -145,11 +150,10 @@ namespace TheBetterLimited.Views
         }
         private void ResetBtn_Style(RoundButton sender)
         {
-            if (sender.IsChecked == false)
-            {
-                sender.BorderColor = Color.LightGray;
-                sender.ForeColor = Color.LightGray;
-            }
+
+            sender.BorderColor = Color.LightGray;
+            sender.ForeColor = Color.LightGray;
+
         }
 
         private void roundButton4_MouseLeave(object sender, EventArgs e)
@@ -163,7 +167,7 @@ namespace TheBetterLimited.Views
             {
                 CartItemGrid.Rows.Add(cart.Name, Properties.Resources.minus, cart.Quantity, Properties.Resources.plus24, cart.Price, cart.Remark);
             }
-            
+
         }
 
         private void AddLabelBtn_Click(object sender, EventArgs e)
@@ -180,6 +184,7 @@ namespace TheBetterLimited.Views
                 gd.goodsData = goods[selectedProduct];
                 gd.Show();
                 gd.TopLevel = true;
+                oi = (OrderItem)gd.oi;
                 gd.OnExit += AddItem;
             }
             else
@@ -194,28 +199,33 @@ namespace TheBetterLimited.Views
             if (e.ColumnIndex == CartItemGrid.Columns["plus"].Index)
             {
                 int qty = Convert.ToInt32(CartItemGrid["qty", e.RowIndex].Value);
-                if(qty >= orderItems[e.RowIndex].Stock && orderItems[e.RowIndex].IsBook == false)
+                if (qty >= ((OrderItem)orderItems[e.RowIndex]).Stock && ((OrderItem)orderItems[e.RowIndex]).IsBook == false)
                 {
                     MessageBox.Show("Product is out of stock! \n You should click the booking button to \n create a booking order.");
                     return;
                 }
                 CartItemGrid["qty", e.RowIndex].Value = ++qty;
-                orderItems[e.RowIndex].Quantity = qty;
+                ((OrderItem)orderItems[e.RowIndex]).Quantity = qty;
             }
-            else if(e.ColumnIndex == CartItemGrid.Columns["sub"].Index)
+            else if (e.ColumnIndex == CartItemGrid.Columns["sub"].Index)
             {
                 int qty = Convert.ToInt32(CartItemGrid["qty", e.RowIndex].Value);
-                if(qty <= 1)
+                if (qty <= 1)
                 {
                     qty = 1;
                     MessageBox.Show("Quantity is at least one!");
                     return;
                 }
                 CartItemGrid["qty", e.RowIndex].Value = --qty;
-                orderItems[e.RowIndex].Quantity = qty;
+                ((OrderItem)orderItems[e.RowIndex]).Quantity = qty;
+            }
+            else if (e.ColumnIndex == CartItemGrid.Columns["delete"].Index)
+            {
+                orderItems.RemoveAt(e.RowIndex);
+                InitializeCartGridView();
+                return;
             }
             CalculateTotal();
-            this.Invalidate();
         }
 
         private void HoldBtn_MouseHover(object sender, EventArgs e)
@@ -260,7 +270,14 @@ namespace TheBetterLimited.Views
                 }
                 total += subTotal;
             }
-            TotalAmountTxt.Text = String.Format("{0:C2}", total);
+            if (DiscountValue.Texts != "")
+            {
+                Console.WriteLine(discount);
+                total *= (100.0-discount)/100;
+                Console.WriteLine(total);
+            }
+            totalAmount = total;
+            TotalAmountTxt.Text = String.Format("{0:C2}", totalAmount);
         }
 
         private void OrderBtn_Click(object sender, EventArgs e)
@@ -290,7 +307,8 @@ namespace TheBetterLimited.Views
         private void CatalogueCombox_Load(object sender, EventArgs e)
         {
             var response = cbCatalogue.GetAll();
-            if (response.StatusCode == System.Net.HttpStatusCode.OK){
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
                 var catalogues = JArray.Parse(response.Content);
                 CatalogueCombox.Items.Add("All");
                 foreach (var c in catalogues)
@@ -366,35 +384,67 @@ namespace TheBetterLimited.Views
             selectedProduct = ProductInfoContainer.Controls.IndexOf(((System.Windows.Forms.Control)sender).Parent);
         }
 
-        private void CartItemGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void PayBtn_Click(object sender, EventArgs e)
         {
-            foreach (var item in orderItems)
+            bool isBook = false;
+            bool isDelivery = false;
+            if (orderItems.Count == 0)
             {
-                if(item.InStore != false)
+                MessageBox.Show("Shopping Cart is empty!");
+                return;
+            }
+
+            // check book
+            foreach (OrderItem item in orderItems)
+            {
+                // if an item need to book
+                if (item.IsBook == true)
                 {
-                    OpenAppointment();
+                    //search whether all items need to book
+                    foreach (var item1 in orderItems)
+                    {
+                        //not all -> show error message
+                        if (item.IsBook == false)
+                        {
+                            MessageBox.Show("Unable to combine current sale items and pre-order items in one order. \nPlease orders them to divide into 2 orders.");
+                            return;
+                        }
+                    }
+                    isBook = true;
                     break;
                 }
             }
+            if (isBook)
+            {
+                OpenBooking();
+            }
+            else
+            {
+                OpenPaymentMethod();
+            }
+        }
+
+        private void OpenBooking()
+        {
+            Booking book = new Booking();
+            book.ShowDialog();
+            book.OnExit += OpenPaymentMethod;
         }
 
         private void OpenAppointment()
         {
             Appointment_Add appointment = new Appointment_Add();
             appointment.ShowDialog();
+            appointment.goodsList = orderItems;
             appointment.OnExit += OpenPaymentMethod;
         }
 
         private void OpenPaymentMethod()
         {
             PaymentMethod payment = new PaymentMethod();
+            payment.totalAmount = totalAmount;
             payment.ShowDialog();
-            //payment.OnExit += OpenPaymentMethod;
+            payment.OnExit += OpenPaymentMethod;
         }
 
         private string cusName;
@@ -405,14 +455,44 @@ namespace TheBetterLimited.Views
         private DateTime installDate;
         private int installSession;
 
-        public void GetCustomerInfo(object cus)
+        public void GetAppointmentInfo(List<object> app)
         {
-            cusName = cus.GetType().GetProperty("cusName").GetValue(cus).ToString();
-            cusPhone = cus.GetType().GetProperty("cusName").GetValue(cus).ToString();
-            cusAddress = cus.GetType().GetProperty("cusName").GetValue(cus).ToString();
-            cusName = cus.GetType().GetProperty("cusName").GetValue(cus).ToString();
-            cusName = cus.GetType().GetProperty("cusName").GetValue(cus).ToString();
-            cusName = cus.GetType().GetProperty("cusName").GetValue(cus).ToString();
+        }
+
+        private void DiscountValue__TextChanged(object sender, EventArgs e)
+        {
+            string discountTxt = DiscountValue.Texts;
+            if (discountTxt.Trim() == "") return;
+            for (int i = 0; i < discountTxt.Length; i++)
+            {
+                if (!char.IsNumber(discountTxt[i]))
+                {
+                    MessageBox.Show("Please enter a valid number");
+                    DiscountValue.Texts = "";
+                    return;
+                }
+            }
+            try
+            {
+                discount = Convert.ToInt32(DiscountValue.Texts);
+                if (discount > 100)
+                {
+                    MessageBox.Show("Discount cannot more than 100!");
+                    DiscountValue.Texts = "";
+                    return;
+            }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please enter a valid number");
+                DiscountValue.Texts = "";
+                return;
+            }
+        }
+
+        private void DiscountValue__Leave(object sender, EventArgs e)
+        {
+            CalculateTotal();
         }
     }
 }

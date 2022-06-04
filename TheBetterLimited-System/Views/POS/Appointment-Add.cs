@@ -28,12 +28,15 @@ namespace TheBetterLimited.Views
         private bool isUpload = false;
         private Bitmap icon = null;
         public JObject goodsData { get; set; }
-        private OrderItem oi = new OrderItem();
-        private object cusInfo;
+        public List<object> goodsList { get; set; }
+        private List<object> session = new List<object>();
 
         public Appointment_Add()
         {
             InitializeComponent();
+            session.Add("09:00-12:00");
+            session.Add("13:00-17:00");
+            session.Add("18:00-22:00");
         }
 
 
@@ -47,12 +50,6 @@ namespace TheBetterLimited.Views
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            List<object> updatedData = new List<object>();
-            
-        }
-
-        private void SaveBtn_Click_1(object sender, EventArgs e)
-        {
             if (NameTxt.Texts.Equals(String.Empty) || NameTxt.Texts.Equals(NameTxt.Placeholder))
             {
                 NameTxt.IsError = true;
@@ -60,36 +57,35 @@ namespace TheBetterLimited.Views
             }
             var name = NameTxt.Text;
 
-            if (PhoneTxt.Texts.Equals(String.Empty) || PhoneTxt.Texts.Equals(NameTxt.Placeholder))
+            if (PhoneTxt.Texts.Equals(String.Empty) || PhoneTxt.Texts.Equals(PhoneTxt.Placeholder))
             {
                 PhoneTxt.IsError = true;
                 return;
             }
             var phone = PhoneTxt.Text;
 
-            if (AddressTxt.Texts.Equals(String.Empty) || AddressTxt.Texts.Equals(NameTxt.Placeholder))
+            if (AddressTxt.Texts.Equals(String.Empty) || AddressTxt.Texts.Equals(AddressTxt.Placeholder))
             {
                 AddressTxt.IsError = true;
                 return;
             }
             var address = AddressTxt.Text;
 
-            if (DelieverySessionCombo.SelectedIndex == null)
+            if (DeliverySessionCombo.SelectedIndex == -1)
             {
-                DelieverySessionCombo.Focus();
+                DeliverySessionCombo.Focus();
                 return;
             }
+            var delieverySession = DeliverySessionCombo.SelectedIndex.ToString();
 
-            if (InstallSessionCombo.SelectedIndex == null)
+            if (InstallSessionCombo.SelectedIndex == -1)
             {
                 InstallSessionCombo.Focus();
                 return;
             }
-        }
+            var installSession = DeliverySessionCombo.SelectedIndex.ToString();
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            dateTimePicker2.MinDate = dateTimePicker1.Value;
+            CustomerInfo cusInfo = new CustomerInfo(name,phone,address);
         }
 
         private void NameTxt_Click(object sender, EventArgs e)
@@ -109,14 +105,30 @@ namespace TheBetterLimited.Views
 
         private void Appointment_Add_Load(object sender, EventArgs e)
         {
-            dateTimePicker1.MinDate = DateTime.Now;
-            dateTimePicker2.MinDate = DateTime.Now;
+            DeliveryDatePicker.MinDate = DateTime.Now;
+            InstallDatePicker.MinDate = DateTime.Now;
             
         }
 
         private void GetSession()
         {
             
+        }
+
+        private void DeliveryDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            InstallDatePicker.MinDate = DeliveryDatePicker.Value;
+        }
+
+        private void DeliverySessionCombo_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            InstallSessionCombo.Items.Clear();
+            InstallSessionCombo.SelectedIndex = -1;
+            InstallSessionCombo.Texts = "Installation Session";
+            for (int i = DeliverySessionCombo.SelectedIndex+1; i < session.Count; i++)
+            {
+                InstallSessionCombo.Items.Add(session[i].ToString());
+            }
         }
     }
 }

@@ -28,7 +28,7 @@ namespace TheBetterLimited.Views
         private bool isUpload = false;
         private Bitmap icon = null;
         public JObject goodsData { get; set; }
-        private OrderItem oi = new OrderItem();
+        public object oi = new OrderItem();
         private int stock;
         private int stockLevel;
         private string goodsId;
@@ -130,7 +130,7 @@ namespace TheBetterLimited.Views
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            GlobalsData.orderitem = new OrderItem();
+
             if (stockLevel == 0)
             {
                 DialogResult result = MessageBox.Show("Product is out of stock! \n Do you need to book this product?", "Warming", MessageBoxButtons.YesNo);
@@ -139,13 +139,13 @@ namespace TheBetterLimited.Views
                     return;
                 }else
                 {
-                    GlobalsData.orderitem.IsBook = true;
+                    ((OrderItem)oi).IsBook = true;
                 }
             }
-            GlobalsData.orderitem.SupplierGoodsStockId = goodsId;
-            GlobalsData.orderitem.Name = goodsData["GoodsName"].ToString();
-            GlobalsData.orderitem.Price = (double)goodsData["Price"];
-            GlobalsData.orderitem.Stock = stock;
+            ((OrderItem)oi).SupplierGoodsStockId = goodsId;
+            ((OrderItem)oi).Name = goodsData["GoodsName"].ToString();
+            ((OrderItem)oi).Price = (double)goodsData["Price"];
+            ((OrderItem)oi).Stock = stock;
             this.OnExit.Invoke();
             this.Close();
             this.Dispose();
