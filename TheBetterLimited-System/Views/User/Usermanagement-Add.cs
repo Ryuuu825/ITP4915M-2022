@@ -359,7 +359,6 @@ namespace TheBetterLimited.Views
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            this.OnExit.Invoke();
             this.Close();
             this.Dispose();
         }

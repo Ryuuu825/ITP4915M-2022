@@ -19,6 +19,7 @@ using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
+
     public partial class Booking : Form
     {
         private GoodsController uc = new GoodsController();
@@ -35,7 +36,6 @@ namespace TheBetterLimited.Views
             InitializeComponent();
         }
 
-       
 
         public event Action OnExit;
         private void CancelBtn_Click(object sender, EventArgs e)

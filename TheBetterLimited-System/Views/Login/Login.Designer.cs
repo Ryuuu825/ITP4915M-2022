@@ -171,7 +171,7 @@
             this.username.IsError = false;
             this.username.Location = new System.Drawing.Point(75, 189);
             this.username.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.username.MaxLength = 10;
+            this.username.MaxLength = 20;
             this.username.Multiline = false;
             this.username.Name = "username";
             this.username.Padding = new System.Windows.Forms.Padding(20, 12, 20, 12);
@@ -253,6 +253,7 @@
             this.loginBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Bold);
             this.loginBtn.ForeColor = System.Drawing.Color.White;
             this.loginBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.loginBtn.IsChecked = false;
             this.loginBtn.Location = new System.Drawing.Point(141, 387);
             this.loginBtn.Margin = new System.Windows.Forms.Padding(2);
             this.loginBtn.Name = "loginBtn";

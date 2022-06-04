@@ -34,12 +34,12 @@ namespace TheBetterLimited.Views
         private void UserIconPic_MouseHover(object sender, EventArgs e)
         {
 
-            GoodsPic.Image = Properties.Resources.photo_upload;
+            //GoodsPic.Image = Properties.Resources.photo_upload;
         }
 
         private void UserIconPic_MouseLeave(object sender, EventArgs e)
         {
-            GoodsPic.Image = icon;
+            //GoodsPic.Image = icon;
         }
 
         private void StaffIDTxt_Enter(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace TheBetterLimited.Views
             var position = JObject.Parse(result.Content);
             if (position != null)
             {
-                txtDescription.Texts = position["jobTitle"].ToString();
+                //txtDescription.Texts = position["jobTitle"].ToString();
             }
         }
 
@@ -145,9 +145,9 @@ namespace TheBetterLimited.Views
 
                 if (isUpload)
                 {
-                    var uploadIconRes = user.UploadUserIcon(
-                        (byte[])(new ImageConverter().ConvertTo(this.GoodsPic.Image, typeof(byte[]))), txtSupplierId.Texts
-                    );
+                    //var uploadIconRes = user.UploadUserIcon(
+                        //(byte[])(new ImageConverter().ConvertTo(this.GoodsPic.Image, typeof(byte[]))), txtSupplierId.Texts
+                    //);
                 }
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
@@ -181,7 +181,7 @@ namespace TheBetterLimited.Views
             {
                 icon = new Bitmap(open.FileName);
                 // display image in picture box  
-                GoodsPic.Image = icon;
+                //GoodsPic.Image = icon;
                 // image file path  
                 string imgName = open.FileName;
                 isUpload = true;
@@ -330,9 +330,9 @@ namespace TheBetterLimited.Views
         private void UserIconPic_Paint(object sender, PaintEventArgs e)
         {
             GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(GoodsPic.ClientRectangle);
+            //gp.AddEllipse(GoodsPic.ClientRectangle);
             Region region = new Region(gp);
-            GoodsPic.Region = region;
+            //GoodsPic.Region = region;
             Pen pen = new Pen(Color.White, 10);
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.DrawPath(pen, gp);

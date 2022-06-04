@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -13,23 +14,125 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheBetterLimited.Controller;
+using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class Inventorymanagement_Add : Form
+    public partial class Inventorymanagement_Edit : Form
     {
-        private StaffController sc = new StaffController();
-        private PositionController pc = new PositionController();
-        private DepartmentController dc = new DepartmentController();
         private RestResponse result = new RestResponse();
-        private UserController user = new UserController();
-        private bool isUpload = false;
-        private Bitmap icon = Properties.Resources._default;
+        private ControllerBase con = new ControllerBase("Goods");
+        private ControllerBase catCon = new ControllerBase("Catalogue");
+        private string Id;
+        private string CatId;
+        private string CatName;
+        private string Name; 
+        private string Description;
+        private string Price;
+        private string Code;
+        private int size;
+        private int Status;
 
-        public Inventorymanagement_Add()
+        private List<string> catList = new List<string>();
+        private bool isUpload = false;
+
+        public Inventorymanagement_Edit()
         {
             InitializeComponent();
         }
+        public Inventorymanagement_Edit(string GoodsId)
+        {
+            InitializeComponent();
+            result =  con.GetById(GoodsId);
+            JObject res = JObject.Parse(result.Content);
+
+            Id = res["Id"].ToString();
+            CatId = res["_catalogueId"].ToString();
+            Name = res["Name"].ToString();
+            Description = res["Description"].ToString();
+            Price = res["Price"].ToString();
+            Code = res["GTINCode"].ToString();
+            size = res["Size"].ToObject<int>();
+            Status = res["Status"].ToObject<int>();
+
+            txtGoodsId.Texts = GoodsId;
+            txtGoodsName.Texts = res["Name"].ToString();
+            txtDescription.Texts = res["Description"].ToString();
+            txtPrice.Texts = res["Price"].ToString();
+            txtGTINCode.Texts = res["GTINCode"].ToString();
+
+            result = catCon.GetAll();
+            JArray catRes = JArray.Parse(result.Content);
+            cbxCatalogue.UnderlinedStyle = false;
+
+            foreach (var cat in catRes)
+            {
+                cbxCatalogue.Items.Add(cat["Name"].ToString());
+                cbxCatalogue.AutoCompleteCustomSource.Add(cat["Name"].ToString());
+                if (cat["Id"].ToString() == CatId)
+                {
+                    cbxCatalogue.SelectedItem = cat["Name"].ToString();
+                }
+                catList.Add(cat["Id"].ToString());
+            }
+            cbxSize.UnderlinedStyle = false;
+            cbxSize.Items.Add("Small");
+            cbxSize.Items.Add("Medium");
+            cbxSize.Items.Add("Large");
+
+            if (size == 0)
+            {
+                cbxSize.SelectedItem = "Small";
+            }
+            else if (size == 1)
+            {
+                cbxSize.SelectedItem = "Medium";
+            }
+            else if (size == 2)
+            {
+                cbxSize.SelectedItem = "Large";
+            }
+
+            cbxStatus.UnderlinedStyle = false;
+            cbxStatus.Items.Add("Selling");
+            cbxStatus.Items.Add("PhasingOut");
+            cbxStatus.Items.Add("StopSelling");
+
+            if (Status == 0)
+            {
+                cbxStatus.SelectedItem = "Selling";
+            }
+            else if (Status == 1)
+            {
+                cbxStatus.SelectedItem = "PhasingOut";
+            }
+            else if (Status == 2)
+            {
+                cbxStatus.SelectedItem = "StopSelling";
+            }
+            // convert base64 to image
+            string base64 = res["Photo"].ToString();
+
+            if (base64 != "")
+            {
+
+                byte[] imageBytes = Convert.FromBase64String(base64);
+                using (MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+                {
+                    ms.Write(imageBytes, 0, imageBytes.Length);
+
+                    // convert image to bitmap
+                    icon = new Bitmap(ms);
+                }
+            }
+            else 
+            {
+                icon  = Properties.Resources._default;
+            }
+            GoodsPic.Image = icon;
+        }
+        private Bitmap icon;
+
 
         private void UserIconPic_MouseHover(object sender, EventArgs e)
         {
@@ -47,127 +150,85 @@ namespace TheBetterLimited.Views
             /*StaffIDTxt.IsError = false;*/
         }
 
-        private void SearchStaffBtn_Click(object sender, EventArgs e)
-        {
-            if (txtGoodsId.Texts.StartsWith("S") && txtGoodsId.Texts.Length == txtGoodsId.MaxLength)
-            {
-                if (txtGoodsId.Texts.Substring(1, 4).All(char.IsDigit))
-                {
-                    /*StaffIDTxt.IsError = false;*/
-                    GetStaff();
-                }
-            }
-            else
-            {
-                txtGoodsId.Focus();
-                txtGoodsId.Texts = "";
-                txtGoodsId.IsError = true;
-                MessageBox.Show("Staff ID should start with \"S\" and follow with 4 digits! \n e.g. S0001 ");
-            }
-        }
-
-        private void GetStaff()
-        {
-            result = sc.GetStaffById(txtGoodsId.Texts);
-            JObject staff = null;
-            try
-            {
-                staff = JObject.Parse(result.Content);
-            }catch (Exception ex)
-            {
-                MessageBox.Show("Not found the staff by " + txtGoodsId.Texts);
-                return;
-            }
-            if (staff != null)
-            {
-                if (staff["Sex"].ToString().Equals("M"))
-                {
-                }
-                else
-                {
-                }
-            }
-            result = dc.GetDepartmentById(staff["_departmentId"].ToString());
-            var department = JObject.Parse(result.Content);
-            if (department != null)
-            {
-                txtGoodsName.Texts = department["Name"].ToString();
-            }
-
-            result = pc.GetPositionById(staff["_positionId"].ToString());
-            var position = JObject.Parse(result.Content);
-            if (position != null)
-            {
-                txtDescription.Texts = position["jobTitle"].ToString();
-            }
-        }
-
         private void CreateUser_Click(object sender, EventArgs e)
         {
-            //check 
-            
+            List<object> UpdateContent = new List<object>();
 
-            if (txtGoodsId.Texts.Equals(txtGoodsId.Placeholder))
+            if (!txtGoodsName.Texts.Equals(txtGoodsName.Placeholder) && !txtGoodsName.Texts.Equals(Name))
             {
-                txtGoodsId.IsError = true;
-                return;
+                UpdateContent.Add(
+                    new { 
+                        Attribute = "Name",
+                        Value = txtGoodsName.Texts
+                    }
+                );
             }
-            Console.WriteLine(txtGoodsId.Texts);
-
-            txtGoodsId.IsError = false;
-
-            
-
-
-
-            /*
-             * {
-                   "Id": null,
-                   "UserName": null,
-                   "Password": null,
-                   "EmailAddress": null,
-                   "Status": null,
-                   "_StaffId": null,
-                   "Remarks": null
-               }
-             */
-            try
+            if (!txtDescription.Texts.Equals(txtDescription.Placeholder) && !txtDescription.Texts.Equals(Description))
             {
-                string id = "A" + new Random().Next(10000);
-                var response = user.AddAccount(
-                    new
-                    {
-                        Id = id,
-                        Status = "N",
-                        _StaffId = txtGoodsId.Texts,
-                        Remarks = "Created at" + DateTime.Now
-                    }) ;
-
-                if (isUpload)
-                {
-                    var uploadIconRes = user.UploadUserIcon(
-                        (byte[])(new ImageConverter().ConvertTo(this.GoodsPic.Image, typeof(byte[]))), txtGoodsId.Texts
-                    );
-                }
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    this.Close();
-                    this.Dispose();
-                    this.OnExit.Invoke();
-                }
-                else
-                {
-                    MessageBox.Show(
-                        response.Content, "Fail", MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
-                }
-
+                UpdateContent.Add(
+                    new { 
+                        Attribute = "Description",
+                        Value = txtDescription.Texts
+                    }
+                );
             }
-            catch (Exception exception)
+
+            if (!txtPrice.Texts.Equals(txtPrice.Placeholder) && !txtPrice.Texts.Equals(Price))
             {
-                MessageBox.Show(
-                    exception.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                UpdateContent.Add(
+                    new { 
+                        Attribute = "Price",
+                        Value = txtPrice.Texts
+                    }
+                );
             }
+
+            if (!txtGTINCode.Texts.Equals(txtGTINCode.Placeholder) && !txtGTINCode.Texts.Equals(Code))
+            {
+                UpdateContent.Add(
+                    new { 
+                        Attribute = "GTINCode",
+                        Value = txtGTINCode.Texts
+                    }
+                );
+            }
+
+            if (!cbxSize.SelectedItem.Equals(Size))
+            {
+                UpdateContent.Add(
+                    new { 
+                        Attribute = "Size",
+                        Value = cbxSize.SelectedIndex.ToString()
+                    }
+                );
+            }
+
+            if (!cbxStatus.SelectedItem.Equals(Status))
+            {
+                UpdateContent.Add(
+                    new { 
+                        Attribute = "Status",
+                        Value = cbxStatus.SelectedIndex.ToString()
+                    }
+                );
+            }
+
+            if(!cbxCatalogue.SelectedItem.Equals(CatName))
+            {
+                UpdateContent.Add(
+                    new { 
+                        Attribute = "_catalogueId",
+                        Value = catList[cbxCatalogue.SelectedIndex]
+                    }
+                );
+            }
+
+            con.Update(Id, UpdateContent);
+
+            this.OnExit.Invoke();
+            this.Close();
+            this.Dispose();
+
 
         }
 
@@ -208,61 +269,7 @@ namespace TheBetterLimited.Views
 
         public event Action OnExit;
 
-
-        private short TestPWStrength(string pwd)
-        {
-            short mark = 0;
-            if (pwd.Length == 0)
-            {
-                return mark;
-            }
-
-
-            if (pwd.Length <= 7)
-            {
-                return ++mark;
-            }
-
-            // check number
-            if (pwd.Any(char.IsDigit))
-            {
-                mark++;
-            }
-
-            // check special char
-            if (pwd.Any(char.IsPunctuation))
-            {
-                mark++;
-            }
-
-            // check upper case
-            if (pwd.Any(char.IsUpper))
-            {
-                mark++;
-            }
-
-            // check lower case
-            if (pwd.Any(char.IsLower))
-            {
-                mark++;
-            }
-
-            // check any repeat
-            if (pwd.All(c => pwd.IndexOf(c) == pwd.LastIndexOf(c)))
-            {
-                mark--;
-            }
-
-
-            return mark;
-
-        }
-
-        private void pwdTxt__TextChanged(object sender, EventArgs e)
-        {
-            UpdatePwdStrength();
-        }
-
+       
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             this.OnExit.Invoke();
@@ -270,29 +277,10 @@ namespace TheBetterLimited.Views
             this.Dispose();
         }
 
-        private void pwdTxt2_Enter(object sender, EventArgs e)
-        {
-        }
 
         private void label1_Click(object sender, EventArgs e)
         {
             txtGoodsId.Focus();
-        }
-
-        private void userName_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void password_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Email_Click(object sender, EventArgs e)
-        {
         }
 
         private void StaffIDTxt_Click(object sender, EventArgs e)
@@ -300,17 +288,6 @@ namespace TheBetterLimited.Views
             txtGoodsId.IsError = false;
         }
 
-        private void userNameTxt_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void pwdTxt_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void pwdTxt2_Click(object sender, EventArgs e)
-        {
-        }
 
         private void StaffIDTxt__TextChanged(object sender, EventArgs e)
         {
@@ -322,10 +299,6 @@ namespace TheBetterLimited.Views
 
         }
 
-        private void showPwd_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void UserIconPic_Paint(object sender, PaintEventArgs e)
         {

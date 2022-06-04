@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.submenuContainer1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.appointmentBtn = new System.Windows.Forms.Button();
             this.submenuContainer2 = new System.Windows.Forms.Panel();
             this.supplierBtn = new System.Windows.Forms.Button();
             this.submenuContainer3 = new System.Windows.Forms.Panel();
-            this.submenu2 = new System.Windows.Forms.Button();
+            this.stockBtn = new System.Windows.Forms.Button();
             this.Header = new System.Windows.Forms.Panel();
             this.UserInformation = new System.Windows.Forms.Panel();
             this.txtJobTitle = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@
             this.GoodsContainer = new System.Windows.Forms.Panel();
             this.GoodsBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
+            this.restockRequestBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -121,27 +121,28 @@
             // 
             // submenuContainer1
             // 
-            this.submenuContainer1.Controls.Add(this.button3);
+            this.submenuContainer1.Controls.Add(this.appointmentBtn);
             this.submenuContainer1.Location = new System.Drawing.Point(0, 186);
             this.submenuContainer1.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.submenuContainer1.Name = "submenuContainer1";
             this.submenuContainer1.Size = new System.Drawing.Size(200, 58);
             this.submenuContainer1.TabIndex = 0;
             // 
-            // button3
+            // appointmentBtn
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(200, 50);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "submenu";
-            this.button3.UseVisualStyleBackColor = true;
+            this.appointmentBtn.FlatAppearance.BorderSize = 0;
+            this.appointmentBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.appointmentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.appointmentBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.appointmentBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.appointmentBtn.Location = new System.Drawing.Point(0, 0);
+            this.appointmentBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.appointmentBtn.Name = "appointmentBtn";
+            this.appointmentBtn.Size = new System.Drawing.Size(200, 50);
+            this.appointmentBtn.TabIndex = 2;
+            this.appointmentBtn.Text = "Appointment";
+            this.appointmentBtn.UseVisualStyleBackColor = true;
+            this.appointmentBtn.Click += new System.EventHandler(this.appointmentBtn_Click);
             // 
             // submenuContainer2
             // 
@@ -170,27 +171,28 @@
             // 
             // submenuContainer3
             // 
-            this.submenuContainer3.Controls.Add(this.submenu2);
+            this.submenuContainer3.Controls.Add(this.stockBtn);
             this.submenuContainer3.Location = new System.Drawing.Point(0, 124);
             this.submenuContainer3.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.submenuContainer3.Name = "submenuContainer3";
             this.submenuContainer3.Size = new System.Drawing.Size(200, 58);
             this.submenuContainer3.TabIndex = 3;
             // 
-            // submenu2
+            // stockBtn
             // 
-            this.submenu2.FlatAppearance.BorderSize = 0;
-            this.submenu2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.submenu2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.submenu2.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.submenu2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.submenu2.Location = new System.Drawing.Point(0, 0);
-            this.submenu2.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.submenu2.Name = "submenu2";
-            this.submenu2.Size = new System.Drawing.Size(200, 50);
-            this.submenu2.TabIndex = 0;
-            this.submenu2.Text = "submenu";
-            this.submenu2.UseVisualStyleBackColor = true;
+            this.stockBtn.FlatAppearance.BorderSize = 0;
+            this.stockBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.stockBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stockBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.stockBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.stockBtn.Location = new System.Drawing.Point(0, 0);
+            this.stockBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.stockBtn.Name = "stockBtn";
+            this.stockBtn.Size = new System.Drawing.Size(200, 50);
+            this.stockBtn.TabIndex = 0;
+            this.stockBtn.Text = "Stock";
+            this.stockBtn.UseVisualStyleBackColor = true;
+            this.stockBtn.Click += new System.EventHandler(this.stockBtn_Click);
             // 
             // Header
             // 
@@ -460,27 +462,28 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button7);
+            this.panel2.Controls.Add(this.restockRequestBtn);
             this.panel2.Location = new System.Drawing.Point(0, 248);
             this.panel2.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 58);
             this.panel2.TabIndex = 4;
             // 
-            // button7
+            // restockRequestBtn
             // 
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button7.Location = new System.Drawing.Point(0, 0);
-            this.button7.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(200, 50);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "submenu";
-            this.button7.UseVisualStyleBackColor = true;
+            this.restockRequestBtn.FlatAppearance.BorderSize = 0;
+            this.restockRequestBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.restockRequestBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.restockRequestBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.restockRequestBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.restockRequestBtn.Location = new System.Drawing.Point(0, 0);
+            this.restockRequestBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.restockRequestBtn.Name = "restockRequestBtn";
+            this.restockRequestBtn.Size = new System.Drawing.Size(200, 50);
+            this.restockRequestBtn.TabIndex = 2;
+            this.restockRequestBtn.Text = "Restock Request";
+            this.restockRequestBtn.UseVisualStyleBackColor = true;
+            this.restockRequestBtn.Click += new System.EventHandler(this.restockRequestBtn_Click);
             // 
             // panel3
             // 
@@ -1005,7 +1008,7 @@
         private System.Windows.Forms.Panel submenuContainer2;
         private System.Windows.Forms.Panel submenuContainer3;
         private System.Windows.Forms.Button supplierBtn;
-        private System.Windows.Forms.Button submenu2;
+        private System.Windows.Forms.Button stockBtn;
         private System.Windows.Forms.FlowLayoutPanel subSidebar;
         private System.Windows.Forms.Timer subSidebarTimer;
         private System.Windows.Forms.Panel mainBox;
@@ -1043,11 +1046,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button appointmentBtn;
         private System.Windows.Forms.Panel GoodsContainer;
         private System.Windows.Forms.Button GoodsBtn;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button restockRequestBtn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel panel4;

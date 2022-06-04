@@ -8,37 +8,37 @@ namespace TheBetterLimited.Models
 {
     internal class OrderItem
     {
-        private int id;
+        private string supplierGoodsStockId;
         private string name;
         private double price;
-        private string supplier;
-        private string Appointment;
-        private DateTime? created;
+        private int stock;
+        private bool inStore;
+        private bool isDisplay;
+        private bool isBook;
         private int quantity;
         private string remark;
 
         public OrderItem()
         {
-            this.id = 0;
+            this.supplierGoodsStockId = "0";
+            this.stock = 0;
             this.name = "";
             this.price = 0.0;
-            this.quantity = 0;
+            this.quantity = 1;
+            this.inStore = true;
+            this.isDisplay = false;
+            this.isBook = false;
             this.remark = String.Empty;
         }
 
-        public OrderItem(int id, string name, double price, int quantity, string remark)
-        {
-            this.id = id;
-            this.name = name;
-            this.price = price;
-            this.quantity = quantity;
-            this.remark = remark;
-        }
-
-        public int Id { get => id; set => id = value; }
+        public string SupplierGoodsStockId { get => supplierGoodsStockId; set => supplierGoodsStockId = value; }
         public string Name { get => name; set => name = value; }
         public double Price { get => price; set => price = value; }
+        public int Stock { get => stock; set => stock = value; }
+        public bool InStore { get => inStore; set => inStore = value; }
+        public bool IsDisplay { get => isDisplay; set => isDisplay = value; }
         public int Quantity { get => quantity; set => quantity = value; }
         public string Remark { get => remark; set => remark = value; }
+        public bool IsBook { get => isBook; set => isBook = value; }
     }
 }

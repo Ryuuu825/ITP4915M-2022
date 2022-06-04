@@ -57,7 +57,7 @@ namespace TheBetterLimited.Views
 
         private void GoodsDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (GoodsDataGrid.Columns[e.ColumnIndex].Name == "Status")
+            if (SupplierDataGrid.Columns[e.ColumnIndex].Name == "Status")
             {
                 if (e.Value.ToString().Equals("0"))
                 {
@@ -73,7 +73,7 @@ namespace TheBetterLimited.Views
                 }
             }
 
-            if (GoodsDataGrid.Columns[e.ColumnIndex].Name == "Size")
+            if (SupplierDataGrid.Columns[e.ColumnIndex].Name == "Size")
             {
 
                 if (e.Value.ToString().Equals("0"))
@@ -94,30 +94,30 @@ namespace TheBetterLimited.Views
 
         private void GoodsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == GoodsDataGrid.Columns["select"].Index)
+            if (e.ColumnIndex == SupplierDataGrid.Columns["select"].Index)
             {
-                if (Convert.ToInt32(GoodsDataGrid["select", e.RowIndex].Tag) == 0)
+                if (Convert.ToInt32(SupplierDataGrid["select", e.RowIndex].Tag) == 0)
                 {
-                    GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
-                    GoodsDataGrid["select", e.RowIndex].Tag = 1;
-                    GoodsDataGrid.Rows[e.RowIndex].Selected = true;
-                    selectGoodsID.Add(GoodsDataGrid["id", e.RowIndex].Value.ToString());
+                    SupplierDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
+                    SupplierDataGrid["select", e.RowIndex].Tag = 1;
+                    SupplierDataGrid.Rows[e.RowIndex].Selected = true;
+                    selectGoodsID.Add(SupplierDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
-                    GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
-                    GoodsDataGrid["select", e.RowIndex].Tag = 0;
-                    GoodsDataGrid.Rows[e.RowIndex].Selected = false;
-                    selectGoodsID.Remove(GoodsDataGrid["id", e.RowIndex].Value.ToString());
+                    SupplierDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
+                    SupplierDataGrid["select", e.RowIndex].Tag = 0;
+                    SupplierDataGrid.Rows[e.RowIndex].Selected = false;
+                    selectGoodsID.Remove(SupplierDataGrid["id", e.RowIndex].Value.ToString());
                 }
             }
 
-            if (e.ColumnIndex == GoodsDataGrid.Columns["edit"].Index)
+            if (e.ColumnIndex == SupplierDataGrid.Columns["edit"].Index)
             {
                 MessageBox.Show("You have selected row " + selectGoodsID[0] + " cell");
             }
 
-            if (e.ColumnIndex == GoodsDataGrid.Columns["delete"].Index)
+            if (e.ColumnIndex == SupplierDataGrid.Columns["delete"].Index)
             {
                 DeleteGoods(e);
             }
@@ -139,16 +139,16 @@ namespace TheBetterLimited.Views
         private void InitializeDataGridView()
         {
             //Main data column
-            GoodsDataGrid.AutoGenerateColumns = false;
-            GoodsDataGrid.DataSource = bs;
-            GoodsDataGrid.Columns["id"].HeaderText = "ID";
-            GoodsDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
-            GoodsDataGrid.Columns["name"].HeaderText = "Goods Name";
-            GoodsDataGrid.Columns["description"].HeaderText = "Description";
-            GoodsDataGrid.Columns["price"].HeaderText = "Price";
-            GoodsDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
-            GoodsDataGrid.Columns["size"].HeaderText = "Size";
-            GoodsDataGrid.Columns["status"].HeaderText = "Status";
+            SupplierDataGrid.AutoGenerateColumns = false;
+            SupplierDataGrid.DataSource = bs;
+            SupplierDataGrid.Columns["id"].HeaderText = "ID";
+            SupplierDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
+            SupplierDataGrid.Columns["name"].HeaderText = "Goods Name";
+            SupplierDataGrid.Columns["description"].HeaderText = "Description";
+            SupplierDataGrid.Columns["price"].HeaderText = "Price";
+            SupplierDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
+            SupplierDataGrid.Columns["size"].HeaderText = "Size";
+            SupplierDataGrid.Columns["status"].HeaderText = "Status";
             // GoodsDataGrid.Columns["id"].HeaderText = "ID";
             // GoodsDataGrid.Columns["userName"].HeaderText = "User Name";
             // GoodsDataGrid.Columns["staffName"].HeaderText = "Staff Name";
@@ -157,8 +157,8 @@ namespace TheBetterLimited.Views
             // GoodsDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
             // GoodsDataGrid.Columns["remarks"].HeaderText = "Remark";
 
-            for (int i = 0; i < GoodsDataGrid.RowCount; i++)
-                GoodsDataGrid["select", i].Tag = 0;
+            for (int i = 0; i < SupplierDataGrid.RowCount; i++)
+                SupplierDataGrid["select", i].Tag = 0;
 
             selectGoodsID.Clear();
         }
@@ -196,8 +196,8 @@ namespace TheBetterLimited.Views
                     index++;
                 }
                 bs.DataSource = dataTable;
-                GoodsDataGrid.AutoGenerateColumns = false;
-                GoodsDataGrid.DataSource = bs;
+                SupplierDataGrid.AutoGenerateColumns = false;
+                SupplierDataGrid.DataSource = bs;
                 InitializeDataGridView();
             }
             catch (Exception ex)
@@ -241,15 +241,15 @@ namespace TheBetterLimited.Views
         //Delete Goods
         private void DeleteGoods(DataGridViewCellEventArgs e)
         {
-            choose = MessageBox.Show("Do you really want to delete the " + GoodsDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            choose = MessageBox.Show("Do you really want to delete the " + SupplierDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (choose == DialogResult.Yes)
             {
                 try
                 {
-                    result = gc.DeleteGoods(GoodsDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    result = gc.DeleteGoods(SupplierDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
                     if (result.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        MessageBox.Show("The " + GoodsDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("The " + SupplierDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetGoods();
                     }
                 }
