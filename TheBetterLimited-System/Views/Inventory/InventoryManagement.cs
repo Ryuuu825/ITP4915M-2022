@@ -249,12 +249,23 @@ namespace TheBetterLimited.Views
             {
                 try
                 {
-                    result = gc.DeleteGoods(GoodsDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                    if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                    System.ComponentModel.BackgroundWorker backgroundWorker = new BackgroundWorker();
+                    backgroundWorker.DoWork += (s, eventArg) =>
                     {
-                        MessageBox.Show("The " + GoodsDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        result = gc.DeleteGoods(GoodsDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                        if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            MessageBox.Show("The " + GoodsDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                        };
+                    };
+
+                    backgroundWorker.RunWorkerCompleted += (s, eventArgs) =>
+                    {
                         GetGoods();
-                    }
+                    };
+
+                    backgroundWorker.RunWorkerAsync();
                 }
                 catch (Exception ex)
                 {
@@ -262,45 +273,53 @@ namespace TheBetterLimited.Views
                 }
 
             }
+
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            //Goodsmanagement_Add goodsAdd = new Goodsmanagement_Add();
-            //goodsAdd.Show();
+            Inventorymanagement_Add goodsAdd = new Inventorymanagement_Add();
+            goodsAdd.OnExit += () => GetGoods();
+            goodsAdd.Show();
         }
 
 
-
         // Export Goods PDF
-        private void exportBtn_Click(object sender, EventArgs e)
+        private async void exportBtn_Click(object sender, EventArgs e)
         {
-            Loading progress = new Loading();
-            progress.Show();
-            progress.Update("Fetch data from server ...", 10);
-            byte[] response = gc.GetGoodsPDF();
+            System.ComponentModel.BackgroundWorker bgWorker = new System.ComponentModel.BackgroundWorker();
+
             string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/test.pdf";
-            progress.Update("Generating PDF ...", 30);
-            progress.Update("Writing File ...", 60);
-            System.IO.File.WriteAllBytes(WriteFilePath, response);
-            progress.Update("Finish", 99);
 
-            choose = MessageBox.Show(
+            bgWorker.DoWork += (s, eargs) =>
+            {
+                byte[] response = gc.GetGoodsPDF();
+                System.IO.File.WriteAllBytes(WriteFilePath, response);
+
+            };
+
+
+            bgWorker.RunWorkerCompleted += (s, eargs) =>
+            {
+                choose = MessageBox.Show(
                 "Open in File Explorer?", "", MessageBoxButtons.YesNo);
-            if (choose == DialogResult.Yes)
-            {
 
-                if (WriteFilePath == null)
-                    throw new ArgumentNullException("filePath");
+                if (choose == DialogResult.Yes)
+                {
 
-                Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
-            }
-            else
-            {
-                MessageBox.Show("Saved at");
-            }
+                    if (WriteFilePath == null)
+                        throw new ArgumentNullException("filePath");
+                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
+                }
+                else
+                {
+                    MessageBox.Show("Saved at" + WriteFilePath);
+                }
+            };
 
-            progress.End();
+            bgWorker.RunWorkerAsync();
+
+
 
             // BackgroundWorker bgw = new BackgroundWorker();
             // CustomizeControl.Loading process = new Loading();

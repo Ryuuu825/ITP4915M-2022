@@ -105,7 +105,7 @@ namespace TheBetterLimited.Controller
         public byte[] GetGoodsPDF()
         {
             Console.WriteLine("Get Goods PDF");
-            var request = new RestRequest("/api/Warehouse/pdf", Method.Get)
+            var request = new RestRequest("/api/Goods/pdf", Method.Get)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {

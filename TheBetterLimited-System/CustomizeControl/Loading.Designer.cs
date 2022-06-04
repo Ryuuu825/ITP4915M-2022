@@ -59,6 +59,7 @@ namespace TheBetterLimited.CustomizeControl
             this.Name = "Loading";
             this.Text = "Loading";
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.ProgressBar Progress;

@@ -28,7 +28,7 @@ namespace TheBetterLimited.Views
         private List<string> selectGoodsID = new List<string>();
         private DialogResult choose;
         private RestResponse result;
-        private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
+        private ControllerBase con = new ControllerBase("Supplier");
 
         public Supplier()
         {
@@ -114,7 +114,10 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == SupplierDataGrid.Columns["edit"].Index)
             {
-                MessageBox.Show("You have selected row " + selectGoodsID[0] + " cell");
+                MessageBox.Show("You have selected row " + SupplierDataGrid["Id", e.RowIndex].Value + " cell");
+                Supplier_Edit editGoods = new Supplier_Edit(SupplierDataGrid["id", e.RowIndex].Value.ToString());
+                editGoods.Show();
+                editGoods.OnExit += () => GetGoods();
             }
 
             if (e.ColumnIndex == SupplierDataGrid.Columns["delete"].Index)
@@ -142,13 +145,10 @@ namespace TheBetterLimited.Views
             SupplierDataGrid.AutoGenerateColumns = false;
             SupplierDataGrid.DataSource = bs;
             SupplierDataGrid.Columns["id"].HeaderText = "ID";
-            SupplierDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
-            SupplierDataGrid.Columns["name"].HeaderText = "Goods Name";
-            SupplierDataGrid.Columns["description"].HeaderText = "Description";
-            SupplierDataGrid.Columns["price"].HeaderText = "Price";
-            SupplierDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
-            SupplierDataGrid.Columns["size"].HeaderText = "Size";
-            SupplierDataGrid.Columns["status"].HeaderText = "Status";
+            SupplierDataGrid.Columns["supplierName"].HeaderText = "Name";
+            SupplierDataGrid.Columns["phone"].HeaderText = "Phone";
+            SupplierDataGrid.Columns["contact"].HeaderText = "Contact";
+            SupplierDataGrid.Columns["address"].HeaderText = "Address";
             // GoodsDataGrid.Columns["id"].HeaderText = "ID";
             // GoodsDataGrid.Columns["userName"].HeaderText = "User Name";
             // GoodsDataGrid.Columns["staffName"].HeaderText = "Staff Name";
@@ -168,7 +168,7 @@ namespace TheBetterLimited.Views
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
-                result = gc.GetAllGoods();
+                result = con.GetAll();
             }
             else
             {
@@ -176,25 +176,12 @@ namespace TheBetterLimited.Views
                             + "|description:" + this.SearchBarTxt.Texts + "|price:" + this.SearchBarTxt.Texts
                             + "|gtincode:" + this.SearchBarTxt.Texts + "|size:" + this.SearchBarTxt.Texts
                             + "|status:" + this.SearchBarTxt.Texts;
-                result = gc.GetGoodsByQry(str);
+                result = con.GetByQueryString(str);
             }
             try
             {
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
-                var res = JArray.Parse(result.Content.ToString());
-                List<string> list = new List<string>();
-                dataTable.Columns.Add("Catalogue");
-                foreach (var ctgID in res)
-                {
-                    list.Add(ctgID["_catalogueId"].ToString());
-                }
-                int index = 0;
-
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString()).Content)["Name"].ToString();
-                    index++;
-                }
+               
                 bs.DataSource = dataTable;
                 SupplierDataGrid.AutoGenerateColumns = false;
                 SupplierDataGrid.DataSource = bs;
@@ -241,20 +228,22 @@ namespace TheBetterLimited.Views
         //Delete Goods
         private void DeleteGoods(DataGridViewCellEventArgs e)
         {
-            choose = MessageBox.Show("Do you really want to delete the " + SupplierDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            choose = MessageBox.Show("Do you really want to delete the " + SupplierDataGrid.Rows[e.RowIndex].Cells["supplierName"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (choose == DialogResult.Yes)
             {
                 try
                 {
-                    result = gc.DeleteGoods(SupplierDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    result = con.Delete(SupplierDataGrid["id", e.RowIndex].Value.ToString());
                     if (result.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        MessageBox.Show("The " + SupplierDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetGoods();
+                        MessageBox.Show("The " + SupplierDataGrid["supplierName", e.RowIndex].Value.ToString() + " is deleted",  "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                     }
+                    GetGoods();
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.InnerException);
+                    Console.WriteLine(ex.Message);
                     MessageBox.Show("Cannot delete the goods", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
@@ -265,6 +254,9 @@ namespace TheBetterLimited.Views
         {
             //Goodsmanagement_Add goodsAdd = new Goodsmanagement_Add();
             //goodsAdd.Show();
+            Supplier_Add supplierAdd = new Supplier_Add();
+            supplierAdd.OnExit += () => GetGoods();
+            supplierAdd.Show();
         }
 
 
