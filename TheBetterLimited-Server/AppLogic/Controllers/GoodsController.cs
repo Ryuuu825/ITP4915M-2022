@@ -215,5 +215,21 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
         }
 
+
+        public async Task AddImage(string id , byte[] image , string lang = "en")
+        {
+            var entry = await _GoodsTable.GetByIdAsync(id);
+            entry.Photo = image;
+
+            try
+            {
+                await _GoodsTable.UpdateAsync(entry);
+            }catch(Exception e)
+            {
+                int size = image.Length;
+                throw new BadArgException("The photo is too large: " + size + " bytes");
+            }
+        }
+
     }
 }

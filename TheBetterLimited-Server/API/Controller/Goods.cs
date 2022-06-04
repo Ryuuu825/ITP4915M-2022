@@ -119,5 +119,19 @@ namespace TheBetterLimited_Server.API.Controller
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
             }
         }
+
+        [HttpPost("{id}/image")]
+        public async Task<IActionResult> AddImage(string id, [FromBody] byte[] image)
+        {
+            try
+            {
+                await gc.AddImage(id, image , "en");
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
     }
 }
