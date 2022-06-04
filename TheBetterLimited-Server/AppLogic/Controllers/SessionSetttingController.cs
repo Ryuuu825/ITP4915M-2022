@@ -20,35 +20,57 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         {
             return repository.GetAll();
         }
-        public void UpdateSessionSetting(string id ,  List<UpdateObjectModel> content)
+        public void UpdateSessionSetting( List<SessionSetting> content)
         {
-            var entry = repository.GetById(id);
-            Helpers.Entity.EntityUpdater.Update(ref entry , content);
-            ConsoleLogger.Debug(entry.Debug());
-            repository.Update(entry);
+            var oldVersion = repository.GetAll();
+            foreach (var item in oldVersion)
+            {
+                repository.Delete(item);
+            }
 
+            foreach (var item in content)
+            {
+                var newObject = new SessionSetting()
+                {
+                    ID = Helpers.Sql.PrimaryKeyGenerator.Get<SessionSetting>(db),
+                    StartTime = item.StartTime,
+                    EndTime = item.EndTime,
+                    NumOfAppointments = item.NumOfAppointments
+                };
+                repository.Add(item);
+            }
+
+            var newVersion = repository.GetAll();
   
-            var Dsession = new Session 
-            {
-                ID = Helpers.Sql.PrimaryKeyGenerator.Get<Session>(db),
-                _departmentId = "300", // hard coded, this is inventory department
-                StartTime = entry.StartTime,
-                EndTime = entry.EndTime,
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(32)), // hard coded, this is the next month
-                NumOfAppointments = (byte) entry.NumOfAppointments,
-            };
-            _SessionTable.Add(Dsession);
+           // generate sesion for next month, and did not delete the old session
+            var nextMonth = DateTime.Now.AddMonths(1);
 
-            var Isession = new Session 
+            for (int i = 0 ; i < newVersion.Count() ; i ++ )
             {
-                ID = Helpers.Sql.PrimaryKeyGenerator.Get<Session>(db),
-                _departmentId = "700", // hard coded, this is inventory department
-                StartTime = entry.StartTime,
-                EndTime = entry.EndTime,
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(32)), // hard coded, this is the next month
-                NumOfAppointments = (byte) entry.NumOfAppointments,
-            };
-            _SessionTable.Add(Isession);
+                var DSession = new Session
+                {
+                    ID = Helpers.Sql.PrimaryKeyGenerator.Get<Session>(db),
+                    _departmentId = "300",
+                    StartTime = newVersion[i].StartTime,
+                    EndTime = newVersion[i].EndTime,
+                    Date = DateOnly.FromDateTime(nextMonth),
+                    NumOfAppointments = (byte) newVersion[i].NumOfAppointments
+                };
+                _SessionTable.Add(DSession);
+
+                var ESession = new Session
+                {
+                    ID = Helpers.Sql.PrimaryKeyGenerator.Get<Session>(db),
+                    _departmentId = "700",
+                    StartTime = newVersion[i].StartTime,
+                    EndTime = newVersion[i].EndTime,
+                    Date = DateOnly.FromDateTime(nextMonth),
+                    NumOfAppointments = (byte) newVersion[i].NumOfAppointments
+                };
+
+                _SessionTable.Add(ESession);
+
+            }
 
         }
 

@@ -15,12 +15,12 @@ namespace TheBetterLimited_Server.API.Controller
             controller = new SessionSetttingController(db);
         }
 
-        [HttpPost("{id}")]
-        public IActionResult Post(string id , [FromBody] List<UpdateObjectModel> content)
+        [HttpPost]
+        public IActionResult Post( [FromBody] List<Data.Entity.SessionSetting> newSetting)
         {
             try
             {
-                controller.UpdateSessionSetting(id, content);
+                controller.UpdateSessionSetting(newSetting);
                 return Ok();
             }
             catch (ICustException e)
