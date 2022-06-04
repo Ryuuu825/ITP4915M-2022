@@ -282,7 +282,7 @@
             this.cbxCatalogue.BorderRadius = 1;
             this.cbxCatalogue.BorderSize = 1;
             this.cbxCatalogue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
-            this.cbxCatalogue.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.cbxCatalogue.Font = new System.Drawing.Font("Corbel", 8.25F);
             this.cbxCatalogue.ForeColor = System.Drawing.Color.Black;
             this.cbxCatalogue.IconColor = System.Drawing.Color.LightGray;
             this.cbxCatalogue.ListBackColor = System.Drawing.Color.White;

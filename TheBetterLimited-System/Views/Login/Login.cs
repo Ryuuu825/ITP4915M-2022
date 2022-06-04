@@ -18,6 +18,15 @@ namespace TheBetterLimited.Views
             InitializeComponent();
         }
 
+        public Login(string id , string pwd)
+        {
+            InitializeComponent();
+            username.Texts = id;
+            password.Texts = pwd;
+            LoadMain();
+ 
+        }
+
         private void usernameLabel_Click(object sender, EventArgs e)
         {
             username.Focus();
@@ -71,6 +80,10 @@ namespace TheBetterLimited.Views
                     this.Dispose();
                     main = new Main();
                     main.TopLevel = true;
+                    if (main is null )
+                    {
+                        throw new Exception();
+                    }
                     var th = new Thread(() => Application.Run(main));
                     th.SetApartmentState(ApartmentState.STA);
                     th.Start();

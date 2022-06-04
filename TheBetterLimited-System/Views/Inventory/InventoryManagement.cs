@@ -278,8 +278,9 @@ namespace TheBetterLimited.Views
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            //Goodsmanagement_Add goodsAdd = new Goodsmanagement_Add();
-            //goodsAdd.Show();
+            Inventorymanagement_Add goodsAdd = new Inventorymanagement_Add();
+            goodsAdd.OnExit += () => GetGoods();
+            goodsAdd.Show();
         }
 
 
