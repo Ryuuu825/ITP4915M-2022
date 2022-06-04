@@ -76,7 +76,9 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Admin",
                     LastName = "Lee",
                     Sex = 'M',
-                    Age = 18
+                    Age = 18,
+                    _storeId = "H01",
+
                 },
                 new Staff()
                 {
@@ -86,7 +88,9 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Admin1",
                     LastName = "Pan",
                     Sex = 'M',
-                    Age = 18
+                    Age = 18,
+                    _storeId = "H01",
+
                 },
                 new Staff()
                 {
@@ -96,7 +100,9 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Freerider",
                     LastName = "Leung",
                     Sex = 'M',
-                    Age = 20
+                    Age = 20,
+                    _storeId = "H01",
+
                 },
                 new Staff()
                 {
@@ -106,7 +112,9 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Admin2",
                     LastName = "Lam",
                     Sex = 'M',
-                    Age = 20
+                    Age = 20,
+                    _storeId = "H01",
+
                 },
                 // create few staff who work for sales deparment as salesman
                 new Staff
