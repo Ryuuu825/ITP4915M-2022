@@ -12,6 +12,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private readonly Data.Repositories.Repository<Supplier_Goods_Stock> _Supplier_Goods_StockTable;
         private readonly Data.Repositories.Repository<Staff> _StaffTable;
         private readonly Data.Repositories.Repository<Transaction> _TransactionTable;
+        private readonly Data.Repositories.Repository<Store> _StoreTable;
+        private readonly Data.Repositories.Repository<Account> _AccountTable;
         private readonly AppLogic.Controllers.MessageController _MessageController;
 
         public OrderController(Data.DataContext db) : base(db)
@@ -23,6 +25,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _MessageController = new AppLogic.Controllers.MessageController(db);
             _StaffTable = new Data.Repositories.Repository<Staff>(db);
             _TransactionTable = new Data.Repositories.Repository<Transaction>(db);
+            _StoreTable = new Data.Repositories.Repository<Store>(db);
+            _AccountTable = new Data.Repositories.Repository<Account>(db);
         }
 
         private async Task<List<Hashtable>> ToDto(List<SalesOrder> salesOrders ,  string lang = "en")
@@ -126,18 +130,32 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
 
         
-        public async Task CreateSalesOrder(OrderInDto order)
+        public async Task CreateSalesOrder(string Username , OrderInDto order)
         {
             // first create the sales order
             // and create sales order items
             // and create appointments
             // and last add appointment to the sales order item.
+
+            var account = (await _AccountTable.GetBySQLAsync(
+                Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{Username}")
+            )).FirstOrDefault();
+
+            if(account == null)
+            {
+                throw new Exception("Account not found");
+            }
+
+            string StaffId = account._StaffId;
+            var staff = (await _StaffTable.GetByIdAsync(StaffId));
+            string storeId = staff.store.ID;
+
             var newOrder = new SalesOrder()
             {
                 ID = Helpers.Sql.PrimaryKeyGenerator.Get<SalesOrder>(db),
-                _creatorId = order.SalesOrder.CreatorId,
-                _operatorId = order.SalesOrder.CreatorId,
-                _storeId = order.SalesOrder.StoreId,
+                _creatorId = StaffId,
+                _operatorId = StaffId,
+                _storeId = storeId,
                 createdAt = DateTime.Now,
                 updatedAt = DateTime.Now,
                 Status =  SalesOrderStatus.Placed
@@ -185,13 +203,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 if (sgs.Quantity < sgs.MinLimit)
                 {
                     List<string> receivers = new List<string>();
-                    var staffs = (await _StaffTable.GetBySQLAsync(
+                    var StoreManager = (await _StaffTable.GetBySQLAsync(
                         Helpers.Sql.QueryStringBuilder.GetSqlStatement<Staff>($"_storeId:{newOrder._storeId};_positionId:202")
                     ));
 
-                    foreach (var staff in staffs)
+                    foreach (var s in StoreManager)
                     {
-                        receivers.Add(staff.acc.UserName);
+                        receivers.Add(s.acc.UserName);
                     }
 
                     _MessageController.SendMessage("system" ,

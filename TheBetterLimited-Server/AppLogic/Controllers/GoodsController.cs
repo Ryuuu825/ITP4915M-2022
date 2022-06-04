@@ -11,6 +11,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock> _Supplier_Goods_StockTable;
         private Data.Repositories.Repository<Data.Entity.Supplier_Goods> _Supplier_GoodsTable;
         private Data.Repositories.Repository<Data.Entity.Warehouse> _WarehouseTable;
+
         public GoodsController(Data.DataContext dataContext) : base(dataContext)
         {
             _CatTable = new Data.Repositories.Repository<Data.Entity.Catalogue>(dataContext);

@@ -29,7 +29,6 @@ namespace TheBetterLimited_Server.Data.Dto
     }
     public class OrderInDto
     {
-        public SalesOrderDto SalesOrder { get; set; }
         public List<SalesOrderItemInDto> SalesOrderItems { get; set;}
         public List<AppointmentDto>? Appointments { get; set; }
         public CustomerDto? Customer { get; set; }
@@ -41,9 +40,6 @@ namespace TheBetterLimited_Server.Data.Dto
         [Column(TypeName = "char(5)")]
         public string CreatorId { get; set; }
 
-        [MaxLength(3)]
-        [Column(TypeName = "char(3)")]
-        public string StoreId { get; set; }
     }
 
     public class SalesOrderItemInDto

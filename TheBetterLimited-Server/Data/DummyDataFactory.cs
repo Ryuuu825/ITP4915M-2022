@@ -79,7 +79,7 @@ namespace TheBetterLimited_Server.Data
                     Age = 18,
                     _storeId = "H01",
 
-                },
+            },
                 new Staff()
                 {
                     Id = "S0002",

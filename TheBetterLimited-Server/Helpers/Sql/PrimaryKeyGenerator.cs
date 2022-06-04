@@ -14,7 +14,6 @@ namespace TheBetterLimited_Server.Helpers.Sql
             string Id;
             if (list.Count() == 0)
             {
-                NoRecordExists:
                 // get the maximum length of the property from attribute MaxLength
                 T entity = Activator.CreateInstance<T>();
 

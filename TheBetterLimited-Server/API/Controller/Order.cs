@@ -1,6 +1,7 @@
 using TheBetterLimited_Server.AppLogic.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using TheBetterLimited_Server.Data.Dto;
+using Microsoft.AspNetCore.Authorization;
 namespace TheBetterLimited_Server.API.Controller
 {
     [Route("api/order")]
@@ -15,11 +16,12 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpPost("create")]
+        [Authorize]
         public async Task<IActionResult> Add([FromBody] Data.Dto.OrderInDto order , [FromHeader] string Language = "en")
         {
             try 
             {   
-                await controller.CreateSalesOrder(order);
+                await controller.CreateSalesOrder(User.Identity.Name , order);
                 return Ok();
             }
             catch (ICustException e)
