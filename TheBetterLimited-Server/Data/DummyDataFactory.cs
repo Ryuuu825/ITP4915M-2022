@@ -1837,7 +1837,7 @@ namespace TheBetterLimited_Server.Data
             int scounter = 0;
             // sessions.Add (new Session
             // {
-            //     ID = "001",
+            //     ID = "001"
             //     StartTime = sessionRange[scounter].StartTime,
             //     EndTime = sessionRange[scounter].EndTime,
             //     NumOfAppointments = sessionRange[scounter].NumOfAppointments,
