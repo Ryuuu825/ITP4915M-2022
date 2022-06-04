@@ -4,7 +4,6 @@ namespace TheBetterLimited_Server.Data.Entity
     [PrimaryKey("Id" , "_supplierGoodsId" , "_locationId")]
     public class Supplier_Goods_Stock
     {
-
         public string Id  { get; set; }
 
         [MaxLength(3)]
