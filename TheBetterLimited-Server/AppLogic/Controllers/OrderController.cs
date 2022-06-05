@@ -131,7 +131,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
 
         
-        public async Task CreateSalesOrder(string Username , OrderInDto order)
+        public async Task<string> CreateSalesOrder(string Username , OrderInDto order)
         {
             // first create the sales order
             // and create sales order items
@@ -240,6 +240,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 CleanOrder(newOrder.ID);
                 throw new BadArgException("Invalid SalesOrderItem ");
             }
+
+            return newOrder.ID;
 
         }
 

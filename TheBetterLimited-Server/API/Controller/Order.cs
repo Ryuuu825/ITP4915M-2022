@@ -21,8 +21,8 @@ namespace TheBetterLimited_Server.API.Controller
         {
             try 
             {   
-                await controller.CreateSalesOrder(User.Identity.Name , order);
-                return Ok();
+                string orderId = await controller.CreateSalesOrder(User.Identity.Name , order);
+                return Ok(await controller.GetById(orderId , Language));
             }
             catch (ICustException e)
             {
