@@ -10,10 +10,17 @@ namespace TheBetterLimited.Views
     {
         private Bitmap memoryImage;
         private Timer timer = new Timer();
-        public object data;
+        private string data;
         public Receipt()
         {
             InitializeComponent();
+        }
+
+        public Receipt(string data)
+        {
+            this.data = data;
+            InitializeComponent();
+            InitReceipt();
             timer.Interval = 1000;
             timer.Start();
             timer.Tick += new System.EventHandler(OnTimerEvent);

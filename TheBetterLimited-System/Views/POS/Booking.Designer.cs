@@ -291,7 +291,7 @@
             this.CusPhoneTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.CusPhoneTxt.PasswordChar = false;
             this.CusPhoneTxt.Placeholder = "Please enter customer phone";
-            this.CusPhoneTxt.ReadOnly = true;
+            this.CusPhoneTxt.ReadOnly = false;
             this.CusPhoneTxt.Size = new System.Drawing.Size(307, 38);
             this.CusPhoneTxt.TabIndex = 2;
             this.CusPhoneTxt.TbBackColor = System.Drawing.Color.White;

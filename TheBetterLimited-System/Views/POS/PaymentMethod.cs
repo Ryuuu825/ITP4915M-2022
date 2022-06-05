@@ -67,10 +67,11 @@ namespace TheBetterLimited.Views
                     {
                         Console.WriteLine(response.StatusCode);
                         Console.WriteLine(response.Content);
-                        Receipt receipt = new Receipt();
+                        var data = JObject.Parse(response.Content);
+                        Console.WriteLine(data.ToString());
+                        Receipt receipt = new Receipt(response.Content);
                         receipt.ShowDialog();
-                        this.Close();
-                        this.Dispose();
+                        ClearForm();
                     }
                 }
                 catch (Exception ex)
@@ -112,11 +113,5 @@ namespace TheBetterLimited.Views
         {
             ClearForm();
         }
-
-        private void CreateOrder()
-        {
-            
-        }
-
     }
 }
