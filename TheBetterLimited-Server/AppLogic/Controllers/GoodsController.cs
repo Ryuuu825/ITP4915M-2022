@@ -11,6 +11,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock> _Supplier_Goods_StockTable;
         private Data.Repositories.Repository<Data.Entity.Supplier_Goods> _Supplier_GoodsTable;
         private Data.Repositories.Repository<Data.Entity.Warehouse> _WarehouseTable;
+        private Data.Repositories.Repository<Data.Entity.SalesOrder> _OrderTable;
 
         public GoodsController(Data.DataContext dataContext) : base(dataContext)
         {
@@ -20,6 +21,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _Supplier_Goods_StockTable = new Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock>(dataContext);
             _WarehouseTable = new Data.Repositories.Repository<Data.Entity.Warehouse>(dataContext);
             _GoodsTable = new Data.Repositories.Repository<Data.Entity.Goods>(dataContext);
+            _OrderTable = new Data.Repositories.Repository<Data.Entity.SalesOrder>(dataContext);
             _Supplier_GoodsTable = new Data.Repositories.Repository<Data.Entity.Supplier_Goods>(dataContext);
         }
         
@@ -123,7 +125,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         InStoreStockQty += sg.Quantity;
                     }
 
-                    GoodsStockStatus InstoreStockStatus = InStoreStockQty < InstoreStock[0].MinLimit ? GoodsStockStatus.OutOfStock : InStoreStockQty < InstoreStock[0].ReorderLevel ? GoodsStockStatus.LowStock : GoodsStockStatus.InStock;
+                    GoodsStockStatus InstoreStockStatus = GetStockLevel(InstoreStock[0]);
                     GoodsStockInfo.InStoreStock = new GoodsStockOutDto.GoodsStoreStockOutDto
                     {
                         Status = InstoreStockStatus,
@@ -151,7 +153,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                             {
                                 Location = warehouse.Location.Loc,
                                 Stock = Warehouse_SupplierGoods.Quantity,
-                                _supplier_Goods_Stock_Id = Warehouse_SupplierGoods.Id
+                                _supplier_Goods_Stock_Id = Warehouse_SupplierGoods.Id,
+                                Status = GetStockLevel(Warehouse_SupplierGoods)
                             }
                         );
                     }
@@ -230,6 +233,49 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 int size = image.Length;
                 throw new BadArgException("The photo is too large: " + size + " bytes");
             }
+        }
+
+        public GoodsStockStatus GetStockLevel(Supplier_Goods_Stock sgs)
+        {
+            var stock = sgs.Quantity;
+            var min = sgs.MinLimit;
+            var reorder = sgs.ReorderLevel;
+            var max = sgs.MaxLimit;
+
+            // get the amount of the stock that is sold in this week
+            // first get the order in this week
+            var orders = _OrderTable.GetBySQL(
+                "SELECT * FROM SalesOrder WHERE createdAt BETWEEN '" + DateTime.Now.AddDays(-7).ToString("yyyy-MM-dd") + "' AND '" + DateTime.Now.ToString("yyyy-MM-dd") + "'"
+            );
+            int sold = 0;
+            foreach (var order in orders)
+            {
+                foreach (var orderItem in order.Items)
+                {
+                    if (orderItem._supplierGoodsStockId == sgs.Id)
+                    {
+                        sold += orderItem.Quantity;
+                    }
+                }
+            }
+
+            if (stock - sold < reorder)
+            {
+                return GoodsStockStatus.Danger;
+            }
+            else if (stock < min)
+            {
+                return GoodsStockStatus.OutOfStock;
+            }
+            else if (stock < reorder)
+            {
+                return GoodsStockStatus.LowStock;
+            }
+            else
+            {
+                return GoodsStockStatus.InStock;
+            }
+
         }
 
     }

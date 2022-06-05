@@ -45,6 +45,7 @@ namespace TheBetterLimited_Server.Data.Dto
         OutOfStock,
         LowStock,
         InStock,
+        Danger, 
         Unknown
     }
     
