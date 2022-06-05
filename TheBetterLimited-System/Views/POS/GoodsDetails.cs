@@ -59,7 +59,6 @@ namespace TheBetterLimited.Views
             GTINCodeTxt.Texts = goodsData["GTINCode"].ToString();
             DescriptionTxt.Texts = goodsData["Description"].ToString();
             PriceTxt.Texts = String.Format("{0:C2}", goodsData["Price"]);
-            Console.WriteLine(goodsData["StockLevel"]["inStoreStock"]);
             JToken jt = goodsData["StockLevel"]["inStoreStock"];
             if (jt.Type != JTokenType.Null)
             {
@@ -82,6 +81,7 @@ namespace TheBetterLimited.Views
                 needDelivery = true;
             }
             CatalogueTxt.Texts = goodsData["Catalogue"].ToString();
+            Console.WriteLine((int)goodsData["GoodsSize"]);
             ((RadioButton)SizeRadioGroup.Controls[(int)goodsData["GoodsSize"]]).Checked = true;
             ((RadioButton)SizeRadioGroup.Controls[(int)goodsData["GoodsSize"]]).ForeColor = Color.SeaGreen;
             ((RadioButton)StatusRadioGroup.Controls[(int)goodsData["GoodsStatus"]]).Checked = true;
