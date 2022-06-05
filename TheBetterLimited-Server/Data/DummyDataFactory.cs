@@ -1187,11 +1187,13 @@ namespace TheBetterLimited_Server.Data
                 {
                     ID = "H01",
                     _locationID = "004",
+                    StoreName = "TW Store"
                 },
                 new Store 
                 {
                     ID = "H02",
                     _locationID = "005",
+                    StoreName = "Kowloon Store"
                 }
             };
         }
