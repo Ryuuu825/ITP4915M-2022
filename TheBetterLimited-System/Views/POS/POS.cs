@@ -76,7 +76,6 @@ namespace TheBetterLimited.Views
                     str += $"|_catalogueId:{CatalogueCombox.SelectedIndex}";
                 }
                 GetByQry(str);
-
             }
         }
 
@@ -124,23 +123,6 @@ namespace TheBetterLimited.Views
             }
             oi = null;
             InitializeCartGridView();
-        }
-
-
-        private void AddBtn_Click(object sender, EventArgs e)
-        {
-            Form addUser = Application.OpenForms["Usermanagement_Add"];
-            if (addUser == null || addUser.IsDisposed)
-            {
-                Usermanagement_Add userAdd = new Usermanagement_Add();
-                userAdd.Show();
-                userAdd.TopLevel = true;
-            }
-            else
-            {
-                addUser.Activate();
-                addUser.WindowState = FormWindowState.Normal;
-            }
         }
 
         private void ChangeCheckedBtn_Style(RoundButton sender)

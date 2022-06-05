@@ -94,9 +94,9 @@ namespace TheBetterLimited.Views
                 var row = dt.NewRow();
                 row["goodsId"] = orderItem["supplierGoodsStockId"].ToString();
                 row["goodsName"] = orderItem["name"].ToString();
-                row["price"] = orderItem["price"].ToString();
-                row["qty"] = orderItem["quantity"].ToString();
-                row["amount"] = (((int)orderItem["quantity"])*((double)orderItem["price"])).ToString();
+                row["price"] = orderItem["price"];
+                row["qty"] = orderItem["quantity"];
+                row["amount"] = (((int)orderItem["quantity"])*((double)orderItem["price"]));
                 /*if (((JToken)orderItem["quantity"]).Type != JTokenType.Null && ((bool)orderItem["quantity"]) == false)
                 {
                     row["display"] = Properties.Resources.check24;

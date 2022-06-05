@@ -78,28 +78,28 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
+            this.orderId = new System.Windows.Forms.Label();
+            this.barcode = new System.Windows.Forms.PictureBox();
             this.CompanyInfo = new System.Windows.Forms.Panel();
             this.CompanyTitle1 = new System.Windows.Forms.Label();
             this.CompanyTitle0 = new System.Windows.Forms.Label();
+            this.CompanyIcon = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.orderId = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.appointment = new System.Windows.Forms.DataGridViewImageColumn();
-            this.barcode = new System.Windows.Forms.PictureBox();
-            this.CompanyIcon = new System.Windows.Forms.PictureBox();
             this.MainForm.SuspendLayout();
             this.UserInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemDataGrid)).BeginInit();
             this.UserInfoHeaderContainer.SuspendLayout();
-            this.CompanyInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barcode)).BeginInit();
+            this.CompanyInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,7 +157,7 @@
             this.UserInfo.Controls.Add(this.panel5);
             this.UserInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserInfo.Location = new System.Drawing.Point(0, 0);
-            this.UserInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UserInfo.Margin = new System.Windows.Forms.Padding(4);
             this.UserInfo.Name = "UserInfo";
             this.UserInfo.Size = new System.Drawing.Size(1040, 916);
             this.UserInfo.TabIndex = 24;
@@ -443,7 +443,7 @@
             this.appointment});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
@@ -618,11 +618,33 @@
             this.UserInfoHeaderContainer.Controls.Add(this.CompanyInfo);
             this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
-            this.UserInfoHeaderContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.UserInfoHeaderContainer.Margin = new System.Windows.Forms.Padding(4);
             this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
             this.UserInfoHeaderContainer.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
             this.UserInfoHeaderContainer.Size = new System.Drawing.Size(1040, 130);
             this.UserInfoHeaderContainer.TabIndex = 20;
+            // 
+            // orderId
+            // 
+            this.orderId.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.orderId.Location = new System.Drawing.Point(758, 105);
+            this.orderId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.orderId.Name = "orderId";
+            this.orderId.Size = new System.Drawing.Size(247, 24);
+            this.orderId.TabIndex = 48;
+            this.orderId.Text = "#order Id";
+            this.orderId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.orderId.UseMnemonic = false;
+            // 
+            // barcode
+            // 
+            this.barcode.Location = new System.Drawing.Point(736, 7);
+            this.barcode.Margin = new System.Windows.Forms.Padding(4);
+            this.barcode.Name = "barcode";
+            this.barcode.Size = new System.Drawing.Size(289, 95);
+            this.barcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.barcode.TabIndex = 2;
+            this.barcode.TabStop = false;
             // 
             // CompanyInfo
             // 
@@ -661,6 +683,18 @@
             this.CompanyTitle0.TabIndex = 2;
             this.CompanyTitle0.Text = "Better";
             // 
+            // CompanyIcon
+            // 
+            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
+            this.CompanyIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.CompanyIcon.Location = new System.Drawing.Point(0, 7);
+            this.CompanyIcon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.CompanyIcon.Name = "CompanyIcon";
+            this.CompanyIcon.Size = new System.Drawing.Size(110, 116);
+            this.CompanyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CompanyIcon.TabIndex = 0;
+            this.CompanyIcon.TabStop = false;
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.DimGray;
@@ -685,17 +719,14 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // orderId
+            // dataGridViewImageColumn1
             // 
-            this.orderId.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderId.Location = new System.Drawing.Point(758, 105);
-            this.orderId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.orderId.Name = "orderId";
-            this.orderId.Size = new System.Drawing.Size(247, 24);
-            this.orderId.TabIndex = 48;
-            this.orderId.Text = "#order Id";
-            this.orderId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.orderId.UseMnemonic = false;
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn1.HeaderText = "展示商品 Display Item";
+            this.dataGridViewImageColumn1.Image = global::TheBetterLimited.Properties.Resources.check24;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ToolTipText = "Is display item?";
             // 
             // goodsID
             // 
@@ -711,20 +742,20 @@
             // 
             // ID
             // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ID.DataPropertyName = "goodsName";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ID.DefaultCellStyle = dataGridViewCellStyle4;
             this.ID.HeaderText = "貨品 Product";
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
             this.ID.ToolTipText = "Goods Name";
-            this.ID.Width = 119;
             // 
             // Price
             // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Price.DataPropertyName = "price";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.Format = "C2";
@@ -735,6 +766,7 @@
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
             this.Price.ToolTipText = "Unit Price";
+            this.Price.Width = 129;
             // 
             // CreatorId
             // 
@@ -751,6 +783,7 @@
             // 
             // Amount
             // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Amount.DataPropertyName = "amount";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.Format = "C2";
@@ -760,49 +793,18 @@
             this.Amount.Name = "Amount";
             this.Amount.ReadOnly = true;
             this.Amount.ToolTipText = "Sub amount";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn1.HeaderText = "展示商品 Display Item";
-            this.dataGridViewImageColumn1.Image = global::TheBetterLimited.Properties.Resources.check24;
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ToolTipText = "Is display item?";
-            this.dataGridViewImageColumn1.Width = 151;
+            this.Amount.Width = 119;
             // 
             // appointment
             // 
             this.appointment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.appointment.HeaderText = "展示商品 Display Item";
-            this.appointment.Image = global::TheBetterLimited.Properties.Resources.check24;
+            this.appointment.Image = global::TheBetterLimited.Properties.Resources.square24;
             this.appointment.MinimumWidth = 6;
             this.appointment.Name = "appointment";
             this.appointment.ReadOnly = true;
             this.appointment.ToolTipText = "Is display item?";
             this.appointment.Width = 151;
-            // 
-            // barcode
-            // 
-            this.barcode.Location = new System.Drawing.Point(736, 7);
-            this.barcode.Margin = new System.Windows.Forms.Padding(4);
-            this.barcode.Name = "barcode";
-            this.barcode.Size = new System.Drawing.Size(289, 95);
-            this.barcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.barcode.TabIndex = 2;
-            this.barcode.TabStop = false;
-            // 
-            // CompanyIcon
-            // 
-            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
-            this.CompanyIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CompanyIcon.Location = new System.Drawing.Point(0, 7);
-            this.CompanyIcon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.CompanyIcon.Name = "CompanyIcon";
-            this.CompanyIcon.Size = new System.Drawing.Size(110, 116);
-            this.CompanyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CompanyIcon.TabIndex = 0;
-            this.CompanyIcon.TabStop = false;
             // 
             // Receipt
             // 
@@ -825,9 +827,9 @@
             this.UserInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemDataGrid)).EndInit();
             this.UserInfoHeaderContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             this.CompanyInfo.ResumeLayout(false);
             this.CompanyInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).EndInit();
             this.ResumeLayout(false);
 
@@ -882,12 +884,12 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label orderId;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn goodsID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatorId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewImageColumn appointment;
-        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
     }
 }
