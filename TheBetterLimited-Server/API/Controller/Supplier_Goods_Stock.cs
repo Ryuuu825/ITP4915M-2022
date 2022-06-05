@@ -34,18 +34,11 @@ namespace TheBetterLimited_Server.API.Controller
             List<Hashtable> result = new List<Hashtable>();
             foreach (var r in res)
             {
-                string storename = null;
-
-                var s = store.Find(x => x._locationID == r._locationId);
-                if (s is not null)
-                {
-                    storename = s.StoreName;
-                }
 
                 Hashtable h = new Hashtable();
                 h.Add("GoodsName" , goods.Find(x => x.Id == r.Supplier_Goods.Goods.Id).Name);
                 h.Add("_locationId" , r._locationId);
-                h.Add("StoreName" ,storename) ;
+                h.Add("LocName" , r.Location.Name) ;
                 h.Add("_supplierGoodsId" , r._supplierGoodsId);
                 h.Add("Quantity" , r.Quantity);
                 h.Add("MaxLimit" , r.MaxLimit);

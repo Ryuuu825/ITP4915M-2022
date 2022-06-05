@@ -1143,26 +1143,31 @@ namespace TheBetterLimited_Server.Data
                 {
                     Id = "001",
                     Loc = "Admin",
+                    Name = "TY IVE"
                 },
                 new Location
                 {
                     Id = "002",
-                    Loc = "Room 10 ,10F ,9 Sheung Yuet Road, Kowloon Bay, Kowloon"
+                    Loc = "Room 10 ,10F ,9 Sheung Yuet Road, Kowloon Bay, Kowloon",
+                    Name = "Head Office"
                 },
                 new Location
                 {
                     Id = "003",
-                    Loc = "59 Tai Yip Street Kowloon Bay Kolwoon, Hong Kong"
+                    Loc = "59 Tai Yip Street Kowloon Bay Kolwoon, Hong Kong",
+                    Name = "Kolwoon Warehouse"
                 },
                 new Location
                 {
                     Id = "004",
-                    Loc = "55 Chung On Street, Tsuen Wan 16/F, Emperor Plaza, Hong Kong"
+                    Loc = "55 Chung On Street, Tsuen Wan 16/F, Emperor Plaza, Hong Kong",
+                    Name = "TW Main Store"
                 },
                 new Location
                 {
                     Id = "005",
-                    Loc = "Unit 34 on Level 2 of MegaBox, Enterprise Square Five, 38 Wang Chiu Road, Kowloon Bay, Kowloon"
+                    Loc = "Unit 34 on Level 2 of MegaBox, Enterprise Square Five, 38 Wang Chiu Road, Kowloon Bay, Kowloon",
+                    Name = "KB Store"
                 }
             };
         }
@@ -1186,14 +1191,12 @@ namespace TheBetterLimited_Server.Data
                 new Store
                 {
                     ID = "H01",
-                    _locationID = "004",
-                    StoreName = "TW Store"
+                    _locationID = "004"
                 },
                 new Store 
                 {
                     ID = "H02",
-                    _locationID = "005",
-                    StoreName = "Kowloon Store"
+                    _locationID = "005"
                 }
             };
         }
