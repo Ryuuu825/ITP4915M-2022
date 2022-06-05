@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -23,21 +24,21 @@ namespace TheBetterLimited.Views
     {
         private GoodsController uc = new GoodsController();
         private ControllerBase cbSupplierGoodsStock = new ControllerBase("Supplier_Goods_Stock");
-        private ControllerBase cbSupplierGoods = new ControllerBase("Supplier_Goods");
         private RestResponse response = new RestResponse();
-        private ControllerBase cbSession = new ControllerBase("pos/session");
+        private SessionController cbSession = new SessionController("pos/session");
         private bool isUpload = false;
         private Bitmap icon = null;
         public JObject goodsData { get; set; }
         public List<object> goodsList { get; set; }
-        private List<object> session = new List<object>();
+        public bool needInstall;
+        private string deliverySessionId = null;
+        private string installSessionId = null;
+        List<Session> deliverySessions = new List<Session>();
+        List<Session> installSessions = new List<Session>();
 
         public Appointment_Add()
         {
             InitializeComponent();
-            session.Add("09:00-12:00");
-            session.Add("13:00-17:00");
-            session.Add("18:00-22:00");
         }
 
 
@@ -74,20 +75,27 @@ namespace TheBetterLimited.Views
 
             if (DeliverySessionCombo.SelectedIndex == -1)
             {
-                DeliverySessionCombo.Focus();
+                MessageBox.Show("Please select delivery session");
                 return;
             }
-            var delieverySession = DeliverySessionCombo.SelectedIndex.ToString();
 
             if (InstallSessionCombo.SelectedIndex == -1)
             {
-                InstallSessionCombo.Focus();
+                MessageBox.Show("Please select installation session");
                 return;
             }
-            var installSession = DeliverySessionCombo.SelectedIndex.ToString();
 
             CustomerInfo cusInfo = new CustomerInfo(name, phone, address);
-            Appointment appointment = new Appointment();
+            List<object> list = new List<object>();
+            list.Add(new { sessionId = deliverySessionId, _departmentId = "300"});
+            if(installSessionId != null)
+            {
+                list.Add(new { sessionId = installSessionId, _departmentId = "700" });
+            }
+            Form pos = Application.OpenForms["POS"];
+            ((POS)pos).SetCusInfo(cusInfo);
+            ((POS)pos).SetAppointments(list);
+            ((POS)pos).OpenPaymentMethod();
         }
 
         private void NameTxt_Click(object sender, EventArgs e)
@@ -109,55 +117,94 @@ namespace TheBetterLimited.Views
         {
             DeliveryDatePicker.MinDate = DateTime.Now;
             InstallDatePicker.MinDate = DateTime.Now;
-        }
-
-        private void GetSession()
-        {
-
+            DeliveryDatePicker.MaxDate = DateTime.Now.AddMonths(1);
+            InstallDatePicker.MaxDate = DateTime.Now.AddMonths(1);
         }
 
         private void DeliveryDatePicker_ValueChanged(object sender, EventArgs e)
         {
             InstallDatePicker.MinDate = DeliveryDatePicker.Value;
-            List<string> sessions = new List<string>();
-            sessions = InitSession(DeliveryDatePicker.Value.Month, DeliveryDatePicker.Value.Day, "300");
-            foreach (var item in sessions)
+            ResetDeliveryComboBox();
+            ResetInstallComboBox();
+            deliverySessions.Clear();
+            installSessions.Clear();
+            deliverySessions = InitSession(DeliveryDatePicker.Value.Month, DeliveryDatePicker.Value.Day, "300");
+            foreach (Session item in deliverySessions)
             {
-                DeliverySessionCombo.Items.Add(item);
+                DeliverySessionCombo.Items.Add(item.StartTime1.ToString("HH:mm") + " - " + item.EndTime1.ToString("HH:mm"));
             }
+            DeliveryDatePicker.MaxDate = deliverySessions.Last().Date1.AddDays(10);
         }
 
         private void DeliverySessionCombo_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> sessions = new List<string>();
-            InstallSessionCombo.Items.Clear();
-            InstallSessionCombo.SelectedIndex = -1;
-            InstallSessionCombo.Texts = "Installation Session";
-            
-            sessions = InitSession(InstallDatePicker.Value.Month, InstallDatePicker.Value.Day, "700");
-            foreach (var item in sessions)
-            {
-                InstallSessionCombo.Items.Add(item);
-            }
+            InitInstallComboBox();
+            deliverySessionId = deliverySessions[DeliverySessionCombo.SelectedIndex].ID1;
         }
 
         //init session form server
-        private List<string> InitSession(int month, int day, string departmentId)
+        private List<Session> InitSession(int month, int day, string departmentId)
         {
-            var items = new List<string>();
-            response = cbSession.GetByQueryString($"month:{month}&day:{day}&departmentId:{departmentId}");
+            response = cbSession.GetAll(month, day, departmentId);
+            Console.WriteLine(response.StatusCode);
+            List<Session> sessions = new List<Session>();
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 Console.WriteLine(response.Content);
-                JArray session = JArray.Parse(response.Content);
-                foreach (JObject sessionItem in session)
+                sessions = JsonConvert.DeserializeObject<List<Session>>(response.Content);
+            }
+            return sessions;
+        }
+
+        private void ResetDeliveryComboBox()
+        {
+            DeliverySessionCombo.Items.Clear();
+            DeliverySessionCombo.SelectedIndex = -1;
+            DeliverySessionCombo.Texts = "Delivery Session";
+            deliverySessionId = null;
+        }
+        private void ResetInstallComboBox()
+        {
+            InstallSessionCombo.Items.Clear();
+            InstallSessionCombo.SelectedIndex = -1;
+            InstallSessionCombo.Texts = "Installation Session";
+            installSessionId = null;
+        }
+
+        private void InitInstallComboBox()
+        {
+            ResetInstallComboBox();
+            installSessions.Clear();
+            installSessions = InitSession(InstallDatePicker.Value.Month, InstallDatePicker.Value.Day, "700");
+            for (int i = 0; i < installSessions.Count; i++)
+            {
+                Console.WriteLine(DeliveryDatePicker.Value);
+                Console.WriteLine(installSessions[i].Date1);
+                if (i <= DeliverySessionCombo.SelectedIndex && installSessions[i].Date1 == DeliveryDatePicker.Value.Date)
                 {
-                    session.Add(sessionItem);
-                    string item = $"{sessionItem["StartTime"]["hour"]}:{sessionItem["StartTime"]["minute"]} - {sessionItem["EndTime"]["hour"]}:{sessionItem["EndTime"]["minute"]}";
-                    items.Add(item);
+                    continue;
+                }
+                if (installSessions[i].NumOfAppointments1 > 0)
+                {
+                    InstallSessionCombo.Items.Add(installSessions[i].StartTime1.ToString("HH:mm") + " - " + installSessions[i].EndTime1.ToString("HH:mm"));
                 }
             }
-            return items;
+        }
+
+        private void InstallDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            InitInstallComboBox();
+        }
+
+        private void InstallSessionCombo_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            installSessionId = installSessions[InstallSessionCombo.SelectedIndex].ID1;
+        }
+
+        private void CancelBtn_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
         }
     }
 }

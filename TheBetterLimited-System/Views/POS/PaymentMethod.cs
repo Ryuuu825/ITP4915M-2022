@@ -25,10 +25,7 @@ namespace TheBetterLimited.Views
         private ControllerBase cbOrder= new ControllerBase("Order/Create");
         public double totalAmount { get; set; }
         private int selectedMethod = 0;
-        private List<object> orderItems = null;
-        private CustomerInfo cusInfo = null;
-        private List<object> appointmentInfos = null;
-        private Dictionary<string, object> orderInfo= new Dictionary<string, object>();
+        public Dictionary<string,object> data = new Dictionary<string,object>();
 
         public event Action OnExit;
 
@@ -65,9 +62,11 @@ namespace TheBetterLimited.Views
                 //Create order
                 try
                 {
-                    response = cbOrder.Create(orderInfo);
+                    response = cbOrder.Create(data);
                     if(response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
+                        Console.WriteLine(response.StatusCode);
+                        Console.WriteLine(response.Content);
                         Receipt receipt = new Receipt();
                         receipt.ShowDialog();
                         this.Close();
@@ -112,23 +111,6 @@ namespace TheBetterLimited.Views
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             ClearForm();
-        }
-
-        public void SetOrderList(List<object> orderItems)
-        {
-            this.orderItems = orderItems;
-            orderInfo.Add("salesOrderItems", orderItems);
-        }
-        public void SetCusInfo(object cusInfo)
-        {
-            this.cusInfo = (CustomerInfo)cusInfo;
-            orderInfo.Add("customer", cusInfo);
-        }
-
-        public void SetAppointmentInfo(List<object> appInfos)
-        {
-            this.appointmentInfos = appInfos;
-            orderInfo.Add("appointments", appInfos);
         }
 
         private void CreateOrder()

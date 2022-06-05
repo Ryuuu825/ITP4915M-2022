@@ -51,5 +51,34 @@ namespace TheBetterLimited.Views
                 depositTxt.Texts = String.Format("{0:C2}",deposit);
             }
         }
+
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            if (CusNameTxt.Texts.Equals(String.Empty) || CusNameTxt.Texts.Equals(CusNameTxt.Placeholder))
+            {
+                CusNameTxt.IsError = true;
+                return;
+            }
+            var name = CusNameTxt.Text;
+
+            if (CusPhoneTxt.Texts.Equals(String.Empty) || CusPhoneTxt.Texts.Equals(CusPhoneTxt.Placeholder))
+            {
+                CusPhoneTxt.IsError = true;
+                return;
+            }
+            var phone = CusPhoneTxt.Text;
+
+            if (CusAddressTxt.Texts.Equals(String.Empty) || CusAddressTxt.Texts.Equals(CusAddressTxt.Placeholder))
+            {
+                CusAddressTxt.IsError = true;
+                return;
+            }
+            var address = CusAddressTxt.Text;
+
+            CustomerInfo cusInfo = new CustomerInfo(name, phone, address);
+            Form pos = Application.OpenForms["POS"];
+            ((POS)pos).SetCusInfo(cusInfo);
+            ((POS)pos).OpenPaymentMethod();
+        }
     }
 }

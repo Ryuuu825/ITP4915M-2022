@@ -32,6 +32,7 @@
             this.BottomBtn = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.InstallDatePicker = new System.Windows.Forms.DateTimePicker();
             this.DeliveryDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -40,6 +41,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.CustomerInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.GTINCode = new System.Windows.Forms.Label();
@@ -47,9 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.InstallSessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
@@ -61,10 +61,10 @@
             this.BottomBtn.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.CustomerInfo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.UserInfoHeaderContainer.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainForm
@@ -125,6 +125,14 @@
             this.panel4.Size = new System.Drawing.Size(520, 326);
             this.panel4.TabIndex = 34;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.LightGray;
+            this.panel5.Location = new System.Drawing.Point(26, 135);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(468, 1);
+            this.panel5.TabIndex = 28;
+            // 
             // InstallDatePicker
             // 
             this.InstallDatePicker.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -133,6 +141,7 @@
             this.InstallDatePicker.Name = "InstallDatePicker";
             this.InstallDatePicker.Size = new System.Drawing.Size(306, 29);
             this.InstallDatePicker.TabIndex = 6;
+            this.InstallDatePicker.ValueChanged += new System.EventHandler(this.InstallDatePicker_ValueChanged);
             // 
             // DeliveryDatePicker
             // 
@@ -212,6 +221,27 @@
             this.label5.Size = new System.Drawing.Size(42, 21);
             this.label5.TabIndex = 1;
             this.label5.Text = "Date";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(520, 40);
+            this.panel2.TabIndex = 35;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 7);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 25);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Appointment";
             // 
             // CustomerInfo
             // 
@@ -295,35 +325,6 @@
             this.GoodsInfoHeader.TabIndex = 6;
             this.GoodsInfoHeader.Text = "Customer Information";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 7);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 25);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Appointment";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(520, 40);
-            this.panel2.TabIndex = 35;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.LightGray;
-            this.panel5.Location = new System.Drawing.Point(26, 135);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(468, 1);
-            this.panel5.TabIndex = 28;
-            // 
             // CancelBtn
             // 
             this.CancelBtn.BackColor = System.Drawing.Color.Silver;
@@ -344,6 +345,7 @@
             this.CancelBtn.Text = "Cancel";
             this.CancelBtn.TextColor = System.Drawing.Color.White;
             this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click_1);
             // 
             // SaveBtn
             // 
@@ -376,10 +378,6 @@
             this.InstallSessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InstallSessionCombo.ForeColor = System.Drawing.Color.DimGray;
             this.InstallSessionCombo.IconColor = System.Drawing.Color.LightGray;
-            this.InstallSessionCombo.Items.AddRange(new object[] {
-            "09:00 - 12:00",
-            "13:00 - 17:00",
-            "18:00 - 22:00"});
             this.InstallSessionCombo.ListBackColor = System.Drawing.Color.White;
             this.InstallSessionCombo.ListTextColor = System.Drawing.Color.DimGray;
             this.InstallSessionCombo.Location = new System.Drawing.Point(163, 223);
@@ -390,6 +388,7 @@
             this.InstallSessionCombo.TabIndex = 7;
             this.InstallSessionCombo.Texts = "Installation Session";
             this.InstallSessionCombo.UnderlinedStyle = false;
+            this.InstallSessionCombo.OnSelectedIndexChanged += new System.EventHandler(this.InstallSessionCombo_OnSelectedIndexChanged);
             // 
             // DeliverySessionCombo
             // 
@@ -401,10 +400,6 @@
             this.DeliverySessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeliverySessionCombo.ForeColor = System.Drawing.Color.DimGray;
             this.DeliverySessionCombo.IconColor = System.Drawing.Color.LightGray;
-            this.DeliverySessionCombo.Items.AddRange(new object[] {
-            "09:00 - 12:00",
-            "13:00 - 17:00",
-            "18:00 - 22:00"});
             this.DeliverySessionCombo.ListBackColor = System.Drawing.Color.White;
             this.DeliverySessionCombo.ListTextColor = System.Drawing.Color.DimGray;
             this.DeliverySessionCombo.Location = new System.Drawing.Point(165, 86);
@@ -520,13 +515,13 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.CustomerInfo.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.UserInfoHeaderContainer.ResumeLayout(false);
             this.UserInfoHeaderContainer.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

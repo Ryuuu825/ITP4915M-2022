@@ -30,18 +30,18 @@
         {
             this.MainForm = new System.Windows.Forms.Panel();
             this.BottomBtn = new System.Windows.Forms.Panel();
+            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.CustomerInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.depositTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.label2 = new System.Windows.Forms.Label();
+            this.CusNameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.GTINCode = new System.Windows.Forms.Label();
             this.Catalogue = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.depositTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.StaffIDTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.DeptTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.StaffNameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.CusAddressTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.CusPhoneTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
             this.MainForm.SuspendLayout();
@@ -76,78 +76,6 @@
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.BottomBtn.Size = new System.Drawing.Size(520, 65);
             this.BottomBtn.TabIndex = 34;
-            // 
-            // CustomerInfo
-            // 
-            this.CustomerInfo.BackColor = System.Drawing.Color.Transparent;
-            this.CustomerInfo.Controls.Add(this.panel1);
-            this.CustomerInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CustomerInfo.Location = new System.Drawing.Point(0, 0);
-            this.CustomerInfo.Name = "CustomerInfo";
-            this.CustomerInfo.Size = new System.Drawing.Size(520, 360);
-            this.CustomerInfo.TabIndex = 24;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.panel1.Controls.Add(this.depositTxt);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.StaffIDTxt);
-            this.panel1.Controls.Add(this.GTINCode);
-            this.panel1.Controls.Add(this.Catalogue);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.DeptTxt);
-            this.panel1.Controls.Add(this.StaffNameTxt);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel1.Size = new System.Drawing.Size(520, 360);
-            this.panel1.TabIndex = 27;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(53, 255);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 21);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Deposit";
-            // 
-            // GTINCode
-            // 
-            this.GTINCode.AutoSize = true;
-            this.GTINCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GTINCode.Location = new System.Drawing.Point(54, 125);
-            this.GTINCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.GTINCode.Name = "GTINCode";
-            this.GTINCode.Size = new System.Drawing.Size(66, 21);
-            this.GTINCode.TabIndex = 3;
-            this.GTINCode.Text = "Address";
-            // 
-            // Catalogue
-            // 
-            this.Catalogue.AutoSize = true;
-            this.Catalogue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Catalogue.Location = new System.Drawing.Point(57, 87);
-            this.Catalogue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Catalogue.Name = "Catalogue";
-            this.Catalogue.Size = new System.Drawing.Size(61, 21);
-            this.Catalogue.TabIndex = 2;
-            this.Catalogue.Text = "Phone*";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(58, 40);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Name*";
             // 
             // CancelBtn
             // 
@@ -191,6 +119,35 @@
             this.SaveBtn.Text = "Save";
             this.SaveBtn.TextColor = System.Drawing.Color.White;
             this.SaveBtn.UseVisualStyleBackColor = false;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // CustomerInfo
+            // 
+            this.CustomerInfo.BackColor = System.Drawing.Color.Transparent;
+            this.CustomerInfo.Controls.Add(this.panel1);
+            this.CustomerInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomerInfo.Location = new System.Drawing.Point(0, 0);
+            this.CustomerInfo.Name = "CustomerInfo";
+            this.CustomerInfo.Size = new System.Drawing.Size(520, 360);
+            this.CustomerInfo.TabIndex = 24;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel1.Controls.Add(this.depositTxt);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.CusNameTxt);
+            this.panel1.Controls.Add(this.GTINCode);
+            this.panel1.Controls.Add(this.Catalogue);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.CusAddressTxt);
+            this.panel1.Controls.Add(this.CusPhoneTxt);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.panel1.Size = new System.Drawing.Size(520, 360);
+            this.panel1.TabIndex = 27;
             // 
             // depositTxt
             // 
@@ -219,84 +176,128 @@
             this.depositTxt.UnderlinedStyle = false;
             this.depositTxt.Load += new System.EventHandler(this.depositTxt_Load);
             // 
-            // StaffIDTxt
+            // label2
             // 
-            this.StaffIDTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.StaffIDTxt.BackColor = System.Drawing.Color.White;
-            this.StaffIDTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.StaffIDTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.StaffIDTxt.BorderRadius = 10;
-            this.StaffIDTxt.BorderSize = 1;
-            this.StaffIDTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffIDTxt.ForeColor = System.Drawing.Color.Black;
-            this.StaffIDTxt.IsError = false;
-            this.StaffIDTxt.Location = new System.Drawing.Point(164, 31);
-            this.StaffIDTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.StaffIDTxt.MaxLength = 5;
-            this.StaffIDTxt.Multiline = false;
-            this.StaffIDTxt.Name = "StaffIDTxt";
-            this.StaffIDTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.StaffIDTxt.PasswordChar = false;
-            this.StaffIDTxt.Placeholder = "Please enter customer name";
-            this.StaffIDTxt.ReadOnly = false;
-            this.StaffIDTxt.Size = new System.Drawing.Size(306, 38);
-            this.StaffIDTxt.TabIndex = 1;
-            this.StaffIDTxt.TbBackColor = System.Drawing.Color.White;
-            this.StaffIDTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.StaffIDTxt.Texts = "Please enter customer name";
-            this.StaffIDTxt.UnderlinedStyle = false;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(53, 255);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 21);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Deposit";
             // 
-            // DeptTxt
+            // CusNameTxt
             // 
-            this.DeptTxt.BackColor = System.Drawing.Color.White;
-            this.DeptTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.DeptTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.DeptTxt.BorderRadius = 10;
-            this.DeptTxt.BorderSize = 1;
-            this.DeptTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeptTxt.ForeColor = System.Drawing.Color.Black;
-            this.DeptTxt.IsError = false;
-            this.DeptTxt.Location = new System.Drawing.Point(163, 125);
-            this.DeptTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.DeptTxt.MaxLength = 32767;
-            this.DeptTxt.Multiline = true;
-            this.DeptTxt.Name = "DeptTxt";
-            this.DeptTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.DeptTxt.PasswordChar = false;
-            this.DeptTxt.Placeholder = "Please enter customer address (option)";
-            this.DeptTxt.ReadOnly = false;
-            this.DeptTxt.Size = new System.Drawing.Size(307, 109);
-            this.DeptTxt.TabIndex = 3;
-            this.DeptTxt.TbBackColor = System.Drawing.Color.White;
-            this.DeptTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.DeptTxt.Texts = "Please enter customer address (option)";
-            this.DeptTxt.UnderlinedStyle = false;
+            this.CusNameTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.CusNameTxt.BackColor = System.Drawing.Color.White;
+            this.CusNameTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.CusNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.CusNameTxt.BorderRadius = 10;
+            this.CusNameTxt.BorderSize = 1;
+            this.CusNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CusNameTxt.ForeColor = System.Drawing.Color.Black;
+            this.CusNameTxt.IsError = false;
+            this.CusNameTxt.Location = new System.Drawing.Point(164, 31);
+            this.CusNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.CusNameTxt.MaxLength = 5;
+            this.CusNameTxt.Multiline = false;
+            this.CusNameTxt.Name = "CusNameTxt";
+            this.CusNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.CusNameTxt.PasswordChar = false;
+            this.CusNameTxt.Placeholder = "Please enter customer name";
+            this.CusNameTxt.ReadOnly = false;
+            this.CusNameTxt.Size = new System.Drawing.Size(306, 38);
+            this.CusNameTxt.TabIndex = 1;
+            this.CusNameTxt.TbBackColor = System.Drawing.Color.White;
+            this.CusNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.CusNameTxt.Texts = "Please enter customer name";
+            this.CusNameTxt.UnderlinedStyle = false;
             // 
-            // StaffNameTxt
+            // GTINCode
             // 
-            this.StaffNameTxt.BackColor = System.Drawing.Color.White;
-            this.StaffNameTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.StaffNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.StaffNameTxt.BorderRadius = 10;
-            this.StaffNameTxt.BorderSize = 1;
-            this.StaffNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StaffNameTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.StaffNameTxt.IsError = false;
-            this.StaffNameTxt.Location = new System.Drawing.Point(163, 78);
-            this.StaffNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.StaffNameTxt.MaxLength = 32767;
-            this.StaffNameTxt.Multiline = false;
-            this.StaffNameTxt.Name = "StaffNameTxt";
-            this.StaffNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.StaffNameTxt.PasswordChar = false;
-            this.StaffNameTxt.Placeholder = "Please enter customer phone";
-            this.StaffNameTxt.ReadOnly = true;
-            this.StaffNameTxt.Size = new System.Drawing.Size(307, 38);
-            this.StaffNameTxt.TabIndex = 2;
-            this.StaffNameTxt.TbBackColor = System.Drawing.Color.White;
-            this.StaffNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.StaffNameTxt.Texts = "Please enter customer phone";
-            this.StaffNameTxt.UnderlinedStyle = false;
+            this.GTINCode.AutoSize = true;
+            this.GTINCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GTINCode.Location = new System.Drawing.Point(54, 125);
+            this.GTINCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.GTINCode.Name = "GTINCode";
+            this.GTINCode.Size = new System.Drawing.Size(66, 21);
+            this.GTINCode.TabIndex = 3;
+            this.GTINCode.Text = "Address";
+            // 
+            // Catalogue
+            // 
+            this.Catalogue.AutoSize = true;
+            this.Catalogue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Catalogue.Location = new System.Drawing.Point(57, 87);
+            this.Catalogue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Catalogue.Name = "Catalogue";
+            this.Catalogue.Size = new System.Drawing.Size(61, 21);
+            this.Catalogue.TabIndex = 2;
+            this.Catalogue.Text = "Phone*";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(58, 40);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 21);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Name*";
+            // 
+            // CusAddressTxt
+            // 
+            this.CusAddressTxt.BackColor = System.Drawing.Color.White;
+            this.CusAddressTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.CusAddressTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.CusAddressTxt.BorderRadius = 10;
+            this.CusAddressTxt.BorderSize = 1;
+            this.CusAddressTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CusAddressTxt.ForeColor = System.Drawing.Color.Black;
+            this.CusAddressTxt.IsError = false;
+            this.CusAddressTxt.Location = new System.Drawing.Point(163, 125);
+            this.CusAddressTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.CusAddressTxt.MaxLength = 32767;
+            this.CusAddressTxt.Multiline = true;
+            this.CusAddressTxt.Name = "CusAddressTxt";
+            this.CusAddressTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.CusAddressTxt.PasswordChar = false;
+            this.CusAddressTxt.Placeholder = "Please enter customer address (option)";
+            this.CusAddressTxt.ReadOnly = false;
+            this.CusAddressTxt.Size = new System.Drawing.Size(307, 109);
+            this.CusAddressTxt.TabIndex = 3;
+            this.CusAddressTxt.TbBackColor = System.Drawing.Color.White;
+            this.CusAddressTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.CusAddressTxt.Texts = "Please enter customer address (option)";
+            this.CusAddressTxt.UnderlinedStyle = false;
+            // 
+            // CusPhoneTxt
+            // 
+            this.CusPhoneTxt.BackColor = System.Drawing.Color.White;
+            this.CusPhoneTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.CusPhoneTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.CusPhoneTxt.BorderRadius = 10;
+            this.CusPhoneTxt.BorderSize = 1;
+            this.CusPhoneTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CusPhoneTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.CusPhoneTxt.IsError = false;
+            this.CusPhoneTxt.Location = new System.Drawing.Point(163, 78);
+            this.CusPhoneTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.CusPhoneTxt.MaxLength = 32767;
+            this.CusPhoneTxt.Multiline = false;
+            this.CusPhoneTxt.Name = "CusPhoneTxt";
+            this.CusPhoneTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.CusPhoneTxt.PasswordChar = false;
+            this.CusPhoneTxt.Placeholder = "Please enter customer phone";
+            this.CusPhoneTxt.ReadOnly = true;
+            this.CusPhoneTxt.Size = new System.Drawing.Size(307, 38);
+            this.CusPhoneTxt.TabIndex = 2;
+            this.CusPhoneTxt.TbBackColor = System.Drawing.Color.White;
+            this.CusPhoneTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.CusPhoneTxt.Texts = "Please enter customer phone";
+            this.CusPhoneTxt.UnderlinedStyle = false;
             // 
             // UserInfoHeaderContainer
             // 
@@ -351,12 +352,12 @@
         private System.Windows.Forms.Panel MainForm;
         private System.Windows.Forms.Panel CustomerInfo;
         private System.Windows.Forms.Panel panel1;
-        private CustomizeControl.CustomizeTextbox StaffIDTxt;
+        private CustomizeControl.CustomizeTextbox CusNameTxt;
         private System.Windows.Forms.Label GTINCode;
         private System.Windows.Forms.Label Catalogue;
         private System.Windows.Forms.Label label1;
-        private CustomizeControl.CustomizeTextbox DeptTxt;
-        private CustomizeControl.CustomizeTextbox StaffNameTxt;
+        private CustomizeControl.CustomizeTextbox CusAddressTxt;
+        private CustomizeControl.CustomizeTextbox CusPhoneTxt;
         private System.Windows.Forms.Panel BottomBtn;
         private CustomizeControl.RoundButton CancelBtn;
         private CustomizeControl.RoundButton SaveBtn;

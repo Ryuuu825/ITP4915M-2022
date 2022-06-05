@@ -468,27 +468,35 @@ namespace TheBetterLimited.Views
             }
         }
 
-        private void OpenBooking()
+        public void OpenBooking()
         {
             Booking book = new Booking();
             book.totalAmount = totalAmount;
             book.ShowDialog();
-            book.OnExit += OpenPaymentMethod;
         }
 
-        private void OpenAppointment()
+        public void OpenAppointment()
         {
             Appointment_Add appointment = new Appointment_Add();
             appointment.ShowDialog();
             appointment.goodsList = orderItems;
-            appointment.OnExit += OpenPaymentMethod;
         }
 
-        private void OpenPaymentMethod()
+        public void OpenPaymentMethod()
         {
             PaymentMethod payment = new PaymentMethod();
+            payment.data = CombineData();
             payment.totalAmount = totalAmount;
             payment.ShowDialog();
+        }
+
+        private Dictionary<string, object> CombineData()
+        {
+            Dictionary<string, object> data = new Dictionary<string, object>();
+            data.Add("salesOrderItems", orderItems);
+            data.Add("appointments", appointments);
+            data.Add("customer", cusInfo);
+            return data;
         }
 
         private void DiscountValue__TextChanged(object sender, EventArgs e)
@@ -560,6 +568,7 @@ namespace TheBetterLimited.Views
                 booking.Dispose();
             }
             InitializeCartGridView();
+            GetAll();
         }
 
         public void SetCusInfo(object customer)

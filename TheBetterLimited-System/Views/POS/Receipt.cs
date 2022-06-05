@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Windows.Forms;
@@ -7,8 +8,9 @@ namespace TheBetterLimited.Views
 {
     public partial class Receipt : Form
     {
-        Bitmap memoryImage;
-        Timer timer = new Timer();
+        private Bitmap memoryImage;
+        private Timer timer = new Timer();
+        public object data;
         public Receipt()
         {
             InitializeComponent();
@@ -31,13 +33,12 @@ namespace TheBetterLimited.Views
 
         private void OnTimerEvent(object sender, EventArgs e)
         {
-            Console.WriteLine("..");
             timer.Stop();
             print();
         }
 
-        private void print() 
-        { 
+        private void print()
+        {
             Panel panel = new Panel();
             this.Controls.Add(panel);
             Graphics grp = panel.CreateGraphics();
@@ -48,7 +49,7 @@ namespace TheBetterLimited.Views
             grp.CopyFromScreen(panelLocation.X, panelLocation.Y, 0, 0, formSize);
             printDocument2.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", 750, 950);
             printDocument2.DefaultPageSettings.Landscape = true;
-            
+
             printPreviewDialog1.Document = printDocument2;
             printPreviewDialog1.PrintPreviewControl.Zoom = 1;
             printPreviewDialog1.ShowDialog();
@@ -56,7 +57,6 @@ namespace TheBetterLimited.Views
         public event Action OnExit;
         private void printDocument2_EndPrint(object sender, PrintEventArgs e)
         {
-            Console.WriteLine("close");
             this.Close();
         }
 
@@ -64,6 +64,25 @@ namespace TheBetterLimited.Views
         {
             Form appointment = Application.OpenForms["POS"];
             ((POS)appointment).ClearOrder();
+        }
+
+        private void InitReceipt()
+        {
+            printDate.Text = DateTime.Now.ToString("G");
+            storeId.Text = ((JObject)data)["store"]["id"].ToString();
+            salesId.Text = ((JObject)data)["_creatorId"].ToString();
+            storeAddress.Text = ((JObject)data)["store"]["location"]["loc"].ToString();
+            transcationDate.Text = ((DateTime)((JObject)data)["createAt"]).ToString("G");
+            cusName.Text = "";
+            tel.Text = "";
+            area.Text = "";
+            deliveryAddress.Text = "";
+            deliveryDate.Text = "";
+            deposit.Text = String.Format("{0,C2}", ((JObject)data)["paid"].ToString());
+            totalAmount.Text = String.Format("{0,C2}", ((JObject)data)["total"].ToString());
+            paid.Text = String.Format("{0,C2}",((JObject)data)["paid"].ToString());
+            paymentMethod.Text = "";
+            final.Text = String.Format("{0,C2}", ((int)((JObject)data)["paid"]));
         }
     }
 }
