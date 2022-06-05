@@ -14,6 +14,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private readonly Data.Repositories.Repository<Transaction> _TransactionTable;
         private readonly Data.Repositories.Repository<Store> _StoreTable;
         private readonly Data.Repositories.Repository<Account> _AccountTable;
+        private readonly Data.Repositories.Repository<Customer> _CustomerTable;
+        private readonly Data.Repositories.Repository<SalesOrderItem_Appointment> _SalesOrderItem_AppointmentTable;
         private readonly AppLogic.Controllers.MessageController _MessageController;
 
         public OrderController(Data.DataContext db) : base(db)
@@ -27,6 +29,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _TransactionTable = new Data.Repositories.Repository<Transaction>(db);
             _StoreTable = new Data.Repositories.Repository<Store>(db);
             _AccountTable = new Data.Repositories.Repository<Account>(db);
+            _CustomerTable = new Data.Repositories.Repository<Customer>(db);
+            _SalesOrderItem_AppointmentTable = new Data.Repositories.Repository<SalesOrderItem_Appointment>(db);
         }
 
         private async Task<List<Hashtable>> ToDto(List<SalesOrder> salesOrders ,  string lang = "en")
@@ -125,13 +129,10 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             list = list.GetRange((int)offset, limit);
             return await ToDto(list, lang);
         }
-
-
-
-
         
         public async Task<string> CreateSalesOrder(string Username , OrderInDto order)
         {
+
             // first create the sales order
             // and create sales order items
             // and create appointments
@@ -164,7 +165,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             try 
             {
                 repository.Add(newOrder);
-
             }catch(Exception e)
             {
                 // sales order should be created successfully first.
@@ -172,17 +172,26 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
 
             List<SalesOrderItem> salesOrderItems = new List<SalesOrderItem>();
+            ConsoleLogger.Debug(order.SalesOrderItems.Count);
             foreach (var item in order.SalesOrderItems)
             {
-                salesOrderItems.Add(
-                    new SalesOrderItem()
+                ConsoleLogger.Debug("Next" + Helpers.Sql.PrimaryKeyGenerator.Get<SalesOrderItem>(db));
+                var d = new SalesOrderItem()
                     {
+                        Id = Helpers.Sql.PrimaryKeyGenerator.Get<SalesOrderItem>(db),
                         _salesOrderId = newOrder.ID,
                         _supplierGoodsStockId = item.SupplierGoodsStockId,
                         Quantity = item.Quantity,
                         Price = item.Price
-                    }
+                    };
+                ConsoleLogger.Debug(d.Debug());
+                salesOrderItems.Add(
+                    d
                 );
+
+                _SalesOrderItemTable.Add(salesOrderItems.Last());
+
+
 
                 Supplier_Goods_Stock sgs = (await _Supplier_Goods_StockTable.GetBySQLAsync(
                     Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>("Id:" + item.SupplierGoodsStockId)
@@ -221,27 +230,155 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     );
                     
                 }
-
                 _Supplier_Goods_StockTable.Update(sgs);
             }
 
-            try
+            
+            if (order.Customer is not null) // there are some booking, or appointment
             {
-                // await _SalesOrderItemTable.AddRangeAsync(salesOrderItems);
-                foreach(var item in salesOrderItems)
-                {
-                    _SalesOrderItemTable.Add(item);
-                }
-                await db.SaveChangesAsync();
-            }catch(Exception e)
-            {
-                // TODO: it does not work here.
-                CleanOrder(newOrder.ID);
-                throw new BadArgException("Invalid SalesOrderItem ");
+                _CustomerTable.Add(
+                    new Customer
+                    {
+                        ID = Helpers.Sql.PrimaryKeyGenerator.Get<Customer>(db),
+                        Name = order.Customer.Name,
+                        Phone = order.Customer.Phone,
+                        Address = order.Customer.Address
+                    });
             }
 
-            return newOrder.ID;
+            // create appointments
+            // only have 0 , 1 , or 2 appointments in the list.
+            // if there is no (0) appointment, then skip this part
+            // if this order needed to be booked, then there are no appointment
+            // if there is (1 or 2 ) appointment, then create the appointment
 
+
+            bool isBooked = false;
+            bool isAppointment = false;
+
+            BookingOrder bookingOrder = new BookingOrder()
+            {
+                ID = Helpers.Sql.PrimaryKeyGenerator.Get<BookingOrder>(db),
+                _customerId = _CustomerTable.GetAll().Last().ID,
+            };
+            Appointment[] appointments = new Appointment[2];
+            var SalesOrderItemsList = (await _SalesOrderItemTable.GetBySQLAsync(
+                Helpers.Sql.QueryStringBuilder.GetSqlStatement<SalesOrderItem>($"_salesOrderId:{newOrder.ID}")
+            ));
+
+            foreach(var items in order.SalesOrderItems)
+            {
+                // determine is this order needed to be booked or needed to be appointed
+                if (items.NeedBooking)
+                {
+                    isBooked = true;
+                }
+
+                if (items.NeedDelivery || items.NeedInstall)
+                {
+                    isAppointment = true;
+                }
+            }
+
+            if (isBooked)
+            {
+                foreach( var salesOrderItem in SalesOrderItemsList)
+                {
+                    var entry = salesOrderItem;
+                    entry._bookingOrderId = bookingOrder.ID;
+                    _SalesOrderItemTable.Update(entry);
+                }
+            }
+            else if (isAppointment)
+            {
+                if(order.Appointments.Count == 1)
+                {
+                    // delivery appointment
+                    appointments[0] = new Appointment
+                    {
+                        ID = Helpers.Sql.PrimaryKeyGenerator.Get<Appointment>(db),
+                        _sessionId = order.Appointments[0].SessionId, // hard code
+                        _departmentId = order.Appointments[0].DepartmentId, // hard code
+                    };
+                    try 
+                    {
+                        _AppointmentTable.Add(appointments[0]);
+
+                    }catch(Exception e)
+                    {
+                        CleanOrder(newOrder.ID);
+                        throw new BadArgException("Invalid Appointment");
+                    }
+
+                    foreach (var salesOrderItem in SalesOrderItemsList)
+                    {
+                        ConsoleLogger.Debug("salesOrderItem.Id: " + salesOrderItem.Id);
+                        _SalesOrderItem_AppointmentTable.Add(
+                            new SalesOrderItem_Appointment{
+                                _salesOrderItemId = salesOrderItem.Id,
+                                _appointmentId = appointments[0].ID
+                            }
+                        );
+                    }
+                }
+                else if (order.Appointments.Count == 2)
+                {
+                    // delivery appointment
+                    appointments[0] = new Appointment
+                    {
+                        ID = Helpers.Sql.PrimaryKeyGenerator.Get<Appointment>(db),
+                        _sessionId = order.Appointments[0].SessionId, // hard code
+                        _departmentId = order.Appointments[0].DepartmentId, // hard code
+                    };
+                    _AppointmentTable.Add(appointments[0]);  // hard code
+
+                    appointments[1] = new Appointment
+                    {
+                        ID = Helpers.Sql.PrimaryKeyGenerator.Get<Appointment>(db),
+                        _sessionId = order.Appointments[1].SessionId, // hard code
+                        _departmentId = order.Appointments[1].DepartmentId, // hard code
+                    };
+                    _AppointmentTable.Add(appointments[1]); // hard code
+
+                    List<SalesOrderItem_Appointment> salesOrderItem_Appointments = new List<SalesOrderItem_Appointment>();
+                    for (int i = 0 ; i < SalesOrderItemsList.Count ; i++)
+                    {
+                        ConsoleLogger.Debug("Need delivery: " + order.SalesOrderItems[i].NeedDelivery);
+                        ConsoleLogger.Debug("Need installation: " + order.SalesOrderItems[i].NeedInstall);
+                        
+                        if (order.SalesOrderItems[i].NeedInstall)
+                        {
+                            var ientry = new SalesOrderItem_Appointment{
+                                _salesOrderItemId = SalesOrderItemsList[i].Id,
+                                _appointmentId = appointments[1].ID 
+                            };
+                            ConsoleLogger.Debug(ientry.Debug());
+                            ConsoleLogger.Debug("Adding this to installation : " +SalesOrderItemsList[i].Id);
+                            salesOrderItem_Appointments.Add(ientry);
+                        }
+
+                        
+                        if (order.SalesOrderItems[i].NeedDelivery)
+                        {
+                            var dentry = new SalesOrderItem_Appointment{
+                                    _salesOrderItemId = SalesOrderItemsList[i].Id,
+                                    _appointmentId = appointments[0].ID 
+                                };
+                            ConsoleLogger.Debug(dentry.Debug());
+                            ConsoleLogger.Debug("Adding this to devlivery: " + SalesOrderItemsList[i].Id);
+                            salesOrderItem_Appointments.Add(dentry);
+                        }
+                        
+                    }
+                    ConsoleLogger.Debug(salesOrderItem_Appointments.Count());
+                    foreach (var entry in salesOrderItem_Appointments)
+                    {
+                        _SalesOrderItem_AppointmentTable.Add(entry);
+                        db.SaveChanges();
+                    }
+                }
+            }
+            return newOrder.ID;
         }
 
         public void CleanOrder(string id)

@@ -83,6 +83,21 @@ public class DataContext : DbContext
 
         md.Entity<Supplier_Goods>()
             .HasKey(sg => sg.ID);
+
+         md.Entity<SalesOrderItem>()
+            .HasKey(sg => sg.Id);
+        
+        md.Entity<SalesOrderItem_Appointment>() 
+            .HasKey(s => new { s._salesOrderItemId, s._appointmentId });
+        
+        md.Entity<SalesOrderItem_Appointment>()
+            .HasOne(soia => soia.SalesOrderItem)    
+            .WithMany(soi => soi.SaleOrderItem_Appointment);
+        
+        md.Entity<SalesOrderItem_Appointment>()
+            .HasOne(soia => soia.Appointment)
+            .WithMany(a => a.SaleOrderItem_Appointments)
+            .HasForeignKey(soia => soia._appointmentId);
     }
     
     // create dbset for all entity in TheBetterLimited.Data.Entity
@@ -118,13 +133,5 @@ public class DataContext : DbContext
     public DbSet<Transaction> transaction {get; }
     public DbSet<Warehouse> warehouse {get; }
     public DbSet<SessionSetting> sessionSetting {get; }
-
-
-
-
-
-
-
-    
-
+    public DbSet<SalesOrderItem_Appointment> saleOrderItem_Appointment {get; }
 }

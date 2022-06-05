@@ -22,10 +22,6 @@ namespace TheBetterLimited_Server.Data.Entity
         [ForeignKey("_appointmentId")]
         public virtual Appointment? Appointment { get; set; }
 
-        [Column(TypeName = "SMALLINT")]
-        [Range(0, 999)]
-        public uint Quantity { get; set; }
-
         [MaxLength(50)]
         [Column(TypeName = "varchar(50)")]
         public string? Remarks { get; set; }

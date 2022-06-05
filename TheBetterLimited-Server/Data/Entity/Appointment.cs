@@ -28,5 +28,8 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [ForeignKey("_teamId")]
         public virtual Team? Team { get; set; }
+
+
+        public virtual List<SalesOrderItem_Appointment> SaleOrderItem_Appointments { get; set; }
     }
 }

@@ -64,6 +64,23 @@ namespace TheBetterLimited_Server.Helpers.Sql
             ConsoleLogger.Debug(sb.ToString());
             return sb.ToString();
         }
+
+        public static string Get(string previousId)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            string _prefix = previousId.Substring(0 , previousId.IndexOfAny("0123456789".ToCharArray()));
+
+            // get the prefix from the last entry's id
+            sb.Append(_prefix);
+
+            var sequence = previousId.Substring( previousId.IndexOfAny("0123456789".ToCharArray()) , previousId.Length - previousId.IndexOfAny("0123456789".ToCharArray()));
+            int NewIdValue = sequence.ToInt() + 1;
+            // append the "0" to the front of the id, so that the length will some as the length of the id
+            sb.Append(NewIdValue.ToString().PadLeft(previousId.Length - _prefix.Length, '0'));
+            ConsoleLogger.Debug(sb.ToString());
+            return sb.ToString();
+        }
         
     }
 }

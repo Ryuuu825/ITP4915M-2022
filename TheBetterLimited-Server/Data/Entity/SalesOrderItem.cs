@@ -1,8 +1,13 @@
 namespace TheBetterLimited_Server.Data.Entity
 {
     [Table("SalesOrderItem")]
+    [PrimaryKey("Id" , "_salesOrderId" , "_supplierGoodsStockId")]
     public class SalesOrderItem
     {
+        [Key]
+        [MaxLength(10)]
+        public string Id { get; set; }
+
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]
         public string _salesOrderId { get; set; }
@@ -21,13 +26,6 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]
-        public string? _appointmentId { get; set; }
-
-        [ForeignKey("_appointmentId")]
-        public virtual Appointment? Appointment { get; set; }
-
-        [MaxLength(10)]
-        [Column(TypeName = "char(10)")]
         public string? _bookingOrderId { get; set; }
 
         [ForeignKey("_bookingOrderId")]
@@ -35,6 +33,8 @@ namespace TheBetterLimited_Server.Data.Entity
 
         // seafoods price
         public int Price { get; set; }
+
+        public virtual List<SalesOrderItem_Appointment>? SaleOrderItem_Appointment { get; set; }
 
     }
 }

@@ -53,6 +53,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     Id = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Loc = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Name = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -73,6 +75,22 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Menu", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "sessionSetting",
+                columns: table => new
+                {
+                    ID = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    StartTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    EndTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    NumOfAppointments = table.Column<sbyte>(type: "TINYINT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_sessionSetting", x => x.ID);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -387,7 +405,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _appointmentId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Quantity = table.Column<short>(type: "SMALLINT", nullable: false),
                     Remarks = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
@@ -483,7 +500,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     StartTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     EndTime = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Date = table.Column<DateOnly>(type: "date", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     NumOfAppointments = table.Column<sbyte>(type: "TINYINT", nullable: false)
                 },
                 constraints: table =>
@@ -874,24 +891,20 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "SalesOrderItem",
                 columns: table => new
                 {
+                    Id = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     _salesOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _supplierGoodsStockId = table.Column<string>(type: "varchar(255)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Quantity = table.Column<sbyte>(type: "TINYINT", nullable: false),
-                    _appointmentId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
                     _bookingOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Price = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SalesOrderItem", x => new { x._salesOrderId, x._supplierGoodsStockId });
-                    table.ForeignKey(
-                        name: "FK_SalesOrderItem_Appointment__appointmentId",
-                        column: x => x._appointmentId,
-                        principalTable: "Appointment",
-                        principalColumn: "ID");
+                    table.PrimaryKey("PK_SalesOrderItem", x => x.Id);
                     table.ForeignKey(
                         name: "FK_SalesOrderItem_BookingOrder__bookingOrderId",
                         column: x => x._bookingOrderId,
@@ -931,6 +944,33 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         column: x => x._salesOrderId,
                         principalTable: "SalesOrder",
                         principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "saleOrderItem_Appointment",
+                columns: table => new
+                {
+                    _salesOrderItemId = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    _appointmentId = table.Column<string>(type: "char(10)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_saleOrderItem_Appointment", x => new { x._salesOrderItemId, x._appointmentId });
+                    table.ForeignKey(
+                        name: "FK_saleOrderItem_Appointment_Appointment__appointmentId",
+                        column: x => x._appointmentId,
+                        principalTable: "Appointment",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_saleOrderItem_Appointment_SalesOrderItem__salesOrderItemId",
+                        column: x => x._salesOrderItemId,
+                        principalTable: "SalesOrderItem",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -1076,6 +1116,17 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 column: "_supplierGoodsId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_saleOrderItem_Appointment__appointmentId",
+                table: "saleOrderItem_Appointment",
+                column: "_appointmentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_saleOrderItem_Appointment__salesOrderItemId",
+                table: "saleOrderItem_Appointment",
+                column: "_salesOrderItemId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_SalesOrder__creatorId",
                 table: "SalesOrder",
                 column: "_creatorId");
@@ -1091,14 +1142,14 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 column: "_storeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SalesOrderItem__appointmentId",
-                table: "SalesOrderItem",
-                column: "_appointmentId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_SalesOrderItem__bookingOrderId",
                 table: "SalesOrderItem",
                 column: "_bookingOrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SalesOrderItem__salesOrderId",
+                table: "SalesOrderItem",
+                column: "_salesOrderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SalesOrderItem__supplierGoodsStockId",
@@ -1248,7 +1299,10 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "RestockRequest_Supplier_Goods");
 
             migrationBuilder.DropTable(
-                name: "SalesOrderItem");
+                name: "saleOrderItem_Appointment");
+
+            migrationBuilder.DropTable(
+                name: "sessionSetting");
 
             migrationBuilder.DropTable(
                 name: "Staff_Message");
@@ -1266,16 +1320,19 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "RestockRequest");
 
             migrationBuilder.DropTable(
-                name: "BookingOrder");
-
-            migrationBuilder.DropTable(
-                name: "Supplier_Goods_Stock");
+                name: "SalesOrderItem");
 
             migrationBuilder.DropTable(
                 name: "Message");
 
             migrationBuilder.DropTable(
+                name: "BookingOrder");
+
+            migrationBuilder.DropTable(
                 name: "SalesOrder");
+
+            migrationBuilder.DropTable(
+                name: "Supplier_Goods_Stock");
 
             migrationBuilder.DropTable(
                 name: "Appointment");

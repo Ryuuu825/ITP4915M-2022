@@ -11,8 +11,8 @@ using TheBetterLimited_Server.Data;
 namespace TheBetterLimited_Server.Data.EFMigrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220605052341_AddLocName")]
-    partial class AddLocName
+    [Migration("20220605145624_CleanUp1")]
+    partial class CleanUp1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -111,9 +111,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Property<string>("ID")
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
-
-                    b.Property<short>("Quantity")
-                        .HasColumnType("SMALLINT");
 
                     b.Property<string>("Remarks")
                         .HasMaxLength(50)
@@ -406,8 +403,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.HasKey("Id");
 
@@ -668,12 +665,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.SalesOrderItem", b =>
                 {
-                    b.Property<string>("_salesOrderId")
+                    b.Property<string>("Id")
                         .HasMaxLength(10)
-                        .HasColumnType("char(10)");
-
-                    b.Property<string>("_supplierGoodsStockId")
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(10)");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
@@ -681,23 +675,46 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Property<sbyte>("Quantity")
                         .HasColumnType("TINYINT");
 
-                    b.Property<string>("_appointmentId")
-                        .HasMaxLength(10)
-                        .HasColumnType("char(10)");
-
                     b.Property<string>("_bookingOrderId")
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
-                    b.HasKey("_salesOrderId", "_supplierGoodsStockId");
+                    b.Property<string>("_salesOrderId")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("char(10)");
 
-                    b.HasIndex("_appointmentId");
+                    b.Property<string>("_supplierGoodsStockId")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("_bookingOrderId");
+
+                    b.HasIndex("_salesOrderId");
 
                     b.HasIndex("_supplierGoodsStockId");
 
                     b.ToTable("SalesOrderItem");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.SalesOrderItem_Appointment", b =>
+                {
+                    b.Property<string>("_salesOrderItemId")
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<string>("_appointmentId")
+                        .HasColumnType("char(10)");
+
+                    b.HasKey("_salesOrderItemId", "_appointmentId");
+
+                    b.HasIndex("_appointmentId");
+
+                    b.HasIndex("_salesOrderItemId")
+                        .IsUnique();
+
+                    b.ToTable("SaleOrderItem_Appointment");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Session", b =>
@@ -1329,10 +1346,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.SalesOrderItem", b =>
                 {
-                    b.HasOne("TheBetterLimited_Server.Data.Entity.Appointment", "Appointment")
-                        .WithMany()
-                        .HasForeignKey("_appointmentId");
-
                     b.HasOne("TheBetterLimited_Server.Data.Entity.BookingOrder", "BookingOrder")
                         .WithMany()
                         .HasForeignKey("_bookingOrderId");
@@ -1350,13 +1363,30 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Appointment");
-
                     b.Navigation("BookingOrder");
 
                     b.Navigation("SalesOrder");
 
                     b.Navigation("SupplierGoodsStock");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.SalesOrderItem_Appointment", b =>
+                {
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.Appointment", "Appointment")
+                        .WithMany("SaleOrderItem_Appointments")
+                        .HasForeignKey("_appointmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.SalesOrderItem", "SalesOrderItem")
+                        .WithOne("SaleOrderItem_Appointment")
+                        .HasForeignKey("TheBetterLimited_Server.Data.Entity.SalesOrderItem_Appointment", "_salesOrderItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Appointment");
+
+                    b.Navigation("SalesOrderItem");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Session", b =>
@@ -1514,6 +1544,11 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Navigation("Location");
                 });
 
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Appointment", b =>
+                {
+                    b.Navigation("SaleOrderItem_Appointments");
+                });
+
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Department", b =>
                 {
                     b.Navigation("staffs");
@@ -1542,6 +1577,11 @@ namespace TheBetterLimited_Server.Data.EFMigrations
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.SalesOrder", b =>
                 {
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.SalesOrderItem", b =>
+                {
+                    b.Navigation("SaleOrderItem_Appointment");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Supplier", b =>
