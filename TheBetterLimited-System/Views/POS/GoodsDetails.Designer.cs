@@ -47,9 +47,9 @@
             this.DescriptionTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.lblGTINCode = new System.Windows.Forms.Label();
             this.StatusRadioGroup = new System.Windows.Forms.Panel();
-            this.stopSellRadio = new System.Windows.Forms.RadioButton();
-            this.phaseOutRadio = new System.Windows.Forms.RadioButton();
             this.sellRadio = new System.Windows.Forms.RadioButton();
+            this.phaseOutRadio = new System.Windows.Forms.RadioButton();
+            this.stopSellRadio = new System.Windows.Forms.RadioButton();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblCatalogue = new System.Windows.Forms.Label();
             this.labGoodsID = new System.Windows.Forms.Label();
@@ -233,9 +233,9 @@
             // 
             // SizeRadioGroup
             // 
-            this.SizeRadioGroup.Controls.Add(this.radioButton4);
             this.SizeRadioGroup.Controls.Add(this.radioButton1);
             this.SizeRadioGroup.Controls.Add(this.radioButton2);
+            this.SizeRadioGroup.Controls.Add(this.radioButton4);
             this.SizeRadioGroup.Enabled = false;
             this.SizeRadioGroup.Location = new System.Drawing.Point(166, 199);
             this.SizeRadioGroup.Name = "SizeRadioGroup";
@@ -367,30 +367,6 @@
             this.StatusRadioGroup.Size = new System.Drawing.Size(308, 25);
             this.StatusRadioGroup.TabIndex = 30;
             // 
-            // stopSellRadio
-            // 
-            this.stopSellRadio.AutoSize = true;
-            this.stopSellRadio.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stopSellRadio.Location = new System.Drawing.Point(221, 4);
-            this.stopSellRadio.Margin = new System.Windows.Forms.Padding(2);
-            this.stopSellRadio.Name = "stopSellRadio";
-            this.stopSellRadio.Size = new System.Drawing.Size(86, 19);
-            this.stopSellRadio.TabIndex = 30;
-            this.stopSellRadio.Text = "StopSelling";
-            this.stopSellRadio.UseVisualStyleBackColor = true;
-            // 
-            // phaseOutRadio
-            // 
-            this.phaseOutRadio.AutoSize = true;
-            this.phaseOutRadio.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phaseOutRadio.Location = new System.Drawing.Point(103, 4);
-            this.phaseOutRadio.Margin = new System.Windows.Forms.Padding(2);
-            this.phaseOutRadio.Name = "phaseOutRadio";
-            this.phaseOutRadio.Size = new System.Drawing.Size(76, 19);
-            this.phaseOutRadio.TabIndex = 29;
-            this.phaseOutRadio.Text = "PhaseOut";
-            this.phaseOutRadio.UseVisualStyleBackColor = true;
-            // 
             // sellRadio
             // 
             this.sellRadio.AutoSize = true;
@@ -404,6 +380,30 @@
             this.sellRadio.TabIndex = 28;
             this.sellRadio.Text = "Selling";
             this.sellRadio.UseVisualStyleBackColor = true;
+            // 
+            // phaseOutRadio
+            // 
+            this.phaseOutRadio.AutoSize = true;
+            this.phaseOutRadio.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phaseOutRadio.Location = new System.Drawing.Point(103, 4);
+            this.phaseOutRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.phaseOutRadio.Name = "phaseOutRadio";
+            this.phaseOutRadio.Size = new System.Drawing.Size(76, 19);
+            this.phaseOutRadio.TabIndex = 29;
+            this.phaseOutRadio.Text = "PhaseOut";
+            this.phaseOutRadio.UseVisualStyleBackColor = true;
+            // 
+            // stopSellRadio
+            // 
+            this.stopSellRadio.AutoSize = true;
+            this.stopSellRadio.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stopSellRadio.Location = new System.Drawing.Point(221, 4);
+            this.stopSellRadio.Margin = new System.Windows.Forms.Padding(2);
+            this.stopSellRadio.Name = "stopSellRadio";
+            this.stopSellRadio.Size = new System.Drawing.Size(86, 19);
+            this.stopSellRadio.TabIndex = 30;
+            this.stopSellRadio.Text = "StopSelling";
+            this.stopSellRadio.UseVisualStyleBackColor = true;
             // 
             // lblStatus
             // 

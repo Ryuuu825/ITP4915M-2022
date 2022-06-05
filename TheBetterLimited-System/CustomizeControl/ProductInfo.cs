@@ -28,7 +28,7 @@ namespace TheBetterLimited.CustomizeControl
         }
 
         public Bitmap Image { get => image; set { image = value; pictureBox1.Image = image; this.Invalidate(); } }
-        public double ProductPrice { get => productPrice; set { productPrice = value; Price.Text = NumberFormatInfo.CurrentInfo.CurrencySymbol + productPrice; this.Invalidate(); } }
+        public double ProductPrice { get => productPrice; set { productPrice = value; Price.Text = String.Format("{0:C2}",productPrice); this.Invalidate(); } }
         public int BorderSize { get => borderSize; set { borderSize = value; this.Invalidate(); } }
         public int BorderRadius { get => borderRadius; set { borderRadius = value; this.Invalidate(); } }
         public bool IsSelected { get => isSelected; set { isSelected = value; this.Invalidate(); } }

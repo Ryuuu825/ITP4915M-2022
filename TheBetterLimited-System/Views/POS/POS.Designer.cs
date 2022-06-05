@@ -51,20 +51,12 @@
             this.defectItemBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.OrderBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.settleAccBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.roundButton1 = new TheBetterLimited.CustomizeControl.RoundButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.ProductActionBox = new System.Windows.Forms.FlowLayoutPanel();
             this.CatalogueCombox = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.CartContainer = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.CartItemGrid = new System.Windows.Forms.DataGridView();
-            this.userName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub = new System.Windows.Forms.DataGridViewImageColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plus = new System.Windows.Forms.DataGridViewImageColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Header = new System.Windows.Forms.Panel();
             this.RefreshBtn = new FontAwesome.Sharp.IconButton();
             this.Title = new System.Windows.Forms.Label();
@@ -77,7 +69,7 @@
             this.OrderBtnGroup = new System.Windows.Forms.FlowLayoutPanel();
             this.PayBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.HoldBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.ClearBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -85,6 +77,13 @@
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.userName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub = new System.Windows.Forms.DataGridViewImageColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plus = new System.Windows.Forms.DataGridViewImageColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.SearchBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.curdAction.SuspendLayout();
@@ -111,7 +110,7 @@
             this.SearchBar.Location = new System.Drawing.Point(10, 10);
             this.SearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBar.Name = "SearchBar";
-            this.SearchBar.Size = new System.Drawing.Size(378, 43);
+            this.SearchBar.Size = new System.Drawing.Size(390, 43);
             this.SearchBar.TabIndex = 9;
             // 
             // menuTitle
@@ -131,7 +130,7 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(126, 10);
+            this.pictureBox1.Location = new System.Drawing.Point(138, 10);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(19, 20);
@@ -149,7 +148,7 @@
             this.SearchBarTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBarTxt.ForeColor = System.Drawing.Color.Black;
             this.SearchBarTxt.IsError = false;
-            this.SearchBarTxt.Location = new System.Drawing.Point(117, 0);
+            this.SearchBarTxt.Location = new System.Drawing.Point(129, 0);
             this.SearchBarTxt.Margin = new System.Windows.Forms.Padding(200, 6, 4, 6);
             this.SearchBarTxt.MaxLength = 20;
             this.SearchBarTxt.Multiline = false;
@@ -172,7 +171,7 @@
             this.curdAction.Location = new System.Drawing.Point(12, 2);
             this.curdAction.Margin = new System.Windows.Forms.Padding(2);
             this.curdAction.Name = "curdAction";
-            this.curdAction.Size = new System.Drawing.Size(193, 43);
+            this.curdAction.Size = new System.Drawing.Size(156, 43);
             this.curdAction.TabIndex = 6;
             // 
             // AddLabelBtn
@@ -187,7 +186,7 @@
             this.AddLabelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddLabelBtn.Location = new System.Drawing.Point(0, 0);
             this.AddLabelBtn.Name = "AddLabelBtn";
-            this.AddLabelBtn.Size = new System.Drawing.Size(193, 43);
+            this.AddLabelBtn.Size = new System.Drawing.Size(156, 43);
             this.AddLabelBtn.TabIndex = 0;
             this.AddLabelBtn.Text = "Add To Cart";
             this.AddLabelBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -202,7 +201,7 @@
             this.ProductContainer.Location = new System.Drawing.Point(619, 10);
             this.ProductContainer.Name = "ProductContainer";
             this.ProductContainer.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.ProductContainer.Size = new System.Drawing.Size(408, 561);
+            this.ProductContainer.Size = new System.Drawing.Size(420, 561);
             this.ProductContainer.TabIndex = 4;
             // 
             // ProductInfoContainer
@@ -212,7 +211,7 @@
             this.ProductInfoContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProductInfoContainer.Location = new System.Drawing.Point(10, 100);
             this.ProductInfoContainer.Name = "ProductInfoContainer";
-            this.ProductInfoContainer.Size = new System.Drawing.Size(398, 343);
+            this.ProductInfoContainer.Size = new System.Drawing.Size(410, 343);
             this.ProductInfoContainer.TabIndex = 0;
             // 
             // panel1
@@ -222,7 +221,7 @@
             this.panel1.Location = new System.Drawing.Point(10, 443);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(398, 118);
+            this.panel1.Size = new System.Drawing.Size(410, 118);
             this.panel1.TabIndex = 8;
             // 
             // POSActionGroup
@@ -233,12 +232,11 @@
             this.POSActionGroup.Controls.Add(this.defectItemBtn);
             this.POSActionGroup.Controls.Add(this.OrderBtn);
             this.POSActionGroup.Controls.Add(this.settleAccBtn);
-            this.POSActionGroup.Controls.Add(this.roundButton1);
             this.POSActionGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.POSActionGroup.Location = new System.Drawing.Point(0, 10);
             this.POSActionGroup.Name = "POSActionGroup";
             this.POSActionGroup.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.POSActionGroup.Size = new System.Drawing.Size(398, 108);
+            this.POSActionGroup.Size = new System.Drawing.Size(410, 108);
             this.POSActionGroup.TabIndex = 10;
             // 
             // defectItemBtn
@@ -315,29 +313,6 @@
             this.settleAccBtn.MouseLeave += new System.EventHandler(this.HoldBtn_MouseLeave);
             this.settleAccBtn.MouseHover += new System.EventHandler(this.HoldBtn_MouseHover);
             // 
-            // roundButton1
-            // 
-            this.roundButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.roundButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton1.BorderRadius = 5;
-            this.roundButton1.BorderSize = 2;
-            this.roundButton1.FlatAppearance.BorderSize = 0;
-            this.roundButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.roundButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton1.IsChecked = false;
-            this.roundButton1.Location = new System.Drawing.Point(188, 59);
-            this.roundButton1.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.roundButton1.Name = "roundButton1";
-            this.roundButton1.Size = new System.Drawing.Size(165, 40);
-            this.roundButton1.TabIndex = 6;
-            this.roundButton1.Text = "Settle  Account";
-            this.roundButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.roundButton1.UseVisualStyleBackColor = false;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
@@ -347,7 +322,7 @@
             this.panel4.Location = new System.Drawing.Point(10, 0);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.panel4.Size = new System.Drawing.Size(398, 100);
+            this.panel4.Size = new System.Drawing.Size(410, 100);
             this.panel4.TabIndex = 7;
             // 
             // ProductActionBox
@@ -361,7 +336,7 @@
             this.ProductActionBox.Location = new System.Drawing.Point(10, 53);
             this.ProductActionBox.Name = "ProductActionBox";
             this.ProductActionBox.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
-            this.ProductActionBox.Size = new System.Drawing.Size(378, 47);
+            this.ProductActionBox.Size = new System.Drawing.Size(390, 47);
             this.ProductActionBox.TabIndex = 1;
             // 
             // CatalogueCombox
@@ -488,98 +463,6 @@
             this.CartItemGrid.StandardTab = true;
             this.CartItemGrid.TabIndex = 4;
             this.CartItemGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CartItemGrid_CellClick);
-            this.CartItemGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CartItemGrid_CellValueChanged);
-            // 
-            // userName
-            // 
-            this.userName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.userName.DataPropertyName = "name";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.userName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.userName.HeaderText = "Name";
-            this.userName.MinimumWidth = 6;
-            this.userName.Name = "userName";
-            this.userName.ReadOnly = true;
-            this.userName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.userName.ToolTipText = "Product Name";
-            // 
-            // sub
-            // 
-            this.sub.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.sub.HeaderText = "";
-            this.sub.Image = global::TheBetterLimited.Properties.Resources.minus;
-            this.sub.MinimumWidth = 6;
-            this.sub.Name = "sub";
-            this.sub.ReadOnly = true;
-            this.sub.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.sub.ToolTipText = "Subtract";
-            this.sub.Width = 21;
-            // 
-            // qty
-            // 
-            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.qty.DataPropertyName = "quantity";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.qty.DefaultCellStyle = dataGridViewCellStyle4;
-            this.qty.HeaderText = "Qty";
-            this.qty.MinimumWidth = 6;
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.ToolTipText = "Quantity";
-            this.qty.Width = 79;
-            // 
-            // plus
-            // 
-            this.plus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.plus.HeaderText = "";
-            this.plus.Image = global::TheBetterLimited.Properties.Resources.plus24;
-            this.plus.MinimumWidth = 6;
-            this.plus.Name = "plus";
-            this.plus.ReadOnly = true;
-            this.plus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.plus.ToolTipText = "Account Status";
-            this.plus.Width = 21;
-            // 
-            // price
-            // 
-            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.price.DataPropertyName = "price";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.price.DefaultCellStyle = dataGridViewCellStyle5;
-            this.price.HeaderText = "Price";
-            this.price.MinimumWidth = 6;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.ToolTipText = "Pirce";
-            this.price.Width = 89;
-            // 
-            // remarks
-            // 
-            this.remarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.remarks.DataPropertyName = "remark";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.remarks.DefaultCellStyle = dataGridViewCellStyle6;
-            this.remarks.HeaderText = "Remark";
-            this.remarks.MaxInputLength = 50;
-            this.remarks.MinimumWidth = 6;
-            this.remarks.Name = "remarks";
-            this.remarks.ReadOnly = true;
-            this.remarks.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.remarks.ToolTipText = "Remark of Goods";
-            // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.delete.HeaderText = "";
-            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash24;
-            this.delete.MinimumWidth = 6;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.ToolTipText = "Delete";
-            this.delete.Width = 6;
             // 
             // Header
             // 
@@ -649,7 +532,7 @@
             this.DiscountValue.IsError = false;
             this.DiscountValue.Location = new System.Drawing.Point(532, 10);
             this.DiscountValue.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.DiscountValue.MaxLength = 2;
+            this.DiscountValue.MaxLength = 3;
             this.DiscountValue.Multiline = false;
             this.DiscountValue.Name = "DiscountValue";
             this.DiscountValue.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -662,6 +545,8 @@
             this.DiscountValue.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
             this.DiscountValue.Texts = "0";
             this.DiscountValue.UnderlinedStyle = false;
+            this.DiscountValue._TextChanged += new System.EventHandler(this.DiscountValue__TextChanged);
+            this.DiscountValue._Leave += new System.EventHandler(this.DiscountValue__Leave);
             // 
             // DiscountLabel
             // 
@@ -719,7 +604,7 @@
             this.OrderBtnGroup.BackColor = System.Drawing.Color.White;
             this.OrderBtnGroup.Controls.Add(this.PayBtn);
             this.OrderBtnGroup.Controls.Add(this.HoldBtn);
-            this.OrderBtnGroup.Controls.Add(this.CancelBtn);
+            this.OrderBtnGroup.Controls.Add(this.ClearBtn);
             this.OrderBtnGroup.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.OrderBtnGroup.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.OrderBtnGroup.Location = new System.Drawing.Point(0, 503);
@@ -746,7 +631,7 @@
             this.PayBtn.Name = "PayBtn";
             this.PayBtn.Size = new System.Drawing.Size(216, 40);
             this.PayBtn.TabIndex = 1;
-            this.PayBtn.Text = "Pay";
+            this.PayBtn.Text = "Check Out";
             this.PayBtn.TextColor = System.Drawing.Color.White;
             this.PayBtn.UseVisualStyleBackColor = false;
             this.PayBtn.Click += new System.EventHandler(this.PayBtn_Click);
@@ -775,29 +660,30 @@
             this.HoldBtn.MouseLeave += new System.EventHandler(this.HoldBtn_MouseLeave);
             this.HoldBtn.MouseHover += new System.EventHandler(this.HoldBtn_MouseHover);
             // 
-            // CancelBtn
+            // ClearBtn
             // 
-            this.CancelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.CancelBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.CancelBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.CancelBtn.BorderRadius = 5;
-            this.CancelBtn.BorderSize = 2;
-            this.CancelBtn.FlatAppearance.BorderSize = 0;
-            this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.CancelBtn.IsChecked = false;
-            this.CancelBtn.Location = new System.Drawing.Point(130, 8);
-            this.CancelBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(115, 40);
-            this.CancelBtn.TabIndex = 1;
-            this.CancelBtn.Text = "Clear Cart";
-            this.CancelBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.CancelBtn.UseVisualStyleBackColor = false;
-            this.CancelBtn.MouseLeave += new System.EventHandler(this.CancelBtn_MouseLeave);
-            this.CancelBtn.MouseHover += new System.EventHandler(this.CancelBtn_MouseHover);
+            this.ClearBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.ClearBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.ClearBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.ClearBtn.BorderRadius = 5;
+            this.ClearBtn.BorderSize = 2;
+            this.ClearBtn.FlatAppearance.BorderSize = 0;
+            this.ClearBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.ClearBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClearBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.ClearBtn.IsChecked = false;
+            this.ClearBtn.Location = new System.Drawing.Point(130, 8);
+            this.ClearBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(115, 40);
+            this.ClearBtn.TabIndex = 1;
+            this.ClearBtn.Text = "Clear Cart";
+            this.ClearBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.ClearBtn.UseVisualStyleBackColor = false;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+            this.ClearBtn.MouseLeave += new System.EventHandler(this.CancelBtn_MouseLeave);
+            this.ClearBtn.MouseHover += new System.EventHandler(this.CancelBtn_MouseHover);
             // 
             // dataGridViewImageColumn1
             // 
@@ -859,12 +745,104 @@
             this.dataGridViewImageColumn6.ReadOnly = true;
             this.dataGridViewImageColumn6.ToolTipText = "Delete";
             // 
+            // userName
+            // 
+            this.userName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.userName.DataPropertyName = "name";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.userName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.userName.HeaderText = "Name";
+            this.userName.MinimumWidth = 6;
+            this.userName.Name = "userName";
+            this.userName.ReadOnly = true;
+            this.userName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.userName.ToolTipText = "Product Name";
+            // 
+            // sub
+            // 
+            this.sub.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.sub.HeaderText = "";
+            this.sub.Image = global::TheBetterLimited.Properties.Resources.minus;
+            this.sub.MinimumWidth = 6;
+            this.sub.Name = "sub";
+            this.sub.ReadOnly = true;
+            this.sub.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.sub.ToolTipText = "Subtract";
+            this.sub.Width = 6;
+            // 
+            // qty
+            // 
+            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.qty.DataPropertyName = "quantity";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.qty.DefaultCellStyle = dataGridViewCellStyle4;
+            this.qty.HeaderText = "Qty";
+            this.qty.MinimumWidth = 6;
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.ToolTipText = "Quantity";
+            this.qty.Width = 79;
+            // 
+            // plus
+            // 
+            this.plus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.plus.HeaderText = "";
+            this.plus.Image = global::TheBetterLimited.Properties.Resources.plus24;
+            this.plus.MinimumWidth = 6;
+            this.plus.Name = "plus";
+            this.plus.ReadOnly = true;
+            this.plus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.plus.ToolTipText = "Account Status";
+            this.plus.Width = 6;
+            // 
+            // price
+            // 
+            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.price.DataPropertyName = "price";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.price.DefaultCellStyle = dataGridViewCellStyle5;
+            this.price.HeaderText = "Price";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.ToolTipText = "Pirce";
+            this.price.Width = 89;
+            // 
+            // remarks
+            // 
+            this.remarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.remarks.DataPropertyName = "remark";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.remarks.DefaultCellStyle = dataGridViewCellStyle6;
+            this.remarks.HeaderText = "Remark";
+            this.remarks.MaxInputLength = 50;
+            this.remarks.MinimumWidth = 6;
+            this.remarks.Name = "remarks";
+            this.remarks.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.remarks.ToolTipText = "Remark of Goods";
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.delete.HeaderText = "";
+            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash24;
+            this.delete.MinimumWidth = 6;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.ToolTipText = "Delete";
+            this.delete.Width = 6;
+            // 
             // POS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1037, 581);
+            this.ClientSize = new System.Drawing.Size(1049, 581);
             this.Controls.Add(this.ProductContainer);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.CartContainer);
@@ -913,7 +891,7 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridView CartItemGrid;
         private CustomizeControl.RoundButton HoldBtn;
-        private CustomizeControl.RoundButton CancelBtn;
+        private CustomizeControl.RoundButton ClearBtn;
         private System.Windows.Forms.Panel Header;
         private FontAwesome.Sharp.IconButton RefreshBtn;
         private System.Windows.Forms.Label Title;
@@ -937,7 +915,6 @@
         private CustomizeControl.CustomizeComboBox CatalogueCombox;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label menuTitle;
-        private CustomizeControl.RoundButton roundButton1;
         private System.Windows.Forms.DataGridViewTextBoxColumn userName;
         private System.Windows.Forms.DataGridViewImageColumn sub;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;

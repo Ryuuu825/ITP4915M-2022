@@ -31,12 +31,22 @@ namespace TheBetterLimited.Views
         private OrderItem oi = new OrderItem();
 
         public event Action OnExit;
+        Timer timer = new Timer();
 
         public WaitResult()
         {
             InitializeComponent();
+            this.TopLevel = true;
+            timer.Interval = 3000;
+            timer.Tick += new System.EventHandler(OnTimerEvent);
+            timer.Start();
         }
-
-        
+        private void OnTimerEvent(object sender, EventArgs e)
+        {
+            timer.Stop();
+            Receipt receipt = new Receipt();
+            this.Close();
+            receipt.ShowDialog();
+        }
     }
 }

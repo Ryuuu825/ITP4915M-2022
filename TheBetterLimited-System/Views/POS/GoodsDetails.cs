@@ -28,7 +28,7 @@ namespace TheBetterLimited.Views
         private bool isUpload = false;
         private Bitmap icon = null;
         public JObject goodsData { get; set; }
-        private OrderItem oi = new OrderItem();
+        public object oi = new OrderItem();
         private int stock;
         private int stockLevel;
         private string goodsId;
@@ -59,7 +59,6 @@ namespace TheBetterLimited.Views
             GTINCodeTxt.Texts = goodsData["GTINCode"].ToString();
             DescriptionTxt.Texts = goodsData["Description"].ToString();
             PriceTxt.Texts = String.Format("{0:C2}", goodsData["Price"]);
-            Console.WriteLine(goodsData["StockLevel"]["inStoreStock"]);
             JToken jt = goodsData["StockLevel"]["inStoreStock"];
             if (jt.Type != JTokenType.Null)
             {
@@ -69,16 +68,20 @@ namespace TheBetterLimited.Views
                 stockLevel = (int)goodsData["StockLevel"]["inStoreStock"]["status"];
                 ShowStockLevel(stockLevel);
                 goodsId = goodsData["StockLevel"]["inStoreStock"]["_supplier_Goods_Stock_Id"].ToString();
+                needDelivery = false;
             }
             else
             {
                 LocTxt.Texts = "In Warehouse";
-                StockTxt.Texts = goodsData["StockLevel"]["warehouseStock"]["stock"].ToString();
-                stockLevel = (int)goodsData["StockLevel"]["warehouseStock"]["status"];
+                stock = (int)goodsData["StockLevel"]["warehouseStock"][0]["stock"];
+                StockTxt.Texts = stock.ToString();
+                stockLevel = (int)goodsData["StockLevel"]["warehouseStock"][0]["status"];
                 ShowStockLevel(stockLevel);
-                goodsId = goodsData["StockLevel"]["warehouseStock"]["_supplier_Goods_Stock_Id"].ToString();
+                goodsId = goodsData["StockLevel"]["warehouseStock"][0]["_supplier_Goods_Stock_Id"].ToString();
+                needDelivery = true;
             }
             CatalogueTxt.Texts = goodsData["Catalogue"].ToString();
+            Console.WriteLine((int)goodsData["GoodsSize"]);
             ((RadioButton)SizeRadioGroup.Controls[(int)goodsData["GoodsSize"]]).Checked = true;
             ((RadioButton)SizeRadioGroup.Controls[(int)goodsData["GoodsSize"]]).ForeColor = Color.SeaGreen;
             ((RadioButton)StatusRadioGroup.Controls[(int)goodsData["GoodsStatus"]]).Checked = true;
@@ -96,10 +99,14 @@ namespace TheBetterLimited.Views
                     break;
                 case 1:
                     StockLevelTxt.Texts = "Re-oder";
-                    StockLevelTxt.ForeColor = Color.Gold;
+                    StockLevelTxt.ForeColor = Color.FromArgb(250, 182, 99);
                     break;
                 case 2:
                     StockLevelTxt.Texts = "Normal";
+                    break;
+                case 3:
+                    StockLevelTxt.Texts = "Danger";
+                    StockLevelTxt.ForeColor = Color.FromArgb(250, 182, 99);
                     break;
             }
         }
@@ -130,22 +137,23 @@ namespace TheBetterLimited.Views
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            GlobalsData.orderitem = new OrderItem();
             if (stockLevel == 0)
             {
-                DialogResult result = MessageBox.Show("Product is out of stock! \n Do you need to book this product?", "Warming", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Product is out of stock! \nDo you need to book this product?", "Warming", MessageBoxButtons.YesNo);
                 if (result == DialogResult.No)
                 {
                     return;
                 }else
                 {
-                    GlobalsData.orderitem.IsBook = true;
+                    ((OrderItem)oi).NeedBooking = true;
                 }
             }
-            GlobalsData.orderitem.SupplierGoodsStockId = goodsId;
-            GlobalsData.orderitem.Name = goodsData["GoodsName"].ToString();
-            GlobalsData.orderitem.Price = (double)goodsData["Price"];
-            GlobalsData.orderitem.Stock = stock;
+
+            ((OrderItem)oi).SupplierGoodsStockId = goodsId;
+            ((OrderItem)oi).Name = goodsData["GoodsName"].ToString();
+            ((OrderItem)oi).Price = (double)goodsData["Price"];
+            ((OrderItem)oi).Stock = stock;
+            ((OrderItem)oi).NeedDelivery = needDelivery;
             this.OnExit.Invoke();
             this.Close();
             this.Dispose();

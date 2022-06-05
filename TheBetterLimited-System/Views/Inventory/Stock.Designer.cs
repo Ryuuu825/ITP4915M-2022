@@ -150,8 +150,8 @@
             this.StockDataGrid.Size = new System.Drawing.Size(778, 379);
             this.StockDataGrid.StandardTab = true;
             this.StockDataGrid.TabIndex = 3;
-            this.StockDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
-            this.StockDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GoodsDataGrid_CellFormatting);
+            this.StockDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StockDataGrid_CellClick);
+            this.StockDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.StockDataGrid_CellFormatting);
             // 
             // Action
             // 
@@ -212,17 +212,17 @@
             this.SearchBarTxt.Location = new System.Drawing.Point(0, 0);
             this.SearchBarTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.SearchBarTxt.MaxLength = 20;
-            this.SearchBarTxt.Multiline = true;
+            this.SearchBarTxt.Multiline = false;
             this.SearchBarTxt.Name = "SearchBarTxt";
-            this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(22, 8, 8, 6);
+            this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(25, 8, 8, 6);
             this.SearchBarTxt.PasswordChar = false;
-            this.SearchBarTxt.Placeholder = "";
+            this.SearchBarTxt.Placeholder = "Search by keywords";
             this.SearchBarTxt.ReadOnly = false;
             this.SearchBarTxt.Size = new System.Drawing.Size(220, 38);
             this.SearchBarTxt.TabIndex = 9;
             this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.SearchBarTxt.Texts = "Search";
+            this.SearchBarTxt.Texts = "Search by keywords";
             this.SearchBarTxt.UnderlinedStyle = false;
             this.SearchBarTxt._TextChanged += new System.EventHandler(this.SearchBarTxt__TextChanged);
             // 
@@ -237,7 +237,6 @@
             this.curdAction.Name = "curdAction";
             this.curdAction.Size = new System.Drawing.Size(773, 38);
             this.curdAction.TabIndex = 6;
-            this.curdAction.Paint += new System.Windows.Forms.PaintEventHandler(this.curdAction_Paint);
             // 
             // exportBtn
             // 
@@ -259,7 +258,6 @@
             this.exportBtn.Text = "Export";
             this.exportBtn.TextColor = System.Drawing.Color.White;
             this.exportBtn.UseVisualStyleBackColor = false;
-            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
             // DeleteBtn
             // 
@@ -422,23 +420,23 @@
             // locationId
             // 
             this.locationId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.locationId.DataPropertyName = "LocationId";
-            this.locationId.HeaderText = "Location ID";
+            this.locationId.DataPropertyName = "loc";
+            this.locationId.HeaderText = "Location";
             this.locationId.MinimumWidth = 6;
             this.locationId.Name = "locationId";
             this.locationId.ReadOnly = true;
-            this.locationId.ToolTipText = "Location ID";
-            this.locationId.Width = 114;
+            this.locationId.ToolTipText = "Location";
+            this.locationId.Width = 97;
             // 
             // supplierGoodsId
             // 
             this.supplierGoodsId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.supplierGoodsId.DataPropertyName = "SupplierGoodsId";
-            this.supplierGoodsId.HeaderText = "Supplier Goods ID";
+            this.supplierGoodsId.DataPropertyName = "goodsName";
+            this.supplierGoodsId.HeaderText = "Good Name";
             this.supplierGoodsId.MinimumWidth = 6;
             this.supplierGoodsId.Name = "supplierGoodsId";
             this.supplierGoodsId.ReadOnly = true;
-            this.supplierGoodsId.ToolTipText = "Supplier Goods ID";
+            this.supplierGoodsId.ToolTipText = "Good Name";
             // 
             // quantity
             // 
@@ -464,7 +462,7 @@
             // minLimit
             // 
             this.minLimit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.minLimit.DataPropertyName = "minLimit";
+            this.minLimit.DataPropertyName = "MinLimit";
             this.minLimit.HeaderText = "Min. Limit";
             this.minLimit.MinimumWidth = 6;
             this.minLimit.Name = "minLimit";
@@ -475,7 +473,7 @@
             // ReorderLevel
             // 
             this.ReorderLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ReorderLevel.DataPropertyName = "reorderLevel";
+            this.ReorderLevel.DataPropertyName = "ReorderLevel";
             this.ReorderLevel.HeaderText = "Reorder level";
             this.ReorderLevel.Name = "ReorderLevel";
             this.ReorderLevel.ReadOnly = true;
