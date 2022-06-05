@@ -1,5 +1,8 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Windows.Forms;
@@ -54,11 +57,9 @@ namespace TheBetterLimited.Views
             grp = Graphics.FromImage(memoryImage);
             Point panelLocation = PointToScreen(panel.Location);
             grp.CopyFromScreen(panelLocation.X, panelLocation.Y, 0, 0, formSize);
-            printDocument2.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", 750, 950);
+            printDocument2.DefaultPageSettings.PaperSize = new PaperSize("MyPaper", 980, 1055);
             printDocument2.DefaultPageSettings.Landscape = true;
-
             printPreviewDialog1.Document = printDocument2;
-            printPreviewDialog1.PrintPreviewControl.Zoom = 1;
             printPreviewDialog1.ShowDialog();
         }
         public event Action OnExit;
@@ -75,21 +76,59 @@ namespace TheBetterLimited.Views
 
         private void InitReceipt()
         {
+            JObject info = JObject.Parse(data);
+            BarcodeLib.Barcode b = new BarcodeLib.Barcode();
+            orderId.Text = info["Id"].ToString();
+            barcode.Image = b.Encode(BarcodeLib.TYPE.CODE39, info["Id"].ToString(), Color.Black, Color.White, 248, 67);
+            JArray orderItems = (JArray)info["orderItems"];
+            DataTable dt = new DataTable();
+            BindingSource bs = new BindingSource();
+            dt.Columns.Add("goodsId");
+            dt.Columns.Add("goodsName");
+            dt.Columns.Add("price");
+            dt.Columns.Add("qty");
+            dt.Columns.Add("amount");
+            dt.Columns.Add("display");
+            foreach (JObject orderItem in orderItems)
+            {
+                var row = dt.NewRow();
+                row["goodsId"] = orderItem["supplierGoodsStockId"].ToString();
+                row["goodsName"] = orderItem["name"].ToString();
+                row["price"] = orderItem["price"].ToString();
+                row["qty"] = orderItem["quantity"].ToString();
+                row["amount"] = (((int)orderItem["quantity"])*((double)orderItem["price"])).ToString();
+                /*if (((JToken)orderItem["quantity"]).Type != JTokenType.Null && ((bool)orderItem["quantity"]) == false)
+                {
+                    row["display"] = Properties.Resources.check24;
+                }else
+                {
+                    row["display"] = Properties.Resources.square24;
+                }*/
+                dt.Rows.Add(row);
+            }
+            bs.DataSource = dt;
+            OrderItemDataGrid.AutoGenerateColumns = false;
+            OrderItemDataGrid.DataSource = bs;
             printDate.Text = DateTime.Now.ToString("G");
-            storeId.Text = ((JObject)data)["store"]["id"].ToString();
-            salesId.Text = ((JObject)data)["_creatorId"].ToString();
-            storeAddress.Text = ((JObject)data)["store"]["location"]["loc"].ToString();
-            transcationDate.Text = ((DateTime)((JObject)data)["createAt"]).ToString("G");
+            storeId.Text = info["store"]["id"].ToString();
+            salesId.Text = info["_creatorId"].ToString();
+            storeAddress.Text = info["store"]["location"]["loc"].ToString();
+            transcationDate.Text = ((DateTime)info["createAt"]).ToString("G");
             cusName.Text = "";
             tel.Text = "";
             area.Text = "";
             deliveryAddress.Text = "";
             deliveryDate.Text = "";
-            deposit.Text = String.Format("{0,C2}", ((JObject)data)["paid"].ToString());
-            totalAmount.Text = String.Format("{0,C2}", ((JObject)data)["total"].ToString());
-            paid.Text = String.Format("{0,C2}",((JObject)data)["paid"].ToString());
+            deposit.Text = String.Format("{0:C2}", info["paid"]);
+            totalAmount.Text = String.Format("{0:C2}", info["total"]);
+            paid.Text = String.Format("{0:C2}", info["paid"]);
             paymentMethod.Text = "";
-            final.Text = String.Format("{0,C2}", ((int)((JObject)data)["paid"]));
+            final.Text = String.Format("{0:C2}", ((double)info["total"]-(double)info["paid"]));
+        }
+
+        private void UserInfo_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

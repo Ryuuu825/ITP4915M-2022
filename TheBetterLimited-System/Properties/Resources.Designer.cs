@@ -193,6 +193,16 @@ namespace TheBetterLimited.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap check24 {
+            get {
+                object obj = ResourceManager.GetObject("check24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap corret {
             get {
                 object obj = ResourceManager.GetObject("corret", resourceCulture);
@@ -546,6 +556,16 @@ namespace TheBetterLimited.Properties {
         internal static System.Drawing.Bitmap square {
             get {
                 object obj = ResourceManager.GetObject("square", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap square24 {
+            get {
+                object obj = ResourceManager.GetObject("square24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

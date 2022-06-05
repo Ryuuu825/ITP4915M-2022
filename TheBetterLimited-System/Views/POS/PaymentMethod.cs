@@ -65,10 +65,6 @@ namespace TheBetterLimited.Views
                     response = cbOrder.Create(data);
                     if(response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        Console.WriteLine(response.StatusCode);
-                        Console.WriteLine(response.Content);
-                        var data = JObject.Parse(response.Content);
-                        Console.WriteLine(data.ToString());
                         Receipt receipt = new Receipt(response.Content);
                         receipt.ShowDialog();
                         ClearForm();
@@ -76,7 +72,7 @@ namespace TheBetterLimited.Views
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Create Unsuccessflu");
+                    MessageBox.Show(ex.Message, "Create Unsuccessful");
                 }
             }
             else if (result == DialogResult.Cancel)
