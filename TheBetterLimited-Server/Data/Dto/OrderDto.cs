@@ -25,6 +25,7 @@ namespace TheBetterLimited_Server.Data.Dto
         public string status { get; set; }
         public decimal total { get; set; }
         public decimal paid { get; set; }
+        public string Id { get ; set; }
 
     }
     public class OrderInDto

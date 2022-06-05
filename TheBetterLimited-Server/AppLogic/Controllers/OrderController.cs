@@ -91,7 +91,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         updateAt = salesOrders[i].updatedAt,
                         status = salesOrders[i].Status.ToString(),
                         total = total,
-                        paid = paid
+                        paid = paid,
+                        Id = salesOrders[i].ID
                     }.MapToDto()
                 );
             }
