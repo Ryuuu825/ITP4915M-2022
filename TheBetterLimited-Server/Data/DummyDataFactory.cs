@@ -1813,22 +1813,22 @@ namespace TheBetterLimited_Server.Data
                 new SessionSetting
                 {
                     ID = "001",
-                    StartTime = new TimeOnly(9, 0, 0),
-                    EndTime = new TimeOnly(12, 0, 0),
+                    StartTime = DateTime.Today.AddHours(9),
+                    EndTime = DateTime.Today.AddHours(12),
                     NumOfAppointments = 5
                 },
                 new SessionSetting
                 {
                     ID = "002",
-                    StartTime = new TimeOnly(13, 0, 0),
-                    EndTime = new TimeOnly(17, 0, 0),
+                    StartTime = DateTime.Today.AddHours(13),
+                    EndTime = DateTime.Today.AddHours(17),
                     NumOfAppointments = 5
                 },
                 new SessionSetting
                 {
                     ID = "003",
-                    StartTime = new TimeOnly(18, 0, 0),
-                    EndTime = new TimeOnly(22, 0, 0),
+                    StartTime = DateTime.Today.AddHours(18),
+                    EndTime = DateTime.Today.AddHours(22),
                     NumOfAppointments = 5
                 }
             };
@@ -1864,7 +1864,8 @@ namespace TheBetterLimited_Server.Data
                         _departmentId = "300",
                         StartTime = sessionRange[scounter].StartTime,
                         EndTime = sessionRange[scounter].EndTime,
-                        Date = GenDate()
+                        Date = GenDate(),
+                        NumOfAppointments = (byte) sessionRange[scounter].NumOfAppointments
                     }
                 );
                 i++;
@@ -1875,7 +1876,8 @@ namespace TheBetterLimited_Server.Data
                         _departmentId = "700",
                         StartTime = sessionRange[scounter].StartTime,
                         EndTime = sessionRange[scounter].EndTime,
-                        Date = GenDate()
+                        Date = GenDate(),
+                        NumOfAppointments = (byte) sessionRange[scounter].NumOfAppointments
                     }
                 );
                 scounter++;
@@ -1884,11 +1886,11 @@ namespace TheBetterLimited_Server.Data
             return sessions;
         }
 
-        private static DateOnly last = DateOnly.FromDateTime(DateTime.Now);
+        private static DateTime last = DateTime.Today;
 
         private static int counter = 0;
 
-        public static DateOnly GenDate()
+        public static DateTime GenDate()
         {
             if (counter >= 6)
             {

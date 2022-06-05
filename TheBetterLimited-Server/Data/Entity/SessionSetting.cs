@@ -7,9 +7,9 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "char(10)")]
         public string ID { get; set;}
 
-        public TimeOnly StartTime { get; set; }
+        public DateTime StartTime { get; set; }
 
-        public TimeOnly EndTime { get; set; }
+        public DateTime EndTime { get; set; }
 
         [Column(TypeName = "TINYINT")]
         public int NumOfAppointments { get; set; }

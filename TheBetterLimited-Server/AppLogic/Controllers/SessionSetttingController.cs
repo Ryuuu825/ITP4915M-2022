@@ -53,7 +53,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     _departmentId = "300",
                     StartTime = newVersion[i].StartTime,
                     EndTime = newVersion[i].EndTime,
-                    Date = DateOnly.FromDateTime(nextMonth),
+                    Date = nextMonth,
                     NumOfAppointments = (byte) newVersion[i].NumOfAppointments
                 };
                 _SessionTable.Add(DSession);
@@ -64,7 +64,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     _departmentId = "700",
                     StartTime = newVersion[i].StartTime,
                     EndTime = newVersion[i].EndTime,
-                    Date = DateOnly.FromDateTime(nextMonth),
+                    Date = nextMonth,
                     NumOfAppointments = (byte) newVersion[i].NumOfAppointments
                 };
                 _SessionTable.Add(ESession);
