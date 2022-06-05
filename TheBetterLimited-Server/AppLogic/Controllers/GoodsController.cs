@@ -259,17 +259,18 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 }
             }
 
-            if (stock - sold < reorder)
-            {
-                return GoodsStockStatus.Danger;
-            }
-            else if (stock < min)
+            
+            if (stock < min)
             {
                 return GoodsStockStatus.OutOfStock;
             }
             else if (stock < reorder)
             {
                 return GoodsStockStatus.LowStock;
+            }
+            else if (stock - sold < reorder)
+            {
+                return GoodsStockStatus.Danger;
             }
             else
             {

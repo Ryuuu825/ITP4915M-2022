@@ -32,7 +32,7 @@ namespace TheBetterLimited_Server.API.Controller
             
             var res = sgs.GetAll();
             List<Hashtable> result = new List<Hashtable>();
-            foreach (var r in res)
+            foreach (var r in res) 
             {
 
                 Hashtable h = new Hashtable();

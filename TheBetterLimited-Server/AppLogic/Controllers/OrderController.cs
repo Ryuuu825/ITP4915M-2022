@@ -78,7 +78,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 {
                     total += salesOrderItem.Price * salesOrderItem.Quantity;
                 }
-                
 
                 res.Add(
                     new OrderOutDto
