@@ -1429,26 +1429,6 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Supplier_Goods_Stock
                 {
-                    Id = "100000002",
-                    _locationId = "004",
-                    _supplierGoodsId = "100000001",
-                    Quantity = ran.Next(20,100),
-                    MaxLimit= ran.Next(105 , 120),
-                    MinLimit = ran.Next(5, 20),
-                    ReorderLevel = ran.Next(20 , 30),
-                },
-                new Supplier_Goods_Stock
-                {
-                    Id = "100000003",
-                    _locationId = "005",
-                    _supplierGoodsId = "100000001",
-                    Quantity = ran.Next(20,100),
-                    MaxLimit= ran.Next(105 , 120),
-                    MinLimit = ran.Next(5, 20),
-                    ReorderLevel = ran.Next(20 , 30),
-                },
-                new Supplier_Goods_Stock
-                {
                     Id = "100000004",
                     _locationId = "003",
                     _supplierGoodsId = "100000003",
@@ -1601,26 +1581,6 @@ namespace TheBetterLimited_Server.Data
                 {
                     Id = "100000018",
                     _locationId = "003",
-                    _supplierGoodsId = "100000008",
-                    Quantity = ran.Next(20,100),
-                    MaxLimit= ran.Next(105 , 120),
-                    MinLimit = ran.Next(5, 20),
-                    ReorderLevel = ran.Next(20 , 30),
-                },
-                new Supplier_Goods_Stock
-                {
-                    Id = "100000098",
-                    _locationId = "004",
-                    _supplierGoodsId = "100000008",
-                    Quantity = ran.Next(20,100),
-                    MaxLimit= ran.Next(105 , 120),
-                    MinLimit = ran.Next(5, 20),
-                    ReorderLevel = ran.Next(20 , 30),
-                },
-                new Supplier_Goods_Stock
-                {
-                    Id = "100000019",
-                    _locationId = "005",
                     _supplierGoodsId = "100000008",
                     Quantity = ran.Next(20,100),
                     MaxLimit= ran.Next(105 , 120),
