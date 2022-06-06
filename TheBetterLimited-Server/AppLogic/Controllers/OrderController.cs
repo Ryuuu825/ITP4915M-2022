@@ -16,6 +16,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private readonly Data.Repositories.Repository<Account> _AccountTable;
         private readonly Data.Repositories.Repository<Customer> _CustomerTable;
         private readonly Data.Repositories.Repository<SalesOrderItem_Appointment> _SalesOrderItem_AppointmentTable;
+        private readonly Data.Repositories.Repository<Session> _SessionTable;
         private readonly AppLogic.Controllers.MessageController _MessageController;
 
         public OrderController(Data.DataContext db) : base(db)
@@ -30,6 +31,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _StoreTable = new Data.Repositories.Repository<Store>(db);
             _AccountTable = new Data.Repositories.Repository<Account>(db);
             _CustomerTable = new Data.Repositories.Repository<Customer>(db);
+            _CustomerTable = new Data.Repositories.Repository<Customer>(db);
+            _SessionTable = new Data.Repositories.Repository<Session>(db);
             _SalesOrderItem_AppointmentTable = new Data.Repositories.Repository<SalesOrderItem_Appointment>(db);
         }
 
@@ -83,6 +86,88 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     total += salesOrderItem.Price * salesOrderItem.Quantity;
                 }
 
+                // get delivery appointment
+                AppointmentOutDto? deliveryAppointment = null;
+                AppointmentOutDto? installatAppointment = null;
+                Customer? customer = null;
+
+                foreach(var salesOrderItem in salesOrderItemList)
+                {
+                    var appointments = salesOrderItem.SaleOrderItem_Appointment;
+                    if (appointments is null)
+                        continue;
+                    foreach(var appointmentItem in appointments)
+                    {
+                        customer = _CustomerTable.GetById(appointmentItem.Appointment._customerId); // we assume there is only one customer per appointment and both appointment (delivery and installation) have the same customer
+                        ConsoleLogger.Debug(_CustomerTable.GetById(appointmentItem.Appointment._customerId).Debug());
+                        if (appointmentItem.Appointment._departmentId == "300") // hard code (this is delivery order)
+                        {
+                            var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
+                            if (deliveryAppointment == null)
+                            {
+                                // lazyloader proxy did not work on the appointment
+                                var session = await _SessionTable.GetByIdAsync(appointmentItem.Appointment._sessionId);
+                                deliveryAppointment = new AppointmentOutDto
+                                {
+                                    AppointmentId = appointmentItem.Appointment.ID,
+                                    Date = session.Date,
+                                    StartTime = session.StartTime,
+                                    EndTime = session.EndTime,
+                                    Items = new List<SalesOrderItem_AppointmentOutDto>()
+                                    {
+                                        new SalesOrderItem_AppointmentOutDto
+                                        {
+                                            ItemNames = goods.Name,
+                                            ItemsId = salesOrderItem.Id
+                                        }
+                                    }
+                                };
+                            }
+                            else 
+                            {
+                                deliveryAppointment.Items.Add(new SalesOrderItem_AppointmentOutDto
+                                {
+                                    ItemNames = goods.Name,
+                                    ItemsId = salesOrderItem.Id
+                                });
+                            }
+                        }
+                        else if (appointmentItem.Appointment._departmentId == "700") // hard code (this is installat order)
+                        {
+                            var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
+                            if (installatAppointment == null)
+                            {
+                                installatAppointment = new AppointmentOutDto
+                                {
+                                    AppointmentId = appointmentItem.Appointment.ID,
+                                    Date = appointmentItem.Appointment.Session.Date,
+                                    StartTime = appointmentItem.Appointment.Session.StartTime,
+                                    EndTime = appointmentItem.Appointment.Session.EndTime,
+                                    Items = new List<SalesOrderItem_AppointmentOutDto>()
+                                    {
+                                        new SalesOrderItem_AppointmentOutDto
+                                        {
+                                            ItemNames = goods.Name,
+                                            ItemsId = salesOrderItem.Id
+                                        }
+                                    }
+                                };
+                            }
+                            else
+                            {
+                                installatAppointment.Items.Add(new SalesOrderItem_AppointmentOutDto
+                                {
+                                    ItemNames = goods.Name,
+                                    ItemsId = salesOrderItem.Id
+                                });
+                            }
+                        }
+                    }
+                }
+
+                
+
+
                 res.Add(
                     new OrderOutDto
                     {
@@ -95,7 +180,10 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         status = salesOrders[i].Status.ToString(),
                         total = total,
                         paid = paid,
-                        Id = salesOrders[i].ID
+                        Id = salesOrders[i].ID,
+                        Delivery= deliveryAppointment,
+                        Installation = installatAppointment,
+                        Customer = customer
                     }.MapToDto()
                 );
             }
@@ -247,6 +335,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         Name = order.Customer.Name,
                         Phone = order.Customer.Phone,
                         Address = order.Customer.Address
+
                     });
             }
 
@@ -283,6 +372,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     isAppointment = true;
                 }
             }
+            
 
             if (isBooked)
             {
@@ -303,6 +393,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         ID = Helpers.Sql.PrimaryKeyGenerator.Get<Appointment>(db),
                         _sessionId = order.Appointments[0].SessionId, // hard code
                         _departmentId = order.Appointments[0].DepartmentId, // hard code
+                        _customerId = _CustomerTable.GetAll().Last().ID
                     };
                     try 
                     {
@@ -333,6 +424,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         ID = Helpers.Sql.PrimaryKeyGenerator.Get<Appointment>(db),
                         _sessionId = order.Appointments[0].SessionId, // hard code
                         _departmentId = order.Appointments[0].DepartmentId, // hard code
+                        _customerId = _CustomerTable.GetAll().Last().ID,
                     };
                     _AppointmentTable.Add(appointments[0]);  // hard code
 
@@ -341,6 +433,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         ID = Helpers.Sql.PrimaryKeyGenerator.Get<Appointment>(db),
                         _sessionId = order.Appointments[1].SessionId, // hard code
                         _departmentId = order.Appointments[1].DepartmentId, // hard code
+                        _customerId = _CustomerTable.GetAll().Last().ID,
                     };
                     _AppointmentTable.Add(appointments[1]); // hard code
 

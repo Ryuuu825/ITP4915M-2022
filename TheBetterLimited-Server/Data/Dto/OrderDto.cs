@@ -1,3 +1,12 @@
+/*
+ *  Creator         : Ken
+ *  Create At       : 01/06/2022
+ *  Last Updated    : 06/06/2022
+ *
+ *  Description     : The DTO for the GET/POST order 
+ * 
+ *  Change Logs     : X Add Delivery & Installation appointment and Customer Info
+ */
 using TheBetterLimited_Server.Data.Entity;
 
 namespace TheBetterLimited_Server.Data.Dto
@@ -27,6 +36,25 @@ namespace TheBetterLimited_Server.Data.Dto
         public decimal paid { get; set; }
         public string Id { get ; set; }
 
+
+        public AppointmentOutDto? Delivery { get; set; }
+        public AppointmentOutDto? Installation { get; set; }
+        public Customer? Customer { get; set; }
+    }
+
+    public class AppointmentOutDto 
+    {
+        public string AppointmentId { get; set; }
+        public DateTime Date { get; set;}
+        public DateTime StartTime { get; set;}
+        public DateTime EndTime { get; set;}
+        public List<SalesOrderItem_AppointmentOutDto> Items { get; set; }
+    }
+
+    public class SalesOrderItem_AppointmentOutDto
+    {
+        public string ItemNames { get; set; }
+        public string ItemsId { get; set; }
     }
 
 

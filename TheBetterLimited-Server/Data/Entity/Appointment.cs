@@ -29,6 +29,10 @@ namespace TheBetterLimited_Server.Data.Entity
         [ForeignKey("_teamId")]
         public virtual Team? Team { get; set; }
 
+        public string _customerId { get; set;}
+
+        [ForeignKey("_customerId")]
+        public virtual Customer Customer { get; set; }
 
         public virtual List<SalesOrderItem_Appointment> SaleOrderItem_Appointments { get; set; }
     }
