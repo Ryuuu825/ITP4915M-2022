@@ -80,7 +80,6 @@ namespace TheBetterLimited.Views
                 needDelivery = true;
             }
             CatalogueTxt.Texts = goodsData["Catalogue"].ToString();
-            Console.WriteLine((int)goodsData["GoodsSize"]);
             ((RoundPanel)SizeGroup.Controls[(int)goodsData["GoodsSize"]]).BorderColor = Color.DimGray;
             ((Label)SizeGroup.Controls[(int)goodsData["GoodsSize"]].Controls[0]).ForeColor = Color.DimGray;
             ((RoundPanel)StatusGroup.Controls[(int)goodsData["GoodsStatus"]]).BorderColor = ShowPanelColor((int)goodsData["GoodsStatus"]);

@@ -247,7 +247,6 @@
             this.defectItemBtn.BorderRadius = 5;
             this.defectItemBtn.BorderSize = 2;
             this.defectItemBtn.FlatAppearance.BorderSize = 0;
-            this.defectItemBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.defectItemBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.defectItemBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.defectItemBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -272,7 +271,6 @@
             this.OrderBtn.BorderRadius = 5;
             this.OrderBtn.BorderSize = 2;
             this.OrderBtn.FlatAppearance.BorderSize = 0;
-            this.OrderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.OrderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.OrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OrderBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -298,7 +296,6 @@
             this.settleAccBtn.BorderRadius = 5;
             this.settleAccBtn.BorderSize = 2;
             this.settleAccBtn.FlatAppearance.BorderSize = 0;
-            this.settleAccBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.settleAccBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.settleAccBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settleAccBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -28,6 +28,7 @@ namespace TheBetterLimited.Views
         private int selectedMethod = 0;
         private bool needBook;
         public Dictionary<string, object> data = new Dictionary<string, object>();
+        BackgroundWorker bgWorker = new BackgroundWorker();
 
         public event Action OnExit;
 
@@ -66,10 +67,11 @@ namespace TheBetterLimited.Views
                 //Create order
                 try
                 {
-                    response = cbOrder.Create(data);
                     WaitResult waitResult = new WaitResult();
                     waitResult.Show();
                     waitResult.TopMost = true;
+                    Console.WriteLine(JsonConvert.SerializeObject(data));
+                    bgWorker.RunWorkerAsync(response = cbOrder.Create(data));
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         waitResult.Close();
@@ -77,6 +79,8 @@ namespace TheBetterLimited.Views
                         Receipt receipt = new Receipt(response.Content);
                         receipt.ShowDialog();
                         ClearForm();
+                        Form appointment = Application.OpenForms["POS"];
+                        ((POS)appointment).ClearOrder();
                     }
                 }
                 catch (Exception ex)

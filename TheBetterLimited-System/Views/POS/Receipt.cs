@@ -67,17 +67,9 @@ namespace TheBetterLimited.Views
         {
             this.Close();
         }
-
-        private void Receipt_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Form appointment = Application.OpenForms["POS"];
-            ((POS)appointment).ClearOrder();
-        }
-
         private void InitReceipt()
         {
             JObject info = JObject.Parse(data);
-            Console.WriteLine(info.ToString());
             BarcodeLib.Barcode b = new BarcodeLib.Barcode();
             orderId.Text = info["Id"].ToString();
             barcode.Image = b.Encode(BarcodeLib.TYPE.CODE39, info["Id"].ToString(), Color.Black, Color.White, 248, 67);
@@ -143,7 +135,6 @@ namespace TheBetterLimited.Views
                         installDate.Text = ((DateTime)info["Installation"]["date"]).ToString("d") + " "
                                         + ((DateTime)info["Installation"]["startTime"]).ToString("t") + " - "
                                         + ((DateTime)info["Installation"]["endTime"]).ToString("t");
-
                     }
                     else
                     {
@@ -158,8 +149,7 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                cusName.Text = "";
-                tel.Text = "";
+                CustomerInfo.Visible = false;
             }
 
             var deposit = 0.0;
@@ -169,7 +159,7 @@ namespace TheBetterLimited.Views
             }
             depositTxt.Text = String.Format("{0:C2}", deposit);
             totalAmount.Text = String.Format("{0:C2}", info["total"]);
-            paid.Text = String.Format("{0:C2}", info["paid"]);
+            paid.Text = String.Format("{0:C2}", info["total"]);
             paymentMethod.Text = "Cash";
             final.Text = String.Format("{0:C2}", ((double)info["total"]-(double)info["paid"]));
         }

@@ -30,7 +30,7 @@ namespace TheBetterLimited.Views
         private Bitmap icon = null;
         public JObject goodsData { get; set; }
         public List<object> goodsList { get; set; }
-        public bool needInstall;
+        private bool needInstall = false;
         private string deliverySessionId = null;
         private string installSessionId = null;
         List<Session> deliverySessions = new List<Session>();
@@ -39,6 +39,12 @@ namespace TheBetterLimited.Views
         public Appointment_Add()
         {
             InitializeComponent();
+        }
+
+        public void SetNeedInstall(bool install)
+        {
+            needInstall = install;
+            Console.WriteLine(needInstall);
             if (!needInstall)
             {
                 InstallSessionCombo.Enabled = false;
@@ -83,6 +89,7 @@ namespace TheBetterLimited.Views
                 return;
             }
 
+            Console.WriteLine(needInstall);
             if (needInstall == true && InstallSessionCombo.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select installation session");

@@ -38,16 +38,13 @@ namespace TheBetterLimited.Views
         private List<object> appointments = null;
         private double totalAmount;
         private int discount;
-        private bool isBook = false;
-        private bool isDelivery = false;
-        private bool isInstall = false;
+        private BackgroundWorker bgWorker = new BackgroundWorker();
 
         public POS()
         {
             InitializeComponent();
             GetAll();
         }
-
         /*
          * Dom Style/Event Process
          */
@@ -300,7 +297,9 @@ namespace TheBetterLimited.Views
         {
             ProductInfoContainer.Controls.Clear();
             goods.Clear();
-            var response = cbGoods.GetAll();
+            RestResponse response;
+            bgWorker.RunWorkerAsync(response = cbGoods.GetAll());
+            
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 InitList(response.Content);
@@ -367,7 +366,9 @@ namespace TheBetterLimited.Views
 
         private void PayBtn_Click(object sender, EventArgs e)
         {
-
+            bool isBook = false;
+            bool isDelivery = false;
+            bool isInstall = false;
             if (orderItems.Count == 0)
             {
                 MessageBox.Show("Shopping Cart is empty!");
@@ -419,10 +420,12 @@ namespace TheBetterLimited.Views
             // check install
             foreach (OrderItem item in orderItems)
             {
+                Console.WriteLine(item.NeedInstall);
                 // if an item need to book
                 if (item.NeedInstall == true)
                 {
                     isDelivery = true;
+                    isInstall = true;
                     break;
                 }
             }
@@ -449,7 +452,7 @@ namespace TheBetterLimited.Views
             {
                 DialogResult dialogResult = MessageBox.Show("The item(s) should be delivered from the warehouse." +
                     "\nPlease enter the customer information.", "Warming");
-                OpenAppointment();
+                OpenAppointment(isInstall);
             }
             else
             {
@@ -464,11 +467,11 @@ namespace TheBetterLimited.Views
             book.ShowDialog();
         }
 
-        public void OpenAppointment()
+        public void OpenAppointment(bool isInstall)
         {
             Appointment_Add appointment = new Appointment_Add();
+            appointment.SetNeedInstall(isInstall);
             appointment.ShowDialog();
-            appointment.needInstall = isInstall;
             appointment.goodsList = orderItems;
         }
 
@@ -541,11 +544,9 @@ namespace TheBetterLimited.Views
             discount = 0;
             totalAmount = 0;
             orderItems.Clear();
+            goods.Clear();
             cusInfo = null;
             oi = null;
-            isBook = false;
-            isDelivery = false;
-            isInstall = false;
             Form payment = Application.OpenForms["PaymentMethod"];
             if (payment != null)
             {
@@ -568,6 +569,7 @@ namespace TheBetterLimited.Views
             }
             InitializeCartGridView();
             GetAll();
+            GC.Collect();
         }
 
         public void SetCusInfo(object customer)
