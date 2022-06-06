@@ -466,6 +466,12 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         _customerId = _CustomerTable.GetAll().Last().ID,
                     };
                     _AppointmentTable.Add(appointments[0]);  // hard code
+                    Session s0 = _SessionTable.GetBySQL(
+                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<Session>($"Id:{order.Appointments[0].SessionId}")
+                    ).FirstOrDefault();
+                    s0.NumOfAppointments -= 1;
+                    _SessionTable.Update(s0);
+                    s0 = null;
 
                     appointments[1] = new Appointment
                     {
@@ -476,23 +482,24 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     };
                     _AppointmentTable.Add(appointments[1]); // hard code
 
+                    Session s1 = _SessionTable.GetBySQL(
+                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<Session>($"Id:{order.Appointments[1].SessionId}")
+                    ).FirstOrDefault();
+                    s1.NumOfAppointments -= 1;
+                    _SessionTable.Update(s1);
+                    s1 = null;
+
                     List<SalesOrderItem_Appointment> salesOrderItem_Appointments = new List<SalesOrderItem_Appointment>();
                     for (int i = 0 ; i < SalesOrderItemsList.Count ; i++)
                     {
-                        ConsoleLogger.Debug("Need delivery: " + order.SalesOrderItems[i].NeedDelivery);
-                        ConsoleLogger.Debug("Need installation: " + order.SalesOrderItems[i].NeedInstall);
-                        
                         if (order.SalesOrderItems[i].NeedInstall)
                         {
                             var ientry = new SalesOrderItem_Appointment{
                                 _salesOrderItemId = SalesOrderItemsList[i].Id,
                                 _appointmentId = appointments[1].ID 
                             };
-                            ConsoleLogger.Debug(ientry.Debug());
-                            ConsoleLogger.Debug("Adding this to installation : " +SalesOrderItemsList[i].Id);
                             salesOrderItem_Appointments.Add(ientry);
                         }
-
                         
                         if (order.SalesOrderItems[i].NeedDelivery)
                         {
@@ -500,13 +507,10 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                                     _salesOrderItemId = SalesOrderItemsList[i].Id,
                                     _appointmentId = appointments[0].ID 
                                 };
-                            ConsoleLogger.Debug(dentry.Debug());
-                            ConsoleLogger.Debug("Adding this to devlivery: " + SalesOrderItemsList[i].Id);
                             salesOrderItem_Appointments.Add(dentry);
                         }
                         
                     }
-                    ConsoleLogger.Debug(salesOrderItem_Appointments.Count());
                     foreach (var entry in salesOrderItem_Appointments)
                     {
                         _SalesOrderItem_AppointmentTable.Add(entry);
