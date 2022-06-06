@@ -42,17 +42,16 @@
             this.menuTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.curdAction = new System.Windows.Forms.Panel();
-            this.AddLabelBtn = new System.Windows.Forms.Label();
             this.ProductContainer = new System.Windows.Forms.Panel();
             this.ProductInfoContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.line = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.POSActionGroup = new System.Windows.Forms.FlowLayoutPanel();
             this.defectItemBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.OrderBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.settleAccBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.ProductActionBox = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.CatalogueCombox = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.CartContainer = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -86,12 +85,11 @@
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.SearchBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.curdAction.SuspendLayout();
             this.ProductContainer.SuspendLayout();
             this.panel1.SuspendLayout();
             this.POSActionGroup.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.ProductActionBox.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.CartContainer.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CartItemGrid)).BeginInit();
@@ -165,36 +163,10 @@
             this.SearchBarTxt.UnderlinedStyle = false;
             this.SearchBarTxt._TextChanged += new System.EventHandler(this.SearchBarTxt__TextChanged);
             // 
-            // curdAction
-            // 
-            this.curdAction.Controls.Add(this.AddLabelBtn);
-            this.curdAction.Location = new System.Drawing.Point(12, 2);
-            this.curdAction.Margin = new System.Windows.Forms.Padding(2);
-            this.curdAction.Name = "curdAction";
-            this.curdAction.Size = new System.Drawing.Size(156, 43);
-            this.curdAction.TabIndex = 6;
-            // 
-            // AddLabelBtn
-            // 
-            this.AddLabelBtn.BackColor = System.Drawing.Color.Transparent;
-            this.AddLabelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AddLabelBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.AddLabelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddLabelBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddLabelBtn.ForeColor = System.Drawing.Color.SeaGreen;
-            this.AddLabelBtn.Image = global::TheBetterLimited.Properties.Resources.add_up;
-            this.AddLabelBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddLabelBtn.Location = new System.Drawing.Point(0, 0);
-            this.AddLabelBtn.Name = "AddLabelBtn";
-            this.AddLabelBtn.Size = new System.Drawing.Size(156, 43);
-            this.AddLabelBtn.TabIndex = 0;
-            this.AddLabelBtn.Text = "Add To Cart";
-            this.AddLabelBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.AddLabelBtn.Click += new System.EventHandler(this.AddLabelBtn_Click);
-            // 
             // ProductContainer
             // 
             this.ProductContainer.Controls.Add(this.ProductInfoContainer);
+            this.ProductContainer.Controls.Add(this.line);
             this.ProductContainer.Controls.Add(this.panel1);
             this.ProductContainer.Controls.Add(this.panel4);
             this.ProductContainer.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -209,10 +181,20 @@
             this.ProductInfoContainer.AutoScroll = true;
             this.ProductInfoContainer.BackColor = System.Drawing.Color.White;
             this.ProductInfoContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProductInfoContainer.Location = new System.Drawing.Point(10, 100);
+            this.ProductInfoContainer.Location = new System.Drawing.Point(10, 110);
             this.ProductInfoContainer.Name = "ProductInfoContainer";
-            this.ProductInfoContainer.Size = new System.Drawing.Size(410, 343);
+            this.ProductInfoContainer.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.ProductInfoContainer.Size = new System.Drawing.Size(410, 333);
             this.ProductInfoContainer.TabIndex = 0;
+            // 
+            // line
+            // 
+            this.line.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.line.Dock = System.Windows.Forms.DockStyle.Top;
+            this.line.Location = new System.Drawing.Point(10, 100);
+            this.line.Name = "line";
+            this.line.Size = new System.Drawing.Size(410, 10);
+            this.line.TabIndex = 1;
             // 
             // panel1
             // 
@@ -315,7 +297,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Controls.Add(this.ProductActionBox);
+            this.panel4.Controls.Add(this.panel3);
             this.panel4.Controls.Add(this.SearchBar);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(10, 0);
@@ -324,19 +306,14 @@
             this.panel4.Size = new System.Drawing.Size(410, 100);
             this.panel4.TabIndex = 7;
             // 
-            // ProductActionBox
+            // panel3
             // 
-            this.ProductActionBox.AutoScroll = true;
-            this.ProductActionBox.AutoSize = true;
-            this.ProductActionBox.BackColor = System.Drawing.Color.White;
-            this.ProductActionBox.Controls.Add(this.curdAction);
-            this.ProductActionBox.Controls.Add(this.CatalogueCombox);
-            this.ProductActionBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ProductActionBox.Location = new System.Drawing.Point(10, 53);
-            this.ProductActionBox.Name = "ProductActionBox";
-            this.ProductActionBox.Padding = new System.Windows.Forms.Padding(10, 0, 10, 10);
-            this.ProductActionBox.Size = new System.Drawing.Size(390, 47);
-            this.ProductActionBox.TabIndex = 1;
+            this.panel3.Controls.Add(this.CatalogueCombox);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(10, 53);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(390, 47);
+            this.panel3.TabIndex = 1;
             // 
             // CatalogueCombox
             // 
@@ -352,7 +329,7 @@
             this.CatalogueCombox.IconColor = System.Drawing.Color.SeaGreen;
             this.CatalogueCombox.ListBackColor = System.Drawing.Color.White;
             this.CatalogueCombox.ListTextColor = System.Drawing.Color.DimGray;
-            this.CatalogueCombox.Location = new System.Drawing.Point(13, 50);
+            this.CatalogueCombox.Location = new System.Drawing.Point(0, 0);
             this.CatalogueCombox.MinimumSize = new System.Drawing.Size(200, 30);
             this.CatalogueCombox.Name = "CatalogueCombox";
             this.CatalogueCombox.Padding = new System.Windows.Forms.Padding(1);
@@ -853,14 +830,12 @@
             this.Text = "POS";
             this.SearchBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.curdAction.ResumeLayout(false);
             this.ProductContainer.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.POSActionGroup.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.ProductActionBox.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.CartContainer.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CartItemGrid)).EndInit();
@@ -875,7 +850,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel curdAction;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
@@ -884,7 +858,6 @@
         private CustomizeControl.CustomizeTextbox SearchBarTxt;
         private System.Windows.Forms.Panel ProductContainer;
         private System.Windows.Forms.FlowLayoutPanel OrderBtnGroup;
-        private System.Windows.Forms.Label AddLabelBtn;
         private System.Windows.Forms.Panel CartContainer;
         private System.Windows.Forms.FlowLayoutPanel POSActionGroup;
         private System.Windows.Forms.Panel panel7;
@@ -896,7 +869,6 @@
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Panel DiscountContainer;
         private CustomizeControl.RoundButton PayBtn;
-        private System.Windows.Forms.FlowLayoutPanel ProductInfoContainer;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn5;
         private System.Windows.Forms.Label DiscountLabel;
@@ -904,7 +876,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label AmountTitle;
         private System.Windows.Forms.Label TotalAmountTxt;
-        private System.Windows.Forms.FlowLayoutPanel ProductActionBox;
         private CustomizeControl.RoundButton defectItemBtn;
         private CustomizeControl.RoundButton OrderBtn;
         private CustomizeControl.RoundButton settleAccBtn;
@@ -921,5 +892,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn price;
         private System.Windows.Forms.DataGridViewTextBoxColumn remarks;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel line;
+        private System.Windows.Forms.FlowLayoutPanel ProductInfoContainer;
     }
 }

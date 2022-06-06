@@ -147,27 +147,6 @@ namespace TheBetterLimited.Views
             }
         }
 
-        private void AddLabelBtn_Click(object sender, EventArgs e)
-        {
-            if (selectedProduct == -1)
-            {
-                MessageBox.Show("You have not selected a product!");
-                return;
-            }
-            Form goodsDetails = Application.OpenForms["GoodsDetails"];
-            if (goodsDetails != null)
-            {
-                goodsDetails.Close();
-                goodsDetails.Dispose();
-            }
-            GoodsDetails gd = new GoodsDetails();
-            gd.goodsData = goods[selectedProduct];
-            gd.Show();
-            gd.TopLevel = true;
-            oi = (OrderItem)gd.oi;
-            gd.OnExit += AddItem;
-        }
-
         private void CartItemGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == CartItemGrid.Columns["plus"].Index)
@@ -362,6 +341,23 @@ namespace TheBetterLimited.Views
                 ((ProductInfo)ProductInfoContainer.Controls[selectedProduct]).IsSelected = false;
             }
             selectedProduct = ProductInfoContainer.Controls.IndexOf(((System.Windows.Forms.Control)sender).Parent);
+            if (selectedProduct == -1)
+            {
+                MessageBox.Show("You have not selected a product!");
+                return;
+            }
+            Form goodsDetails = Application.OpenForms["GoodsDetails"];
+            if (goodsDetails != null)
+            {
+                goodsDetails.Close();
+                goodsDetails.Dispose();
+            }
+            GoodsDetails gd = new GoodsDetails();
+            gd.goodsData = goods[selectedProduct];
+            gd.Show();
+            gd.TopLevel = true;
+            oi = (OrderItem)gd.oi;
+            gd.OnExit += AddItem;
         }
 
         private void PayBtn_Click(object sender, EventArgs e)
