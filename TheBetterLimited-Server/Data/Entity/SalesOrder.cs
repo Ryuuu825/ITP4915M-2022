@@ -52,6 +52,7 @@ namespace TheBetterLimited_Server.Data.Entity
         Completed,
         Cancelled,
         Refunded,
-        PartiallyRefunded
+        PartiallyRefunded,
+        NotCompleted
     }
 }

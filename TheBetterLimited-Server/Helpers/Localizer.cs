@@ -71,6 +71,8 @@ namespace TheBetterLimited_Server.Helpers
                 }
             }
 
+            xml = null;
+            GC.Collect();
             return entity;
 
         }

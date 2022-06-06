@@ -40,6 +40,7 @@ namespace TheBetterLimited_Server.Data.Dto
         public AppointmentOutDto? Delivery { get; set; }
         public AppointmentOutDto? Installation { get; set; }
         public Customer? Customer { get; set; }
+        public string? BookingRecord { get; set; }
     }
 
     public class AppointmentOutDto 
@@ -48,7 +49,7 @@ namespace TheBetterLimited_Server.Data.Dto
         public DateTime Date { get; set;}
         public DateTime StartTime { get; set;}
         public DateTime EndTime { get; set;}
-        public List<SalesOrderItem_AppointmentOutDto> Items { get; set; }
+        public List<SalesOrderItem_AppointmentOutDto>? Items { get; set; }
     }
 
     public class SalesOrderItem_AppointmentOutDto

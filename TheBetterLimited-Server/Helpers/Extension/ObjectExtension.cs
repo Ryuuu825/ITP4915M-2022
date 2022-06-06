@@ -10,13 +10,16 @@ public static class ObjectExtension
     {
         T newObj = (T)Activator.CreateInstance(typeof(T));
 
-        foreach (var item in source.GetType().GetProperties())
+        foreach (var item in newObj.GetType().GetProperties())
         {
-            item.SetValue
-            (
-                newObj,
-                source.GetType().GetProperties().Where(x => x.Name == item.Name).FirstOrDefault().GetValue(source)
-            );
+            try 
+            {
+                item.SetValue(newObj, source.GetType().GetProperty(item.Name).GetValue(source));
+            }
+            catch (Exception)
+            {
+                continue;
+            }
         }
         return newObj;
     }
