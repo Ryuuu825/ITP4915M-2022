@@ -30,7 +30,7 @@ namespace TheBetterLimited.Views
         private Bitmap icon = null;
         public JObject goodsData { get; set; }
         public List<object> goodsList { get; set; }
-        public bool needInstall;
+        private bool needInstall = false;
         private string deliverySessionId = null;
         private string installSessionId = null;
         List<Session> deliverySessions = new List<Session>();
@@ -41,6 +41,16 @@ namespace TheBetterLimited.Views
             InitializeComponent();
         }
 
+        public void SetNeedInstall(bool install)
+        {
+            needInstall = install;
+            Console.WriteLine(needInstall);
+            if (!needInstall)
+            {
+                InstallSessionCombo.Enabled = false;
+                InstallDatePicker.Enabled = false;
+            }
+        }
 
         public event Action OnExit;
         private void CancelBtn_Click(object sender, EventArgs e)
@@ -57,21 +67,21 @@ namespace TheBetterLimited.Views
                 NameTxt.IsError = true;
                 return;
             }
-            var name = NameTxt.Text;
+            var name = NameTxt.Texts;
 
             if (PhoneTxt.Texts.Equals(String.Empty) || PhoneTxt.Texts.Equals(PhoneTxt.Placeholder))
             {
                 PhoneTxt.IsError = true;
                 return;
             }
-            var phone = PhoneTxt.Text;
+            var phone = PhoneTxt.Texts;
 
             if (AddressTxt.Texts.Equals(String.Empty) || AddressTxt.Texts.Equals(AddressTxt.Placeholder))
             {
                 AddressTxt.IsError = true;
                 return;
             }
-            var address = AddressTxt.Text;
+            var address = AddressTxt.Texts;
 
             if (DeliverySessionCombo.SelectedIndex == -1)
             {
@@ -79,7 +89,8 @@ namespace TheBetterLimited.Views
                 return;
             }
 
-            if (InstallSessionCombo.SelectedIndex == -1)
+            Console.WriteLine(needInstall);
+            if (needInstall == true && InstallSessionCombo.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select installation session");
                 return;
@@ -87,10 +98,10 @@ namespace TheBetterLimited.Views
 
             CustomerInfo cusInfo = new CustomerInfo(name, phone, address);
             List<object> list = new List<object>();
-            list.Add(new { sessionId = deliverySessionId, _departmentId = "300"});
-            if(installSessionId != null)
+            list.Add(new { sessionId = deliverySessionId, departmentId = "300"});
+            if(needInstall == true)
             {
-                list.Add(new { sessionId = installSessionId, _departmentId = "700" });
+                list.Add(new { sessionId = installSessionId, departmentId = "700" });
             }
             Form pos = Application.OpenForms["POS"];
             ((POS)pos).SetCusInfo(cusInfo);
@@ -115,25 +126,25 @@ namespace TheBetterLimited.Views
 
         private void Appointment_Add_Load(object sender, EventArgs e)
         {
-            DeliveryDatePicker.MinDate = DateTime.Now;
-            InstallDatePicker.MinDate = DateTime.Now;
-            DeliveryDatePicker.MaxDate = DateTime.Now.AddMonths(1);
-            InstallDatePicker.MaxDate = DateTime.Now.AddMonths(1);
+            DeliveryDatePicker.MinDate = DateTime.Now.AddDays(1);
+            InstallDatePicker.MinDate = DateTime.Now.AddDays(1);
+            DeliveryDatePicker.MaxDate = DeliveryDatePicker.MinDate.AddDays(29);
+            InstallDatePicker.MaxDate = InstallDatePicker.MinDate.AddDays(29);
         }
 
         private void DeliveryDatePicker_ValueChanged(object sender, EventArgs e)
         {
-            InstallDatePicker.MinDate = DeliveryDatePicker.Value;
             ResetDeliveryComboBox();
             ResetInstallComboBox();
             deliverySessions.Clear();
             installSessions.Clear();
+            InstallDatePicker.MinDate = DeliveryDatePicker.Value;
+            if (DeliveryDatePicker.Value.DayOfWeek == DayOfWeek.Sunday) return;
             deliverySessions = InitSession(DeliveryDatePicker.Value.Month, DeliveryDatePicker.Value.Day, "300");
             foreach (Session item in deliverySessions)
             {
                 DeliverySessionCombo.Items.Add(item.StartTime1.ToString("HH:mm") + " - " + item.EndTime1.ToString("HH:mm"));
             }
-            DeliveryDatePicker.MaxDate = deliverySessions.Last().Date1.AddDays(10);
         }
 
         private void DeliverySessionCombo_OnSelectedIndexChanged(object sender, EventArgs e)
@@ -146,11 +157,9 @@ namespace TheBetterLimited.Views
         private List<Session> InitSession(int month, int day, string departmentId)
         {
             response = cbSession.GetAll(month, day, departmentId);
-            Console.WriteLine(response.StatusCode);
             List<Session> sessions = new List<Session>();
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                Console.WriteLine(response.Content);
                 sessions = JsonConvert.DeserializeObject<List<Session>>(response.Content);
             }
             return sessions;
@@ -175,11 +184,10 @@ namespace TheBetterLimited.Views
         {
             ResetInstallComboBox();
             installSessions.Clear();
+            if (InstallDatePicker.Value.DayOfWeek == DayOfWeek.Sunday) return;
             installSessions = InitSession(InstallDatePicker.Value.Month, InstallDatePicker.Value.Day, "700");
             for (int i = 0; i < installSessions.Count; i++)
             {
-                Console.WriteLine(DeliveryDatePicker.Value);
-                Console.WriteLine(installSessions[i].Date1);
                 if (i <= DeliverySessionCombo.SelectedIndex && installSessions[i].Date1 == DeliveryDatePicker.Value.Date)
                 {
                     continue;
@@ -203,6 +211,9 @@ namespace TheBetterLimited.Views
 
         private void CancelBtn_Click_1(object sender, EventArgs e)
         {
+            Form pos = Application.OpenForms["POS"];
+            ((POS)pos).SetCusInfo(null);
+            ((POS)pos).SetAppointments(null);
             this.Close();
             this.Dispose();
         }

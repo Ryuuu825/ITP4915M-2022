@@ -18,7 +18,6 @@ namespace TheBetterLimited
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login("admin" , "admin"));
-            //Application.Run(new Receipt());
         }
     }
 }

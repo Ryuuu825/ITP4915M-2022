@@ -35,6 +35,8 @@ namespace TheBetterLimited.Views
         public event Action OnExit;
         private void CancelBtn_Click(object sender, EventArgs e)
         {
+            Form pos = Application.OpenForms["POS"];
+            ((POS)pos).SetCusInfo(null);
             this.Close();
             this.Dispose();
         }
@@ -59,26 +61,41 @@ namespace TheBetterLimited.Views
                 CusNameTxt.IsError = true;
                 return;
             }
-            var name = CusNameTxt.Text;
+            var name = CusNameTxt.Texts;
 
             if (CusPhoneTxt.Texts.Equals(String.Empty) || CusPhoneTxt.Texts.Equals(CusPhoneTxt.Placeholder))
             {
                 CusPhoneTxt.IsError = true;
                 return;
             }
-            var phone = CusPhoneTxt.Text;
+            var phone = CusPhoneTxt.Texts;
 
             if (CusAddressTxt.Texts.Equals(String.Empty) || CusAddressTxt.Texts.Equals(CusAddressTxt.Placeholder))
             {
                 CusAddressTxt.IsError = true;
                 return;
             }
-            var address = CusAddressTxt.Text;
+            var address = CusAddressTxt.Texts;
 
             CustomerInfo cusInfo = new CustomerInfo(name, phone, address);
             Form pos = Application.OpenForms["POS"];
             ((POS)pos).SetCusInfo(cusInfo);
             ((POS)pos).OpenPaymentMethod();
+        }
+
+        private void CusNameTxt_Click(object sender, EventArgs e)
+        {
+            CusNameTxt.IsError = false;
+        }
+
+        private void CusPhoneTxt_Click(object sender, EventArgs e)
+        {
+            CusPhoneTxt.IsError = false;
+        }
+
+        private void CusAddressTxt_Click(object sender, EventArgs e)
+        {
+            CusAddressTxt.IsError = false;
         }
     }
 }

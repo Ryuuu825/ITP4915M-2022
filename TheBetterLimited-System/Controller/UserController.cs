@@ -221,7 +221,6 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.DownloadDataAsync(request).GetAwaiter().GetResult();
-                Console.WriteLine("Content: " + response);
                 var ms = new MemoryStream(response);
                 Bitmap bmp = new Bitmap(ms);
                 ms.Close();

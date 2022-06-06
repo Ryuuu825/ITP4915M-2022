@@ -38,18 +38,24 @@
             this.MainForm = new System.Windows.Forms.Panel();
             this.UserInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.SizeRadioGroup = new System.Windows.Forms.Panel();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.SizeGroup = new System.Windows.Forms.Panel();
+            this.roundPanel4 = new TheBetterLimited.CustomizeControl.RoundPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.roundPanel5 = new TheBetterLimited.CustomizeControl.RoundPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.roundPanel6 = new TheBetterLimited.CustomizeControl.RoundPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.GoodsIDTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.DescriptionTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.lblGTINCode = new System.Windows.Forms.Label();
-            this.StatusRadioGroup = new System.Windows.Forms.Panel();
-            this.sellRadio = new System.Windows.Forms.RadioButton();
-            this.phaseOutRadio = new System.Windows.Forms.RadioButton();
-            this.stopSellRadio = new System.Windows.Forms.RadioButton();
+            this.StatusGroup = new System.Windows.Forms.Panel();
+            this.roundPanel1 = new TheBetterLimited.CustomizeControl.RoundPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.roundPanel2 = new TheBetterLimited.CustomizeControl.RoundPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.roundPanel3 = new TheBetterLimited.CustomizeControl.RoundPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblCatalogue = new System.Windows.Forms.Label();
             this.labGoodsID = new System.Windows.Forms.Label();
@@ -72,8 +78,14 @@
             this.MainForm.SuspendLayout();
             this.UserInfo.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.SizeRadioGroup.SuspendLayout();
-            this.StatusRadioGroup.SuspendLayout();
+            this.SizeGroup.SuspendLayout();
+            this.roundPanel4.SuspendLayout();
+            this.roundPanel5.SuspendLayout();
+            this.roundPanel6.SuspendLayout();
+            this.StatusGroup.SuspendLayout();
+            this.roundPanel1.SuspendLayout();
+            this.roundPanel2.SuspendLayout();
+            this.roundPanel3.SuspendLayout();
             this.UserInfoHeaderContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -205,12 +217,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.SizeRadioGroup);
+            this.panel1.Controls.Add(this.SizeGroup);
             this.panel1.Controls.Add(this.lblDescription);
             this.panel1.Controls.Add(this.GoodsIDTxt);
             this.panel1.Controls.Add(this.DescriptionTxt);
             this.panel1.Controls.Add(this.lblGTINCode);
-            this.panel1.Controls.Add(this.StatusRadioGroup);
+            this.panel1.Controls.Add(this.StatusGroup);
             this.panel1.Controls.Add(this.lblStatus);
             this.panel1.Controls.Add(this.lblCatalogue);
             this.panel1.Controls.Add(this.labGoodsID);
@@ -231,54 +243,94 @@
             this.panel1.Size = new System.Drawing.Size(492, 552);
             this.panel1.TabIndex = 27;
             // 
-            // SizeRadioGroup
+            // SizeGroup
             // 
-            this.SizeRadioGroup.Controls.Add(this.radioButton1);
-            this.SizeRadioGroup.Controls.Add(this.radioButton2);
-            this.SizeRadioGroup.Controls.Add(this.radioButton4);
-            this.SizeRadioGroup.Enabled = false;
-            this.SizeRadioGroup.Location = new System.Drawing.Point(166, 199);
-            this.SizeRadioGroup.Name = "SizeRadioGroup";
-            this.SizeRadioGroup.Size = new System.Drawing.Size(308, 25);
-            this.SizeRadioGroup.TabIndex = 33;
+            this.SizeGroup.Controls.Add(this.roundPanel4);
+            this.SizeGroup.Controls.Add(this.roundPanel5);
+            this.SizeGroup.Controls.Add(this.roundPanel6);
+            this.SizeGroup.Location = new System.Drawing.Point(167, 195);
+            this.SizeGroup.Name = "SizeGroup";
+            this.SizeGroup.Size = new System.Drawing.Size(308, 33);
+            this.SizeGroup.TabIndex = 33;
             // 
-            // radioButton4
+            // roundPanel4
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(221, 4);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(54, 19);
-            this.radioButton4.TabIndex = 30;
-            this.radioButton4.Text = "Large";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.roundPanel4.BackColor = System.Drawing.Color.White;
+            this.roundPanel4.BackgroundColor = System.Drawing.Color.White;
+            this.roundPanel4.BorderColor = System.Drawing.Color.LightGray;
+            this.roundPanel4.BorderRadius = 5;
+            this.roundPanel4.BorderSize = 1;
+            this.roundPanel4.Controls.Add(this.label4);
+            this.roundPanel4.ForeColor = System.Drawing.Color.White;
+            this.roundPanel4.Location = new System.Drawing.Point(3, 5);
+            this.roundPanel4.Name = "roundPanel4";
+            this.roundPanel4.Size = new System.Drawing.Size(67, 25);
+            this.roundPanel4.TabIndex = 0;
             // 
-            // radioButton1
+            // label4
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(103, 4);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(70, 19);
-            this.radioButton1.TabIndex = 29;
-            this.radioButton1.Text = "Medium";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Silver;
+            this.label4.Location = new System.Drawing.Point(10, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 19);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Small";
             // 
-            // radioButton2
+            // roundPanel5
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.radioButton2.FlatAppearance.CheckedBackColor = System.Drawing.Color.SeaGreen;
-            this.radioButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(1, 4);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(55, 19);
-            this.radioButton2.TabIndex = 28;
-            this.radioButton2.Text = "Small";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.roundPanel5.BackColor = System.Drawing.Color.White;
+            this.roundPanel5.BackgroundColor = System.Drawing.Color.White;
+            this.roundPanel5.BorderColor = System.Drawing.Color.LightGray;
+            this.roundPanel5.BorderRadius = 5;
+            this.roundPanel5.BorderSize = 1;
+            this.roundPanel5.Controls.Add(this.label5);
+            this.roundPanel5.ForeColor = System.Drawing.Color.White;
+            this.roundPanel5.Location = new System.Drawing.Point(107, 5);
+            this.roundPanel5.Name = "roundPanel5";
+            this.roundPanel5.Size = new System.Drawing.Size(79, 25);
+            this.roundPanel5.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Silver;
+            this.label5.Location = new System.Drawing.Point(9, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Medium";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // roundPanel6
+            // 
+            this.roundPanel6.BackColor = System.Drawing.Color.White;
+            this.roundPanel6.BackgroundColor = System.Drawing.Color.White;
+            this.roundPanel6.BorderColor = System.Drawing.Color.LightGray;
+            this.roundPanel6.BorderRadius = 5;
+            this.roundPanel6.BorderSize = 1;
+            this.roundPanel6.Controls.Add(this.label6);
+            this.roundPanel6.ForeColor = System.Drawing.Color.White;
+            this.roundPanel6.Location = new System.Drawing.Point(223, 5);
+            this.roundPanel6.Name = "roundPanel6";
+            this.roundPanel6.Size = new System.Drawing.Size(67, 25);
+            this.roundPanel6.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Silver;
+            this.label6.Location = new System.Drawing.Point(12, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 19);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Large";
             // 
             // lblDescription
             // 
@@ -356,54 +408,94 @@
             this.lblGTINCode.TabIndex = 3;
             this.lblGTINCode.Text = "GTIN Code";
             // 
-            // StatusRadioGroup
+            // StatusGroup
             // 
-            this.StatusRadioGroup.Controls.Add(this.sellRadio);
-            this.StatusRadioGroup.Controls.Add(this.phaseOutRadio);
-            this.StatusRadioGroup.Controls.Add(this.stopSellRadio);
-            this.StatusRadioGroup.Enabled = false;
-            this.StatusRadioGroup.Location = new System.Drawing.Point(166, 383);
-            this.StatusRadioGroup.Name = "StatusRadioGroup";
-            this.StatusRadioGroup.Size = new System.Drawing.Size(308, 25);
-            this.StatusRadioGroup.TabIndex = 30;
+            this.StatusGroup.Controls.Add(this.roundPanel1);
+            this.StatusGroup.Controls.Add(this.roundPanel2);
+            this.StatusGroup.Controls.Add(this.roundPanel3);
+            this.StatusGroup.Location = new System.Drawing.Point(166, 379);
+            this.StatusGroup.Name = "StatusGroup";
+            this.StatusGroup.Size = new System.Drawing.Size(308, 33);
+            this.StatusGroup.TabIndex = 30;
             // 
-            // sellRadio
+            // roundPanel1
             // 
-            this.sellRadio.AutoSize = true;
-            this.sellRadio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.sellRadio.FlatAppearance.CheckedBackColor = System.Drawing.Color.SeaGreen;
-            this.sellRadio.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sellRadio.Location = new System.Drawing.Point(1, 4);
-            this.sellRadio.Margin = new System.Windows.Forms.Padding(2);
-            this.sellRadio.Name = "sellRadio";
-            this.sellRadio.Size = new System.Drawing.Size(61, 19);
-            this.sellRadio.TabIndex = 28;
-            this.sellRadio.Text = "Selling";
-            this.sellRadio.UseVisualStyleBackColor = true;
+            this.roundPanel1.BackColor = System.Drawing.Color.White;
+            this.roundPanel1.BackgroundColor = System.Drawing.Color.White;
+            this.roundPanel1.BorderColor = System.Drawing.Color.LightGray;
+            this.roundPanel1.BorderRadius = 5;
+            this.roundPanel1.BorderSize = 1;
+            this.roundPanel1.Controls.Add(this.label1);
+            this.roundPanel1.ForeColor = System.Drawing.Color.White;
+            this.roundPanel1.Location = new System.Drawing.Point(3, 5);
+            this.roundPanel1.Name = "roundPanel1";
+            this.roundPanel1.Size = new System.Drawing.Size(67, 25);
+            this.roundPanel1.TabIndex = 0;
             // 
-            // phaseOutRadio
+            // label1
             // 
-            this.phaseOutRadio.AutoSize = true;
-            this.phaseOutRadio.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phaseOutRadio.Location = new System.Drawing.Point(103, 4);
-            this.phaseOutRadio.Margin = new System.Windows.Forms.Padding(2);
-            this.phaseOutRadio.Name = "phaseOutRadio";
-            this.phaseOutRadio.Size = new System.Drawing.Size(76, 19);
-            this.phaseOutRadio.TabIndex = 29;
-            this.phaseOutRadio.Text = "PhaseOut";
-            this.phaseOutRadio.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(10, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Selling";
             // 
-            // stopSellRadio
+            // roundPanel2
             // 
-            this.stopSellRadio.AutoSize = true;
-            this.stopSellRadio.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stopSellRadio.Location = new System.Drawing.Point(221, 4);
-            this.stopSellRadio.Margin = new System.Windows.Forms.Padding(2);
-            this.stopSellRadio.Name = "stopSellRadio";
-            this.stopSellRadio.Size = new System.Drawing.Size(86, 19);
-            this.stopSellRadio.TabIndex = 30;
-            this.stopSellRadio.Text = "StopSelling";
-            this.stopSellRadio.UseVisualStyleBackColor = true;
+            this.roundPanel2.BackColor = System.Drawing.Color.White;
+            this.roundPanel2.BackgroundColor = System.Drawing.Color.White;
+            this.roundPanel2.BorderColor = System.Drawing.Color.LightGray;
+            this.roundPanel2.BorderRadius = 5;
+            this.roundPanel2.BorderSize = 1;
+            this.roundPanel2.Controls.Add(this.label2);
+            this.roundPanel2.ForeColor = System.Drawing.Color.White;
+            this.roundPanel2.Location = new System.Drawing.Point(94, 5);
+            this.roundPanel2.Name = "roundPanel2";
+            this.roundPanel2.Size = new System.Drawing.Size(87, 25);
+            this.roundPanel2.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(8, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 19);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Phase Out";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // roundPanel3
+            // 
+            this.roundPanel3.BackColor = System.Drawing.Color.White;
+            this.roundPanel3.BackgroundColor = System.Drawing.Color.White;
+            this.roundPanel3.BorderColor = System.Drawing.Color.LightGray;
+            this.roundPanel3.BorderRadius = 5;
+            this.roundPanel3.BorderSize = 1;
+            this.roundPanel3.Controls.Add(this.label3);
+            this.roundPanel3.ForeColor = System.Drawing.Color.White;
+            this.roundPanel3.Location = new System.Drawing.Point(205, 5);
+            this.roundPanel3.Name = "roundPanel3";
+            this.roundPanel3.Size = new System.Drawing.Size(97, 25);
+            this.roundPanel3.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Silver;
+            this.label3.Location = new System.Drawing.Point(9, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 19);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Stop Selling";
             // 
             // lblStatus
             // 
@@ -695,10 +787,20 @@
             this.UserInfo.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.SizeRadioGroup.ResumeLayout(false);
-            this.SizeRadioGroup.PerformLayout();
-            this.StatusRadioGroup.ResumeLayout(false);
-            this.StatusRadioGroup.PerformLayout();
+            this.SizeGroup.ResumeLayout(false);
+            this.roundPanel4.ResumeLayout(false);
+            this.roundPanel4.PerformLayout();
+            this.roundPanel5.ResumeLayout(false);
+            this.roundPanel5.PerformLayout();
+            this.roundPanel6.ResumeLayout(false);
+            this.roundPanel6.PerformLayout();
+            this.StatusGroup.ResumeLayout(false);
+            this.roundPanel1.ResumeLayout(false);
+            this.roundPanel1.PerformLayout();
+            this.roundPanel2.ResumeLayout(false);
+            this.roundPanel2.PerformLayout();
+            this.roundPanel3.ResumeLayout(false);
+            this.roundPanel3.PerformLayout();
             this.UserInfoHeaderContainer.ResumeLayout(false);
             this.UserInfoHeaderContainer.PerformLayout();
             this.ResumeLayout(false);
@@ -734,16 +836,22 @@
         private CustomizeControl.CustomizeTextbox StockLevelTxt;
         private System.Windows.Forms.Label lblUserName;
         private CustomizeControl.CustomizeTextbox StockTxt;
-        private System.Windows.Forms.RadioButton sellRadio;
-        private System.Windows.Forms.RadioButton phaseOutRadio;
         private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Panel StatusRadioGroup;
+        private System.Windows.Forms.Panel StatusGroup;
         private System.Windows.Forms.Label lblDescription;
         private CustomizeControl.CustomizeTextbox DescriptionTxt;
-        private System.Windows.Forms.Panel SizeRadioGroup;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton stopSellRadio;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private CustomizeControl.RoundPanel roundPanel1;
+        private System.Windows.Forms.Label label1;
+        private CustomizeControl.RoundPanel roundPanel3;
+        private System.Windows.Forms.Label label3;
+        private CustomizeControl.RoundPanel roundPanel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel SizeGroup;
+        private CustomizeControl.RoundPanel roundPanel4;
+        private System.Windows.Forms.Label label4;
+        private CustomizeControl.RoundPanel roundPanel5;
+        private System.Windows.Forms.Label label5;
+        private CustomizeControl.RoundPanel roundPanel6;
+        private System.Windows.Forms.Label label6;
     }
 }

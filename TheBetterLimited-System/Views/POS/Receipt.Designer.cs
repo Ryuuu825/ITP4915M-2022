@@ -28,25 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receipt));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.MainForm = new System.Windows.Forms.Panel();
-            this.UserInfo = new System.Windows.Forms.Panel();
+            this.PaymentInfo = new System.Windows.Forms.Panel();
+            this.installDate = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.paymentMethod = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.final = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.deposit = new System.Windows.Forms.Label();
+            this.depositTxt = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.paid = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -65,48 +67,60 @@
             this.storeId = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.OrderItemDataGrid = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goodsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isDisplay = new System.Windows.Forms.DataGridViewImageColumn();
+            this.isInstall = new System.Windows.Forms.DataGridViewImageColumn();
+            this.line3 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.line2 = new System.Windows.Forms.Panel();
+            this.line1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
+            this.HeaderContainer = new System.Windows.Forms.Panel();
             this.orderId = new System.Windows.Forms.Label();
             this.barcode = new System.Windows.Forms.PictureBox();
             this.CompanyInfo = new System.Windows.Forms.Panel();
             this.CompanyTitle1 = new System.Windows.Forms.Label();
             this.CompanyTitle0 = new System.Windows.Forms.Label();
             this.CompanyIcon = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.line4 = new System.Windows.Forms.Panel();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointment = new System.Windows.Forms.DataGridViewImageColumn();
+            this.CustomerInfo = new System.Windows.Forms.Panel();
+            this.StoreInfo = new System.Windows.Forms.Panel();
+            this.Footer = new System.Windows.Forms.Panel();
             this.MainForm.SuspendLayout();
-            this.UserInfo.SuspendLayout();
+            this.PaymentInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemDataGrid)).BeginInit();
-            this.UserInfoHeaderContainer.SuspendLayout();
+            this.HeaderContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barcode)).BeginInit();
             this.CompanyInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).BeginInit();
+            this.CustomerInfo.SuspendLayout();
+            this.StoreInfo.SuspendLayout();
+            this.Footer.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainForm
             // 
             this.MainForm.BackColor = System.Drawing.Color.White;
-            this.MainForm.Controls.Add(this.UserInfo);
+            this.MainForm.Controls.Add(this.OrderItemDataGrid);
+            this.MainForm.Controls.Add(this.CustomerInfo);
+            this.MainForm.Controls.Add(this.PaymentInfo);
+            this.MainForm.Controls.Add(this.Footer);
+            this.MainForm.Controls.Add(this.StoreInfo);
+            this.MainForm.Controls.Add(this.HeaderContainer);
             this.MainForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainForm.Location = new System.Drawing.Point(0, 0);
             this.MainForm.Margin = new System.Windows.Forms.Padding(0);
@@ -114,59 +128,59 @@
             this.MainForm.Size = new System.Drawing.Size(1040, 916);
             this.MainForm.TabIndex = 2;
             // 
-            // UserInfo
+            // PaymentInfo
             // 
-            this.UserInfo.BackColor = System.Drawing.Color.White;
-            this.UserInfo.Controls.Add(this.paymentMethod);
-            this.UserInfo.Controls.Add(this.label19);
-            this.UserInfo.Controls.Add(this.final);
-            this.UserInfo.Controls.Add(this.label15);
-            this.UserInfo.Controls.Add(this.label18);
-            this.UserInfo.Controls.Add(this.deposit);
-            this.UserInfo.Controls.Add(this.label17);
-            this.UserInfo.Controls.Add(this.paid);
-            this.UserInfo.Controls.Add(this.label14);
-            this.UserInfo.Controls.Add(this.totalAmount);
-            this.UserInfo.Controls.Add(this.printDate);
-            this.UserInfo.Controls.Add(this.label13);
-            this.UserInfo.Controls.Add(this.area);
-            this.UserInfo.Controls.Add(this.label12);
-            this.UserInfo.Controls.Add(this.deliveryDate);
-            this.UserInfo.Controls.Add(this.deliveryAddress);
-            this.UserInfo.Controls.Add(this.tel);
-            this.UserInfo.Controls.Add(this.cusName);
-            this.UserInfo.Controls.Add(this.transcationDate);
-            this.UserInfo.Controls.Add(this.storeAddress);
-            this.UserInfo.Controls.Add(this.salesId);
-            this.UserInfo.Controls.Add(this.storeId);
-            this.UserInfo.Controls.Add(this.label10);
-            this.UserInfo.Controls.Add(this.OrderItemDataGrid);
-            this.UserInfo.Controls.Add(this.panel4);
-            this.UserInfo.Controls.Add(this.label9);
-            this.UserInfo.Controls.Add(this.label8);
-            this.UserInfo.Controls.Add(this.label7);
-            this.UserInfo.Controls.Add(this.label6);
-            this.UserInfo.Controls.Add(this.panel3);
-            this.UserInfo.Controls.Add(this.panel2);
-            this.UserInfo.Controls.Add(this.label5);
-            this.UserInfo.Controls.Add(this.label4);
-            this.UserInfo.Controls.Add(this.label3);
-            this.UserInfo.Controls.Add(this.label2);
-            this.UserInfo.Controls.Add(this.label1);
-            this.UserInfo.Controls.Add(this.UserInfoHeaderContainer);
-            this.UserInfo.Controls.Add(this.panel5);
-            this.UserInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UserInfo.Location = new System.Drawing.Point(0, 0);
-            this.UserInfo.Margin = new System.Windows.Forms.Padding(4);
-            this.UserInfo.Name = "UserInfo";
-            this.UserInfo.Size = new System.Drawing.Size(1040, 916);
-            this.UserInfo.TabIndex = 24;
-            this.UserInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.UserInfo_Paint);
+            this.PaymentInfo.BackColor = System.Drawing.Color.White;
+            this.PaymentInfo.Controls.Add(this.line3);
+            this.PaymentInfo.Controls.Add(this.paymentMethod);
+            this.PaymentInfo.Controls.Add(this.label19);
+            this.PaymentInfo.Controls.Add(this.final);
+            this.PaymentInfo.Controls.Add(this.label15);
+            this.PaymentInfo.Controls.Add(this.depositTxt);
+            this.PaymentInfo.Controls.Add(this.label17);
+            this.PaymentInfo.Controls.Add(this.paid);
+            this.PaymentInfo.Controls.Add(this.label14);
+            this.PaymentInfo.Controls.Add(this.totalAmount);
+            this.PaymentInfo.Controls.Add(this.label13);
+            this.PaymentInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PaymentInfo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaymentInfo.ForeColor = System.Drawing.Color.Black;
+            this.PaymentInfo.Location = new System.Drawing.Point(0, 756);
+            this.PaymentInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.PaymentInfo.Name = "PaymentInfo";
+            this.PaymentInfo.Size = new System.Drawing.Size(1040, 111);
+            this.PaymentInfo.TabIndex = 24;
+            this.PaymentInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.UserInfo_Paint);
+            // 
+            // installDate
+            // 
+            this.installDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.installDate.ForeColor = System.Drawing.Color.Black;
+            this.installDate.Location = new System.Drawing.Point(403, 97);
+            this.installDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.installDate.Name = "installDate";
+            this.installDate.Size = new System.Drawing.Size(611, 17);
+            this.installDate.TabIndex = 59;
+            this.installDate.Text = "#install date & time";
+            this.installDate.UseMnemonic = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Black;
+            this.label16.Location = new System.Drawing.Point(15, 97);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(330, 17);
+            this.label16.TabIndex = 58;
+            this.label16.Text = "預計安裝日期與時間 Expect Delivery Date & Time:";
+            this.label16.UseMnemonic = false;
             // 
             // paymentMethod
             // 
             this.paymentMethod.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paymentMethod.Location = new System.Drawing.Point(173, 798);
+            this.paymentMethod.Location = new System.Drawing.Point(173, 62);
             this.paymentMethod.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.paymentMethod.Name = "paymentMethod";
             this.paymentMethod.Size = new System.Drawing.Size(154, 24);
@@ -178,7 +192,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(18, 798);
+            this.label19.Location = new System.Drawing.Point(18, 62);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(124, 17);
@@ -188,7 +202,7 @@
             // final
             // 
             this.final.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.final.Location = new System.Drawing.Point(812, 798);
+            this.final.Location = new System.Drawing.Point(812, 62);
             this.final.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.final.Name = "final";
             this.final.Size = new System.Drawing.Size(205, 40);
@@ -199,7 +213,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(661, 798);
+            this.label15.Location = new System.Drawing.Point(661, 62);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(133, 17);
@@ -210,38 +224,38 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(339, 870);
+            this.label18.Location = new System.Drawing.Point(367, 10);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(307, 30);
             this.label18.TabIndex = 53;
             this.label18.Text = "Thank You For Your Purchase!";
             // 
-            // deposit
+            // depositTxt
             // 
-            this.deposit.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deposit.Location = new System.Drawing.Point(133, 735);
-            this.deposit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.deposit.Name = "deposit";
-            this.deposit.Size = new System.Drawing.Size(220, 40);
-            this.deposit.TabIndex = 52;
-            this.deposit.Text = "#deposit";
+            this.depositTxt.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.depositTxt.Location = new System.Drawing.Point(154, 12);
+            this.depositTxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.depositTxt.Name = "depositTxt";
+            this.depositTxt.Size = new System.Drawing.Size(177, 40);
+            this.depositTxt.TabIndex = 52;
+            this.depositTxt.Text = "#deposit";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(18, 735);
+            this.label17.Location = new System.Drawing.Point(18, 12);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(93, 17);
+            this.label17.Size = new System.Drawing.Size(125, 17);
             this.label17.TabIndex = 51;
-            this.label17.Text = "Deposit 訂金:";
+            this.label17.Text = "Deposit 所需訂金:";
             // 
             // paid
             // 
             this.paid.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paid.Location = new System.Drawing.Point(844, 735);
+            this.paid.Location = new System.Drawing.Point(844, 12);
             this.paid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.paid.Name = "paid";
             this.paid.Size = new System.Drawing.Size(174, 40);
@@ -252,7 +266,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(752, 735);
+            this.label14.Location = new System.Drawing.Point(752, 12);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(73, 17);
@@ -262,7 +276,7 @@
             // totalAmount
             // 
             this.totalAmount.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalAmount.Location = new System.Drawing.Point(520, 735);
+            this.totalAmount.Location = new System.Drawing.Point(520, 12);
             this.totalAmount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.totalAmount.Name = "totalAmount";
             this.totalAmount.Size = new System.Drawing.Size(226, 40);
@@ -272,7 +286,8 @@
             // printDate
             // 
             this.printDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printDate.Location = new System.Drawing.Point(815, 135);
+            this.printDate.ForeColor = System.Drawing.Color.Black;
+            this.printDate.Location = new System.Drawing.Point(814, 3);
             this.printDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.printDate.Name = "printDate";
             this.printDate.Size = new System.Drawing.Size(208, 17);
@@ -284,7 +299,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(360, 735);
+            this.label13.Location = new System.Drawing.Point(360, 12);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(130, 17);
@@ -294,7 +309,7 @@
             // area
             // 
             this.area.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.area.Location = new System.Drawing.Point(860, 287);
+            this.area.Location = new System.Drawing.Point(853, 8);
             this.area.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.area.Name = "area";
             this.area.Size = new System.Drawing.Size(162, 17);
@@ -306,7 +321,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(766, 287);
+            this.label12.Location = new System.Drawing.Point(763, 8);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(75, 17);
@@ -316,7 +331,7 @@
             // deliveryDate
             // 
             this.deliveryDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deliveryDate.Location = new System.Drawing.Point(406, 350);
+            this.deliveryDate.Location = new System.Drawing.Point(403, 71);
             this.deliveryDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.deliveryDate.Name = "deliveryDate";
             this.deliveryDate.Size = new System.Drawing.Size(611, 17);
@@ -327,7 +342,7 @@
             // deliveryAddress
             // 
             this.deliveryAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deliveryAddress.Location = new System.Drawing.Point(232, 318);
+            this.deliveryAddress.Location = new System.Drawing.Point(229, 39);
             this.deliveryAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.deliveryAddress.Name = "deliveryAddress";
             this.deliveryAddress.Size = new System.Drawing.Size(786, 17);
@@ -338,7 +353,7 @@
             // tel
             // 
             this.tel.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tel.Location = new System.Drawing.Point(565, 287);
+            this.tel.Location = new System.Drawing.Point(561, 8);
             this.tel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.tel.Name = "tel";
             this.tel.Size = new System.Drawing.Size(194, 17);
@@ -349,7 +364,7 @@
             // cusName
             // 
             this.cusName.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cusName.Location = new System.Drawing.Point(229, 287);
+            this.cusName.Location = new System.Drawing.Point(229, 8);
             this.cusName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.cusName.Name = "cusName";
             this.cusName.Size = new System.Drawing.Size(206, 17);
@@ -359,49 +374,58 @@
             // transcationDate
             // 
             this.transcationDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transcationDate.Location = new System.Drawing.Point(236, 240);
+            this.transcationDate.ForeColor = System.Drawing.Color.Black;
+            this.transcationDate.Location = new System.Drawing.Point(229, 100);
             this.transcationDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.transcationDate.Name = "transcationDate";
             this.transcationDate.Size = new System.Drawing.Size(766, 24);
             this.transcationDate.TabIndex = 39;
             this.transcationDate.Text = "#transcation date";
+            this.transcationDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.transcationDate.UseMnemonic = false;
             // 
             // storeAddress
             // 
             this.storeAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.storeAddress.Location = new System.Drawing.Point(217, 209);
+            this.storeAddress.ForeColor = System.Drawing.Color.Black;
+            this.storeAddress.Location = new System.Drawing.Point(216, 74);
             this.storeAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.storeAddress.Name = "storeAddress";
             this.storeAddress.Size = new System.Drawing.Size(786, 24);
             this.storeAddress.TabIndex = 38;
             this.storeAddress.Text = "#store address";
+            this.storeAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // salesId
             // 
             this.salesId.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesId.Location = new System.Drawing.Point(508, 182);
+            this.salesId.ForeColor = System.Drawing.Color.Black;
+            this.salesId.Location = new System.Drawing.Point(504, 46);
             this.salesId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.salesId.Name = "salesId";
             this.salesId.Size = new System.Drawing.Size(218, 24);
             this.salesId.TabIndex = 37;
             this.salesId.Text = "#salesId";
+            this.salesId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // storeId
             // 
             this.storeId.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.storeId.Location = new System.Drawing.Point(173, 182);
+            this.storeId.ForeColor = System.Drawing.Color.Black;
+            this.storeId.Location = new System.Drawing.Point(170, 48);
             this.storeId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.storeId.Name = "storeId";
-            this.storeId.Size = new System.Drawing.Size(210, 24);
+            this.storeId.Size = new System.Drawing.Size(210, 21);
             this.storeId.TabIndex = 36;
             this.storeId.Text = "#storeId";
+            this.storeId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(646, 135);
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(642, 3);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(140, 17);
@@ -414,89 +438,183 @@
             this.OrderItemDataGrid.AllowUserToOrderColumns = true;
             this.OrderItemDataGrid.AllowUserToResizeColumns = false;
             this.OrderItemDataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            this.OrderItemDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            this.OrderItemDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.OrderItemDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.OrderItemDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.OrderItemDataGrid.BackgroundColor = System.Drawing.Color.White;
             this.OrderItemDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OrderItemDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.OrderItemDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.OrderItemDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OrderItemDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.OrderItemDataGrid.ColumnHeadersHeight = 50;
             this.OrderItemDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.OrderItemDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.goodsID,
-            this.ID,
-            this.Price,
-            this.CreatorId,
-            this.Amount,
-            this.appointment});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.OrderItemDataGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            this.goodsName,
+            this.price,
+            this.qty,
+            this.amount,
+            this.isDisplay,
+            this.isInstall});
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.OrderItemDataGrid.DefaultCellStyle = dataGridViewCellStyle18;
+            this.OrderItemDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OrderItemDataGrid.EnableHeadersVisualStyles = false;
             this.OrderItemDataGrid.GridColor = System.Drawing.Color.White;
-            this.OrderItemDataGrid.Location = new System.Drawing.Point(8, 387);
+            this.OrderItemDataGrid.Location = new System.Drawing.Point(0, 404);
             this.OrderItemDataGrid.Margin = new System.Windows.Forms.Padding(0);
             this.OrderItemDataGrid.MultiSelect = false;
             this.OrderItemDataGrid.Name = "OrderItemDataGrid";
             this.OrderItemDataGrid.ReadOnly = true;
             this.OrderItemDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrderItemDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OrderItemDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.OrderItemDataGrid.RowHeadersVisible = false;
             this.OrderItemDataGrid.RowHeadersWidth = 30;
             this.OrderItemDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle10.NullValue = null;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.OrderItemDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle20.NullValue = null;
+            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.OrderItemDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.OrderItemDataGrid.RowTemplate.Height = 30;
             this.OrderItemDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.OrderItemDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.OrderItemDataGrid.Size = new System.Drawing.Size(1018, 327);
+            this.OrderItemDataGrid.Size = new System.Drawing.Size(1040, 352);
             this.OrderItemDataGrid.StandardTab = true;
             this.OrderItemDataGrid.TabIndex = 34;
+            this.OrderItemDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.OrderItemDataGrid_CellFormatting);
             // 
-            // panel4
+            // goodsID
             // 
-            this.panel4.BackColor = System.Drawing.Color.DimGray;
-            this.panel4.Location = new System.Drawing.Point(0, 727);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1034, 1);
-            this.panel4.TabIndex = 30;
+            this.goodsID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.goodsID.DataPropertyName = "goodsId";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.goodsID.DefaultCellStyle = dataGridViewCellStyle13;
+            this.goodsID.HeaderText = "識別編號 ID No.";
+            this.goodsID.Name = "goodsID";
+            this.goodsID.ReadOnly = true;
+            this.goodsID.ToolTipText = "Goods ID";
+            this.goodsID.Width = 107;
+            // 
+            // goodsName
+            // 
+            this.goodsName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.goodsName.DataPropertyName = "goodsName";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.goodsName.DefaultCellStyle = dataGridViewCellStyle14;
+            this.goodsName.HeaderText = "貨品 Product";
+            this.goodsName.MinimumWidth = 6;
+            this.goodsName.Name = "goodsName";
+            this.goodsName.ReadOnly = true;
+            this.goodsName.ToolTipText = "Goods Name";
+            // 
+            // price
+            // 
+            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.price.DataPropertyName = "price";
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.Format = "C2";
+            dataGridViewCellStyle15.NullValue = null;
+            this.price.DefaultCellStyle = dataGridViewCellStyle15;
+            this.price.HeaderText = "單價 Unit Price";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.ToolTipText = "Unit Price";
+            this.price.Width = 119;
+            // 
+            // qty
+            // 
+            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.qty.DataPropertyName = "qty";
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.qty.DefaultCellStyle = dataGridViewCellStyle16;
+            this.qty.HeaderText = "數量 Qty";
+            this.qty.MinimumWidth = 6;
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.ToolTipText = "Quantity";
+            this.qty.Width = 70;
+            // 
+            // amount
+            // 
+            this.amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.amount.DataPropertyName = "amount";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.Format = "C2";
+            dataGridViewCellStyle17.NullValue = null;
+            this.amount.DefaultCellStyle = dataGridViewCellStyle17;
+            this.amount.HeaderText = "金額 Amount";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            this.amount.ToolTipText = "Sub amount";
+            this.amount.Width = 110;
+            // 
+            // isDisplay
+            // 
+            this.isDisplay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.isDisplay.HeaderText = "展示商品 Display Item";
+            this.isDisplay.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.isDisplay.MinimumWidth = 6;
+            this.isDisplay.Name = "isDisplay";
+            this.isDisplay.ReadOnly = true;
+            this.isDisplay.ToolTipText = "Is display item?";
+            this.isDisplay.Width = 114;
+            // 
+            // isInstall
+            // 
+            this.isInstall.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.isInstall.DataPropertyName = "isInstall";
+            this.isInstall.HeaderText = "是否安裝 Need Install";
+            this.isInstall.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.isInstall.Name = "isInstall";
+            this.isInstall.ReadOnly = true;
+            this.isInstall.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.isInstall.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.isInstall.Width = 124;
+            // 
+            // line3
+            // 
+            this.line3.BackColor = System.Drawing.Color.DimGray;
+            this.line3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.line3.Location = new System.Drawing.Point(0, 0);
+            this.line3.Margin = new System.Windows.Forms.Padding(0);
+            this.line3.Name = "line3";
+            this.line3.Size = new System.Drawing.Size(1040, 1);
+            this.line3.TabIndex = 30;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(18, 350);
+            this.label9.Location = new System.Drawing.Point(15, 71);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(330, 17);
@@ -508,7 +626,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(486, 287);
+            this.label8.Location = new System.Drawing.Point(490, 8);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 17);
@@ -519,7 +637,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(16, 318);
+            this.label7.Location = new System.Drawing.Point(10, 39);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(181, 17);
@@ -530,36 +648,39 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(16, 287);
+            this.label6.Location = new System.Drawing.Point(13, 8);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(178, 17);
             this.label6.TabIndex = 30;
             this.label6.Text = "顧客姓名 Customer Name:";
             // 
-            // panel3
+            // line2
             // 
-            this.panel3.BackColor = System.Drawing.Color.DimGray;
-            this.panel3.Location = new System.Drawing.Point(0, 380);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1034, 1);
-            this.panel3.TabIndex = 29;
+            this.line2.BackColor = System.Drawing.Color.DimGray;
+            this.line2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.line2.Location = new System.Drawing.Point(0, 129);
+            this.line2.Margin = new System.Windows.Forms.Padding(0);
+            this.line2.Name = "line2";
+            this.line2.Size = new System.Drawing.Size(1040, 1);
+            this.line2.TabIndex = 29;
             // 
-            // panel2
+            // line1
             // 
-            this.panel2.BackColor = System.Drawing.Color.Gray;
-            this.panel2.Location = new System.Drawing.Point(0, 276);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1034, 1);
-            this.panel2.TabIndex = 28;
+            this.line1.BackColor = System.Drawing.Color.Gray;
+            this.line1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.line1.Location = new System.Drawing.Point(0, 143);
+            this.line1.Margin = new System.Windows.Forms.Padding(0);
+            this.line1.Name = "line1";
+            this.line1.Size = new System.Drawing.Size(1040, 1);
+            this.line1.TabIndex = 28;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 244);
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(12, 104);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(184, 17);
@@ -570,7 +691,8 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 213);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(13, 78);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(168, 17);
@@ -581,7 +703,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(388, 182);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(388, 50);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 17);
@@ -592,7 +715,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(16, 182);
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(13, 50);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(132, 17);
@@ -603,42 +727,43 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 135);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(9, 3);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 40);
             this.label1.TabIndex = 21;
             this.label1.Text = "Receipt";
             // 
-            // UserInfoHeaderContainer
+            // HeaderContainer
             // 
-            this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
-            this.UserInfoHeaderContainer.Controls.Add(this.orderId);
-            this.UserInfoHeaderContainer.Controls.Add(this.barcode);
-            this.UserInfoHeaderContainer.Controls.Add(this.CompanyInfo);
-            this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
-            this.UserInfoHeaderContainer.Margin = new System.Windows.Forms.Padding(4);
-            this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
-            this.UserInfoHeaderContainer.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
-            this.UserInfoHeaderContainer.Size = new System.Drawing.Size(1040, 130);
-            this.UserInfoHeaderContainer.TabIndex = 20;
+            this.HeaderContainer.BackColor = System.Drawing.Color.White;
+            this.HeaderContainer.Controls.Add(this.orderId);
+            this.HeaderContainer.Controls.Add(this.barcode);
+            this.HeaderContainer.Controls.Add(this.CompanyInfo);
+            this.HeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.HeaderContainer.Location = new System.Drawing.Point(0, 0);
+            this.HeaderContainer.Margin = new System.Windows.Forms.Padding(4);
+            this.HeaderContainer.Name = "HeaderContainer";
+            this.HeaderContainer.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
+            this.HeaderContainer.Size = new System.Drawing.Size(1040, 130);
+            this.HeaderContainer.TabIndex = 20;
             // 
             // orderId
             // 
             this.orderId.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.orderId.Location = new System.Drawing.Point(758, 105);
+            this.orderId.Location = new System.Drawing.Point(758, 106);
             this.orderId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.orderId.Name = "orderId";
-            this.orderId.Size = new System.Drawing.Size(247, 24);
+            this.orderId.Size = new System.Drawing.Size(247, 23);
             this.orderId.TabIndex = 48;
             this.orderId.Text = "#order Id";
-            this.orderId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.orderId.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.orderId.UseMnemonic = false;
             // 
             // barcode
             // 
-            this.barcode.Location = new System.Drawing.Point(736, 7);
+            this.barcode.Location = new System.Drawing.Point(736, 11);
             this.barcode.Margin = new System.Windows.Forms.Padding(4);
             this.barcode.Name = "barcode";
             this.barcode.Size = new System.Drawing.Size(289, 95);
@@ -695,14 +820,15 @@
             this.CompanyIcon.TabIndex = 0;
             this.CompanyIcon.TabStop = false;
             // 
-            // panel5
+            // line4
             // 
-            this.panel5.BackColor = System.Drawing.Color.DimGray;
-            this.panel5.Location = new System.Drawing.Point(0, 853);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1034, 1);
-            this.panel5.TabIndex = 31;
+            this.line4.BackColor = System.Drawing.Color.DimGray;
+            this.line4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.line4.Location = new System.Drawing.Point(0, 0);
+            this.line4.Margin = new System.Windows.Forms.Padding(0);
+            this.line4.Name = "line4";
+            this.line4.Size = new System.Drawing.Size(1040, 1);
+            this.line4.TabIndex = 31;
             // 
             // printDocument2
             // 
@@ -728,83 +854,58 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ToolTipText = "Is display item?";
             // 
-            // goodsID
+            // CustomerInfo
             // 
-            this.goodsID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.goodsID.DataPropertyName = "goodsId";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.goodsID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.goodsID.HeaderText = "識別編號 ID No.";
-            this.goodsID.Name = "goodsID";
-            this.goodsID.ReadOnly = true;
-            this.goodsID.ToolTipText = "Goods ID";
-            this.goodsID.Width = 136;
+            this.CustomerInfo.Controls.Add(this.line2);
+            this.CustomerInfo.Controls.Add(this.label16);
+            this.CustomerInfo.Controls.Add(this.installDate);
+            this.CustomerInfo.Controls.Add(this.deliveryDate);
+            this.CustomerInfo.Controls.Add(this.label9);
+            this.CustomerInfo.Controls.Add(this.deliveryAddress);
+            this.CustomerInfo.Controls.Add(this.label7);
+            this.CustomerInfo.Controls.Add(this.label6);
+            this.CustomerInfo.Controls.Add(this.cusName);
+            this.CustomerInfo.Controls.Add(this.tel);
+            this.CustomerInfo.Controls.Add(this.label8);
+            this.CustomerInfo.Controls.Add(this.label12);
+            this.CustomerInfo.Controls.Add(this.area);
+            this.CustomerInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CustomerInfo.ForeColor = System.Drawing.Color.Black;
+            this.CustomerInfo.Location = new System.Drawing.Point(0, 274);
+            this.CustomerInfo.Name = "CustomerInfo";
+            this.CustomerInfo.Size = new System.Drawing.Size(1040, 130);
+            this.CustomerInfo.TabIndex = 0;
             // 
-            // ID
+            // StoreInfo
             // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ID.DataPropertyName = "goodsName";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ID.HeaderText = "貨品 Product";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.ToolTipText = "Goods Name";
+            this.StoreInfo.Controls.Add(this.line1);
+            this.StoreInfo.Controls.Add(this.transcationDate);
+            this.StoreInfo.Controls.Add(this.label5);
+            this.StoreInfo.Controls.Add(this.label4);
+            this.StoreInfo.Controls.Add(this.storeAddress);
+            this.StoreInfo.Controls.Add(this.storeId);
+            this.StoreInfo.Controls.Add(this.label2);
+            this.StoreInfo.Controls.Add(this.label3);
+            this.StoreInfo.Controls.Add(this.salesId);
+            this.StoreInfo.Controls.Add(this.label1);
+            this.StoreInfo.Controls.Add(this.label10);
+            this.StoreInfo.Controls.Add(this.printDate);
+            this.StoreInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.StoreInfo.ForeColor = System.Drawing.Color.Black;
+            this.StoreInfo.Location = new System.Drawing.Point(0, 130);
+            this.StoreInfo.Name = "StoreInfo";
+            this.StoreInfo.Size = new System.Drawing.Size(1040, 144);
+            this.StoreInfo.TabIndex = 58;
             // 
-            // Price
+            // Footer
             // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Price.DataPropertyName = "price";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Price.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Price.HeaderText = "單價 Unit Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.ToolTipText = "Unit Price";
-            this.Price.Width = 129;
-            // 
-            // CreatorId
-            // 
-            this.CreatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CreatorId.DataPropertyName = "qty";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CreatorId.DefaultCellStyle = dataGridViewCellStyle6;
-            this.CreatorId.HeaderText = "數量 Qty";
-            this.CreatorId.MinimumWidth = 6;
-            this.CreatorId.Name = "CreatorId";
-            this.CreatorId.ReadOnly = true;
-            this.CreatorId.ToolTipText = "Quantity";
-            this.CreatorId.Width = 94;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Amount.DataPropertyName = "amount";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Amount.HeaderText = "金額 Amount";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.ToolTipText = "Sub amount";
-            this.Amount.Width = 119;
-            // 
-            // appointment
-            // 
-            this.appointment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.appointment.HeaderText = "展示商品 Display Item";
-            this.appointment.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.appointment.MinimumWidth = 6;
-            this.appointment.Name = "appointment";
-            this.appointment.ReadOnly = true;
-            this.appointment.ToolTipText = "Is display item?";
-            this.appointment.Width = 151;
+            this.Footer.Controls.Add(this.line4);
+            this.Footer.Controls.Add(this.label18);
+            this.Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Footer.Location = new System.Drawing.Point(0, 867);
+            this.Footer.Name = "Footer";
+            this.Footer.Size = new System.Drawing.Size(1040, 49);
+            this.Footer.TabIndex = 58;
             // 
             // Receipt
             // 
@@ -821,24 +922,29 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Receipt";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Receipt_FormClosed);
             this.MainForm.ResumeLayout(false);
-            this.UserInfo.ResumeLayout(false);
-            this.UserInfo.PerformLayout();
+            this.PaymentInfo.ResumeLayout(false);
+            this.PaymentInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemDataGrid)).EndInit();
-            this.UserInfoHeaderContainer.ResumeLayout(false);
+            this.HeaderContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             this.CompanyInfo.ResumeLayout(false);
             this.CompanyInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).EndInit();
+            this.CustomerInfo.ResumeLayout(false);
+            this.CustomerInfo.PerformLayout();
+            this.StoreInfo.ResumeLayout(false);
+            this.StoreInfo.PerformLayout();
+            this.Footer.ResumeLayout(false);
+            this.Footer.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel MainForm;
-        private System.Windows.Forms.Panel UserInfo;
-        private System.Windows.Forms.Panel UserInfoHeaderContainer;
+        private System.Windows.Forms.Panel PaymentInfo;
+        private System.Windows.Forms.Panel HeaderContainer;
         private System.Drawing.Printing.PrintDocument printDocument2;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Panel CompanyInfo;
@@ -848,8 +954,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox barcode;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel line2;
+        private System.Windows.Forms.Panel line1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -870,9 +976,9 @@
         private System.Windows.Forms.Label area;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel line3;
         private System.Windows.Forms.Label printDate;
-        private System.Windows.Forms.Label deposit;
+        private System.Windows.Forms.Label depositTxt;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label paid;
         private System.Windows.Forms.Label label14;
@@ -882,14 +988,20 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label paymentMethod;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel line4;
         private System.Windows.Forms.Label orderId;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.Label installDate;
+        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridViewTextBoxColumn goodsID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreatorId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewImageColumn appointment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goodsName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
+        private System.Windows.Forms.DataGridViewImageColumn isDisplay;
+        private System.Windows.Forms.DataGridViewImageColumn isInstall;
+        private System.Windows.Forms.Panel CustomerInfo;
+        private System.Windows.Forms.Panel StoreInfo;
+        private System.Windows.Forms.Panel Footer;
     }
 }

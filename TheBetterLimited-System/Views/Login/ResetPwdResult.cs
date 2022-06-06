@@ -28,7 +28,6 @@ namespace TheBetterLimited.Views
             this.username = username;
             this.email = email;
             this.msg = msg;
-            Console.WriteLine(username + " " + email);
             InitializeComponent();
             Msg.Text = msg;
         }
@@ -44,14 +43,14 @@ namespace TheBetterLimited.Views
         {
             LoginController loginController = new LoginController();
             var result = loginController.ResetPassword(username, email);
-            if (result.Code.Equals("200"))
+            if (result.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 Msg.Text = "Email has been resent! \n Please check your mail box (or junk box also).";
                 resendTimer.Start();
             }
             else
             {
-                string str = result.ToString();
+                string str = result.Content;
                 MessageBox.Show(str, "Resend Email Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

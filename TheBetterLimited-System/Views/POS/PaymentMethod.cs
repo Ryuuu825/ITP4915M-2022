@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -22,10 +23,12 @@ namespace TheBetterLimited.Views
     public partial class PaymentMethod : Form
     {
         private RestResponse response = new RestResponse();
-        private ControllerBase cbOrder= new ControllerBase("Order/Create");
+        private ControllerBase cbOrder = new ControllerBase("Order/Create");
         public double totalAmount { get; set; }
         private int selectedMethod = 0;
-        public Dictionary<string,object> data = new Dictionary<string,object>();
+        private bool needBook;
+        public Dictionary<string, object> data = new Dictionary<string, object>();
+        BackgroundWorker bgWorker = new BackgroundWorker();
 
         public event Action OnExit;
 
@@ -39,32 +42,79 @@ namespace TheBetterLimited.Views
             if (((PaymentPicBox)PaymentMethodBox.Controls[0]).IsSelected)
             {
                 CashPayment();
-            }else
-            {
-                DigitPayment();
             }
-        }
+            else
+            {
 
-        private async void DigitPayment()
-        {
-            WaitResult waitResult = new WaitResult();
-            this.Hide();
-            waitResult.ShowDialog();
+            }
         }
 
         private void CashPayment()
         {
-            Console.WriteLine(totalAmount);
-            DialogResult result = MessageBox.Show("Total Amount is " + String.Format("{0:C2}", totalAmount)
-                + "\nDose customer have paid?", "Confirm payment", MessageBoxButtons.YesNoCancel);
+            DialogResult result = DialogResult.None;
+            if (needBook)
+            {
+                result = MessageBox.Show("Deposit is " + String.Format("{0:C2}", totalAmount * 0.2)
+                        + "\nDose customer have paid?", "Confirm payment", MessageBoxButtons.YesNo);
+            }
+            else
+            {
+                result = MessageBox.Show("Total Amount is " + String.Format("{0:C2}", totalAmount)
+                        + "\nDose customer have paid?", "Confirm payment", MessageBoxButtons.YesNo);
+            }
+            if (result == DialogResult.Yes)
+            {
+                //Create order
+                try
+                {
+                    WaitResult waitResult = new WaitResult();
+                    waitResult.Show();
+                    waitResult.TopMost = true;
+                    Console.WriteLine(JsonConvert.SerializeObject(data));
+                    bgWorker.RunWorkerAsync(response = cbOrder.Create(data));
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        waitResult.Close();
+                        waitResult.Dispose();
+                        Receipt receipt = new Receipt(response.Content);
+                        receipt.ShowDialog();
+                        ClearForm();
+                        Form appointment = Application.OpenForms["POS"];
+                        ((POS)appointment).ClearOrder();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Create Unsuccessful");
+                }
+            }
+        }
+
+        private void VirtualPayment()
+        {
+            DialogResult result = DialogResult.None;
+            if (needBook)
+            {
+                result = MessageBox.Show("Deposit is " + String.Format("{0:C2}", totalAmount * 0.2)
+                        + "\nAre you going to pay?", "Confirm payment", MessageBoxButtons.YesNo);
+            }
+            else
+            {
+                result = MessageBox.Show("Total Amount is " + String.Format("{0:C2}", totalAmount)
+                        + "\nAre you going to pay?", "Confirm payment", MessageBoxButtons.YesNo);
+            }
             if (result == DialogResult.Yes)
             {
                 //Create order
                 try
                 {
                     response = cbOrder.Create(data);
-                    if(response.StatusCode == System.Net.HttpStatusCode.OK)
+                    WaitResult waitResult = new WaitResult();
+                    waitResult.ShowDialog();
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
+                        waitResult.Close();
+                        waitResult.Dispose();
                         Receipt receipt = new Receipt(response.Content);
                         receipt.ShowDialog();
                         ClearForm();
@@ -73,18 +123,6 @@ namespace TheBetterLimited.Views
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Create Unsuccessful");
-                }
-            }
-            else if (result == DialogResult.Cancel)
-            {
-                MessageBox.Show("Do you really cancel the order?", "Warming", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    ClearForm();
-                }
-                else
-                {
-                    CashPayment();
                 }
             }
         }
@@ -107,7 +145,11 @@ namespace TheBetterLimited.Views
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            ClearForm();
+            DialogResult result = MessageBox.Show("Do you really cancel the payment?", "Warming", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                ClearForm();
+            }
         }
     }
 }

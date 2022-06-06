@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using RestSharp;
 using TheBetterLimited.Controller;
 using TheBetterLimited.CustomizeControl;
 using TheBetterLimited.Models;
@@ -24,10 +25,10 @@ namespace TheBetterLimited.Views
 
         private void chgPwdBtn_Click(object sender, EventArgs e)
         {
-            ReserPassword();
+            ResetPassword();
         }
 
-        private void ReserPassword()
+        private void ResetPassword()
         {
             int i = 1;
             foreach (Control ctl in changeInfo.Controls)
@@ -51,20 +52,20 @@ namespace TheBetterLimited.Views
              * access Api to get the responseCode and msg
              */
             LoginController loginController = new LoginController();
-            ResponseResult result = loginController.ResetPassword(userName.Texts, email.Texts);
+            RestResponse result = loginController.ResetPassword(userName.Texts, email.Texts);
             if (result == null)
             {
                 MessageBox.Show("Cannot connect to server!", "Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (result.Code.Equals("200"))
+            else if (result.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                ResetPwdResult resetResult = new ResetPwdResult(userName.Texts, email.Texts, result.Message);
+                ResetPwdResult resetResult = new ResetPwdResult(userName.Texts, email.Texts, result.Content);
                 resetResult.Show();
                 this.Dispose();
             }
             else
             {
-                string str = result.Message;
+                string str = result.Content;
                 MessageBox.Show(str, "Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -80,7 +81,7 @@ namespace TheBetterLimited.Views
         {
             if (e.KeyCode == Keys.Enter)
             {
-                ReserPassword();
+                ResetPassword();
             }
         }
     }

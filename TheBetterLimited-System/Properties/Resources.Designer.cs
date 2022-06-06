@@ -283,6 +283,16 @@ namespace TheBetterLimited.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eye24 {
+            get {
+                object obj = ResourceManager.GetObject("eye24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap google {
             get {
                 object obj = ResourceManager.GetObject("google", resourceCulture);
@@ -456,6 +466,16 @@ namespace TheBetterLimited.Properties {
         internal static System.Drawing.Bitmap portrait_free_icon_font {
             get {
                 object obj = ResourceManager.GetObject("portrait-free-icon-font", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap print24 {
+            get {
+                object obj = ResourceManager.GetObject("print24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -20,6 +20,7 @@ namespace TheBetterLimited.Views
     public partial class OrderManagement : Form
     {
         private UserController uc = new UserController();
+        private DataTable dt = new DataTable();
         private BindingSource bs = new BindingSource();
         private List<string> selecteOrderId = new List<string>();
         private DialogResult choose;
@@ -27,12 +28,13 @@ namespace TheBetterLimited.Views
         private bool isSawDetails = false;
         private ControllerBase cbOrder = new ControllerBase("Order");
         private string _storeId;
-        private List<JArray> orderItems = new List<JArray>();
+        private List<JObject> orderList = new List<JObject>();
 
         public OrderManagement()
         {
             InitializeComponent();
-            GetOrder();//init user table
+            InitDataTable();
+            GetOrder();//init table
         }
 
         /*
@@ -100,7 +102,7 @@ namespace TheBetterLimited.Views
                     order.Close();
                 }
                 OrderDetails od = new OrderDetails();
-                od.SetOrderItems(orderItems[e.RowIndex]);
+                od.SetOrderData(orderList[e.RowIndex]);
                 od.Show();
                 od.TopLevel = true;
                 od.OnExit += GetOrder;
@@ -119,6 +121,18 @@ namespace TheBetterLimited.Views
             GetOrder();
         }
 
+        private void InitDataTable()
+        {
+            dt.Columns.Add("orderID");
+            dt.Columns.Add("store");
+            dt.Columns.Add("creator");
+            dt.Columns.Add("operator");
+            dt.Columns.Add("createAt");
+            dt.Columns.Add("updateAt");
+            dt.Columns.Add("total");
+            dt.Columns.Add("paid");
+            dt.Columns.Add("status");
+        }
 
         /*
         * Dom Event Handler
@@ -140,25 +154,36 @@ namespace TheBetterLimited.Views
         //Get Order
         public void GetOrder()
         {
+            dt.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
             {
                 result = cbOrder.GetAll();
             }
             else
             {
-                string str = "id:" + this.SearchBarTxt.Texts + "|_creatorId:" + this.SearchBarTxt.Texts
-                            + "|status:" + this.SearchBarTxt.Texts + "|createAt:" + this.SearchBarTxt.Texts;
+                string str = "ID:" + this.SearchBarTxt.Texts + "|_creatorId:" + this.SearchBarTxt.Texts
+                            + "|Status:" + this.SearchBarTxt.Texts + "|createdAt:" + this.SearchBarTxt.Texts;
                 result = cbOrder.GetByQueryString(str);
             }
             try
             {
-                DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
-                JArray orderList = JArray.Parse(result.Content);
-                foreach (var row in orderList)
+                JArray orders = JArray.Parse(result.Content);
+                foreach (JObject o in orders)
                 {
-                    orderItems.Add((JArray)row["orderItems"]);
+                    orderList.Add(o);
+                    var row = dt.NewRow();
+                    row["orderID"] = o["Id"].ToString();
+                    row["store"] = o["store"]["location"]["name"].ToString();
+                    row["creator"] = o["_creatorId"].ToString();
+                    row["operator"] = o["_operatorId"].ToString();
+                    row["createAt"] = ((DateTime)o["createAt"]).ToString("g");
+                    row["updateAt"] = ((DateTime)o["updateAt"]).ToString("g");
+                    row["total"] = String.Format("{0:C2}",o["total"]);
+                    row["paid"] = String.Format("{0:C2}", o["paid"]); ;
+                    row["status"] = o["status"].ToString();
+                    dt.Rows.Add(row);
                 }
-                bs.DataSource = dataTable;
+                bs.DataSource = dt;
                 OrderDataGrid.AutoGenerateColumns = false;
                 OrderDataGrid.DataSource = bs;
                 InitializeDataGridView();

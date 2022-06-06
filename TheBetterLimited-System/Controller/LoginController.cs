@@ -43,7 +43,7 @@ namespace TheBetterLimited.Controller
         /**
          * reset password
          */
-        public ResponseResult ResetPassword(string username, string email)
+        public RestResponse ResetPassword(string username, string email)
         {
             string l = CultureInfo.CurrentCulture.Name.Split('-')[0];
             var json = new { userName = username, emailAddress = email, lang = l };
@@ -53,9 +53,7 @@ namespace TheBetterLimited.Controller
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
-                var res = JObject.Parse(response.Content);
-                ResponseResult values = new ResponseResult(res["status"].ToString(), res["message"].ToString());
-                return values;
+                return response;
             }
             catch (Exception ex)
             {

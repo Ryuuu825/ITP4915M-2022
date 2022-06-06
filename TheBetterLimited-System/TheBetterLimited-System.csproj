@@ -127,7 +127,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CatalogueEnum.cs" />
+    <Compile Include="Utils\CatalogueEnum.cs" />
     <Compile Include="Controller\ControllerBase.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\GoodsController.cs" />
@@ -179,14 +179,10 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AppointmentInfo.cs" />
     <Compile Include="Models\CustomerInfo.cs" />
-    <Compile Include="Models\Department.cs" />
-    <Compile Include="Models\ErrorMsg.cs" />
     <Compile Include="Models\GlobalsData.cs" />
     <Compile Include="Models\OrderItem.cs" />
-    <Compile Include="Models\ResponseResult.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\StaffModel.cs" />
-    <Compile Include="Models\Status.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -777,6 +773,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\check24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />
