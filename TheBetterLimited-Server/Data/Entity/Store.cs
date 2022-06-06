@@ -14,5 +14,6 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [ForeignKey("_locationID")]
         public virtual Location Location { get; set; }
+
     }
 }

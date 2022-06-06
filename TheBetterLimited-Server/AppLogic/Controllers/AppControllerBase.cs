@@ -27,9 +27,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         {
             return DtoType.GetPropertiesToString();
         }
-
-
-        public async Task<List<Hashtable>> GetAll(string lang = "en")
+        public virtual async Task<List<Hashtable>> GetAll(string lang = "en")
         {
 
             var list = await repository.GetAllAsync();
@@ -38,10 +36,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 list[i] = Helpers.Localizer.TryLocalize<T>(lang , list[i] );
             }
             return list.MapToDto<T>();
-
         }
 
-        public async Task<string> GetCSV(string queryString)
+        public virtual async Task<string> GetCSV(string queryString)
         {
             List<T> list = await GetRecords(queryString);
             
@@ -49,7 +46,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return Helpers.File.CSVFactory.Create<T>(list);
         }
 
-        public async Task<byte[]> GetPDF(string queryString , string lang = "en")
+        public virtual async Task<byte[]> GetPDF(string queryString , string lang = "en")
         {
             var list = await GetRecords(queryString);
             for (var i = 0 ; i < list.Count ; i++)
@@ -60,7 +57,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return await Helpers.File.PDFFactory.Instance.Create(list);
         }
         
-        public async Task<List<Hashtable>> GetWithLimit(int limit, uint offset = 0 ,string lang = "en")
+        public virtual async Task<List<Hashtable>> GetWithLimit(int limit, uint offset = 0 ,string lang = "en")
         {
             var list = (await repository.GetAllAsync()).AsReadOnly().ToList();
             limit = limit > list.Count ? list.Count : limit;
@@ -73,13 +70,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return list.MapToDto();
         }
 
-        public async Task<Hashtable> GetById(string id,string lang = "en")
+        public virtual async Task<Hashtable> GetById(string id,string lang = "en")
         {
             var goods = await repository.GetByIdAsync(id);
             return Helpers.Localizer.TryLocalize<T>(lang , goods).MapToDto();
         }
 
-        public async Task<List<Hashtable>> GetByQueryString(string queryString,string lang = "en")
+        public virtual async Task<List<Hashtable>> GetByQueryString(string queryString,string lang = "en")
         {
             var goods = await repository.GetBySQLAsync(
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<T>(queryString)
@@ -90,7 +87,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
             return goods.MapToDto();
         }
-        public async Task Add(T entity,string lang = "en")
+        public virtual async Task Add(T entity,string lang = "en")
         {
             var newObj = entity.CopyAsDto().CopyAs<T>();
             newObj  .GetType()
@@ -119,7 +116,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             await repository.AddAsync(newObj);
             await db.SaveChangesAsync();
         }
-        public async Task Modify(string id, List<AppLogic.Models.UpdateObjectModel> content,string lang = "en")
+        public virtual async Task Modify(string id, List<AppLogic.Models.UpdateObjectModel> content,string lang = "en")
         {
             var potnetialObj = await repository.GetByIdAsync(id);
             if (potnetialObj is null)
@@ -131,7 +128,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             await db.SaveChangesAsync();
         }
 
-        public void ModifyRange(string queryString , List<AppLogic.Models.UpdateObjectModel> content , string Language = "en")
+        public virtual void ModifyRange(string queryString , List<AppLogic.Models.UpdateObjectModel> content , string Language = "en")
         {
             var potnetialList = repository.GetBySQL(
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<T>(queryString)
@@ -159,14 +156,14 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             
         }
 
-        public async Task Delete(string id)
+        public virtual async Task Delete(string id)
         {
             var potnetialObj = await repository.GetByIdAsync(id);
             await repository.DeleteAsync(potnetialObj);
             await db.SaveChangesAsync();
         }
 
-        public async Task<string> GetCSV(string lang , string queryString)
+        public virtual async Task<string> GetCSV(string lang , string queryString)
         {
             List<T> list;
             if (queryString is not null)
@@ -188,7 +185,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return Helpers.File.CSVFactory.Create<T>(list);
         }
 
-        public async Task<List<T>> GetRecords(string queryString)
+        public virtual async Task<List<T>> GetRecords(string queryString)
         {
             List<T> list;
             if (queryString is not null)

@@ -114,10 +114,10 @@ public class MessageController
         return messageModel;
     }
     
-    public void SendMessage(string sender , Data.Dto.SendMessageDto message)
+    public void SendMessage(string SenderUserName , Data.Dto.SendMessageDto message)
     {
         var account = _accountTable.GetBySQL(
-            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{sender}" )
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{SenderUserName}" )
         ).FirstOrDefault();
 
         if (account is null)
@@ -143,9 +143,13 @@ public class MessageController
 
         foreach (var recevier in message.receiver)
         {
+            var acc = _accountTable.GetBySQL(
+                Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{recevier}" )
+            ).FirstOrDefault();
+            
             var receiverMessage = new Data.Entity.Staff_Message
             {
-                _receiverId = recevier,
+                _receiverId = acc.Id,
                 message = newMessage,
                 _messageId = newMessage.Id,
             };
@@ -153,8 +157,11 @@ public class MessageController
             {
                 _receiveMessageTable.Add(receiverMessage);
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
+                ConsoleLogger.Debug(e.Message);
+                ConsoleLogger.Debug(e.InnerException);
+
                 isFailed = true;
                 failedUsername.Append(recevier + ", ");
             }

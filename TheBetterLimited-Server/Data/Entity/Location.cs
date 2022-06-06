@@ -16,5 +16,8 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "varchar(100)")]
         [Description("The phyiscal location address of the location")]
         public string Loc { get; set; }
+
+        [MaxLength(30)]
+        public string? Name { get; set; }
     }
 }

@@ -28,7 +28,12 @@ public class DataContext : DbContext
             .HasKey(p => new { p._menuId , p._positionId });
         
         md.Entity<Staff_Message>()
-            .HasKey(sm => new { sm._messageId , sm._receiverId});
+            .HasOne(sm => sm.message)
+            .WithMany(m => m.staff_messages)
+            .HasForeignKey(sm => sm._messageId);
+        
+        md.Entity<Staff_Message>()
+            .HasKey(sm => new { sm._messageId , sm._receiverId });
         
         md.Entity<PurchaseOrder_Supplier_Goods>()
             .HasKey(posg => new { posg._purchaseOrderId, posg._supplierGoodsId });
@@ -78,6 +83,21 @@ public class DataContext : DbContext
 
         md.Entity<Supplier_Goods>()
             .HasKey(sg => sg.ID);
+
+         md.Entity<SalesOrderItem>()
+            .HasKey(sg => sg.Id);
+        
+        md.Entity<SalesOrderItem_Appointment>() 
+            .HasKey(s => new { s._salesOrderItemId, s._appointmentId });
+        
+        md.Entity<SalesOrderItem_Appointment>()
+            .HasOne(soia => soia.SalesOrderItem)    
+            .WithMany(soi => soi.SaleOrderItem_Appointment);
+        
+        md.Entity<SalesOrderItem_Appointment>()
+            .HasOne(soia => soia.Appointment)
+            .WithMany(a => a.SaleOrderItem_Appointments)
+            .HasForeignKey(soia => soia._appointmentId);
     }
     
     // create dbset for all entity in TheBetterLimited.Data.Entity
@@ -112,13 +132,6 @@ public class DataContext : DbContext
     public DbSet<Team> team {get; }
     public DbSet<Transaction> transaction {get; }
     public DbSet<Warehouse> warehouse {get; }
-
-
-
-
-
-
-
-    
-
+    public DbSet<SessionSetting> sessionSetting {get; }
+    public DbSet<SalesOrderItem_Appointment> saleOrderItem_Appointment {get; }
 }
