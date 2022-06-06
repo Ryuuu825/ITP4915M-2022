@@ -35,6 +35,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RestockRequest));
             this.RestockRequestDataGrid = new System.Windows.Forms.DataGridView();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._createrId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._operatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._storeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.createTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.operateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Action = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SearchBar = new System.Windows.Forms.Panel();
@@ -52,16 +62,6 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.select = new System.Windows.Forms.DataGridViewImageColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._createrId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._operatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._storeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.createTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.operateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.RestockRequestDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -153,6 +153,109 @@
             this.RestockRequestDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
             this.RestockRequestDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GoodsDataGrid_CellFormatting);
             // 
+            // select
+            // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.select.HeaderText = "";
+            this.select.Image = global::TheBetterLimited.Properties.Resources.square;
+            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.select.MinimumWidth = 6;
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            this.select.Width = 6;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.ToolTipText = "ID";
+            this.id.Width = 59;
+            // 
+            // _createrId
+            // 
+            this._createrId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this._createrId.DataPropertyName = "_createrId";
+            this._createrId.HeaderText = "Creater ID";
+            this._createrId.MinimumWidth = 6;
+            this._createrId.Name = "_createrId";
+            this._createrId.ReadOnly = true;
+            this._createrId.ToolTipText = "Creater ID";
+            this._createrId.Width = 107;
+            // 
+            // _operatorId
+            // 
+            this._operatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this._operatorId.DataPropertyName = "_operatorId";
+            this._operatorId.HeaderText = "Operator ID";
+            this._operatorId.MinimumWidth = 6;
+            this._operatorId.Name = "_operatorId";
+            this._operatorId.ReadOnly = true;
+            this._operatorId.ToolTipText = "Operator ID";
+            this._operatorId.Width = 118;
+            // 
+            // _storeId
+            // 
+            this._storeId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this._storeId.DataPropertyName = "_storeId";
+            this._storeId.HeaderText = "Store ID";
+            this._storeId.MinimumWidth = 6;
+            this._storeId.Name = "_storeId";
+            this._storeId.ReadOnly = true;
+            this._storeId.ToolTipText = "Store ID";
+            this._storeId.Width = 95;
+            // 
+            // createTime
+            // 
+            this.createTime.DataPropertyName = "createTime";
+            this.createTime.HeaderText = "Create Time";
+            this.createTime.Name = "createTime";
+            this.createTime.ReadOnly = true;
+            this.createTime.ToolTipText = "Create Time";
+            // 
+            // operateTime
+            // 
+            this.operateTime.DataPropertyName = "operateTime";
+            this.operateTime.HeaderText = "Operate Time";
+            this.operateTime.Name = "operateTime";
+            this.operateTime.ReadOnly = true;
+            this.operateTime.ToolTipText = "Operate Time";
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.ToolTipText = "Status";
+            // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.edit.HeaderText = "";
+            this.edit.Image = global::TheBetterLimited.Properties.Resources.pencil_free_icon_font;
+            this.edit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.ToolTipText = "Edit";
+            this.edit.Width = 6;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.delete.HeaderText = "";
+            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash;
+            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.delete.MinimumWidth = 6;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.ToolTipText = "Delete";
+            this.delete.Width = 6;
+            // 
             // Action
             // 
             this.Action.BackColor = System.Drawing.Color.White;
@@ -212,9 +315,9 @@
             this.SearchBarTxt.Location = new System.Drawing.Point(0, 0);
             this.SearchBarTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.SearchBarTxt.MaxLength = 20;
-            this.SearchBarTxt.Multiline = true;
+            this.SearchBarTxt.Multiline = false;
             this.SearchBarTxt.Name = "SearchBarTxt";
-            this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(22, 8, 8, 6);
+            this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(25, 8, 8, 6);
             this.SearchBarTxt.PasswordChar = false;
             this.SearchBarTxt.Placeholder = "";
             this.SearchBarTxt.ReadOnly = false;
@@ -396,109 +499,6 @@
             this.dataGridViewImageColumn3.MinimumWidth = 6;
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Width = 124;
-            // 
-            // select
-            // 
-            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.select.HeaderText = "";
-            this.select.Image = global::TheBetterLimited.Properties.Resources.square;
-            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.select.MinimumWidth = 6;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            this.select.Width = 6;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.ToolTipText = "ID";
-            this.id.Width = 59;
-            // 
-            // _createrId
-            // 
-            this._createrId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._createrId.DataPropertyName = "_createrId";
-            this._createrId.HeaderText = "Creater ID";
-            this._createrId.MinimumWidth = 6;
-            this._createrId.Name = "_createrId";
-            this._createrId.ReadOnly = true;
-            this._createrId.ToolTipText = "Creater ID";
-            this._createrId.Width = 107;
-            // 
-            // _operatorId
-            // 
-            this._operatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._operatorId.DataPropertyName = "_operatorId";
-            this._operatorId.HeaderText = "Operator ID";
-            this._operatorId.MinimumWidth = 6;
-            this._operatorId.Name = "_operatorId";
-            this._operatorId.ReadOnly = true;
-            this._operatorId.ToolTipText = "Operator ID";
-            this._operatorId.Width = 118;
-            // 
-            // _storeId
-            // 
-            this._storeId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._storeId.DataPropertyName = "_storeId";
-            this._storeId.HeaderText = "Store ID";
-            this._storeId.MinimumWidth = 6;
-            this._storeId.Name = "_storeId";
-            this._storeId.ReadOnly = true;
-            this._storeId.ToolTipText = "Store ID";
-            this._storeId.Width = 95;
-            // 
-            // createTime
-            // 
-            this.createTime.DataPropertyName = "createTime";
-            this.createTime.HeaderText = "Create Time";
-            this.createTime.Name = "createTime";
-            this.createTime.ReadOnly = true;
-            this.createTime.ToolTipText = "Create Time";
-            // 
-            // operateTime
-            // 
-            this.operateTime.DataPropertyName = "operateTime";
-            this.operateTime.HeaderText = "Operate Time";
-            this.operateTime.Name = "operateTime";
-            this.operateTime.ReadOnly = true;
-            this.operateTime.ToolTipText = "Operate Time";
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.ToolTipText = "Status";
-            // 
-            // edit
-            // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.edit.HeaderText = "";
-            this.edit.Image = global::TheBetterLimited.Properties.Resources.pencil_free_icon_font;
-            this.edit.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.ToolTipText = "Edit";
-            this.edit.Width = 6;
-            // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.delete.HeaderText = "";
-            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash;
-            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.delete.MinimumWidth = 6;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.ToolTipText = "Delete";
-            this.delete.Width = 6;
             // 
             // RestockRequest
             // 

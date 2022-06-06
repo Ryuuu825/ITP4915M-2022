@@ -106,7 +106,7 @@ namespace TheBetterLimited.Views
             Form pos = Application.OpenForms["POS"];
             ((POS)pos).SetCusInfo(cusInfo);
             ((POS)pos).SetAppointments(list);
-            ((POS)pos).OpenPaymentMethod();
+            ((POS)pos).OpenPaymentMethod(false);
         }
 
         private void NameTxt_Click(object sender, EventArgs e)
