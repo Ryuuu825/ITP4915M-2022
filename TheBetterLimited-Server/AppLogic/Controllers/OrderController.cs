@@ -139,7 +139,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
                         if (appointmentItem.Appointment._departmentId == "300") // hard code (this is delivery order)
                         {
-                            var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
                             if (deliveryAppointment == null)
                             {
                                 // lazyloader proxy did not work on the appointment
@@ -155,7 +154,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         }
                         else if (appointmentItem.Appointment._departmentId == "700") // hard code (this is installat order)
                         {
-                            var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
+                            var goods = salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods;
+                            // var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
                             if (installatAppointment == null)
                             {
                                 installatAppointment = new AppointmentOutDto
@@ -400,6 +400,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 var entry = SalesOrderItemsList[0];
                 entry._bookingOrderId = bookingOrder.ID;
                 _SalesOrderItemTable.Update(entry);
+
+
+                newOrder.Status = SalesOrderStatus.NotCompleted;
+                repository.Update(newOrder);
+
+
+
             }
             else if (isAppointment)
             {
