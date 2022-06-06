@@ -137,12 +137,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                             var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
                             if (installatAppointment == null)
                             {
+                                var session = await _SessionTable.GetByIdAsync(appointmentItem.Appointment._sessionId);
                                 installatAppointment = new AppointmentOutDto
                                 {
                                     AppointmentId = appointmentItem.Appointment.ID,
-                                    Date = appointmentItem.Appointment.Session.Date,
-                                    StartTime = appointmentItem.Appointment.Session.StartTime,
-                                    EndTime = appointmentItem.Appointment.Session.EndTime,
+                                    Date = session.Date,
+                                    StartTime = session.StartTime,
+                                    EndTime = session.EndTime,
                                     Items = new List<SalesOrderItem_AppointmentOutDto>()
                                     {
                                         new SalesOrderItem_AppointmentOutDto

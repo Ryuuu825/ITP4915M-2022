@@ -14,7 +14,7 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(50)]
         [Column(TypeName = "varchar(50)")]
-        public string Address { get; set; }
+        public string? Address { get; set; }
 
         [MaxLength(15)]
         [Column(TypeName = "varchar(15)")]
