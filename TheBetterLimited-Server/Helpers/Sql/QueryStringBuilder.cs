@@ -108,7 +108,7 @@ public static class QueryStringBuilder
         if (pair[1].Equals("null"))
             condBuilder.Append($" {pair[0]} is {pair[1]}");
         else 
-            condBuilder.Append($" {pair[0]} LIKE '%{pair[1]}%'");
+            condBuilder.Append($" {pair[0]} LIKE \"%{pair[1]}%\"");
         
         for (var i = 1;  i < cond.Length; i++)
         {
@@ -121,7 +121,7 @@ public static class QueryStringBuilder
                 if (pair[1].Equals("null"))
                     condBuilder.Append($"{pair[0]} is {pair[1]}");
                 else
-                    condBuilder.Append($"{pair[0]} LIKE '%{pair[1]}%'");
+                    condBuilder.Append($"{pair[0]} LIKE \"%{pair[1]}%\"");
             }
         }
 
@@ -141,7 +141,7 @@ public static class QueryStringBuilder
         if (pair[1].Equals("null"))
             condBuilder.Append($" {table}.{pair[0]} is {pair[1]}");
         else 
-            condBuilder.Append($" {table}.{pair[0]} LIKE '%{pair[1]}%'");
+            condBuilder.Append($" {table}.{pair[0]} LIKE \"%{pair[1]}%\"");
         
         for (var i = 1;  i < cond.Length; i++)
         {
@@ -154,7 +154,7 @@ public static class QueryStringBuilder
                 if (pair[1].Equals("null"))
                     condBuilder.Append($"{table}.{pair[0]} is {pair[1]}");
                 else
-                    condBuilder.Append($"{table}.{pair[0]} LIKE '%{pair[1]}%'");
+                    condBuilder.Append($"{table}.{pair[0]} LIKE \"%{pair[1]}%\"");
             }
         }
 
@@ -171,7 +171,7 @@ public static class QueryStringBuilder
             if (cond[0].Equals("null"))
                 condBuilder.Append($"{typeof(T).GetProperties()[0].Name} is {cond[0]} ");
             else 
-                condBuilder.Append($"{typeof(T).GetProperties()[0].Name} = '{cond[0]}' ");
+                condBuilder.Append($"{typeof(T).GetProperties()[0].Name} = \"{cond[0]}\" ");
         }
 
         for (var i = 1; i < typeof(T).GetProperties().Length && i < cond.Length; i++)
@@ -181,7 +181,7 @@ public static class QueryStringBuilder
                 if (cond[i].Equals("null"))
                     condBuilder.Append($"{typeof(T).GetProperties()[i].Name} is {cond[i]} ");
                 else 
-                    condBuilder.Append($"{typeof(T).GetProperties()[i].Name} = '{cond[i]}' ");
+                    condBuilder.Append($"{typeof(T).GetProperties()[i].Name} = \"{cond[i]}\" ");
             }
         }
 

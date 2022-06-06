@@ -35,6 +35,8 @@ namespace TheBetterLimited_Server.Data.Entity
 
         public SalesOrderStatus Status { get; set; } 
 
+        public virtual List<SalesOrderItem> Items { get; set; }
+
     }
 
     public enum SalesOrderStatus

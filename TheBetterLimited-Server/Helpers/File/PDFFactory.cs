@@ -10,8 +10,25 @@ namespace TheBetterLimited_Server.Helpers.File
     {
 
         public static PDFFactory Instance = new PDFFactory();
-        private Process _process;
+        private Process? _process;
         private bool isDisposed = false;
+
+        public void CleanLibFolder()
+        {
+                if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "/Lib"))
+                {
+                    Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "/Lib", true);
+                }
+
+                if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + ".DS_Store"))
+                {
+                    System.IO.File.Delete(AppDomain.CurrentDomain.BaseDirectory + ".DS_Store");
+                }
+                if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "/__MACOSX"))
+                {
+                    Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "/__MACOSX" , true);
+                }
+        }
 
         public void Dispose()
         {
@@ -20,16 +37,6 @@ namespace TheBetterLimited_Server.Helpers.File
                 if (_process != null)
                 {
                     _process.Dispose();
-                    Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "/Lib", true);
-
-                    if (System.IO.File.Exists(AppDomain.CurrentDomain.BaseDirectory + ".DS_Store"))
-                    {
-                        System.IO.File.Delete(AppDomain.CurrentDomain.BaseDirectory + ".DS_Store");
-                    }
-                    if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "/__MACOSX"))
-                    {
-                        Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "/__MACOSX" , true);
-                    }
                 }
             }
         }
@@ -55,6 +62,7 @@ namespace TheBetterLimited_Server.Helpers.File
             var arch = RuntimeInformation.OSArchitecture.ToString().ToLower();
 
             ConsoleLogger.Debug($"{os}-{arch}");
+            CleanLibFolder();
             TheBetterLimited_Server.Helpers.File.ZipHelper.Decompress("/Lib.zip", "");
 
 
@@ -89,7 +97,9 @@ namespace TheBetterLimited_Server.Helpers.File
             {
                 Thread.Sleep(200);
             }
-            return System.IO.File.ReadAllBytes(savePath);
+            byte[] res =  System.IO.File.ReadAllBytes(savePath);
+            System.IO.File.Delete(savePath);
+            return res;
         } 
         public async Task<byte[]> Create<T>(List<T> list)
         {

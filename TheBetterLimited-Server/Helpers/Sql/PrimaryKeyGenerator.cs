@@ -9,23 +9,13 @@ namespace TheBetterLimited_Server.Helpers.Sql
         {
             var Table = db.Set<T>();
             StringBuilder sb = new StringBuilder();
-
             var list = Table.ToList();
-            ConsoleLogger.Debug(list is null ? "list is null" : "list is not null");
 
             string Id;
             if (list.Count() == 0)
             {
-                NoRecordExists:
                 // get the maximum length of the property from attribute MaxLength
                 T entity = Activator.CreateInstance<T>();
-                // var MaxLengthAttri = entity
-                //                     .GetType()
-                //                     .GetProperties()
-                //                     .FirstOrDefault(x => x.Name == "Id")
-                //                     .GetCustomAttributes(typeof(MaxLengthAttribute), false)
-                //                     .FirstOrDefault() as MaxLengthAttribute;
-                // int MaxLen = MaxLengthAttri.Length;
 
                 int MaxLen = 0;
                 foreach(var item in entity.GetType().GetProperties())
@@ -71,6 +61,23 @@ namespace TheBetterLimited_Server.Helpers.Sql
             int NewIdValue = sequence.ToInt() + 1;
             // append the "0" to the front of the id, so that the length will some as the length of the id
             sb.Append(NewIdValue.ToString().PadLeft(Id.Length - _prefix.Length, '0'));
+            ConsoleLogger.Debug(sb.ToString());
+            return sb.ToString();
+        }
+
+        public static string Get(string previousId)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            string _prefix = previousId.Substring(0 , previousId.IndexOfAny("0123456789".ToCharArray()));
+
+            // get the prefix from the last entry's id
+            sb.Append(_prefix);
+
+            var sequence = previousId.Substring( previousId.IndexOfAny("0123456789".ToCharArray()) , previousId.Length - previousId.IndexOfAny("0123456789".ToCharArray()));
+            int NewIdValue = sequence.ToInt() + 1;
+            // append the "0" to the front of the id, so that the length will some as the length of the id
+            sb.Append(NewIdValue.ToString().PadLeft(previousId.Length - _prefix.Length, '0'));
             ConsoleLogger.Debug(sb.ToString());
             return sb.ToString();
         }

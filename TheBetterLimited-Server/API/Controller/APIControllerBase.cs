@@ -23,7 +23,7 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(int limit = 0, uint offset = 0, [FromHeader] string Language = "en")
+        public virtual async Task<IActionResult> Get(int limit = 0, uint offset = 0, [FromHeader] string Language = "en")
         {
             try
             {
@@ -70,7 +70,7 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(string id , [FromHeader] string Language = "en")
+        public virtual async Task<IActionResult> GetById(string id , [FromHeader] string Language = "en")
         {
             return Ok(await controller.GetById(id,Language));
         }
@@ -136,7 +136,7 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(string id)
+        public virtual async Task<IActionResult> Delete(string id)
         {
             try
             {

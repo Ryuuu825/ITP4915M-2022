@@ -88,11 +88,12 @@ public class UserController
         return AccountToDto(in AccountList);
     }
 
-    public async Task<List<AccountOutDto>> GetUsersByConditionString(string condString)
+    public async Task<List<Account>> GetUsersByConditionString(string condString)
     {
         string queryStr = Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>(condString);
+        return  await _UserTable.GetBySQLAsync(queryStr);
     
-        return await GetUsersBySql(queryStr);
+        // return await GetUsersBySql(queryStr);
     }
 
     public  bool CheckIsExist(string id)

@@ -16,19 +16,27 @@ namespace TheBetterLimited_Server.Helpers.Entity
                 try
                 {
                     var target = o.GetType().GetProperties().Single(x => x.Name.ToLower() == item.Attribute.ToLower());
+                    // check if the type is enum
+
+                    
                     // if the target is a translatable attribute
                     if (System.Attribute.IsDefined(target, typeof(AppLogic.Attribute.TranslatableAttribute)))
                     {
                         Helpers.Localizer.UpdateWord<T>(
-                            lang , 
+                            lang ,
                             target.GetValue(o).ToString() ,
                             item.Value.ToString()
                         );
                     }
                     // target is a enum type
-                    else if (target.PropertyType.IsEnum)
+                    else if (target.PropertyType.IsEnum )
                     {
                         var evalue = Enum.Parse(target.PropertyType, item.Value.ToString());
+                        target.SetValue(o, evalue);
+                    }
+                    else if (target.PropertyType.IsNullableEnum())
+                    {
+                        var evalue = Enum.Parse(Nullable.GetUnderlyingType(target.PropertyType), item.Value.ToString());
                         target.SetValue(o, evalue);
                     }
                     // the target is nullable type
@@ -50,6 +58,12 @@ namespace TheBetterLimited_Server.Helpers.Entity
                     throw new BadArgException($"Attribute is invalid.");
                 }
             }
+        }
+
+        public static bool IsNullableEnum(this Type t)
+        {
+            Type u = Nullable.GetUnderlyingType(t);
+            return (u != null) && u.IsEnum;
         }
 
         public static T Update<T>(T o, List<UpdateObjectModel> updateContent , string lang = "en") where T : class

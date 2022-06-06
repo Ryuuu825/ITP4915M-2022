@@ -1,5 +1,7 @@
 using TheBetterLimited_Server.AppLogic.Controllers;
 using Microsoft.AspNetCore.Mvc;
+using TheBetterLimited_Server.Data.Dto;
+using Microsoft.AspNetCore.Authorization;
 namespace TheBetterLimited_Server.API.Controller
 {
     [Route("api/order")]
@@ -13,14 +15,48 @@ namespace TheBetterLimited_Server.API.Controller
             controller = new OrderController(db);
         }
 
-
         [HttpPost("create")]
+        [Authorize]
         public async Task<IActionResult> Add([FromBody] Data.Dto.OrderInDto order , [FromHeader] string Language = "en")
         {
             try 
             {   
-                await controller.CreateSalesOrder(order);
-                return Ok();
+                ConsoleLogger.Debug("FLSKDHJFKLSFJH ");
+                string orderId = await controller.CreateSalesOrder(User.Identity.Name , order);
+                return Ok(await controller.GetById(orderId , Language));
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpGet]
+        public override async Task<IActionResult> Get(int limit = 0, uint offset = 0, [FromHeader] string Language = "en")
+        {
+            try
+            {
+                if (limit == 0)
+                {
+                    return Ok(await controller.GetAll(Language));
+                }
+                else
+                {
+                    return Ok(await controller.GetWithLimit(limit, offset, Language));
+                }
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpGet("{id}")]
+        public override async Task<IActionResult> GetById(string id, [FromHeader] string Language = "en")
+        {
+            try
+            {
+                return Ok(await controller.GetById(id, Language));
             }
             catch (ICustException e)
             {
@@ -32,6 +68,52 @@ namespace TheBetterLimited_Server.API.Controller
         public override async Task<IActionResult> Add([FromBody] Data.Entity.SalesOrder entity, string language)
         {
             return StatusCode(301, "please use /api/order/create");
+        }
+
+        [HttpDelete("{id}")]
+        public override async Task<IActionResult> Delete(string id)
+        {
+            try
+            {
+                controller.CleanOrder(id);
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        
+        [HttpPost("hold")]
+        public IActionResult HoldOrder([FromBody] OrderInDto orderItems)
+        {
+            return Ok(controller.HoldOrder(orderItems));
+        }
+
+        [HttpGet("hold/{id}")]
+        public IActionResult RetreiveHoldedOrder(string id)
+        {
+            try 
+            {
+                return Ok(controller.GetHoldedOrder(id));
+            }catch(ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpDelete("hold/{id}")]
+        public IActionResult DeleteHoldedOrder( string id)
+        {
+            try
+            {
+                controller.DeleteHoldedOrder(id);
+                return Ok();
+            }catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
         }
 
 

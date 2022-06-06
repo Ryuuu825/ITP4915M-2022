@@ -19,7 +19,7 @@ namespace TheBetterLimited_Server.Data.Entity
 
         public DateTime EndTime { get; set; }
 
-        public DateOnly Date { get; set; }
+        public DateTime Date { get; set; }
 
         [Column(TypeName = "TINYINT")]
         public byte NumOfAppointments { get; set; }

@@ -38,8 +38,7 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "int(1)")]
         public GoodsStatus Status { get; set; }
 
-        [Column(TypeName = "TINYINT")]
-        public short PhotoAmt {get ; set;}
+        public byte[]? Photo { get; set; }
 
         public virtual ICollection<Supplier_Goods> Supplier_Goods { get; set; }
 
