@@ -122,69 +122,86 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     total += salesOrderItem.Price * salesOrderItem.Quantity;
 
                     var appointments = salesOrderItem.SaleOrderItem_Appointment;
-                    if ( appointments is null || appointments.Count == 0)
-                        continue;   
+                    // if ( appointments is null || appointments.Count == 0)
+                    //     continue;   
 
-                    try
+                    if (salesOrderItem.BookingOrder is not null)
                     {
-                        customer = _CustomerTable.GetById(appointments[0].Appointment._customerId); // we assume there is only one customer per appointment and both appointment (delivery and installation) have the same customer
-                    }catch (Exception e)
+                        customer = _CustomerTable.GetById(salesOrderItem.BookingOrder._customerId);
+                    }
+                    else if (appointments is not null || appointments?.Count != 0)
                     {
+                        try 
+                        {
+                            customer = _CustomerTable.GetById(appointments[0].Appointment._customerId); // we assume there is only one customer per appointment and both appointment (delivery and installation) have the same customer
+                        }catch(Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                            continue; // idk why this happens
+                        }
+                        foreach(var appointmentItem in appointments)
+                        {
+                            var session = await _SessionTable.GetByIdAsync(appointmentItem.Appointment._sessionId);
+
+                            if (appointmentItem.Appointment._departmentId == "300") // hard code (this is delivery order)
+                            {
+                                if (deliveryAppointment == null)
+                                {
+                                    // lazyloader proxy did not work on the appointment
+                                    deliveryAppointment = new AppointmentOutDto
+                                    {
+                                        AppointmentId = appointmentItem.Appointment.ID,
+                                        Date = session.Date,
+                                        StartTime = session.StartTime,
+                                        EndTime = session.EndTime,
+                                        Items = null // we decided to not show to reduce the memory usage , also we assume that all the goods in the sales order are delivered in the same appointment
+                                    };
+                                }
+                            }
+                            else if (appointmentItem.Appointment._departmentId == "700") // hard code (this is installat order)
+                            {
+                                var goods = salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods;
+                                // var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
+                                if (installatAppointment == null)
+                                {
+                                    installatAppointment = new AppointmentOutDto
+                                    {
+                                        AppointmentId = appointmentItem.Appointment.ID,
+                                        Date = session.Date,
+                                        StartTime = session.StartTime,
+                                        EndTime = session.EndTime,
+                                        Items = new List<SalesOrderItem_AppointmentOutDto>()
+                                        {
+                                            new SalesOrderItem_AppointmentOutDto
+                                            {
+                                                ItemNames = goods.Name,
+                                                ItemsId = salesOrderItem.Id
+                                            }
+                                        }
+                                    };
+                                }
+                                else
+                                {
+                                    installatAppointment.Items.Add(new SalesOrderItem_AppointmentOutDto
+                                    {
+                                        ItemNames = goods.Name,
+                                        ItemsId = salesOrderItem.Id
+                                    });
+                                }
+                            }
+                        }
+                    }
+                    else 
+                    {
+                        customer = null;
                         continue;
                     }
 
-                    foreach(var appointmentItem in appointments)
-                    {
-                        var session = await _SessionTable.GetByIdAsync(appointmentItem.Appointment._sessionId);
+                    
 
-                        if (appointmentItem.Appointment._departmentId == "300") // hard code (this is delivery order)
-                        {
-                            if (deliveryAppointment == null)
-                            {
-                                // lazyloader proxy did not work on the appointment
-                                deliveryAppointment = new AppointmentOutDto
-                                {
-                                    AppointmentId = appointmentItem.Appointment.ID,
-                                    Date = session.Date,
-                                    StartTime = session.StartTime,
-                                    EndTime = session.EndTime,
-                                    Items = null // we decided to not show to reduce the memory usage , also we assume that all the goods in the sales order are delivered in the same appointment
-                                };
-                            }
-                        }
-                        else if (appointmentItem.Appointment._departmentId == "700") // hard code (this is installat order)
-                        {
-                            var goods = salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods;
-                            // var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
-                            if (installatAppointment == null)
-                            {
-                                installatAppointment = new AppointmentOutDto
-                                {
-                                    AppointmentId = appointmentItem.Appointment.ID,
-                                    Date = session.Date,
-                                    StartTime = session.StartTime,
-                                    EndTime = session.EndTime,
-                                    Items = new List<SalesOrderItem_AppointmentOutDto>()
-                                    {
-                                        new SalesOrderItem_AppointmentOutDto
-                                        {
-                                            ItemNames = goods.Name,
-                                            ItemsId = salesOrderItem.Id
-                                        }
-                                    }
-                                };
-                            }
-                            else
-                            {
-                                installatAppointment.Items.Add(new SalesOrderItem_AppointmentOutDto
-                                {
-                                    ItemNames = goods.Name,
-                                    ItemsId = salesOrderItem.Id
-                                });
-                            }
-                        }
-                    }
+                    
                 }
+
 
 
                 res.Add(
