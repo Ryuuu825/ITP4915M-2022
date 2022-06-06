@@ -40,6 +40,7 @@ namespace TheBetterLimited_Server.Data.Dto
         public AppointmentOutDto? Delivery { get; set; }
         public AppointmentOutDto? Installation { get; set; }
         public Customer? Customer { get; set; }
+        public string? BookingRecord { get; set; }
     }
 
     public class AppointmentOutDto 

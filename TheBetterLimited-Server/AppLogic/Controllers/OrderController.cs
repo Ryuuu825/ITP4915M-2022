@@ -96,7 +96,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 // convert the sales order item to dto
                 foreach(var salesOrderItem in salesOrderItemList)
                 {
-                    SalesOrderItemOutDto salesOrderItemDto = salesOrderItem.CopyAs<SalesOrderItemOutDto>();
+                    SalesOrderItemOutDto salesOrderItemDto = salesOrderItem.TryCopy<SalesOrderItemOutDto>();
                     salesOrderItemDto.SupplierGoodsStockId = salesOrderItem._supplierGoodsStockId;
                     Goods goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
                     salesOrderItemDto.Name = goods.Name;
@@ -132,8 +132,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     {
                         continue;
                     }
-
-
 
                     foreach(var appointmentItem in appointments)
                     {
@@ -387,6 +385,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 ID = Helpers.Sql.PrimaryKeyGenerator.Get<BookingOrder>(db),
                 _customerId = _CustomerTable.GetAll().Last().ID,
             };
+            _BookingOrderTable.Add(bookingOrder);
             Appointment[] appointments = new Appointment[2];
 
             var SalesOrderItemsList = (await _SalesOrderItemTable.GetBySQLAsync(
@@ -397,12 +396,10 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
             if (isBooked)
             {
-                foreach( var salesOrderItem in SalesOrderItemsList)
-                {
-                    var entry = salesOrderItem;
-                    entry._bookingOrderId = bookingOrder.ID;
-                    _SalesOrderItemTable.Update(entry);
-                }
+                ConsoleLogger.Debug("Booking order is needed");
+                var entry = SalesOrderItemsList[0];
+                entry._bookingOrderId = bookingOrder.ID;
+                _SalesOrderItemTable.Update(entry);
             }
             else if (isAppointment)
             {
