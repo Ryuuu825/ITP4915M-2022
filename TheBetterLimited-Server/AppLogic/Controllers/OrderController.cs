@@ -234,9 +234,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
 
             
-            if (order.Customer is not null) // there are some booking, or appointment
+            if (order.Customer is null) 
             {
-                _CustomerTable.Add(
+               return newOrder.ID; // this is a normal booking, which mean no booking or appointment is needed.
+            }
+            else // there are some booking, or appointment
+            {
+                 _CustomerTable.Add(
                     new Customer
                     {
                         ID = Helpers.Sql.PrimaryKeyGenerator.Get<Customer>(db),
