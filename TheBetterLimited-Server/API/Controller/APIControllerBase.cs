@@ -76,7 +76,7 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpGet("search")]
-        public async Task<IActionResult> GetByQueryString(string queryString, [FromHeader] string Language = "en")
+        public virtual async Task<IActionResult> GetByQueryString(string queryString, [FromHeader] string Language = "en")
         {
             try
             {

@@ -3,9 +3,10 @@ using TheBetterLimited_Server.Data.Entity;
 
 namespace TheBetterLimited_Server.AppLogic.Controllers
 {
-    public class OrderController : AppControllerBase<Data.Entity.SalesOrder>
+    public class OrderController :  IDisposable
     {
         private readonly Data.Repositories.Repository<SalesOrderItem> _SalesOrderItemTable;
+        private readonly Data.Repositories.Repository<SalesOrder> repository;
 
         private readonly Data.Repositories.Repository<Appointment> _AppointmentTable; 
         private readonly Data.Repositories.Repository<BookingOrder> _BookingOrderTable;
@@ -19,8 +20,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private readonly Data.Repositories.Repository<Session> _SessionTable;
         private readonly AppLogic.Controllers.MessageController _MessageController;
 
-        public OrderController(Data.DataContext db) : base(db)
+        private readonly Data.DataContext db;
+
+        public OrderController(Data.DataContext db) 
         {
+            repository = new Data.Repositories.Repository<SalesOrder>(db);
             _SalesOrderItemTable = new Data.Repositories.Repository<SalesOrderItem>(db);
             _AppointmentTable = new Data.Repositories.Repository<Appointment>(db);
             _BookingOrderTable = new Data.Repositories.Repository<BookingOrder>(db);
@@ -34,11 +38,38 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _CustomerTable = new Data.Repositories.Repository<Customer>(db);
             _SessionTable = new Data.Repositories.Repository<Session>(db);
             _SalesOrderItem_AppointmentTable = new Data.Repositories.Repository<SalesOrderItem_Appointment>(db);
+
+            this.db = db;
         }
 
-        private async Task<List<Hashtable>> ToDto(List<SalesOrder> salesOrders ,  string lang = "en")
+        ~OrderController()
         {
-            List<Hashtable> res = new List<Hashtable>();
+            // Dispose();
+        }
+
+        public void Dispose()
+        {
+            // _SalesOrderItemTable.Dispose();
+            // _AppointmentTable.Dispose();
+            // _BookingOrderTable.Dispose();
+            // _Supplier_Goods_StockTable.Dispose();
+            // _StaffTable.Dispose();
+            // _TransactionTable.Dispose();
+            // _StoreTable.Dispose();
+            // _AccountTable.Dispose();
+            // _CustomerTable.Dispose();
+            // _CustomerTable.Dispose();
+            // _SessionTable.Dispose();
+            // _SalesOrderItem_AppointmentTable.Dispose();
+
+            // db.Database.CloseConnection();
+        }
+
+
+
+        private async Task<List<OrderOutDto>> ToDto(List<SalesOrder> salesOrders ,  string lang = "en")
+        {
+            List<OrderOutDto> res = new List<OrderOutDto>();
 
             // all the sales record in the system
             for (var i = 0; i < salesOrders.Count; i++)
@@ -47,9 +78,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 salesOrders[i] = Helpers.Localizer.TryLocalize<SalesOrder>(lang, salesOrders[i]);
                
                 // get the sales record items
-                var salesOrderItemList = await _SalesOrderItemTable.GetBySQLAsync(
+                var salesOrderItemList = (await _SalesOrderItemTable.GetBySQLAsync(
                     "SELECT * FROM SalesOrderItem WHERE _salesOrderId = " + salesOrders[i].ID
-                );
+                )).AsReadOnly();
 
                 // tmp list to convert the sales order item to dto
                 List<SalesOrderItemOutDto> tmp = new List<SalesOrderItemOutDto>();
@@ -70,9 +101,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
                 // get the amount paid
                 decimal paid = 0;
-                var transactionRecords = await _TransactionTable.GetBySQLAsync(
+                var transactionRecords = (await _TransactionTable.GetBySQLAsync(
                     "SELECT * FROM Transaction WHERE _salesOrderId = " + salesOrders[i].ID
-                );
+                )).AsReadOnly();
                 foreach(var record in transactionRecords)
                 {
                     paid += record.Amount;
@@ -91,15 +122,18 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 AppointmentOutDto? installatAppointment = null;
                 Customer? customer = null;
 
+
+                
                 foreach(var salesOrderItem in salesOrderItemList)
                 {
                     var appointments = salesOrderItem.SaleOrderItem_Appointment;
+
+                    customer = _CustomerTable.GetById(appointments[0].Appointment._customerId); // we assume there is only one customer per appointment and both appointment (delivery and installation) have the same customer
+
                     if (appointments is null)
                         continue;
                     foreach(var appointmentItem in appointments)
                     {
-                        customer = _CustomerTable.GetById(appointmentItem.Appointment._customerId); // we assume there is only one customer per appointment and both appointment (delivery and installation) have the same customer
-                        ConsoleLogger.Debug(_CustomerTable.GetById(appointmentItem.Appointment._customerId).Debug());
                         if (appointmentItem.Appointment._departmentId == "300") // hard code (this is delivery order)
                         {
                             var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
@@ -185,32 +219,35 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         Delivery= deliveryAppointment,
                         Installation = installatAppointment,
                         Customer = customer
-                    }.MapToDto()
+                    }
                 );
+
+                GC.Collect();
             }
 
             return res;
         }
 
-        public override async Task<List<Hashtable>> GetAll(string lang = "en")
+        public async Task<List<OrderOutDto>> GetAll(string lang = "en")
         {
             var salesOrders = (await repository.GetAllAsync());
             return await ToDto(salesOrders, lang);
         }
 
-        public override async Task<List<Hashtable>> GetByQueryString(string sql, string lang = "en")
+        public async Task<List<OrderOutDto>> GetByQueryString(string sql, string lang = "en")
         {
-            var salesOrders = (await repository.GetBySQLAsync(sql));
+            var salesOrders = (await repository.GetBySQLAsync(Helpers.Sql.QueryStringBuilder.GetSqlStatement<SalesOrder>(sql)));
             return await ToDto(salesOrders, lang);
         }
 
-        public override async Task<Hashtable> GetById(string id, string lang = "en")
+        public async Task<OrderOutDto> GetById(string id, string lang = "en")
         {
             var salesOrder = (await repository.GetByIdAsync(id));
-            return (await ToDto(new List<SalesOrder> { salesOrder }, lang))[0];
+            var order = new List<SalesOrder>(1) { salesOrder };
+            return (await ToDto( order , lang))[0];
         }
 
-        public virtual async Task<List<Hashtable>> GetWithLimit(int limit, uint offset = 0 ,string lang = "en")
+        public virtual async Task<List<OrderOutDto>> GetWithLimit(int limit, uint offset = 0 ,string lang = "en")
         {
             var list = (await repository.GetAllAsync()).AsReadOnly().ToList();
             limit = limit > list.Count ? list.Count : limit;
@@ -238,7 +275,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
             string StaffId = account._StaffId;
             var staff = (await _StaffTable.GetByIdAsync(StaffId));
-            string storeId = staff.store.ID;
+            string storeId = (await _StoreTable.GetByIdAsync(staff._storeId)).ID;
 
             var newOrder = new SalesOrder()
             {
@@ -256,6 +293,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 repository.Add(newOrder);
             }catch(Exception e)
             {
+                throw e;
                 // sales order should be created successfully first.
                 throw new BadArgException("Invalid CreatorId or StoreId");
             }

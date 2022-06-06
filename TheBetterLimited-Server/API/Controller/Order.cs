@@ -116,6 +116,19 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
+        [HttpGet("search")]
+        public override async Task<IActionResult> GetByQueryString([FromQuery] string queryString , [FromHeader] string Language)
+        {
+            try
+            {
+                return Ok(await controller.GetByQueryString(queryString , Language));
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
 
 
 
