@@ -85,9 +85,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             // all the sales record in the system
             for (var i = 0; i < salesOrders.Count; i++)
             {
-                // localize the sales record
-                salesOrders[i] = Helpers.Localizer.TryLocalize<SalesOrder>(lang, salesOrders[i]);
-               
                 // get the sales record items
                 var salesOrderItemList = (await _SalesOrderItemTable.GetBySQLAsync(
                     "SELECT * FROM SalesOrderItem WHERE _salesOrderId = " + salesOrders[i].ID
@@ -125,10 +122,17 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     total += salesOrderItem.Price * salesOrderItem.Quantity;
 
                     var appointments = salesOrderItem.SaleOrderItem_Appointment;
-                    if (appointments.Count == 0)
-                        continue;
+                    if ( appointments is null || appointments.Count == 0)
+                        continue;   
 
-                    customer = _CustomerTable.GetById(appointments[0].Appointment._customerId); // we assume there is only one customer per appointment and both appointment (delivery and installation) have the same customer
+                    try
+                    {
+                        customer = _CustomerTable.GetById(appointments[0].Appointment._customerId); // we assume there is only one customer per appointment and both appointment (delivery and installation) have the same customer
+                    }catch (Exception e)
+                    {
+                        continue;
+                    }
+
 
 
                     foreach(var appointmentItem in appointments)
