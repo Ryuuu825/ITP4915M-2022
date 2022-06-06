@@ -213,6 +213,7 @@
             this.CusNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.CusNameTxt.Texts = "Please enter customer name";
             this.CusNameTxt.UnderlinedStyle = false;
+            this.CusNameTxt.Click += new System.EventHandler(this.CusNameTxt_Click);
             // 
             // GTINCode
             // 
@@ -259,7 +260,7 @@
             this.CusAddressTxt.IsError = false;
             this.CusAddressTxt.Location = new System.Drawing.Point(163, 125);
             this.CusAddressTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.CusAddressTxt.MaxLength = 32767;
+            this.CusAddressTxt.MaxLength = 120;
             this.CusAddressTxt.Multiline = true;
             this.CusAddressTxt.Name = "CusAddressTxt";
             this.CusAddressTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -272,6 +273,7 @@
             this.CusAddressTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.CusAddressTxt.Texts = "Please enter customer address (option)";
             this.CusAddressTxt.UnderlinedStyle = false;
+            this.CusAddressTxt.Click += new System.EventHandler(this.CusAddressTxt_Click);
             // 
             // CusPhoneTxt
             // 
@@ -281,11 +283,11 @@
             this.CusPhoneTxt.BorderRadius = 10;
             this.CusPhoneTxt.BorderSize = 1;
             this.CusPhoneTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CusPhoneTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.CusPhoneTxt.ForeColor = System.Drawing.Color.Black;
             this.CusPhoneTxt.IsError = false;
             this.CusPhoneTxt.Location = new System.Drawing.Point(163, 78);
             this.CusPhoneTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.CusPhoneTxt.MaxLength = 32767;
+            this.CusPhoneTxt.MaxLength = 30;
             this.CusPhoneTxt.Multiline = false;
             this.CusPhoneTxt.Name = "CusPhoneTxt";
             this.CusPhoneTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -298,6 +300,7 @@
             this.CusPhoneTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.CusPhoneTxt.Texts = "Please enter customer phone";
             this.CusPhoneTxt.UnderlinedStyle = false;
+            this.CusPhoneTxt.Click += new System.EventHandler(this.CusPhoneTxt_Click);
             // 
             // UserInfoHeaderContainer
             // 

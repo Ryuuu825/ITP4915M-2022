@@ -33,9 +33,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderManagement));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderManagement));
             this.OrderDataGrid = new System.Windows.Forms.DataGridView();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.storeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreateAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdateAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.details = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Action = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SearchBar = new System.Windows.Forms.Panel();
@@ -55,18 +67,6 @@
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.select = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.storeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OperatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdateAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.details = new System.Windows.Forms.DataGridViewImageColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -160,6 +160,133 @@
             this.OrderDataGrid.TabIndex = 3;
             this.OrderDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrderDataGrid_CellClick);
             this.OrderDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.OrderDataGrid_CellFormatting);
+            // 
+            // select
+            // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.select.HeaderText = "";
+            this.select.Image = global::TheBetterLimited.Properties.Resources.square;
+            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.select.MinimumWidth = 6;
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            this.select.Width = 6;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ID.DataPropertyName = "ID";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle9;
+            this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.ToolTipText = "Order ID";
+            this.ID.Width = 59;
+            // 
+            // storeId
+            // 
+            this.storeId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.storeId.DataPropertyName = "store";
+            this.storeId.HeaderText = "Store";
+            this.storeId.MinimumWidth = 6;
+            this.storeId.Name = "storeId";
+            this.storeId.ReadOnly = true;
+            this.storeId.ToolTipText = "Store";
+            this.storeId.Width = 78;
+            // 
+            // CreatorId
+            // 
+            this.CreatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CreatorId.DataPropertyName = "_creatorId";
+            this.CreatorId.HeaderText = "Creator";
+            this.CreatorId.MinimumWidth = 6;
+            this.CreatorId.Name = "CreatorId";
+            this.CreatorId.ReadOnly = true;
+            this.CreatorId.ToolTipText = "Creator\'s staff ID of the order";
+            this.CreatorId.Width = 91;
+            // 
+            // OperatorId
+            // 
+            this.OperatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.OperatorId.DataPropertyName = "_operatorId";
+            this.OperatorId.HeaderText = "Operator";
+            this.OperatorId.MinimumWidth = 6;
+            this.OperatorId.Name = "OperatorId";
+            this.OperatorId.ReadOnly = true;
+            this.OperatorId.ToolTipText = "Operator\'s staff ID of the order";
+            this.OperatorId.Width = 101;
+            // 
+            // CreateAt
+            // 
+            this.CreateAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CreateAt.DataPropertyName = "createAt";
+            this.CreateAt.HeaderText = "CreateAt";
+            this.CreateAt.MinimumWidth = 6;
+            this.CreateAt.Name = "CreateAt";
+            this.CreateAt.ReadOnly = true;
+            this.CreateAt.ToolTipText = "Create Time";
+            // 
+            // UpdateAt
+            // 
+            this.UpdateAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UpdateAt.DataPropertyName = "updateAt";
+            this.UpdateAt.HeaderText = "UpdateAt";
+            this.UpdateAt.MinimumWidth = 6;
+            this.UpdateAt.Name = "UpdateAt";
+            this.UpdateAt.ReadOnly = true;
+            this.UpdateAt.ToolTipText = "Update Time";
+            // 
+            // TotalAmount
+            // 
+            this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TotalAmount.DataPropertyName = "total";
+            this.TotalAmount.HeaderText = "Total Amount";
+            this.TotalAmount.MinimumWidth = 6;
+            this.TotalAmount.Name = "TotalAmount";
+            this.TotalAmount.ReadOnly = true;
+            this.TotalAmount.ToolTipText = "Remark of Account";
+            // 
+            // Paid
+            // 
+            this.Paid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Paid.DataPropertyName = "paid";
+            this.Paid.HeaderText = "Paid";
+            this.Paid.Name = "Paid";
+            this.Paid.ReadOnly = true;
+            this.Paid.Width = 72;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // details
+            // 
+            this.details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.details.HeaderText = "";
+            this.details.Image = global::TheBetterLimited.Properties.Resources.eye;
+            this.details.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.details.MinimumWidth = 6;
+            this.details.Name = "details";
+            this.details.ReadOnly = true;
+            this.details.ToolTipText = "Details";
+            this.details.Width = 6;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.delete.HeaderText = "";
+            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash;
+            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.delete.MinimumWidth = 6;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.ToolTipText = "Delete";
+            this.delete.Width = 6;
             // 
             // Action
             // 
@@ -393,133 +520,6 @@
             this.dataGridViewImageColumn7.MinimumWidth = 6;
             this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
             this.dataGridViewImageColumn7.ToolTipText = "Delete";
-            // 
-            // select
-            // 
-            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.select.HeaderText = "";
-            this.select.Image = global::TheBetterLimited.Properties.Resources.square;
-            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.select.MinimumWidth = 6;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            this.select.Width = 6;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ID.DataPropertyName = "ID";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle9;
-            this.ID.HeaderText = "ID";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.ToolTipText = "Order ID";
-            this.ID.Width = 59;
-            // 
-            // storeId
-            // 
-            this.storeId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.storeId.DataPropertyName = "store";
-            this.storeId.HeaderText = "Store";
-            this.storeId.MinimumWidth = 6;
-            this.storeId.Name = "storeId";
-            this.storeId.ReadOnly = true;
-            this.storeId.ToolTipText = "Store";
-            this.storeId.Width = 78;
-            // 
-            // CreatorId
-            // 
-            this.CreatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CreatorId.DataPropertyName = "_creatorId";
-            this.CreatorId.HeaderText = "Creator";
-            this.CreatorId.MinimumWidth = 6;
-            this.CreatorId.Name = "CreatorId";
-            this.CreatorId.ReadOnly = true;
-            this.CreatorId.ToolTipText = "Creator\'s staff ID of the order";
-            this.CreatorId.Width = 91;
-            // 
-            // OperatorId
-            // 
-            this.OperatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.OperatorId.DataPropertyName = "_operatorId";
-            this.OperatorId.HeaderText = "Operator";
-            this.OperatorId.MinimumWidth = 6;
-            this.OperatorId.Name = "OperatorId";
-            this.OperatorId.ReadOnly = true;
-            this.OperatorId.ToolTipText = "Operator\'s staff ID of the order";
-            this.OperatorId.Width = 101;
-            // 
-            // CreateAt
-            // 
-            this.CreateAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CreateAt.DataPropertyName = "createAt";
-            this.CreateAt.HeaderText = "CreateAt";
-            this.CreateAt.MinimumWidth = 6;
-            this.CreateAt.Name = "CreateAt";
-            this.CreateAt.ReadOnly = true;
-            this.CreateAt.ToolTipText = "Create Time";
-            // 
-            // UpdateAt
-            // 
-            this.UpdateAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UpdateAt.DataPropertyName = "updateAt";
-            this.UpdateAt.HeaderText = "UpdateAt";
-            this.UpdateAt.MinimumWidth = 6;
-            this.UpdateAt.Name = "UpdateAt";
-            this.UpdateAt.ReadOnly = true;
-            this.UpdateAt.ToolTipText = "Update Time";
-            // 
-            // TotalAmount
-            // 
-            this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TotalAmount.DataPropertyName = "total";
-            this.TotalAmount.HeaderText = "Total Amount";
-            this.TotalAmount.MinimumWidth = 6;
-            this.TotalAmount.Name = "TotalAmount";
-            this.TotalAmount.ReadOnly = true;
-            this.TotalAmount.ToolTipText = "Remark of Account";
-            // 
-            // Paid
-            // 
-            this.Paid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Paid.DataPropertyName = "paid";
-            this.Paid.HeaderText = "Paid";
-            this.Paid.Name = "Paid";
-            this.Paid.ReadOnly = true;
-            this.Paid.Width = 72;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // details
-            // 
-            this.details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.details.HeaderText = "";
-            this.details.Image = global::TheBetterLimited.Properties.Resources.eye;
-            this.details.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.details.MinimumWidth = 6;
-            this.details.Name = "details";
-            this.details.ReadOnly = true;
-            this.details.ToolTipText = "Details";
-            this.details.Width = 6;
-            // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.delete.HeaderText = "";
-            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash;
-            this.delete.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.delete.MinimumWidth = 6;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.ToolTipText = "Delete";
-            this.delete.Width = 6;
             // 
             // OrderManagement
             // 

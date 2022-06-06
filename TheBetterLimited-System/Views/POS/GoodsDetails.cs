@@ -32,7 +32,7 @@ namespace TheBetterLimited.Views
         private int stock;
         private int stockLevel;
         private string goodsId;
-        private bool needDelivery;
+        private bool needDelivery = false;
 
         public GoodsDetails()
         {
@@ -68,7 +68,6 @@ namespace TheBetterLimited.Views
                 stockLevel = (int)goodsData["StockLevel"]["inStoreStock"]["status"];
                 ShowStockLevel(stockLevel);
                 goodsId = goodsData["StockLevel"]["inStoreStock"]["_supplier_Goods_Stock_Id"].ToString();
-                needDelivery = false;
             }
             else
             {
@@ -82,10 +81,10 @@ namespace TheBetterLimited.Views
             }
             CatalogueTxt.Texts = goodsData["Catalogue"].ToString();
             Console.WriteLine((int)goodsData["GoodsSize"]);
-            ((RadioButton)SizeRadioGroup.Controls[(int)goodsData["GoodsSize"]]).Checked = true;
-            ((RadioButton)SizeRadioGroup.Controls[(int)goodsData["GoodsSize"]]).ForeColor = Color.SeaGreen;
-            ((RadioButton)StatusRadioGroup.Controls[(int)goodsData["GoodsStatus"]]).Checked = true;
-            ((RadioButton)StatusRadioGroup.Controls[(int)goodsData["GoodsStatus"]]).ForeColor = Color.SeaGreen;
+            ((RoundPanel)SizeGroup.Controls[(int)goodsData["GoodsSize"]]).BorderColor = Color.DimGray;
+            ((Label)SizeGroup.Controls[(int)goodsData["GoodsSize"]].Controls[0]).ForeColor = Color.DimGray;
+            ((RoundPanel)StatusGroup.Controls[(int)goodsData["GoodsStatus"]]).BorderColor = ShowPanelColor((int)goodsData["GoodsStatus"]);
+            ((Label)StatusGroup.Controls[(int)goodsData["GoodsStatus"]].Controls[0]).ForeColor = ShowPanelColor((int)goodsData["GoodsStatus"]);
             Info.Text = goodsData["GoodsName"].ToString();
         }
 
@@ -111,16 +110,22 @@ namespace TheBetterLimited.Views
             }
         }
 
-        private void NormalStatusRadio_CheckedChanged(object sender, EventArgs e)
+        private Color ShowPanelColor(int index)
         {
-            sellRadio.Checked = true;
-            phaseOutRadio.Checked = false;
-        }
-
-        private void LockStatusRadio_CheckedChanged(object sender, EventArgs e)
-        {
-            sellRadio.Checked = false;
-            phaseOutRadio.Checked = true;
+            Color c = new Color();
+            switch (index)
+            {
+                case 2:
+                    c = Color.FromArgb(203, 32, 39);
+                    break;
+                case 1:
+                    c = Color.FromArgb(250, 182, 99);
+                    break;
+                default:
+                    c = Color.SeaGreen;
+                    break;
+            }
+            return c;
         }
 
         public event Action OnExit;
@@ -149,6 +154,10 @@ namespace TheBetterLimited.Views
                 }
             }
 
+            if(((int)goodsData["GoodsSize"]) == 2)
+            {
+                ((OrderItem)oi).NeedInstall = true;
+            }
             ((OrderItem)oi).SupplierGoodsStockId = goodsId;
             ((OrderItem)oi).Name = goodsData["GoodsName"].ToString();
             ((OrderItem)oi).Price = (double)goodsData["Price"];

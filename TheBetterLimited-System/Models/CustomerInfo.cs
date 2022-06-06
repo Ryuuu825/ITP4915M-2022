@@ -8,17 +8,22 @@ namespace TheBetterLimited.Models
 {
     internal class CustomerInfo
     {
-        private string _id;
-        private string cusName;
-        private string cusPhone;
-        private string cusAddress;
+        private string id;
+        private string name;
+        private string phone;
+        private string address;
 
         public CustomerInfo(string cusName, string cusPhone, string cusAddress)
         {
-            _id = new Random().Next(1000).ToString();
-            this.cusName = cusName;
-            this.cusPhone = cusPhone;
-            this.cusAddress = cusAddress;
+            id = new Random().Next(1000).ToString();
+            this.name = cusName;
+            this.phone = cusPhone;
+            this.address = cusAddress;
         }
+
+        public string Id { get => id; set => id = value; }
+        public string Name { get => name; set => name = value; }
+        public string Phone { get => phone; set => phone = value; }
+        public string Address { get => address; set => address = value; }
     }
 }

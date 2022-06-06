@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -36,31 +35,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // CancelBtn
-            // 
-            this.CancelBtn.BackColor = System.Drawing.Color.Silver;
-            this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
-            this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.CancelBtn.BorderRadius = 10;
-            this.CancelBtn.BorderSize = 0;
-            this.CancelBtn.FlatAppearance.BorderSize = 0;
-            this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.ForeColor = System.Drawing.Color.White;
-            this.CancelBtn.IsChecked = false;
-            this.CancelBtn.Location = new System.Drawing.Point(127, 172);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(85, 40);
-            this.CancelBtn.TabIndex = 1;
-            this.CancelBtn.Text = "Cancel";
-            this.CancelBtn.TextColor = System.Drawing.Color.White;
-            this.CancelBtn.UseVisualStyleBackColor = false;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.CancelBtn);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -73,7 +50,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(65, 129);
+            this.label1.Location = new System.Drawing.Point(65, 154);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(209, 25);
             this.label1.TabIndex = 1;
@@ -82,7 +59,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TheBetterLimited.Properties.Resources.Loading_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(119, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(119, 37);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -112,7 +89,6 @@
         }
 
         #endregion
-        private CustomizeControl.RoundButton CancelBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;

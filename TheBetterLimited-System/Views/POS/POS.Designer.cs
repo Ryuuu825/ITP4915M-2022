@@ -57,6 +57,13 @@
             this.CartContainer = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.CartItemGrid = new System.Windows.Forms.DataGridView();
+            this.userName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sub = new System.Windows.Forms.DataGridViewImageColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.plus = new System.Windows.Forms.DataGridViewImageColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Header = new System.Windows.Forms.Panel();
             this.RefreshBtn = new FontAwesome.Sharp.IconButton();
             this.Title = new System.Windows.Forms.Label();
@@ -77,13 +84,6 @@
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.userName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sub = new System.Windows.Forms.DataGridViewImageColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.plus = new System.Windows.Forms.DataGridViewImageColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.SearchBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.curdAction.SuspendLayout();
@@ -261,6 +261,8 @@
             this.defectItemBtn.Text = "Handle Defect Item";
             this.defectItemBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.defectItemBtn.UseVisualStyleBackColor = false;
+            this.defectItemBtn.MouseLeave += new System.EventHandler(this.defectItemBtn_MouseLeave);
+            this.defectItemBtn.MouseHover += new System.EventHandler(this.defectItemBtn_MouseHover);
             // 
             // OrderBtn
             // 
@@ -285,8 +287,8 @@
             this.OrderBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.OrderBtn.UseVisualStyleBackColor = false;
             this.OrderBtn.Click += new System.EventHandler(this.OrderBtn_Click);
-            this.OrderBtn.MouseLeave += new System.EventHandler(this.HoldBtn_MouseLeave);
-            this.OrderBtn.MouseHover += new System.EventHandler(this.HoldBtn_MouseHover);
+            this.OrderBtn.MouseLeave += new System.EventHandler(this.OrderBtn_MouseLeave);
+            this.OrderBtn.MouseHover += new System.EventHandler(this.OrderBtn_MouseHover);
             // 
             // settleAccBtn
             // 
@@ -310,8 +312,8 @@
             this.settleAccBtn.Text = "Settle  Account";
             this.settleAccBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.settleAccBtn.UseVisualStyleBackColor = false;
-            this.settleAccBtn.MouseLeave += new System.EventHandler(this.HoldBtn_MouseLeave);
-            this.settleAccBtn.MouseHover += new System.EventHandler(this.HoldBtn_MouseHover);
+            this.settleAccBtn.MouseLeave += new System.EventHandler(this.settleAccBtn_MouseLeave);
+            this.settleAccBtn.MouseHover += new System.EventHandler(this.settleAccBtn_MouseHover);
             // 
             // panel4
             // 
@@ -463,6 +465,98 @@
             this.CartItemGrid.StandardTab = true;
             this.CartItemGrid.TabIndex = 4;
             this.CartItemGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CartItemGrid_CellClick);
+            // 
+            // userName
+            // 
+            this.userName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.userName.DataPropertyName = "name";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.userName.DefaultCellStyle = dataGridViewCellStyle3;
+            this.userName.HeaderText = "Name";
+            this.userName.MinimumWidth = 6;
+            this.userName.Name = "userName";
+            this.userName.ReadOnly = true;
+            this.userName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.userName.ToolTipText = "Product Name";
+            // 
+            // sub
+            // 
+            this.sub.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.sub.HeaderText = "";
+            this.sub.Image = global::TheBetterLimited.Properties.Resources.minus;
+            this.sub.MinimumWidth = 6;
+            this.sub.Name = "sub";
+            this.sub.ReadOnly = true;
+            this.sub.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.sub.ToolTipText = "Subtract";
+            this.sub.Width = 6;
+            // 
+            // qty
+            // 
+            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.qty.DataPropertyName = "quantity";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.qty.DefaultCellStyle = dataGridViewCellStyle4;
+            this.qty.HeaderText = "Qty";
+            this.qty.MinimumWidth = 6;
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.ToolTipText = "Quantity";
+            this.qty.Width = 79;
+            // 
+            // plus
+            // 
+            this.plus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.plus.HeaderText = "";
+            this.plus.Image = global::TheBetterLimited.Properties.Resources.plus24;
+            this.plus.MinimumWidth = 6;
+            this.plus.Name = "plus";
+            this.plus.ReadOnly = true;
+            this.plus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.plus.ToolTipText = "Account Status";
+            this.plus.Width = 6;
+            // 
+            // price
+            // 
+            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.price.DataPropertyName = "price";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.price.DefaultCellStyle = dataGridViewCellStyle5;
+            this.price.HeaderText = "Price";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.ToolTipText = "Pirce";
+            this.price.Width = 89;
+            // 
+            // remarks
+            // 
+            this.remarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.remarks.DataPropertyName = "remark";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.remarks.DefaultCellStyle = dataGridViewCellStyle6;
+            this.remarks.HeaderText = "Remark";
+            this.remarks.MaxInputLength = 50;
+            this.remarks.MinimumWidth = 6;
+            this.remarks.Name = "remarks";
+            this.remarks.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.remarks.ToolTipText = "Remark of Goods";
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.delete.HeaderText = "";
+            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash24;
+            this.delete.MinimumWidth = 6;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.ToolTipText = "Delete";
+            this.delete.Width = 6;
             // 
             // Header
             // 
@@ -618,7 +712,7 @@
             // 
             this.PayBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.PayBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.PayBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.PayBtn.BorderColor = System.Drawing.Color.Empty;
             this.PayBtn.BorderRadius = 5;
             this.PayBtn.BorderSize = 1;
             this.PayBtn.FlatAppearance.BorderSize = 0;
@@ -744,98 +838,6 @@
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
             this.dataGridViewImageColumn6.ReadOnly = true;
             this.dataGridViewImageColumn6.ToolTipText = "Delete";
-            // 
-            // userName
-            // 
-            this.userName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.userName.DataPropertyName = "name";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.userName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.userName.HeaderText = "Name";
-            this.userName.MinimumWidth = 6;
-            this.userName.Name = "userName";
-            this.userName.ReadOnly = true;
-            this.userName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.userName.ToolTipText = "Product Name";
-            // 
-            // sub
-            // 
-            this.sub.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.sub.HeaderText = "";
-            this.sub.Image = global::TheBetterLimited.Properties.Resources.minus;
-            this.sub.MinimumWidth = 6;
-            this.sub.Name = "sub";
-            this.sub.ReadOnly = true;
-            this.sub.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.sub.ToolTipText = "Subtract";
-            this.sub.Width = 6;
-            // 
-            // qty
-            // 
-            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.qty.DataPropertyName = "quantity";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.qty.DefaultCellStyle = dataGridViewCellStyle4;
-            this.qty.HeaderText = "Qty";
-            this.qty.MinimumWidth = 6;
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            this.qty.ToolTipText = "Quantity";
-            this.qty.Width = 79;
-            // 
-            // plus
-            // 
-            this.plus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.plus.HeaderText = "";
-            this.plus.Image = global::TheBetterLimited.Properties.Resources.plus24;
-            this.plus.MinimumWidth = 6;
-            this.plus.Name = "plus";
-            this.plus.ReadOnly = true;
-            this.plus.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.plus.ToolTipText = "Account Status";
-            this.plus.Width = 6;
-            // 
-            // price
-            // 
-            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.price.DataPropertyName = "price";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.price.DefaultCellStyle = dataGridViewCellStyle5;
-            this.price.HeaderText = "Price";
-            this.price.MinimumWidth = 6;
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            this.price.ToolTipText = "Pirce";
-            this.price.Width = 89;
-            // 
-            // remarks
-            // 
-            this.remarks.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.remarks.DataPropertyName = "remark";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.remarks.DefaultCellStyle = dataGridViewCellStyle6;
-            this.remarks.HeaderText = "Remark";
-            this.remarks.MaxInputLength = 50;
-            this.remarks.MinimumWidth = 6;
-            this.remarks.Name = "remarks";
-            this.remarks.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.remarks.ToolTipText = "Remark of Goods";
-            // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.delete.HeaderText = "";
-            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash24;
-            this.delete.MinimumWidth = 6;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.ToolTipText = "Delete";
-            this.delete.Width = 6;
             // 
             // POS
             // 

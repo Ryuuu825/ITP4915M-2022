@@ -33,20 +33,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receipt));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receipt));
             this.MainForm = new System.Windows.Forms.Panel();
             this.UserInfo = new System.Windows.Forms.Panel();
+            this.installDate = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.paymentMethod = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.final = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.deposit = new System.Windows.Forms.Label();
+            this.depositTxt = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.paid = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -65,6 +67,13 @@
             this.storeId = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.OrderItemDataGrid = new System.Windows.Forms.DataGridView();
+            this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.goodsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isDisplay = new System.Windows.Forms.DataGridViewImageColumn();
+            this.isInstall = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -88,12 +97,6 @@
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.appointment = new System.Windows.Forms.DataGridViewImageColumn();
             this.MainForm.SuspendLayout();
             this.UserInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemDataGrid)).BeginInit();
@@ -117,12 +120,14 @@
             // UserInfo
             // 
             this.UserInfo.BackColor = System.Drawing.Color.White;
+            this.UserInfo.Controls.Add(this.installDate);
+            this.UserInfo.Controls.Add(this.label16);
             this.UserInfo.Controls.Add(this.paymentMethod);
             this.UserInfo.Controls.Add(this.label19);
             this.UserInfo.Controls.Add(this.final);
             this.UserInfo.Controls.Add(this.label15);
             this.UserInfo.Controls.Add(this.label18);
-            this.UserInfo.Controls.Add(this.deposit);
+            this.UserInfo.Controls.Add(this.depositTxt);
             this.UserInfo.Controls.Add(this.label17);
             this.UserInfo.Controls.Add(this.paid);
             this.UserInfo.Controls.Add(this.label14);
@@ -162,6 +167,29 @@
             this.UserInfo.Size = new System.Drawing.Size(1040, 916);
             this.UserInfo.TabIndex = 24;
             this.UserInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.UserInfo_Paint);
+            // 
+            // installDate
+            // 
+            this.installDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.installDate.Location = new System.Drawing.Point(406, 376);
+            this.installDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.installDate.Name = "installDate";
+            this.installDate.Size = new System.Drawing.Size(611, 17);
+            this.installDate.TabIndex = 59;
+            this.installDate.Text = "#install date & time";
+            this.installDate.UseMnemonic = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(18, 376);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(330, 17);
+            this.label16.TabIndex = 58;
+            this.label16.Text = "預計安裝日期與時間 Expect Delivery Date & Time:";
+            this.label16.UseMnemonic = false;
             // 
             // paymentMethod
             // 
@@ -217,15 +245,15 @@
             this.label18.TabIndex = 53;
             this.label18.Text = "Thank You For Your Purchase!";
             // 
-            // deposit
+            // depositTxt
             // 
-            this.deposit.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deposit.Location = new System.Drawing.Point(133, 735);
-            this.deposit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.deposit.Name = "deposit";
-            this.deposit.Size = new System.Drawing.Size(220, 40);
-            this.deposit.TabIndex = 52;
-            this.deposit.Text = "#deposit";
+            this.depositTxt.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.depositTxt.Location = new System.Drawing.Point(154, 735);
+            this.depositTxt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.depositTxt.Name = "depositTxt";
+            this.depositTxt.Size = new System.Drawing.Size(177, 40);
+            this.depositTxt.TabIndex = 52;
+            this.depositTxt.Text = "#deposit";
             // 
             // label17
             // 
@@ -234,9 +262,9 @@
             this.label17.Location = new System.Drawing.Point(18, 735);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(93, 17);
+            this.label17.Size = new System.Drawing.Size(125, 17);
             this.label17.TabIndex = 51;
-            this.label17.Text = "Deposit 訂金:";
+            this.label17.Text = "Deposit 所需訂金:";
             // 
             // paid
             // 
@@ -359,7 +387,7 @@
             // transcationDate
             // 
             this.transcationDate.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transcationDate.Location = new System.Drawing.Point(236, 240);
+            this.transcationDate.Location = new System.Drawing.Point(236, 228);
             this.transcationDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.transcationDate.Name = "transcationDate";
             this.transcationDate.Size = new System.Drawing.Size(766, 24);
@@ -370,7 +398,7 @@
             // storeAddress
             // 
             this.storeAddress.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.storeAddress.Location = new System.Drawing.Point(217, 209);
+            this.storeAddress.Location = new System.Drawing.Point(217, 203);
             this.storeAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.storeAddress.Name = "storeAddress";
             this.storeAddress.Size = new System.Drawing.Size(786, 24);
@@ -393,7 +421,7 @@
             this.storeId.Location = new System.Drawing.Point(173, 182);
             this.storeId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.storeId.Name = "storeId";
-            this.storeId.Size = new System.Drawing.Size(210, 24);
+            this.storeId.Size = new System.Drawing.Size(210, 21);
             this.storeId.TabIndex = 36;
             this.storeId.Text = "#storeId";
             // 
@@ -423,24 +451,25 @@
             this.OrderItemDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OrderItemDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.OrderItemDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.OrderItemDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.OrderItemDataGrid.ColumnHeadersHeight = 50;
             this.OrderItemDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.OrderItemDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.goodsID,
-            this.ID,
-            this.Price,
-            this.CreatorId,
-            this.Amount,
-            this.appointment});
+            this.goodsName,
+            this.price,
+            this.qty,
+            this.amount,
+            this.isDisplay,
+            this.isInstall});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -452,7 +481,7 @@
             this.OrderItemDataGrid.DefaultCellStyle = dataGridViewCellStyle8;
             this.OrderItemDataGrid.EnableHeadersVisualStyles = false;
             this.OrderItemDataGrid.GridColor = System.Drawing.Color.White;
-            this.OrderItemDataGrid.Location = new System.Drawing.Point(8, 387);
+            this.OrderItemDataGrid.Location = new System.Drawing.Point(8, 412);
             this.OrderItemDataGrid.Margin = new System.Windows.Forms.Padding(0);
             this.OrderItemDataGrid.MultiSelect = false;
             this.OrderItemDataGrid.Name = "OrderItemDataGrid";
@@ -479,9 +508,100 @@
             this.OrderItemDataGrid.RowTemplate.Height = 30;
             this.OrderItemDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.OrderItemDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.OrderItemDataGrid.Size = new System.Drawing.Size(1018, 327);
+            this.OrderItemDataGrid.Size = new System.Drawing.Size(1018, 302);
             this.OrderItemDataGrid.StandardTab = true;
             this.OrderItemDataGrid.TabIndex = 34;
+            this.OrderItemDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.OrderItemDataGrid_CellFormatting);
+            // 
+            // goodsID
+            // 
+            this.goodsID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.goodsID.DataPropertyName = "goodsId";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.goodsID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.goodsID.HeaderText = "識別編號 ID No.";
+            this.goodsID.Name = "goodsID";
+            this.goodsID.ReadOnly = true;
+            this.goodsID.ToolTipText = "Goods ID";
+            this.goodsID.Width = 107;
+            // 
+            // goodsName
+            // 
+            this.goodsName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.goodsName.DataPropertyName = "goodsName";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.goodsName.DefaultCellStyle = dataGridViewCellStyle4;
+            this.goodsName.HeaderText = "貨品 Product";
+            this.goodsName.MinimumWidth = 6;
+            this.goodsName.Name = "goodsName";
+            this.goodsName.ReadOnly = true;
+            this.goodsName.ToolTipText = "Goods Name";
+            // 
+            // price
+            // 
+            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.price.DataPropertyName = "price";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.price.DefaultCellStyle = dataGridViewCellStyle5;
+            this.price.HeaderText = "單價 Unit Price";
+            this.price.MinimumWidth = 6;
+            this.price.Name = "price";
+            this.price.ReadOnly = true;
+            this.price.ToolTipText = "Unit Price";
+            this.price.Width = 119;
+            // 
+            // qty
+            // 
+            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.qty.DataPropertyName = "qty";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.qty.DefaultCellStyle = dataGridViewCellStyle6;
+            this.qty.HeaderText = "數量 Qty";
+            this.qty.MinimumWidth = 6;
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            this.qty.ToolTipText = "Quantity";
+            this.qty.Width = 70;
+            // 
+            // amount
+            // 
+            this.amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.amount.DataPropertyName = "amount";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.amount.DefaultCellStyle = dataGridViewCellStyle7;
+            this.amount.HeaderText = "金額 Amount";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            this.amount.ToolTipText = "Sub amount";
+            this.amount.Width = 110;
+            // 
+            // isDisplay
+            // 
+            this.isDisplay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.isDisplay.HeaderText = "展示商品 Display Item";
+            this.isDisplay.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.isDisplay.MinimumWidth = 6;
+            this.isDisplay.Name = "isDisplay";
+            this.isDisplay.ReadOnly = true;
+            this.isDisplay.ToolTipText = "Is display item?";
+            this.isDisplay.Width = 114;
+            // 
+            // isInstall
+            // 
+            this.isInstall.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.isInstall.DataPropertyName = "isInstall";
+            this.isInstall.HeaderText = "是否安裝 Need Install";
+            this.isInstall.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.isInstall.Name = "isInstall";
+            this.isInstall.ReadOnly = true;
+            this.isInstall.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.isInstall.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.isInstall.Width = 124;
             // 
             // panel4
             // 
@@ -540,7 +660,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DimGray;
-            this.panel3.Location = new System.Drawing.Point(0, 380);
+            this.panel3.Location = new System.Drawing.Point(0, 402);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1034, 1);
@@ -559,7 +679,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(16, 244);
+            this.label5.Location = new System.Drawing.Point(16, 232);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(184, 17);
@@ -570,7 +690,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 213);
+            this.label4.Location = new System.Drawing.Point(16, 207);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(168, 17);
@@ -728,84 +848,6 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ToolTipText = "Is display item?";
             // 
-            // goodsID
-            // 
-            this.goodsID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.goodsID.DataPropertyName = "goodsId";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.goodsID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.goodsID.HeaderText = "識別編號 ID No.";
-            this.goodsID.Name = "goodsID";
-            this.goodsID.ReadOnly = true;
-            this.goodsID.ToolTipText = "Goods ID";
-            this.goodsID.Width = 136;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ID.DataPropertyName = "goodsName";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle4;
-            this.ID.HeaderText = "貨品 Product";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.ToolTipText = "Goods Name";
-            // 
-            // Price
-            // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Price.DataPropertyName = "price";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.Price.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Price.HeaderText = "單價 Unit Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.ToolTipText = "Unit Price";
-            this.Price.Width = 129;
-            // 
-            // CreatorId
-            // 
-            this.CreatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CreatorId.DataPropertyName = "qty";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CreatorId.DefaultCellStyle = dataGridViewCellStyle6;
-            this.CreatorId.HeaderText = "數量 Qty";
-            this.CreatorId.MinimumWidth = 6;
-            this.CreatorId.Name = "CreatorId";
-            this.CreatorId.ReadOnly = true;
-            this.CreatorId.ToolTipText = "Quantity";
-            this.CreatorId.Width = 94;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Amount.DataPropertyName = "amount";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Format = "C2";
-            dataGridViewCellStyle7.NullValue = null;
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Amount.HeaderText = "金額 Amount";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.ToolTipText = "Sub amount";
-            this.Amount.Width = 119;
-            // 
-            // appointment
-            // 
-            this.appointment.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.appointment.HeaderText = "展示商品 Display Item";
-            this.appointment.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.appointment.MinimumWidth = 6;
-            this.appointment.Name = "appointment";
-            this.appointment.ReadOnly = true;
-            this.appointment.ToolTipText = "Is display item?";
-            this.appointment.Width = 151;
-            // 
             // Receipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -872,7 +914,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label printDate;
-        private System.Windows.Forms.Label deposit;
+        private System.Windows.Forms.Label depositTxt;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label paid;
         private System.Windows.Forms.Label label14;
@@ -885,11 +927,14 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label orderId;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.Label installDate;
+        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.DataGridViewTextBoxColumn goodsID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreatorId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewImageColumn appointment;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goodsName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn amount;
+        private System.Windows.Forms.DataGridViewImageColumn isDisplay;
+        private System.Windows.Forms.DataGridViewImageColumn isInstall;
     }
 }

@@ -13,6 +13,7 @@ namespace TheBetterLimited.Models
         private double price;
         private int stock;
         private bool needDelivery;
+        private bool needInstall;
         private bool isDisplay;
         private bool needBooking;
         private int quantity;
@@ -25,6 +26,7 @@ namespace TheBetterLimited.Models
             this.price = 0.0;
             this.quantity = 1;
             this.needDelivery = false;
+            this.needInstall = false;
             this.isDisplay = false;
             this.needBooking = false;
             this.remark = String.Empty;
@@ -39,5 +41,6 @@ namespace TheBetterLimited.Models
         public int Quantity { get => quantity; set => quantity = value; }
         public string Remark { get => remark; set => remark = value; }
         public bool NeedBooking { get => needBooking; set => needBooking = value; }
+        public bool NeedInstall { get => needInstall; set => needInstall = value; }
     }
 }

@@ -23,18 +23,14 @@ namespace TheBetterLimited.Views
 {
     public partial class POS : Form
     {
-        private UserController uc = new UserController();
         private BindingSource bs = new BindingSource();
         private DataTable dt = new DataTable();
         private DialogResult choose;
         private RestResponse result;
-        private bool isEditing = false;
         private List<JObject> goods = new List<JObject>();
         private List<object> orderItems = new List<object>();
         private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
         private ControllerBase cbGoods = new ControllerBase("pos/Goods");
-        private GoodsController gc = new GoodsController();
-        private System.Windows.Controls.Control ctl = null;
         private int selectedProduct = -1;
         private Bitmap selectedProductImg = null;
         private OrderItem oi = null;
@@ -42,6 +38,9 @@ namespace TheBetterLimited.Views
         private List<object> appointments = null;
         private double totalAmount;
         private int discount;
+        private bool isBook = false;
+        private bool isDelivery = false;
+        private bool isInstall = false;
 
         public POS()
         {
@@ -92,7 +91,7 @@ namespace TheBetterLimited.Views
             bs.DataSource = dt;
             CartItemGrid.AutoGenerateColumns = false;
             CartItemGrid.DataSource = dt;
-            DiscountValue.Texts = discount.ToString(); 
+            DiscountValue.Texts = discount.ToString();
             CalculateTotal();
             this.Invalidate();
         }
@@ -149,7 +148,6 @@ namespace TheBetterLimited.Views
             {
                 CartItemGrid.Rows.Add(cart.Name, Properties.Resources.minus, cart.Quantity, Properties.Resources.plus24, cart.Price, cart.Remark);
             }
-
         }
 
         private void AddLabelBtn_Click(object sender, EventArgs e)
@@ -159,21 +157,18 @@ namespace TheBetterLimited.Views
                 MessageBox.Show("You have not selected a product!");
                 return;
             }
-            Form goodsDetailss = Application.OpenForms["GoodsDetails"];
-            if (goodsDetailss == null || goodsDetailss.IsDisposed)
+            Form goodsDetails = Application.OpenForms["GoodsDetails"];
+            if (goodsDetails != null)
             {
-                GoodsDetails gd = new GoodsDetails();
-                gd.goodsData = goods[selectedProduct];
-                gd.Show();
-                gd.TopLevel = true;
-                oi = (OrderItem)gd.oi;
-                gd.OnExit += AddItem;
+                goodsDetails.Close();
+                goodsDetails.Dispose();
             }
-            else
-            {
-                goodsDetailss.Activate();
-                goodsDetailss.WindowState = FormWindowState.Normal;
-            }
+            GoodsDetails gd = new GoodsDetails();
+            gd.goodsData = goods[selectedProduct];
+            gd.Show();
+            gd.TopLevel = true;
+            oi = (OrderItem)gd.oi;
+            gd.OnExit += AddItem;
         }
 
         private void CartItemGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -212,22 +207,22 @@ namespace TheBetterLimited.Views
 
         private void HoldBtn_MouseHover(object sender, EventArgs e)
         {
-            HoldBtn.ForeColor = Color.White;
+            HoldBtn.TextColor = Color.White;
         }
 
         private void HoldBtn_MouseLeave(object sender, EventArgs e)
         {
-            HoldBtn.ForeColor = HoldBtn.BorderColor;
+            HoldBtn.TextColor = HoldBtn.BorderColor;
         }
 
         private void CancelBtn_MouseHover(object sender, EventArgs e)
         {
-            ClearBtn.ForeColor = Color.White;
+            ClearBtn.TextColor = Color.White;
         }
 
         private void CancelBtn_MouseLeave(object sender, EventArgs e)
         {
-            ClearBtn.ForeColor = ClearBtn.BorderColor;
+            ClearBtn.TextColor = ClearBtn.BorderColor;
         }
 
         private void CalculateTotal()
@@ -333,7 +328,7 @@ namespace TheBetterLimited.Views
                 {
                     continue;
                 }
-                if((int)c["GoodsStatus"] == 2)
+                if ((int)c["GoodsStatus"] == 2)
                 {
                     continue;
                 }
@@ -372,8 +367,7 @@ namespace TheBetterLimited.Views
 
         private void PayBtn_Click(object sender, EventArgs e)
         {
-            bool isBook = false;
-            bool isDelivery = false;
+
             if (orderItems.Count == 0)
             {
                 MessageBox.Show("Shopping Cart is empty!");
@@ -422,11 +416,22 @@ namespace TheBetterLimited.Views
                 }
             }
 
+            // check install
+            foreach (OrderItem item in orderItems)
+            {
+                // if an item need to book
+                if (item.NeedInstall == true)
+                {
+                    isDelivery = true;
+                    break;
+                }
+            }
+
             if (isBook && isDelivery) //need book and delivery
             {
                 DialogResult dialogResult = MessageBox.Show("Since the item(s) is/are out of stock in warehouse." +
-                    "\nUnable to predict the arrival time. \nDo you want to continue to place the order?","Warming",MessageBoxButtons.YesNo);
-                if(dialogResult == DialogResult.Yes)
+                    "\nUnable to predict the arrival time. \nDo you want to continue to place the order?", "Warming", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
                     OpenBooking();
                 }
@@ -439,12 +444,14 @@ namespace TheBetterLimited.Views
                 {
                     OpenBooking();
                 }
-            }else if (isDelivery)//need to deliver but not book
+            }
+            else if (isDelivery)//need to deliver but not book
             {
                 DialogResult dialogResult = MessageBox.Show("The item(s) should be delivered from the warehouse." +
                     "\nPlease enter the customer information.", "Warming");
                 OpenAppointment();
-            }else
+            }
+            else
             {
                 OpenPaymentMethod();
             }
@@ -461,6 +468,7 @@ namespace TheBetterLimited.Views
         {
             Appointment_Add appointment = new Appointment_Add();
             appointment.ShowDialog();
+            appointment.needInstall = isInstall;
             appointment.goodsList = orderItems;
         }
 
@@ -476,8 +484,14 @@ namespace TheBetterLimited.Views
         {
             Dictionary<string, object> data = new Dictionary<string, object>();
             data.Add("salesOrderItems", orderItems);
-            data.Add("appointments", appointments);
-            data.Add("customer", cusInfo);
+            if (appointments != null)
+            {
+                data.Add("appointments", appointments);
+            }
+            if (cusInfo != null)
+            {
+                data.Add("customer", cusInfo);
+            }
             return data;
         }
 
@@ -529,6 +543,9 @@ namespace TheBetterLimited.Views
             orderItems.Clear();
             cusInfo = null;
             oi = null;
+            isBook = false;
+            isDelivery = false;
+            isInstall = false;
             Form payment = Application.OpenForms["PaymentMethod"];
             if (payment != null)
             {
@@ -560,6 +577,36 @@ namespace TheBetterLimited.Views
         public void SetAppointments(List<object> appointments)
         {
             this.appointments = appointments;
+        }
+
+        private void defectItemBtn_MouseHover(object sender, EventArgs e)
+        {
+            defectItemBtn.TextColor = Color.White;
+        }
+
+        private void defectItemBtn_MouseLeave(object sender, EventArgs e)
+        {
+            defectItemBtn.TextColor = defectItemBtn.BorderColor;
+        }
+
+        private void OrderBtn_MouseHover(object sender, EventArgs e)
+        {
+            OrderBtn.TextColor = Color.White;
+        }
+
+        private void OrderBtn_MouseLeave(object sender, EventArgs e)
+        {
+            OrderBtn.TextColor = OrderBtn.BorderColor;
+        }
+
+        private void settleAccBtn_MouseHover(object sender, EventArgs e)
+        {
+            settleAccBtn.TextColor = Color.White;
+        }
+
+        private void settleAccBtn_MouseLeave(object sender, EventArgs e)
+        {
+            settleAccBtn.TextColor = OrderBtn.BorderColor;
         }
     }
 }
