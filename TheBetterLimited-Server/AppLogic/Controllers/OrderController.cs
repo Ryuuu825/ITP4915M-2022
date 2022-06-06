@@ -125,13 +125,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     total += salesOrderItem.Price * salesOrderItem.Quantity;
 
                     var appointments = salesOrderItem.SaleOrderItem_Appointment;
-                    if (appointments is null)
+                    if (appointments.Count == 0)
                         continue;
 
                     customer = _CustomerTable.GetById(appointments[0].Appointment._customerId); // we assume there is only one customer per appointment and both appointment (delivery and installation) have the same customer
 
-                    if (appointments is null)
-                        continue;
 
                     foreach(var appointmentItem in appointments)
                     {
@@ -283,6 +281,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
 
             List<SalesOrderItem> salesOrderItems = new List<SalesOrderItem>();
+
+            
             foreach (var item in order.SalesOrderItems)
             {
                 SalesOrderItem i = new SalesOrderItem()
@@ -335,7 +335,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 }
                 _Supplier_Goods_StockTable.Update(sgs);
             }
-
             
             if (order.Customer is null) // this is a normal order
             {
@@ -368,17 +367,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
             bool isBooked = false;
             bool isAppointment = false;
-
-            BookingOrder bookingOrder = new BookingOrder()
-            {
-                ID = Helpers.Sql.PrimaryKeyGenerator.Get<BookingOrder>(db),
-                _customerId = _CustomerTable.GetAll().Last().ID,
-            };
-            Appointment[] appointments = new Appointment[2];
-            var SalesOrderItemsList = (await _SalesOrderItemTable.GetBySQLAsync(
-                Helpers.Sql.QueryStringBuilder.GetSqlStatement<SalesOrderItem>($"_salesOrderId:{newOrder.ID}")
-            ));
-
     
             // determine is this order needed to be booked or needed to be appointed
             if (order.SalesOrderItems[0].NeedBooking)
@@ -390,6 +378,17 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             {
                 isAppointment = true;
             }
+            BookingOrder bookingOrder = new BookingOrder()
+            {
+                ID = Helpers.Sql.PrimaryKeyGenerator.Get<BookingOrder>(db),
+                _customerId = _CustomerTable.GetAll().Last().ID,
+            };
+            Appointment[] appointments = new Appointment[2];
+
+            var SalesOrderItemsList = (await _SalesOrderItemTable.GetBySQLAsync(
+                Helpers.Sql.QueryStringBuilder.GetSqlStatement<SalesOrderItem>($"_salesOrderId:{newOrder.ID}")
+            ));
+
             
 
             if (isBooked)
