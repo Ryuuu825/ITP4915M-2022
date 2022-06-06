@@ -69,7 +69,18 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
         private async Task<List<OrderOutDto>> ToDto(List<SalesOrder> salesOrders ,  string lang = "en")
         {
-            List<OrderOutDto> res = new List<OrderOutDto>();
+            if (salesOrders.Count == 0)
+            {
+                return new List<OrderOutDto>();// empty list
+            }
+            List<OrderOutDto> res = new List<OrderOutDto>(salesOrders.Count);
+            // get the store name
+            Store store = (await _StaffTable.GetByIdAsync(salesOrders[0]._creatorId)).store;
+
+            // get delivery appointment
+            AppointmentOutDto? deliveryAppointment = null;
+            AppointmentOutDto? installatAppointment = null;
+            Customer? customer = null;
 
             // all the sales record in the system
             for (var i = 0; i < salesOrders.Count; i++)
@@ -83,27 +94,23 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 )).AsReadOnly();
 
                 // tmp list to convert the sales order item to dto
-                List<SalesOrderItemOutDto> tmp = new List<SalesOrderItemOutDto>();
+                List<SalesOrderItemOutDto> tmp = new List<SalesOrderItemOutDto>(salesOrderItemList.Count);
 
                 // convert the sales order item to dto
                 foreach(var salesOrderItem in salesOrderItemList)
                 {
-                    var salesOrderItemDto = salesOrderItem.CopyAs<SalesOrderItemOutDto>();
+                    SalesOrderItemOutDto salesOrderItemDto = salesOrderItem.CopyAs<SalesOrderItemOutDto>();
                     salesOrderItemDto.SupplierGoodsStockId = salesOrderItem._supplierGoodsStockId;
-
                     Goods goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
                     salesOrderItemDto.Name = goods.Name;
                     tmp.Add(salesOrderItemDto);
                 }
 
-                // get the store name
-                Store store = (await _StaffTable.GetByIdAsync(salesOrders[i]._creatorId)).store;
-
                 // get the amount paid
                 decimal paid = 0;
                 var transactionRecords = (await _TransactionTable.GetBySQLAsync(
                     "SELECT * FROM Transaction WHERE _salesOrderId = " + salesOrders[i].ID
-                )).AsReadOnly();
+                ));
                 foreach(var record in transactionRecords)
                 {
                     paid += record.Amount;
@@ -112,58 +119,38 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 decimal total = 0;
                 // get the price from the supplier goods stock record
                 // get the qty from the sales order item record
-                foreach(var salesOrderItem in salesOrderItemList)
-                {
-                    total += salesOrderItem.Price * salesOrderItem.Quantity;
-                }
-
-                // get delivery appointment
-                AppointmentOutDto? deliveryAppointment = null;
-                AppointmentOutDto? installatAppointment = null;
-                Customer? customer = null;
-
-
                 
                 foreach(var salesOrderItem in salesOrderItemList)
                 {
+                    total += salesOrderItem.Price * salesOrderItem.Quantity;
+
                     var appointments = salesOrderItem.SaleOrderItem_Appointment;
+                    if (appointments is null)
+                        continue;
 
                     customer = _CustomerTable.GetById(appointments[0].Appointment._customerId); // we assume there is only one customer per appointment and both appointment (delivery and installation) have the same customer
 
                     if (appointments is null)
                         continue;
+
                     foreach(var appointmentItem in appointments)
                     {
+                        var session = await _SessionTable.GetByIdAsync(appointmentItem.Appointment._sessionId);
+
                         if (appointmentItem.Appointment._departmentId == "300") // hard code (this is delivery order)
                         {
                             var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
                             if (deliveryAppointment == null)
                             {
                                 // lazyloader proxy did not work on the appointment
-                                var session = await _SessionTable.GetByIdAsync(appointmentItem.Appointment._sessionId);
                                 deliveryAppointment = new AppointmentOutDto
                                 {
                                     AppointmentId = appointmentItem.Appointment.ID,
                                     Date = session.Date,
                                     StartTime = session.StartTime,
                                     EndTime = session.EndTime,
-                                    Items = new List<SalesOrderItem_AppointmentOutDto>()
-                                    {
-                                        new SalesOrderItem_AppointmentOutDto
-                                        {
-                                            ItemNames = goods.Name,
-                                            ItemsId = salesOrderItem.Id
-                                        }
-                                    }
+                                    Items = null // we decided to not show to reduce the memory usage , also we assume that all the goods in the sales order are delivered in the same appointment
                                 };
-                            }
-                            else 
-                            {
-                                deliveryAppointment.Items.Add(new SalesOrderItem_AppointmentOutDto
-                                {
-                                    ItemNames = goods.Name,
-                                    ItemsId = salesOrderItem.Id
-                                });
                             }
                         }
                         else if (appointmentItem.Appointment._departmentId == "700") // hard code (this is installat order)
@@ -171,7 +158,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                             var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
                             if (installatAppointment == null)
                             {
-                                var session = await _SessionTable.GetByIdAsync(appointmentItem.Appointment._sessionId);
                                 installatAppointment = new AppointmentOutDto
                                 {
                                     AppointmentId = appointmentItem.Appointment.ID,
@@ -199,8 +185,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         }
                     }
                 }
-
-                
 
 
                 res.Add(
@@ -299,11 +283,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
 
             List<SalesOrderItem> salesOrderItems = new List<SalesOrderItem>();
-            ConsoleLogger.Debug(order.SalesOrderItems.Count);
             foreach (var item in order.SalesOrderItems)
             {
-                ConsoleLogger.Debug("Next" + Helpers.Sql.PrimaryKeyGenerator.Get<SalesOrderItem>(db));
-                var d = new SalesOrderItem()
+                SalesOrderItem i = new SalesOrderItem()
                     {
                         Id = Helpers.Sql.PrimaryKeyGenerator.Get<SalesOrderItem>(db),
                         _salesOrderId = newOrder.ID,
@@ -311,14 +293,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         Quantity = item.Quantity,
                         Price = item.Price
                     };
-                ConsoleLogger.Debug(d.Debug());
-                salesOrderItems.Add(
-                    d
-                );
-
-                _SalesOrderItemTable.Add(salesOrderItems.Last());
-
-
+                salesOrderItems.Add(i);              
+                _SalesOrderItemTable.Add(i);
 
                 Supplier_Goods_Stock sgs = (await _Supplier_Goods_StockTable.GetBySQLAsync(
                     Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods_Stock>("Id:" + item.SupplierGoodsStockId)
@@ -345,7 +321,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
                     foreach (var s in StoreManager)
                     {
-                        receivers.Add(s.acc.UserName);
+                        receivers.Add(account.UserName);
                     }
 
                     _MessageController.SendMessage("system" ,
@@ -361,9 +337,14 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
 
             
-            if (order.Customer is null) 
+            if (order.Customer is null) // this is a normal order
             {
-               return newOrder.ID; // this is a normal booking, which mean no booking or appointment is needed.
+                salesOrderItems.ForEach(x => x = null);
+                salesOrderItems= null;
+                account = null;
+                staff = null;
+                GC.Collect();
+                return newOrder.ID; // this is a normal booking, which mean no booking or appointment is needed.
             }
             else // there are some booking, or appointment
             {
@@ -398,18 +379,16 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<SalesOrderItem>($"_salesOrderId:{newOrder.ID}")
             ));
 
-            foreach(var items in order.SalesOrderItems)
+    
+            // determine is this order needed to be booked or needed to be appointed
+            if (order.SalesOrderItems[0].NeedBooking)
             {
-                // determine is this order needed to be booked or needed to be appointed
-                if (items.NeedBooking)
-                {
-                    isBooked = true;
-                }
+                isBooked = true;
+            }
 
-                if (items.NeedDelivery || items.NeedInstall)
-                {
-                    isAppointment = true;
-                }
+            if (order.SalesOrderItems[0].NeedDelivery || order.SalesOrderItems[0].NeedInstall)
+            {
+                isAppointment = true;
             }
             
 
@@ -446,7 +425,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
                     foreach (var salesOrderItem in SalesOrderItemsList)
                     {
-                        ConsoleLogger.Debug("salesOrderItem.Id: " + salesOrderItem.Id);
                         _SalesOrderItem_AppointmentTable.Add(
                             new SalesOrderItem_Appointment{
                                 _salesOrderItemId = salesOrderItem.Id,
@@ -494,20 +472,22 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     {
                         if (order.SalesOrderItems[i].NeedInstall)
                         {
-                            var ientry = new SalesOrderItem_Appointment{
+                            SalesOrderItem_Appointment ientry = new SalesOrderItem_Appointment{
                                 _salesOrderItemId = SalesOrderItemsList[i].Id,
                                 _appointmentId = appointments[1].ID 
                             };
                             salesOrderItem_Appointments.Add(ientry);
+                            ientry = null;
                         }
                         
                         if (order.SalesOrderItems[i].NeedDelivery)
                         {
-                            var dentry = new SalesOrderItem_Appointment{
+                            SalesOrderItem_Appointment dentry = new SalesOrderItem_Appointment{
                                     _salesOrderItemId = SalesOrderItemsList[i].Id,
                                     _appointmentId = appointments[0].ID 
                                 };
                             salesOrderItem_Appointments.Add(dentry);
+                            dentry = null;
                         }
                         
                     }
@@ -516,8 +496,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         _SalesOrderItem_AppointmentTable.Add(entry);
                         db.SaveChanges();
                     }
+                    salesOrderItem_Appointments = null;
                 }
             }
+
+            GC.Collect();
             return newOrder.ID;
         }
 
