@@ -40,13 +40,14 @@ namespace TheBetterLimited_Server.Helpers
 
         public static T TryLocalize<T>(string language , T target)
         {
+            XmlDocument xml = new XmlDocument();
+
             if (! isTransalatable<T>())
                 return target;
 
-            XmlDocument xml = new XmlDocument();
             xml.Load(string.Format(FilePath, typeof(T).Name ));
 
-            var entity = target.CopyAs<T>();
+            var entity = target.TryCopy<T>();
             // check if the property has the TranslatableAttribute
             foreach (var item in entity.GetType().GetProperties())
             {
@@ -73,13 +74,15 @@ namespace TheBetterLimited_Server.Helpers
 
             xml = null;
             GC.Collect();
-            return entity;
+            GC.WaitForPendingFinalizers();
 
+            return entity;
         }
 
         public static void UpdateWord<T>(string language , string id , string word)
         {
             XmlDocument xml = new XmlDocument();
+
             xml.Load(string.Format(FilePath, typeof(T).Name));
 
             if (!isLanguageSupported<T>(language))
@@ -88,6 +91,11 @@ namespace TheBetterLimited_Server.Helpers
                 var newLan = xml.CreateElement("language");
                 newLan.InnerXml = $"<code>{language}</code>";
                 lans.AppendChild(newLan);
+
+                lans = null;
+                newLan = null;
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
             }
 
             var Troot = xml.SelectSingleNode($"/root/Translation");
@@ -117,10 +125,18 @@ namespace TheBetterLimited_Server.Helpers
                 var newNode = xml.CreateElement(id);
                 newNode.InnerXml = newT.OuterXml;
                 Troot.AppendChild(newNode);
+
+                newT = null;
+                newNode = null;
             }
             xml.Save(string.Format(FilePath, typeof(T).Name ));
-        }
 
+            Troot = null;
+            node = null;
+            xml = null;
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }
     }
 
     internal class Foo
