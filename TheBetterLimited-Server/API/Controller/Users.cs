@@ -66,7 +66,7 @@ public class UsersController : ControllerBase
     {
         try
         {
-            return Ok((await controller.GetUserByIDAsync(id)).CopyAs<AccountOutDto>());
+            return Ok((await controller.GetUserByIDAsync(id)).TryCopy<AccountOutDto>());
         }catch(ICustException e)
         {
             return StatusCode(e.ReturnCode, e.GetHttpResult());

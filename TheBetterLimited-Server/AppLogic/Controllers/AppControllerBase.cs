@@ -89,7 +89,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         }
         public virtual async Task Add(T entity,string lang = "en")
         {
-            var newObj = entity.CopyAsDto().CopyAs<T>();
+            var newObj = entity.CopyAsDto().TryCopy<T>();
             newObj  .GetType()
                     .GetProperties()
                     .Where(x => x.Name.ToLower() == "id")
