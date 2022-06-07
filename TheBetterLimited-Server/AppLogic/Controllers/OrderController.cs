@@ -160,8 +160,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                             }
                             else if (appointmentItem.Appointment._departmentId == "700") // hard code (this is installat order)
                             {
-                                var goods = salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods;
-                                // var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
+                                // var goods = salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods;
+                                var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
                                 if (installatAppointment == null)
                                 {
                                     installatAppointment = new AppointmentOutDto
@@ -304,6 +304,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             
             foreach (var item in order.SalesOrderItems)
             {
+
                 SalesOrderItem i = new SalesOrderItem()
                     {
                         Id = Helpers.Sql.PrimaryKeyGenerator.Get<SalesOrderItem>(db),
