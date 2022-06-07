@@ -15,5 +15,12 @@ namespace TheBetterLimited_Server.Helpers.LogHelper
             Console.WriteLine(msg.ToString());
             Console.ResetColor();
         }
+
+        public static void Error(string msg)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(msg);
+            Console.ResetColor();
+        }
     }
 }
