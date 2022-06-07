@@ -78,13 +78,15 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             Store store = (await _StaffTable.GetByIdAsync(salesOrders[0]._creatorId)).store;
 
             // get delivery appointment
-            AppointmentOutDto? deliveryAppointment = null;
-            AppointmentOutDto? installatAppointment = null;
-            Customer? customer = null;
+
 
             // all the sales record in the system
             for (var i = 0; i < salesOrders.Count; i++)
             {
+                AppointmentOutDto? deliveryAppointment = null;
+                AppointmentOutDto? installatAppointment = null;
+                Customer? customer = null;
+
                 // get the sales record items
                 var salesOrderItemList = (await _SalesOrderItemTable.GetBySQLAsync(
                     "SELECT * FROM SalesOrderItem WHERE _salesOrderId = " + salesOrders[i].ID
@@ -125,11 +127,12 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     // if ( appointments is null || appointments.Count == 0)
                     //     continue;   
 
-                    if (salesOrderItem.BookingOrder is not null)
+                    if (salesOrderItem.BookingOrder is not null) // booking order
                     {
+                        ConsoleLogger.Debug(salesOrderItem.BookingOrder._customerId);
                         customer = _CustomerTable.GetById(salesOrderItem.BookingOrder._customerId);
                     }
-                    else if (appointments is not null || appointments?.Count != 0)
+                    else if (appointments is not null || appointments?.Count != 0) // appointment order
                     {
                         try 
                         {
@@ -196,14 +199,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         customer = null;
                         continue;
                     }
-
-                    
-
-                    
                 }
-
-
-
                 res.Add(
                     new OrderOutDto
                     {
