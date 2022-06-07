@@ -352,6 +352,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 _Supplier_Goods_StockTable.Update(sgs);
             }
             
+            // this is a normal booking, which mean no booking or appointment is needed.
+            // and the customer should take the goods at the store
             if (order.Customer is null) // this is a normal order
             {
                 salesOrderItems.ForEach(x => x = null);
@@ -359,7 +361,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 account = null;
                 staff = null;
                 GC.Collect();
-                return newOrder.ID; // this is a normal booking, which mean no booking or appointment is needed.
+                newOrder.Status = SalesOrderStatus.Completed;
+                repository.Update(newOrder);
+                return newOrder.ID; 
             }
             else // there are some booking, or appointment
             {
@@ -393,6 +397,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             if (order.SalesOrderItems[0].NeedDelivery || order.SalesOrderItems[0].NeedInstall)
             {
                 isAppointment = true;
+
             }
             BookingOrder bookingOrder = new BookingOrder()
             {
@@ -406,8 +411,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<SalesOrderItem>($"_salesOrderId:{newOrder.ID}")
             ));
 
-            
-
             if (isBooked)
             {
                 ConsoleLogger.Debug("Booking order is needed");
@@ -416,14 +419,15 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 _SalesOrderItemTable.Update(entry);
 
 
-                newOrder.Status = SalesOrderStatus.NotCompleted;
+                newOrder.Status = SalesOrderStatus.Booking;
                 repository.Update(newOrder);
-
-
-
             }
             else if (isAppointment)
             {
+
+                newOrder.Status = SalesOrderStatus.PendingDelivery;
+                repository.Update(newOrder);
+                
                 if(order.Appointments.Count == 1)
                 {
                     // delivery appointment
