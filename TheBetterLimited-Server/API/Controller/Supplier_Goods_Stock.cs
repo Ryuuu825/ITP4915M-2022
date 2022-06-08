@@ -34,8 +34,8 @@ namespace TheBetterLimited_Server.API.Controller
             List<Hashtable> result = new List<Hashtable>();
             foreach (var r in res) 
             {
-
                 Hashtable h = new Hashtable();
+                h.Add("Id" , r.Id);
                 h.Add("GoodsName" , goods.Find(x => x.Id == r.Supplier_Goods.Goods.Id).Name);
                 h.Add("_locationId" , r._locationId);
                 h.Add("LocName" , r.Location.Name) ;
