@@ -428,7 +428,7 @@ namespace TheBetterLimited.Views
             if (isBook && isDelivery) //need book and delivery
             {
                 DialogResult dialogResult = MessageBox.Show("Since the item(s) is/are out of stock in warehouse." +
-                    "\nUnable to predict the arrival time. \nDo you want to continue to place the order?", "Warming", MessageBoxButtons.YesNo);
+                    "\nUnable to predict the arrival time. \nDo you want to continue to place the order?", "Warning", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     OpenBooking();
@@ -437,7 +437,7 @@ namespace TheBetterLimited.Views
             else if (isBook) //need book but not need to deliver
             {
                 DialogResult dialogResult = MessageBox.Show("Since the item(s) is/are out of stock in store." +
-                    "\nUnable to predict the arrival time. \nDo you want to continue to place the order?", "Warming", MessageBoxButtons.YesNo);
+                    "\nUnable to predict the arrival time. \nDo you want to continue to place the order?", "Warning", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     OpenBooking();
@@ -446,7 +446,7 @@ namespace TheBetterLimited.Views
             else if (isDelivery)//need to deliver but not book
             {
                 DialogResult dialogResult = MessageBox.Show("The item(s) should be delivered from the warehouse." +
-                    "\nPlease enter the customer information.", "Warming");
+                    "\nPlease enter the customer information.", "Warning");
                 OpenAppointment(isInstall);
             }
             else

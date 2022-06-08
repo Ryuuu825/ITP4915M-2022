@@ -238,7 +238,7 @@
             this.cbxStatus.BorderColor = System.Drawing.Color.LightGray;
             this.cbxStatus.BorderRadius = 1;
             this.cbxStatus.BorderSize = 1;
-            this.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxStatus.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cbxStatus.ForeColor = System.Drawing.Color.DimGray;
             this.cbxStatus.IconColor = System.Drawing.Color.LightGray;
@@ -259,7 +259,7 @@
             this.cbxSize.BorderColor = System.Drawing.Color.LightGray;
             this.cbxSize.BorderRadius = 1;
             this.cbxSize.BorderSize = 1;
-            this.cbxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSize.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cbxSize.ForeColor = System.Drawing.Color.DimGray;
             this.cbxSize.IconColor = System.Drawing.Color.LightGray;

@@ -143,7 +143,7 @@ namespace TheBetterLimited.Views
         {
             if (stockLevel == 0)
             {
-                DialogResult result = MessageBox.Show("Product is out of stock! \nDo you need to book this product?", "Warming", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Product is out of stock! \nDo you need to book this product?", "Warning", MessageBoxButtons.YesNo);
                 if (result == DialogResult.No)
                 {
                     return;
