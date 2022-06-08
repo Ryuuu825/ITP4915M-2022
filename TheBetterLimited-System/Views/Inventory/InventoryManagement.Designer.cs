@@ -487,7 +487,7 @@
             // 
             this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.edit.HeaderText = "";
-            this.edit.Image = global::TheBetterLimited.Properties.Resources.pencil_free_icon_font;
+            this.edit.Image = global::TheBetterLimited.Properties.Resources.pencil;
             this.edit.MinimumWidth = 6;
             this.edit.Name = "edit";
             this.edit.ReadOnly = true;

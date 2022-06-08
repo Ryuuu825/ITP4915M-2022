@@ -21,8 +21,8 @@ namespace TheBetterLimited.Controller
             var request = new RestRequest("/api/" + ControllerName, Method.Get)
                         .AddQueryParameter("limit", limit)
                         .AddQueryParameter("offset", offset)
-                        .AddQueryParameter("month", month)
                         .AddQueryParameter("day", day)
+                        .AddQueryParameter("month", month)
                         .AddHeader("Language", lang)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             return GetRestResponse(request);

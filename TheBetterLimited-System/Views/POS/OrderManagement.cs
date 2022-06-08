@@ -140,8 +140,8 @@ namespace TheBetterLimited.Views
                         waitResult.Dispose();
                         Receipt receipt = new Receipt(response.Content);
                         receipt.ShowDialog();
-                        Form appointment = Application.OpenForms["POS"];
-                        ((POS)appointment).ClearOrder();
+                        Form pos = Application.OpenForms["POS"];
+                        ((POS)pos).ClearOrder();
                     }
                 }
                 catch (Exception ex)

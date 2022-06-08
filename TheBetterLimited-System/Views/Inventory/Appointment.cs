@@ -22,17 +22,20 @@ namespace TheBetterLimited.Views
 {
     public partial class Appointment : Form
     {
-        private UserController uc = new UserController();
         private BindingSource bs = new BindingSource();
         private List<string> selectAppointmentID = new List<string>();
         private DialogResult choose;
-        private RestResponse result;
-        private ControllerBase cbAppointment = new ControllerBase("_Appointment");
+        private RestResponse response;
+        private AppointmentController cbAppointment = new AppointmentController("_Appointment");
+        private DataTable dt = new DataTable();
+        private BackgroundWorker bgWorker = new BackgroundWorker();
+        private ControllerBase cbOrder = new ControllerBase("Order");
 
         public Appointment()
         {
             InitializeComponent();
-            GetGoods();//init user table
+            InitialzeDataTable();
+            GetAppointment();//init user table
         }
 
         /*
@@ -40,13 +43,12 @@ namespace TheBetterLimited.Views
          */
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            DeleteSelectedGoods();
         }
 
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.Invalidate();
-            GetGoods();
+            GetAppointment();
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -56,38 +58,6 @@ namespace TheBetterLimited.Views
 
         private void GoodsDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (AppointmentDataGrid.Columns[e.ColumnIndex].Name == "Status")
-            {
-                if (e.Value.ToString().Equals("0"))
-                {
-                    e.Value = "Selling";
-                }
-                if (e.Value.ToString().Equals("1"))
-                {
-                    e.Value = "PhasingOut";
-                }
-                if (e.Value.ToString().Equals("2"))
-                {
-                    e.Value = "StopSelling";
-                }
-            }
-
-            if (AppointmentDataGrid.Columns[e.ColumnIndex].Name == "Size")
-            {
-
-                if (e.Value.ToString().Equals("0"))
-                {
-                    e.Value = "Small";
-                }
-                if (e.Value.ToString().Equals("1"))
-                {
-                    e.Value = "Medium";
-                }
-                if (e.Value.ToString().Equals("2"))
-                {
-                    e.Value = "Large";
-                }
-            }
 
         }
 
@@ -111,14 +81,44 @@ namespace TheBetterLimited.Views
                 }
             }
 
-            if (e.ColumnIndex == AppointmentDataGrid.Columns["edit"].Index)
+            if (e.ColumnIndex == AppointmentDataGrid.Columns["print"].Index)
             {
-                MessageBox.Show("You have selected row " + selectAppointmentID[0] + " cell");
+                try
+                {
+                    WaitResult waitResult = new WaitResult();
+                    waitResult.Show();
+                    waitResult.TopMost = true;
+                    bgWorker.RunWorkerAsync(response = cbOrder.GetById(AppointmentDataGrid["orderId", e.RowIndex].Value.ToString()));
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        waitResult.Close();
+                        waitResult.Dispose();
+                        DeliveryNote receipt = new DeliveryNote(response.Content);
+                        receipt.ShowDialog();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Create Unsuccessful");
+                }
             }
 
-            if (e.ColumnIndex == AppointmentDataGrid.Columns["delete"].Index)
+            if (e.ColumnIndex == AppointmentDataGrid.Columns["details"].Index)
             {
-                DeleteGoods(e);
+                Form order = Application.OpenForms["OrderDetails"];
+                if (order != null)
+                {
+                    order.Close();
+                    order.Dispose();
+                }
+                OrderDetails od = new OrderDetails();
+                response = cbOrder.GetById(AppointmentDataGrid["orderId", e.RowIndex].Value.ToString());
+                if(response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    od.SetOrderData(JObject.Parse(response.Content));
+                    od.Show();
+                    od.TopLevel = true;
+                }
             }
 
         }
@@ -126,46 +126,60 @@ namespace TheBetterLimited.Views
         //search bar text changed event
         private void SearchBarTxt__TextChanged(object sender, EventArgs e)
         {
-            GetGoods();
+            GetAppointment();
         }
 
 
         /*
         * Dom Event Handler
         */
+        private void InitialzeDataTable()
+        {
+            dt.Columns.Add("Id");
+            dt.Columns.Add("time");
+            dt.Columns.Add("address");
+        }
+
 
         //Initialize DataGridView
         private void InitializeDataGridView()
         {
             //Main data column
-            AppointmentDataGrid.AutoGenerateColumns = true;
+            AppointmentDataGrid.AutoGenerateColumns = false;
             AppointmentDataGrid.DataSource = bs;
-
             for (int i = 0; i < AppointmentDataGrid.RowCount; i++)
                 AppointmentDataGrid["select", i].Tag = 0;
 
             selectAppointmentID.Clear();
         }
 
-        //Get Goods
-        private void GetGoods()
+        //Get Appointment
+        private void GetAppointment()
         {
+            dt.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
-                result = cbAppointment.GetAll();
+                response = cbAppointment.GetAll(DeliveryDatePicker.Value.Day,DeliveryDatePicker.Value.Month);
             }
             else
             {
                 string str = "appointmentId:" + this.SearchBarTxt.Texts
                             + "|status:" + this.SearchBarTxt.Texts;
-                result = cbAppointment.GetByQueryString(str);
+                response = cbAppointment.GetByQueryString(str);
             }
             try
             {
-                DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
-                var res = JArray.Parse(result.Content.ToString());
-                int index = 0;
-                bs.DataSource = dataTable;
+                Console.WriteLine(response.Content);
+                JArray appointments = JArray.Parse(response.Content);
+                foreach (JObject a in appointments)
+                {
+                    var row = dt.NewRow();
+                    row["Id"] = a["appointmentId"].ToString();
+                    row["time"] = ((DateTime)a["startTime"]).ToString("t") + " - " + ((DateTime)a["endTime"]).ToString("t");
+                    row["address"] = a["customer"]["address"].ToString();
+                    dt.Rows.Add(row);
+                }
+                bs.DataSource = dt;
                 AppointmentDataGrid.AutoGenerateColumns = false;
                 AppointmentDataGrid.DataSource = bs;
                 InitializeDataGridView();
@@ -176,7 +190,7 @@ namespace TheBetterLimited.Views
             }
         }
 
-        //Delete Selected Goods
+        //Assign Selected Appointment
         private void DeleteSelectedGoods()
         {
             if (selectAppointmentID.Count > 0)
@@ -190,10 +204,10 @@ namespace TheBetterLimited.Views
                         string res;
                         foreach (string uid in selectAppointmentID)
                         {
-                            result = cbAppointment.Delete(uid);
+                            response = cbAppointment.Delete(uid);
                         }
                         MessageBox.Show(selectAppointmentID.Count + " records have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetGoods();
+                        GetAppointment();
                     }
                     catch (Exception ex)
                     {
@@ -208,7 +222,7 @@ namespace TheBetterLimited.Views
             }
         }
 
-        //Delete Goods
+        //Assign Appointment
         private void DeleteGoods(DataGridViewCellEventArgs e)
         {
             choose = MessageBox.Show("Do you really want to delete the " + AppointmentDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
@@ -216,11 +230,11 @@ namespace TheBetterLimited.Views
             {
                 try
                 {
-                    result = cbAppointment.Delete(AppointmentDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                    if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = cbAppointment.Delete(AppointmentDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         MessageBox.Show("The " + AppointmentDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetGoods();
+                        GetAppointment();
                     }
                 }
                 catch (Exception ex)
@@ -231,16 +245,16 @@ namespace TheBetterLimited.Views
             }
         }
 
-        private void curdAction_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Appointment_Load(object sender, EventArgs e)
         {
             DeliveryDatePicker.MinDate = new DateTime(DateTime.Now.Year,1,1);
             DeliveryDatePicker.MaxDate = DateTime.Now.AddDays(29);
             DeliveryDatePicker.Value = DateTime.Now;
+        }
+
+        private void DeliveryDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            GetAppointment();
         }
     }
 }

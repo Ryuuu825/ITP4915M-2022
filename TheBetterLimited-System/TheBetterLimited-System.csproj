@@ -199,6 +199,12 @@
     <Compile Include="Views\Inventory\Appointment.Designer.cs">
       <DependentUpon>Appointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Inventory\DeliveryNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\DeliveryNote.Designer.cs">
+      <DependentUpon>DeliveryNote.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Inventory\RestockRequest-Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -419,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\Appointment.resx">
       <DependentUpon>Appointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\DeliveryNote.resx">
+      <DependentUpon>DeliveryNote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
