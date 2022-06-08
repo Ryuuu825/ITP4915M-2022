@@ -21,27 +21,29 @@ namespace TheBetterLimited.Views
 {
     public partial class WaitResult : Form
     {
-        private GoodsController uc = new GoodsController();
-        private ControllerBase cbSupplierGoodsStock = new ControllerBase("Supplier_Goods_Stock");
-        private ControllerBase cbSupplierGoods = new ControllerBase("Supplier_Goods");
-        private RestResponse result = new RestResponse();
-        private bool isUpload = false;
-        private Bitmap icon = null;
-        public JObject goodsData { get; set; }
-        private OrderItem oi = new OrderItem();
-
         public event Action OnExit;
         Timer timer = new Timer();
+        int i = 1;
 
         public WaitResult()
         {
             InitializeComponent();
-            this.TopLevel = true;
+            timer.Interval = 500;
+            timer.Start();
+            timer.Tick += new EventHandler(Timer_Tick);
         }
 
-        private void CancelBtn_Click(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
-
+            if (i <= 3) {
+                waitPoint.Text += ".";
+                i++;
+            }
+            else
+            {
+                waitPoint.Text = ".";
+                i = 1;
+            }
         }
     }
 }

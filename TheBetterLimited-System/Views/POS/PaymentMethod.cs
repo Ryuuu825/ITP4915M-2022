@@ -37,6 +37,11 @@ namespace TheBetterLimited.Views
             InitializeComponent();
         }
 
+        public void SetNeedBook(bool book)
+        {
+            needBook = book;
+        }
+
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             if (((PaymentPicBox)PaymentMethodBox.Controls[0]).IsSelected)
@@ -45,7 +50,7 @@ namespace TheBetterLimited.Views
             }
             else
             {
-
+                VirtualPayment();
             }
         }
 
@@ -70,12 +75,14 @@ namespace TheBetterLimited.Views
                     WaitResult waitResult = new WaitResult();
                     waitResult.Show();
                     waitResult.TopMost = true;
-                    Console.WriteLine(JsonConvert.SerializeObject(data));
+                    Console.WriteLine("Request: " + JsonConvert.SerializeObject(data));
                     bgWorker.RunWorkerAsync(response = cbOrder.Create(data));
+                    Console.WriteLine(response.Content);
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         waitResult.Close();
                         waitResult.Dispose();
+                        Console.WriteLine(response.Content);
                         Receipt receipt = new Receipt(response.Content);
                         receipt.ShowDialog();
                         ClearForm();
@@ -108,9 +115,10 @@ namespace TheBetterLimited.Views
                 //Create order
                 try
                 {
-                    response = cbOrder.Create(data);
                     WaitResult waitResult = new WaitResult();
-                    waitResult.ShowDialog();
+                    waitResult.Show();
+                    waitResult.TopMost = true;
+                    bgWorker.RunWorkerAsync(response = cbOrder.Create(data));
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         waitResult.Close();
@@ -118,6 +126,8 @@ namespace TheBetterLimited.Views
                         Receipt receipt = new Receipt(response.Content);
                         receipt.ShowDialog();
                         ClearForm();
+                        Form appointment = Application.OpenForms["POS"];
+                        ((POS)appointment).ClearOrder();
                     }
                 }
                 catch (Exception ex)
@@ -129,7 +139,6 @@ namespace TheBetterLimited.Views
 
         private void paymentPicBox_Click(object sender, EventArgs e)
         {
-            Console.WriteLine((PaymentPicBox)PaymentMethodBox.Controls[selectedMethod]);
             if (selectedMethod != -1)
             {
                 ((PaymentPicBox)PaymentMethodBox.Controls[selectedMethod]).IsSelected = false;

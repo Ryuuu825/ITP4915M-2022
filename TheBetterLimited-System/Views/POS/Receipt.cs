@@ -70,9 +70,10 @@ namespace TheBetterLimited.Views
         private void InitReceipt()
         {
             JObject info = JObject.Parse(data);
+            Console.WriteLine(info.ToString());
             BarcodeLib.Barcode b = new BarcodeLib.Barcode();
-            orderId.Text = info["Id"].ToString();
-            barcode.Image = b.Encode(BarcodeLib.TYPE.CODE39, info["Id"].ToString(), Color.Black, Color.White, 248, 67);
+            orderId.Text = info["id"].ToString();
+            barcode.Image = b.Encode(BarcodeLib.TYPE.CODE39, info["id"].ToString(), Color.Black, Color.White, 248, 67);
             JArray orderItems = (JArray)info["orderItems"];
             DataTable dt = new DataTable();
             BindingSource bs = new BindingSource();
@@ -119,22 +120,22 @@ namespace TheBetterLimited.Views
             salesId.Text = info["_creatorId"].ToString();
             storeAddress.Text = info["store"]["location"]["loc"].ToString();
             transcationDate.Text = ((DateTime)info["createAt"]).ToString("G");
-            if (((JToken)info["Customer"]).Type != JTokenType.Null) //check cus info
+            if (((JToken)info["customer"]).Type != JTokenType.Null) //check cus info
             {
-                cusName.Text = info["Customer"]["name"].ToString();
-                tel.Text = info["Customer"]["phone"].ToString();
+                cusName.Text = info["customer"]["name"].ToString();
+                tel.Text = info["customer"]["phone"].ToString();
                 area.Text = "";
-                if (((JToken)info["Delivery"]).Type != JTokenType.Null) //check need delivery
+                if (((JToken)info["delivery"]).Type != JTokenType.Null) //check need delivery
                 {
-                    deliveryAddress.Text = info["Customer"]["address"].ToString();
-                    deliveryDate.Text = ((DateTime)info["Delivery"]["date"]).ToString("d") + " "
-                        + ((DateTime)info["Delivery"]["startTime"]).ToString("t") + " - "
-                        + ((DateTime)info["Delivery"]["endTime"]).ToString("t");
-                    if (((JToken)info["Installation"]).Type != JTokenType.Null) //check need delivery
+                    deliveryAddress.Text = info["customer"]["address"].ToString();
+                    deliveryDate.Text = ((DateTime)info["delivery"]["date"]).ToString("d") + " "
+                        + ((DateTime)info["delivery"]["startTime"]).ToString("t") + " - "
+                        + ((DateTime)info["delivery"]["endTime"]).ToString("t");
+                    if (((JToken)info["installation"]).Type != JTokenType.Null) //check need delivery
                     {
-                        installDate.Text = ((DateTime)info["Installation"]["date"]).ToString("d") + " "
-                                        + ((DateTime)info["Installation"]["startTime"]).ToString("t") + " - "
-                                        + ((DateTime)info["Installation"]["endTime"]).ToString("t");
+                        installDate.Text = ((DateTime)info["installation"]["date"]).ToString("d") + " "
+                                        + ((DateTime)info["installation"]["startTime"]).ToString("t") + " - "
+                                        + ((DateTime)info["installation"]["endTime"]).ToString("t");
                     }
                     else
                     {
@@ -143,8 +144,10 @@ namespace TheBetterLimited.Views
                 }
                 else
                 {
+                    isBooking = true;
                     deliveryAddress.Text = "";
                     deliveryDate.Text = "";
+                    installDate.Text = "";
                 }
             }
             else
@@ -153,15 +156,18 @@ namespace TheBetterLimited.Views
             }
 
             var deposit = 0.0;
+            
+            totalAmount.Text = String.Format("{0:C2}", info["total"]);
+            paid.Text = String.Format("{0:C2}", info["total"]);
+            paymentMethod.Text = "";
+            final.Text = String.Format("{0:C2}", ((double)info["total"]-(double)info["total"]));
             if (isBooking)
             {
                 deposit = (double)info["total"] * 0.2;
+                paid.Text = String.Format("{0:C2}", deposit);
+                final.Text = String.Format("{0:C2}", ((double)info["total"] - deposit));
             }
             depositTxt.Text = String.Format("{0:C2}", deposit);
-            totalAmount.Text = String.Format("{0:C2}", info["total"]);
-            paid.Text = String.Format("{0:C2}", info["total"]);
-            paymentMethod.Text = "Cash";
-            final.Text = String.Format("{0:C2}", ((double)info["total"]-(double)info["paid"]));
         }
 
         private void UserInfo_Paint(object sender, PaintEventArgs e)

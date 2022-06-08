@@ -225,9 +225,7 @@ namespace TheBetterLimited.Views
             }
             if (DiscountValue.Texts != "")
             {
-                Console.WriteLine(discount);
                 total *= (100.0 - discount) / 100;
-                Console.WriteLine(total);
             }
             totalAmount = total;
             TotalAmountTxt.Text = String.Format("{0:C2}", totalAmount);
@@ -365,6 +363,8 @@ namespace TheBetterLimited.Views
             bool isBook = false;
             bool isDelivery = false;
             bool isInstall = false;
+            cusInfo = null;
+            appointments = null;
             if (orderItems.Count == 0)
             {
                 MessageBox.Show("Shopping Cart is empty!");
@@ -416,7 +416,6 @@ namespace TheBetterLimited.Views
             // check install
             foreach (OrderItem item in orderItems)
             {
-                Console.WriteLine(item.NeedInstall);
                 // if an item need to book
                 if (item.NeedInstall == true)
                 {
@@ -452,7 +451,7 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                OpenPaymentMethod();
+                OpenPaymentMethod(false);
             }
         }
 
@@ -471,9 +470,10 @@ namespace TheBetterLimited.Views
             appointment.goodsList = orderItems;
         }
 
-        public void OpenPaymentMethod()
+        public void OpenPaymentMethod(bool isBook)
         {
             PaymentMethod payment = new PaymentMethod();
+            payment.SetNeedBook(isBook);
             payment.data = CombineData();
             payment.totalAmount = totalAmount;
             payment.ShowDialog();

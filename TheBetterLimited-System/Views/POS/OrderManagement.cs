@@ -24,11 +24,12 @@ namespace TheBetterLimited.Views
         private BindingSource bs = new BindingSource();
         private List<string> selecteOrderId = new List<string>();
         private DialogResult choose;
-        private RestResponse result;
+        private RestResponse response;
         private bool isSawDetails = false;
         private ControllerBase cbOrder = new ControllerBase("Order");
         private string _storeId;
         private List<JObject> orderList = new List<JObject>();
+        private BackgroundWorker bgWorker = new BackgroundWorker();
 
         public OrderManagement()
         {
@@ -61,16 +62,31 @@ namespace TheBetterLimited.Views
             if (OrderDataGrid.Columns[e.ColumnIndex].Name == "status")
             {
                 e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                if (e.Value.Equals("Cancel"))
+                if (e.Value.Equals("Canceled"))
                 {
                     e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
                 }
-                else
+                else if(e.Value.Equals("Completed"))
                 {
                     e.CellStyle.ForeColor = Color.SeaGreen;
+                    e.CellStyle.SelectionForeColor = Color.SeaGreen;
                 }
-
+                else if (e.Value.Equals("Booking"))
+                {
+                    e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
+                }
+                else if (e.Value.Equals("Refunded"))
+                {
+                    e.CellStyle.ForeColor = Color.DimGray;
+                    e.CellStyle.SelectionForeColor = Color.DimGray;
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.FromArgb(250, 182, 99);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(250, 182, 99);
+                }
             }
         }
 
@@ -80,14 +96,14 @@ namespace TheBetterLimited.Views
             {
                 if (Convert.ToInt32(OrderDataGrid["select", e.RowIndex].Tag) == 0)
                 {
-                    OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
+                    OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
                     OrderDataGrid["select", e.RowIndex].Tag = 1;
                     OrderDataGrid.Rows[e.RowIndex].Selected = true;
                     selecteOrderId.Add(OrderDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
-                    OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
+                    OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.square24;
                     OrderDataGrid["select", e.RowIndex].Tag = 0;
                     OrderDataGrid.Rows[e.RowIndex].Selected = false;
                     selecteOrderId.Remove(OrderDataGrid["id", e.RowIndex].Value.ToString());
@@ -100,12 +116,39 @@ namespace TheBetterLimited.Views
                 if (order != null)
                 {
                     order.Close();
+                    order.Dispose();
                 }
                 OrderDetails od = new OrderDetails();
+                Console.WriteLine(orderList[e.RowIndex].ToString());
                 od.SetOrderData(orderList[e.RowIndex]);
                 od.Show();
                 od.TopLevel = true;
                 od.OnExit += GetOrder;
+
+            }
+
+            if (e.ColumnIndex == OrderDataGrid.Columns["print"].Index)
+            {
+                try
+                {
+                    WaitResult waitResult = new WaitResult();
+                    waitResult.Show();
+                    waitResult.TopMost = true;
+                    bgWorker.RunWorkerAsync(response = cbOrder.GetById(OrderDataGrid["id", e.RowIndex].Value.ToString()));
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        waitResult.Close();
+                        waitResult.Dispose();
+                        Receipt receipt = new Receipt(response.Content);
+                        receipt.ShowDialog();
+                        Form appointment = Application.OpenForms["POS"];
+                        ((POS)appointment).ClearOrder();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Create Unsuccessful");
+                }
 
             }
 
@@ -157,22 +200,22 @@ namespace TheBetterLimited.Views
             dt.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
             {
-                result = cbOrder.GetAll();
+                response = cbOrder.GetAll();
             }
             else
             {
                 string str = "ID:" + this.SearchBarTxt.Texts + "|_creatorId:" + this.SearchBarTxt.Texts
                             + "|Status:" + this.SearchBarTxt.Texts + "|createdAt:" + this.SearchBarTxt.Texts;
-                result = cbOrder.GetByQueryString(str);
+                response = cbOrder.GetByQueryString(str);
             }
             try
             {
-                JArray orders = JArray.Parse(result.Content);
+                JArray orders = JArray.Parse(response.Content);
                 foreach (JObject o in orders)
                 {
                     orderList.Add(o);
                     var row = dt.NewRow();
-                    row["orderID"] = o["Id"].ToString();
+                    row["orderID"] = o["id"].ToString();
                     row["store"] = o["store"]["location"]["name"].ToString();
                     row["creator"] = o["_creatorId"].ToString();
                     row["operator"] = o["_operatorId"].ToString();
@@ -207,10 +250,10 @@ namespace TheBetterLimited.Views
                         int countDeleted = 0;
                         foreach (string uid in selecteOrderId)
                         {
-                            result = cbOrder.Delete(uid);
-                            if(result.StatusCode != System.Net.HttpStatusCode.OK)
+                            response = cbOrder.Delete(uid);
+                            if(response.StatusCode != System.Net.HttpStatusCode.OK)
                             {
-                                throw new Exception(result.ErrorMessage);
+                                throw new Exception(response.ErrorMessage);
                             }
                         }
                         MessageBox.Show("The " + selecteOrderId.Count + " order(s) have been deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -237,8 +280,8 @@ namespace TheBetterLimited.Views
             {
                 try
                 {
-                    result = cbOrder.Delete(OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                    if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                    response = cbOrder.Delete(OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         MessageBox.Show("The order " + OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value + " have been deleted!", "Delete Order ScbOrdercessful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetOrder();

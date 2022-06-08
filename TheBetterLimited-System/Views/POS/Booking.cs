@@ -70,17 +70,20 @@ namespace TheBetterLimited.Views
             }
             var phone = CusPhoneTxt.Texts;
 
+            string address;
             if (CusAddressTxt.Texts.Equals(String.Empty) || CusAddressTxt.Texts.Equals(CusAddressTxt.Placeholder))
             {
-                CusAddressTxt.IsError = true;
-                return;
+                address = String.Empty;
             }
-            var address = CusAddressTxt.Texts;
+            else
+            {
+                address = CusAddressTxt.Texts;
+            }
 
             CustomerInfo cusInfo = new CustomerInfo(name, phone, address);
             Form pos = Application.OpenForms["POS"];
             ((POS)pos).SetCusInfo(cusInfo);
-            ((POS)pos).OpenPaymentMethod();
+            ((POS)pos).OpenPaymentMethod(true);
         }
 
         private void CusNameTxt_Click(object sender, EventArgs e)

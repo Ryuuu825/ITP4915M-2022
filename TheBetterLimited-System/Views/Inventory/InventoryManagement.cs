@@ -98,14 +98,14 @@ namespace TheBetterLimited.Views
             {
                 if (Convert.ToInt32(GoodsDataGrid["select", e.RowIndex].Tag) == 0)
                 {
-                    GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
+                    GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
                     GoodsDataGrid["select", e.RowIndex].Tag = 1;
                     GoodsDataGrid.Rows[e.RowIndex].Selected = true;
                     selectGoodsID.Add(GoodsDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
-                    GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
+                    GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.square24;
                     GoodsDataGrid["select", e.RowIndex].Tag = 0;
                     GoodsDataGrid.Rows[e.RowIndex].Selected = false;
                     selectGoodsID.Remove(GoodsDataGrid["id", e.RowIndex].Value.ToString());

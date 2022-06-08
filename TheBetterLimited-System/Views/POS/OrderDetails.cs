@@ -26,22 +26,24 @@ namespace TheBetterLimited.Views
         private BindingSource bs = new BindingSource();
         private JObject orderData = new JObject();
         private bool needInstall = false;
+        private bool needDelivery = false;
+        private bool isBooking = false;
         private string deliverySessionId = null;
         private string installSessionId = null;
         List<Session> deliverySessions = new List<Session>();
         List<Session> installSessions = new List<Session>();
+        List<string> needInstallItem = new List<string>();
 
         public OrderDetails()
         {
             InitializeComponent();
-            
         }
 
         public void SetOrderData(JObject orderData)
         {
             this.orderData = orderData;
-            InitializeOrderItemTable();
             InitializeOrderInfo();
+            InitializeOrderItemTable();
         }
 
         private void InitializeOrderItemTable()
@@ -53,8 +55,8 @@ namespace TheBetterLimited.Views
             orderTable.Columns.Add("delivery");
             orderTable.Columns.Add("install");
             orderTable.Columns.Add("booking");
+            orderTable.Columns["install"].DataType = System.Type.GetType("System.Byte[]");
             //
-
             foreach (var item in ((JArray)orderData["orderItems"]))
             {
                 var row = orderTable.NewRow();
@@ -62,14 +64,17 @@ namespace TheBetterLimited.Views
                 row["supplierGoodsStockId"] = item["supplierGoodsStockId"].ToString();
                 row["quantity"] = item["quantity"].ToString();
                 row["price"] = item["price"].ToString();
-
-                if ((bool)item["needInstall"])
+                foreach (var installItem in needInstallItem)
                 {
-                    row["install"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
-                }
-                else
-                {
-                    row["install"] = new ImageConverter().ConvertTo(Properties.Resources.square24, System.Type.GetType("System.Byte[]"));
+                    if (item["name"].ToString().Equals(installItem))
+                    {
+                        row["install"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
+                        break;
+                    }
+                    else
+                    {
+                        row["install"] = new ImageConverter().ConvertTo(Properties.Resources.square24, System.Type.GetType("System.Byte[]"));
+                    }
                 }
                 orderTable.Rows.Add(row);
             }
@@ -83,33 +88,43 @@ namespace TheBetterLimited.Views
         private void InitializeOrderInfo()
         {
             //Check whether booking record / delivery record
-            if (((JToken)orderData["Customer"]).Type == JTokenType.Null)
+            if (((JToken)orderData["customer"]).Type == JTokenType.Null)
             {
                 OrderInfoBox.Visible = false;
                 return;
             }
 
             //init customer info
-            NameTxt.Texts = orderData["Customer"]["name"].ToString();
-            PhoneTxt.Texts = orderData["Customer"]["phone"].ToString();
-            AddressTxt.Texts = orderData["Customer"]["address"].ToString();
-
-            //init appointment info
-            DeliveryDatePicker.MinDate = ((DateTime)orderData["Delivery"]["date"]).Date;
-            InstallDatePicker.MinDate = ((DateTime)orderData["Delivery"]["date"]).Date;
-            DeliveryDatePicker.MaxDate = DeliveryDatePicker.MinDate.AddDays(29);
-            InstallDatePicker.MaxDate = InstallDatePicker.MinDate.AddDays(29);
-            if (((JToken)orderData["Delivery"]).Type != JTokenType.Null)
+            NameTxt.Texts = orderData["customer"]["name"].ToString();
+            PhoneTxt.Texts = orderData["customer"]["phone"].ToString();
+            if (!orderData["customer"]["address"].ToString().Equals(String.Empty))
             {
-                DeliveryDatePicker.Value = ((DateTime)orderData["Delivery"]["date"]).Date;
+                AddressTxt.Texts = orderData["customer"]["address"].ToString();
+                needDelivery = true;
             }
 
-            if (((JToken)orderData["Installation"]).Type != JTokenType.Null)
+            if (((JToken)orderData["delivery"]).Type != JTokenType.Null)
             {
-                InstallDatePicker.Value = ((DateTime)orderData["Installation"]["date"]).Date;
-            }else
+                //init appointment info
+                initDelivery();
+
+            }
+            else
             {
-                needInstall = false;
+                isBooking = true;
+                if (needDelivery == true)
+                {
+                    AppointmentBox.Visible = false;
+                    PickUpBox.Visible = true;
+                }
+            }
+
+            if (((JToken)orderData["installation"]).Type != JTokenType.Null)
+            {
+                initInstall();
+            }
+            else
+            {
                 InstallDatePicker.Enabled = false;
                 InstallSessionCombo.Enabled = false;
             }
@@ -138,10 +153,13 @@ namespace TheBetterLimited.Views
             }
             var phone = PhoneTxt.Texts;
 
-            if (AddressTxt.Texts.Equals(String.Empty) || AddressTxt.Texts.Equals(AddressTxt.Placeholder))
+            if (needDelivery == true)
             {
-                AddressTxt.IsError = true;
-                return;
+                if (AddressTxt.Texts.Equals(String.Empty) || AddressTxt.Texts.Equals(AddressTxt.Placeholder))
+                {
+                    AddressTxt.IsError = true;
+                    return;
+                }
             }
             var address = AddressTxt.Texts;
 
@@ -164,10 +182,6 @@ namespace TheBetterLimited.Views
             {
                 list.Add(new { sessionId = installSessionId, departmentId = "700" });
             }
-            Form pos = Application.OpenForms["POS"];
-            ((POS)pos).SetCusInfo(cusInfo);
-            ((POS)pos).SetAppointments(list);
-            ((POS)pos).OpenPaymentMethod();
         }
 
         private void NameTxt_Click(object sender, EventArgs e)
@@ -183,11 +197,6 @@ namespace TheBetterLimited.Views
         private void AddressTxt_Click(object sender, EventArgs e)
         {
             AddressTxt.IsError = false;
-        }
-
-        private void OrderDetails_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void DeliveryDatePicker_ValueChanged(object sender, EventArgs e)
@@ -265,6 +274,29 @@ namespace TheBetterLimited.Views
         private void InstallSessionCombo_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             //installSessionId = installSessions[InstallSessionCombo.SelectedIndex].ID1;
+        }
+
+
+        private void initDelivery()
+        {
+            needDelivery = true;
+            DeliveryDatePicker.MinDate = ((DateTime)orderData["delivery"]["date"]).Date;
+            InstallDatePicker.MinDate = ((DateTime)orderData["delivery"]["date"]).Date;
+            DeliveryDatePicker.MaxDate = DeliveryDatePicker.MinDate.AddDays(29);
+            InstallDatePicker.MaxDate = InstallDatePicker.MinDate.AddDays(29);
+            DeliveryDatePicker.Value = ((DateTime)orderData["delivery"]["date"]).Date;
+            DeliverySessionCombo.SelectedItem = ((DateTime)orderData["delivery"]["startTime"]).ToString("HH:mm") + " - " + ((DateTime)orderData["delivery"]["endTime"]).ToString("HH:mm");
+        }
+
+        private void initInstall()
+        {
+            needInstall = true;
+            InstallDatePicker.Value = ((DateTime)orderData["installation"]["date"]).Date;
+            foreach (var item in ((JArray)orderData["installation"]["items"]))
+            {
+                needInstallItem.Add(item["itemNames"].ToString());
+            }
+            InstallSessionCombo.SelectedItem = ((DateTime)orderData["installation"]["startTime"]).ToString("HH:mm") + " - " + ((DateTime)orderData["installation"]["endTime"]).ToString("HH:mm");
         }
     }
 }
