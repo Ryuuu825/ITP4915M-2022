@@ -326,7 +326,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
                 if (sgs.Quantity - item.Quantity < 0)
                 {
-                    throw new NotEnoughStockException();
+                    //throw new NotEnoughStockException();
                 }
 
                 sgs.Quantity = sgs.Quantity - item.Quantity;
