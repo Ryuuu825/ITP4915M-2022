@@ -127,6 +127,7 @@
             this.AppointmentContainer.Name = "AppointmentContainer";
             this.AppointmentContainer.Size = new System.Drawing.Size(200, 58);
             this.AppointmentContainer.TabIndex = 0;
+            this.AppointmentContainer.Visible = false;
             // 
             // appointmentBtn
             // 
@@ -152,6 +153,7 @@
             this.SupplierContainer.Name = "SupplierContainer";
             this.SupplierContainer.Size = new System.Drawing.Size(200, 58);
             this.SupplierContainer.TabIndex = 2;
+            this.SupplierContainer.Visible = false;
             // 
             // supplierBtn
             // 
@@ -177,6 +179,7 @@
             this.StockContainer.Name = "StockContainer";
             this.StockContainer.Size = new System.Drawing.Size(200, 58);
             this.StockContainer.TabIndex = 3;
+            this.StockContainer.Visible = false;
             // 
             // stockBtn
             // 
@@ -443,6 +446,7 @@
             this.GoodsContainer.Name = "GoodsContainer";
             this.GoodsContainer.Size = new System.Drawing.Size(200, 58);
             this.GoodsContainer.TabIndex = 3;
+            this.GoodsContainer.Visible = false;
             // 
             // GoodsBtn
             // 
@@ -468,6 +472,7 @@
             this.RestockContainer.Name = "RestockContainer";
             this.RestockContainer.Size = new System.Drawing.Size(200, 58);
             this.RestockContainer.TabIndex = 4;
+            this.RestockContainer.Visible = false;
             // 
             // restockRequestBtn
             // 

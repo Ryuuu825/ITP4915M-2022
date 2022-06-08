@@ -17,7 +17,7 @@ namespace TheBetterLimited.Views
     public partial class Main : Form
     {
         private bool sidebarExpand = true;
-        private bool subMenu = true;
+        private bool subMenu = false;
         private bool subSidebarExpand;
         private Form activeForm = null;
         private UserController uc = new UserController();
@@ -55,6 +55,7 @@ namespace TheBetterLimited.Views
                     sidebarExpand = false;
                     sidebarTimer.Stop();
                 }
+
             }
             else
             {
@@ -77,6 +78,10 @@ namespace TheBetterLimited.Views
                 {
                     subSidebarExpand = false;
                     subSidebarTimer.Stop();
+                }
+                for (int i = 0; i < subSidebar.Controls.Count; i++)
+                {
+                    subSidebar.Controls[i].Hide();
                 }
             }
             else
@@ -165,10 +170,6 @@ namespace TheBetterLimited.Views
             for (int i = 2; i < sidebar.Controls.Count - 1; i++)
             {
                 sidebar.Controls[i].Hide();
-            }
-            for (int i = 0; i < subSidebar.Controls.Count; i++)
-            {
-                subSidebar.Controls[i].Hide();
             }
             switch (GlobalsData.currentUser["department"])
             {
@@ -269,31 +270,23 @@ namespace TheBetterLimited.Views
         {
             openChildForm(new Supplier());
             subSidebarTimer.Start();
-            GoodsContainer.Hide();
-            SupplierContainer.Hide();
         }
 
         private void stockBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new Stock());
             subSidebarTimer.Start();
-            StockContainer.Hide();
-            RestockContainer.Hide();
         }
 
         private void appointmentBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new Appointment());
-            subSidebarTimer.Start();
-            AppointmentContainer.Hide();
         }
 
         private void restockRequestBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new RestockRequest());
             subSidebarTimer.Start();
-            StockContainer.Hide();
-            RestockContainer.Hide();
         }
     }
 }
