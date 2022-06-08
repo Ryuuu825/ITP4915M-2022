@@ -78,6 +78,9 @@
             this.line4 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.StoreInfo = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.line1 = new System.Windows.Forms.Panel();
             this.transcationDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -100,9 +103,6 @@
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.MainForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemDataGrid)).BeginInit();
             this.CustomerInfo.SuspendLayout();
@@ -661,6 +661,38 @@
             this.StoreInfo.Size = new System.Drawing.Size(1040, 144);
             this.StoreInfo.TabIndex = 58;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 142);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1040, 1);
+            this.panel1.TabIndex = 48;
+            // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(801, 50);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(194, 17);
+            this.label11.TabIndex = 50;
+            this.label11.Text = "852-32115699";
+            this.label11.UseMnemonic = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(730, 50);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(63, 17);
+            this.label20.TabIndex = 49;
+            this.label20.Text = "電話 Tel:";
+            // 
             // line1
             // 
             this.line1.BackColor = System.Drawing.Color.Gray;
@@ -680,7 +712,6 @@
             this.transcationDate.Name = "transcationDate";
             this.transcationDate.Size = new System.Drawing.Size(766, 24);
             this.transcationDate.TabIndex = 39;
-            this.transcationDate.Text = "#transcation date";
             this.transcationDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.transcationDate.UseMnemonic = false;
             // 
@@ -717,7 +748,6 @@
             this.storeAddress.Name = "storeAddress";
             this.storeAddress.Size = new System.Drawing.Size(786, 24);
             this.storeAddress.TabIndex = 38;
-            this.storeAddress.Text = "#store address";
             this.storeAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // storeId
@@ -912,38 +942,6 @@
             this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ToolTipText = "Is display item?";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.DimGray;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 142);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1040, 1);
-            this.panel1.TabIndex = 48;
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(801, 50);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(194, 17);
-            this.label11.TabIndex = 50;
-            this.label11.Text = "852-32115699";
-            this.label11.UseMnemonic = false;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(730, 50);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(63, 17);
-            this.label20.TabIndex = 49;
-            this.label20.Text = "電話 Tel:";
             // 
             // Receipt
             // 

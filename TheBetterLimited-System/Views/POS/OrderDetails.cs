@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using TheBetterLimited.Controller;
 using TheBetterLimited.CustomizeControl;
 using TheBetterLimited.Models;
+using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
@@ -33,6 +34,8 @@ namespace TheBetterLimited.Views
         List<Session> deliverySessions = new List<Session>();
         List<Session> installSessions = new List<Session>();
         List<string> needInstallItem = new List<string>();
+        private ControllerBase cbOrder = new ControllerBase("Order");
+        private ControllerBase cbOrderItem = new ControllerBase("SalesOrderItem");
 
         public OrderDetails()
         {
@@ -64,17 +67,22 @@ namespace TheBetterLimited.Views
                 row["supplierGoodsStockId"] = item["supplierGoodsStockId"].ToString();
                 row["quantity"] = item["quantity"].ToString();
                 row["price"] = item["price"].ToString();
-                foreach (var installItem in needInstallItem)
+                if (needInstallItem.Count != 0)
                 {
-                    if (item["name"].ToString().Equals(installItem))
+                    foreach (string installItem in needInstallItem)
                     {
-                        row["install"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
-                        break;
+                        if (item["name"].ToString().Equals(installItem))
+                        {
+                            row["install"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
+                        }
+                        else
+                        {
+                            row["install"] = new ImageConverter().ConvertTo(Properties.Resources.square24, System.Type.GetType("System.Byte[]"));
+                        }
                     }
-                    else
-                    {
-                        row["install"] = new ImageConverter().ConvertTo(Properties.Resources.square24, System.Type.GetType("System.Byte[]"));
-                    }
+                }else
+                {
+                    row["install"] = new ImageConverter().ConvertTo(Properties.Resources.square24, System.Type.GetType("System.Byte[]"));
                 }
                 orderTable.Rows.Add(row);
             }
@@ -87,10 +95,13 @@ namespace TheBetterLimited.Views
 
         private void InitializeOrderInfo()
         {
+            needDelivery = false;
             //Check whether booking record / delivery record
             if (((JToken)orderData["customer"]).Type == JTokenType.Null)
             {
                 OrderInfoBox.Visible = false;
+                OrderDataGrid.Columns["install"].Visible = false;
+                OrderDataGrid.Columns["delete"].Visible = false;
                 return;
             }
 
@@ -297,6 +308,73 @@ namespace TheBetterLimited.Views
                 needInstallItem.Add(item["itemNames"].ToString());
             }
             InstallSessionCombo.SelectedItem = ((DateTime)orderData["installation"]["startTime"]).ToString("HH:mm") + " - " + ((DateTime)orderData["installation"]["endTime"]).ToString("HH:mm");
+        }
+
+        private void OrderDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == OrderDataGrid.Columns["delete"].Index)
+            {
+                if (orderData["status"].ToString().Equals("Booking") || orderData["status"].ToString().Equals("PendingDelivery"))
+                {
+                    if (OrderDataGrid.Rows.Count == 1)
+                    {
+                        DialogResult result = MessageBox.Show("The order only has one item.\nDo you really delete the item?\nSince then, the order will be canceled.", "Warninng", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                response = cbOrder.Delete(orderData["id"].ToString());
+                                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                                {
+                                    this.Close();
+                                    this.Dispose();
+                                    this.OnExit.Invoke();
+                                    MessageBox.Show("The order " + orderData["id"].ToString() + " have been deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Cannot delete the order.\n" + response.ErrorMessage, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        DialogResult result = MessageBox.Show("Do you really delete the item?", "Warninng", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            try
+                            {
+                                response = cbOrder.Delete(orderData["orderItems"][e.RowIndex]["supplierGoodsStockId"].ToString());
+                                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                                {
+                                    this.Close();
+                                    this.Dispose();
+                                    this.OnExit.Invoke();
+                                    MessageBox.Show("The order " + orderData["orderItems"][e.RowIndex]["supplierGoodsStockId"].ToString() + " have been deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("The order has been handled. \nCannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                                MessageBox.Show("Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+                else if (orderData["status"].ToString().Equals("Booking"))
+                {
+                    MessageBox.Show("The order has completed.\nCannot delete the order item(s).");
+                }
+                else
+                {
+                    MessageBox.Show("The order has been handled.\nCannot delete the order item(s).");
+                }
+            }
         }
     }
 }

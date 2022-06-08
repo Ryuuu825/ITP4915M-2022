@@ -17,6 +17,7 @@ namespace TheBetterLimited.Views
     public partial class Main : Form
     {
         private bool sidebarExpand = true;
+        private bool subMenu = true;
         private bool subSidebarExpand;
         private Form activeForm = null;
         private UserController uc = new UserController();
@@ -112,6 +113,8 @@ namespace TheBetterLimited.Views
         {
             change_MenuButton_style(sender);
             subSidebarTimer.Start();
+            GoodsContainer.Show();
+            SupplierContainer.Show();
         }
 
         private void Home_Click(object sender, EventArgs e)
@@ -123,12 +126,15 @@ namespace TheBetterLimited.Views
         private void Inventory_Click(object sender, EventArgs e)
         {
             change_MenuButton_style(sender);
+            StockContainer.Show();
+            RestockContainer.Show();
             subSidebarTimer.Start();
         }
 
         private void Workman_Click(object sender, EventArgs e)
         {
             change_MenuButton_style(sender);
+            AppointmentContainer.Show();
             subSidebarTimer.Start();
         }
 
@@ -156,14 +162,18 @@ namespace TheBetterLimited.Views
 
         private void Menu_Init()
         {
-            for (int i = 3; i < sidebar.Controls.Count - 1; i++)
+            for (int i = 2; i < sidebar.Controls.Count - 1; i++)
             {
                 sidebar.Controls[i].Hide();
             }
-            switch (GlobalsData.currentUser["position"])
+            for (int i = 0; i < subSidebar.Controls.Count; i++)
+            {
+                subSidebar.Controls[i].Hide();
+            }
+            switch (GlobalsData.currentUser["department"])
             {
                 case "Admin":
-                    for (int i = 3; i < sidebar.Controls.Count - 1; i++)
+                    for (int i = 2; i < sidebar.Controls.Count - 1; i++)
                     {
                         sidebar.Controls[i].Show();
                     }
@@ -181,6 +191,10 @@ namespace TheBetterLimited.Views
                     PurchaseContainer.Show();
                     break;
                 case "Accounting":
+                    AccountingContainer.Show();
+                    InventoryContainer.Show();
+                    break;
+                case "Technical":
                     AccountingContainer.Show();
                     InventoryContainer.Show();
                     break;
@@ -253,27 +267,33 @@ namespace TheBetterLimited.Views
 
         private void supplierBtn_Click(object sender, EventArgs e)
         {
-            //openChildForm(new Su());
             openChildForm(new Supplier());
             subSidebarTimer.Start();
+            GoodsContainer.Hide();
+            SupplierContainer.Hide();
         }
 
         private void stockBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new Stock());
             subSidebarTimer.Start();
+            StockContainer.Hide();
+            RestockContainer.Hide();
         }
 
         private void appointmentBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new Appointment());
             subSidebarTimer.Start();
+            AppointmentContainer.Hide();
         }
 
         private void restockRequestBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new RestockRequest());
             subSidebarTimer.Start();
+            StockContainer.Hide();
+            RestockContainer.Hide();
         }
     }
 }

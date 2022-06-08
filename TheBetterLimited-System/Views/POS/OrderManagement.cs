@@ -124,7 +124,6 @@ namespace TheBetterLimited.Views
                 od.Show();
                 od.TopLevel = true;
                 od.OnExit += GetOrder;
-
             }
 
             if (e.ColumnIndex == OrderDataGrid.Columns["print"].Index)
@@ -273,7 +272,7 @@ namespace TheBetterLimited.Views
         }
 
         //Delete Order
-        private void DeleteOrder(DataGridViewCellEventArgs e)
+        public void DeleteOrder(DataGridViewCellEventArgs e)
         {
             choose = MessageBox.Show("Do you really want to delete the " + OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (choose == DialogResult.Yes)
