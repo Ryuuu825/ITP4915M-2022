@@ -31,11 +31,17 @@ namespace TheBetterLimited.Views
         private ControllerBase cbLoc = new ControllerBase("Location");
         private ControllerBase cbStockGoods = new ControllerBase("Supplier_Goods_Stock");
         private GoodsController gc = new GoodsController();
-        private DataTable dataTable = new DataTable();
+        private DataTable dataTable;
+
+        private ControllerBase cbGoods = new ControllerBase("pos/Goods");
+
+
 
         public Stock()
         {
+            dataTable = new DataTable();
             InitializeComponent();
+            InitialzeDataTable();
             GetStock();//init 
         }
 
@@ -93,14 +99,14 @@ namespace TheBetterLimited.Views
             {
                 if (Convert.ToInt32(StockDataGrid["select", e.RowIndex].Tag) == 0)
                 {
-                    StockDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
+                    StockDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
                     StockDataGrid["select", e.RowIndex].Tag = 1;
                     StockDataGrid.Rows[e.RowIndex].Selected = true;
                     selectStockID.Add(StockDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
-                    StockDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
+                    StockDataGrid["select", e.RowIndex].Value = Properties.Resources.square24;
                     StockDataGrid["select", e.RowIndex].Tag = 0;
                     StockDataGrid.Rows[e.RowIndex].Selected = false;
                     selectStockID.Remove(StockDataGrid["id", e.RowIndex].Value.ToString());
@@ -111,6 +117,7 @@ namespace TheBetterLimited.Views
             {
                 MessageBox.Show("You have selected row " + selectStockID[0] + " cell");
             }
+
 
             if (e.ColumnIndex == StockDataGrid.Columns["delete"].Index)
             {
@@ -143,57 +150,55 @@ namespace TheBetterLimited.Views
         private void InitialzeDataTable()
         {
             dataTable.Columns.Add("Id");
-            dataTable.Columns.Add("ReorderLevel");
+            dataTable.Columns.Add("loc");
+            dataTable.Columns.Add("goodsName");
             dataTable.Columns.Add("Quantity");
-            dataTable.Columns.Add("MinLimit");
-            dataTable.Columns.Add("_locationId");
-            dataTable.Columns.Add("_supplierGoodsId");
-            dataTable.Columns.Add("remarks");
             dataTable.Columns.Add("MaxLimit");
+            dataTable.Columns.Add("MinLimit");
+            dataTable.Columns.Add("ReorderLevel");
         }
 
 
         //Get Stock
         private void GetStock()
         {
+
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search by keywords")
             {
-                result = cbStockGoods.GetAll();
+                // result = cbStockGoods.GetAll();
+                RestRequest req = new RestRequest("/api/inventory/sgs" , Method.Get);
+                result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
+
             }
-            else
-            {
-                string str = "id:" + this.SearchBarTxt.Texts
-                            + "|ReorderLevel:" + this.SearchBarTxt.Texts + "|_locationId:" + this.SearchBarTxt.Texts;
-                result = cbStockGoods.GetByQueryString(str);
-            }
-            try
-            {
+            // else
+            // {
+            //     string str = "id:" + this.SearchBarTxt.Texts
+            //                 + "|ReorderLevel:" + this.SearchBarTxt.Texts + "|_locationId:" + this.SearchBarTxt.Texts;
+            //     result = cbStockGoods.GetByQueryString(str);
+            // }
                 Console.WriteLine(result.StatusCode);
                 Console.WriteLine(result.Content);
-                DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
+                
                 var res = JArray.Parse(result.Content.ToString());
-                List<string> list = new List<string>();
-                dataTable.Columns.Add("loc");
-                foreach (var goodsID in res)
+                foreach( var row in res )
                 {
-                    list.Add(goodsID["_supplierGoodsId"].ToString());
+                    DataRow dr = dataTable.NewRow();
+                    dr["Id"] = row["Id"].ToString();
+                    dr["loc"] = row["LocName"].ToString();
+                    dr["goodsName"] = row["GoodsName"].ToString();
+                    dr["Quantity"] = row["Quantity"].ToString();
+                    dr["MaxLimit"] = row["MaxLimit"].ToString();
+                    dr["MinLimit"] = row["MinLimit"].ToString();
+                    dr["ReorderLevel"] = row["ReorderLevel"].ToString();
+                    dataTable.Rows.Add(dr);
                 }
-                int index = 0;
 
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    row["goodsName"] = JObject.Parse(gc.GetGoodsById(list[index].ToString()).Content)["Name"].ToString();
-                    index++;
-                }
+
                 bs.DataSource = dataTable;
                 StockDataGrid.AutoGenerateColumns = false;
                 StockDataGrid.DataSource = bs;
                 InitializeDataGridView();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+
         }
 
         //Delete Selected Stock

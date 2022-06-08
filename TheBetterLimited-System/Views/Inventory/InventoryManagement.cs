@@ -193,11 +193,11 @@ namespace TheBetterLimited.Views
                 }
                 int index = 0;
 
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString()).Content)["Name"].ToString();
-                    index++;
-                }
+                // foreach (DataRow row in dataTable.Rows)
+                // {
+                //     row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString()).Content)["Name"].ToString();
+                //     index++;
+                // }
                 bs.DataSource = dataTable;
                 GoodsDataGrid.AutoGenerateColumns = false;
                 GoodsDataGrid.DataSource = bs;
