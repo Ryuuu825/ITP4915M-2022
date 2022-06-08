@@ -12,7 +12,7 @@ namespace TheBetterLimited.Views
         private bool isUpload = false;
         private ControllerBase con = new ControllerBase("Catalogue");
         private ControllerBase GoodsCon = new ControllerBase("Goods");
-        private Bitmap icon = Properties.Resources._default;
+        private Bitmap icon = Properties.Resources.photo_upload;
 
         public Inventorymanagement_Add()
         {
@@ -55,52 +55,45 @@ namespace TheBetterLimited.Views
             //check 
             if (txtGoodsName.Texts == txtGoodsName.Placeholder)
             {
-                txtGoodsName.BorderColor = Color.Red;
+                txtGoodsName.IsError = true;
                 return;
             }
-            txtGoodsName.BorderColor = Color.LightGray;
 
             if (cbxCatalogue.SelectedItem == null)
             {
                 cbxCatalogue.BorderColor = Color.Red;
                 return;
             }
-            cbxCatalogue.BorderColor = Color.LightGray;
 
             if (txtDescription.Texts == txtDescription.Placeholder)
             {
-                txtDescription.BorderColor = Color.Red;
+                txtDescription.IsError = true;
                 return;
             }
-            txtDescription.BorderColor = Color.LightGray;
 
             if (txtPrice.Texts == txtPrice.Placeholder)
             {
-                txtPrice.BorderColor = Color.Red;
+                txtPrice.IsError = true;
                 return;
             }
-            txtPrice.BorderColor = Color.LightGray;
 
             if (txtGTINCode.Texts == txtGTINCode.Placeholder)
             {
-                txtGTINCode.BorderColor = Color.Red;
+                txtGTINCode.IsError = true;
                 return;
             }
-            txtGTINCode.BorderColor = Color.LightGray;
 
             if (cbxSize.SelectedItem == null)
             {
                 cbxSize.BorderColor = Color.Red;
                 return;
             }
-            cbxSize.BorderColor = Color.LightGray;
 
             if (cbxStatus.SelectedItem == null)
             {
                 cbxStatus.BorderColor = Color.Red;
                 return;
             }
-            cbxStatus.BorderColor = Color.LightGray;
 
             GoodsCon.Create(new
             {
@@ -152,19 +145,39 @@ namespace TheBetterLimited.Views
             this.Dispose();
         }
 
-
-        private void UserIconPic_Paint(object sender, PaintEventArgs e)
+        private void txtGoodsName_Click(object sender, EventArgs e)
         {
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(GoodsPic.ClientRectangle);
-            Region region = new Region(gp);
-            GoodsPic.Region = region;
-            Pen pen = new Pen(Color.White, 10);
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            e.Graphics.DrawPath(pen, gp);
-            gp.Dispose();
-            region.Dispose();
-            pen.Dispose();
+            txtGoodsName.IsError = false;
+        }
+
+        private void cbxCatalogue_Click(object sender, EventArgs e)
+        {
+            cbxCatalogue.BorderColor = Color.LightGray;
+        }
+
+        private void txtDescription_Click(object sender, EventArgs e)
+        {
+            txtDescription.IsError = false;
+        }
+
+        private void txtPrice_Click(object sender, EventArgs e)
+        {
+            txtPrice.IsError = false;
+        }
+
+        private void txtGTINCode_Click(object sender, EventArgs e)
+        {
+            txtGTINCode.IsError = false;
+        }
+
+        private void cbxSize_Click(object sender, EventArgs e)
+        {
+            cbxSize.BorderColor = Color.LightGray;
+        }
+
+        private void cbxStatus_Click(object sender, EventArgs e)
+        {
+            cbxStatus.BorderColor = Color.LightGray;
         }
 
     }

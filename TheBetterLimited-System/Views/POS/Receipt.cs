@@ -144,8 +144,10 @@ namespace TheBetterLimited.Views
                 }
                 else
                 {
+                    isBooking = true;
                     deliveryAddress.Text = "";
                     deliveryDate.Text = "";
+                    installDate.Text = "";
                 }
             }
             else
@@ -154,15 +156,18 @@ namespace TheBetterLimited.Views
             }
 
             var deposit = 0.0;
+            
+            totalAmount.Text = String.Format("{0:C2}", info["total"]);
+            paid.Text = String.Format("{0:C2}", info["total"]);
+            paymentMethod.Text = "";
+            final.Text = String.Format("{0:C2}", ((double)info["total"]-(double)info["total"]));
             if (isBooking)
             {
                 deposit = (double)info["total"] * 0.2;
+                paid.Text = String.Format("{0:C2}", deposit);
+                final.Text = String.Format("{0:C2}", ((double)info["total"] - deposit));
             }
             depositTxt.Text = String.Format("{0:C2}", deposit);
-            totalAmount.Text = String.Format("{0:C2}", info["total"]);
-            paid.Text = String.Format("{0:C2}", info["total"]);
-            paymentMethod.Text = "Cash";
-            final.Text = String.Format("{0:C2}", ((double)info["total"]-(double)info["paid"]));
         }
 
         private void UserInfo_Paint(object sender, PaintEventArgs e)

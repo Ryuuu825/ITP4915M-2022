@@ -363,6 +363,8 @@ namespace TheBetterLimited.Views
             bool isBook = false;
             bool isDelivery = false;
             bool isInstall = false;
+            cusInfo = null;
+            appointments = null;
             if (orderItems.Count == 0)
             {
                 MessageBox.Show("Shopping Cart is empty!");

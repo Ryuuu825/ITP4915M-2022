@@ -298,20 +298,5 @@ namespace TheBetterLimited.Views
         {
 
         }
-
-
-        private void UserIconPic_Paint(object sender, PaintEventArgs e)
-        {
-            GraphicsPath gp = new GraphicsPath();
-            gp.AddEllipse(GoodsPic.ClientRectangle);
-            Region region = new Region(gp);
-            GoodsPic.Region = region;
-            Pen pen = new Pen(Color.White, 10);
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            e.Graphics.DrawPath(pen, gp);
-            gp.Dispose();
-            region.Dispose();
-            pen.Dispose();
-        }
     }
 }

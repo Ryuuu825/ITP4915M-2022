@@ -62,16 +62,31 @@ namespace TheBetterLimited.Views
             if (OrderDataGrid.Columns[e.ColumnIndex].Name == "status")
             {
                 e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                if (e.Value.Equals("Cancel"))
+                if (e.Value.Equals("Canceled"))
                 {
                     e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
                 }
-                else
+                else if(e.Value.Equals("Completed"))
                 {
                     e.CellStyle.ForeColor = Color.SeaGreen;
+                    e.CellStyle.SelectionForeColor = Color.SeaGreen;
                 }
-
+                else if (e.Value.Equals("Booking"))
+                {
+                    e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
+                }
+                else if (e.Value.Equals("Refunded"))
+                {
+                    e.CellStyle.ForeColor = Color.DimGray;
+                    e.CellStyle.SelectionForeColor = Color.DimGray;
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.FromArgb(250, 182, 99);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(250, 182, 99);
+                }
             }
         }
 
@@ -81,14 +96,14 @@ namespace TheBetterLimited.Views
             {
                 if (Convert.ToInt32(OrderDataGrid["select", e.RowIndex].Tag) == 0)
                 {
-                    OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
+                    OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
                     OrderDataGrid["select", e.RowIndex].Tag = 1;
                     OrderDataGrid.Rows[e.RowIndex].Selected = true;
                     selecteOrderId.Add(OrderDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
-                    OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
+                    OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.square24;
                     OrderDataGrid["select", e.RowIndex].Tag = 0;
                     OrderDataGrid.Rows[e.RowIndex].Selected = false;
                     selecteOrderId.Remove(OrderDataGrid["id", e.RowIndex].Value.ToString());

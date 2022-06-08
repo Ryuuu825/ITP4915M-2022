@@ -122,7 +122,6 @@
             this.GoodsPic.TabIndex = 2;
             this.GoodsPic.TabStop = false;
             this.GoodsPic.Click += new System.EventHandler(this.UserIconPic_Click);
-            this.GoodsPic.Paint += new System.Windows.Forms.PaintEventHandler(this.UserIconPic_Paint);
             this.GoodsPic.MouseLeave += new System.EventHandler(this.UserIconPic_MouseLeave);
             this.GoodsPic.MouseHover += new System.EventHandler(this.UserIconPic_MouseHover);
             // 
@@ -235,7 +234,7 @@
             this.cbxStatus.BorderColor = System.Drawing.Color.LightGray;
             this.cbxStatus.BorderRadius = 1;
             this.cbxStatus.BorderSize = 1;
-            this.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxStatus.Font = new System.Drawing.Font("Segoe UI", 12.35F);
             this.cbxStatus.ForeColor = System.Drawing.Color.Black;
             this.cbxStatus.IconColor = System.Drawing.Color.LightGray;
@@ -245,10 +244,11 @@
             this.cbxStatus.MinimumSize = new System.Drawing.Size(200, 30);
             this.cbxStatus.Name = "cbxStatus";
             this.cbxStatus.Padding = new System.Windows.Forms.Padding(1);
-            this.cbxStatus.Size = new System.Drawing.Size(307, 30);
+            this.cbxStatus.Size = new System.Drawing.Size(307, 31);
             this.cbxStatus.TabIndex = 41;
-            this.cbxStatus.Texts = "";
+            this.cbxStatus.Texts = "Product Status";
             this.cbxStatus.UnderlinedStyle = false;
+            this.cbxStatus.Click += new System.EventHandler(this.cbxStatus_Click);
             // 
             // cbxSize
             // 
@@ -256,20 +256,21 @@
             this.cbxSize.BorderColor = System.Drawing.Color.LightGray;
             this.cbxSize.BorderRadius = 1;
             this.cbxSize.BorderSize = 1;
-            this.cbxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxSize.Font = new System.Drawing.Font("Segoe UI", 12.35F);
             this.cbxSize.ForeColor = System.Drawing.Color.Black;
             this.cbxSize.IconColor = System.Drawing.Color.LightGray;
             this.cbxSize.ListBackColor = System.Drawing.Color.White;
             this.cbxSize.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbxSize.Location = new System.Drawing.Point(161, 407);
+            this.cbxSize.Location = new System.Drawing.Point(161, 405);
             this.cbxSize.MinimumSize = new System.Drawing.Size(200, 30);
             this.cbxSize.Name = "cbxSize";
             this.cbxSize.Padding = new System.Windows.Forms.Padding(1);
-            this.cbxSize.Size = new System.Drawing.Size(307, 30);
+            this.cbxSize.Size = new System.Drawing.Size(307, 31);
             this.cbxSize.TabIndex = 40;
-            this.cbxSize.Texts = "";
+            this.cbxSize.Texts = "Product Size";
             this.cbxSize.UnderlinedStyle = false;
+            this.cbxSize.Click += new System.EventHandler(this.cbxSize_Click);
             // 
             // cbxCatalogue
             // 
@@ -277,20 +278,21 @@
             this.cbxCatalogue.BorderColor = System.Drawing.Color.LightGray;
             this.cbxCatalogue.BorderRadius = 1;
             this.cbxCatalogue.BorderSize = 1;
-            this.cbxCatalogue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxCatalogue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCatalogue.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cbxCatalogue.ForeColor = System.Drawing.Color.Black;
             this.cbxCatalogue.IconColor = System.Drawing.Color.LightGray;
             this.cbxCatalogue.ListBackColor = System.Drawing.Color.White;
             this.cbxCatalogue.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbxCatalogue.Location = new System.Drawing.Point(161, 70);
+            this.cbxCatalogue.Location = new System.Drawing.Point(161, 72);
             this.cbxCatalogue.MinimumSize = new System.Drawing.Size(200, 30);
             this.cbxCatalogue.Name = "cbxCatalogue";
             this.cbxCatalogue.Padding = new System.Windows.Forms.Padding(1);
-            this.cbxCatalogue.Size = new System.Drawing.Size(307, 30);
+            this.cbxCatalogue.Size = new System.Drawing.Size(307, 31);
             this.cbxCatalogue.TabIndex = 39;
-            this.cbxCatalogue.Texts = "";
+            this.cbxCatalogue.Texts = "Product Catalogue";
             this.cbxCatalogue.UnderlinedStyle = false;
+            this.cbxCatalogue.Click += new System.EventHandler(this.cbxCatalogue_Click);
             // 
             // lblStatus
             // 
@@ -326,7 +328,7 @@
             this.txtGTINCode.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGTINCode.ForeColor = System.Drawing.Color.Black;
             this.txtGTINCode.IsError = false;
-            this.txtGTINCode.Location = new System.Drawing.Point(161, 352);
+            this.txtGTINCode.Location = new System.Drawing.Point(161, 350);
             this.txtGTINCode.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtGTINCode.MaxLength = 32767;
             this.txtGTINCode.Multiline = false;
@@ -341,12 +343,13 @@
             this.txtGTINCode.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtGTINCode.Texts = "Please enter the GTINCode";
             this.txtGTINCode.UnderlinedStyle = false;
+            this.txtGTINCode.Click += new System.EventHandler(this.txtGTINCode_Click);
             // 
             // lblGTIＮCode
             // 
             this.lblGTIＮCode.AutoSize = true;
             this.lblGTIＮCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGTIＮCode.Location = new System.Drawing.Point(46, 361);
+            this.lblGTIＮCode.Location = new System.Drawing.Point(46, 359);
             this.lblGTIＮCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGTIＮCode.Name = "lblGTIＮCode";
             this.lblGTIＮCode.Size = new System.Drawing.Size(81, 21);
@@ -364,7 +367,7 @@
             this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrice.ForeColor = System.Drawing.Color.Black;
             this.txtPrice.IsError = false;
-            this.txtPrice.Location = new System.Drawing.Point(161, 297);
+            this.txtPrice.Location = new System.Drawing.Point(161, 295);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtPrice.MaxLength = 32767;
             this.txtPrice.Multiline = false;
@@ -379,12 +382,13 @@
             this.txtPrice.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtPrice.Texts = "Please enter the price";
             this.txtPrice.UnderlinedStyle = false;
+            this.txtPrice.Click += new System.EventHandler(this.txtPrice_Click);
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(64, 302);
+            this.lblPrice.Location = new System.Drawing.Point(64, 304);
             this.lblPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(44, 21);
@@ -408,7 +412,7 @@
             // 
             this.lblCatalogue.AutoSize = true;
             this.lblCatalogue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatalogue.Location = new System.Drawing.Point(46, 75);
+            this.lblCatalogue.Location = new System.Drawing.Point(46, 77);
             this.lblCatalogue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCatalogue.Name = "lblCatalogue";
             this.lblCatalogue.Size = new System.Drawing.Size(80, 21);
@@ -426,7 +430,7 @@
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.ForeColor = System.Drawing.Color.Black;
             this.txtDescription.IsError = false;
-            this.txtDescription.Location = new System.Drawing.Point(161, 124);
+            this.txtDescription.Location = new System.Drawing.Point(161, 119);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtDescription.MaxLength = 32767;
             this.txtDescription.Multiline = true;
@@ -441,12 +445,13 @@
             this.txtDescription.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtDescription.Texts = "Please enter the description";
             this.txtDescription.UnderlinedStyle = false;
+            this.txtDescription.Click += new System.EventHandler(this.txtDescription_Click);
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(42, 124);
+            this.lblDescription.Location = new System.Drawing.Point(42, 119);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(89, 21);
@@ -464,7 +469,7 @@
             this.txtGoodsName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGoodsName.ForeColor = System.Drawing.Color.Black;
             this.txtGoodsName.IsError = false;
-            this.txtGoodsName.Location = new System.Drawing.Point(161, 9);
+            this.txtGoodsName.Location = new System.Drawing.Point(161, 17);
             this.txtGoodsName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtGoodsName.MaxLength = 32767;
             this.txtGoodsName.Multiline = false;
@@ -479,6 +484,7 @@
             this.txtGoodsName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtGoodsName.Texts = "Please enter the name of the goods";
             this.txtGoodsName.UnderlinedStyle = false;
+            this.txtGoodsName.Click += new System.EventHandler(this.txtGoodsName_Click);
             // 
             // UserInfoHeaderContainer
             // 

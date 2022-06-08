@@ -26,6 +26,8 @@ namespace TheBetterLimited.Views
         private BindingSource bs = new BindingSource();
         private JObject orderData = new JObject();
         private bool needInstall = false;
+        private bool needDelivery = false;
+        private bool isBooking = false;
         private string deliverySessionId = null;
         private string installSessionId = null;
         List<Session> deliverySessions = new List<Session>();
@@ -62,7 +64,7 @@ namespace TheBetterLimited.Views
                 row["supplierGoodsStockId"] = item["supplierGoodsStockId"].ToString();
                 row["quantity"] = item["quantity"].ToString();
                 row["price"] = item["price"].ToString();
-                foreach(var installItem in needInstallItem)
+                foreach (var installItem in needInstallItem)
                 {
                     if (item["name"].ToString().Equals(installItem))
                     {
@@ -95,26 +97,33 @@ namespace TheBetterLimited.Views
             //init customer info
             NameTxt.Texts = orderData["customer"]["name"].ToString();
             PhoneTxt.Texts = orderData["customer"]["phone"].ToString();
-            AddressTxt.Texts = orderData["customer"]["address"].ToString();
+            if (!orderData["customer"]["address"].ToString().Equals(String.Empty))
+            {
+                AddressTxt.Texts = orderData["customer"]["address"].ToString();
+                needDelivery = true;
+            }
 
-            //init appointment info
-            DeliveryDatePicker.MinDate = ((DateTime)orderData["delivery"]["date"]).Date;
-            InstallDatePicker.MinDate = ((DateTime)orderData["delivery"]["date"]).Date;
-            DeliveryDatePicker.MaxDate = DeliveryDatePicker.MinDate.AddDays(29);
-            InstallDatePicker.MaxDate = InstallDatePicker.MinDate.AddDays(29);
             if (((JToken)orderData["delivery"]).Type != JTokenType.Null)
             {
-                DeliveryDatePicker.Value = ((DateTime)orderData["delivery"]["date"]).Date;
+                //init appointment info
+                initDelivery();
+
+            }
+            else
+            {
+                isBooking = true;
+                if (needDelivery == true)
+                {
+                    AppointmentBox.Visible = false;
+                    PickUpBox.Visible = true;
+                }
             }
 
             if (((JToken)orderData["installation"]).Type != JTokenType.Null)
             {
-                needInstall = true;
-                InstallDatePicker.Value = ((DateTime)orderData["installation"]["date"]).Date;
-                foreach(var item in ((JArray)orderData["installation"]["items"])){
-                    needInstallItem.Add(item["itemNames"].ToString());
-                }
-            }else
+                initInstall();
+            }
+            else
             {
                 InstallDatePicker.Enabled = false;
                 InstallSessionCombo.Enabled = false;
@@ -144,10 +153,13 @@ namespace TheBetterLimited.Views
             }
             var phone = PhoneTxt.Texts;
 
-            if (AddressTxt.Texts.Equals(String.Empty) || AddressTxt.Texts.Equals(AddressTxt.Placeholder))
+            if (needDelivery == true)
             {
-                AddressTxt.IsError = true;
-                return;
+                if (AddressTxt.Texts.Equals(String.Empty) || AddressTxt.Texts.Equals(AddressTxt.Placeholder))
+                {
+                    AddressTxt.IsError = true;
+                    return;
+                }
             }
             var address = AddressTxt.Texts;
 
@@ -264,5 +276,27 @@ namespace TheBetterLimited.Views
             //installSessionId = installSessions[InstallSessionCombo.SelectedIndex].ID1;
         }
 
+
+        private void initDelivery()
+        {
+            needDelivery = true;
+            DeliveryDatePicker.MinDate = ((DateTime)orderData["delivery"]["date"]).Date;
+            InstallDatePicker.MinDate = ((DateTime)orderData["delivery"]["date"]).Date;
+            DeliveryDatePicker.MaxDate = DeliveryDatePicker.MinDate.AddDays(29);
+            InstallDatePicker.MaxDate = InstallDatePicker.MinDate.AddDays(29);
+            DeliveryDatePicker.Value = ((DateTime)orderData["delivery"]["date"]).Date;
+            DeliverySessionCombo.SelectedItem = ((DateTime)orderData["delivery"]["startTime"]).ToString("HH:mm") + " - " + ((DateTime)orderData["delivery"]["endTime"]).ToString("HH:mm");
+        }
+
+        private void initInstall()
+        {
+            needInstall = true;
+            InstallDatePicker.Value = ((DateTime)orderData["installation"]["date"]).Date;
+            foreach (var item in ((JArray)orderData["installation"]["items"]))
+            {
+                needInstallItem.Add(item["itemNames"].ToString());
+            }
+            InstallSessionCombo.SelectedItem = ((DateTime)orderData["installation"]["startTime"]).ToString("HH:mm") + " - " + ((DateTime)orderData["installation"]["endTime"]).ToString("HH:mm");
+        }
     }
 }
