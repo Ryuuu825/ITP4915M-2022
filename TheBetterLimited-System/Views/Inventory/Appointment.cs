@@ -23,12 +23,11 @@ namespace TheBetterLimited.Views
     public partial class Appointment : Form
     {
         private UserController uc = new UserController();
-        private GoodsController gc = new GoodsController();
         private BindingSource bs = new BindingSource();
-        private List<string> selectGoodsID = new List<string>();
+        private List<string> selectAppointmentID = new List<string>();
         private DialogResult choose;
         private RestResponse result;
-        private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
+        private ControllerBase cbAppointment = new ControllerBase("_Appointment");
 
         public Appointment()
         {
@@ -101,20 +100,20 @@ namespace TheBetterLimited.Views
                     AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
                     AppointmentDataGrid["select", e.RowIndex].Tag = 1;
                     AppointmentDataGrid.Rows[e.RowIndex].Selected = true;
-                    selectGoodsID.Add(AppointmentDataGrid["id", e.RowIndex].Value.ToString());
+                    selectAppointmentID.Add(AppointmentDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
                     AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
                     AppointmentDataGrid["select", e.RowIndex].Tag = 0;
                     AppointmentDataGrid.Rows[e.RowIndex].Selected = false;
-                    selectGoodsID.Remove(AppointmentDataGrid["id", e.RowIndex].Value.ToString());
+                    selectAppointmentID.Remove(AppointmentDataGrid["id", e.RowIndex].Value.ToString());
                 }
             }
 
             if (e.ColumnIndex == AppointmentDataGrid.Columns["edit"].Index)
             {
-                MessageBox.Show("You have selected row " + selectGoodsID[0] + " cell");
+                MessageBox.Show("You have selected row " + selectAppointmentID[0] + " cell");
             }
 
             if (e.ColumnIndex == AppointmentDataGrid.Columns["delete"].Index)
@@ -141,28 +140,11 @@ namespace TheBetterLimited.Views
             //Main data column
             AppointmentDataGrid.AutoGenerateColumns = true;
             AppointmentDataGrid.DataSource = bs;
-            /*
-            AppointmentDataGrid.Columns["id"].HeaderText = "ID";
-            AppointmentDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
-            AppointmentDataGrid.Columns["name"].HeaderText = "Goods Name";
-            AppointmentDataGrid.Columns["description"].HeaderText = "Description";
-            AppointmentDataGrid.Columns["price"].HeaderText = "Price";
-            AppointmentDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
-            AppointmentDataGrid.Columns["size"].HeaderText = "Size";
-            AppointmentDataGrid.Columns["status"].HeaderText = "Status";
-            */
-            // GoodsDataGrid.Columns["id"].HeaderText = "ID";
-            // GoodsDataGrid.Columns["userName"].HeaderText = "User Name";
-            // GoodsDataGrid.Columns["staffName"].HeaderText = "Staff Name";
-            // GoodsDataGrid.Columns["emailAddress"].HeaderText = "Email Address";
-            // GoodsDataGrid.Columns["status"].HeaderText = "Status";
-            // GoodsDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
-            // GoodsDataGrid.Columns["remarks"].HeaderText = "Remark";
 
             for (int i = 0; i < AppointmentDataGrid.RowCount; i++)
                 AppointmentDataGrid["select", i].Tag = 0;
 
-            selectGoodsID.Clear();
+            selectAppointmentID.Clear();
         }
 
         //Get Goods
@@ -170,33 +152,19 @@ namespace TheBetterLimited.Views
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
-                result = gc.GetAllGoods();
+                result = cbAppointment.GetAll();
             }
             else
             {
-                string str = "id:" + this.SearchBarTxt.Texts
-                            + "|description:" + this.SearchBarTxt.Texts + "|price:" + this.SearchBarTxt.Texts
-                            + "|gtincode:" + this.SearchBarTxt.Texts + "|size:" + this.SearchBarTxt.Texts
+                string str = "appointmentId:" + this.SearchBarTxt.Texts
                             + "|status:" + this.SearchBarTxt.Texts;
-                result = gc.GetGoodsByQry(str);
+                result = cbAppointment.GetByQueryString(str);
             }
             try
             {
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
                 var res = JArray.Parse(result.Content.ToString());
-                List<string> list = new List<string>();
-                dataTable.Columns.Add("Catalogue");
-                foreach (var ctgID in res)
-                {
-                    list.Add(ctgID["_catalogueId"].ToString());
-                }
                 int index = 0;
-
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString()).Content)["Name"].ToString();
-                    index++;
-                }
                 bs.DataSource = dataTable;
                 AppointmentDataGrid.AutoGenerateColumns = false;
                 AppointmentDataGrid.DataSource = bs;
@@ -211,20 +179,20 @@ namespace TheBetterLimited.Views
         //Delete Selected Goods
         private void DeleteSelectedGoods()
         {
-            if (selectGoodsID.Count > 0)
+            if (selectAppointmentID.Count > 0)
             {
-                choose = MessageBox.Show("Do you really want to delete the " + selectGoodsID.Count + " goods?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                choose = MessageBox.Show("Do you really want to delete the " + selectAppointmentID.Count + " goods?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
                 if (choose == DialogResult.Yes)
                 {
                     try
                     {
                         int countDeleted = 0;
                         string res;
-                        foreach (string uid in selectGoodsID)
+                        foreach (string uid in selectAppointmentID)
                         {
-                            result = gc.DeleteGoods(uid);
+                            result = cbAppointment.Delete(uid);
                         }
-                        MessageBox.Show(selectGoodsID.Count + " records have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show(selectAppointmentID.Count + " records have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetGoods();
                     }
                     catch (Exception ex)
@@ -248,7 +216,7 @@ namespace TheBetterLimited.Views
             {
                 try
                 {
-                    result = gc.DeleteGoods(AppointmentDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    result = cbAppointment.Delete(AppointmentDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
                     if (result.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         MessageBox.Show("The " + AppointmentDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -263,69 +231,16 @@ namespace TheBetterLimited.Views
             }
         }
 
-        private void AddBtn_Click(object sender, EventArgs e)
-        {
-            //Goodsmanagement_Add goodsAdd = new Goodsmanagement_Add();
-            //goodsAdd.Show();
-        }
-
-
-
-        // Export Goods PDF
-        private void exportBtn_Click(object sender, EventArgs e)
-        {
-            Loading progress = new Loading();
-            progress.Show();
-            progress.Update("Fetch data from server ...", 10);
-            byte[] response = gc.GetGoodsPDF();
-            string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/test.pdf";
-            progress.Update("Generating PDF ...", 30);
-            progress.Update("Writing File ...", 60);
-            System.IO.File.WriteAllBytes(WriteFilePath, response);
-            progress.Update("Finish", 99);
-
-            choose = MessageBox.Show(
-                "Open in File Explorer?", "", MessageBoxButtons.YesNo);
-            if (choose == DialogResult.Yes)
-            {
-
-                if (WriteFilePath == null)
-                    throw new ArgumentNullException("filePath");
-
-                Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
-            }
-            else
-            {
-                MessageBox.Show("Saved at");
-            }
-
-            progress.End();
-
-            // BackgroundWorker bgw = new BackgroundWorker();
-            // CustomizeControl.Loading process = new Loading();
-            // process.Show();
-            // bgw.DoWork += new DoWorkEventHandler(((o, args) =>
-            // {
-            //     
-            // }));
-            // bgw.ProgressChanged += new ProgressChangedEventHandler(((o, args) =>
-            // {
-            // }));
-            // bgw.RunWorkerCompleted += (o, args) =>
-            // { 
-            // };
-            // bgw.RunWorkerAsync();
-            // get "application/pdf"
-
-
-
-
-
-        }
-
         private void curdAction_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Appointment_Load(object sender, EventArgs e)
+        {
+            DeliveryDatePicker.MinDate = new DateTime(DateTime.Now.Year,1,1);
+            DeliveryDatePicker.MaxDate = DateTime.Now.AddDays(29);
+            DeliveryDatePicker.Value = DateTime.Now;
         }
     }
 }

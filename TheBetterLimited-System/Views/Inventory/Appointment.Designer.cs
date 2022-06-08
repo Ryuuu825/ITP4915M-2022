@@ -33,9 +33,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appointment));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appointment));
             this.AppointmentDataGrid = new System.Windows.Forms.DataGridView();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._departmentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._teamId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Details = new System.Windows.Forms.DataGridViewImageColumn();
             this.Header = new System.Windows.Forms.Panel();
             this.CloseBtn = new FontAwesome.Sharp.IconButton();
             this.RefreshBtn = new FontAwesome.Sharp.IconButton();
@@ -52,14 +60,6 @@
             this.SearchBar = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.select = new System.Windows.Forms.DataGridViewImageColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._departmentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._teamId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Details = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGrid)).BeginInit();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
@@ -146,6 +146,90 @@
             this.AppointmentDataGrid.TabIndex = 3;
             this.AppointmentDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
             this.AppointmentDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GoodsDataGrid_CellFormatting);
+            // 
+            // select
+            // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.select.HeaderText = "";
+            this.select.Image = global::TheBetterLimited.Properties.Resources.square;
+            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.select.MinimumWidth = 6;
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            this.select.Width = 6;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "Appointment ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.ToolTipText = "Appointment ID";
+            this.id.Width = 144;
+            // 
+            // time
+            // 
+            this.time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.time.DataPropertyName = "time";
+            this.time.HeaderText = "Time";
+            this.time.MinimumWidth = 6;
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            this.time.ToolTipText = "Session Time";
+            this.time.Width = 75;
+            // 
+            // _departmentId
+            // 
+            this._departmentId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this._departmentId.DataPropertyName = "OrderId";
+            this._departmentId.HeaderText = "Order ID";
+            this._departmentId.MinimumWidth = 6;
+            this._departmentId.Name = "_departmentId";
+            this._departmentId.ReadOnly = true;
+            this._departmentId.ToolTipText = "Order ID";
+            this._departmentId.Width = 98;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "address";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Address.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Address.HeaderText = "Customer Address";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            this.Address.ToolTipText = "Customer Address";
+            // 
+            // _teamId
+            // 
+            this._teamId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this._teamId.DataPropertyName = "_teamId";
+            this._teamId.HeaderText = "Team ID";
+            this._teamId.MinimumWidth = 6;
+            this._teamId.Name = "_teamId";
+            this._teamId.ReadOnly = true;
+            this._teamId.ToolTipText = "Team ID";
+            this._teamId.Width = 95;
+            // 
+            // Status
+            // 
+            this.Status.DataPropertyName = "status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // Details
+            // 
+            this.Details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Details.HeaderText = "";
+            this.Details.Image = global::TheBetterLimited.Properties.Resources.eye;
+            this.Details.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Details.MinimumWidth = 6;
+            this.Details.Name = "Details";
+            this.Details.ReadOnly = true;
+            this.Details.ToolTipText = "Edit";
+            this.Details.Width = 6;
             // 
             // Header
             // 
@@ -340,90 +424,6 @@
             this.SearchBarTxt.Texts = "Search";
             this.SearchBarTxt.UnderlinedStyle = false;
             // 
-            // select
-            // 
-            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.select.HeaderText = "";
-            this.select.Image = global::TheBetterLimited.Properties.Resources.square;
-            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.select.MinimumWidth = 6;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            this.select.Width = 6;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "Appointment ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.ToolTipText = "Appointment ID";
-            this.id.Width = 144;
-            // 
-            // time
-            // 
-            this.time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.time.DataPropertyName = "time";
-            this.time.HeaderText = "Time";
-            this.time.MinimumWidth = 6;
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
-            this.time.ToolTipText = "Session Time";
-            this.time.Width = 75;
-            // 
-            // _departmentId
-            // 
-            this._departmentId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._departmentId.DataPropertyName = "OrderId";
-            this._departmentId.HeaderText = "Order ID";
-            this._departmentId.MinimumWidth = 6;
-            this._departmentId.Name = "_departmentId";
-            this._departmentId.ReadOnly = true;
-            this._departmentId.ToolTipText = "Order ID";
-            this._departmentId.Width = 98;
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "address";
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Address.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Address.HeaderText = "Customer Address";
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            this.Address.ToolTipText = "Customer Address";
-            // 
-            // _teamId
-            // 
-            this._teamId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._teamId.DataPropertyName = "_teamId";
-            this._teamId.HeaderText = "Team ID";
-            this._teamId.MinimumWidth = 6;
-            this._teamId.Name = "_teamId";
-            this._teamId.ReadOnly = true;
-            this._teamId.ToolTipText = "Team ID";
-            this._teamId.Width = 95;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // Details
-            // 
-            this.Details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Details.HeaderText = "";
-            this.Details.Image = global::TheBetterLimited.Properties.Resources.eye;
-            this.Details.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Details.MinimumWidth = 6;
-            this.Details.Name = "Details";
-            this.Details.ReadOnly = true;
-            this.Details.ToolTipText = "Edit";
-            this.Details.Width = 6;
-            // 
             // Appointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -438,6 +438,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Appointment";
             this.Text = "InventoryManagement";
+            this.Load += new System.EventHandler(this.Appointment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGrid)).EndInit();
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();

@@ -127,6 +127,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AppointmentController.cs" />
     <Compile Include="Models\CatalogueEnum.cs" />
     <Compile Include="Controller\ControllerBase.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
