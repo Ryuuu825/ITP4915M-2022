@@ -104,6 +104,7 @@ namespace TheBetterLimited.Views
         {
             string id = StockDataGrid["Id" , e.RowIndex].Value.ToString();
             Stock_Edit edit = new Stock_Edit(id);
+            edit.OnExit += () => GetStock();
             edit.Show();
         }
 
