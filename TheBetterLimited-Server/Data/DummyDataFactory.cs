@@ -637,7 +637,6 @@ namespace TheBetterLimited_Server.Data
             };
         }
 
-
         public static List<Account> CreateAccount()
         {
             return new List<Account>
