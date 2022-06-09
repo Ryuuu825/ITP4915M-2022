@@ -55,6 +55,8 @@
             this.txtGoodsName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
+            this.cbxSupplier = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GoodsPic)).BeginInit();
             this.BottomBtn.SuspendLayout();
@@ -75,7 +77,7 @@
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Margin = new System.Windows.Forms.Padding(2);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(272, 614);
+            this.Header.Size = new System.Drawing.Size(272, 684);
             this.Header.TabIndex = 0;
             // 
             // Info
@@ -132,7 +134,7 @@
             this.BottomBtn.Controls.Add(this.btnAddGoods);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(10, 550);
+            this.BottomBtn.Location = new System.Drawing.Point(10, 620);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
@@ -192,7 +194,7 @@
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
             this.MainForm.Padding = new System.Windows.Forms.Padding(10);
-            this.MainForm.Size = new System.Drawing.Size(512, 614);
+            this.MainForm.Size = new System.Drawing.Size(512, 684);
             this.MainForm.TabIndex = 2;
             // 
             // UserInfo
@@ -203,11 +205,13 @@
             this.UserInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserInfo.Location = new System.Drawing.Point(10, 10);
             this.UserInfo.Name = "UserInfo";
-            this.UserInfo.Size = new System.Drawing.Size(492, 562);
+            this.UserInfo.Size = new System.Drawing.Size(492, 598);
             this.UserInfo.TabIndex = 24;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbxSupplier);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbxStatus);
             this.panel1.Controls.Add(this.cbxSize);
             this.panel1.Controls.Add(this.cbxCatalogue);
@@ -225,7 +229,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(492, 522);
+            this.panel1.Size = new System.Drawing.Size(492, 558);
             this.panel1.TabIndex = 27;
             // 
             // cbxStatus
@@ -507,12 +511,45 @@
             this.GoodsInfoHeader.TabIndex = 6;
             this.GoodsInfoHeader.Text = "Goods Information";
             // 
+            // cbxSupplier
+            // 
+            this.cbxSupplier.BackColor = System.Drawing.Color.White;
+            this.cbxSupplier.BorderColor = System.Drawing.Color.LightGray;
+            this.cbxSupplier.BorderRadius = 1;
+            this.cbxSupplier.BorderSize = 1;
+            this.cbxSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSupplier.Font = new System.Drawing.Font("Segoe UI", 12.35F);
+            this.cbxSupplier.ForeColor = System.Drawing.Color.Black;
+            this.cbxSupplier.IconColor = System.Drawing.Color.LightGray;
+            this.cbxSupplier.ListBackColor = System.Drawing.Color.White;
+            this.cbxSupplier.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbxSupplier.Location = new System.Drawing.Point(161, 505);
+            this.cbxSupplier.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbxSupplier.Name = "cbxSupplier";
+            this.cbxSupplier.Padding = new System.Windows.Forms.Padding(1);
+            this.cbxSupplier.Size = new System.Drawing.Size(307, 31);
+            this.cbxSupplier.TabIndex = 43;
+            this.cbxSupplier.Texts = "";
+            this.cbxSupplier.UnderlinedStyle = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(52, 510);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 21);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Supplier";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Inventorymanagement_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(784, 614);
+            this.ClientSize = new System.Drawing.Size(784, 684);
             this.Controls.Add(this.MainForm);
             this.Controls.Add(this.Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -566,5 +603,7 @@
         private CustomizeControl.CustomizeComboBox cbxCatalogue;
         private System.Windows.Forms.Label lblGoodsName;
         private System.Windows.Forms.Label lblDescription;
+        private CustomizeControl.CustomizeComboBox cbxSupplier;
+        private System.Windows.Forms.Label label1;
     }
 }

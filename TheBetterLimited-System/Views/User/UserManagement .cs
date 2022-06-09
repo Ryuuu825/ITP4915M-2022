@@ -281,7 +281,6 @@ namespace TheBetterLimited.Views
                     {
                         MessageBox.Show("Cannot delete the account.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                 }
             }
             else

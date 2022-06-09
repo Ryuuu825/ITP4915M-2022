@@ -50,6 +50,7 @@ namespace TheBetterLimited.Views
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.Dispose();
         }
 
         private void AppointmentDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -92,6 +93,16 @@ namespace TheBetterLimited.Views
             {
                 if (Convert.ToInt32(AppointmentDataGrid["select", e.RowIndex].Tag) == 0)
                 {
+                    DialogResult result = DialogResult.No;
+                    Console.WriteLine(AppointmentDataGrid["teamId", e.RowIndex].Value.ToString() != String.Empty);
+                    if (AppointmentDataGrid["teamId", e.RowIndex].Value.ToString() != String.Empty)
+                    {
+                        result = MessageBox.Show("The appointment has been arrange to a team. Do you need to modify it?", "Waining", MessageBoxButtons.YesNo);
+                        if (result != DialogResult.Yes)
+                        {
+                            return;
+                        }
+                    }
                     AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
                     AppointmentDataGrid["select", e.RowIndex].Tag = 1;
                     AppointmentDataGrid.Rows[e.RowIndex].Selected = true;
@@ -157,6 +168,7 @@ namespace TheBetterLimited.Views
                 Appointment_Arrange arrangeAppointment = new Appointment_Arrange();
                 arrangeAppointment.Show();
                 arrangeAppointment.TopLevel = true;
+                arrangeAppointment.appointmentId = AppointmentDataGrid["id", e.RowIndex].Value.ToString();
                 arrangeAppointment.OnExit += GetAppointment;
             }
         }
@@ -219,7 +231,7 @@ namespace TheBetterLimited.Views
                     row["address"] = a["customer"]["address"].ToString();
                     if(((JToken)a["team"]).Type != JTokenType.Null)
                     {
-                        row["teamId"] = a["team"];
+                        row["teamId"] = a["team"]["id"];
                     }
                     row["orderId"] = a["orderId"];
                     row["status"] = a["salesOrderStatus"].ToString();
@@ -233,38 +245,6 @@ namespace TheBetterLimited.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-        }
-
-        //Assign Selected Appointment
-        private void DeleteSelectedGoods()
-        {
-            if (selectAppointmentID.Count > 0)
-            {
-                choose = MessageBox.Show("Do you really want to delete the " + selectAppointmentID.Count + " goods?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-                if (choose == DialogResult.Yes)
-                {
-                    try
-                    {
-                        int countDeleted = 0;
-                        string res;
-                        foreach (string uid in selectAppointmentID)
-                        {
-                            response = cbAppointment.Delete(uid);
-                        }
-                        MessageBox.Show(selectAppointmentID.Count + " records have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetAppointment();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Cannot delete the goods.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("You had not selected a goods.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             }
         }
 
@@ -295,12 +275,35 @@ namespace TheBetterLimited.Views
         {
             DeliveryDatePicker.MinDate = new DateTime(DateTime.Now.Year,1,1);
             DeliveryDatePicker.MaxDate = DateTime.Now.AddDays(29);
-            DeliveryDatePicker.Value = DateTime.Now;
+            DeliveryDatePicker.Value = DateTime.Now.AddDays(1);
         }
 
         private void DeliveryDatePicker_ValueChanged(object sender, EventArgs e)
         {
             GetAppointment();
+        }
+
+        //Arrange Selected Appointment
+        private void MultiArrangeBtn_Click(object sender, EventArgs e)
+        {
+            if (selectAppointmentID.Count > 0)
+            {
+                Form arrangeForm = Application.OpenForms["Appointment_Arrange"];
+                if (arrangeForm != null)
+                {
+                    arrangeForm.Close();
+                    arrangeForm.Dispose();
+                }
+                Appointment_Arrange arrangeAppointment = new Appointment_Arrange();
+                arrangeAppointment.Show();
+                arrangeAppointment.TopLevel = true;
+                arrangeAppointment.appointmentIds = selectAppointmentID;
+                arrangeAppointment.OnExit += GetAppointment;
+            }
+            else
+            {
+                MessageBox.Show("You had not selected an appointment.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            }
         }
     }
 }

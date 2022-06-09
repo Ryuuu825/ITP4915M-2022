@@ -30,7 +30,45 @@ namespace TheBetterLimited.Views
         private void CreateUser_Click(object sender, EventArgs e)
         {
             //check 
+            
+            if (txtSupplierGoodsId.Texts == "" || txtSupplierGoodsId.Texts == txtSupplierGoodsId.Placeholder)
+            {
+                txtSupplierGoodsId.BorderColor = Color.Red;
+                return;
+            }
+            txtSupplierGoodsId.BorderColor = Color.LightGray;
 
+            if (txtQuantity.Texts == "" || txtQuantity.Texts == txtQuantity.Placeholder)
+            {
+                txtQuantity.BorderColor = Color.Red;
+                return;
+            }
+            txtQuantity.BorderColor = Color.LightGray;
+
+            if (txtMaxLimit.Texts == "" || txtMaxLimit.Texts == txtMaxLimit.Placeholder)
+            {
+                txtMaxLimit.BorderColor = Color.Red;
+                return;
+            }
+            txtMaxLimit.BorderColor = Color.LightGray;
+
+            if (txtMinLimit.Texts == "" || txtMinLimit.Texts == txtMinLimit.Placeholder)
+            {
+                txtMinLimit.BorderColor = Color.Red;
+                return;
+            }   
+            txtMinLimit.BorderColor = Color.LightGray;
+
+            if (txtReorderLevel.Texts == "" || txtReorderLevel.Texts == txtReorderLevel.Placeholder)
+            {
+                txtReorderLevel.BorderColor = Color.Red;
+                return;
+            }
+            txtReorderLevel.BorderColor = Color.LightGray;
+
+
+
+ 
             /*
             {
                 "supplier_GoodsID": "100000001",
@@ -45,7 +83,7 @@ namespace TheBetterLimited.Views
                 maxLimit = txtMaxLimit.Texts,
                 minLimit = txtMinLimit.Texts,
                 reorderLevel = txtReorderLevel.Texts,
-                supplier_GoodsID = txtSupplierGoodsId.Texts
+                GoodsId = txtSupplierGoodsId.Texts
             };
 
             RestRequest ewq = new RestRequest("/api/inventory/sgs", Method.Post)

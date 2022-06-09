@@ -41,7 +41,7 @@
             this.Catalogue = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.CusAddressTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.CusPhoneTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.PhoneTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
             this.MainForm.SuspendLayout();
@@ -141,7 +141,7 @@
             this.panel1.Controls.Add(this.Catalogue);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.CusAddressTxt);
-            this.panel1.Controls.Add(this.CusPhoneTxt);
+            this.panel1.Controls.Add(this.PhoneTxt);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -275,32 +275,34 @@
             this.CusAddressTxt.UnderlinedStyle = false;
             this.CusAddressTxt.Click += new System.EventHandler(this.CusAddressTxt_Click);
             // 
-            // CusPhoneTxt
+            // PhoneTxt
             // 
-            this.CusPhoneTxt.BackColor = System.Drawing.Color.White;
-            this.CusPhoneTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.CusPhoneTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.CusPhoneTxt.BorderRadius = 10;
-            this.CusPhoneTxt.BorderSize = 1;
-            this.CusPhoneTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CusPhoneTxt.ForeColor = System.Drawing.Color.Black;
-            this.CusPhoneTxt.IsError = false;
-            this.CusPhoneTxt.Location = new System.Drawing.Point(163, 78);
-            this.CusPhoneTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.CusPhoneTxt.MaxLength = 30;
-            this.CusPhoneTxt.Multiline = false;
-            this.CusPhoneTxt.Name = "CusPhoneTxt";
-            this.CusPhoneTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.CusPhoneTxt.PasswordChar = false;
-            this.CusPhoneTxt.Placeholder = "Please enter customer phone";
-            this.CusPhoneTxt.ReadOnly = false;
-            this.CusPhoneTxt.Size = new System.Drawing.Size(307, 38);
-            this.CusPhoneTxt.TabIndex = 2;
-            this.CusPhoneTxt.TbBackColor = System.Drawing.Color.White;
-            this.CusPhoneTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.CusPhoneTxt.Texts = "Please enter customer phone";
-            this.CusPhoneTxt.UnderlinedStyle = false;
-            this.CusPhoneTxt.Click += new System.EventHandler(this.CusPhoneTxt_Click);
+            this.PhoneTxt.BackColor = System.Drawing.Color.White;
+            this.PhoneTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.PhoneTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.PhoneTxt.BorderRadius = 10;
+            this.PhoneTxt.BorderSize = 1;
+            this.PhoneTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PhoneTxt.ForeColor = System.Drawing.Color.Black;
+            this.PhoneTxt.IsError = false;
+            this.PhoneTxt.Location = new System.Drawing.Point(163, 78);
+            this.PhoneTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.PhoneTxt.MaxLength = 30;
+            this.PhoneTxt.Multiline = false;
+            this.PhoneTxt.Name = "PhoneTxt";
+            this.PhoneTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.PhoneTxt.PasswordChar = false;
+            this.PhoneTxt.Placeholder = "Please enter customer phone";
+            this.PhoneTxt.ReadOnly = false;
+            this.PhoneTxt.Size = new System.Drawing.Size(307, 38);
+            this.PhoneTxt.TabIndex = 2;
+            this.PhoneTxt.TbBackColor = System.Drawing.Color.White;
+            this.PhoneTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.PhoneTxt.Texts = "Please enter customer phone";
+            this.PhoneTxt.UnderlinedStyle = false;
+            this.PhoneTxt._TextChanged += new System.EventHandler(this.PhoneTxt__TextChanged);
+            this.PhoneTxt._Leave += new System.EventHandler(this.PhoneTxt__Leave);
+            this.PhoneTxt.Click += new System.EventHandler(this.CusPhoneTxt_Click);
             // 
             // UserInfoHeaderContainer
             // 
@@ -360,7 +362,7 @@
         private System.Windows.Forms.Label Catalogue;
         private System.Windows.Forms.Label label1;
         private CustomizeControl.CustomizeTextbox CusAddressTxt;
-        private CustomizeControl.CustomizeTextbox CusPhoneTxt;
+        private CustomizeControl.CustomizeTextbox PhoneTxt;
         private System.Windows.Forms.Panel BottomBtn;
         private CustomizeControl.RoundButton CancelBtn;
         private CustomizeControl.RoundButton SaveBtn;

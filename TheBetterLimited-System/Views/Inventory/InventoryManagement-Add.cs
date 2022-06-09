@@ -5,14 +5,23 @@ using System.Windows.Forms;
 using TheBetterLimited_System.Controller;
 using RestSharp;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 namespace TheBetterLimited.Views
 {
     public partial class Inventorymanagement_Add : Form
     {
         private bool isUpload = false;
         private ControllerBase con = new ControllerBase("Catalogue");
-        private ControllerBase GoodsCon = new ControllerBase("Goods");
+        private ControllerBase GoodsCon = new ControllerBase("pos/goods");
+        private ControllerBase SupplierCon = new ControllerBase("Supplier");
         private Bitmap icon = Properties.Resources.photo_upload;
+        private List<_supplier> suppliersList = new List<_supplier>();
+
+        private class _supplier 
+        {
+            public string Id { get; set; }
+            public string Name { get; set; }
+        }
 
         public Inventorymanagement_Add()
         {
@@ -32,6 +41,20 @@ namespace TheBetterLimited.Views
             cbxStatus.Items.Add("Selling");
             cbxStatus.Items.Add("PhasingOut");
             cbxStatus.Items.Add("StopSelling");
+
+            var suppliers = JArray.Parse(SupplierCon.GetAll().Content);
+            Console.WriteLine(SupplierCon.GetAll().Content);
+            foreach(var supplier in suppliers)
+            {
+                suppliersList.Add(
+                    new _supplier{
+                        Id = supplier["ID"].ToString(),
+                        Name = supplier["Name"].ToString()
+                    }
+                );
+                cbxSupplier.Items.Add(supplier["Name"].ToString());
+                cbxSupplier.AutoCompleteCustomSource.Add(supplier["Name"].ToString());
+            }
 
 
         }
@@ -95,7 +118,7 @@ namespace TheBetterLimited.Views
                 return;
             }
 
-            GoodsCon.Create(new
+            var re = GoodsCon.Create(new
             {
                 Name = txtGoodsName.Texts,
                 _catalogueId = cbxCatalogue.SelectedIndex + 1 + "00",
@@ -103,13 +126,27 @@ namespace TheBetterLimited.Views
                 Price = txtPrice.Texts,
                 GTINCode = txtGTINCode.Texts,
                 Size = cbxSize.SelectedItem.ToString(),
-                Status = cbxStatus.SelectedItem.ToString()
+                Status = cbxStatus.SelectedItem.ToString(),
+                supplierId =  suppliersList[cbxSupplier.SelectedIndex].Id
             });
+            Console.WriteLine(re.Content);
+            Console.WriteLine(re.StatusCode);
+
+            if (re.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                MessageBox.Show("Goods Created");
+                OnExit.Invoke();
+                this.Close();
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+           
 
             MessageBox.Show("Goods Created");
-            OnExit.Invoke();
-            this.Close();
-            this.Dispose();
+ 
         }
 
         private void UserIconPic_Click(object sender, EventArgs e)

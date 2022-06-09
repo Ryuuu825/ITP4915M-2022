@@ -34,6 +34,14 @@
             this.MainForm = new System.Windows.Forms.Panel();
             this.StockInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.SizeGroup = new System.Windows.Forms.Panel();
+            this.roundPanel4 = new TheBetterLimited.CustomizeControl.RoundPanel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.roundPanel5 = new TheBetterLimited.CustomizeControl.RoundPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.roundPanel6 = new TheBetterLimited.CustomizeControl.RoundPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblSize = new System.Windows.Forms.Label();
             this.SearchStaffBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.label3 = new System.Windows.Forms.Label();
             this.staffName = new System.Windows.Forms.Label();
@@ -51,23 +59,15 @@
             this.txtSupplierGoodsId = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.StockInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.StockInfoHeader = new System.Windows.Forms.Label();
-            this.SizeGroup = new System.Windows.Forms.Panel();
-            this.roundPanel4 = new TheBetterLimited.CustomizeControl.RoundPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.roundPanel5 = new TheBetterLimited.CustomizeControl.RoundPanel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.roundPanel6 = new TheBetterLimited.CustomizeControl.RoundPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblSize = new System.Windows.Forms.Label();
             this.BottomBtn.SuspendLayout();
             this.MainForm.SuspendLayout();
             this.StockInfo.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.StockInfoHeaderContainer.SuspendLayout();
             this.SizeGroup.SuspendLayout();
             this.roundPanel4.SuspendLayout();
             this.roundPanel5.SuspendLayout();
             this.roundPanel6.SuspendLayout();
+            this.StockInfoHeaderContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // BottomBtn
@@ -175,6 +175,106 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(530, 565);
             this.panel1.TabIndex = 27;
+            // 
+            // SizeGroup
+            // 
+            this.SizeGroup.Controls.Add(this.roundPanel4);
+            this.SizeGroup.Controls.Add(this.roundPanel5);
+            this.SizeGroup.Controls.Add(this.roundPanel6);
+            this.SizeGroup.Location = new System.Drawing.Point(198, 237);
+            this.SizeGroup.Name = "SizeGroup";
+            this.SizeGroup.Size = new System.Drawing.Size(308, 33);
+            this.SizeGroup.TabIndex = 52;
+            // 
+            // roundPanel4
+            // 
+            this.roundPanel4.BackColor = System.Drawing.Color.White;
+            this.roundPanel4.BackgroundColor = System.Drawing.Color.White;
+            this.roundPanel4.BorderColor = System.Drawing.Color.LightGray;
+            this.roundPanel4.BorderRadius = 5;
+            this.roundPanel4.BorderSize = 1;
+            this.roundPanel4.Controls.Add(this.label4);
+            this.roundPanel4.ForeColor = System.Drawing.Color.White;
+            this.roundPanel4.Location = new System.Drawing.Point(3, 5);
+            this.roundPanel4.Name = "roundPanel4";
+            this.roundPanel4.Size = new System.Drawing.Size(67, 25);
+            this.roundPanel4.TabIndex = 0;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Silver;
+            this.label4.Location = new System.Drawing.Point(10, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 19);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Small";
+            // 
+            // roundPanel5
+            // 
+            this.roundPanel5.BackColor = System.Drawing.Color.White;
+            this.roundPanel5.BackgroundColor = System.Drawing.Color.White;
+            this.roundPanel5.BorderColor = System.Drawing.Color.LightGray;
+            this.roundPanel5.BorderRadius = 5;
+            this.roundPanel5.BorderSize = 1;
+            this.roundPanel5.Controls.Add(this.label5);
+            this.roundPanel5.ForeColor = System.Drawing.Color.White;
+            this.roundPanel5.Location = new System.Drawing.Point(107, 5);
+            this.roundPanel5.Name = "roundPanel5";
+            this.roundPanel5.Size = new System.Drawing.Size(79, 25);
+            this.roundPanel5.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Silver;
+            this.label5.Location = new System.Drawing.Point(9, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 19);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Medium";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // roundPanel6
+            // 
+            this.roundPanel6.BackColor = System.Drawing.Color.White;
+            this.roundPanel6.BackgroundColor = System.Drawing.Color.White;
+            this.roundPanel6.BorderColor = System.Drawing.Color.LightGray;
+            this.roundPanel6.BorderRadius = 5;
+            this.roundPanel6.BorderSize = 1;
+            this.roundPanel6.Controls.Add(this.label6);
+            this.roundPanel6.ForeColor = System.Drawing.Color.White;
+            this.roundPanel6.Location = new System.Drawing.Point(223, 5);
+            this.roundPanel6.Name = "roundPanel6";
+            this.roundPanel6.Size = new System.Drawing.Size(67, 25);
+            this.roundPanel6.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Silver;
+            this.label6.Location = new System.Drawing.Point(12, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 19);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Large";
+            // 
+            // lblSize
+            // 
+            this.lblSize.AutoSize = true;
+            this.lblSize.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSize.Location = new System.Drawing.Point(82, 247);
+            this.lblSize.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSize.Name = "lblSize";
+            this.lblSize.Size = new System.Drawing.Size(38, 21);
+            this.lblSize.TabIndex = 51;
+            this.lblSize.Text = "Size";
             // 
             // SearchStaffBtn
             // 
@@ -421,12 +521,12 @@
             // 
             this.lblSupplierGoodsId.AutoSize = true;
             this.lblSupplierGoodsId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSupplierGoodsId.Location = new System.Drawing.Point(31, 26);
+            this.lblSupplierGoodsId.Location = new System.Drawing.Point(62, 26);
             this.lblSupplierGoodsId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSupplierGoodsId.Name = "lblSupplierGoodsId";
-            this.lblSupplierGoodsId.Size = new System.Drawing.Size(136, 21);
+            this.lblSupplierGoodsId.Size = new System.Drawing.Size(74, 21);
             this.lblSupplierGoodsId.TabIndex = 3;
-            this.lblSupplierGoodsId.Text = "Supplier Goods ID";
+            this.lblSupplierGoodsId.Text = "Goods ID";
             this.lblSupplierGoodsId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblQuantity
@@ -488,106 +588,6 @@
             this.StockInfoHeader.TabIndex = 6;
             this.StockInfoHeader.Text = "Stock Information";
             // 
-            // SizeGroup
-            // 
-            this.SizeGroup.Controls.Add(this.roundPanel4);
-            this.SizeGroup.Controls.Add(this.roundPanel5);
-            this.SizeGroup.Controls.Add(this.roundPanel6);
-            this.SizeGroup.Location = new System.Drawing.Point(198, 237);
-            this.SizeGroup.Name = "SizeGroup";
-            this.SizeGroup.Size = new System.Drawing.Size(308, 33);
-            this.SizeGroup.TabIndex = 52;
-            // 
-            // roundPanel4
-            // 
-            this.roundPanel4.BackColor = System.Drawing.Color.White;
-            this.roundPanel4.BackgroundColor = System.Drawing.Color.White;
-            this.roundPanel4.BorderColor = System.Drawing.Color.LightGray;
-            this.roundPanel4.BorderRadius = 5;
-            this.roundPanel4.BorderSize = 1;
-            this.roundPanel4.Controls.Add(this.label4);
-            this.roundPanel4.ForeColor = System.Drawing.Color.White;
-            this.roundPanel4.Location = new System.Drawing.Point(3, 5);
-            this.roundPanel4.Name = "roundPanel4";
-            this.roundPanel4.Size = new System.Drawing.Size(67, 25);
-            this.roundPanel4.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(10, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 19);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Small";
-            // 
-            // roundPanel5
-            // 
-            this.roundPanel5.BackColor = System.Drawing.Color.White;
-            this.roundPanel5.BackgroundColor = System.Drawing.Color.White;
-            this.roundPanel5.BorderColor = System.Drawing.Color.LightGray;
-            this.roundPanel5.BorderRadius = 5;
-            this.roundPanel5.BorderSize = 1;
-            this.roundPanel5.Controls.Add(this.label5);
-            this.roundPanel5.ForeColor = System.Drawing.Color.White;
-            this.roundPanel5.Location = new System.Drawing.Point(107, 5);
-            this.roundPanel5.Name = "roundPanel5";
-            this.roundPanel5.Size = new System.Drawing.Size(79, 25);
-            this.roundPanel5.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(9, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 19);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Medium";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // roundPanel6
-            // 
-            this.roundPanel6.BackColor = System.Drawing.Color.White;
-            this.roundPanel6.BackgroundColor = System.Drawing.Color.White;
-            this.roundPanel6.BorderColor = System.Drawing.Color.LightGray;
-            this.roundPanel6.BorderRadius = 5;
-            this.roundPanel6.BorderSize = 1;
-            this.roundPanel6.Controls.Add(this.label6);
-            this.roundPanel6.ForeColor = System.Drawing.Color.White;
-            this.roundPanel6.Location = new System.Drawing.Point(223, 5);
-            this.roundPanel6.Name = "roundPanel6";
-            this.roundPanel6.Size = new System.Drawing.Size(67, 25);
-            this.roundPanel6.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Silver;
-            this.label6.Location = new System.Drawing.Point(12, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 19);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Large";
-            // 
-            // lblSize
-            // 
-            this.lblSize.AutoSize = true;
-            this.lblSize.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSize.Location = new System.Drawing.Point(82, 247);
-            this.lblSize.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblSize.Name = "lblSize";
-            this.lblSize.Size = new System.Drawing.Size(38, 21);
-            this.lblSize.TabIndex = 51;
-            this.lblSize.Text = "Size";
-            // 
             // Stock_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -608,8 +608,6 @@
             this.StockInfo.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.StockInfoHeaderContainer.ResumeLayout(false);
-            this.StockInfoHeaderContainer.PerformLayout();
             this.SizeGroup.ResumeLayout(false);
             this.roundPanel4.ResumeLayout(false);
             this.roundPanel4.PerformLayout();
@@ -617,6 +615,8 @@
             this.roundPanel5.PerformLayout();
             this.roundPanel6.ResumeLayout(false);
             this.roundPanel6.PerformLayout();
+            this.StockInfoHeaderContainer.ResumeLayout(false);
+            this.StockInfoHeaderContainer.PerformLayout();
             this.ResumeLayout(false);
 
         }

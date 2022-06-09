@@ -48,12 +48,13 @@ namespace TheBetterLimited.Views
             OrderInfoBox.Enabled = false;
             OrderDataGrid.ReadOnly = true;
             OrderDataGrid.Columns["delete"].Visible = false;
-            SaveBtn.Text = "Arrange To Team";
+            SaveBtn.Text = "Arrange";
             SaveBtn.Click -= new EventHandler(SaveBtn_Click);
-            SaveBtn.Click -= new EventHandler(SaveBtn_Click);
+            SaveBtn.Click += new EventHandler(ArrangeBtn_Click);
             InitializeOrderInfo();
             InitializeOrderItemTable();
         }
+
         public void SetOrderData(JObject orderData, bool appointment)
         {
             this.orderData = orderData;
@@ -245,8 +246,16 @@ namespace TheBetterLimited.Views
         }
 
         private void ArrangeBtn_Click(object sender, EventArgs e)
-        { 
-            
+        {
+            Form arrangeForm = Application.OpenForms["Appointment_Arrange"];
+            if (arrangeForm != null)
+            {
+                arrangeForm.Close();
+                arrangeForm.Dispose();
+            }
+            Appointment_Arrange arrangeAppointment = new Appointment_Arrange();
+            arrangeAppointment.Show();
+            arrangeAppointment.TopLevel = true;
         }
 
             //init session form server

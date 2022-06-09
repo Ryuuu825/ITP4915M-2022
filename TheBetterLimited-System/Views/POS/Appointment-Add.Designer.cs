@@ -30,9 +30,13 @@
         {
             this.MainForm = new System.Windows.Forms.Panel();
             this.BottomBtn = new System.Windows.Forms.Panel();
+            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.InstallSessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.DeliverySessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.InstallDatePicker = new System.Windows.Forms.DateTimePicker();
             this.DeliveryDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,18 +49,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.CustomerInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.NameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.GTINCode = new System.Windows.Forms.Label();
             this.Catalogue = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
-            this.GoodsInfoHeader = new System.Windows.Forms.Label();
-            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.InstallSessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.DeliverySessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.NameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.AddressTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.PhoneTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
+            this.GoodsInfoHeader = new System.Windows.Forms.Label();
             this.MainForm.SuspendLayout();
             this.BottomBtn.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -93,6 +93,49 @@
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.BottomBtn.Size = new System.Drawing.Size(520, 54);
             this.BottomBtn.TabIndex = 34;
+            // 
+            // CancelBtn
+            // 
+            this.CancelBtn.BackColor = System.Drawing.Color.Silver;
+            this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
+            this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.CancelBtn.BorderRadius = 10;
+            this.CancelBtn.BorderSize = 0;
+            this.CancelBtn.FlatAppearance.BorderSize = 0;
+            this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
+            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelBtn.ForeColor = System.Drawing.Color.White;
+            this.CancelBtn.IsChecked = false;
+            this.CancelBtn.Location = new System.Drawing.Point(86, 6);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(145, 40);
+            this.CancelBtn.TabIndex = 9;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.TextColor = System.Drawing.Color.White;
+            this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click_1);
+            // 
+            // SaveBtn
+            // 
+            this.SaveBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.SaveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.SaveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.SaveBtn.BorderRadius = 10;
+            this.SaveBtn.BorderSize = 0;
+            this.SaveBtn.FlatAppearance.BorderSize = 0;
+            this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveBtn.ForeColor = System.Drawing.Color.White;
+            this.SaveBtn.IsChecked = false;
+            this.SaveBtn.Location = new System.Drawing.Point(285, 6);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(145, 40);
+            this.SaveBtn.TabIndex = 8;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.TextColor = System.Drawing.Color.White;
+            this.SaveBtn.UseVisualStyleBackColor = false;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // panel3
             // 
@@ -132,6 +175,50 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(468, 1);
             this.panel5.TabIndex = 28;
+            // 
+            // InstallSessionCombo
+            // 
+            this.InstallSessionCombo.BackColor = System.Drawing.Color.White;
+            this.InstallSessionCombo.BorderColor = System.Drawing.Color.LightGray;
+            this.InstallSessionCombo.BorderRadius = 1;
+            this.InstallSessionCombo.BorderSize = 1;
+            this.InstallSessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.InstallSessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InstallSessionCombo.ForeColor = System.Drawing.Color.DimGray;
+            this.InstallSessionCombo.IconColor = System.Drawing.Color.LightGray;
+            this.InstallSessionCombo.ListBackColor = System.Drawing.Color.White;
+            this.InstallSessionCombo.ListTextColor = System.Drawing.Color.DimGray;
+            this.InstallSessionCombo.Location = new System.Drawing.Point(163, 223);
+            this.InstallSessionCombo.MinimumSize = new System.Drawing.Size(200, 30);
+            this.InstallSessionCombo.Name = "InstallSessionCombo";
+            this.InstallSessionCombo.Padding = new System.Windows.Forms.Padding(1);
+            this.InstallSessionCombo.Size = new System.Drawing.Size(307, 30);
+            this.InstallSessionCombo.TabIndex = 7;
+            this.InstallSessionCombo.Texts = "Installation Session";
+            this.InstallSessionCombo.UnderlinedStyle = false;
+            this.InstallSessionCombo.OnSelectedIndexChanged += new System.EventHandler(this.InstallSessionCombo_OnSelectedIndexChanged);
+            // 
+            // DeliverySessionCombo
+            // 
+            this.DeliverySessionCombo.BackColor = System.Drawing.Color.White;
+            this.DeliverySessionCombo.BorderColor = System.Drawing.Color.LightGray;
+            this.DeliverySessionCombo.BorderRadius = 1;
+            this.DeliverySessionCombo.BorderSize = 1;
+            this.DeliverySessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DeliverySessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeliverySessionCombo.ForeColor = System.Drawing.Color.DimGray;
+            this.DeliverySessionCombo.IconColor = System.Drawing.Color.LightGray;
+            this.DeliverySessionCombo.ListBackColor = System.Drawing.Color.White;
+            this.DeliverySessionCombo.ListTextColor = System.Drawing.Color.DimGray;
+            this.DeliverySessionCombo.Location = new System.Drawing.Point(165, 86);
+            this.DeliverySessionCombo.MinimumSize = new System.Drawing.Size(200, 30);
+            this.DeliverySessionCombo.Name = "DeliverySessionCombo";
+            this.DeliverySessionCombo.Padding = new System.Windows.Forms.Padding(1);
+            this.DeliverySessionCombo.Size = new System.Drawing.Size(305, 30);
+            this.DeliverySessionCombo.TabIndex = 5;
+            this.DeliverySessionCombo.Texts = "Delivery Session";
+            this.DeliverySessionCombo.UnderlinedStyle = false;
+            this.DeliverySessionCombo.OnSelectedIndexChanged += new System.EventHandler(this.DeliverySessionCombo_OnSelectedIndexChanged);
             // 
             // InstallDatePicker
             // 
@@ -271,6 +358,34 @@
             this.panel1.Size = new System.Drawing.Size(520, 236);
             this.panel1.TabIndex = 27;
             // 
+            // NameTxt
+            // 
+            this.NameTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.NameTxt.BackColor = System.Drawing.Color.White;
+            this.NameTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.NameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.NameTxt.BorderRadius = 10;
+            this.NameTxt.BorderSize = 1;
+            this.NameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameTxt.ForeColor = System.Drawing.Color.Black;
+            this.NameTxt.IsError = false;
+            this.NameTxt.Location = new System.Drawing.Point(164, 11);
+            this.NameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.NameTxt.MaxLength = 20;
+            this.NameTxt.Multiline = false;
+            this.NameTxt.Name = "NameTxt";
+            this.NameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.NameTxt.PasswordChar = false;
+            this.NameTxt.Placeholder = "Please enter customer name";
+            this.NameTxt.ReadOnly = false;
+            this.NameTxt.Size = new System.Drawing.Size(306, 38);
+            this.NameTxt.TabIndex = 1;
+            this.NameTxt.TbBackColor = System.Drawing.Color.White;
+            this.NameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.NameTxt.Texts = "Please enter customer name";
+            this.NameTxt.UnderlinedStyle = false;
+            this.NameTxt.Click += new System.EventHandler(this.NameTxt_Click);
+            // 
             // GTINCode
             // 
             this.GTINCode.AutoSize = true;
@@ -303,142 +418,6 @@
             this.label1.Size = new System.Drawing.Size(52, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Name";
-            // 
-            // UserInfoHeaderContainer
-            // 
-            this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
-            this.UserInfoHeaderContainer.Controls.Add(this.GoodsInfoHeader);
-            this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
-            this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
-            this.UserInfoHeaderContainer.Size = new System.Drawing.Size(520, 40);
-            this.UserInfoHeaderContainer.TabIndex = 20;
-            // 
-            // GoodsInfoHeader
-            // 
-            this.GoodsInfoHeader.AutoSize = true;
-            this.GoodsInfoHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GoodsInfoHeader.Location = new System.Drawing.Point(3, 7);
-            this.GoodsInfoHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.GoodsInfoHeader.Name = "GoodsInfoHeader";
-            this.GoodsInfoHeader.Size = new System.Drawing.Size(211, 25);
-            this.GoodsInfoHeader.TabIndex = 6;
-            this.GoodsInfoHeader.Text = "Customer Information";
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.BackColor = System.Drawing.Color.Silver;
-            this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
-            this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.CancelBtn.BorderRadius = 10;
-            this.CancelBtn.BorderSize = 0;
-            this.CancelBtn.FlatAppearance.BorderSize = 0;
-            this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.ForeColor = System.Drawing.Color.White;
-            this.CancelBtn.IsChecked = false;
-            this.CancelBtn.Location = new System.Drawing.Point(86, 6);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(145, 40);
-            this.CancelBtn.TabIndex = 9;
-            this.CancelBtn.Text = "Cancel";
-            this.CancelBtn.TextColor = System.Drawing.Color.White;
-            this.CancelBtn.UseVisualStyleBackColor = false;
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click_1);
-            // 
-            // SaveBtn
-            // 
-            this.SaveBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.SaveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.SaveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.SaveBtn.BorderRadius = 10;
-            this.SaveBtn.BorderSize = 0;
-            this.SaveBtn.FlatAppearance.BorderSize = 0;
-            this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveBtn.IsChecked = false;
-            this.SaveBtn.Location = new System.Drawing.Point(285, 6);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(145, 40);
-            this.SaveBtn.TabIndex = 8;
-            this.SaveBtn.Text = "Save";
-            this.SaveBtn.TextColor = System.Drawing.Color.White;
-            this.SaveBtn.UseVisualStyleBackColor = false;
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
-            // 
-            // InstallSessionCombo
-            // 
-            this.InstallSessionCombo.BackColor = System.Drawing.Color.White;
-            this.InstallSessionCombo.BorderColor = System.Drawing.Color.LightGray;
-            this.InstallSessionCombo.BorderRadius = 1;
-            this.InstallSessionCombo.BorderSize = 1;
-            this.InstallSessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.InstallSessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InstallSessionCombo.ForeColor = System.Drawing.Color.DimGray;
-            this.InstallSessionCombo.IconColor = System.Drawing.Color.LightGray;
-            this.InstallSessionCombo.ListBackColor = System.Drawing.Color.White;
-            this.InstallSessionCombo.ListTextColor = System.Drawing.Color.DimGray;
-            this.InstallSessionCombo.Location = new System.Drawing.Point(163, 223);
-            this.InstallSessionCombo.MinimumSize = new System.Drawing.Size(200, 30);
-            this.InstallSessionCombo.Name = "InstallSessionCombo";
-            this.InstallSessionCombo.Padding = new System.Windows.Forms.Padding(1);
-            this.InstallSessionCombo.Size = new System.Drawing.Size(307, 30);
-            this.InstallSessionCombo.TabIndex = 7;
-            this.InstallSessionCombo.Texts = "Installation Session";
-            this.InstallSessionCombo.UnderlinedStyle = false;
-            this.InstallSessionCombo.OnSelectedIndexChanged += new System.EventHandler(this.InstallSessionCombo_OnSelectedIndexChanged);
-            // 
-            // DeliverySessionCombo
-            // 
-            this.DeliverySessionCombo.BackColor = System.Drawing.Color.White;
-            this.DeliverySessionCombo.BorderColor = System.Drawing.Color.LightGray;
-            this.DeliverySessionCombo.BorderRadius = 1;
-            this.DeliverySessionCombo.BorderSize = 1;
-            this.DeliverySessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DeliverySessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeliverySessionCombo.ForeColor = System.Drawing.Color.DimGray;
-            this.DeliverySessionCombo.IconColor = System.Drawing.Color.LightGray;
-            this.DeliverySessionCombo.ListBackColor = System.Drawing.Color.White;
-            this.DeliverySessionCombo.ListTextColor = System.Drawing.Color.DimGray;
-            this.DeliverySessionCombo.Location = new System.Drawing.Point(165, 86);
-            this.DeliverySessionCombo.MinimumSize = new System.Drawing.Size(200, 30);
-            this.DeliverySessionCombo.Name = "DeliverySessionCombo";
-            this.DeliverySessionCombo.Padding = new System.Windows.Forms.Padding(1);
-            this.DeliverySessionCombo.Size = new System.Drawing.Size(305, 30);
-            this.DeliverySessionCombo.TabIndex = 5;
-            this.DeliverySessionCombo.Texts = "Delivery Session";
-            this.DeliverySessionCombo.UnderlinedStyle = false;
-            this.DeliverySessionCombo.OnSelectedIndexChanged += new System.EventHandler(this.DeliverySessionCombo_OnSelectedIndexChanged);
-            // 
-            // NameTxt
-            // 
-            this.NameTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.NameTxt.BackColor = System.Drawing.Color.White;
-            this.NameTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.NameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.NameTxt.BorderRadius = 10;
-            this.NameTxt.BorderSize = 1;
-            this.NameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameTxt.ForeColor = System.Drawing.Color.Black;
-            this.NameTxt.IsError = false;
-            this.NameTxt.Location = new System.Drawing.Point(164, 11);
-            this.NameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.NameTxt.MaxLength = 20;
-            this.NameTxt.Multiline = false;
-            this.NameTxt.Name = "NameTxt";
-            this.NameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.NameTxt.PasswordChar = false;
-            this.NameTxt.Placeholder = "Please enter customer name";
-            this.NameTxt.ReadOnly = false;
-            this.NameTxt.Size = new System.Drawing.Size(306, 38);
-            this.NameTxt.TabIndex = 1;
-            this.NameTxt.TbBackColor = System.Drawing.Color.White;
-            this.NameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.NameTxt.Texts = "Please enter customer name";
-            this.NameTxt.UnderlinedStyle = false;
-            this.NameTxt.Click += new System.EventHandler(this.NameTxt_Click);
             // 
             // AddressTxt
             // 
@@ -479,7 +458,7 @@
             this.PhoneTxt.IsError = false;
             this.PhoneTxt.Location = new System.Drawing.Point(163, 58);
             this.PhoneTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.PhoneTxt.MaxLength = 32767;
+            this.PhoneTxt.MaxLength = 11;
             this.PhoneTxt.Multiline = false;
             this.PhoneTxt.Name = "PhoneTxt";
             this.PhoneTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -492,7 +471,30 @@
             this.PhoneTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.PhoneTxt.Texts = "Please enter customer phone number";
             this.PhoneTxt.UnderlinedStyle = false;
+            this.PhoneTxt._TextChanged += new System.EventHandler(this.PhoneTxt__TextChanged);
+            this.PhoneTxt._Leave += new System.EventHandler(this.PhoneTxt__Leave);
             this.PhoneTxt.Click += new System.EventHandler(this.PhoneTxt_Click);
+            // 
+            // UserInfoHeaderContainer
+            // 
+            this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
+            this.UserInfoHeaderContainer.Controls.Add(this.GoodsInfoHeader);
+            this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
+            this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
+            this.UserInfoHeaderContainer.Size = new System.Drawing.Size(520, 40);
+            this.UserInfoHeaderContainer.TabIndex = 20;
+            // 
+            // GoodsInfoHeader
+            // 
+            this.GoodsInfoHeader.AutoSize = true;
+            this.GoodsInfoHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GoodsInfoHeader.Location = new System.Drawing.Point(3, 7);
+            this.GoodsInfoHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.GoodsInfoHeader.Name = "GoodsInfoHeader";
+            this.GoodsInfoHeader.Size = new System.Drawing.Size(211, 25);
+            this.GoodsInfoHeader.TabIndex = 6;
+            this.GoodsInfoHeader.Text = "Customer Information";
             // 
             // Appointment_Add
             // 

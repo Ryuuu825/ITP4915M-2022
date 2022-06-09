@@ -37,7 +37,7 @@
             this.TeamIDCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.Catalogue = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.CusPhoneTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.TeamNameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.TeamHeader = new System.Windows.Forms.Label();
             this.MainForm.SuspendLayout();
@@ -133,7 +133,7 @@
             this.panel1.Controls.Add(this.TeamIDCombo);
             this.panel1.Controls.Add(this.Catalogue);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.CusPhoneTxt);
+            this.panel1.Controls.Add(this.TeamNameTxt);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -151,6 +151,12 @@
             this.TeamIDCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TeamIDCombo.ForeColor = System.Drawing.Color.DimGray;
             this.TeamIDCombo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TeamIDCombo.Items.AddRange(new object[] {
+            "001",
+            "002",
+            "003",
+            "004",
+            "005"});
             this.TeamIDCombo.ListBackColor = System.Drawing.Color.White;
             this.TeamIDCombo.ListTextColor = System.Drawing.Color.DimGray;
             this.TeamIDCombo.Location = new System.Drawing.Point(158, 31);
@@ -161,6 +167,7 @@
             this.TeamIDCombo.TabIndex = 1;
             this.TeamIDCombo.Texts = "Team ID";
             this.TeamIDCombo.UnderlinedStyle = false;
+            this.TeamIDCombo.OnSelectedIndexChanged += new System.EventHandler(this.TeamIDCombo_OnSelectedIndexChanged);
             this.TeamIDCombo.Click += new System.EventHandler(this.TeamIDCombo_Click);
             // 
             // Catalogue
@@ -170,9 +177,9 @@
             this.Catalogue.Location = new System.Drawing.Point(29, 87);
             this.Catalogue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Catalogue.Name = "Catalogue";
-            this.Catalogue.Size = new System.Drawing.Size(97, 21);
+            this.Catalogue.Size = new System.Drawing.Size(92, 21);
             this.Catalogue.TabIndex = 2;
-            this.Catalogue.Text = "Team Leader";
+            this.Catalogue.Text = "Team Name";
             // 
             // label1
             // 
@@ -185,32 +192,32 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Team ID*";
             // 
-            // CusPhoneTxt
+            // TeamNameTxt
             // 
-            this.CusPhoneTxt.BackColor = System.Drawing.Color.White;
-            this.CusPhoneTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.CusPhoneTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.CusPhoneTxt.BorderRadius = 10;
-            this.CusPhoneTxt.BorderSize = 1;
-            this.CusPhoneTxt.Enabled = false;
-            this.CusPhoneTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CusPhoneTxt.ForeColor = System.Drawing.Color.Black;
-            this.CusPhoneTxt.IsError = false;
-            this.CusPhoneTxt.Location = new System.Drawing.Point(158, 78);
-            this.CusPhoneTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.CusPhoneTxt.MaxLength = 30;
-            this.CusPhoneTxt.Multiline = false;
-            this.CusPhoneTxt.Name = "CusPhoneTxt";
-            this.CusPhoneTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.CusPhoneTxt.PasswordChar = false;
-            this.CusPhoneTxt.Placeholder = "Auto generation";
-            this.CusPhoneTxt.ReadOnly = true;
-            this.CusPhoneTxt.Size = new System.Drawing.Size(237, 38);
-            this.CusPhoneTxt.TabIndex = 2;
-            this.CusPhoneTxt.TbBackColor = System.Drawing.Color.White;
-            this.CusPhoneTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.CusPhoneTxt.Texts = "Auto generation";
-            this.CusPhoneTxt.UnderlinedStyle = false;
+            this.TeamNameTxt.BackColor = System.Drawing.Color.White;
+            this.TeamNameTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.TeamNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.TeamNameTxt.BorderRadius = 10;
+            this.TeamNameTxt.BorderSize = 1;
+            this.TeamNameTxt.Enabled = false;
+            this.TeamNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TeamNameTxt.ForeColor = System.Drawing.Color.Black;
+            this.TeamNameTxt.IsError = false;
+            this.TeamNameTxt.Location = new System.Drawing.Point(158, 78);
+            this.TeamNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.TeamNameTxt.MaxLength = 30;
+            this.TeamNameTxt.Multiline = false;
+            this.TeamNameTxt.Name = "TeamNameTxt";
+            this.TeamNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TeamNameTxt.PasswordChar = false;
+            this.TeamNameTxt.Placeholder = "Auto generation";
+            this.TeamNameTxt.ReadOnly = true;
+            this.TeamNameTxt.Size = new System.Drawing.Size(237, 38);
+            this.TeamNameTxt.TabIndex = 2;
+            this.TeamNameTxt.TbBackColor = System.Drawing.Color.White;
+            this.TeamNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.TeamNameTxt.Texts = "Auto generation";
+            this.TeamNameTxt.UnderlinedStyle = false;
             // 
             // UserInfoHeaderContainer
             // 
@@ -267,7 +274,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label Catalogue;
         private System.Windows.Forms.Label label1;
-        private CustomizeControl.CustomizeTextbox CusPhoneTxt;
+        private CustomizeControl.CustomizeTextbox TeamNameTxt;
         private System.Windows.Forms.Panel BottomBtn;
         private CustomizeControl.RoundButton CancelBtn;
         private CustomizeControl.RoundButton ComfirmBtn;
