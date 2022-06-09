@@ -59,6 +59,20 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }.MapToDto(); // convert the object to hashmap
         }
 
+        public async Task CreateSupplierGoods (string id , string supplierId)
+        {
+            var goods = await _GoodsTable.GetByIdAsync(id);
+            var supplierGoods = new Supplier_Goods()
+            {
+                _goodsId = id,
+                _supplierId = supplierId,
+                ID = Helpers.Sql.PrimaryKeyGenerator.Get<Supplier_Goods>(db),
+                Price = (double) goods.Price
+            };
+            ConsoleLogger.Debug("sfsfd" + supplierGoods.Debug());
+            await _Supplier_GoodsTable.AddAsync(supplierGoods);
+        }
+
 
         public async Task<List<Hashtable>> ToOutDto(List<Goods> entries , string UserName, string lang = "en")
         {

@@ -87,16 +87,17 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
             return goods.MapToDto();
         }
-        public virtual async Task Add(T entity,string lang = "en")
+        public virtual async Task<string> Add(T entity,string lang = "en")
         {
             var newObj = entity.CopyAsDto().TryCopy<T>();
+            string genID = Helpers.Sql.PrimaryKeyGenerator.Get<T>(db);
+            ConsoleLogger.Debug("Generated ID: " + genID);
             newObj  .GetType()
                     .GetProperties()
                     .Where(x => x.Name.ToLower() == "id")
                     .FirstOrDefault()
-                    .SetValue(newObj , Helpers.Sql.PrimaryKeyGenerator.Get<T>(db));
+                    .SetValue(newObj ,genID);
 
-                
 
             // update the word in the object
             foreach (var item in newObj.GetType().GetProperties())
@@ -114,7 +115,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 }
             }
             await repository.AddAsync(newObj);
-            await db.SaveChangesAsync();
+
+            return genID;
         }
         public virtual async Task Modify(string id, List<AppLogic.Models.UpdateObjectModel> content,string lang = "en")
         {
