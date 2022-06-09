@@ -132,7 +132,7 @@ namespace TheBetterLimited.Views
         {
             change_MenuButton_style(sender);
             StockContainer.Show();
-            RestockContainer.Show();
+            //RestockContainer.Show();
             subSidebarTimer.Start();
         }
 
