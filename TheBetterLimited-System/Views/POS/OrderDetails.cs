@@ -45,6 +45,19 @@ namespace TheBetterLimited.Views
         public void SetOrderData(JObject orderData)
         {
             this.orderData = orderData;
+            OrderInfoBox.Enabled = false;
+            OrderDataGrid.ReadOnly = true;
+            OrderDataGrid.Columns["delete"].Visible = false;
+            SaveBtn.Text = "Arrange To Team";
+            SaveBtn.Click -= new EventHandler(SaveBtn_Click);
+            SaveBtn.Click -= new EventHandler(SaveBtn_Click);
+            InitializeOrderInfo();
+            InitializeOrderItemTable();
+        }
+        public void SetOrderData(JObject orderData, bool appointment)
+        {
+            this.orderData = orderData;
+            
             InitializeOrderInfo();
             InitializeOrderItemTable();
         }
@@ -144,8 +157,8 @@ namespace TheBetterLimited.Views
         public event Action OnExit;
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            this.OnExit.Invoke();
             this.Close();
+            this.Dispose();
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
@@ -231,8 +244,13 @@ namespace TheBetterLimited.Views
             deliverySessionId = deliverySessions[DeliverySessionCombo.SelectedIndex].ID1;
         }
 
-        //init session form server
-        private List<Session> InitSession(int month, int day, string departmentId)
+        private void ArrangeBtn_Click(object sender, EventArgs e)
+        { 
+            
+        }
+
+            //init session form server
+            private List<Session> InitSession(int month, int day, string departmentId)
         {
             response = cbSession.GetAll(month, day, departmentId);
             List<Session> sessions = new List<Session>();

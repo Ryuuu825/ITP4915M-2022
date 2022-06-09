@@ -16,7 +16,7 @@ namespace TheBetterLimited.Controller
             this.ControllerName = ControllerName;
         }
 
-        public RestResponse GetAll(int month, int day, string limit = "0", string offset = "0", string lang = "en")
+        public RestResponse GetAll(int day, int month, string limit = "0", string offset = "0", string lang = "en")
         {
             var request = new RestRequest("/api/" + ControllerName, Method.Get)
                         .AddQueryParameter("limit", limit)

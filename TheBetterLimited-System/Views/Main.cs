@@ -196,8 +196,7 @@ namespace TheBetterLimited.Views
                     InventoryContainer.Show();
                     break;
                 case "Technical":
-                    AccountingContainer.Show();
-                    InventoryContainer.Show();
+                    WorkmanContainer.Show();
                     break;
             }
         }

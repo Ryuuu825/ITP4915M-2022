@@ -36,6 +36,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stock));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.StockDataGrid = new System.Windows.Forms.DataGridView();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReorderLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Action = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SearchBar = new System.Windows.Forms.Panel();
@@ -53,17 +64,6 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.@select = new System.Windows.Forms.DataGridViewImageColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReorderLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.StockDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -99,7 +99,18 @@
             this.StockDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.StockDataGrid.ColumnHeadersHeight = 50;
             this.StockDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.StockDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.@select, this.id, this.locationId, this.supplierGoodsId, this.quantity, this.maxLimit, this.minLimit, this.ReorderLevel, this.Status, this.edit, this.delete });
+            this.StockDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.select,
+            this.id,
+            this.locationId,
+            this.supplierGoodsId,
+            this.quantity,
+            this.maxLimit,
+            this.minLimit,
+            this.ReorderLevel,
+            this.Status,
+            this.edit,
+            this.delete});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -140,22 +151,139 @@
             this.StockDataGrid.RowTemplate.Height = 40;
             this.StockDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.StockDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.StockDataGrid.Size = new System.Drawing.Size(778, 379);
+            this.StockDataGrid.Size = new System.Drawing.Size(758, 359);
             this.StockDataGrid.StandardTab = true;
             this.StockDataGrid.TabIndex = 3;
             this.StockDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StockDataGrid_CellClick);
             this.StockDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.StockDataGrid_CellFormatting);
+            // 
+            // select
+            // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.select.HeaderText = "";
+            this.select.Image = ((System.Drawing.Image)(resources.GetObject("select.Image")));
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            this.select.Width = 5;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.ToolTipText = "ID";
+            this.id.Width = 59;
+            // 
+            // locationId
+            // 
+            this.locationId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.locationId.DataPropertyName = "loc";
+            this.locationId.HeaderText = "Location";
+            this.locationId.MinimumWidth = 6;
+            this.locationId.Name = "locationId";
+            this.locationId.ReadOnly = true;
+            this.locationId.ToolTipText = "Location";
+            this.locationId.Width = 97;
+            // 
+            // supplierGoodsId
+            // 
+            this.supplierGoodsId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.supplierGoodsId.DataPropertyName = "goodsName";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.supplierGoodsId.DefaultCellStyle = dataGridViewCellStyle3;
+            this.supplierGoodsId.HeaderText = "Good Name";
+            this.supplierGoodsId.MinimumWidth = 6;
+            this.supplierGoodsId.Name = "supplierGoodsId";
+            this.supplierGoodsId.ReadOnly = true;
+            this.supplierGoodsId.ToolTipText = "Good Name";
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.quantity.DataPropertyName = "Quantity";
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.MinimumWidth = 6;
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            this.quantity.ToolTipText = "Quantity";
+            this.quantity.Width = 99;
+            // 
+            // maxLimit
+            // 
+            this.maxLimit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.maxLimit.DataPropertyName = "MaxLimit";
+            this.maxLimit.HeaderText = "Max.";
+            this.maxLimit.MinimumWidth = 6;
+            this.maxLimit.Name = "maxLimit";
+            this.maxLimit.ReadOnly = true;
+            this.maxLimit.ToolTipText = "Maximum Limit";
+            this.maxLimit.Width = 75;
+            // 
+            // minLimit
+            // 
+            this.minLimit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.minLimit.DataPropertyName = "MinLimit";
+            this.minLimit.HeaderText = "Min.";
+            this.minLimit.MinimumWidth = 6;
+            this.minLimit.Name = "minLimit";
+            this.minLimit.ReadOnly = true;
+            this.minLimit.ToolTipText = "Minimum Limit";
+            this.minLimit.Width = 72;
+            // 
+            // ReorderLevel
+            // 
+            this.ReorderLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ReorderLevel.DataPropertyName = "ReorderLevel";
+            this.ReorderLevel.HeaderText = "Reorder";
+            this.ReorderLevel.Name = "ReorderLevel";
+            this.ReorderLevel.ReadOnly = true;
+            this.ReorderLevel.ToolTipText = "Reorder level";
+            this.ReorderLevel.Width = 94;
+            // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Status.DataPropertyName = "Status";
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 84;
+            // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.edit.HeaderText = "";
+            this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.ToolTipText = "Edit";
+            this.edit.Width = 16;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.delete.HeaderText = "";
+            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
+            this.delete.MinimumWidth = 6;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.ToolTipText = "Delete";
+            this.delete.Width = 6;
             // 
             // Action
             // 
             this.Action.BackColor = System.Drawing.Color.White;
             this.Action.Controls.Add(this.panel1);
             this.Action.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Action.Location = new System.Drawing.Point(0, 40);
+            this.Action.Location = new System.Drawing.Point(10, 50);
             this.Action.Margin = new System.Windows.Forms.Padding(2);
             this.Action.Name = "Action";
             this.Action.Padding = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.Action.Size = new System.Drawing.Size(778, 44);
+            this.Action.Size = new System.Drawing.Size(758, 44);
             this.Action.TabIndex = 7;
             // 
             // panel1
@@ -166,7 +294,7 @@
             this.panel1.Location = new System.Drawing.Point(4, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(770, 38);
+            this.panel1.Size = new System.Drawing.Size(750, 38);
             this.panel1.TabIndex = 6;
             // 
             // SearchBar
@@ -174,7 +302,7 @@
             this.SearchBar.Controls.Add(this.pictureBox1);
             this.SearchBar.Controls.Add(this.SearchBarTxt);
             this.SearchBar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SearchBar.Location = new System.Drawing.Point(550, 0);
+            this.SearchBar.Location = new System.Drawing.Point(530, 0);
             this.SearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(220, 38);
@@ -307,10 +435,10 @@
             this.Header.Controls.Add(this.Title);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.ForeColor = System.Drawing.Color.White;
-            this.Header.Location = new System.Drawing.Point(0, 0);
+            this.Header.Location = new System.Drawing.Point(10, 10);
             this.Header.Margin = new System.Windows.Forms.Padding(0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(778, 40);
+            this.Header.Size = new System.Drawing.Size(758, 40);
             this.Header.TabIndex = 5;
             // 
             // CloseBtn
@@ -322,7 +450,7 @@
             this.CloseBtn.IconColor = System.Drawing.Color.Black;
             this.CloseBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CloseBtn.IconSize = 25;
-            this.CloseBtn.Location = new System.Drawing.Point(736, 4);
+            this.CloseBtn.Location = new System.Drawing.Point(716, 4);
             this.CloseBtn.Margin = new System.Windows.Forms.Padding(0);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(39, 36);
@@ -339,7 +467,7 @@
             this.RefreshBtn.IconColor = System.Drawing.Color.Black;
             this.RefreshBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RefreshBtn.IconSize = 25;
-            this.RefreshBtn.Location = new System.Drawing.Point(698, 4);
+            this.RefreshBtn.Location = new System.Drawing.Point(678, 4);
             this.RefreshBtn.Margin = new System.Windows.Forms.Padding(0);
             this.RefreshBtn.Name = "RefreshBtn";
             this.RefreshBtn.Size = new System.Drawing.Size(39, 36);
@@ -363,11 +491,11 @@
             // 
             this.Data.Controls.Add(this.StockDataGrid);
             this.Data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Data.Location = new System.Drawing.Point(0, 84);
+            this.Data.Location = new System.Drawing.Point(10, 94);
             this.Data.Margin = new System.Windows.Forms.Padding(2);
             this.Data.Name = "Data";
             this.Data.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.Data.Size = new System.Drawing.Size(778, 381);
+            this.Data.Size = new System.Drawing.Size(758, 361);
             this.Data.TabIndex = 8;
             // 
             // dataGridViewImageColumn1
@@ -388,123 +516,6 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Width = 124;
             // 
-            // select
-            // 
-            this.@select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.@select.HeaderText = "";
-            this.@select.Image = ((System.Drawing.Image)(resources.GetObject("select.Image")));
-            this.@select.Name = "select";
-            this.@select.ReadOnly = true;
-            this.@select.Width = 5;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.ToolTipText = "ID";
-            this.id.Width = 59;
-            // 
-            // locationId
-            // 
-            this.locationId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.locationId.DataPropertyName = "loc";
-            this.locationId.HeaderText = "Location";
-            this.locationId.MinimumWidth = 6;
-            this.locationId.Name = "locationId";
-            this.locationId.ReadOnly = true;
-            this.locationId.ToolTipText = "Location";
-            this.locationId.Width = 97;
-            // 
-            // supplierGoodsId
-            // 
-            this.supplierGoodsId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.supplierGoodsId.DataPropertyName = "goodsName";
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.supplierGoodsId.DefaultCellStyle = dataGridViewCellStyle3;
-            this.supplierGoodsId.HeaderText = "Good Name";
-            this.supplierGoodsId.MinimumWidth = 6;
-            this.supplierGoodsId.Name = "supplierGoodsId";
-            this.supplierGoodsId.ReadOnly = true;
-            this.supplierGoodsId.ToolTipText = "Good Name";
-            // 
-            // quantity
-            // 
-            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.quantity.DataPropertyName = "Quantity";
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.MinimumWidth = 6;
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.ToolTipText = "Quantity";
-            this.quantity.Width = 99;
-            // 
-            // maxLimit
-            // 
-            this.maxLimit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.maxLimit.DataPropertyName = "MaxLimit";
-            this.maxLimit.HeaderText = "Max.";
-            this.maxLimit.MinimumWidth = 6;
-            this.maxLimit.Name = "maxLimit";
-            this.maxLimit.ReadOnly = true;
-            this.maxLimit.ToolTipText = "Maximum Limit";
-            this.maxLimit.Width = 75;
-            // 
-            // minLimit
-            // 
-            this.minLimit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.minLimit.DataPropertyName = "MinLimit";
-            this.minLimit.HeaderText = "Min.";
-            this.minLimit.MinimumWidth = 6;
-            this.minLimit.Name = "minLimit";
-            this.minLimit.ReadOnly = true;
-            this.minLimit.ToolTipText = "Minimum Limit";
-            this.minLimit.Width = 72;
-            // 
-            // ReorderLevel
-            // 
-            this.ReorderLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ReorderLevel.DataPropertyName = "ReorderLevel";
-            this.ReorderLevel.HeaderText = "Reorder";
-            this.ReorderLevel.Name = "ReorderLevel";
-            this.ReorderLevel.ReadOnly = true;
-            this.ReorderLevel.ToolTipText = "Reorder level";
-            this.ReorderLevel.Width = 94;
-            // 
-            // Status
-            // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 84;
-            // 
-            // edit
-            // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.edit.HeaderText = "";
-            this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.ToolTipText = "Edit";
-            this.edit.Width = 16;
-            // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.delete.HeaderText = "";
-            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
-            this.delete.MinimumWidth = 6;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.ToolTipText = "Delete";
-            this.delete.Width = 6;
-            // 
             // Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -518,6 +529,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Stock";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "InventoryManagement";
             ((System.ComponentModel.ISupportInitialize)(this.StockDataGrid)).EndInit();
             this.Action.ResumeLayout(false);
@@ -529,6 +541,7 @@
             this.Header.PerformLayout();
             this.Data.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
@@ -553,7 +566,7 @@
         private System.Windows.Forms.Panel panel1;
         private CustomizeControl.RoundButton exportBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewImageColumn @select;
+        private System.Windows.Forms.DataGridViewImageColumn select;
         private System.Windows.Forms.DataGridViewTextBoxColumn locationId;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierGoodsId;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;

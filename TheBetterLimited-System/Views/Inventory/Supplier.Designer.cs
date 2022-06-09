@@ -35,7 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Supplier));
             this.SupplierDataGrid = new System.Windows.Forms.DataGridView();
-            this.@select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.supplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,7 +98,16 @@
             this.SupplierDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.SupplierDataGrid.ColumnHeadersHeight = 50;
             this.SupplierDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.SupplierDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.@select, this.id, this.supplierName, this.phone, this.contact, this.email, this.address, this.edit, this.delete });
+            this.SupplierDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.select,
+            this.id,
+            this.supplierName,
+            this.phone,
+            this.contact,
+            this.email,
+            this.address,
+            this.edit,
+            this.delete});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -139,21 +148,21 @@
             this.SupplierDataGrid.RowTemplate.Height = 30;
             this.SupplierDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.SupplierDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.SupplierDataGrid.Size = new System.Drawing.Size(778, 379);
+            this.SupplierDataGrid.Size = new System.Drawing.Size(758, 359);
             this.SupplierDataGrid.StandardTab = true;
             this.SupplierDataGrid.TabIndex = 3;
             this.SupplierDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
             // 
             // select
             // 
-            this.@select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.@select.HeaderText = "";
-            this.@select.Image = ((System.Drawing.Image)(resources.GetObject("select.Image")));
-            this.@select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.@select.MinimumWidth = 6;
-            this.@select.Name = "select";
-            this.@select.ReadOnly = true;
-            this.@select.Width = 6;
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.select.HeaderText = "";
+            this.select.Image = ((System.Drawing.Image)(resources.GetObject("select.Image")));
+            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.select.MinimumWidth = 6;
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            this.select.Width = 6;
             // 
             // id
             // 
@@ -247,11 +256,11 @@
             this.Action.BackColor = System.Drawing.Color.White;
             this.Action.Controls.Add(this.panel1);
             this.Action.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Action.Location = new System.Drawing.Point(0, 40);
+            this.Action.Location = new System.Drawing.Point(10, 50);
             this.Action.Margin = new System.Windows.Forms.Padding(2);
             this.Action.Name = "Action";
             this.Action.Padding = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.Action.Size = new System.Drawing.Size(778, 44);
+            this.Action.Size = new System.Drawing.Size(758, 44);
             this.Action.TabIndex = 7;
             // 
             // panel1
@@ -262,7 +271,7 @@
             this.panel1.Location = new System.Drawing.Point(4, 1);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(770, 38);
+            this.panel1.Size = new System.Drawing.Size(750, 38);
             this.panel1.TabIndex = 6;
             // 
             // SearchBar
@@ -270,7 +279,7 @@
             this.SearchBar.Controls.Add(this.pictureBox1);
             this.SearchBar.Controls.Add(this.SearchBarTxt);
             this.SearchBar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SearchBar.Location = new System.Drawing.Point(550, 0);
+            this.SearchBar.Location = new System.Drawing.Point(530, 0);
             this.SearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBar.Name = "SearchBar";
             this.SearchBar.Size = new System.Drawing.Size(220, 38);
@@ -405,10 +414,10 @@
             this.Header.Controls.Add(this.Title);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.ForeColor = System.Drawing.Color.White;
-            this.Header.Location = new System.Drawing.Point(0, 0);
+            this.Header.Location = new System.Drawing.Point(10, 10);
             this.Header.Margin = new System.Windows.Forms.Padding(0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(778, 40);
+            this.Header.Size = new System.Drawing.Size(758, 40);
             this.Header.TabIndex = 5;
             // 
             // CloseBtn
@@ -420,7 +429,7 @@
             this.CloseBtn.IconColor = System.Drawing.Color.Black;
             this.CloseBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CloseBtn.IconSize = 25;
-            this.CloseBtn.Location = new System.Drawing.Point(736, 4);
+            this.CloseBtn.Location = new System.Drawing.Point(716, 4);
             this.CloseBtn.Margin = new System.Windows.Forms.Padding(0);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(39, 36);
@@ -437,7 +446,7 @@
             this.RefreshBtn.IconColor = System.Drawing.Color.Black;
             this.RefreshBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RefreshBtn.IconSize = 25;
-            this.RefreshBtn.Location = new System.Drawing.Point(698, 4);
+            this.RefreshBtn.Location = new System.Drawing.Point(678, 4);
             this.RefreshBtn.Margin = new System.Windows.Forms.Padding(0);
             this.RefreshBtn.Name = "RefreshBtn";
             this.RefreshBtn.Size = new System.Drawing.Size(39, 36);
@@ -461,11 +470,11 @@
             // 
             this.Data.Controls.Add(this.SupplierDataGrid);
             this.Data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Data.Location = new System.Drawing.Point(0, 84);
+            this.Data.Location = new System.Drawing.Point(10, 94);
             this.Data.Margin = new System.Windows.Forms.Padding(2);
             this.Data.Name = "Data";
             this.Data.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.Data.Size = new System.Drawing.Size(778, 381);
+            this.Data.Size = new System.Drawing.Size(758, 361);
             this.Data.TabIndex = 8;
             // 
             // dataGridViewImageColumn1
@@ -530,6 +539,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Supplier";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "InventoryManagement";
             ((System.ComponentModel.ISupportInitialize)(this.SupplierDataGrid)).EndInit();
             this.Action.ResumeLayout(false);
@@ -541,6 +551,7 @@
             this.Header.PerformLayout();
             this.Data.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -562,7 +573,7 @@
         private CustomizeControl.CustomizeTextbox SearchBarTxt;
         private System.Windows.Forms.Panel panel1;
         private CustomizeControl.RoundButton exportBtn;
-        private System.Windows.Forms.DataGridViewImageColumn @select;
+        private System.Windows.Forms.DataGridViewImageColumn select;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierName;
         private System.Windows.Forms.DataGridViewTextBoxColumn phone;

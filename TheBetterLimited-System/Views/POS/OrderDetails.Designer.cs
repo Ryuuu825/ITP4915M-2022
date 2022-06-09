@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderDetails));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OrderItemBox = new System.Windows.Forms.Panel();
             this.Data = new System.Windows.Forms.Panel();
             this.OrderDataGrid = new System.Windows.Forms.DataGridView();
@@ -51,12 +51,16 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.Label();
             this.BottomBtn = new System.Windows.Forms.Panel();
+            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.OrderInfoBox = new System.Windows.Forms.Panel();
             this.PickUpBox = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.AppointmentBox = new System.Windows.Forms.Panel();
             this.AppointmentInfoBox = new System.Windows.Forms.Panel();
+            this.InstallSessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.DeliverySessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.InstallDatePicker = new System.Windows.Forms.DateTimePicker();
             this.DeliveryDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
@@ -69,9 +73,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.CustomerInfo = new System.Windows.Forms.Panel();
             this.CustomerInfoBox = new System.Windows.Forms.Panel();
+            this.NameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.GTINCode = new System.Windows.Forms.Label();
             this.Catalogue = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.AddressTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.PhoneTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -81,13 +88,6 @@
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.InstallSessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.DeliverySessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.NameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.AddressTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.PhoneTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.OrderItemBox.SuspendLayout();
             this.Data.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGrid)).BeginInit();
@@ -134,24 +134,24 @@
             this.OrderDataGrid.AllowUserToOrderColumns = true;
             this.OrderDataGrid.AllowUserToResizeColumns = false;
             this.OrderDataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            this.OrderDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            this.OrderDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.OrderDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.OrderDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.OrderDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.OrderDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OrderDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.OrderDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.OrderDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.OrderDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.OrderDataGrid.ColumnHeadersHeight = 50;
             this.OrderDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.OrderDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -161,15 +161,15 @@
             this.CreatorId,
             this.install,
             this.delete});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.OrderDataGrid.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.OrderDataGrid.DefaultCellStyle = dataGridViewCellStyle17;
             this.OrderDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OrderDataGrid.EnableHeadersVisualStyles = false;
             this.OrderDataGrid.GridColor = System.Drawing.Color.White;
@@ -179,25 +179,25 @@
             this.OrderDataGrid.Name = "OrderDataGrid";
             this.OrderDataGrid.ReadOnly = true;
             this.OrderDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrderDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OrderDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.OrderDataGrid.RowHeadersVisible = false;
             this.OrderDataGrid.RowHeadersWidth = 30;
             this.OrderDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle9.NullValue = null;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrderDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle19.NullValue = null;
+            dataGridViewCellStyle19.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OrderDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle19;
             this.OrderDataGrid.RowTemplate.Height = 30;
             this.OrderDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.OrderDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -220,9 +220,9 @@
             // 
             this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ID.DataPropertyName = "goodsName";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle13;
             this.ID.HeaderText = "Goods Name";
             this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
@@ -233,8 +233,8 @@
             // 
             this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Price.DataPropertyName = "price";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Price.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Price.DefaultCellStyle = dataGridViewCellStyle14;
             this.Price.HeaderText = "Price";
             this.Price.MinimumWidth = 6;
             this.Price.Name = "Price";
@@ -246,8 +246,8 @@
             // 
             this.CreatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CreatorId.DataPropertyName = "quantity";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CreatorId.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CreatorId.DefaultCellStyle = dataGridViewCellStyle15;
             this.CreatorId.HeaderText = "Qty";
             this.CreatorId.MinimumWidth = 6;
             this.CreatorId.Name = "CreatorId";
@@ -259,10 +259,10 @@
             // 
             this.install.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.install.DataPropertyName = "install";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle6.NullValue")));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.install.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle16.NullValue")));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.install.DefaultCellStyle = dataGridViewCellStyle16;
             this.install.HeaderText = "Need Install";
             this.install.Image = global::TheBetterLimited.Properties.Resources.square24;
             this.install.Name = "install";
@@ -319,6 +319,51 @@
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.BottomBtn.Size = new System.Drawing.Size(550, 54);
             this.BottomBtn.TabIndex = 1;
+            // 
+            // CancelBtn
+            // 
+            this.CancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CancelBtn.BackColor = System.Drawing.Color.Silver;
+            this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
+            this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.CancelBtn.BorderRadius = 10;
+            this.CancelBtn.BorderSize = 0;
+            this.CancelBtn.FlatAppearance.BorderSize = 0;
+            this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
+            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CancelBtn.ForeColor = System.Drawing.Color.White;
+            this.CancelBtn.IsChecked = false;
+            this.CancelBtn.Location = new System.Drawing.Point(275, 6);
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.Size = new System.Drawing.Size(128, 40);
+            this.CancelBtn.TabIndex = 1;
+            this.CancelBtn.Text = "Cancel";
+            this.CancelBtn.TextColor = System.Drawing.Color.White;
+            this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
+            // SaveBtn
+            // 
+            this.SaveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.SaveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.SaveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.SaveBtn.BorderRadius = 10;
+            this.SaveBtn.BorderSize = 0;
+            this.SaveBtn.FlatAppearance.BorderSize = 0;
+            this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SaveBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveBtn.ForeColor = System.Drawing.Color.White;
+            this.SaveBtn.IsChecked = false;
+            this.SaveBtn.Location = new System.Drawing.Point(409, 6);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(128, 40);
+            this.SaveBtn.TabIndex = 0;
+            this.SaveBtn.Text = "Save";
+            this.SaveBtn.TextColor = System.Drawing.Color.White;
+            this.SaveBtn.UseVisualStyleBackColor = false;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // OrderInfoBox
             // 
@@ -397,6 +442,50 @@
             this.AppointmentInfoBox.Name = "AppointmentInfoBox";
             this.AppointmentInfoBox.Size = new System.Drawing.Size(426, 294);
             this.AppointmentInfoBox.TabIndex = 34;
+            // 
+            // InstallSessionCombo
+            // 
+            this.InstallSessionCombo.BackColor = System.Drawing.Color.White;
+            this.InstallSessionCombo.BorderColor = System.Drawing.Color.LightGray;
+            this.InstallSessionCombo.BorderRadius = 1;
+            this.InstallSessionCombo.BorderSize = 1;
+            this.InstallSessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.InstallSessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InstallSessionCombo.ForeColor = System.Drawing.Color.DimGray;
+            this.InstallSessionCombo.IconColor = System.Drawing.Color.LightGray;
+            this.InstallSessionCombo.ListBackColor = System.Drawing.Color.White;
+            this.InstallSessionCombo.ListTextColor = System.Drawing.Color.DimGray;
+            this.InstallSessionCombo.Location = new System.Drawing.Point(163, 223);
+            this.InstallSessionCombo.MinimumSize = new System.Drawing.Size(200, 30);
+            this.InstallSessionCombo.Name = "InstallSessionCombo";
+            this.InstallSessionCombo.Padding = new System.Windows.Forms.Padding(1);
+            this.InstallSessionCombo.Size = new System.Drawing.Size(233, 30);
+            this.InstallSessionCombo.TabIndex = 33;
+            this.InstallSessionCombo.Texts = "Installation Service";
+            this.InstallSessionCombo.UnderlinedStyle = false;
+            this.InstallSessionCombo.VisibleChanged += new System.EventHandler(this.InstallSessionCombo_OnSelectedIndexChanged);
+            // 
+            // DeliverySessionCombo
+            // 
+            this.DeliverySessionCombo.BackColor = System.Drawing.Color.White;
+            this.DeliverySessionCombo.BorderColor = System.Drawing.Color.LightGray;
+            this.DeliverySessionCombo.BorderRadius = 1;
+            this.DeliverySessionCombo.BorderSize = 1;
+            this.DeliverySessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DeliverySessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeliverySessionCombo.ForeColor = System.Drawing.Color.DimGray;
+            this.DeliverySessionCombo.IconColor = System.Drawing.Color.LightGray;
+            this.DeliverySessionCombo.ListBackColor = System.Drawing.Color.White;
+            this.DeliverySessionCombo.ListTextColor = System.Drawing.Color.DimGray;
+            this.DeliverySessionCombo.Location = new System.Drawing.Point(165, 86);
+            this.DeliverySessionCombo.MinimumSize = new System.Drawing.Size(200, 30);
+            this.DeliverySessionCombo.Name = "DeliverySessionCombo";
+            this.DeliverySessionCombo.Padding = new System.Windows.Forms.Padding(1);
+            this.DeliverySessionCombo.Size = new System.Drawing.Size(233, 30);
+            this.DeliverySessionCombo.TabIndex = 32;
+            this.DeliverySessionCombo.Texts = "Delivery Session";
+            this.DeliverySessionCombo.UnderlinedStyle = false;
+            this.DeliverySessionCombo.OnSelectedIndexChanged += new System.EventHandler(this.DeliverySessionCombo_OnSelectedIndexChanged);
             // 
             // InstallDatePicker
             // 
@@ -537,6 +626,33 @@
             this.CustomerInfoBox.Size = new System.Drawing.Size(426, 236);
             this.CustomerInfoBox.TabIndex = 27;
             // 
+            // NameTxt
+            // 
+            this.NameTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.NameTxt.BackColor = System.Drawing.Color.White;
+            this.NameTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.NameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.NameTxt.BorderRadius = 10;
+            this.NameTxt.BorderSize = 1;
+            this.NameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameTxt.ForeColor = System.Drawing.Color.Black;
+            this.NameTxt.IsError = false;
+            this.NameTxt.Location = new System.Drawing.Point(164, 11);
+            this.NameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.NameTxt.MaxLength = 5;
+            this.NameTxt.Multiline = false;
+            this.NameTxt.Name = "NameTxt";
+            this.NameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.NameTxt.PasswordChar = false;
+            this.NameTxt.Placeholder = "Please enter customer name";
+            this.NameTxt.ReadOnly = false;
+            this.NameTxt.Size = new System.Drawing.Size(234, 38);
+            this.NameTxt.TabIndex = 24;
+            this.NameTxt.TbBackColor = System.Drawing.Color.White;
+            this.NameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.NameTxt.Texts = "Please enter customer name";
+            this.NameTxt.UnderlinedStyle = false;
+            // 
             // GTINCode
             // 
             this.GTINCode.AutoSize = true;
@@ -569,208 +685,6 @@
             this.label1.Size = new System.Drawing.Size(52, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "Name";
-            // 
-            // UserInfoHeaderContainer
-            // 
-            this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
-            this.UserInfoHeaderContainer.Controls.Add(this.GoodsInfoHeader);
-            this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
-            this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
-            this.UserInfoHeaderContainer.Size = new System.Drawing.Size(426, 40);
-            this.UserInfoHeaderContainer.TabIndex = 20;
-            // 
-            // GoodsInfoHeader
-            // 
-            this.GoodsInfoHeader.AutoSize = true;
-            this.GoodsInfoHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GoodsInfoHeader.Location = new System.Drawing.Point(3, 7);
-            this.GoodsInfoHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.GoodsInfoHeader.Name = "GoodsInfoHeader";
-            this.GoodsInfoHeader.Size = new System.Drawing.Size(211, 25);
-            this.GoodsInfoHeader.TabIndex = 6;
-            this.GoodsInfoHeader.Text = "Customer Information";
-            // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.MinimumWidth = 6;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.Width = 124;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.MinimumWidth = 6;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 124;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 124;
-            // 
-            // dataGridViewImageColumn4
-            // 
-            this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn4.DataPropertyName = "install";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle10.NullValue")));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn4.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewImageColumn4.HeaderText = "";
-            this.dataGridViewImageColumn4.Image = global::TheBetterLimited.Properties.Resources.square;
-            this.dataGridViewImageColumn4.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn4.MinimumWidth = 6;
-            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
-            this.dataGridViewImageColumn4.ReadOnly = true;
-            this.dataGridViewImageColumn4.ToolTipText = "Need to install?";
-            // 
-            // dataGridViewImageColumn5
-            // 
-            this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn5.HeaderText = "";
-            this.dataGridViewImageColumn5.Image = global::TheBetterLimited.Properties.Resources.lock1;
-            this.dataGridViewImageColumn5.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn5.MinimumWidth = 6;
-            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
-            this.dataGridViewImageColumn5.ReadOnly = true;
-            this.dataGridViewImageColumn5.ToolTipText = "Lock";
-            // 
-            // dataGridViewImageColumn7
-            // 
-            this.dataGridViewImageColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn7.HeaderText = "";
-            this.dataGridViewImageColumn7.Image = global::TheBetterLimited.Properties.Resources.trash;
-            this.dataGridViewImageColumn7.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn7.MinimumWidth = 6;
-            this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
-            this.dataGridViewImageColumn7.ToolTipText = "Delete";
-            // 
-            // dataGridViewImageColumn6
-            // 
-            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn6.HeaderText = "";
-            this.dataGridViewImageColumn6.Image = global::TheBetterLimited.Properties.Resources.pencil_free_icon_font;
-            this.dataGridViewImageColumn6.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn6.MinimumWidth = 6;
-            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
-            this.dataGridViewImageColumn6.ToolTipText = "Edit";
-            // 
-            // CancelBtn
-            // 
-            this.CancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelBtn.BackColor = System.Drawing.Color.Silver;
-            this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
-            this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.CancelBtn.BorderRadius = 10;
-            this.CancelBtn.BorderSize = 0;
-            this.CancelBtn.FlatAppearance.BorderSize = 0;
-            this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelBtn.ForeColor = System.Drawing.Color.White;
-            this.CancelBtn.IsChecked = false;
-            this.CancelBtn.Location = new System.Drawing.Point(275, 6);
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(128, 40);
-            this.CancelBtn.TabIndex = 1;
-            this.CancelBtn.Text = "Cancel";
-            this.CancelBtn.TextColor = System.Drawing.Color.White;
-            this.CancelBtn.UseVisualStyleBackColor = false;
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
-            // 
-            // SaveBtn
-            // 
-            this.SaveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaveBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.SaveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.SaveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.SaveBtn.BorderRadius = 10;
-            this.SaveBtn.BorderSize = 0;
-            this.SaveBtn.FlatAppearance.BorderSize = 0;
-            this.SaveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveBtn.IsChecked = false;
-            this.SaveBtn.Location = new System.Drawing.Point(409, 6);
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(128, 40);
-            this.SaveBtn.TabIndex = 0;
-            this.SaveBtn.Text = "Save";
-            this.SaveBtn.TextColor = System.Drawing.Color.White;
-            this.SaveBtn.UseVisualStyleBackColor = false;
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
-            // 
-            // InstallSessionCombo
-            // 
-            this.InstallSessionCombo.BackColor = System.Drawing.Color.White;
-            this.InstallSessionCombo.BorderColor = System.Drawing.Color.LightGray;
-            this.InstallSessionCombo.BorderRadius = 1;
-            this.InstallSessionCombo.BorderSize = 1;
-            this.InstallSessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.InstallSessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InstallSessionCombo.ForeColor = System.Drawing.Color.DimGray;
-            this.InstallSessionCombo.IconColor = System.Drawing.Color.LightGray;
-            this.InstallSessionCombo.ListBackColor = System.Drawing.Color.White;
-            this.InstallSessionCombo.ListTextColor = System.Drawing.Color.DimGray;
-            this.InstallSessionCombo.Location = new System.Drawing.Point(163, 223);
-            this.InstallSessionCombo.MinimumSize = new System.Drawing.Size(200, 30);
-            this.InstallSessionCombo.Name = "InstallSessionCombo";
-            this.InstallSessionCombo.Padding = new System.Windows.Forms.Padding(1);
-            this.InstallSessionCombo.Size = new System.Drawing.Size(233, 30);
-            this.InstallSessionCombo.TabIndex = 33;
-            this.InstallSessionCombo.Texts = "Installation Service";
-            this.InstallSessionCombo.UnderlinedStyle = false;
-            this.InstallSessionCombo.VisibleChanged += new System.EventHandler(this.InstallSessionCombo_OnSelectedIndexChanged);
-            // 
-            // DeliverySessionCombo
-            // 
-            this.DeliverySessionCombo.BackColor = System.Drawing.Color.White;
-            this.DeliverySessionCombo.BorderColor = System.Drawing.Color.LightGray;
-            this.DeliverySessionCombo.BorderRadius = 1;
-            this.DeliverySessionCombo.BorderSize = 1;
-            this.DeliverySessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DeliverySessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeliverySessionCombo.ForeColor = System.Drawing.Color.DimGray;
-            this.DeliverySessionCombo.IconColor = System.Drawing.Color.LightGray;
-            this.DeliverySessionCombo.ListBackColor = System.Drawing.Color.White;
-            this.DeliverySessionCombo.ListTextColor = System.Drawing.Color.DimGray;
-            this.DeliverySessionCombo.Location = new System.Drawing.Point(165, 86);
-            this.DeliverySessionCombo.MinimumSize = new System.Drawing.Size(200, 30);
-            this.DeliverySessionCombo.Name = "DeliverySessionCombo";
-            this.DeliverySessionCombo.Padding = new System.Windows.Forms.Padding(1);
-            this.DeliverySessionCombo.Size = new System.Drawing.Size(233, 30);
-            this.DeliverySessionCombo.TabIndex = 32;
-            this.DeliverySessionCombo.Texts = "Delivery Session";
-            this.DeliverySessionCombo.UnderlinedStyle = false;
-            this.DeliverySessionCombo.OnSelectedIndexChanged += new System.EventHandler(this.DeliverySessionCombo_OnSelectedIndexChanged);
-            // 
-            // NameTxt
-            // 
-            this.NameTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.NameTxt.BackColor = System.Drawing.Color.White;
-            this.NameTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.NameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.NameTxt.BorderRadius = 10;
-            this.NameTxt.BorderSize = 1;
-            this.NameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameTxt.ForeColor = System.Drawing.Color.Black;
-            this.NameTxt.IsError = false;
-            this.NameTxt.Location = new System.Drawing.Point(164, 11);
-            this.NameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.NameTxt.MaxLength = 5;
-            this.NameTxt.Multiline = false;
-            this.NameTxt.Name = "NameTxt";
-            this.NameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.NameTxt.PasswordChar = false;
-            this.NameTxt.Placeholder = "Please enter customer name";
-            this.NameTxt.ReadOnly = false;
-            this.NameTxt.Size = new System.Drawing.Size(234, 38);
-            this.NameTxt.TabIndex = 24;
-            this.NameTxt.TbBackColor = System.Drawing.Color.White;
-            this.NameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.NameTxt.Texts = "Please enter customer name";
-            this.NameTxt.UnderlinedStyle = false;
             // 
             // AddressTxt
             // 
@@ -823,6 +737,92 @@
             this.PhoneTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.PhoneTxt.Texts = "Please enter customer phone";
             this.PhoneTxt.UnderlinedStyle = false;
+            // 
+            // UserInfoHeaderContainer
+            // 
+            this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
+            this.UserInfoHeaderContainer.Controls.Add(this.GoodsInfoHeader);
+            this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
+            this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
+            this.UserInfoHeaderContainer.Size = new System.Drawing.Size(426, 40);
+            this.UserInfoHeaderContainer.TabIndex = 20;
+            // 
+            // GoodsInfoHeader
+            // 
+            this.GoodsInfoHeader.AutoSize = true;
+            this.GoodsInfoHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GoodsInfoHeader.Location = new System.Drawing.Point(3, 7);
+            this.GoodsInfoHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.GoodsInfoHeader.Name = "GoodsInfoHeader";
+            this.GoodsInfoHeader.Size = new System.Drawing.Size(211, 25);
+            this.GoodsInfoHeader.TabIndex = 6;
+            this.GoodsInfoHeader.Text = "Customer Information";
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.MinimumWidth = 6;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.Width = 124;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Width = 124;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 124;
+            // 
+            // dataGridViewImageColumn4
+            // 
+            this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn4.DataPropertyName = "install";
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle20.NullValue")));
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn4.DefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridViewImageColumn4.HeaderText = "";
+            this.dataGridViewImageColumn4.Image = global::TheBetterLimited.Properties.Resources.square;
+            this.dataGridViewImageColumn4.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn4.MinimumWidth = 6;
+            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            this.dataGridViewImageColumn4.ReadOnly = true;
+            this.dataGridViewImageColumn4.ToolTipText = "Need to install?";
+            // 
+            // dataGridViewImageColumn5
+            // 
+            this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn5.HeaderText = "";
+            this.dataGridViewImageColumn5.Image = global::TheBetterLimited.Properties.Resources.lock1;
+            this.dataGridViewImageColumn5.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn5.MinimumWidth = 6;
+            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
+            this.dataGridViewImageColumn5.ReadOnly = true;
+            this.dataGridViewImageColumn5.ToolTipText = "Lock";
+            // 
+            // dataGridViewImageColumn7
+            // 
+            this.dataGridViewImageColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn7.HeaderText = "";
+            this.dataGridViewImageColumn7.Image = global::TheBetterLimited.Properties.Resources.trash;
+            this.dataGridViewImageColumn7.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn7.MinimumWidth = 6;
+            this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
+            this.dataGridViewImageColumn7.ToolTipText = "Delete";
+            // 
+            // dataGridViewImageColumn6
+            // 
+            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn6.HeaderText = "";
+            this.dataGridViewImageColumn6.Image = global::TheBetterLimited.Properties.Resources.pencil_free_icon_font;
+            this.dataGridViewImageColumn6.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn6.MinimumWidth = 6;
+            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
+            this.dataGridViewImageColumn6.ToolTipText = "Edit";
             // 
             // OrderDetails
             // 

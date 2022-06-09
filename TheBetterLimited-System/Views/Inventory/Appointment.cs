@@ -41,10 +41,6 @@ namespace TheBetterLimited.Views
         /*
          * Dom Style/Event Process
          */
-        private void DeleteBtn_Click(object sender, EventArgs e)
-        {
-        }
-
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -56,9 +52,38 @@ namespace TheBetterLimited.Views
             this.Close();
         }
 
-        private void GoodsDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void AppointmentDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-
+            if (AppointmentDataGrid.Columns[e.ColumnIndex].Name == "status")
+            {
+                e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold);
+                if (e.Value.ToString().Equals("PendingDelivery"))
+                {
+                    e.Value = "Pending Delivery";
+                    e.CellStyle.ForeColor = Color.Orange;
+                    e.CellStyle.SelectionForeColor = Color.Orange;
+                }else if (e.Value.ToString().Equals("ReadyToInstall"))
+                {
+                    e.Value = "Ready To Install";
+                    e.CellStyle.ForeColor = Color.Orange;
+                    e.CellStyle.SelectionForeColor = Color.Orange;
+                }
+                else if (e.Value.ToString().Equals("Installing"))
+                {
+                    e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
+                }
+                else if (e.Value.ToString().Equals("Delivering"))
+                {
+                    e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.SeaGreen;
+                    e.CellStyle.SelectionForeColor = Color.SeaGreen;
+                }
+            }
         }
 
         private void GoodsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -67,14 +92,14 @@ namespace TheBetterLimited.Views
             {
                 if (Convert.ToInt32(AppointmentDataGrid["select", e.RowIndex].Tag) == 0)
                 {
-                    AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
+                    AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
                     AppointmentDataGrid["select", e.RowIndex].Tag = 1;
                     AppointmentDataGrid.Rows[e.RowIndex].Selected = true;
                     selectAppointmentID.Add(AppointmentDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
-                    AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
+                    AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.square24;
                     AppointmentDataGrid["select", e.RowIndex].Tag = 0;
                     AppointmentDataGrid.Rows[e.RowIndex].Selected = false;
                     selectAppointmentID.Remove(AppointmentDataGrid["id", e.RowIndex].Value.ToString());
@@ -121,6 +146,19 @@ namespace TheBetterLimited.Views
                 }
             }
 
+            if (e.ColumnIndex == AppointmentDataGrid.Columns["arrange"].Index)
+            {
+                Form arrangeForm = Application.OpenForms["Appointment_Arrange"];
+                if (arrangeForm != null)
+                {
+                    arrangeForm.Close();
+                    arrangeForm.Dispose();
+                }
+                Appointment_Arrange arrangeAppointment = new Appointment_Arrange();
+                arrangeAppointment.Show();
+                arrangeAppointment.TopLevel = true;
+                arrangeAppointment.OnExit += GetAppointment;
+            }
         }
 
         //search bar text changed event
@@ -138,6 +176,9 @@ namespace TheBetterLimited.Views
             dt.Columns.Add("Id");
             dt.Columns.Add("time");
             dt.Columns.Add("address");
+            dt.Columns.Add("orderId");
+            dt.Columns.Add("teamId");
+            dt.Columns.Add("status");
         }
 
 
@@ -175,8 +216,14 @@ namespace TheBetterLimited.Views
                 {
                     var row = dt.NewRow();
                     row["Id"] = a["appointmentId"].ToString();
-                    row["time"] = ((DateTime)a["startTime"]).ToString("t") + " - " + ((DateTime)a["endTime"]).ToString("t");
+                    row["time"] = ((DateTime)a["startTime"]).ToString("HH:mm") + " - " + ((DateTime)a["endTime"]).ToString("HH:mm");
                     row["address"] = a["customer"]["address"].ToString();
+                    if(((JToken)a["team"]).Type != JTokenType.Null)
+                    {
+                        row["teamId"] = a["team"];
+                    }
+                    row["orderId"] = a["orderId"];
+                    row["status"] = a["salesOrderStatus"].ToString();
                     dt.Rows.Add(row);
                 }
                 bs.DataSource = dt;

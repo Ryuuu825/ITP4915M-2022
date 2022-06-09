@@ -72,9 +72,18 @@ namespace TheBetterLimited.Views
             JObject info = JObject.Parse(data);
             Console.WriteLine(info.ToString());
             BarcodeLib.Barcode b = new BarcodeLib.Barcode();
-            AppointmentId.Text = info["appointmentId"].ToString();
-            orderId.Text = info["orderId"].ToString();
-            barcode.Image = b.Encode(BarcodeLib.TYPE.CODE39, info["appointmentId"].ToString(), Color.Black, Color.White, 248, 67);
+            if(info["status"].ToString().Contains("Deliver"))
+            {
+                AppointmentId.Text = info["delivery"]["appointmentId"].ToString();
+                barcode.Image = b.Encode(BarcodeLib.TYPE.CODE39, info["delivery"]["appointmentId"].ToString(), Color.Black, Color.White, 248, 67);
+            }
+            else if (info["status"].ToString().Contains("Install"))
+            {
+                title.Text = "Installation Note";
+                AppointmentId.Text = info["installation"]["appointmentId"].ToString();
+                barcode.Image = b.Encode(BarcodeLib.TYPE.CODE39, info["installation"]["appointmentId"].ToString(), Color.Black, Color.White, 248, 67);
+            }
+            orderId.Text = info["id"].ToString();
             JArray orderItems = (JArray)info["orderItems"];
             DataTable dt = new DataTable();
             BindingSource bs = new BindingSource();
@@ -95,13 +104,6 @@ namespace TheBetterLimited.Views
                 row["price"] = orderItem["price"];
                 row["qty"] = orderItem["quantity"];
                 row["amount"] = (((int)orderItem["quantity"])*((double)orderItem["price"]));
-                /*if (((JToken)orderItem["quantity"]).Type != JTokenType.Null && ((bool)orderItem["quantity"]) == false)
-                {
-                    row["display"] = Properties.Resources.check24;
-                }else
-                {
-                    row["display"] = Properties.Resources.square24;
-                }*/
                 if ((bool)orderItem["needInstall"])
                 {
                     row["isInstall"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
@@ -130,8 +132,8 @@ namespace TheBetterLimited.Views
                     if (((JToken)info["installation"]).Type != JTokenType.Null) //check need delivery
                     {
                         installDate.Text = ((DateTime)info["installation"]["date"]).ToString("d") + " "
-                                        + ((DateTime)info["installation"]["startTime"]).ToString("t") + " - "
-                                        + ((DateTime)info["installation"]["endTime"]).ToString("t");
+                                        + ((DateTime)info["installation"]["startTime"]).ToString("HH:mm") + " - "
+                                        + ((DateTime)info["installation"]["endTime"]).ToString("HH:mm");
                     }
                     else
                     {
@@ -162,9 +164,6 @@ namespace TheBetterLimited.Views
         private void OrderItemDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             OrderItemDataGrid.Columns["isInstall"].HeaderText = "是否安裝\nNeed Install";
-            OrderItemDataGrid.Columns["isDisplay"].HeaderText = "展示商品\nDisplay Item";
-            OrderItemDataGrid.Columns["amount"].HeaderText = "金額\nAmount";
-            OrderItemDataGrid.Columns["price"].HeaderText = "單價\nUnit Price";
             OrderItemDataGrid.Columns["qty"].HeaderText = "數量\nQTY";
             OrderItemDataGrid.Columns["goodsName"].HeaderText = "貨品\nProduct";
             OrderItemDataGrid.Columns["goodsID"].HeaderText = "識別編號\nID No.";

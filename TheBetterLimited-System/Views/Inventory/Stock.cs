@@ -170,7 +170,7 @@ namespace TheBetterLimited.Views
         private void GetStock()
         {
             Console.WriteLine("CALL GET STOCK");
-
+            dataTable.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
                 // result = cbStockGoods.GetAll();
@@ -202,15 +202,12 @@ namespace TheBetterLimited.Views
                         dr["Status"] = row["Status"].ToString();
                         dataTable.Rows.Add(dr);
                     }
-                    
                 }
-
 
                 bs.DataSource = dataTable;
                 StockDataGrid.AutoGenerateColumns = false;
                 StockDataGrid.DataSource = bs;
                 InitializeDataGridView();
-
         }
 
         private bool DeleteRecord(string id)
@@ -258,7 +255,7 @@ namespace TheBetterLimited.Views
         //Delete stock records
         private void DeleteStock(DataGridViewCellEventArgs e)
         {
-            choose = MessageBox.Show("Do you really want to delete the " + StockDataGrid["Id" , e.RowIndex ].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            choose = MessageBox.Show("Do you really want to delete the " + StockDataGrid["id" , e.RowIndex ].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (choose == DialogResult.Yes)
             {
                 try
@@ -266,7 +263,8 @@ namespace TheBetterLimited.Views
                     DeleteRecord(StockDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
                     if (result.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        MessageBox.Show("The " + StockDataGrid["Id" , e.RowIndex ].Value + " have been deleted!", "Delete stock records Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("The " + StockDataGrid["id" , e.RowIndex ].Value + " have been deleted!", "Delete stock records Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        GetStock();
                     }
                 }
                 catch (Exception ex)

@@ -70,8 +70,8 @@ namespace TheBetterLimited.Views
                 {
                     e.Value = "Normal";
                     e.CellStyle.ForeColor = Color.SeaGreen;
+                    e.CellStyle.SelectionForeColor = Color.SeaGreen;
                 }
-
             }
         }
 
