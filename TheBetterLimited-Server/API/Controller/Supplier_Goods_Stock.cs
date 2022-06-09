@@ -20,6 +20,18 @@ namespace TheBetterLimited_Server.API.Controller
             goodsController = new AppLogic.Controllers.GoodsController(db);
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(string id)
+        {
+            var entry = sgs.GetAll().Where(s => s.Id == id).FirstOrDefault();
+            if (entry == null)
+            {
+                return NotFound();
+            }
+            entry.isSoftDeleted = true;
+            sgs.Update(entry);
+            return Ok();
+        }
         [HttpGet]
         public IActionResult GetAll([FromHeader] string Language = "en")
         {
@@ -47,6 +59,7 @@ namespace TheBetterLimited_Server.API.Controller
                 h.Add("MinLimit" , r.MinLimit);
                 h.Add("ReorderLevel" , r.ReorderLevel);
                 h.Add("Status" , goodsController.GetStockLevel(r).ToString());
+                h.Add("isDeleted" , r.isSoftDeleted);
                 result.Add(h);
             }
 

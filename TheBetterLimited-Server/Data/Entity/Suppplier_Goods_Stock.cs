@@ -36,6 +36,8 @@ namespace TheBetterLimited_Server.Data.Entity
         [Range(0, 99999)]
         public int ReorderLevel { get; set; }
 
+        public bool isSoftDeleted { get; set; }
+
         public virtual ICollection<DefectItemRecord> DefectItemRecords { get; set; }
         public virtual ICollection<SalesOrderItem> SalesOrderItems { get; set; }
     
