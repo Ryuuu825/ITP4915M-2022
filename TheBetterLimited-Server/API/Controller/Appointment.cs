@@ -15,6 +15,7 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAppointment(int day , int month)
         {
             return Ok(await ac.GetAppointment(User.Identity.Name , day, month));

@@ -25,6 +25,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
            public string sessionId { get; set; }
 
            public Customer customer { get; set; }
+           public Team? team { get; set; }
         }
 
         public async Task<List<Dto>> GetAppointment(string UserName , int day, int month)
@@ -77,7 +78,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         EndTime = item.Session.EndTime,
                         Items = itemsDto,
                         sessionId = item.Session.ID,
-                        customer = item.Customer
+                        customer = item.Customer,
+                        team = item.Team
                     }
                 );
             }

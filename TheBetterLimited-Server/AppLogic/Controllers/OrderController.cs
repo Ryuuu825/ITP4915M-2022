@@ -67,7 +67,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
 
 
-        private async Task<List<OrderOutDto>> ToDto(List<SalesOrder> salesOrders ,  string lang = "en")
+        public async Task<List<OrderOutDto>> ToDto(List<SalesOrder> salesOrders ,  string lang = "en")
         {
             if (salesOrders.Count == 0)
             {
