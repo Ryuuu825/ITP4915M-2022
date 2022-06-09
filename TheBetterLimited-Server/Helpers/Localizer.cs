@@ -67,6 +67,12 @@ namespace TheBetterLimited_Server.Helpers
                             // do not throw an exception
                             item.SetValue(entity, "Translation Not Found" );
                         }
+                        catch (Exception e)
+                        {
+                            ConsoleLogger.Debug(e.Message);
+                            ConsoleLogger.Debug(e.InnerException);
+                            throw e;
+                        }
                         
                     }
                 }

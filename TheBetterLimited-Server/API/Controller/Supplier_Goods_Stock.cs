@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using TheBetterLimited_Server.Data;
-
+using TheBetterLimited_Server.AppLogic.Models;
 
 namespace TheBetterLimited_Server.API.Controller
 {
@@ -32,6 +32,24 @@ namespace TheBetterLimited_Server.API.Controller
             sgs.Update(entry);
             return Ok();
         }
+        [HttpGet("{id}")]
+        public IActionResult Get(string id , [FromHeader] string Language) // supplier goods stock id
+        {
+            try 
+            {
+                var p = sgs.GetAll().Where(s => s.Id == id).FirstOrDefault();
+                Hashtable res = p.MapToDto();
+                ConsoleLogger.Debug("sfsfk" + p.Supplier_Goods.Goods.Id);
+                var goods = Helpers.Localizer.TryLocalize<Data.Entity.Goods>(Language , p.Supplier_Goods.Goods);
+                res.Add("GoodsName" , goods.Name);
+                return Ok(res);
+            }catch(Exception e)
+            {
+                return StatusCode(500 , e.Message);
+            }
+
+        }
+
         [HttpGet]
         public IActionResult GetAll([FromHeader] string Language = "en")
         {
@@ -64,6 +82,19 @@ namespace TheBetterLimited_Server.API.Controller
             }
 
             return Ok(result);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(string id , [FromBody] List<UpdateObjectModel> content)
+        {
+            var entry = sgs.GetAll().Where(s => s.Id == id).FirstOrDefault();
+            if (entry == null)
+            {
+                return NotFound();
+            }
+            Helpers.Entity.EntityUpdater.Update( ref entry, content);
+            sgs.Update(entry);
+            return Ok();
         }
     }
 }
