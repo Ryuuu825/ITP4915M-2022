@@ -26,6 +26,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
            public Customer customer { get; set; }
            public Team? team { get; set; }
+           public string salesOrderStatus  { get; set; }
         }
 
         public async Task<List<Dto>> GetAppointment(string UserName , int day, int month)
@@ -79,7 +80,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         Items = itemsDto,
                         sessionId = item.Session.ID,
                         customer = item.Customer,
-                        team = item.Team
+                        team = item.Team,
+                        salesOrderStatus = items[0].SalesOrderItem.SalesOrder.Status.ToString()
                     }
                 );
             }
