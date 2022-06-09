@@ -104,6 +104,7 @@ namespace TheBetterLimited.Views
         {
             string id = StockDataGrid["Id" , e.RowIndex].Value.ToString();
             Stock_Edit edit = new Stock_Edit(id);
+            edit.OnExit += () => { GetStock(); };
             edit.Show();
         }
 
@@ -287,8 +288,9 @@ namespace TheBetterLimited.Views
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            //Goodsmanagement_Add goodsAdd = new Goodsmanagement_Add();
-            //goodsAdd.Show();
+            Stock_Add goodsAdd = new Stock_Add();
+            goodsAdd.OnExit += () => GetStock();
+            goodsAdd.Show();
         }
 
 

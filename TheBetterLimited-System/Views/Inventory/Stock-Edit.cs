@@ -36,7 +36,8 @@ namespace TheBetterLimited.Views
         public Stock_Edit(string StockId)
         {
             Console.WriteLine("New ing form" + StockId);
-            RestRequest req = new RestRequest("/api/inventory/sgs/" + StockId, Method.Get);
+            RestRequest req = new RestRequest("/api/inventory/sgs/" + StockId, Method.Get) 
+                                    .AddHeader("Language", "en");
             result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
             JObject obj = JObject.Parse(result.Content);
             if (obj["isSoftDeleted"].ToObject<bool>())
@@ -83,6 +84,64 @@ namespace TheBetterLimited.Views
 
         private void CreateUser_Click(object sender, EventArgs e)
         {
+            List<object> UpdateContent = new List<object>();
+            if (!txtQuantity.Texts.Equals(txtQuantity.Placeholder) && !txtQuantity.Texts.Equals(txtQuantity))
+            {
+                UpdateContent.Add(
+                    new {
+                        Attribute = "Quantity",
+                        Value = txtQuantity.Texts
+                    }
+                );
+            }
+
+            if (!txtMaxLimit.Texts.Equals(txtMaxLimit.Placeholder) && !txtMaxLimit.Texts.Equals(txtMaxLimit))
+            {
+                UpdateContent.Add(
+                    new {
+                        Attribute = "MaxLimit",
+                        Value = txtMaxLimit.Texts
+                    }
+                );
+            }
+
+            if (!txtMinLimit.Texts.Equals(txtMinLimit.Placeholder) && !txtMinLimit.Texts.Equals(txtMinLimit))
+            {
+                UpdateContent.Add(
+                    new {
+                        Attribute = "MinLimit",
+                        Value = txtMinLimit.Texts
+                    }
+                );
+            }
+
+            if (!txtReorderLevel.Texts.Equals(txtReorderLevel.Placeholder) && !txtReorderLevel.Texts.Equals(txtReorderLevel))
+            {
+                UpdateContent.Add(
+                    new {
+                        Attribute = "ReorderLevel",
+                        Value = txtReorderLevel.Texts
+                    }
+                );
+            }
+
+            RestRequest req = new RestRequest("/api/inventory/sgs/" + ID, Method.Put)
+                                    .AddHeader("Language", "en")
+                                    .AddBody(UpdateContent);
+            result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
+            if (result.StatusCode == HttpStatusCode.OK)
+            {
+                MessageBox.Show("Update Successfully");
+                this.OnExit.Invoke();
+                this.Close();
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show(result.Content);
+            }
+
+
         }
 
 
