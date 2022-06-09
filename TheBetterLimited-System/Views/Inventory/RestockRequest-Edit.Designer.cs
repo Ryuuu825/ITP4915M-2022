@@ -197,6 +197,7 @@
             this.txtCreatorId.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.txtCreatorId.BorderRadius = 10;
             this.txtCreatorId.BorderSize = 1;
+            this.txtCreatorId.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtCreatorId.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCreatorId.ForeColor = System.Drawing.Color.LightGray;
             this.txtCreatorId.IsError = false;
@@ -392,7 +393,6 @@
             this.RestockRequestInfoHeaderContainer.ResumeLayout(false);
             this.RestockRequestInfoHeaderContainer.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -406,7 +406,7 @@
         private System.Windows.Forms.Panel panel1;
         private CustomizeControl.CustomizeTextbox txtStatus;
         private System.Windows.Forms.Label lblStatus;
-        private CustomizeControl.CustomizeTextbox txtCreatorId;
+        private TheBetterLimited.CustomizeControl.CustomizeTextbox txtCreatorId;
         private CustomizeControl.CustomizeTextbox txtStoreId;
         private CustomizeControl.CustomizeTextbox txtId;
         private System.Windows.Forms.Label lblOperatorId;
