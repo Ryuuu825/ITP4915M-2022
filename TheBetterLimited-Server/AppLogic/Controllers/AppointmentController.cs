@@ -23,6 +23,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         public class Dto : Data.Dto.AppointmentOutDto
         {
            public string sessionId { get; set; }
+           public string orderId { get; set; }
 
            public Customer customer { get; set; }
            public Team? team { get; set; }
@@ -36,7 +37,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             List<Appointment> res = repository.GetAll().Where(x => x.Session.Date.Day == day && x.Session.Date.Month == month && x.Session._departmentId == usr._departmentId).ToList();
             return await ToDto(res);
         }
-
         public async Task<List<Dto>> ToDto(List<Appointment> list)
         {
             /*
@@ -79,7 +79,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         Items = itemsDto,
                         sessionId = item.Session.ID,
                         customer = item.Customer,
-                        team = item.Team
+                        team = item.Team,
                     }
                 );
             }
