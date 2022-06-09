@@ -34,6 +34,8 @@
             this.MainForm = new System.Windows.Forms.Panel();
             this.StockInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblGoodsName = new System.Windows.Forms.Label();
+            this.txtGoodsName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.txtReorderLevel = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.lblReorderLevel = new System.Windows.Forms.Label();
             this.txtLocId = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
@@ -64,7 +66,7 @@
             this.BottomBtn.Controls.Add(this.btnSave);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(10, 472);
+            this.BottomBtn.Location = new System.Drawing.Point(10, 526);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
@@ -117,29 +119,33 @@
             // MainForm
             // 
             this.MainForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.MainForm.Controls.Add(this.BottomBtn);
             this.MainForm.Controls.Add(this.StockInfo);
+            this.MainForm.Controls.Add(this.BottomBtn);
             this.MainForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainForm.Location = new System.Drawing.Point(0, 0);
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
             this.MainForm.Padding = new System.Windows.Forms.Padding(10);
-            this.MainForm.Size = new System.Drawing.Size(550, 536);
+            this.MainForm.Size = new System.Drawing.Size(550, 590);
             this.MainForm.TabIndex = 2;
             // 
             // StockInfo
             // 
-            this.StockInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.StockInfo.BackColor = System.Drawing.Color.Transparent;
             this.StockInfo.Controls.Add(this.panel1);
             this.StockInfo.Controls.Add(this.StockInfoHeaderContainer);
-            this.StockInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.StockInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StockInfo.Location = new System.Drawing.Point(10, 10);
             this.StockInfo.Name = "StockInfo";
-            this.StockInfo.Size = new System.Drawing.Size(530, 457);
+            this.StockInfo.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.StockInfo.Size = new System.Drawing.Size(530, 516);
             this.StockInfo.TabIndex = 24;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel1.Controls.Add(this.lblGoodsName);
+            this.panel1.Controls.Add(this.txtGoodsName);
             this.panel1.Controls.Add(this.txtReorderLevel);
             this.panel1.Controls.Add(this.lblReorderLevel);
             this.panel1.Controls.Add(this.txtLocId);
@@ -157,8 +163,46 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(530, 417);
+            this.panel1.Size = new System.Drawing.Size(530, 466);
             this.panel1.TabIndex = 27;
+            // 
+            // lblGoodsName
+            // 
+            this.lblGoodsName.AutoSize = true;
+            this.lblGoodsName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGoodsName.Location = new System.Drawing.Point(48, 191);
+            this.lblGoodsName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblGoodsName.Name = "lblGoodsName";
+            this.lblGoodsName.Size = new System.Drawing.Size(101, 21);
+            this.lblGoodsName.TabIndex = 44;
+            this.lblGoodsName.Text = "Goods Name";
+            this.lblGoodsName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtGoodsName
+            // 
+            this.txtGoodsName.BackColor = System.Drawing.Color.White;
+            this.txtGoodsName.BorderColor = System.Drawing.Color.LightGray;
+            this.txtGoodsName.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtGoodsName.BorderRadius = 10;
+            this.txtGoodsName.BorderSize = 1;
+            this.txtGoodsName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGoodsName.ForeColor = System.Drawing.Color.Black;
+            this.txtGoodsName.IsError = false;
+            this.txtGoodsName.Location = new System.Drawing.Point(197, 182);
+            this.txtGoodsName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtGoodsName.MaxLength = 32767;
+            this.txtGoodsName.Multiline = false;
+            this.txtGoodsName.Name = "txtGoodsName";
+            this.txtGoodsName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtGoodsName.PasswordChar = false;
+            this.txtGoodsName.Placeholder = "Automatically generated";
+            this.txtGoodsName.ReadOnly = true;
+            this.txtGoodsName.Size = new System.Drawing.Size(307, 38);
+            this.txtGoodsName.TabIndex = 45;
+            this.txtGoodsName.TbBackColor = System.Drawing.Color.White;
+            this.txtGoodsName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtGoodsName.Texts = "Automatically generated";
+            this.txtGoodsName.UnderlinedStyle = false;
             // 
             // txtReorderLevel
             // 
@@ -170,7 +214,7 @@
             this.txtReorderLevel.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtReorderLevel.ForeColor = System.Drawing.Color.Black;
             this.txtReorderLevel.IsError = false;
-            this.txtReorderLevel.Location = new System.Drawing.Point(198, 346);
+            this.txtReorderLevel.Location = new System.Drawing.Point(197, 406);
             this.txtReorderLevel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtReorderLevel.MaxLength = 32767;
             this.txtReorderLevel.Multiline = false;
@@ -190,7 +234,7 @@
             // 
             this.lblReorderLevel.AutoSize = true;
             this.lblReorderLevel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReorderLevel.Location = new System.Drawing.Point(45, 355);
+            this.lblReorderLevel.Location = new System.Drawing.Point(45, 415);
             this.lblReorderLevel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblReorderLevel.Name = "lblReorderLevel";
             this.lblReorderLevel.Size = new System.Drawing.Size(106, 21);
@@ -208,7 +252,7 @@
             this.txtLocId.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLocId.ForeColor = System.Drawing.Color.Black;
             this.txtLocId.IsError = false;
-            this.txtLocId.Location = new System.Drawing.Point(197, 67);
+            this.txtLocId.Location = new System.Drawing.Point(197, 70);
             this.txtLocId.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtLocId.MaxLength = 32767;
             this.txtLocId.Multiline = false;
@@ -234,7 +278,7 @@
             this.txtQuantity.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantity.ForeColor = System.Drawing.Color.Black;
             this.txtQuantity.IsError = false;
-            this.txtQuantity.Location = new System.Drawing.Point(197, 173);
+            this.txtQuantity.Location = new System.Drawing.Point(197, 238);
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtQuantity.MaxLength = 32767;
             this.txtQuantity.Multiline = false;
@@ -260,7 +304,7 @@
             this.txtMinLimit.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMinLimit.ForeColor = System.Drawing.Color.Black;
             this.txtMinLimit.IsError = false;
-            this.txtMinLimit.Location = new System.Drawing.Point(197, 285);
+            this.txtMinLimit.Location = new System.Drawing.Point(197, 350);
             this.txtMinLimit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtMinLimit.MaxLength = 32767;
             this.txtMinLimit.Multiline = false;
@@ -280,7 +324,7 @@
             // 
             this.lblMinLimit.AutoSize = true;
             this.lblMinLimit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMinLimit.Location = new System.Drawing.Point(59, 294);
+            this.lblMinLimit.Location = new System.Drawing.Point(59, 359);
             this.lblMinLimit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMinLimit.Name = "lblMinLimit";
             this.lblMinLimit.Size = new System.Drawing.Size(79, 21);
@@ -298,7 +342,7 @@
             this.txtMaxLimit.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaxLimit.ForeColor = System.Drawing.Color.Black;
             this.txtMaxLimit.IsError = false;
-            this.txtMaxLimit.Location = new System.Drawing.Point(197, 224);
+            this.txtMaxLimit.Location = new System.Drawing.Point(197, 294);
             this.txtMaxLimit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtMaxLimit.MaxLength = 32767;
             this.txtMaxLimit.Multiline = false;
@@ -318,7 +362,7 @@
             // 
             this.lblMaxLimit.AutoSize = true;
             this.lblMaxLimit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaxLimit.Location = new System.Drawing.Point(58, 233);
+            this.lblMaxLimit.Location = new System.Drawing.Point(58, 303);
             this.lblMaxLimit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMaxLimit.Name = "lblMaxLimit";
             this.lblMaxLimit.Size = new System.Drawing.Size(81, 21);
@@ -361,7 +405,7 @@
             // 
             this.lblSupplierGoodsId.AutoSize = true;
             this.lblSupplierGoodsId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSupplierGoodsId.Location = new System.Drawing.Point(30, 126);
+            this.lblSupplierGoodsId.Location = new System.Drawing.Point(30, 135);
             this.lblSupplierGoodsId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSupplierGoodsId.Name = "lblSupplierGoodsId";
             this.lblSupplierGoodsId.Size = new System.Drawing.Size(136, 21);
@@ -373,7 +417,7 @@
             // 
             this.lblLocationId.AutoSize = true;
             this.lblLocationId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocationId.Location = new System.Drawing.Point(54, 76);
+            this.lblLocationId.Location = new System.Drawing.Point(54, 79);
             this.lblLocationId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblLocationId.Name = "lblLocationId";
             this.lblLocationId.Size = new System.Drawing.Size(88, 21);
@@ -398,7 +442,7 @@
             // 
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQuantity.Location = new System.Drawing.Point(63, 182);
+            this.lblQuantity.Location = new System.Drawing.Point(63, 247);
             this.lblQuantity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(70, 21);
@@ -416,7 +460,7 @@
             this.txtSupplierGoodsId.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSupplierGoodsId.ForeColor = System.Drawing.Color.Black;
             this.txtSupplierGoodsId.IsError = false;
-            this.txtSupplierGoodsId.Location = new System.Drawing.Point(197, 117);
+            this.txtSupplierGoodsId.Location = new System.Drawing.Point(197, 126);
             this.txtSupplierGoodsId.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtSupplierGoodsId.MaxLength = 32767;
             this.txtSupplierGoodsId.Multiline = false;
@@ -458,7 +502,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(550, 536);
+            this.ClientSize = new System.Drawing.Size(550, 590);
             this.Controls.Add(this.MainForm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -502,5 +546,7 @@
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Label lblQuantity;
         private CustomizeControl.CustomizeTextbox txtSupplierGoodsId;
+        private System.Windows.Forms.Label lblGoodsName;
+        private CustomizeControl.CustomizeTextbox txtGoodsName;
     }
 }

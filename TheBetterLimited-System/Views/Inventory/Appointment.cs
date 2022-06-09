@@ -167,7 +167,6 @@ namespace TheBetterLimited.Views
             GetAppointment();
         }
 
-
         /*
         * Dom Event Handler
         */
