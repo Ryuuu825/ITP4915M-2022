@@ -163,7 +163,7 @@ namespace TheBetterLimited.Views
         private void GetStock()
         {
 
-            if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search by keywords")
+            if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
                 // result = cbStockGoods.GetAll();
                 RestRequest req = new RestRequest("/api/inventory/sgs" , Method.Get);
