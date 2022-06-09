@@ -141,21 +141,6 @@ namespace TheBetterLimited.Views
             //Main data column
             RestockRequestDataGrid.AutoGenerateColumns = false;
             RestockRequestDataGrid.DataSource = bs;
-            RestockRequestDataGrid.Columns["id"].HeaderText = "ID";
-            RestockRequestDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
-            RestockRequestDataGrid.Columns["name"].HeaderText = "Goods Name";
-            RestockRequestDataGrid.Columns["description"].HeaderText = "Description";
-            RestockRequestDataGrid.Columns["price"].HeaderText = "Price";
-            RestockRequestDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
-            RestockRequestDataGrid.Columns["size"].HeaderText = "Size";
-            RestockRequestDataGrid.Columns["status"].HeaderText = "Status";
-            // GoodsDataGrid.Columns["id"].HeaderText = "ID";
-            // GoodsDataGrid.Columns["userName"].HeaderText = "User Name";
-            // GoodsDataGrid.Columns["staffName"].HeaderText = "Staff Name";
-            // GoodsDataGrid.Columns["emailAddress"].HeaderText = "Email Address";
-            // GoodsDataGrid.Columns["status"].HeaderText = "Status";
-            // GoodsDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
-            // GoodsDataGrid.Columns["remarks"].HeaderText = "Remark";
 
             for (int i = 0; i < RestockRequestDataGrid.RowCount; i++)
                 RestockRequestDataGrid["select", i].Tag = 0;

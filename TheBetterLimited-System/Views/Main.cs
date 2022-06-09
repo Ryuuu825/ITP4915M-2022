@@ -281,6 +281,7 @@ namespace TheBetterLimited.Views
         private void appointmentBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new Appointment());
+            subSidebarTimer.Start();
         }
 
         private void restockRequestBtn_Click(object sender, EventArgs e)

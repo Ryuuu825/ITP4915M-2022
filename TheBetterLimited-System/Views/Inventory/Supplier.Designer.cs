@@ -315,7 +315,7 @@
             this.SearchBarTxt.Name = "SearchBarTxt";
             this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(25, 8, 8, 6);
             this.SearchBarTxt.PasswordChar = false;
-            this.SearchBarTxt.Placeholder = "";
+            this.SearchBarTxt.Placeholder = "Search";
             this.SearchBarTxt.ReadOnly = false;
             this.SearchBarTxt.Size = new System.Drawing.Size(220, 38);
             this.SearchBarTxt.TabIndex = 9;

@@ -173,7 +173,7 @@ namespace TheBetterLimited.Views
             }
             try
             {
-                var data = JArray.Parse(result.Content.ToString());
+                var data = JArray.Parse(result.Content);
                 foreach (var rowData in data)
                 {
                     var row  = dataTable.NewRow();

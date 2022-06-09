@@ -36,6 +36,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stock));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.StockDataGrid = new System.Windows.Forms.DataGridView();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReorderLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Action = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SearchBar = new System.Windows.Forms.Panel();
@@ -53,16 +63,6 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.select = new System.Windows.Forms.DataGridViewImageColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReorderLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.StockDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -155,6 +155,114 @@
             this.StockDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StockDataGrid_CellClick);
             this.StockDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.StockDataGrid_CellFormatting);
             // 
+            // select
+            // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.select.HeaderText = "";
+            this.select.Image = ((System.Drawing.Image)(resources.GetObject("select.Image")));
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            this.select.Width = 5;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "Id";
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.ToolTipText = "ID";
+            this.id.Width = 59;
+            // 
+            // locationId
+            // 
+            this.locationId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.locationId.DataPropertyName = "loc";
+            this.locationId.HeaderText = "Location";
+            this.locationId.MinimumWidth = 6;
+            this.locationId.Name = "locationId";
+            this.locationId.ReadOnly = true;
+            this.locationId.ToolTipText = "Location";
+            this.locationId.Width = 97;
+            // 
+            // supplierGoodsId
+            // 
+            this.supplierGoodsId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.supplierGoodsId.DataPropertyName = "goodsName";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.supplierGoodsId.DefaultCellStyle = dataGridViewCellStyle3;
+            this.supplierGoodsId.HeaderText = "Good Name";
+            this.supplierGoodsId.MinimumWidth = 6;
+            this.supplierGoodsId.Name = "supplierGoodsId";
+            this.supplierGoodsId.ReadOnly = true;
+            this.supplierGoodsId.ToolTipText = "Good Name";
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.quantity.DataPropertyName = "Quantity";
+            this.quantity.HeaderText = "Quantity";
+            this.quantity.MinimumWidth = 6;
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            this.quantity.ToolTipText = "Quantity";
+            this.quantity.Width = 99;
+            // 
+            // maxLimit
+            // 
+            this.maxLimit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.maxLimit.DataPropertyName = "MaxLimit";
+            this.maxLimit.HeaderText = "Max. Limit";
+            this.maxLimit.MinimumWidth = 6;
+            this.maxLimit.Name = "maxLimit";
+            this.maxLimit.ReadOnly = true;
+            this.maxLimit.ToolTipText = "Maximum Limit";
+            this.maxLimit.Width = 108;
+            // 
+            // minLimit
+            // 
+            this.minLimit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.minLimit.DataPropertyName = "MinLimit";
+            this.minLimit.HeaderText = "Min. Limit";
+            this.minLimit.MinimumWidth = 6;
+            this.minLimit.Name = "minLimit";
+            this.minLimit.ReadOnly = true;
+            this.minLimit.ToolTipText = "Minimum Limit";
+            this.minLimit.Width = 105;
+            // 
+            // ReorderLevel
+            // 
+            this.ReorderLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ReorderLevel.DataPropertyName = "ReorderLevel";
+            this.ReorderLevel.HeaderText = "Reorder level";
+            this.ReorderLevel.Name = "ReorderLevel";
+            this.ReorderLevel.ReadOnly = true;
+            this.ReorderLevel.ToolTipText = "Reorder level";
+            this.ReorderLevel.Width = 125;
+            // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.edit.HeaderText = "";
+            this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.ToolTipText = "Edit";
+            this.edit.Width = 6;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.delete.HeaderText = "";
+            this.delete.Image = ((System.Drawing.Image)(resources.GetObject("delete.Image")));
+            this.delete.MinimumWidth = 6;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.ToolTipText = "Delete";
+            this.delete.Width = 6;
+            // 
             // Action
             // 
             this.Action.BackColor = System.Drawing.Color.White;
@@ -218,13 +326,13 @@
             this.SearchBarTxt.Name = "SearchBarTxt";
             this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(25, 8, 8, 6);
             this.SearchBarTxt.PasswordChar = false;
-            this.SearchBarTxt.Placeholder = "Search by keywords";
+            this.SearchBarTxt.Placeholder = "Search";
             this.SearchBarTxt.ReadOnly = false;
             this.SearchBarTxt.Size = new System.Drawing.Size(220, 38);
             this.SearchBarTxt.TabIndex = 9;
             this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.SearchBarTxt.Texts = "Search by keywords";
+            this.SearchBarTxt.Texts = "Search";
             this.SearchBarTxt.UnderlinedStyle = false;
             this.SearchBarTxt._TextChanged += new System.EventHandler(this.SearchBarTxt__TextChanged);
             // 
@@ -397,114 +505,6 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Width = 124;
             // 
-            // select
-            // 
-            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.select.HeaderText = "";
-            this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.select.MinimumWidth = 6;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            this.select.Width = 6;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.ToolTipText = "ID";
-            this.id.Width = 59;
-            // 
-            // locationId
-            // 
-            this.locationId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.locationId.DataPropertyName = "loc";
-            this.locationId.HeaderText = "Location";
-            this.locationId.MinimumWidth = 6;
-            this.locationId.Name = "locationId";
-            this.locationId.ReadOnly = true;
-            this.locationId.ToolTipText = "Location";
-            this.locationId.Width = 97;
-            // 
-            // supplierGoodsId
-            // 
-            this.supplierGoodsId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.supplierGoodsId.DataPropertyName = "goodsName";
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.supplierGoodsId.DefaultCellStyle = dataGridViewCellStyle3;
-            this.supplierGoodsId.HeaderText = "Good Name";
-            this.supplierGoodsId.MinimumWidth = 6;
-            this.supplierGoodsId.Name = "supplierGoodsId";
-            this.supplierGoodsId.ReadOnly = true;
-            this.supplierGoodsId.ToolTipText = "Good Name";
-            // 
-            // quantity
-            // 
-            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.quantity.DataPropertyName = "Quantity";
-            this.quantity.HeaderText = "Quantity";
-            this.quantity.MinimumWidth = 6;
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.ToolTipText = "Quantity";
-            // 
-            // maxLimit
-            // 
-            this.maxLimit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.maxLimit.DataPropertyName = "MaxLimit";
-            this.maxLimit.HeaderText = "Max. Limit";
-            this.maxLimit.MinimumWidth = 6;
-            this.maxLimit.Name = "maxLimit";
-            this.maxLimit.ReadOnly = true;
-            this.maxLimit.ToolTipText = "Maximum Limit";
-            this.maxLimit.Width = 108;
-            // 
-            // minLimit
-            // 
-            this.minLimit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.minLimit.DataPropertyName = "MinLimit";
-            this.minLimit.HeaderText = "Min. Limit";
-            this.minLimit.MinimumWidth = 6;
-            this.minLimit.Name = "minLimit";
-            this.minLimit.ReadOnly = true;
-            this.minLimit.ToolTipText = "Minimum Limit";
-            this.minLimit.Width = 105;
-            // 
-            // ReorderLevel
-            // 
-            this.ReorderLevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ReorderLevel.DataPropertyName = "ReorderLevel";
-            this.ReorderLevel.HeaderText = "Reorder level";
-            this.ReorderLevel.Name = "ReorderLevel";
-            this.ReorderLevel.ReadOnly = true;
-            this.ReorderLevel.ToolTipText = "Reorder level";
-            this.ReorderLevel.Width = 125;
-            // 
-            // edit
-            // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.edit.HeaderText = "";
-            this.edit.Image = global::TheBetterLimited.Properties.Resources.pencil;
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.ToolTipText = "Edit";
-            this.edit.Width = 6;
-            // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.delete.HeaderText = "";
-            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash24;
-            this.delete.MinimumWidth = 6;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.ToolTipText = "Delete";
-            this.delete.Width = 6;
-            // 
             // Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -551,8 +551,8 @@
         private CustomizeControl.CustomizeTextbox SearchBarTxt;
         private System.Windows.Forms.Panel panel1;
         private CustomizeControl.RoundButton exportBtn;
-        private System.Windows.Forms.DataGridViewImageColumn select;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewImageColumn select;
         private System.Windows.Forms.DataGridViewTextBoxColumn locationId;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierGoodsId;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;

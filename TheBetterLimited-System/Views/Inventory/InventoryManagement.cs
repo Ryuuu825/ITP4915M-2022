@@ -195,8 +195,8 @@ namespace TheBetterLimited.Views
 
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString()).Content)["Name"].ToString();
-                    index++;
+                     row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString()).Content)["Name"].ToString();
+                     index++;
                 }
                 bs.DataSource = dataTable;
                 GoodsDataGrid.AutoGenerateColumns = false;

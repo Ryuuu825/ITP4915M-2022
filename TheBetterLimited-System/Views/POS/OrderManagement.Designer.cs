@@ -471,6 +471,7 @@
             // 
             this.CreateAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.CreateAt.DataPropertyName = "createAt";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.CreateAt.DefaultCellStyle = dataGridViewCellStyle7;
             this.CreateAt.HeaderText = "CreateAt";
@@ -483,6 +484,7 @@
             // 
             this.UpdateAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.UpdateAt.DataPropertyName = "updateAt";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.UpdateAt.DefaultCellStyle = dataGridViewCellStyle8;
             this.UpdateAt.HeaderText = "UpdateAt";
@@ -495,6 +497,7 @@
             // 
             this.TotalAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TotalAmount.DataPropertyName = "total";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.TotalAmount.DefaultCellStyle = dataGridViewCellStyle9;
             this.TotalAmount.HeaderText = "Total Amount";

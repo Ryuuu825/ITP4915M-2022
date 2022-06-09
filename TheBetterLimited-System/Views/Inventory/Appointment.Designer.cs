@@ -59,7 +59,8 @@
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._teamId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Details = new System.Windows.Forms.DataGridViewImageColumn();
+            this.details = new System.Windows.Forms.DataGridViewImageColumn();
+            this.print = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGrid)).BeginInit();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
@@ -100,7 +101,8 @@
             this.Address,
             this._teamId,
             this.Status,
-            this.Details});
+            this.details,
+            this.print});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -141,7 +143,7 @@
             this.AppointmentDataGrid.RowTemplate.Height = 30;
             this.AppointmentDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.AppointmentDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AppointmentDataGrid.Size = new System.Drawing.Size(778, 379);
+            this.AppointmentDataGrid.Size = new System.Drawing.Size(758, 363);
             this.AppointmentDataGrid.StandardTab = true;
             this.AppointmentDataGrid.TabIndex = 3;
             this.AppointmentDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
@@ -155,10 +157,10 @@
             this.Header.Controls.Add(this.Title);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.ForeColor = System.Drawing.Color.White;
-            this.Header.Location = new System.Drawing.Point(0, 0);
+            this.Header.Location = new System.Drawing.Point(10, 10);
             this.Header.Margin = new System.Windows.Forms.Padding(0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(778, 40);
+            this.Header.Size = new System.Drawing.Size(758, 40);
             this.Header.TabIndex = 5;
             // 
             // CloseBtn
@@ -170,7 +172,7 @@
             this.CloseBtn.IconColor = System.Drawing.Color.Black;
             this.CloseBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.CloseBtn.IconSize = 25;
-            this.CloseBtn.Location = new System.Drawing.Point(736, 4);
+            this.CloseBtn.Location = new System.Drawing.Point(716, 4);
             this.CloseBtn.Margin = new System.Windows.Forms.Padding(0);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(39, 36);
@@ -187,7 +189,7 @@
             this.RefreshBtn.IconColor = System.Drawing.Color.Black;
             this.RefreshBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.RefreshBtn.IconSize = 25;
-            this.RefreshBtn.Location = new System.Drawing.Point(698, 4);
+            this.RefreshBtn.Location = new System.Drawing.Point(678, 4);
             this.RefreshBtn.Margin = new System.Windows.Forms.Padding(0);
             this.RefreshBtn.Name = "RefreshBtn";
             this.RefreshBtn.Size = new System.Drawing.Size(39, 36);
@@ -211,11 +213,11 @@
             // 
             this.Data.Controls.Add(this.AppointmentDataGrid);
             this.Data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Data.Location = new System.Drawing.Point(0, 84);
+            this.Data.Location = new System.Drawing.Point(10, 90);
             this.Data.Margin = new System.Windows.Forms.Padding(2);
             this.Data.Name = "Data";
             this.Data.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.Data.Size = new System.Drawing.Size(778, 381);
+            this.Data.Size = new System.Drawing.Size(758, 365);
             this.Data.TabIndex = 8;
             // 
             // dataGridViewImageColumn1
@@ -274,11 +276,11 @@
             this.Action.Controls.Add(this.DeliveryDatePicker);
             this.Action.Controls.Add(this.SearchBar);
             this.Action.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Action.Location = new System.Drawing.Point(0, 40);
+            this.Action.Location = new System.Drawing.Point(10, 50);
             this.Action.Margin = new System.Windows.Forms.Padding(2);
             this.Action.Name = "Action";
             this.Action.Padding = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.Action.Size = new System.Drawing.Size(778, 44);
+            this.Action.Size = new System.Drawing.Size(758, 40);
             this.Action.TabIndex = 7;
             // 
             // DeliveryDatePicker
@@ -286,20 +288,21 @@
             this.DeliveryDatePicker.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeliveryDatePicker.CalendarTitleBackColor = System.Drawing.Color.MediumSeaGreen;
             this.DeliveryDatePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeliveryDatePicker.Location = new System.Drawing.Point(7, 7);
+            this.DeliveryDatePicker.Location = new System.Drawing.Point(7, 6);
             this.DeliveryDatePicker.Name = "DeliveryDatePicker";
             this.DeliveryDatePicker.Size = new System.Drawing.Size(188, 29);
             this.DeliveryDatePicker.TabIndex = 10;
+            this.DeliveryDatePicker.ValueChanged += new System.EventHandler(this.DeliveryDatePicker_ValueChanged);
             // 
             // SearchBar
             // 
             this.SearchBar.Controls.Add(this.pictureBox1);
             this.SearchBar.Controls.Add(this.SearchBarTxt);
             this.SearchBar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SearchBar.Location = new System.Drawing.Point(554, 1);
+            this.SearchBar.Location = new System.Drawing.Point(534, 1);
             this.SearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBar.Name = "SearchBar";
-            this.SearchBar.Size = new System.Drawing.Size(220, 42);
+            this.SearchBar.Size = new System.Drawing.Size(220, 38);
             this.SearchBar.TabIndex = 10;
             // 
             // pictureBox1
@@ -329,9 +332,9 @@
             this.SearchBarTxt.MaxLength = 20;
             this.SearchBarTxt.Multiline = false;
             this.SearchBarTxt.Name = "SearchBarTxt";
-            this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(22, 8, 8, 6);
+            this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(25, 8, 8, 6);
             this.SearchBarTxt.PasswordChar = false;
-            this.SearchBarTxt.Placeholder = "";
+            this.SearchBarTxt.Placeholder = "Search";
             this.SearchBarTxt.ReadOnly = false;
             this.SearchBarTxt.Size = new System.Drawing.Size(220, 38);
             this.SearchBarTxt.TabIndex = 9;
@@ -386,6 +389,7 @@
             // 
             // Address
             // 
+            this.Address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Address.DataPropertyName = "address";
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Address.DefaultCellStyle = dataGridViewCellStyle3;
@@ -412,17 +416,25 @@
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
-            // Details
+            // details
             // 
-            this.Details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Details.HeaderText = "";
-            this.Details.Image = global::TheBetterLimited.Properties.Resources.eye;
-            this.Details.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Details.MinimumWidth = 6;
-            this.Details.Name = "Details";
-            this.Details.ReadOnly = true;
-            this.Details.ToolTipText = "Edit";
-            this.Details.Width = 6;
+            this.details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.details.HeaderText = "";
+            this.details.Image = global::TheBetterLimited.Properties.Resources.eye;
+            this.details.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.details.MinimumWidth = 6;
+            this.details.Name = "details";
+            this.details.ReadOnly = true;
+            this.details.ToolTipText = "Edit";
+            this.details.Width = 6;
+            // 
+            // print
+            // 
+            this.print.HeaderText = "";
+            this.print.Image = global::TheBetterLimited.Properties.Resources.print24;
+            this.print.Name = "print";
+            this.print.ReadOnly = true;
+            this.print.ToolTipText = "Print";
             // 
             // Appointment
             // 
@@ -437,7 +449,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Appointment";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "InventoryManagement";
+            this.Load += new System.EventHandler(this.Appointment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGrid)).EndInit();
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
@@ -474,6 +488,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewTextBoxColumn _teamId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewImageColumn Details;
+        private System.Windows.Forms.DataGridViewImageColumn details;
+        private System.Windows.Forms.DataGridViewImageColumn print;
     }
 }

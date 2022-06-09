@@ -297,6 +297,7 @@ namespace TheBetterLimited.Views
             InstallDatePicker.MaxDate = InstallDatePicker.MinDate.AddDays(29);
             DeliveryDatePicker.Value = ((DateTime)orderData["delivery"]["date"]).Date;
             DeliverySessionCombo.SelectedItem = ((DateTime)orderData["delivery"]["startTime"]).ToString("HH:mm") + " - " + ((DateTime)orderData["delivery"]["endTime"]).ToString("HH:mm");
+            Console.WriteLine(DeliverySessionCombo.SelectedIndex);
         }
 
         private void initInstall()
@@ -308,6 +309,7 @@ namespace TheBetterLimited.Views
                 needInstallItem.Add(item["itemNames"].ToString());
             }
             InstallSessionCombo.SelectedItem = ((DateTime)orderData["installation"]["startTime"]).ToString("HH:mm") + " - " + ((DateTime)orderData["installation"]["endTime"]).ToString("HH:mm");
+            Console.WriteLine(InstallSessionCombo.SelectedIndex);
         }
 
         private void OrderDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
