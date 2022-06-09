@@ -69,6 +69,10 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     });
                 }
 
+                var orderId = _SalesOrderItem_AppointmentTable.GetBySQL(
+                    Helpers.Sql.QueryStringBuilder.GetSqlStatement<SalesOrderItem_Appointment>($"_appointmentId:{item.ID}")
+                ).FirstOrDefault().SalesOrderItem._salesOrderId;
+
                 res.Add(
                     new Dto
                     {
@@ -80,6 +84,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         sessionId = item.Session.ID,
                         customer = item.Customer,
                         team = item.Team,
+                        orderId = orderId
                     }
                 );
             }

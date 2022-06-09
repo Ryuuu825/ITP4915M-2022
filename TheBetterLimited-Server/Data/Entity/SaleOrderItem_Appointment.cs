@@ -1,6 +1,6 @@
 namespace TheBetterLimited_Server.Data.Entity
 {
-    [Table("SaleOrderItem_Appointment")]
+    [Table("SalesOrderItem_Appointment")]
     public class SalesOrderItem_Appointment
     {
         [Key]

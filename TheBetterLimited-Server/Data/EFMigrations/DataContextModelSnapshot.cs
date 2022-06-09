@@ -714,7 +714,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasIndex("_appointmentId");
 
-                    b.ToTable("SaleOrderItem_Appointment");
+                    b.ToTable("SalesOrderItem_Appointment");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Session", b =>

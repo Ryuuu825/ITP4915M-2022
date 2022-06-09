@@ -11,11 +11,13 @@ namespace TheBetterLimited_Server.API.Controller
         private readonly Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock> sgs;
         private readonly Data.Repositories.Repository<Data.Entity.Store> StoreTable;
 
+        private readonly AppLogic.Controllers.GoodsController goodsController;
         public Inventory_Supplier_Goods_Stock(DataContext db)
         {
             repository = new Data.Repositories.Repository<Data.Entity.Goods>(db);
             sgs = new Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock>(db);
             StoreTable = new Data.Repositories.Repository<Data.Entity.Store>(db);
+            goodsController = new AppLogic.Controllers.GoodsController(db);
         }
 
         [HttpGet]
@@ -44,6 +46,7 @@ namespace TheBetterLimited_Server.API.Controller
                 h.Add("MaxLimit" , r.MaxLimit);
                 h.Add("MinLimit" , r.MinLimit);
                 h.Add("ReorderLevel" , r.ReorderLevel);
+                h.Add("Status" , goodsController.GetStockLevel(r).ToString());
                 result.Add(h);
             }
 
