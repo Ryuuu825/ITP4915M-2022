@@ -263,16 +263,17 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "Supplier_Goods_Stock",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "varchar(255)", nullable: false)
+                    Id = table.Column<string>(type: "varchar(9)", maxLength: 9, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _locationId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    _supplierGoodsId = table.Column<string>(type: "char(9)", maxLength: 9, nullable: false)
+                    _supplierGoodsId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Quantity = table.Column<int>(type: "MEDIUMINT", nullable: false),
                     MaxLimit = table.Column<int>(type: "MEDIUMINT", nullable: false),
                     MinLimit = table.Column<int>(type: "MEDIUMINT", nullable: false),
-                    ReorderLevel = table.Column<int>(type: "MEDIUMINT", nullable: false)
+                    ReorderLevel = table.Column<int>(type: "MEDIUMINT", nullable: false),
+                    isSoftDeleted = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -300,7 +301,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 {
                     Id = table.Column<string>(type: "char(5)", maxLength: 5, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    UserName = table.Column<string>(type: "char(15)", maxLength: 15, nullable: false)
+                    UserName = table.Column<string>(type: "char(20)", maxLength: 20, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Password = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -851,7 +852,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _supplierGoodsStockId = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    SupplierGoodsStock_supplierGoodsId = table.Column<string>(type: "char(9)", nullable: true)
+                    SupplierGoodsStock_supplierGoodsId = table.Column<string>(type: "char(10)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     SupplierGoodsStock_locationId = table.Column<string>(type: "char(3)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -903,7 +904,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _salesOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    _supplierGoodsStockId = table.Column<string>(type: "varchar(255)", nullable: false)
+                    _supplierGoodsStockId = table.Column<string>(type: "varchar(9)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Quantity = table.Column<sbyte>(type: "TINYINT", nullable: false),
                     _bookingOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)

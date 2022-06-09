@@ -9,6 +9,7 @@ namespace TheBetterLimited_Server.API.Controller
     public class Inventory_Supplier_Goods_Stock : ControllerBase
     {
         private readonly Data.Repositories.Repository<Data.Entity.Goods> repository;
+        private readonly Data.Repositories.Repository<Data.Entity.Supplier_Goods> sg;
         private readonly Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock> sgs;
         private readonly Data.Repositories.Repository<Data.Entity.Store> StoreTable;
         private readonly Data.Repositories.Repository<Data.Entity.Warehouse> WarehouseTable;
@@ -19,6 +20,7 @@ namespace TheBetterLimited_Server.API.Controller
         public Inventory_Supplier_Goods_Stock(DataContext db)
         {
             repository = new Data.Repositories.Repository<Data.Entity.Goods>(db);
+            sg = new Data.Repositories.Repository<Data.Entity.Supplier_Goods>(db);
             sgs = new Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock>(db);
             StoreTable = new Data.Repositories.Repository<Data.Entity.Store>(db);
             AccTable = new Data.Repositories.Repository<Data.Entity.Account>(db);
@@ -137,27 +139,45 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 return StatusCode(500 , "Location not found");
             }
-        
+
+            // get the supplier goods id
+            ConsoleLogger.Debug(content.GoodsId);
+            var supplierGoods = sg.GetBySQL(
+                Helpers.Sql.QueryStringBuilder.GetSqlStatement<Supplier_Goods>($"_goodsId:{content.GoodsId}")
+                ).FirstOrDefault();
+
+            if (supplierGoods == null)
+            {
+                return StatusCode(500 , "Supplier Goods not found");
+            }
 
 
             var entry = new Data.Entity.Supplier_Goods_Stock()
             {
                 Id = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.Supplier_Goods_Stock>(db),
                 _locationId = LocationId,
-                _supplierGoodsId = content.Supplier_GoodsID,
+                _supplierGoodsId = supplierGoods.ID,
                 Quantity = content.Quantity,
                 MaxLimit = content.MaxLimit,
                 MinLimit = content.MinLimit,
                 ReorderLevel = content.ReorderLevel,
                 isSoftDeleted = false
             };
-            sgs.Add(entry);
-            return Ok();
+            try
+            {
+                sgs.Add(entry);
+                return Ok();
+
+            }catch(Exception e)
+            {
+                return StatusCode(500 , "The stock already exit");
+            }
+           
         }
 
         public class InDto 
         {
-            public string Supplier_GoodsID { get; set; }
+            public string GoodsId { get; set; }
             public int Quantity { get; set; }
             public int MaxLimit { get; set; }   
             public int MinLimit { get; set; }

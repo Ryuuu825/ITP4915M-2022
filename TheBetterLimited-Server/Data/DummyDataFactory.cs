@@ -125,7 +125,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "John",
                     LastName = "Doe",
                     Sex = 'M',
-                    Age = 30
+                    Age = 30,
+                    _storeId="H01"
                 },
                 new Staff
                 {
@@ -135,7 +136,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Jane",
                     LastName = "Doe",
                     Sex = 'F',
-                    Age = 30
+                    Age = 30,
+                    _storeId="H01"
                 },
                 new Staff
                 {
@@ -145,7 +147,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Joe",
                     LastName = "Chan",
                     Sex = 'M',
-                    Age = 20
+                    Age = 20,
+                    _storeId="H01"
                 },
                 new Staff
                 {
@@ -155,7 +158,52 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Sophia",
                     LastName = "Wu",
                     Sex = 'F',
-                    Age = 19
+                    Age = 19,
+                    _storeId="H01"
+                },
+                new Staff
+                {
+                    Id = "S0209",
+                    _departmentId = "200",
+                    _positionId = "201",
+                    FirstName = "John",
+                    LastName = "Cena",
+                    Sex = 'M',
+                    Age = 30,
+                    _storeId="H02"
+                },
+                new Staff
+                {
+                    Id = "S0210",
+                    _departmentId = "200",
+                    _positionId = "201",
+                    FirstName = "Joey",
+                    LastName = "AD",
+                    Sex = 'F',
+                    Age = 30,
+                    _storeId="H02"
+                },
+                new Staff
+                {
+                    Id = "S0211",
+                    _departmentId = "200",
+                    _positionId = "201",
+                    FirstName = "Ben",
+                    LastName = "Chan",
+                    Sex = 'M',
+                    Age = 20,
+                    _storeId="H02"
+                },
+                new Staff
+                {
+                    Id = "S0212",
+                    _departmentId = "200",
+                    _positionId = "201",
+                    FirstName = "Sophena",
+                    LastName = "Wai",
+                    Sex = 'F',
+                    Age = 19,
+                    _storeId="H02"
                 },
                 // two sales manager
                 new Staff
@@ -744,8 +792,90 @@ namespace TheBetterLimited_Server.Data
                     EmailAddress = "user@domain.com",
                     Status = "N",
                     Remarks = "none"
-                }
+                },
+                    // one inventory manager
+                new Account
+                {
+                    Id = "A0007",
+                    _StaffId = "S0315",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "InventoryManager",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@domain.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
+                // delivery workman
+                new Account
+                {
+                    Id = "A0008",
+                    _StaffId = "S0316",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "DeliveryWorkman",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@domain.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
+                // technical workman
+                new Account
+                {
+                    Id = "A0009",
+                    _StaffId = "S0701",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "TechnicalWorkman",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@domain.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
 
+                //optional
+                //inventory clerk
+                new Account
+                {
+                    Id = "A0010",
+                    _StaffId = "S0301",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "InventoryClerk",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@domain.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
+
+                //salesman
+                new Account
+                {
+                    Id = "A0011",
+                    _StaffId = "S0205",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "Salesman",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@domain.com",
+                    Status = "N",
+                    Remarks = "none"
+                }
             };
         }
 
