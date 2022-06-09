@@ -100,6 +100,13 @@ namespace TheBetterLimited.Views
             }
         }
 
+        private void EditStock(DataGridViewCellEventArgs e)
+        {
+            string id = StockDataGrid["Id" , e.RowIndex].Value.ToString();
+            Stock_Edit edit = new Stock_Edit(id);
+            edit.Show();
+        }
+
         private void StockDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == StockDataGrid.Columns["select"].Index)
@@ -122,6 +129,7 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == StockDataGrid.Columns["edit"].Index)
             {
+                EditStock(e);
             }
 
 
