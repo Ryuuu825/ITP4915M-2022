@@ -22,6 +22,6 @@ namespace TheBetterLimited_Server.Data.Entity
         public DateTime Date { get; set; }
 
         [Column(TypeName = "TINYINT")]
-        public byte NumOfAppointments { get; set; }
+        public int NumOfAppointments { get; set; }
     }
 }

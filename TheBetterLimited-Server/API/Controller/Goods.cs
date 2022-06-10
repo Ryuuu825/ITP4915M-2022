@@ -58,14 +58,14 @@ namespace TheBetterLimited_Server.API.Controller
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
             }
         }
-        public class InDto : Data.Entity.Goods // shit code
+        public class GoodsInDto : Data.Entity.Goods // shit code
         {
             [AppLogic.Attribute.NotMapToDto]
             public string? supplierId { get; set; }
         }
 
         [HttpPost]
-        public virtual async Task<IActionResult> Add([FromBody] InDto entity , [FromHeader] string Language = "en")
+        public virtual async Task<IActionResult> Add([FromBody] GoodsInDto entity , [FromHeader] string Language = "en")
         {
             try
             {

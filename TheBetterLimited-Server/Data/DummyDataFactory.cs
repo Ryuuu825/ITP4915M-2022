@@ -2755,7 +2755,7 @@ namespace TheBetterLimited_Server.Data
                         StartTime = sessionRange[scounter].StartTime,
                         EndTime = sessionRange[scounter].EndTime,
                         Date = GenDate(),
-                        NumOfAppointments = (byte)sessionRange[scounter].NumOfAppointments
+                        NumOfAppointments = (sessionRange[scounter].NumOfAppointments)
                     }
                 );
                 i++;
@@ -2767,7 +2767,7 @@ namespace TheBetterLimited_Server.Data
                         StartTime = sessionRange[scounter].StartTime,
                         EndTime = sessionRange[scounter].EndTime,
                         Date = GenDate(),
-                        NumOfAppointments = (byte)sessionRange[scounter].NumOfAppointments
+                        NumOfAppointments = (sessionRange[scounter].NumOfAppointments)
                     }
                 );
                 scounter++;

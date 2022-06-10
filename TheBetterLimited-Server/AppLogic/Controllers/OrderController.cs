@@ -472,6 +472,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     Session s0 = _SessionTable.GetBySQL(
                         Helpers.Sql.QueryStringBuilder.GetSqlStatement<Session>($"Id:{order.Appointments[0].SessionId}")
                     ).FirstOrDefault();
+                    if (s0.NumOfAppointments - 1 <= 0)
+                    {
+                        CleanOrder(newOrder.ID);
+                        throw new BadArgException("Cannot create appointment, the session is full");
+                    }
                     s0.NumOfAppointments -= 1;
                     _SessionTable.Update(s0);
                     s0 = null;
@@ -488,6 +493,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     Session s1 = _SessionTable.GetBySQL(
                         Helpers.Sql.QueryStringBuilder.GetSqlStatement<Session>($"Id:{order.Appointments[1].SessionId}")
                     ).FirstOrDefault();
+                     if (s1.NumOfAppointments - 1 <= 0)
+                    {
+                        CleanOrder(newOrder.ID);
+                        throw new BadArgException("Cannot create appointment, the session is full");
+                    }
                     s1.NumOfAppointments -= 1;
                     _SessionTable.Update(s1);
                     s1 = null;
