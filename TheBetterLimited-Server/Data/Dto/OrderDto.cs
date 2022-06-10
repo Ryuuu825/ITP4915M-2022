@@ -22,7 +22,8 @@ namespace TheBetterLimited_Server.Data.Dto
              updateAt : "" , 
              Status : "Selling" , 
              total: 1000, 
-             paid:800}
+             paid:800
+            }
         
         */
         public List<SalesOrderItemOutDto> orderItems { get; set; }

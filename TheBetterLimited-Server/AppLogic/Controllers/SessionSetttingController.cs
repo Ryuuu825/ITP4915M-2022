@@ -54,7 +54,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     StartTime = newVersion[i].StartTime,
                     EndTime = newVersion[i].EndTime,
                     Date = nextMonth,
-                    NumOfAppointments = (byte) newVersion[i].NumOfAppointments
+                    NumOfAppointments =  newVersion[i].NumOfAppointments
                 };
                 _SessionTable.Add(DSession);
 
@@ -65,7 +65,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     StartTime = newVersion[i].StartTime,
                     EndTime = newVersion[i].EndTime,
                     Date = nextMonth,
-                    NumOfAppointments = (byte) newVersion[i].NumOfAppointments
+                    NumOfAppointments = newVersion[i].NumOfAppointments
                 };
                 _SessionTable.Add(ESession);
             }

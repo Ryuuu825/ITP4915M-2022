@@ -98,7 +98,13 @@
         <PublishSingleFile>true</PublishSingleFile>
     </PropertyGroup>
     
-    <Target Name="MakeDir">
+    <Target Name="MakeDir" AfterTargets="Build">
+        <MakeDir Directories="$(OutDir)var" />
+        <MakeDir Directories="$(OutDir)var\tmp" />
+        <MakeDir Directories="$(OutDir)var\log" />
+    </Target>
+    <Target Name="MakeDir" AfterTargets="AfterPublish">
+        <MakeDir Directories="$(OutDir)var" />
         <MakeDir Directories="$(OutDir)var\tmp" />
         <MakeDir Directories="$(OutDir)var\log" />
     </Target>

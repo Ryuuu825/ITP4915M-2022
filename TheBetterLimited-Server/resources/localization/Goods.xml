@@ -90,25 +90,25 @@
         </RFS1000008D>
 
         <!-- Washing Machines -->
-        <WMF10000009N>
+        <WMF1000009N>
             <en>SHARP ES-W850K-B 8.5KG 1200RPM Front Loading Washer</en>
             <zh>SHARP 声宝 ES-W850K-B 8.5公斤1200转前置式洗衣机</zh>
-        </WMF10000009N>
+        </WMF1000009N>
 
-        <WMF10000009D>
+        <WMF1000009D>
             <en>J-TECH Inverter. Reducing energy consumption by up to 47% compared to conventional motors and increasing the energy efficiency of washing machines. Steam Function can completely remove 99.9% bacteria and allergen.</en>
             <zh>J-TECH 逆变器. 降低能耗至47%,比传统电机和洗衣机的能耗更低,洗衣机的能效更高。洗衣机的蒸汽功能可以完全消除99.9%的菌类和污染物。</zh>
-        </WMF10000009D>
+        </WMF1000009D>
 
-        <WMF10000010N>
+        <WMF1000010N>
             <en>WHIRLPOOL TDLR70234 7 Kg Top Load Washer</en>
             <zh>WHIRLPOOL 惠而浦 TDLR70234 7公斤上置式洗衣机</zh>
-        </WMF10000010N>
+        </WMF1000010N>
 
-        <WMF10000010D>
+        <WMF1000010D>
             <en>Eliminates 99.9%* of bacteria at 60°C with a Sanitize wash program.</en>
             <zh>特设高效杀菌程序,杀灭高达 99% 细菌* </zh>
-        </WMF10000010D>
+        </WMF1000010D>
 
 
         <ACS1000011N>
@@ -282,6 +282,16 @@
             <en>Think gaming laptops have reached their limit? Check out the new Razer Blade 15, powered by the latest 12th Gen Intel® Core™ processors (14 cores) and NVIDIA® GeForce RTX™ 30 series laptop GPU</en>
             <zh>以为电竞笔电已经达到极限了吗？来瞧瞧新推出的 Razer Blade 15,搭载最新第 12 代 Intel® Core™ 处理器（14 核心）和 NVIDIA®GeForce RTX™30 系列笔记型电脑 GPU,带来了史上最强大的电竞笔电显卡性能。可自由选择 Full HD 360Hz、QHD 240Hz (G-Sync) 或全新的 UHD 144Hz 显示器,这轻薄无比的 15 吋 RTX 电竞笔电机箱里,蕴藏着无与伦比的效能。</zh>
         </COF1000027D>
+
+        <HKA1000018N>
+            <en>The Best Microwave</en>
+            <zh>最好的微波炉</zh>
+        </HKA1000018N>
+
+        <HKA1000018D>
+            <en>Microwave</en>
+            <zh>少十</zh>
+        </HKA1000018D>
 
     </Translation>
 </root>

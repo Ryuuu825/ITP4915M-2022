@@ -65,7 +65,7 @@ public class EntityValidator : IDisposable
 #if DEBUG
             foreach (var item in v._res)
             {
-                Console.WriteLine(item.ErrorMessage);
+                ConsoleLogger.Error(item.ErrorMessage);
             }
 #endif
         }

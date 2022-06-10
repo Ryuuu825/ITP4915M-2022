@@ -1,6 +1,6 @@
 using TheBetterLimited_Server.Data.Entity;
 using TheBetterLimited_Server.Helpers;
-
+using System.IO.Compression;
 
 namespace TheBetterLimited_Server.Data
 {
@@ -33,13 +33,17 @@ namespace TheBetterLimited_Server.Data
 
                 using (Repositories.AccountRepository _userTable = new Repositories.AccountRepository(db))
                 {
-                    var accs =  CreateAccount();
-                    foreach(var acc in accs)
+                    var accs = CreateAccount();
+                    foreach (var acc in accs)
                     {
                         var entity = acc;
                         _userTable.CreateUser(ref entity);
                     }
                 }
+
+                CreateGoodsPhoto(db);
+                db.SaveChanges();
+
             }
             catch (Exception e)
             {
@@ -79,7 +83,7 @@ namespace TheBetterLimited_Server.Data
                     Age = 18,
                     _storeId = "H01",
 
-            },
+                },
                 new Staff()
                 {
                     Id = "S0002",
@@ -125,7 +129,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "John",
                     LastName = "Doe",
                     Sex = 'M',
-                    Age = 30
+                    Age = 30,
+                    _storeId="H01"
                 },
                 new Staff
                 {
@@ -135,7 +140,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Jane",
                     LastName = "Doe",
                     Sex = 'F',
-                    Age = 30
+                    Age = 30,
+                    _storeId="H01"
                 },
                 new Staff
                 {
@@ -145,9 +151,10 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Joe",
                     LastName = "Chan",
                     Sex = 'M',
-                    Age = 20
+                    Age = 20,
+                    _storeId="H01"
                 },
-                new Staff 
+                new Staff
                 {
                     Id = "S0208",
                     _departmentId = "200",
@@ -155,10 +162,55 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Sophia",
                     LastName = "Wu",
                     Sex = 'F',
-                    Age = 19
+                    Age = 19,
+                    _storeId="H01"
+                },
+                new Staff
+                {
+                    Id = "S0209",
+                    _departmentId = "200",
+                    _positionId = "201",
+                    FirstName = "John",
+                    LastName = "Cena",
+                    Sex = 'M',
+                    Age = 30,
+                    _storeId="H02"
+                },
+                new Staff
+                {
+                    Id = "S0210",
+                    _departmentId = "200",
+                    _positionId = "201",
+                    FirstName = "Joey",
+                    LastName = "AD",
+                    Sex = 'F',
+                    Age = 30,
+                    _storeId="H02"
+                },
+                new Staff
+                {
+                    Id = "S0211",
+                    _departmentId = "200",
+                    _positionId = "201",
+                    FirstName = "Ben",
+                    LastName = "Chan",
+                    Sex = 'M',
+                    Age = 20,
+                    _storeId="H02"
+                },
+                new Staff
+                {
+                    Id = "S0212",
+                    _departmentId = "200",
+                    _positionId = "201",
+                    FirstName = "Sophena",
+                    LastName = "Wai",
+                    Sex = 'F',
+                    Age = 19,
+                    _storeId="H02"
                 },
                 // two sales manager
-                new Staff 
+                new Staff
                 {
                     Id = "S0299",
                     _departmentId = "200",
@@ -169,7 +221,7 @@ namespace TheBetterLimited_Server.Data
                     Sex = 'M',
                     Age = 42
                 },
-                new Staff 
+                new Staff
                 {
                     Id = "S0298",
                     _departmentId = "200",
@@ -211,7 +263,7 @@ namespace TheBetterLimited_Server.Data
                     Sex = 'F',
                     Age = 20
                 },
-                new Staff 
+                new Staff
                 {
                     Id = "S0304",
                     _departmentId = "300",
@@ -221,7 +273,7 @@ namespace TheBetterLimited_Server.Data
                     Sex = 'F',
                     Age = 19
                 },
-                new Staff 
+                new Staff
                 {
                     Id = "S0305",
                     _departmentId = "300",
@@ -231,7 +283,7 @@ namespace TheBetterLimited_Server.Data
                     Sex = 'F',
                     Age = 19
                 },
-                new Staff 
+                new Staff
                 {
                     Id = "S0306",
                     _departmentId = "300",
@@ -251,7 +303,7 @@ namespace TheBetterLimited_Server.Data
                     Sex = 'F',
                     Age = 20
                 },
-                new Staff 
+                new Staff
                 {
                     Id = "S0308",
                     _departmentId = "300",
@@ -291,7 +343,7 @@ namespace TheBetterLimited_Server.Data
                     Sex = 'M',
                     Age = 20
                 },
-                new Staff 
+                new Staff
                 {
                     Id = "S0312",
                     _departmentId = "300",
@@ -311,7 +363,7 @@ namespace TheBetterLimited_Server.Data
                     Sex = 'M',
                     Age = 20
                 },
-                new Staff 
+                new Staff
                 {
                     Id = "S0314",
                     _departmentId = "300",
@@ -322,7 +374,7 @@ namespace TheBetterLimited_Server.Data
                     Age = 27
                 },
                 // one inventory manager
-                new Staff 
+                new Staff
                 {
                     Id = "S0315",
                     _departmentId = "300",
@@ -331,18 +383,317 @@ namespace TheBetterLimited_Server.Data
                     LastName = "Ikura",
                     Sex = 'F',
                     Age = 43
+                },
+                // 15 delivery workman
+                new Staff
+                {
+                    Id = "S0316",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Seven",
+                    LastName = "Sea",
+                    Sex = 'F',
+                    Age = 32
+                },
+                new Staff
+                {
+                    Id = "S0317",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Pao",
+                    LastName = "Chan",
+                    Sex = 'M',
+                    Age = 25
+                },
+                new Staff
+                {
+                    Id = "S0318",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Ben",
+                    LastName = "Chao",
+                    Sex = 'M',
+                    Age = 18
+                },
+                new Staff
+                {
+                    Id = "S0319",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Leo",
+                    LastName = "Lai",
+                    Sex = 'M',
+                    Age = 45
+                },
+                new Staff
+                {
+                    Id = "S0320",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Arthur",
+                    LastName = "Lo",
+                    Sex = 'M',
+                    Age = 38
+                },
+                new Staff
+                {
+                    Id = "S0321",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Stephen",
+                    LastName = "Kwok",
+                    Sex = 'M',
+                    Age = 40
+                },
+                new Staff
+                {
+                    Id = "S0322",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Jessie",
+                    LastName = "Wong",
+                    Sex = 'F',
+                    Age = 20
+                },
+                new Staff
+                {
+                    Id = "S0323",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Alkoline",
+                    LastName = "Water",
+                    Sex = 'M',
+                    Age = 60
+                },
+                new Staff
+                {
+                    Id = "S0324",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Gigi",
+                    LastName = "Wong",
+                    Sex = 'F',
+                    Age = 21
+                },
+                new Staff
+                {
+                    Id = "S0325",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Anson",
+                    LastName = "Pink",
+                    Sex = 'M',
+                    Age = 28
+                },
+                new Staff
+                {
+                    Id = "S0326",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Momoko",
+                    LastName = "Lai",
+                    Sex = 'F',
+                    Age = 27
+                },
+                new Staff
+                {
+                    Id = "S0327",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Joan",
+                    LastName = "Lo",
+                    Sex = 'M',
+                    Age = 43
+                },
+                new Staff
+                {
+                    Id = "S0328",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Sophia",
+                    LastName = "Lam",
+                    Sex = 'F',
+                    Age = 47
+                },
+                new Staff
+                {
+                    Id = "S0329",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "KK",
+                    LastName = "Ip",
+                    Sex = 'M',
+                    Age = 51
+                },
+                new Staff
+                {
+                    Id = "S0330",
+                    _departmentId = "300",
+                    _positionId = "303",
+                    FirstName = "Michelle",
+                    LastName = "Sum",
+                    Sex = 'F',
+                    Age = 19
+                },
+                // 15 techinal workman
+                new Staff
+                {
+                    Id = "S0701",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Eden",
+                    LastName = "Chan",
+                    Sex = 'M',
+                    Age = 18
+                },
+                new Staff
+                {
+                    Id = "S0702",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Cinderella",
+                    LastName = "Luk",
+                    Sex = 'F',
+                    Age = 26
+                },
+                new Staff
+                {
+                    Id = "S0703",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Jerry",
+                    LastName = "Young",
+                    Sex = 'M',
+                    Age = 37
+                },
+                new Staff
+                {
+                    Id = "S0704",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Crystal",
+                    LastName = "Chan",
+                    Sex = 'F',
+                    Age = 31
+                },
+                new Staff
+                {
+                    Id = "S0705",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "John",
+                    LastName = "Ng",
+                    Sex = 'M',
+                    Age = 36
+                },
+                new Staff
+                {
+                    Id = "S0706",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Yannis",
+                    LastName = "Ng",
+                    Sex = 'F',
+                    Age = 34
+                },
+                new Staff
+                {
+                    Id = "S0707",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Jimmy",
+                    LastName = "Wong",
+                    Sex = 'M',
+                    Age = 21
+                },
+                new Staff
+                {
+                    Id = "S0708",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Sandy",
+                    LastName = "Lam",
+                    Sex = 'F',
+                    Age = 23
+                },
+                new Staff
+                {
+                    Id = "S0709",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Dylan",
+                    LastName = "Lee",
+                    Sex = 'M',
+                    Age = 24
+                },
+                new Staff
+                {
+                    Id = "S0710",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Sally",
+                    LastName = "Ma",
+                    Sex = 'F',
+                    Age = 28
+                },
+                new Staff
+                {
+                    Id = "S0711",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Dareum",
+                    LastName = "Nam",
+                    Sex = 'M',
+                    Age = 34
+                },
+                new Staff
+                {
+                    Id = "S0712",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Harry",
+                    LastName = "Potter",
+                    Sex = 'M',
+                    Age = 18
+                },
+                new Staff
+                {
+                    Id = "S0713",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Jacky",
+                    LastName = "Chan",
+                    Sex = 'M',
+                    Age = 19
+                },
+                new Staff
+                {
+                    Id = "S0714",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Anya",
+                    LastName = "Forger",
+                    Sex = 'F',
+                    Age = 24
+                },
+                new Staff
+                {
+                    Id = "S0715",
+                    _departmentId = "700",
+                    _positionId = "701",
+                    FirstName = "Rider",
+                    LastName = "Light",
+                    Sex = 'M',
+                    Age = 25
                 }
-
-
             };
-        }   
+        }
 
-        
         public static List<Account> CreateAccount()
         {
             return new List<Account>
             {
-                new Account 
+                new Account
                 {
                     Id = "A0000",
                     _StaffId = "S0000",
@@ -416,7 +767,7 @@ namespace TheBetterLimited_Server.Data
                     Remarks = "none"
                 },
                 // two retail store manager
-                new Account 
+                new Account
                 {
                     Id = "A0005",
                     _StaffId = "S0299",
@@ -431,7 +782,7 @@ namespace TheBetterLimited_Server.Data
                     Status = "N",
                     Remarks = "none"
                 },
-                new Account 
+                new Account
                 {
                     Id = "A0006",
                     _StaffId = "S0298",
@@ -445,14 +796,96 @@ namespace TheBetterLimited_Server.Data
                     EmailAddress = "user@domain.com",
                     Status = "N",
                     Remarks = "none"
-                }
+                },
+                    // one inventory manager
+                new Account
+                {
+                    Id = "A0007",
+                    _StaffId = "S0315",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "InventoryManager",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@domain.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
+                // delivery workman
+                new Account
+                {
+                    Id = "A0008",
+                    _StaffId = "S0316",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "DeliveryWorkman",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@domain.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
+                // technical workman
+                new Account
+                {
+                    Id = "A0009",
+                    _StaffId = "S0701",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "TechnicalWorkman",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@domain.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
 
+                //optional
+                //inventory clerk
+                new Account
+                {
+                    Id = "A0010",
+                    _StaffId = "S0301",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "InventoryClerk",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@domain.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
+
+                //salesman
+                new Account
+                {
+                    Id = "A0011",
+                    _StaffId = "S0205",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "Salesman",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@domain.com",
+                    Status = "N",
+                    Remarks = "none"
+                }
             };
         }
 
         public static Department[] CreateDepartment()
         {
-            return new Department[] 
+            return new Department[]
             {
                 new Department
                 {
@@ -494,7 +927,11 @@ namespace TheBetterLimited_Server.Data
                     Id = "700",
                     Name = "Technical"
                 },
-                
+                new Department
+                {
+                    Id = "800",
+                    Name = "Purchase"
+                },
                 new Department
                 {
                     Id = "900",
@@ -508,7 +945,7 @@ namespace TheBetterLimited_Server.Data
             };
         }
 
-    
+
         public static Position[] CreatePosition()
         {
             return new Position[]
@@ -559,6 +996,12 @@ namespace TheBetterLimited_Server.Data
                 {
                     Id = "302",
                     jobTitle = "Inventory Manager",
+                    _departmentId = "300"
+                },
+                new Position
+                {
+                    Id = "303",
+                    jobTitle = "Delivery Workman",
                     _departmentId = "300"
                 },
                 new Position
@@ -614,6 +1057,30 @@ namespace TheBetterLimited_Server.Data
                     Id = "605",
                     jobTitle = "Project Manager",
                     _departmentId = "900"
+                },
+                new Position
+                {
+                    Id = "701",
+                    jobTitle = "Technical Workman",
+                    _departmentId = "700"
+                },
+                new Position
+                {
+                    Id = "702",
+                    jobTitle = "Technical Manager",
+                    _departmentId = "700"
+                },
+                new Position
+                {
+                    Id = "801",
+                    jobTitle = "Purchase Clerk",
+                    _departmentId = "800"
+                },
+                new Position
+                {
+                    Id = "802",
+                    jobTitle = "Purchase Manager",
+                    _departmentId = "800"
                 },
                 new Position
                 {
@@ -707,7 +1174,7 @@ namespace TheBetterLimited_Server.Data
                 }
             };
         }
-    
+
         public static Catalogue[] CreateCatalogue()
         {
             return new Catalogue[]
@@ -751,13 +1218,7 @@ namespace TheBetterLimited_Server.Data
         }
 
         public static List<Goods> CreateGoods()
-        {   
-            List<byte[]> images = new List<byte[]>(3);
-            FileInfo[] dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "resources/product/image").GetFiles();
-            foreach (var file in dir)
-            {
-                images.Add(File.ReadAllBytes(file.FullName));
-            }
+        {
             return new List<Goods>(30)
             {
                 new Goods
@@ -769,8 +1230,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 4550,
                     GTINCode = GTINGenerator.L("00001"),
                     Size = GoodsSize.Large,
-                    Status = GoodsStatus.Selling,
-                    Photo = images[0],
+                    Status = GoodsStatus.Selling
                 },
                 new Goods
                 {
@@ -783,7 +1243,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "TVA0000003",
                     Name = "@$TVA0000003N",
@@ -812,11 +1272,11 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "100",
                     Description = "@$TVA0000005D",
                     Price = 6399,
-                    GTINCode = GTINGenerator.L("10005"),    
+                    GTINCode = GTINGenerator.L("10005"),
                     Size = GoodsSize.Medium,
                     Status = GoodsStatus.Selling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "TVA0000006",
                     Name = "@$TVA0000006N",
@@ -840,7 +1300,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "RFS1000008",
                     Name = "@$RFS1000008N",
@@ -927,7 +1387,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.StopSelling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "HKA1000015",
                     Name = "@$HKA1000015N",
@@ -958,6 +1418,17 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 1999,
                     GTINCode = GTINGenerator.L("100017"),
                     Size = GoodsSize.Small,
+                    Status = GoodsStatus.Selling
+                },
+                new Goods
+                {
+                    Id = "HKA1000018",
+                    Name = "@$HKA1000018N",
+                    _catalogueId = "500",
+                    Description = "@$HKA1000018D",
+                    Price = (decimal) 3999,
+                    GTINCode = GTINGenerator.L("100018"),
+                    Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling
                 },
                 // Mobile and Communication Devices 600
@@ -1018,7 +1489,7 @@ namespace TheBetterLimited_Server.Data
                 },
 
                 // Computer and Offices 
-                new Goods 
+                new Goods
                 {
                     Id = "COF1000023",
                     Name = "@$COF1000023N",
@@ -1029,7 +1500,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "COF1000024",
                     Name = "@$COF1000024N",
@@ -1040,7 +1511,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "COF1000025",
                     Name = "@$COF1000025N",
@@ -1051,7 +1522,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling
                 },
-                                new Goods 
+                                new Goods
                 {
                     Id = "COF1000026",
                     Name = "@$COF1000026N",
@@ -1062,7 +1533,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "COF1000027",
                     Name = "@$COF1000027N",
@@ -1072,7 +1543,8 @@ namespace TheBetterLimited_Server.Data
                     GTINCode = GTINGenerator.L("100027"),
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling
-                }
+                },
+
             };
         }
 
@@ -1139,7 +1611,7 @@ namespace TheBetterLimited_Server.Data
         {
             return new Location[]
             {
-                new Location 
+                new Location
                 {
                     Id = "001",
                     Loc = "Admin",
@@ -1193,17 +1665,18 @@ namespace TheBetterLimited_Server.Data
                     ID = "H01",
                     _locationID = "004"
                 },
-                new Store 
+                new Store
                 {
                     ID = "H02",
                     _locationID = "005"
                 }
             };
         }
-        
+
         public static Supplier_Goods[] CreateSupplier_Goods()
         {
             Supplier[] suppliers = CreateSupplier();
+            int i = "100000030".ToInt();
             // get a random supplier
             return new Supplier_Goods[]
             {
@@ -1410,11 +1883,40 @@ namespace TheBetterLimited_Server.Data
                     _goodsId = "TVA0000006",
                     Price = 3999
                 },
+                new Supplier_Goods
+                {
+                    ID = "100000030",
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "HKA1000018",
+                    Price = 3888
+                },
+                new Supplier_Goods
+                {
+                    ID = (++i).ToString(),
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "HKA1000018",
+                    Price = 3888
+                },
+                new Supplier_Goods
+                {
+                    ID = (++i).ToString(),
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "WMF1000009",
+                    Price = 5980
+                },
+                new Supplier_Goods
+                {
+                    ID = (++i).ToString(),
+                    _supplierId = suppliers[ran.Next(0, suppliers.Length)].ID,
+                    _goodsId = "WMF1000010",
+                    Price = 4180
+                }
             };
         }
 
         public static Supplier_Goods_Stock[] CreateSupplier_Goods_Stock()
         {
+            int i = "100000044".ToInt();
             return new Supplier_Goods_Stock[]
             {
                 new Supplier_Goods_Stock
@@ -1767,8 +2269,428 @@ namespace TheBetterLimited_Server.Data
                     MinLimit = ran.Next(5, 20),
                     ReorderLevel = ran.Next(20 , 30),
                 },
-            }; 
-                
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000037",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000015",
+                    Quantity = 0,
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = 11,
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000038",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000030",
+                    Quantity = 0,
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = 11,
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000039",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000016",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000040",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000016",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000041",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000016",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000042",
+                    _locationId = "003",
+                    _supplierGoodsId = "100000017",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000043",
+                    _locationId = "004",
+                    _supplierGoodsId = "100000017",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = "100000044",
+                    _locationId = "005",
+                    _supplierGoodsId = "100000017",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000018",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000000",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000019",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000020",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000021",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000022",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000023",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "004",
+                    _supplierGoodsId = "100000023",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "005",
+                    _supplierGoodsId = "100000023",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000024",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "004",
+                    _supplierGoodsId = "100000024",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "005",
+                    _supplierGoodsId = "100000024",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000025",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "004",
+                    _supplierGoodsId = "100000025",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "005",
+                    _supplierGoodsId = "100000025",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000026",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "004",
+                    _supplierGoodsId = "100000026",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "005",
+                    _supplierGoodsId = "100000026",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000027",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "004",
+                    _supplierGoodsId = "100000027",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "005",
+                    _supplierGoodsId = "100000027",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000028",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "004",
+                    _supplierGoodsId = "100000028",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "005",
+                    _supplierGoodsId = "100000028",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000029",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "004",
+                    _supplierGoodsId = "100000029",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "005",
+                    _supplierGoodsId = "100000029",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000031",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000032",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "004",
+                    _supplierGoodsId = "100000032",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "005",
+                    _supplierGoodsId = "100000032",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "003",
+                    _supplierGoodsId = "100000033",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "004",
+                    _supplierGoodsId = "100000033",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                },
+                new Supplier_Goods_Stock
+                {
+                    Id = (++i).ToString(),
+                    _locationId = "005",
+                    _supplierGoodsId = "100000033",
+                    Quantity = ran.Next(20,100),
+                    MaxLimit= ran.Next(105 , 120),
+                    MinLimit = ran.Next(5, 20),
+                    ReorderLevel = ran.Next(20 , 30)
+                }
+            };
+
         }
 
         public static List<SessionSetting> CreateSessionSetting()
@@ -1802,7 +2724,7 @@ namespace TheBetterLimited_Server.Data
 
         public static List<Session> CreateSession(DataContext db)
         {
-            
+
 
             List<SessionSetting> sessionRange = db.Set<SessionSetting>().ToList();
             List<Session> sessions = new List<Session>();
@@ -1816,7 +2738,7 @@ namespace TheBetterLimited_Server.Data
             //     NumOfAppointments = sessionRange[scounter].NumOfAppointments,
             //     SessionSettingID = sessionRange[scounter].ID
             // });
-            for(int i = 1 ; i < 188; )
+            for (int i = 1; i < 188;)
             {
                 if (scounter >= sessionRange.Count)
                     scounter = 0;
@@ -1830,7 +2752,7 @@ namespace TheBetterLimited_Server.Data
                         StartTime = sessionRange[scounter].StartTime,
                         EndTime = sessionRange[scounter].EndTime,
                         Date = GenDate(),
-                        NumOfAppointments = (byte) sessionRange[scounter].NumOfAppointments
+                        NumOfAppointments = (sessionRange[scounter].NumOfAppointments)
                     }
                 );
                 i++;
@@ -1842,7 +2764,7 @@ namespace TheBetterLimited_Server.Data
                         StartTime = sessionRange[scounter].StartTime,
                         EndTime = sessionRange[scounter].EndTime,
                         Date = GenDate(),
-                        NumOfAppointments = (byte) sessionRange[scounter].NumOfAppointments
+                        NumOfAppointments = (sessionRange[scounter].NumOfAppointments)
                     }
                 );
                 scounter++;
@@ -1867,5 +2789,42 @@ namespace TheBetterLimited_Server.Data
             return last;
         }
 
+        public static void CreateGoodsPhoto(DataContext db)
+        {
+            string path = @"resources\product\image";
+
+            if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + path))
+            {   
+                Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + path, true);
+            }
+            ConsoleLogger.Debug(AppDomain.CurrentDomain.BaseDirectory + path);
+            Helpers.File.ZipHelper.Decompress("resources/product/image.zip" , "resources/product" );
+            // get the all the files in the folder
+            // FileInfo[] files = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + path).GetFiles();
+
+            // List<Goods> goods = db.Set<Goods>().ToList();
+            // for(int i = 0 ; i < files.Length && i < goods.Count; i++)
+            // {
+            //     // goods[i].Photo = Helpers.ByteArrayCompressor.Compress(File.ReadAllBytes(files[i].FullName));
+            //     goods[i].Photo = File.ReadAllBytes(files[i].FullName);
+
+            //     db.Set<Goods>().Update(goods[i]);
+            //     db.SaveChanges();
+            // }
+            List<Goods> goods = db.Set<Goods>().ToList();
+
+
+            foreach(Goods g in goods)
+            {
+                g.Photo = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + path + "/" + g.Id + ".png");
+                db.Set<Goods>().Update(g);
+                db.SaveChanges();
+            }
+
+            Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + path, true);
+
+        }
+
+        
     }
 }

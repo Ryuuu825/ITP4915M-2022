@@ -72,7 +72,7 @@ namespace TheBetterLimited_Server.Helpers.Entity
             {
                 throw new BadArgException("Invalid update content.");
             }
-            var newObj = o.CopyAs<T>();
+            var newObj = o.TryCopy<T>();
             foreach (var item in updateContent)
             {
                 try

@@ -59,6 +59,20 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }.MapToDto(); // convert the object to hashmap
         }
 
+        public async Task CreateSupplierGoods (string id , string supplierId)
+        {
+            var goods = await _GoodsTable.GetByIdAsync(id);
+            var supplierGoods = new Supplier_Goods()
+            {
+                _goodsId = id,
+                _supplierId = supplierId,
+                ID = Helpers.Sql.PrimaryKeyGenerator.Get<Supplier_Goods>(db),
+                Price = (double) goods.Price
+            };
+            ConsoleLogger.Debug("sfsfd" + supplierGoods.Debug());
+            await _Supplier_GoodsTable.AddAsync(supplierGoods);
+        }
+
 
         public async Task<List<Hashtable>> ToOutDto(List<Goods> entries , string UserName, string lang = "en")
         {
@@ -235,6 +249,12 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
         }
 
+        public async Task<byte[]?> GetImage(string id)
+        {
+            var entry = await _GoodsTable.GetByIdAsync(id);
+            return entry.Photo; // get the compressed image of  the goods
+        }
+
         public GoodsStockStatus GetStockLevel(Supplier_Goods_Stock sgs)
         {
             var stock = sgs.Quantity;
@@ -258,11 +278,14 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     }
                 }
             }
-
             
-            if (stock < min)
+            if (stock <= 0)
             {
                 return GoodsStockStatus.OutOfStock;
+            }
+            if (stock < min)
+            {
+                return GoodsStockStatus.Danger;
             }
             else if (stock < reorder)
             {

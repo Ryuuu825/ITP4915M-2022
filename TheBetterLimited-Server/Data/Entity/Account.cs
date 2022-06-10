@@ -16,8 +16,8 @@ public class Account
     public string Id { get; set; }
 
     [Required]
-    [MaxLength(15)]
-    [Column(TypeName = "char(15)")]
+    [MaxLength(20)]
+    [Column(TypeName = "char(20)")]
     public string UserName { get; set; }
 
     [Required]

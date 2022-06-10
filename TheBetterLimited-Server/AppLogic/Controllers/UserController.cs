@@ -24,7 +24,7 @@ public class UserController
 
     public async Task CreateUser(AccountDto acc, bool saveNow = true)
     {
-        var newObj = acc.CopyAs<Account>();
+        var newObj = acc.TryCopy<Account>();
 
         newObj.Id = Helpers.Sql.PrimaryKeyGenerator.Get<Account>(_db );
         newObj.Password = Helpers.Secure.Hasher.Hash(newObj.Password);
@@ -71,7 +71,7 @@ public class UserController
         List<AccountOutDto> res = new List<AccountOutDto>();
         foreach(var entry in list)
         {
-            var o = entry.CopyAs<AccountOutDto>();
+            var o = entry.TryCopy<AccountOutDto>();
             o.StaffName = entry.Staff.FirstName + " " + entry.Staff.LastName;
             res.Add(o);
         }
@@ -130,7 +130,7 @@ public class UserController
 
 
         if(await _UserTable.UpdateAsync(record , saveNow))
-            return record.CopyAs<AccountOutDto>();
+            return record.TryCopy<AccountOutDto>();
         else
             throw new OperationFailException("Update failed");
     }
@@ -142,7 +142,7 @@ public class UserController
         {
             await UpdateUserAsync(record.Id , updateContent, saveNow);
         }
-        return records.CopyAs<List<AccountOutDto>>();
+        return records.TryCopy<List<AccountOutDto>>();
     }
     
     public async Task LockUserAsync(string id , int lockDay)

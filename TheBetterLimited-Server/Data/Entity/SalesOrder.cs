@@ -42,17 +42,15 @@ namespace TheBetterLimited_Server.Data.Entity
     public enum SalesOrderStatus
     {
         Placed,
-        ReadyToDeliver,
+        PendingDelivery,
         Delivering,
         Delivered,
         ReadyToInstall,
         Installing,
         Installed,
-        NotDelivered,
         Completed,
         Cancelled,
         Refunded,
-        PartiallyRefunded,
-        NotCompleted
+        Booking
     }
 }

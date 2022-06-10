@@ -56,8 +56,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("char(15)");
+                        .HasMaxLength(20)
+                        .HasColumnType("char(20)");
 
                     b.Property<string>("_StaffId")
                         .IsRequired()
@@ -193,8 +193,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(10)");
 
                     b.Property<string>("Address")
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -254,7 +254,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(3)");
 
                     b.Property<string>("SupplierGoodsStock_supplierGoodsId")
-                        .HasColumnType("char(9)");
+                        .HasColumnType("char(10)");
 
                     b.Property<string>("_creatorId")
                         .IsRequired()
@@ -689,7 +689,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.Property<string>("_supplierGoodsStockId")
                         .IsRequired()
-                        .HasColumnType("varchar(255)");
+                        .HasColumnType("varchar(9)");
 
                     b.HasKey("Id");
 
@@ -714,7 +714,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasIndex("_appointmentId");
 
-                    b.ToTable("SaleOrderItem_Appointment");
+                    b.ToTable("SalesOrderItem_Appointment");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Session", b =>
@@ -940,11 +940,12 @@ namespace TheBetterLimited_Server.Data.EFMigrations
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Supplier_Goods_Stock", b =>
                 {
                     b.Property<string>("Id")
-                        .HasColumnType("varchar(255)");
+                        .HasMaxLength(9)
+                        .HasColumnType("varchar(9)");
 
                     b.Property<string>("_supplierGoodsId")
-                        .HasMaxLength(9)
-                        .HasColumnType("char(9)");
+                        .HasMaxLength(10)
+                        .HasColumnType("char(10)");
 
                     b.Property<string>("_locationId")
                         .HasMaxLength(3)
@@ -961,6 +962,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.Property<int>("ReorderLevel")
                         .HasColumnType("MEDIUMINT");
+
+                    b.Property<bool>("isSoftDeleted")
+                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("Id", "_supplierGoodsId", "_locationId");
 

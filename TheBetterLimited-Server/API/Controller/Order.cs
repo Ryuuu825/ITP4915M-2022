@@ -21,7 +21,6 @@ namespace TheBetterLimited_Server.API.Controller
         {
             try 
             {   
-                ConsoleLogger.Debug("FLSKDHJFKLSFJH ");
                 string orderId = await controller.CreateSalesOrder(User.Identity.Name , order);
                 return Ok(await controller.GetById(orderId , Language));
             }
@@ -127,6 +126,13 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
             }
+        }
+
+        [HttpPut("d")]
+        public IActionResult Update([FromBody] OrderController.UpdateOrderDto entity, string language)
+        {
+            controller.updateOrder(entity);
+            return Ok();
         }
 
 

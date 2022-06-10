@@ -32,11 +32,14 @@ namespace TheBetterLimited_Server.Helpers.File
                 {
                     Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "/__MACOSX" , true);
                 }
-            }catch(FileNotFoundException)
+
+                ZipFile.ExtractToDirectory(FolderPath , DestinationPath);
+
+            }catch(FileNotFoundException e)
             {
                 // do nothing
+                ConsoleLogger.Debug(e.Message);
             }
-            ZipFile.ExtractToDirectory(FolderPath , DestinationPath);
             return FolderPath;
         }
     }

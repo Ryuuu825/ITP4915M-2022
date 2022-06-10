@@ -67,7 +67,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
 
 
-        private async Task<List<OrderOutDto>> ToDto(List<SalesOrder> salesOrders ,  string lang = "en")
+        public async Task<List<OrderOutDto>> ToDto(List<SalesOrder> salesOrders ,  string lang = "en")
         {
             if (salesOrders.Count == 0)
             {
@@ -78,13 +78,15 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             Store store = (await _StaffTable.GetByIdAsync(salesOrders[0]._creatorId)).store;
 
             // get delivery appointment
-            AppointmentOutDto? deliveryAppointment = null;
-            AppointmentOutDto? installatAppointment = null;
-            Customer? customer = null;
+
 
             // all the sales record in the system
             for (var i = 0; i < salesOrders.Count; i++)
             {
+                AppointmentOutDto? deliveryAppointment = null;
+                AppointmentOutDto? installatAppointment = null;
+                Customer? customer = null;
+
                 // get the sales record items
                 var salesOrderItemList = (await _SalesOrderItemTable.GetBySQLAsync(
                     "SELECT * FROM SalesOrderItem WHERE _salesOrderId = " + salesOrders[i].ID
@@ -125,11 +127,12 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     // if ( appointments is null || appointments.Count == 0)
                     //     continue;   
 
-                    if (salesOrderItem.BookingOrder is not null)
+                    if (salesOrderItem.BookingOrder is not null) // booking order
                     {
+                        ConsoleLogger.Debug(salesOrderItem.BookingOrder._customerId);
                         customer = _CustomerTable.GetById(salesOrderItem.BookingOrder._customerId);
                     }
-                    else if (appointments is not null || appointments?.Count != 0)
+                    else if (appointments is not null || appointments?.Count != 0) // appointment order
                     {
                         try 
                         {
@@ -160,8 +163,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                             }
                             else if (appointmentItem.Appointment._departmentId == "700") // hard code (this is installat order)
                             {
-                                var goods = salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods;
-                                // var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
+                                // var goods = salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods;
+                                var goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
                                 if (installatAppointment == null)
                                 {
                                     installatAppointment = new AppointmentOutDto
@@ -196,14 +199,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         customer = null;
                         continue;
                     }
-
-                    
-
-                    
                 }
-
-
-
                 res.Add(
                     new OrderOutDto
                     {
@@ -304,6 +300,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             
             foreach (var item in order.SalesOrderItems)
             {
+
                 SalesOrderItem i = new SalesOrderItem()
                     {
                         Id = Helpers.Sql.PrimaryKeyGenerator.Get<SalesOrderItem>(db),
@@ -355,6 +352,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 _Supplier_Goods_StockTable.Update(sgs);
             }
             
+            // this is a normal booking, which mean no booking or appointment is needed.
+            // and the customer should take the goods at the store
             if (order.Customer is null) // this is a normal order
             {
                 salesOrderItems.ForEach(x => x = null);
@@ -362,7 +361,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 account = null;
                 staff = null;
                 GC.Collect();
-                return newOrder.ID; // this is a normal booking, which mean no booking or appointment is needed.
+                newOrder.Status = SalesOrderStatus.Completed;
+                repository.Update(newOrder);
+                return newOrder.ID; 
             }
             else // there are some booking, or appointment
             {
@@ -396,6 +397,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             if (order.SalesOrderItems[0].NeedDelivery || order.SalesOrderItems[0].NeedInstall)
             {
                 isAppointment = true;
+
             }
             BookingOrder bookingOrder = new BookingOrder()
             {
@@ -409,8 +411,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<SalesOrderItem>($"_salesOrderId:{newOrder.ID}")
             ));
 
-            
-
             if (isBooked)
             {
                 ConsoleLogger.Debug("Booking order is needed");
@@ -419,14 +419,15 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 _SalesOrderItemTable.Update(entry);
 
 
-                newOrder.Status = SalesOrderStatus.NotCompleted;
+                newOrder.Status = SalesOrderStatus.Booking;
                 repository.Update(newOrder);
-
-
-
             }
             else if (isAppointment)
             {
+
+                newOrder.Status = SalesOrderStatus.PendingDelivery;
+                repository.Update(newOrder);
+                
                 if(order.Appointments.Count == 1)
                 {
                     // delivery appointment
@@ -471,6 +472,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     Session s0 = _SessionTable.GetBySQL(
                         Helpers.Sql.QueryStringBuilder.GetSqlStatement<Session>($"Id:{order.Appointments[0].SessionId}")
                     ).FirstOrDefault();
+                    if (s0.NumOfAppointments - 1 <= 0)
+                    {
+                        CleanOrder(newOrder.ID);
+                        throw new BadArgException("Cannot create appointment, the session is full");
+                    }
                     s0.NumOfAppointments -= 1;
                     _SessionTable.Update(s0);
                     s0 = null;
@@ -487,6 +493,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     Session s1 = _SessionTable.GetBySQL(
                         Helpers.Sql.QueryStringBuilder.GetSqlStatement<Session>($"Id:{order.Appointments[1].SessionId}")
                     ).FirstOrDefault();
+                     if (s1.NumOfAppointments - 1 <= 0)
+                    {
+                        CleanOrder(newOrder.ID);
+                        throw new BadArgException("Cannot create appointment, the session is full");
+                    }
                     s1.NumOfAppointments -= 1;
                     _SessionTable.Update(s1);
                     s1 = null;
@@ -575,6 +586,91 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             {
                 throw new FileNotExistException("The Id is invalid" , HttpStatusCode.BadRequest);
             }
+        }
+
+        public void updateOrder(UpdateOrderDto dto)
+        {
+            SalesOrder order = repository.GetById(dto.OrderId);
+            List<SalesOrderItem> items = order.Items;
+
+            if (dto.DeliverySessionId is not null || dto.InstallationtSessionId is not null)
+            {
+                List<string> appointmentID = new List<string>(2);
+                foreach (var item in items)
+                {
+                    foreach(var appointment in item.SaleOrderItem_Appointment)
+                    {
+                        if (appointmentID.Contains(appointment.Appointment.ID))
+                        {
+                            continue;
+                        }
+                        appointmentID.Add(appointment.Appointment.ID);
+                    }
+                }
+
+                foreach (var appointment in appointmentID)
+                {
+                    
+                    var app = _AppointmentTable.GetById(appointment);
+                    _SessionTable.GetBySQL(
+                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<Session>(
+                            $"Id:{app._sessionId}"
+                        )
+                    ).FirstOrDefault();
+
+                    if (app._departmentId == "300")
+                    {
+                        var newDApp = _SessionTable.GetBySQL(
+                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<Session>(
+                            $"Id:{dto.DeliverySessionId}"
+                        )
+                        ).FirstOrDefault();
+
+                        newDApp.NumOfAppointments -= 1;
+                        _SessionTable.Update(newDApp);
+                        app._sessionId = dto.DeliverySessionId;
+                    }
+                    else if (app._departmentId == "700")
+                    {
+                        var newIApp = _SessionTable.GetBySQL(
+                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<Session>(
+                            $"Id:{dto.InstallationtSessionId}"
+                        )
+                        ).FirstOrDefault();
+
+                        newIApp.NumOfAppointments -= 1;
+                        _SessionTable.Update(newIApp);
+                        app._sessionId = dto.InstallationtSessionId;
+                    }
+                }
+            }
+           
+
+            // update customer infor
+            if (dto.CustomerId is not null)
+            {
+                var customer = _CustomerTable.GetById(dto.CustomerId);
+                customer.Name = dto.CustomerName;
+                customer.Phone = dto.CustomerPhone;
+                customer.Address = dto.CustomerAddress;
+                _CustomerTable.Update(customer);
+
+            }
+
+        }
+
+
+
+        public class UpdateOrderDto
+        {
+            public string OrderId { get; set; }
+            public string? DeliverySessionId { get; set; }
+            public string? InstallationtSessionId { get; set; }
+            public string? CustomerId { get; set; }
+            public string? CustomerName { get; set; }
+            public string? CustomerPhone { get; set; }
+            public string? CustomerAddress { get; set; }
+
         }
     }
 

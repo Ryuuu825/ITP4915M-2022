@@ -58,14 +58,20 @@ namespace TheBetterLimited_Server.API.Controller
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
             }
         }
+        public class GoodsInDto : Data.Entity.Goods // shit code
+        {
+            [AppLogic.Attribute.NotMapToDto]
+            public string? supplierId { get; set; }
+        }
 
         [HttpPost]
-        public virtual async Task<IActionResult> Add([FromBody] Data.Entity.Goods entity , [FromHeader] string Language = "en")
+        public virtual async Task<IActionResult> Add([FromBody] GoodsInDto entity , [FromHeader] string Language = "en")
         {
             try
             {
-                await gc.Add(entity,Language);
-                return Ok(entity.GetType().GetProperties().Where(p => p.Name.ToLower() == "id").First().GetValue(entity));
+                string id = await gc.Add(entity,Language);
+                await gc.CreateSupplierGoods(id , entity.supplierId);
+                return Ok();
             }
             catch (ICustException e)
             {
@@ -121,12 +127,28 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpPost("{id}/image")]
+        // the image should be compressed in client side
         public async Task<IActionResult> AddImage(string id, [FromBody] byte[] image)
         {
             try
             {
                 await gc.AddImage(id, image , "en");
                 return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpGet("{id}/image")]
+        public async Task<IActionResult> GetImage(string id)
+        {
+            try
+            {
+                ConsoleLogger.Debug("GetImage");
+                byte[]? image = await gc.GetImage(id);
+                return File(image, "image/png");
             }
             catch (ICustException e)
             {

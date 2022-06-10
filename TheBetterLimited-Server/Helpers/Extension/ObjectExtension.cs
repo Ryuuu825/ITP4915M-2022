@@ -24,15 +24,16 @@ public static class ObjectExtension
         return newObj;
     }
     
-    public static T? CopyAs<T>(this object source)
-    {
-        string tmp = JsonConvert.SerializeObject(source , new JsonSerializerSettings()
-        {
-            ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-        });
+    // public static T? CopyAs<T>(this object source) // this function use a lot of memory, but faster than the above one
+    // // but please don't use it in a loop
+    // {
+    //     string tmp = JsonConvert.SerializeObject(source , new JsonSerializerSettings()
+    //     {
+    //         ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+    //     });
 
-        return JsonConvert.DeserializeObject<T>(tmp) ;
-    }
+    //     return JsonConvert.DeserializeObject<T>(tmp) ;
+    // }
 
 
 

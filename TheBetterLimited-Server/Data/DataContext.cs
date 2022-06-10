@@ -19,7 +19,8 @@ public class DataContext : DbContext
             _Secret["ConnectionString"],
             ServerVersion.AutoDetect(_Secret["ConnectionString"])
         )
-        .EnableSensitiveDataLogging(true);
+        .EnableSensitiveDataLogging(true)
+        .EnableDetailedErrors(true);
     
     protected override void OnModelCreating(ModelBuilder md)
     {
