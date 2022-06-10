@@ -249,6 +249,12 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
         }
 
+        public async Task<byte[]?> GetImage(string id)
+        {
+            var entry = await _GoodsTable.GetByIdAsync(id);
+            return entry.Photo; // get the compressed image of  the goods
+        }
+
         public GoodsStockStatus GetStockLevel(Supplier_Goods_Stock sgs)
         {
             var stock = sgs.Quantity;

@@ -127,12 +127,28 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpPost("{id}/image")]
+        // the image should be compressed in client side
         public async Task<IActionResult> AddImage(string id, [FromBody] byte[] image)
         {
             try
             {
                 await gc.AddImage(id, image , "en");
                 return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpGet("{id}/image")]
+        public async Task<IActionResult> GetImage(string id)
+        {
+            try
+            {
+                ConsoleLogger.Debug("GetImage");
+                byte[]? image = await gc.GetImage(id);
+                return File(image, "image/png");
             }
             catch (ICustException e)
             {

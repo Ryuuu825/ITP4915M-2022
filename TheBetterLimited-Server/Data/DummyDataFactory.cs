@@ -2805,7 +2805,8 @@ namespace TheBetterLimited_Server.Data
             List<Goods> goods = db.Set<Goods>().ToList();
             for(int i = 0 ; i < files.Length && i < goods.Count; i++)
             {
-                goods[i].Photo = Helpers.ByteArrayCompressor.Compress(File.ReadAllBytes(files[i].FullName));
+                // goods[i].Photo = Helpers.ByteArrayCompressor.Compress(File.ReadAllBytes(files[i].FullName));
+                goods[i].Photo = File.ReadAllBytes(files[i].FullName);
 
                 db.Set<Goods>().Update(goods[i]);
                 db.SaveChanges();
