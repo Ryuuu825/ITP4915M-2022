@@ -587,6 +587,91 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 throw new FileNotExistException("The Id is invalid" , HttpStatusCode.BadRequest);
             }
         }
+
+        public void updateOrder(UpdateOrderDto dto)
+        {
+            SalesOrder order = repository.GetById(dto.OrderId);
+            List<SalesOrderItem> items = order.Items;
+
+            if (dto.DeliverySessionId is not null || dto.InstallationtSessionId is not null)
+            {
+                List<string> appointmentID = new List<string>(2);
+                foreach (var item in items)
+                {
+                    foreach(var appointment in item.SaleOrderItem_Appointment)
+                    {
+                        if (appointmentID.Contains(appointment.Appointment.ID))
+                        {
+                            continue;
+                        }
+                        appointmentID.Add(appointment.Appointment.ID);
+                    }
+                }
+
+                foreach (var appointment in appointmentID)
+                {
+                    
+                    var app = _AppointmentTable.GetById(appointment);
+                    _SessionTable.GetBySQL(
+                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<Session>(
+                            $"Id:{app._sessionId}"
+                        )
+                    ).FirstOrDefault();
+
+                    if (app._departmentId == "300")
+                    {
+                        var newDApp = _SessionTable.GetBySQL(
+                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<Session>(
+                            $"Id:{dto.DeliverySessionId}"
+                        )
+                        ).FirstOrDefault();
+
+                        newDApp.NumOfAppointments -= 1;
+                        _SessionTable.Update(newDApp);
+                        app._sessionId = dto.DeliverySessionId;
+                    }
+                    else if (app._departmentId == "700")
+                    {
+                        var newIApp = _SessionTable.GetBySQL(
+                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<Session>(
+                            $"Id:{dto.InstallationtSessionId}"
+                        )
+                        ).FirstOrDefault();
+
+                        newIApp.NumOfAppointments -= 1;
+                        _SessionTable.Update(newIApp);
+                        app._sessionId = dto.InstallationtSessionId;
+                    }
+                }
+            }
+           
+
+            // update customer infor
+            if (dto.CustomerId is not null)
+            {
+                var customer = _CustomerTable.GetById(dto.CustomerId);
+                customer.Name = dto.CustomerName;
+                customer.Phone = dto.CustomerPhone;
+                customer.Address = dto.CustomerAddress;
+                _CustomerTable.Update(customer);
+
+            }
+
+        }
+
+
+
+        public class UpdateOrderDto
+        {
+            public string OrderId { get; set; }
+            public string? DeliverySessionId { get; set; }
+            public string? InstallationtSessionId { get; set; }
+            public string? CustomerId { get; set; }
+            public string? CustomerName { get; set; }
+            public string? CustomerPhone { get; set; }
+            public string? CustomerAddress { get; set; }
+
+        }
     }
 
     
