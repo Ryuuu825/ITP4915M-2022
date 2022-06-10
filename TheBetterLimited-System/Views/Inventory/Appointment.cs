@@ -151,7 +151,7 @@ namespace TheBetterLimited.Views
                 response = cbOrder.GetById(AppointmentDataGrid["orderId", e.RowIndex].Value.ToString());
                 if(response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    od.SetOrderData(JObject.Parse(response.Content));
+                    od.SetOrderData(JObject.Parse(response.Content), true);
                     od.Show();
                     od.TopLevel = true;
                 }
