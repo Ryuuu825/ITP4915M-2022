@@ -115,21 +115,21 @@ namespace TheBetterLimited.Views
                                     .AddHeader("Authorization", "Bearer " + Models.GlobalsData.currentUser["token"]);
 
             var photo = Utils.RestClientUtils.client.DownloadDataAsync(req).GetAwaiter().GetResult();
-            if (photo is null)
-            {
-                icon  = Properties.Resources._default;
-            }
-            else 
+            try
             {
                 using (MemoryStream ms = new MemoryStream(photo, 0, photo.Length))
                 {
-                    
+                
                     ms.Write(photo, 0, photo.Length);
 
                     // convert image to bitmap
                     icon = new Bitmap(ms);
                 }
+            }catch(Exception ex)
+            {
+                icon  = Properties.Resources._default;
             }
+                
             GoodsPic.Image = icon;
         }
         private Bitmap icon;
@@ -238,7 +238,6 @@ namespace TheBetterLimited.Views
 
                 var result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
                 Console.WriteLine(result.Content);
-                Console.WriteLine(result.StatusCode);
             }
 
             this.OnExit.Invoke();
