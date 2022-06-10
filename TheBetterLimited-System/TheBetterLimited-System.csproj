@@ -191,6 +191,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderStatus.cs" />
+    <Compile Include="Utils\Compress.cs" />
     <Compile Include="Utils\Random.cs" />
     <Compile Include="Utils\RestClientUtils.cs" />
     <Compile Include="Views\Inventory\Appointment.cs">

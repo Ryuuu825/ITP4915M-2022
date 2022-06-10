@@ -132,6 +132,8 @@ namespace TheBetterLimited.Views
             Console.WriteLine(re.Content);
             Console.WriteLine(re.StatusCode);
 
+            // upload photo
+
             if (re.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 MessageBox.Show("Goods Created");
