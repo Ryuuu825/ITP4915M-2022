@@ -45,6 +45,20 @@ namespace TheBetterLimited.Views
         public void SetOrderData(JObject orderData)
         {
             this.orderData = orderData;
+            OrderInfoBox.Enabled = false;
+            OrderDataGrid.ReadOnly = true;
+            OrderDataGrid.Columns["delete"].Visible = false;
+            SaveBtn.Text = "Arrange";
+            SaveBtn.Click -= new EventHandler(SaveBtn_Click);
+            SaveBtn.Click += new EventHandler(ArrangeBtn_Click);
+            InitializeOrderInfo();
+            InitializeOrderItemTable();
+        }
+
+        public void SetOrderData(JObject orderData, bool appointment)
+        {
+            this.orderData = orderData;
+            
             InitializeOrderInfo();
             InitializeOrderItemTable();
         }
@@ -144,8 +158,8 @@ namespace TheBetterLimited.Views
         public event Action OnExit;
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            this.OnExit.Invoke();
             this.Close();
+            this.Dispose();
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)
@@ -231,8 +245,21 @@ namespace TheBetterLimited.Views
             deliverySessionId = deliverySessions[DeliverySessionCombo.SelectedIndex].ID1;
         }
 
-        //init session form server
-        private List<Session> InitSession(int month, int day, string departmentId)
+        private void ArrangeBtn_Click(object sender, EventArgs e)
+        {
+            Form arrangeForm = Application.OpenForms["Appointment_Arrange"];
+            if (arrangeForm != null)
+            {
+                arrangeForm.Close();
+                arrangeForm.Dispose();
+            }
+            Appointment_Arrange arrangeAppointment = new Appointment_Arrange();
+            arrangeAppointment.Show();
+            arrangeAppointment.TopLevel = true;
+        }
+
+            //init session form server
+            private List<Session> InitSession(int month, int day, string departmentId)
         {
             response = cbSession.GetAll(month, day, departmentId);
             List<Session> sessions = new List<Session>();

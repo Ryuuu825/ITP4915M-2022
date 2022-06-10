@@ -132,7 +132,7 @@ namespace TheBetterLimited.Views
         {
             change_MenuButton_style(sender);
             StockContainer.Show();
-            RestockContainer.Show();
+            //RestockContainer.Show();
             subSidebarTimer.Start();
         }
 
@@ -196,8 +196,7 @@ namespace TheBetterLimited.Views
                     InventoryContainer.Show();
                     break;
                 case "Technical":
-                    AccountingContainer.Show();
-                    InventoryContainer.Show();
+                    WorkmanContainer.Show();
                     break;
             }
         }

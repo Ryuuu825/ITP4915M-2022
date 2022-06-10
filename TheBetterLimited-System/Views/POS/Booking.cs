@@ -63,12 +63,12 @@ namespace TheBetterLimited.Views
             }
             var name = CusNameTxt.Texts;
 
-            if (CusPhoneTxt.Texts.Equals(String.Empty) || CusPhoneTxt.Texts.Equals(CusPhoneTxt.Placeholder))
+            if (PhoneTxt.Texts.Equals(String.Empty) || PhoneTxt.Texts.Equals(PhoneTxt.Placeholder))
             {
-                CusPhoneTxt.IsError = true;
+                PhoneTxt.IsError = true;
                 return;
             }
-            var phone = CusPhoneTxt.Texts;
+            var phone = PhoneTxt.Texts;
 
             string address;
             if (CusAddressTxt.Texts.Equals(String.Empty) || CusAddressTxt.Texts.Equals(CusAddressTxt.Placeholder))
@@ -93,12 +93,50 @@ namespace TheBetterLimited.Views
 
         private void CusPhoneTxt_Click(object sender, EventArgs e)
         {
-            CusPhoneTxt.IsError = false;
+            PhoneTxt.IsError = false;
         }
 
         private void CusAddressTxt_Click(object sender, EventArgs e)
         {
             CusAddressTxt.IsError = false;
+        }
+
+        private void PhoneTxt__Leave(object sender, EventArgs e)
+        {
+            if (PhoneTxt.Texts.Length == 8 || PhoneTxt.Texts.Length == 11)
+            {
+            }
+            else
+            {
+                PhoneTxt.IsError = true;
+                MessageBox.Show("The phone number should have 8 or 11 digits");
+                return;
+            }
+        }
+
+        private void PhoneTxt__TextChanged(object sender, EventArgs e)
+        {
+            string discountTxt = PhoneTxt.Texts;
+            if (discountTxt.Trim() == "") return;
+            for (int i = 0; i < discountTxt.Length; i++)
+            {
+                if (!char.IsNumber(discountTxt[i]))
+                {
+                    MessageBox.Show("Please enter a valid number");
+                    PhoneTxt.Texts = "";
+                    return;
+                }
+            }
+            try
+            {
+                Convert.ToInt32(PhoneTxt.Texts);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please enter a valid number");
+                PhoneTxt.Texts = "";
+                return;
+            }
         }
     }
 }

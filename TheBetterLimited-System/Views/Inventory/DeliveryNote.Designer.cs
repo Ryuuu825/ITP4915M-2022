@@ -42,7 +42,6 @@
             this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.goodsName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isInstall = new System.Windows.Forms.DataGridViewImageColumn();
             this.CustomerInfo = new System.Windows.Forms.Panel();
             this.line2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
@@ -58,10 +57,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.area = new System.Windows.Forms.Label();
             this.PaymentInfo = new System.Windows.Forms.Panel();
-            this.roundPanel1 = new TheBetterLimited.CustomizeControl.RoundPanel();
             this.line3 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.Footer = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.line4 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.StoreInfo = new System.Windows.Forms.Panel();
@@ -69,20 +68,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.line1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.title = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.printDate = new System.Windows.Forms.Label();
             this.HeaderContainer = new System.Windows.Forms.Panel();
             this.AppointmentId = new System.Windows.Forms.Label();
-            this.barcode = new System.Windows.Forms.PictureBox();
             this.CompanyInfo = new System.Windows.Forms.Panel();
             this.CompanyTitle1 = new System.Windows.Forms.Label();
             this.CompanyTitle0 = new System.Windows.Forms.Label();
-            this.CompanyIcon = new System.Windows.Forms.PictureBox();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label2 = new System.Windows.Forms.Label();
+            this.isInstall = new System.Windows.Forms.DataGridViewImageColumn();
+            this.barcode = new System.Windows.Forms.PictureBox();
+            this.CompanyIcon = new System.Windows.Forms.PictureBox();
+            this.roundPanel1 = new TheBetterLimited.CustomizeControl.RoundPanel();
             this.MainForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemDataGrid)).BeginInit();
             this.CustomerInfo.SuspendLayout();
@@ -90,8 +90,8 @@
             this.Footer.SuspendLayout();
             this.StoreInfo.SuspendLayout();
             this.HeaderContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.barcode)).BeginInit();
             this.CompanyInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barcode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -223,18 +223,6 @@
             this.qty.ReadOnly = true;
             this.qty.ToolTipText = "Quantity";
             this.qty.Width = 70;
-            // 
-            // isInstall
-            // 
-            this.isInstall.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.isInstall.DataPropertyName = "isInstall";
-            this.isInstall.HeaderText = "是否安裝 Need Install";
-            this.isInstall.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.isInstall.Name = "isInstall";
-            this.isInstall.ReadOnly = true;
-            this.isInstall.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.isInstall.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.isInstall.Width = 124;
             // 
             // CustomerInfo
             // 
@@ -418,19 +406,6 @@
             this.PaymentInfo.Size = new System.Drawing.Size(1040, 115);
             this.PaymentInfo.TabIndex = 24;
             // 
-            // roundPanel1
-            // 
-            this.roundPanel1.BackColor = System.Drawing.Color.White;
-            this.roundPanel1.BackgroundColor = System.Drawing.Color.White;
-            this.roundPanel1.BorderColor = System.Drawing.Color.DimGray;
-            this.roundPanel1.BorderRadius = 0;
-            this.roundPanel1.BorderSize = 1;
-            this.roundPanel1.ForeColor = System.Drawing.Color.White;
-            this.roundPanel1.Location = new System.Drawing.Point(786, 12);
-            this.roundPanel1.Name = "roundPanel1";
-            this.roundPanel1.Size = new System.Drawing.Size(236, 92);
-            this.roundPanel1.TabIndex = 55;
-            // 
             // line3
             // 
             this.line3.BackColor = System.Drawing.Color.DimGray;
@@ -445,12 +420,12 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(642, 13);
+            this.label15.Location = new System.Drawing.Point(629, 13);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(137, 17);
             this.label15.TabIndex = 54;
-            this.label15.Text = "客戶簽名 Signature:";
+            this.label15.Text = "顧客簽名 Signature:";
             // 
             // Footer
             // 
@@ -462,6 +437,18 @@
             this.Footer.Name = "Footer";
             this.Footer.Size = new System.Drawing.Size(1040, 75);
             this.Footer.TabIndex = 58;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(224, 40);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(593, 21);
+            this.label2.TabIndex = 54;
+            this.label2.Text = " Please check all items carefully and notify us of any discrepancy within 24 hour" +
+    "s.";
             // 
             // line4
             // 
@@ -490,7 +477,7 @@
             this.StoreInfo.Controls.Add(this.label3);
             this.StoreInfo.Controls.Add(this.panel1);
             this.StoreInfo.Controls.Add(this.line1);
-            this.StoreInfo.Controls.Add(this.label1);
+            this.StoreInfo.Controls.Add(this.title);
             this.StoreInfo.Controls.Add(this.label10);
             this.StoreInfo.Controls.Add(this.printDate);
             this.StoreInfo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -542,17 +529,17 @@
             this.line1.Size = new System.Drawing.Size(1040, 1);
             this.line1.TabIndex = 28;
             // 
-            // label1
+            // title
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(9, 3);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 40);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Delivery Note";
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.ForeColor = System.Drawing.Color.Black;
+            this.title.Location = new System.Drawing.Point(9, 3);
+            this.title.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(207, 40);
+            this.title.TabIndex = 21;
+            this.title.Text = "Delivery Note";
             // 
             // label10
             // 
@@ -604,16 +591,6 @@
             this.AppointmentId.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.AppointmentId.UseMnemonic = false;
             // 
-            // barcode
-            // 
-            this.barcode.Location = new System.Drawing.Point(736, 11);
-            this.barcode.Margin = new System.Windows.Forms.Padding(4);
-            this.barcode.Name = "barcode";
-            this.barcode.Size = new System.Drawing.Size(289, 95);
-            this.barcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.barcode.TabIndex = 2;
-            this.barcode.TabStop = false;
-            // 
             // CompanyInfo
             // 
             this.CompanyInfo.Controls.Add(this.CompanyTitle1);
@@ -651,18 +628,6 @@
             this.CompanyTitle0.TabIndex = 2;
             this.CompanyTitle0.Text = "Better";
             // 
-            // CompanyIcon
-            // 
-            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
-            this.CompanyIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.CompanyIcon.Location = new System.Drawing.Point(0, 7);
-            this.CompanyIcon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.CompanyIcon.Name = "CompanyIcon";
-            this.CompanyIcon.Size = new System.Drawing.Size(110, 116);
-            this.CompanyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.CompanyIcon.TabIndex = 0;
-            this.CompanyIcon.TabStop = false;
-            // 
             // printDocument2
             // 
             this.printDocument2.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument2_EndPrint);
@@ -681,23 +646,63 @@
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn1.DataPropertyName = "isInstall";
             this.dataGridViewImageColumn1.HeaderText = "展示商品 Display Item";
             this.dataGridViewImageColumn1.Image = global::TheBetterLimited.Properties.Resources.check24;
             this.dataGridViewImageColumn1.MinimumWidth = 6;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn1.ToolTipText = "Is display item?";
+            this.dataGridViewImageColumn1.Width = 124;
             // 
-            // label2
+            // isInstall
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(224, 40);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(593, 21);
-            this.label2.TabIndex = 54;
-            this.label2.Text = " Please check all items carefully and notify us of any discrepancy within 24 hour" +
-    "s.";
+            this.isInstall.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.isInstall.DataPropertyName = "isInstall";
+            this.isInstall.HeaderText = "是否安裝 Need Install";
+            this.isInstall.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.isInstall.Name = "isInstall";
+            this.isInstall.ReadOnly = true;
+            this.isInstall.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.isInstall.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.isInstall.Width = 124;
+            // 
+            // barcode
+            // 
+            this.barcode.Location = new System.Drawing.Point(736, 11);
+            this.barcode.Margin = new System.Windows.Forms.Padding(4);
+            this.barcode.Name = "barcode";
+            this.barcode.Size = new System.Drawing.Size(289, 95);
+            this.barcode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.barcode.TabIndex = 2;
+            this.barcode.TabStop = false;
+            // 
+            // CompanyIcon
+            // 
+            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
+            this.CompanyIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.CompanyIcon.Location = new System.Drawing.Point(0, 7);
+            this.CompanyIcon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.CompanyIcon.Name = "CompanyIcon";
+            this.CompanyIcon.Size = new System.Drawing.Size(110, 116);
+            this.CompanyIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CompanyIcon.TabIndex = 0;
+            this.CompanyIcon.TabStop = false;
+            // 
+            // roundPanel1
+            // 
+            this.roundPanel1.BackColor = System.Drawing.Color.White;
+            this.roundPanel1.BackgroundColor = System.Drawing.Color.White;
+            this.roundPanel1.BorderColor = System.Drawing.Color.DimGray;
+            this.roundPanel1.BorderRadius = 0;
+            this.roundPanel1.BorderSize = 1;
+            this.roundPanel1.ForeColor = System.Drawing.Color.White;
+            this.roundPanel1.Location = new System.Drawing.Point(789, 12);
+            this.roundPanel1.Name = "roundPanel1";
+            this.roundPanel1.Size = new System.Drawing.Size(236, 92);
+            this.roundPanel1.TabIndex = 55;
             // 
             // DeliveryNote
             // 
@@ -725,9 +730,9 @@
             this.StoreInfo.ResumeLayout(false);
             this.StoreInfo.PerformLayout();
             this.HeaderContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             this.CompanyInfo.ResumeLayout(false);
             this.CompanyInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).EndInit();
             this.ResumeLayout(false);
 
@@ -769,7 +774,7 @@
         private System.Windows.Forms.Panel StoreInfo;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel line1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label title;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label printDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn goodsID;

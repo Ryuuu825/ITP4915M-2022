@@ -30,11 +30,13 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appointment));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AppointmentDataGrid = new System.Windows.Forms.DataGridView();
             this.Header = new System.Windows.Forms.Panel();
             this.CloseBtn = new FontAwesome.Sharp.IconButton();
@@ -44,23 +46,26 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Action = new System.Windows.Forms.Panel();
             this.DeliveryDatePicker = new System.Windows.Forms.DateTimePicker();
             this.SearchBar = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.MultiArrangeBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._departmentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._teamId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teamId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.details = new System.Windows.Forms.DataGridViewImageColumn();
             this.print = new System.Windows.Forms.DataGridViewImageColumn();
+            this.arrange = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGrid)).BeginInit();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
@@ -97,21 +102,22 @@
             this.select,
             this.id,
             this.time,
-            this._departmentId,
+            this.orderId,
             this.Address,
-            this._teamId,
-            this.Status,
+            this.teamId,
+            this.status,
             this.details,
-            this.print});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.AppointmentDataGrid.DefaultCellStyle = dataGridViewCellStyle4;
+            this.print,
+            this.arrange});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.AppointmentDataGrid.DefaultCellStyle = dataGridViewCellStyle6;
             this.AppointmentDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AppointmentDataGrid.EnableHeadersVisualStyles = false;
             this.AppointmentDataGrid.GridColor = System.Drawing.Color.White;
@@ -121,33 +127,33 @@
             this.AppointmentDataGrid.Name = "AppointmentDataGrid";
             this.AppointmentDataGrid.ReadOnly = true;
             this.AppointmentDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AppointmentDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.AppointmentDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.AppointmentDataGrid.RowHeadersVisible = false;
             this.AppointmentDataGrid.RowHeadersWidth = 30;
             this.AppointmentDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle6.NullValue = null;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.AppointmentDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.AppointmentDataGrid.RowTemplate.Height = 30;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.NullValue = null;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.AppointmentDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.AppointmentDataGrid.RowTemplate.Height = 40;
             this.AppointmentDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.AppointmentDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AppointmentDataGrid.Size = new System.Drawing.Size(758, 363);
             this.AppointmentDataGrid.StandardTab = true;
             this.AppointmentDataGrid.TabIndex = 3;
             this.AppointmentDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
-            this.AppointmentDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GoodsDataGrid_CellFormatting);
+            this.AppointmentDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.AppointmentDataGrid_CellFormatting);
             // 
             // Header
             // 
@@ -238,41 +244,10 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Width = 124;
             // 
-            // dataGridViewImageColumn4
-            // 
-            this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn4.HeaderText = "";
-            this.dataGridViewImageColumn4.Image = global::TheBetterLimited.Properties.Resources.square;
-            this.dataGridViewImageColumn4.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn4.MinimumWidth = 6;
-            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
-            this.dataGridViewImageColumn4.ReadOnly = true;
-            // 
-            // dataGridViewImageColumn5
-            // 
-            this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn5.HeaderText = "";
-            this.dataGridViewImageColumn5.Image = global::TheBetterLimited.Properties.Resources.pencil_free_icon_font;
-            this.dataGridViewImageColumn5.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn5.MinimumWidth = 6;
-            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
-            this.dataGridViewImageColumn5.ReadOnly = true;
-            this.dataGridViewImageColumn5.ToolTipText = "Edit";
-            // 
-            // dataGridViewImageColumn6
-            // 
-            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn6.HeaderText = "";
-            this.dataGridViewImageColumn6.Image = global::TheBetterLimited.Properties.Resources.trash;
-            this.dataGridViewImageColumn6.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn6.MinimumWidth = 6;
-            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
-            this.dataGridViewImageColumn6.ReadOnly = true;
-            this.dataGridViewImageColumn6.ToolTipText = "Delete";
-            // 
             // Action
             // 
             this.Action.BackColor = System.Drawing.Color.White;
+            this.Action.Controls.Add(this.MultiArrangeBtn);
             this.Action.Controls.Add(this.DeliveryDatePicker);
             this.Action.Controls.Add(this.SearchBar);
             this.Action.Dock = System.Windows.Forms.DockStyle.Top;
@@ -316,6 +291,66 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
+            // dataGridViewImageColumn4
+            // 
+            this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn4.HeaderText = "";
+            this.dataGridViewImageColumn4.Image = global::TheBetterLimited.Properties.Resources.square;
+            this.dataGridViewImageColumn4.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn4.MinimumWidth = 6;
+            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            this.dataGridViewImageColumn4.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn5
+            // 
+            this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn5.HeaderText = "";
+            this.dataGridViewImageColumn5.Image = global::TheBetterLimited.Properties.Resources.pencil_free_icon_font;
+            this.dataGridViewImageColumn5.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn5.MinimumWidth = 6;
+            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
+            this.dataGridViewImageColumn5.ReadOnly = true;
+            this.dataGridViewImageColumn5.ToolTipText = "Edit";
+            // 
+            // dataGridViewImageColumn6
+            // 
+            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn6.HeaderText = "";
+            this.dataGridViewImageColumn6.Image = global::TheBetterLimited.Properties.Resources.trash;
+            this.dataGridViewImageColumn6.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn6.MinimumWidth = 6;
+            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
+            this.dataGridViewImageColumn6.ReadOnly = true;
+            this.dataGridViewImageColumn6.ToolTipText = "Delete";
+            // 
+            // dataGridViewImageColumn7
+            // 
+            this.dataGridViewImageColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.dataGridViewImageColumn7.HeaderText = "";
+            this.dataGridViewImageColumn7.Image = global::TheBetterLimited.Properties.Resources.list_check;
+            this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
+            // 
+            // MultiArrangeBtn
+            // 
+            this.MultiArrangeBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.MultiArrangeBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.MultiArrangeBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.MultiArrangeBtn.BorderRadius = 10;
+            this.MultiArrangeBtn.BorderSize = 0;
+            this.MultiArrangeBtn.FlatAppearance.BorderSize = 0;
+            this.MultiArrangeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MultiArrangeBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MultiArrangeBtn.ForeColor = System.Drawing.Color.White;
+            this.MultiArrangeBtn.IsChecked = false;
+            this.MultiArrangeBtn.Location = new System.Drawing.Point(201, 1);
+            this.MultiArrangeBtn.Name = "MultiArrangeBtn";
+            this.MultiArrangeBtn.Size = new System.Drawing.Size(173, 38);
+            this.MultiArrangeBtn.TabIndex = 11;
+            this.MultiArrangeBtn.Text = "Arrange Selected";
+            this.MultiArrangeBtn.TextColor = System.Drawing.Color.White;
+            this.MultiArrangeBtn.UseVisualStyleBackColor = false;
+            this.MultiArrangeBtn.Click += new System.EventHandler(this.MultiArrangeBtn_Click);
+            // 
             // SearchBarTxt
             // 
             this.SearchBarTxt.BackColor = System.Drawing.Color.White;
@@ -347,8 +382,7 @@
             // 
             this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.select.HeaderText = "";
-            this.select.Image = global::TheBetterLimited.Properties.Resources.square;
-            this.select.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
             this.select.MinimumWidth = 6;
             this.select.Name = "select";
             this.select.ReadOnly = true;
@@ -358,12 +392,14 @@
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "Appointment ID";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.id.DefaultCellStyle = dataGridViewCellStyle3;
+            this.id.HeaderText = "ID";
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.ToolTipText = "Appointment ID";
-            this.id.Width = 144;
+            this.id.Width = 59;
             // 
             // time
             // 
@@ -376,65 +412,83 @@
             this.time.ToolTipText = "Session Time";
             this.time.Width = 75;
             // 
-            // _departmentId
+            // orderId
             // 
-            this._departmentId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._departmentId.DataPropertyName = "OrderId";
-            this._departmentId.HeaderText = "Order ID";
-            this._departmentId.MinimumWidth = 6;
-            this._departmentId.Name = "_departmentId";
-            this._departmentId.ReadOnly = true;
-            this._departmentId.ToolTipText = "Order ID";
-            this._departmentId.Width = 98;
+            this.orderId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.orderId.DataPropertyName = "orderId";
+            this.orderId.HeaderText = "Order ID";
+            this.orderId.MinimumWidth = 6;
+            this.orderId.Name = "orderId";
+            this.orderId.ReadOnly = true;
+            this.orderId.ToolTipText = "Order ID";
+            this.orderId.Width = 98;
             // 
             // Address
             // 
             this.Address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Address.DataPropertyName = "address";
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Address.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Address.DefaultCellStyle = dataGridViewCellStyle4;
             this.Address.HeaderText = "Customer Address";
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
             this.Address.ToolTipText = "Customer Address";
             // 
-            // _teamId
+            // teamId
             // 
-            this._teamId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this._teamId.DataPropertyName = "_teamId";
-            this._teamId.HeaderText = "Team ID";
-            this._teamId.MinimumWidth = 6;
-            this._teamId.Name = "_teamId";
-            this._teamId.ReadOnly = true;
-            this._teamId.ToolTipText = "Team ID";
-            this._teamId.Width = 95;
+            this.teamId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.teamId.DataPropertyName = "teamId";
+            this.teamId.HeaderText = "Team ID";
+            this.teamId.MinimumWidth = 6;
+            this.teamId.Name = "teamId";
+            this.teamId.ReadOnly = true;
+            this.teamId.ToolTipText = "Team ID";
+            this.teamId.Width = 95;
             // 
-            // Status
+            // status
             // 
-            this.Status.DataPropertyName = "status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
+            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.status.DataPropertyName = "status";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.status.DefaultCellStyle = dataGridViewCellStyle5;
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Width = 84;
             // 
             // details
             // 
             this.details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.details.HeaderText = "";
-            this.details.Image = global::TheBetterLimited.Properties.Resources.eye;
-            this.details.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.details.Image = global::TheBetterLimited.Properties.Resources.eye24;
             this.details.MinimumWidth = 6;
             this.details.Name = "details";
             this.details.ReadOnly = true;
-            this.details.ToolTipText = "Edit";
+            this.details.ToolTipText = "View Order Details";
             this.details.Width = 6;
             // 
             // print
             // 
+            this.print.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.print.HeaderText = "";
             this.print.Image = global::TheBetterLimited.Properties.Resources.print24;
+            this.print.MinimumWidth = 6;
             this.print.Name = "print";
             this.print.ReadOnly = true;
-            this.print.ToolTipText = "Print";
+            this.print.ToolTipText = "Print Note";
+            this.print.Width = 6;
+            // 
+            // arrange
+            // 
+            this.arrange.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.arrange.HeaderText = "";
+            this.arrange.Image = global::TheBetterLimited.Properties.Resources.list_check;
+            this.arrange.MinimumWidth = 6;
+            this.arrange.Name = "arrange";
+            this.arrange.ReadOnly = true;
+            this.arrange.ToolTipText = "Arrange Appointment";
+            this.arrange.Width = 6;
             // 
             // Appointment
             // 
@@ -481,14 +535,17 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private CustomizeControl.CustomizeTextbox SearchBarTxt;
         private System.Windows.Forms.DateTimePicker DeliveryDatePicker;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn7;
+        private CustomizeControl.RoundButton MultiArrangeBtn;
         private System.Windows.Forms.DataGridViewImageColumn select;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _departmentId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _teamId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teamId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewImageColumn details;
         private System.Windows.Forms.DataGridViewImageColumn print;
+        private System.Windows.Forms.DataGridViewImageColumn arrange;
     }
 }

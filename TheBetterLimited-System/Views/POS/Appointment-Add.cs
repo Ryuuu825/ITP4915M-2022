@@ -186,11 +186,10 @@ namespace TheBetterLimited.Views
         {
             ResetInstallComboBox();
             deliverySessions.Clear();
-            if (InstallDatePicker.Value.DayOfWeek == DayOfWeek.Sunday) return;
+            if (DeliveryDatePicker.Value.DayOfWeek == DayOfWeek.Sunday) return;
             deliverySessions = InitSession(DeliveryDatePicker.Value.Month, DeliveryDatePicker.Value.Day, "300");
             for (int i = 0; i < deliverySessions.Count; i++)
             {
-                Console.WriteLine(deliverySessions[i].NumOfAppointments1);
                 if (deliverySessions[i].NumOfAppointments1 > 0)
                 {
                     InstallSessionCombo.Items.Add(deliverySessions[i].StartTime1.ToString("HH:mm") + " - " + deliverySessions[i].EndTime1.ToString("HH:mm"));
@@ -208,19 +207,18 @@ namespace TheBetterLimited.Views
             installSessions.Clear();
             if (InstallDatePicker.Value.DayOfWeek == DayOfWeek.Sunday) return;
             installSessions = InitSession(InstallDatePicker.Value.Month, InstallDatePicker.Value.Day, "700");
+            Console.WriteLine(installSessions.Count);
             for (int i = 0; i < installSessions.Count; i++)
             {
+                Console.WriteLine(installSessions[i].ToString());
                 if (i <= DeliverySessionCombo.SelectedIndex && installSessions[i].Date1 == DeliveryDatePicker.Value.Date)
                 {
-                    installSessions.RemoveAt(i);
+                    installSessions.RemoveAt(0);
                     continue;
                 }
                 if (installSessions[i].NumOfAppointments1 > 0)
                 {
                     InstallSessionCombo.Items.Add(installSessions[i].StartTime1.ToString("HH:mm") + " - " + installSessions[i].EndTime1.ToString("HH:mm"));
-                } else
-                {
-                    installSessions.RemoveAt(i);
                 }
             }
         }
@@ -243,6 +241,43 @@ namespace TheBetterLimited.Views
             ((POS)pos).SetAppointments(null);
             this.Close();
             this.Dispose();
+        }
+
+        private void PhoneTxt__TextChanged(object sender, EventArgs e)
+        {
+            string discountTxt = PhoneTxt.Texts;
+            if (discountTxt.Trim() == "") return;
+            for (int i = 0; i < discountTxt.Length; i++)
+            {
+                if (!char.IsNumber(discountTxt[i]))
+                {
+                    MessageBox.Show("Please enter a valid number");
+                    PhoneTxt.Texts = "";
+                    return;
+                }
+            }
+            try
+            {
+                Convert.ToInt32(PhoneTxt.Texts);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Please enter a valid number");
+                PhoneTxt.Texts = "";
+                return;
+            }
+        }
+
+        private void PhoneTxt__Leave(object sender, EventArgs e)
+        {
+            if (PhoneTxt.Texts.Length == 8 || PhoneTxt.Texts.Length == 11)
+            {
+            }else
+            {
+                PhoneTxt.IsError = true;
+                MessageBox.Show("The phone number should have 8 or 11 digits");
+                return;
+            }
         }
     }
 }

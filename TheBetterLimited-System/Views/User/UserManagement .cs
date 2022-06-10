@@ -70,8 +70,8 @@ namespace TheBetterLimited.Views
                 {
                     e.Value = "Normal";
                     e.CellStyle.ForeColor = Color.SeaGreen;
+                    e.CellStyle.SelectionForeColor = Color.SeaGreen;
                 }
-
             }
         }
 
@@ -281,7 +281,6 @@ namespace TheBetterLimited.Views
                     {
                         MessageBox.Show("Cannot delete the account.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                 }
             }
             else

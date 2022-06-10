@@ -41,10 +41,6 @@ namespace TheBetterLimited.Views
         /*
          * Dom Style/Event Process
          */
-        private void DeleteBtn_Click(object sender, EventArgs e)
-        {
-        }
-
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.Invalidate();
@@ -54,11 +50,41 @@ namespace TheBetterLimited.Views
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.Dispose();
         }
 
-        private void GoodsDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void AppointmentDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-
+            if (AppointmentDataGrid.Columns[e.ColumnIndex].Name == "status")
+            {
+                e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold);
+                if (e.Value.ToString().Equals("PendingDelivery"))
+                {
+                    e.Value = "Pending Delivery";
+                    e.CellStyle.ForeColor = Color.Orange;
+                    e.CellStyle.SelectionForeColor = Color.Orange;
+                }else if (e.Value.ToString().Equals("ReadyToInstall"))
+                {
+                    e.Value = "Ready To Install";
+                    e.CellStyle.ForeColor = Color.Orange;
+                    e.CellStyle.SelectionForeColor = Color.Orange;
+                }
+                else if (e.Value.ToString().Equals("Installing"))
+                {
+                    e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
+                }
+                else if (e.Value.ToString().Equals("Delivering"))
+                {
+                    e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.SeaGreen;
+                    e.CellStyle.SelectionForeColor = Color.SeaGreen;
+                }
+            }
         }
 
         private void GoodsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -67,14 +93,24 @@ namespace TheBetterLimited.Views
             {
                 if (Convert.ToInt32(AppointmentDataGrid["select", e.RowIndex].Tag) == 0)
                 {
-                    AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
+                    DialogResult result = DialogResult.No;
+                    Console.WriteLine(AppointmentDataGrid["teamId", e.RowIndex].Value.ToString() != String.Empty);
+                    if (AppointmentDataGrid["teamId", e.RowIndex].Value.ToString() != String.Empty)
+                    {
+                        result = MessageBox.Show("The appointment has been arrange to a team. Do you need to modify it?", "Waining", MessageBoxButtons.YesNo);
+                        if (result != DialogResult.Yes)
+                        {
+                            return;
+                        }
+                    }
+                    AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
                     AppointmentDataGrid["select", e.RowIndex].Tag = 1;
                     AppointmentDataGrid.Rows[e.RowIndex].Selected = true;
                     selectAppointmentID.Add(AppointmentDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
-                    AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
+                    AppointmentDataGrid["select", e.RowIndex].Value = Properties.Resources.square24;
                     AppointmentDataGrid["select", e.RowIndex].Tag = 0;
                     AppointmentDataGrid.Rows[e.RowIndex].Selected = false;
                     selectAppointmentID.Remove(AppointmentDataGrid["id", e.RowIndex].Value.ToString());
@@ -121,6 +157,20 @@ namespace TheBetterLimited.Views
                 }
             }
 
+            if (e.ColumnIndex == AppointmentDataGrid.Columns["arrange"].Index)
+            {
+                Form arrangeForm = Application.OpenForms["Appointment_Arrange"];
+                if (arrangeForm != null)
+                {
+                    arrangeForm.Close();
+                    arrangeForm.Dispose();
+                }
+                Appointment_Arrange arrangeAppointment = new Appointment_Arrange();
+                arrangeAppointment.Show();
+                arrangeAppointment.TopLevel = true;
+                arrangeAppointment.appointmentId = AppointmentDataGrid["id", e.RowIndex].Value.ToString();
+                arrangeAppointment.OnExit += GetAppointment;
+            }
         }
 
         //search bar text changed event
@@ -128,7 +178,6 @@ namespace TheBetterLimited.Views
         {
             GetAppointment();
         }
-
 
         /*
         * Dom Event Handler
@@ -138,6 +187,9 @@ namespace TheBetterLimited.Views
             dt.Columns.Add("Id");
             dt.Columns.Add("time");
             dt.Columns.Add("address");
+            dt.Columns.Add("orderId");
+            dt.Columns.Add("teamId");
+            dt.Columns.Add("status");
         }
 
 
@@ -175,8 +227,14 @@ namespace TheBetterLimited.Views
                 {
                     var row = dt.NewRow();
                     row["Id"] = a["appointmentId"].ToString();
-                    row["time"] = ((DateTime)a["startTime"]).ToString("t") + " - " + ((DateTime)a["endTime"]).ToString("t");
+                    row["time"] = ((DateTime)a["startTime"]).ToString("HH:mm") + " - " + ((DateTime)a["endTime"]).ToString("HH:mm");
                     row["address"] = a["customer"]["address"].ToString();
+                    if(((JToken)a["team"]).Type != JTokenType.Null)
+                    {
+                        row["teamId"] = a["team"]["id"];
+                    }
+                    row["orderId"] = a["orderId"];
+                    row["status"] = a["salesOrderStatus"].ToString();
                     dt.Rows.Add(row);
                 }
                 bs.DataSource = dt;
@@ -187,38 +245,6 @@ namespace TheBetterLimited.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-        }
-
-        //Assign Selected Appointment
-        private void DeleteSelectedGoods()
-        {
-            if (selectAppointmentID.Count > 0)
-            {
-                choose = MessageBox.Show("Do you really want to delete the " + selectAppointmentID.Count + " goods?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-                if (choose == DialogResult.Yes)
-                {
-                    try
-                    {
-                        int countDeleted = 0;
-                        string res;
-                        foreach (string uid in selectAppointmentID)
-                        {
-                            response = cbAppointment.Delete(uid);
-                        }
-                        MessageBox.Show(selectAppointmentID.Count + " records have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetAppointment();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Cannot delete the goods.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("You had not selected a goods.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             }
         }
 
@@ -249,12 +275,35 @@ namespace TheBetterLimited.Views
         {
             DeliveryDatePicker.MinDate = new DateTime(DateTime.Now.Year,1,1);
             DeliveryDatePicker.MaxDate = DateTime.Now.AddDays(29);
-            DeliveryDatePicker.Value = DateTime.Now;
+            DeliveryDatePicker.Value = DateTime.Now.AddDays(1);
         }
 
         private void DeliveryDatePicker_ValueChanged(object sender, EventArgs e)
         {
             GetAppointment();
+        }
+
+        //Arrange Selected Appointment
+        private void MultiArrangeBtn_Click(object sender, EventArgs e)
+        {
+            if (selectAppointmentID.Count > 0)
+            {
+                Form arrangeForm = Application.OpenForms["Appointment_Arrange"];
+                if (arrangeForm != null)
+                {
+                    arrangeForm.Close();
+                    arrangeForm.Dispose();
+                }
+                Appointment_Arrange arrangeAppointment = new Appointment_Arrange();
+                arrangeAppointment.Show();
+                arrangeAppointment.TopLevel = true;
+                arrangeAppointment.appointmentIds = selectAppointmentID;
+                arrangeAppointment.OnExit += GetAppointment;
+            }
+            else
+            {
+                MessageBox.Show("You had not selected an appointment.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            }
         }
     }
 }

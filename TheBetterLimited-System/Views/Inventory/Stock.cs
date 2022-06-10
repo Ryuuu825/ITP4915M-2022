@@ -66,31 +66,46 @@ namespace TheBetterLimited.Views
 
         private void StockDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (StockDataGrid.Columns[e.ColumnIndex].Name == "StoreLevel")
+
+            if (StockDataGrid.Columns[e.ColumnIndex].Name == "Status")
             {
-                if (e.Value.ToString().Equals("0"))
+                e.CellStyle.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+
+                if (e.Value.ToString().Equals("OutOfStock"))
                 {
+                    // the width of text increase
+                    e.CellStyle.Font = new Font("Segoe UI", 10.10084F, FontStyle.Bold);
                     e.Value = "Out of Stock";
                     e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
                 }
-                if (e.Value.ToString().Equals("1"))
+                if (e.Value.ToString().Equals("LowStock"))
                 {
                     e.Value = "Re-oder";
                     e.CellStyle.ForeColor = Color.FromArgb(250, 182, 99);
+                    e.CellStyle.Font = new Font("Segoe UI", 10.10084F, FontStyle.Bold);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(250, 182, 99);
                 }
-                if (e.Value.ToString().Equals("2"))
+                if (e.Value.ToString().Equals("InStock"))
                 {
                     e.Value = "Normal";
                     e.CellStyle.ForeColor = Color.SeaGreen;
                 }
-                if (e.Value.ToString().Equals("3"))
+                if (e.Value.ToString().Equals("Danger"))
                 {
                     e.Value = "Danger";
+                    e.CellStyle.Font = new Font("Segoe UI", 10.10084F, FontStyle.Bold);
                     e.CellStyle.ForeColor = Color.FromArgb(221, 73, 96);
                 }
             }
+        }
+
+        private void EditStock(DataGridViewCellEventArgs e)
+        {
+            string id = StockDataGrid["Id" , e.RowIndex].Value.ToString();
+            Stock_Edit edit = new Stock_Edit(id);
+            edit.OnExit += () => { GetStock(); };
+            edit.Show();
         }
 
         private void StockDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -115,7 +130,7 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == StockDataGrid.Columns["edit"].Index)
             {
-                MessageBox.Show("You have selected row " + selectStockID[0] + " cell");
+                EditStock(e);
             }
 
 
@@ -155,6 +170,7 @@ namespace TheBetterLimited.Views
             dataTable.Columns.Add("Quantity");
             dataTable.Columns.Add("MaxLimit");
             dataTable.Columns.Add("MinLimit");
+            dataTable.Columns.Add("Status");
             dataTable.Columns.Add("ReorderLevel");
         }
 
@@ -162,7 +178,8 @@ namespace TheBetterLimited.Views
         //Get Stock
         private void GetStock()
         {
-
+            Console.WriteLine("CALL GET STOCK");
+            dataTable.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
                 // result = cbStockGoods.GetAll();
@@ -176,29 +193,39 @@ namespace TheBetterLimited.Views
             //                 + "|ReorderLevel:" + this.SearchBarTxt.Texts + "|_locationId:" + this.SearchBarTxt.Texts;
             //     result = cbStockGoods.GetByQueryString(str);
             // }
-                Console.WriteLine(result.StatusCode);
-                Console.WriteLine(result.Content);
                 
                 var res = JArray.Parse(result.Content.ToString());
                 foreach( var row in res )
                 {
-                    DataRow dr = dataTable.NewRow();
-                    dr["Id"] = row["Id"].ToString();
-                    dr["loc"] = row["LocName"].ToString();
-                    dr["goodsName"] = row["GoodsName"].ToString();
-                    dr["Quantity"] = row["Quantity"].ToString();
-                    dr["MaxLimit"] = row["MaxLimit"].ToString();
-                    dr["MinLimit"] = row["MinLimit"].ToString();
-                    dr["ReorderLevel"] = row["ReorderLevel"].ToString();
-                    dataTable.Rows.Add(dr);
+                    // is not soft Deleted
+                    if (! row["isDeleted"].ToObject<bool>())
+                    {
+                        DataRow dr = dataTable.NewRow();
+                        dr["Id"] = row["Id"].ToString();
+                        dr["loc"] = row["LocName"].ToString();
+                        dr["goodsName"] = row["GoodsName"].ToString();
+                        dr["Quantity"] = row["Quantity"].ToString();
+                        dr["MaxLimit"] = row["MaxLimit"].ToString();
+                        dr["MinLimit"] = row["MinLimit"].ToString();
+                        dr["ReorderLevel"] = row["ReorderLevel"].ToString();
+                        dr["Status"] = row["Status"].ToString();
+                        dataTable.Rows.Add(dr);
+                    }
                 }
-
 
                 bs.DataSource = dataTable;
                 StockDataGrid.AutoGenerateColumns = false;
                 StockDataGrid.DataSource = bs;
                 InitializeDataGridView();
+        }
 
+        private bool DeleteRecord(string id)
+        {
+            RestRequest req = new RestRequest("/api/inventory/sgs/" + id, Method.Delete);
+            result  = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
+            Console.WriteLine(result.StatusCode);
+            Console.WriteLine(result.Content);
+            return result.StatusCode == System.Net.HttpStatusCode.OK;
         }
 
         //Delete Selected Stock
@@ -215,10 +242,9 @@ namespace TheBetterLimited.Views
                         string res;
                         foreach (string uid in selectStockID)
                         {
-                            result = cbStockGoods.Delete(uid);
+                            DeleteRecord(uid);
                         }
                         MessageBox.Show(selectStockID.Count + " records have been deleted!", "Delete stock records Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetStock();
                     }
                     catch (Exception ex)
                     {
@@ -231,35 +257,40 @@ namespace TheBetterLimited.Views
             {
                 MessageBox.Show("You had not selected a stock records.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             }
+            GetStock();
+
         }
 
         //Delete stock records
         private void DeleteStock(DataGridViewCellEventArgs e)
         {
-            choose = MessageBox.Show("Do you really want to delete the " + StockDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            choose = MessageBox.Show("Do you really want to delete the " + StockDataGrid["id" , e.RowIndex ].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (choose == DialogResult.Yes)
             {
                 try
                 {
-                    result = cbStockGoods.Delete(StockDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                    DeleteRecord(StockDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
                     if (result.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        MessageBox.Show("The " + StockDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete stock records Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("The " + StockDataGrid["id" , e.RowIndex ].Value + " have been deleted!", "Delete stock records Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetStock();
                     }
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
                     MessageBox.Show("Cannot delete the stock records", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
+            GetStock();
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            //Goodsmanagement_Add goodsAdd = new Goodsmanagement_Add();
-            //goodsAdd.Show();
+            Stock_Add goodsAdd = new Stock_Add();
+            goodsAdd.OnExit += () => GetStock();
+            goodsAdd.Show();
         }
 
 

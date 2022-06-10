@@ -199,6 +199,12 @@
     <Compile Include="Views\Inventory\Appointment.Designer.cs">
       <DependentUpon>Appointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Inventory\Appointment-Arrange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\Appointment-Arrange.Designer.cs">
+      <DependentUpon>Appointment-Arrange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Inventory\DeliveryNote.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -425,6 +431,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\Appointment.resx">
       <DependentUpon>Appointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Appointment-Arrange.resx">
+      <DependentUpon>Appointment-Arrange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\DeliveryNote.resx">
       <DependentUpon>DeliveryNote.cs</DependentUpon>
@@ -799,6 +808,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list-check.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />
