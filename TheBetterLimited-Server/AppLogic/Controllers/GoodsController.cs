@@ -237,6 +237,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         public async Task AddImage(string id , byte[] image , string lang = "en")
         {
             var entry = await _GoodsTable.GetByIdAsync(id);
+            if (entry is null)
+                throw new BadArgException("Invalid Id");
             entry.Photo = image;
 
             try

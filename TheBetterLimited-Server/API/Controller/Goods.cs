@@ -71,7 +71,8 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 string id = await gc.Add(entity,Language);
                 await gc.CreateSupplierGoods(id , entity.supplierId);
-                return Ok();
+                ConsoleLogger.Debug(id);
+                return Ok(id);
             }
             catch (ICustException e)
             {
@@ -132,7 +133,7 @@ namespace TheBetterLimited_Server.API.Controller
         {
             try
             {
-                await gc.AddImage(id, image , "en");
+                await gc.AddImage(id, image);
                 return Ok();
             }
             catch (ICustException e)
@@ -148,7 +149,10 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 ConsoleLogger.Debug("GetImage");
                 byte[]? image = await gc.GetImage(id);
-                return File(image, "image/png");
+                if (image is not null)
+                    return File(image, "image/png");
+                else 
+                    return NotFound();
             }
             catch (ICustException e)
             {

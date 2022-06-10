@@ -139,7 +139,7 @@ public class Program
 
         ConsoleLogger.Debug("Version");
 
-        app.Run();
+        app.Run("http://127.0.0.1:5233");
 
         TempFileManager.CloseAllTempFile();
         TheBetterLimited_Server.Helpers.File.PDFFactory.Instance.Dispose();
