@@ -2800,15 +2800,24 @@ namespace TheBetterLimited_Server.Data
             ConsoleLogger.Debug(AppDomain.CurrentDomain.BaseDirectory + path);
             Helpers.File.ZipHelper.Decompress("resources/product/image.zip" , "resources/product" );
             // get the all the files in the folder
-            FileInfo[] files = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + path).GetFiles();
+            // FileInfo[] files = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + path).GetFiles();
 
+            // List<Goods> goods = db.Set<Goods>().ToList();
+            // for(int i = 0 ; i < files.Length && i < goods.Count; i++)
+            // {
+            //     // goods[i].Photo = Helpers.ByteArrayCompressor.Compress(File.ReadAllBytes(files[i].FullName));
+            //     goods[i].Photo = File.ReadAllBytes(files[i].FullName);
+
+            //     db.Set<Goods>().Update(goods[i]);
+            //     db.SaveChanges();
+            // }
             List<Goods> goods = db.Set<Goods>().ToList();
-            for(int i = 0 ; i < files.Length && i < goods.Count; i++)
-            {
-                // goods[i].Photo = Helpers.ByteArrayCompressor.Compress(File.ReadAllBytes(files[i].FullName));
-                goods[i].Photo = File.ReadAllBytes(files[i].FullName);
 
-                db.Set<Goods>().Update(goods[i]);
+
+            foreach(Goods g in goods)
+            {
+                g.Photo = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + path + "/" + g.Id + ".png");
+                db.Set<Goods>().Update(g);
                 db.SaveChanges();
             }
 
