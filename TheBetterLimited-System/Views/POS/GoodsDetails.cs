@@ -55,7 +55,7 @@ namespace TheBetterLimited.Views
             {
                 using (MemoryStream ms = new MemoryStream(photo, 0, photo.Length))
                 {
-                    
+                            
                     ms.Write(photo, 0, photo.Length);
 
                     // convert image to bitmap
