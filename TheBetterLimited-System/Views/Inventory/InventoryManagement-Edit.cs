@@ -230,7 +230,7 @@ namespace TheBetterLimited.Views
             {
 
                 MemoryStream ms = new MemoryStream();
-                GoodsPic.Image.Save(ms,System.Drawing.Imaging.ImageFormat.Gif);
+                GoodsPic.Image.Save(ms,System.Drawing.Imaging.ImageFormat.Png);
                 byte[] image = ms.ToArray();
                 RestRequest req = new RestRequest("/api/pos/goods/" + Id + "/image", Method.Post)
                                     .AddHeader("Authorization", "Bearer " + Models.GlobalsData.currentUser["token"])

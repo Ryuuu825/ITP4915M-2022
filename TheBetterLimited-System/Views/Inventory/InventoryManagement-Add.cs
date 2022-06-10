@@ -129,17 +129,17 @@ namespace TheBetterLimited.Views
                 Status = cbxStatus.SelectedItem.ToString(),
                 supplierId =  suppliersList[cbxSupplier.SelectedIndex].Id
             });
+            string id = re.Content.ToString().Replace("\"", "");
             Console.WriteLine(re.Content);
-            Console.WriteLine(re.StatusCode);
 
             // upload photo
             if (GoodsPic.Image != Properties.Resources._default)
             {
 
                 System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                GoodsPic.Image.Save(ms,System.Drawing.Imaging.ImageFormat.Gif);
+                GoodsPic.Image.Save(ms,System.Drawing.Imaging.ImageFormat.Png);
                 byte[] image = ms.ToArray();
-                RestRequest req = new RestRequest("/api/pos/goods/" + Id + "/image", Method.Post)
+                RestRequest req = new RestRequest("/api/pos/goods/" + id + "/image", Method.Post)
                                     .AddHeader("Authorization", "Bearer " + Models.GlobalsData.currentUser["token"])
                                     .AddBody(image);
 
