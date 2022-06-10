@@ -31,6 +31,8 @@ namespace TheBetterLimited_Server.Data
                 db.Set<Supplier_Goods_Stock>().AddRange(CreateSupplier_Goods_Stock());
                 db.SaveChanges();
 
+                db.Set<Team>().AddRange(CreateTeam());
+
                 using (Repositories.AccountRepository _userTable = new Repositories.AccountRepository(db))
                 {
                     var accs = CreateAccount();
@@ -2787,6 +2789,73 @@ namespace TheBetterLimited_Server.Data
             counter++;
 
             return last;
+        }
+
+        public static Team[] CreateTeam()
+        {
+            return new Team[]
+            {
+                new Team
+                {
+                    ID = "001",
+                    Name = "Team 1",
+                    _departmentId = "300"
+                },
+                new Team
+                {
+                    ID = "002",
+                    Name = "Team 2",
+                    _departmentId = "300"
+                },
+                new Team
+                {
+                    ID = "003",
+                    Name = "Team 3",
+                    _departmentId = "300"
+                },
+                new Team
+                {
+                    ID = "004",
+                    Name = "Team 4",
+                    _departmentId = "300"
+                },
+                new Team
+                {
+                    ID = "005",
+                    Name = "Team 5",
+                    _departmentId = "300"
+                },
+                new Team
+                {
+                    ID = "006",
+                    Name = "Team 6",
+                    _departmentId = "700"
+                },
+                new Team
+                {
+                    ID = "007",
+                    Name = "Team 7",
+                    _departmentId = "700"
+                },
+                new Team
+                {
+                    ID = "008",
+                    Name = "Team 8",
+                    _departmentId = "700"
+                },
+                new Team
+                {
+                    ID = "009",
+                    Name = "Team 9",
+                    _departmentId = "700"
+                },
+                new Team
+                {
+                    ID = "010",
+                    Name = "Team 10",
+                    _departmentId = "700"
+                }
+            };
         }
 
         public static void CreateGoodsPhoto(DataContext db)

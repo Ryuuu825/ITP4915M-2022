@@ -99,6 +99,11 @@ public class DataContext : DbContext
             .HasOne(soia => soia.Appointment)
             .WithMany(a => a.SaleOrderItem_Appointments)
             .HasForeignKey(soia => soia._appointmentId);
+        
+        md.Entity<Team>()   
+            .HasOne(t => t.Department)
+            .WithMany(d => d.teams)
+            .HasForeignKey(t => t._departmentId);
     }
     
     // create dbset for all entity in TheBetterLimited.Data.Entity
