@@ -1,6 +1,6 @@
 using TheBetterLimited_Server.Data.Entity;
 using TheBetterLimited_Server.Helpers;
-
+using System.IO.Compression;
 
 namespace TheBetterLimited_Server.Data
 {
@@ -40,6 +40,10 @@ namespace TheBetterLimited_Server.Data
                         _userTable.CreateUser(ref entity);
                     }
                 }
+
+                CreateGoodsPhoto(db);
+                db.SaveChanges();
+
             }
             catch (Exception e)
             {
@@ -1215,12 +1219,6 @@ namespace TheBetterLimited_Server.Data
 
         public static List<Goods> CreateGoods()
         {
-            List<byte[]> images = new List<byte[]>(3);
-            FileInfo[] dir = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "resources/product/image").GetFiles();
-            foreach (var file in dir)
-            {
-                images.Add(File.ReadAllBytes(file.FullName));
-            }
             return new List<Goods>(30)
             {
                 new Goods
@@ -1232,8 +1230,7 @@ namespace TheBetterLimited_Server.Data
                     Price = (decimal) 4550,
                     GTINCode = GTINGenerator.L("00001"),
                     Size = GoodsSize.Large,
-                    Status = GoodsStatus.Selling,
-                    Photo = images[0],
+                    Status = GoodsStatus.Selling
                 },
                 new Goods
                 {
@@ -2792,5 +2789,32 @@ namespace TheBetterLimited_Server.Data
             return last;
         }
 
+        public static void CreateGoodsPhoto(DataContext db)
+        {
+            string path = @"resources\product\image";
+
+            if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + path))
+            {   
+                Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + path, true);
+            }
+            ConsoleLogger.Debug(AppDomain.CurrentDomain.BaseDirectory + path);
+            Helpers.File.ZipHelper.Decompress("resources/product/image.zip" , "resources/product" );
+            // get the all the files in the folder
+            FileInfo[] files = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + path).GetFiles();
+
+            List<Goods> goods = db.Set<Goods>().ToList();
+            for(int i = 0 ; i < files.Length && i < goods.Count; i++)
+            {
+                goods[i].Photo = Helpers.ByteArrayCompressor.Compress(File.ReadAllBytes(files[i].FullName));
+
+                db.Set<Goods>().Update(goods[i]);
+                db.SaveChanges();
+            }
+
+            Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + path, true);
+
+        }
+
+        
     }
 }
