@@ -38,12 +38,23 @@ namespace TheBetterLimited.Views
             }
             txtSupplierGoodsId.BorderColor = Color.LightGray;
 
+
             if (txtQuantity.Texts == "" || txtQuantity.Texts == txtQuantity.Placeholder)
             {
                 txtQuantity.BorderColor = Color.Red;
                 return;
             }
             txtQuantity.BorderColor = Color.LightGray;
+
+            try
+            {
+                int.Parse(txtQuantity.Texts);
+            }
+            catch
+            {
+                MessageBox.Show("Quantity must be number");
+                return;
+            }
 
             if (txtMaxLimit.Texts == "" || txtMaxLimit.Texts == txtMaxLimit.Placeholder)
             {
@@ -52,6 +63,18 @@ namespace TheBetterLimited.Views
             }
             txtMaxLimit.BorderColor = Color.LightGray;
 
+            int max = 0;
+
+            try
+            {
+                max = int.Parse(txtMaxLimit.Texts);
+            }
+            catch
+            {
+                MessageBox.Show("Max Limit must be number");
+                return;
+            }
+
             if (txtMinLimit.Texts == "" || txtMinLimit.Texts == txtMinLimit.Placeholder)
             {
                 txtMinLimit.BorderColor = Color.Red;
@@ -59,12 +82,49 @@ namespace TheBetterLimited.Views
             }   
             txtMinLimit.BorderColor = Color.LightGray;
 
+            int min = 0;
+            try
+            {
+                min = int.Parse(txtMinLimit.Texts);
+            }
+            catch
+            {
+                MessageBox.Show("Min Limit must be number");
+                return;
+            }
+
+            if (max < min)
+            {
+                MessageBox.Show("Max Limit must be greater than Min Limit");
+                return;
+            }
+
             if (txtReorderLevel.Texts == "" || txtReorderLevel.Texts == txtReorderLevel.Placeholder)
             {
                 txtReorderLevel.BorderColor = Color.Red;
                 return;
             }
             txtReorderLevel.BorderColor = Color.LightGray;
+
+            int reorder = 0;
+            try
+            {
+                reorder = int.Parse(txtReorderLevel.Texts);
+            }
+            catch
+            {
+                MessageBox.Show("Reorder Level must be number");
+                return;
+            }
+
+            if (reorder < min)
+            {
+                MessageBox.Show("Reorder Level is smaller than Min Limit.\r\nAre you sure?" , "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            };
+            if (reorder > max)
+            {
+                MessageBox.Show("Reorder Level is greater than Max Limit.\r\nAre you sure?" , "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            };
 
 
 

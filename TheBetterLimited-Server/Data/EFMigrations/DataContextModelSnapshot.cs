@@ -916,7 +916,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(9)");
 
                     b.Property<decimal?>("Price")
-                        .HasColumnType("DECIMAL(7,2)");
+                        .HasColumnType("DECIMAL(8,2)");
 
                     b.Property<string>("_goodsId")
                         .IsRequired()

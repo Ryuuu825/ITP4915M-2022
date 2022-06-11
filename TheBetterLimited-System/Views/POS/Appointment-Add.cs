@@ -55,7 +55,6 @@ namespace TheBetterLimited.Views
         public event Action OnExit;
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            this.OnExit.Invoke();
             this.Close();
             this.Dispose();
         }
@@ -98,8 +97,8 @@ namespace TheBetterLimited.Views
 
             CustomerInfo cusInfo = new CustomerInfo(name, phone, address);
             List<object> list = new List<object>();
-            list.Add(new { sessionId = deliverySessionId, departmentId = "300"});
-            if(needInstall == true)
+            list.Add(new { sessionId = deliverySessionId, departmentId = "300" });
+            if (needInstall == true)
             {
                 list.Add(new { sessionId = installSessionId, departmentId = "700" });
             }
@@ -130,28 +129,21 @@ namespace TheBetterLimited.Views
             InstallDatePicker.MinDate = DateTime.Now.AddDays(1);
             DeliveryDatePicker.MaxDate = DeliveryDatePicker.MinDate.AddDays(29);
             InstallDatePicker.MaxDate = InstallDatePicker.MinDate.AddDays(29);
+            if (DeliveryDatePicker.MinDate.DayOfWeek == DayOfWeek.Sunday) return;
             InitDeliveryComboBox();
         }
 
         private void DeliveryDatePicker_ValueChanged(object sender, EventArgs e)
         {
-            ResetDeliveryComboBox();
-            ResetInstallComboBox();
-            deliverySessions.Clear();
-            installSessions.Clear();
-            InstallDatePicker.MinDate = DeliveryDatePicker.Value;
             if (DeliveryDatePicker.Value.DayOfWeek == DayOfWeek.Sunday) return;
-            deliverySessions = InitSession(DeliveryDatePicker.Value.Month, DeliveryDatePicker.Value.Day, "300");
-            foreach (Session item in deliverySessions)
-            {
-                DeliverySessionCombo.Items.Add(item.StartTime1.ToString("HH:mm") + " - " + item.EndTime1.ToString("HH:mm"));
-            }
+            InitDeliveryComboBox();
+            InstallDatePicker.MinDate = DeliveryDatePicker.Value;
         }
 
         private void DeliverySessionCombo_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            InitInstallComboBox();
             deliverySessionId = deliverySessions[DeliverySessionCombo.SelectedIndex].ID1;
+            InitInstallComboBox();
         }
 
         //init session form server
@@ -184,20 +176,30 @@ namespace TheBetterLimited.Views
 
         private void InitDeliveryComboBox()
         {
+            ResetDeliveryComboBox();
             ResetInstallComboBox();
             deliverySessions.Clear();
+            installSessions.Clear();
             if (DeliveryDatePicker.Value.DayOfWeek == DayOfWeek.Sunday) return;
             deliverySessions = InitSession(DeliveryDatePicker.Value.Month, DeliveryDatePicker.Value.Day, "300");
-            for (int i = 0; i < deliverySessions.Count; i++)
+            List<Session> removeSession = new List<Session>();
+            foreach (Session session in deliverySessions)
             {
-                if (deliverySessions[i].NumOfAppointments1 > 0)
+                if (session.NumOfAppointments1 <= 0)
                 {
-                    InstallSessionCombo.Items.Add(deliverySessions[i].StartTime1.ToString("HH:mm") + " - " + deliverySessions[i].EndTime1.ToString("HH:mm"));
+                    removeSession.Add(session);
                 }
-                else
-                {
-                    deliverySessions.RemoveAt(i);
-                }
+            }
+
+            foreach (Session session in removeSession)
+            {
+                deliverySessions.Remove(session);
+            }
+            removeSession.Clear();
+
+            foreach (Session session in deliverySessions)
+            {
+                DeliverySessionCombo.Items.Add(session.StartTime1.ToString("HH:mm") + " - " + session.EndTime1.ToString("HH:mm"));
             }
         }
 
@@ -207,19 +209,44 @@ namespace TheBetterLimited.Views
             installSessions.Clear();
             if (InstallDatePicker.Value.DayOfWeek == DayOfWeek.Sunday) return;
             installSessions = InitSession(InstallDatePicker.Value.Month, InstallDatePicker.Value.Day, "700");
-            Console.WriteLine(installSessions.Count);
-            for (int i = 0; i < installSessions.Count; i++)
+            List<Session> removeSession = new List<Session>();
+            if (InstallDatePicker.Value.Date == DeliveryDatePicker.Value.Date)
             {
-                Console.WriteLine(installSessions[i].ToString());
-                if (i <= DeliverySessionCombo.SelectedIndex && installSessions[i].Date1 == DeliveryDatePicker.Value.Date)
+                Console.WriteLine(DeliverySessionCombo.SelectedIndex);
+                if (DeliverySessionCombo.SelectedIndex != -1)
                 {
-                    installSessions.RemoveAt(0);
-                    continue;
+                    foreach (Session session in installSessions)
+                    {
+                        if (session.EndTime1 <= deliverySessions[DeliverySessionCombo.SelectedIndex].EndTime1)
+                        {
+                            removeSession.Add(session);
+                        }
+                    }
                 }
-                if (installSessions[i].NumOfAppointments1 > 0)
+            }
+
+            foreach (Session session in removeSession)
+            {
+                installSessions.Remove(session);
+            }
+
+            foreach (Session session in installSessions)
+            {
+                if (session.NumOfAppointments1 <= 0)
                 {
-                    InstallSessionCombo.Items.Add(installSessions[i].StartTime1.ToString("HH:mm") + " - " + installSessions[i].EndTime1.ToString("HH:mm"));
+                    removeSession.Add(session);
                 }
+            }
+
+            foreach (Session session in removeSession)
+            {
+                installSessions.Remove(session);
+            }
+            removeSession.Clear();
+
+            foreach (Session session in installSessions)
+            {
+                InstallSessionCombo.Items.Add(session.StartTime1.ToString("HH:mm") + " - " + session.EndTime1.ToString("HH:mm"));
             }
         }
 
@@ -231,7 +258,6 @@ namespace TheBetterLimited.Views
         private void InstallSessionCombo_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             installSessionId = installSessions[InstallSessionCombo.SelectedIndex].ID1;
-            Console.WriteLine(installSessionId);
         }
 
         private void CancelBtn_Click_1(object sender, EventArgs e)
@@ -252,18 +278,16 @@ namespace TheBetterLimited.Views
                 if (!char.IsNumber(discountTxt[i]))
                 {
                     MessageBox.Show("Please enter a valid number");
-                    PhoneTxt.Texts = "";
                     return;
                 }
             }
             try
             {
-                Convert.ToInt32(PhoneTxt.Texts);
+                Convert.ToInt64(PhoneTxt.Texts);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Please enter a valid number");
-                PhoneTxt.Texts = "";
                 return;
             }
         }
@@ -272,7 +296,8 @@ namespace TheBetterLimited.Views
         {
             if (PhoneTxt.Texts.Length == 8 || PhoneTxt.Texts.Length == 11)
             {
-            }else
+            }
+            else
             {
                 PhoneTxt.IsError = true;
                 MessageBox.Show("The phone number should have 8 or 11 digits");

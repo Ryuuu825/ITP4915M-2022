@@ -42,17 +42,26 @@ namespace TheBetterLimited.Views
         public void InitInfo()
         {
             //init icon
-            JToken token = goodsData["Photo"];
-            if (token.Type != JTokenType.Null)
-            {
-                byte[] byteBuffer = Convert.FromBase64String(goodsData["Photo"].ToString());
-                MemoryStream memoryStream = new MemoryStream(byteBuffer);
-                IconPic.Image = new Bitmap(memoryStream);
-                memoryStream.Close();
-            }
-            else
+        
+            RestRequest req = new RestRequest("/api/pos/goods/" + goodsData["GoodsId"] + "/image", Method.Get)
+                                .AddHeader("Authorization", "Bearer " + Models.GlobalsData.currentUser["token"]);
+
+            var photo = Utils.RestClientUtils.client.DownloadDataAsync(req).GetAwaiter().GetResult();
+            if (photo is null)
             {
                 IconPic.Image = Properties.Resources.product;
+            }
+            else 
+            {
+                using (MemoryStream ms = new MemoryStream(photo, 0, photo.Length))
+                {
+                            
+                    ms.Write(photo, 0, photo.Length);
+
+                    // convert image to bitmap
+                    IconPic.Image = new Bitmap(ms);
+                    ms.Close();
+                }
             }
 
             GoodsIDTxt.Texts = goodsData["GoodsId"].ToString();

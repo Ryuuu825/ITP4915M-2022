@@ -9,3 +9,6 @@ updaten:
 Clean:
 	dotnet ef database drop
 	dotnet ef migrations remove  -f
+
+ImageZip:
+	zip -r ./resources/product/image.zip ./resources/product/image -x "*.DS_Store" -x "__MACOSX"

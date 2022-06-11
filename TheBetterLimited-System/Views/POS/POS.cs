@@ -311,17 +311,28 @@ namespace TheBetterLimited.Views
                 goods.Add(c);
                 Bitmap img = null;
                 JToken token = c["Photo"];
-                if (token.Type != JTokenType.Null)
-                {
-                    byte[] byteBuffer = Convert.FromBase64String(c["Photo"].ToString());
-                    MemoryStream memoryStream = new MemoryStream(byteBuffer);
-                    img = new Bitmap(memoryStream);
-                    memoryStream.Close();
-                }
-                else
+
+                RestRequest req = new RestRequest("/api/pos/goods/" + c["GoodsId"] + "/image", Method.Get)
+                                    .AddHeader("Authorization", "Bearer " + Models.GlobalsData.currentUser["token"]);
+
+                var photo = Utils.RestClientUtils.client.DownloadDataAsync(req).GetAwaiter().GetResult();
+                if (photo is null)
                 {
                     img = Properties.Resources.product;
                 }
+                else 
+                {
+                    using (MemoryStream ms = new MemoryStream(photo, 0, photo.Length))
+                    {
+                        
+                        ms.Write(photo, 0, photo.Length);
+
+                        // convert image to bitmap
+                        img = new Bitmap(ms);
+                        ms.Close();
+                    }
+                }
+               
                 ProductInfo productBox = new ProductInfo();
                 productBox.Title = c["GoodsName"].ToString();
                 productBox.ProductPrice = (double)c["Price"];

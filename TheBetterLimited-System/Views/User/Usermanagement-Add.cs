@@ -127,16 +127,11 @@ namespace TheBetterLimited.Views
                 return;
             }
             userNameTxt.IsError = false;
-            Console.WriteLine(userNameTxt.Texts);
-            Console.WriteLine(TestPWStrength(this.pwdTxt.Texts) == 0 || !pwdTxt.Texts.Equals(pwdTxt2));
-            Console.WriteLine(TestPWStrength(this.pwdTxt.Texts) == 0);
-            Console.WriteLine(TestPWStrength(this.pwdTxt.Texts));
-            Console.WriteLine(!pwdTxt.Texts.Equals(pwdTxt2.Texts));
 
             if (TestPWStrength(this.pwdTxt.Texts) <= 3 || !pwdTxt.Texts.Equals(pwdTxt2.Texts))
             {
                 pwdTxt.IsError = true;
-                MessageBox.Show("Password strength is not enough! \n Password should consist of at least one upper and lower case letters with wu");
+                MessageBox.Show("Password strength is not enough! \n Password should consist of at least one upper and lower case letters with digits");
                 return;
             }
             pwdTxt.IsError = false;

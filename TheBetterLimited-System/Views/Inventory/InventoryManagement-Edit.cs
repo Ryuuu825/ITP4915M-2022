@@ -111,24 +111,25 @@ namespace TheBetterLimited.Views
                 cbxStatus.SelectedItem = "StopSelling";
             }
             // convert base64 to image
-            string base64 = res["Photo"].ToString();
+            RestRequest req = new RestRequest("/api/pos/goods/" + Id + "/image", Method.Get)
+                                    .AddHeader("Authorization", "Bearer " + Models.GlobalsData.currentUser["token"]);
 
-            if (base64 != "")
+            var photo = Utils.RestClientUtils.client.DownloadDataAsync(req).GetAwaiter().GetResult();
+            try
             {
-
-                byte[] imageBytes = Convert.FromBase64String(base64);
-                using (MemoryStream ms = new MemoryStream(imageBytes, 0, imageBytes.Length))
+                using (MemoryStream ms = new MemoryStream(photo, 0, photo.Length))
                 {
-                    ms.Write(imageBytes, 0, imageBytes.Length);
+                
+                    ms.Write(photo, 0, photo.Length);
 
                     // convert image to bitmap
                     icon = new Bitmap(ms);
                 }
-            }
-            else 
+            }catch(Exception ex)
             {
                 icon  = Properties.Resources._default;
             }
+                
             GoodsPic.Image = icon;
         }
         private Bitmap icon;
@@ -224,6 +225,20 @@ namespace TheBetterLimited.Views
             }
 
             con.Update(Id, UpdateContent);
+
+            if (GoodsPic.Image != Properties.Resources._default)
+            {
+
+                MemoryStream ms = new MemoryStream();
+                GoodsPic.Image.Save(ms,System.Drawing.Imaging.ImageFormat.Png);
+                byte[] image = ms.ToArray();
+                RestRequest req = new RestRequest("/api/pos/goods/" + Id + "/image", Method.Post)
+                                    .AddHeader("Authorization", "Bearer " + Models.GlobalsData.currentUser["token"])
+                                    .AddBody(image);
+
+                var result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
+                Console.WriteLine(result.Content);
+            }
 
             this.OnExit.Invoke();
             this.Close();

@@ -37,7 +37,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderDetails));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OrderItemBox = new System.Windows.Forms.Panel();
             this.Data = new System.Windows.Forms.Panel();
@@ -260,7 +259,7 @@
             this.install.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.install.DataPropertyName = "install";
             dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle16.NullValue")));
+            dataGridViewCellStyle16.NullValue = null;
             dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.install.DefaultCellStyle = dataGridViewCellStyle16;
             this.install.HeaderText = "Need Install";
@@ -463,7 +462,7 @@
             this.InstallSessionCombo.TabIndex = 33;
             this.InstallSessionCombo.Texts = "Installation Service";
             this.InstallSessionCombo.UnderlinedStyle = false;
-            this.InstallSessionCombo.VisibleChanged += new System.EventHandler(this.InstallSessionCombo_OnSelectedIndexChanged);
+            this.InstallSessionCombo.OnSelectedIndexChanged += new System.EventHandler(this.InstallSessionCombo_OnSelectedIndexChanged);
             // 
             // DeliverySessionCombo
             // 
@@ -782,7 +781,7 @@
             this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.dataGridViewImageColumn4.DataPropertyName = "install";
             dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle20.NullValue")));
+            dataGridViewCellStyle20.NullValue = null;
             dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn4.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewImageColumn4.HeaderText = "";
