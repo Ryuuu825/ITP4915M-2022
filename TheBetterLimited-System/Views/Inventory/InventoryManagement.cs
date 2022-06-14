@@ -168,7 +168,6 @@ namespace TheBetterLimited.Views
             else
             {
                 string str = "id:" + this.SearchBarTxt.Texts
-                            + "|description:" + this.SearchBarTxt.Texts + "|price:" + this.SearchBarTxt.Texts
                             + "|gtincode:" + this.SearchBarTxt.Texts + "|size:" + this.SearchBarTxt.Texts
                             + "|status:" + this.SearchBarTxt.Texts;
                 result = gc.GetGoodsByQry(str);
@@ -287,7 +286,6 @@ namespace TheBetterLimited.Views
             {
                 byte[] response = gc.GetGoodsPDF();
                 System.IO.File.WriteAllBytes(WriteFilePath, response);
-
             };
 
 
@@ -308,7 +306,6 @@ namespace TheBetterLimited.Views
                     MessageBox.Show("Saved at" + WriteFilePath);
                 }
             };
-
             bgWorker.RunWorkerAsync();
         }
 

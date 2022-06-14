@@ -133,7 +133,7 @@ namespace TheBetterLimited.Views
             Console.WriteLine(re.Content);
 
             // upload photo
-            if (GoodsPic.Image != Properties.Resources._default)
+            if (isUpload)
             {
 
                 System.IO.MemoryStream ms = new System.IO.MemoryStream();
@@ -142,9 +142,9 @@ namespace TheBetterLimited.Views
                 RestRequest req = new RestRequest("/api/pos/goods/" + id + "/image", Method.Post)
                                     .AddHeader("Authorization", "Bearer " + Models.GlobalsData.currentUser["token"])
                                     .AddBody(image);
-
                 var result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
                 Console.WriteLine(result.Content);
+                ms.Close();
             }
 
             if (re.StatusCode == System.Net.HttpStatusCode.OK)

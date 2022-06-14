@@ -64,7 +64,6 @@
             this.remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Header = new System.Windows.Forms.Panel();
-            this.RefreshBtn = new FontAwesome.Sharp.IconButton();
             this.Title = new System.Windows.Forms.Label();
             this.DiscountContainer = new System.Windows.Forms.Panel();
             this.DiscountValue = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
@@ -535,7 +534,6 @@
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.White;
-            this.Header.Controls.Add(this.RefreshBtn);
             this.Header.Controls.Add(this.Title);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.ForeColor = System.Drawing.Color.White;
@@ -545,22 +543,6 @@
             this.Header.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.Header.Size = new System.Drawing.Size(606, 40);
             this.Header.TabIndex = 6;
-            // 
-            // RefreshBtn
-            // 
-            this.RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RefreshBtn.FlatAppearance.BorderSize = 0;
-            this.RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RefreshBtn.IconChar = FontAwesome.Sharp.IconChar.RedoAlt;
-            this.RefreshBtn.IconColor = System.Drawing.Color.Black;
-            this.RefreshBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RefreshBtn.IconSize = 25;
-            this.RefreshBtn.Location = new System.Drawing.Point(564, 4);
-            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.Size = new System.Drawing.Size(39, 36);
-            this.RefreshBtn.TabIndex = 2;
-            this.RefreshBtn.UseVisualStyleBackColor = true;
             // 
             // Title
             // 
@@ -865,7 +847,6 @@
         private CustomizeControl.RoundButton HoldBtn;
         private CustomizeControl.RoundButton ClearBtn;
         private System.Windows.Forms.Panel Header;
-        private FontAwesome.Sharp.IconButton RefreshBtn;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Panel DiscountContainer;
         private CustomizeControl.RoundButton PayBtn;

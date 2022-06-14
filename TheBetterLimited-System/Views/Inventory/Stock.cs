@@ -102,7 +102,7 @@ namespace TheBetterLimited.Views
 
         private void EditStock(DataGridViewCellEventArgs e)
         {
-            string id = StockDataGrid["Id" , e.RowIndex].Value.ToString();
+            string id = StockDataGrid["Id", e.RowIndex].Value.ToString();
             Stock_Edit edit = new Stock_Edit(id);
             edit.OnExit += () => { GetStock(); };
             edit.Show();
@@ -183,45 +183,45 @@ namespace TheBetterLimited.Views
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
                 // result = cbStockGoods.GetAll();
-                RestRequest req = new RestRequest("/api/inventory/sgs" , Method.Get);
+                RestRequest req = new RestRequest("/api/inventory/sgs", Method.Get);
                 result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
             }
-            // else
-            // {
-            //     string str = "id:" + this.SearchBarTxt.Texts
-            //                 + "|ReorderLevel:" + this.SearchBarTxt.Texts + "|_locationId:" + this.SearchBarTxt.Texts;
-            //     result = cbStockGoods.GetByQueryString(str);
-            // }
-                
-                var res = JArray.Parse(result.Content.ToString());
-                foreach( var row in res )
-                {
-                    // is not soft Deleted
-                    if (! row["isDeleted"].ToObject<bool>())
-                    {
-                        DataRow dr = dataTable.NewRow();
-                        dr["Id"] = row["Id"].ToString();
-                        dr["loc"] = row["LocName"].ToString();
-                        dr["goodsName"] = row["GoodsName"].ToString();
-                        dr["Quantity"] = row["Quantity"].ToString();
-                        dr["MaxLimit"] = row["MaxLimit"].ToString();
-                        dr["MinLimit"] = row["MinLimit"].ToString();
-                        dr["ReorderLevel"] = row["ReorderLevel"].ToString();
-                        dr["Status"] = row["Status"].ToString();
-                        dataTable.Rows.Add(dr);
-                    }
-                }
+            /*else
+            {
+                string str = "id:" + this.SearchBarTxt.Texts
+                            + "|ReorderLevel:" + this.SearchBarTxt.Texts + "|_locationId:" + this.SearchBarTxt.Texts;
+                result = cbStockGoods.GetByQueryString(str);
+            }*/
 
-                bs.DataSource = dataTable;
-                StockDataGrid.AutoGenerateColumns = false;
-                StockDataGrid.DataSource = bs;
-                InitializeDataGridView();
+            var res = JArray.Parse(result.Content.ToString());
+            foreach (var row in res)
+            {
+                // is not soft Deleted
+                if (!row["isDeleted"].ToObject<bool>())
+                {
+                    DataRow dr = dataTable.NewRow();
+                    dr["Id"] = row["Id"].ToString();
+                    dr["loc"] = row["LocName"].ToString();
+                    dr["goodsName"] = row["GoodsName"].ToString();
+                    dr["Quantity"] = row["Quantity"].ToString();
+                    dr["MaxLimit"] = row["MaxLimit"].ToString();
+                    dr["MinLimit"] = row["MinLimit"].ToString();
+                    dr["ReorderLevel"] = row["ReorderLevel"].ToString();
+                    dr["Status"] = row["Status"].ToString();
+                    dataTable.Rows.Add(dr);
+                }
+            }
+
+            bs.DataSource = dataTable;
+            StockDataGrid.AutoGenerateColumns = false;
+            StockDataGrid.DataSource = bs;
+            InitializeDataGridView();
         }
 
         private bool DeleteRecord(string id)
         {
             RestRequest req = new RestRequest("/api/inventory/sgs/" + id, Method.Delete);
-            result  = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
+            result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
             Console.WriteLine(result.StatusCode);
             Console.WriteLine(result.Content);
             return result.StatusCode == System.Net.HttpStatusCode.OK;
@@ -263,7 +263,7 @@ namespace TheBetterLimited.Views
         //Delete stock records
         private void DeleteStock(DataGridViewCellEventArgs e)
         {
-            choose = MessageBox.Show("Do you really want to delete the " + StockDataGrid["id" , e.RowIndex ].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            choose = MessageBox.Show("Do you really want to delete the " + StockDataGrid["id", e.RowIndex].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (choose == DialogResult.Yes)
             {
                 try
@@ -271,7 +271,7 @@ namespace TheBetterLimited.Views
                     DeleteRecord(StockDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
                     if (result.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        MessageBox.Show("The " + StockDataGrid["id" , e.RowIndex ].Value + " have been deleted!", "Delete stock records Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("The " + StockDataGrid["id", e.RowIndex].Value + " have been deleted!", "Delete stock records Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetStock();
                     }
                 }

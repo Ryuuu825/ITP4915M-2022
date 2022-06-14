@@ -316,21 +316,20 @@ namespace TheBetterLimited.Views
                                     .AddHeader("Authorization", "Bearer " + Models.GlobalsData.currentUser["token"]);
 
                 var photo = Utils.RestClientUtils.client.DownloadDataAsync(req).GetAwaiter().GetResult();
-                if (photo is null)
-                {
-                    img = Properties.Resources.product;
-                }
-                else 
+                try
                 {
                     using (MemoryStream ms = new MemoryStream(photo, 0, photo.Length))
                     {
-                        
+
                         ms.Write(photo, 0, photo.Length);
 
                         // convert image to bitmap
                         img = new Bitmap(ms);
                         ms.Close();
                     }
+                }catch (Exception ex)
+                {
+                    img = Properties.Resources.product1;
                 }
                
                 ProductInfo productBox = new ProductInfo();

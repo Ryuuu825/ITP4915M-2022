@@ -126,8 +126,6 @@ namespace TheBetterLimited.Views
                 MessageBox.Show("Reorder Level is greater than Max Limit.\r\nAre you sure?" , "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             };
 
-
-
  
             /*
             {
