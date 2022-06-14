@@ -55,10 +55,10 @@
             this.GoodsBtn = new System.Windows.Forms.Button();
             this.RestockContainer = new System.Windows.Forms.Panel();
             this.restockRequestBtn = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
+            this.StaffContainer = new System.Windows.Forms.Panel();
+            this.staffBtn = new System.Windows.Forms.Button();
+            this.AccountContainer = new System.Windows.Forms.Panel();
+            this.accountBtn = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -101,8 +101,8 @@
             this.subSidebar.SuspendLayout();
             this.GoodsContainer.SuspendLayout();
             this.RestockContainer.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.StaffContainer.SuspendLayout();
+            this.AccountContainer.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -422,8 +422,8 @@
             this.subSidebar.Controls.Add(this.StockContainer);
             this.subSidebar.Controls.Add(this.AppointmentContainer);
             this.subSidebar.Controls.Add(this.RestockContainer);
-            this.subSidebar.Controls.Add(this.panel3);
-            this.subSidebar.Controls.Add(this.panel4);
+            this.subSidebar.Controls.Add(this.StaffContainer);
+            this.subSidebar.Controls.Add(this.AccountContainer);
             this.subSidebar.Controls.Add(this.panel5);
             this.subSidebar.Controls.Add(this.panel6);
             this.subSidebar.Controls.Add(this.panel7);
@@ -490,55 +490,57 @@
             this.restockRequestBtn.UseVisualStyleBackColor = true;
             this.restockRequestBtn.Click += new System.EventHandler(this.restockRequestBtn_Click);
             // 
-            // panel3
+            // StaffContainer
             // 
-            this.panel3.Controls.Add(this.button9);
-            this.panel3.Location = new System.Drawing.Point(0, 310);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 58);
-            this.panel3.TabIndex = 5;
-            this.panel3.Visible = false;
+            this.StaffContainer.Controls.Add(this.staffBtn);
+            this.StaffContainer.Location = new System.Drawing.Point(0, 310);
+            this.StaffContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.StaffContainer.Name = "StaffContainer";
+            this.StaffContainer.Size = new System.Drawing.Size(200, 58);
+            this.StaffContainer.TabIndex = 5;
+            this.StaffContainer.Visible = false;
             // 
-            // button9
+            // staffBtn
             // 
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button9.Location = new System.Drawing.Point(0, 0);
-            this.button9.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(200, 50);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "submenu";
-            this.button9.UseVisualStyleBackColor = true;
+            this.staffBtn.FlatAppearance.BorderSize = 0;
+            this.staffBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.staffBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.staffBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.staffBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.staffBtn.Location = new System.Drawing.Point(0, 0);
+            this.staffBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.staffBtn.Name = "staffBtn";
+            this.staffBtn.Size = new System.Drawing.Size(200, 50);
+            this.staffBtn.TabIndex = 2;
+            this.staffBtn.Text = "Staff";
+            this.staffBtn.UseVisualStyleBackColor = true;
+            this.staffBtn.Click += new System.EventHandler(this.staffBtn_Click);
             // 
-            // panel4
+            // AccountContainer
             // 
-            this.panel4.Controls.Add(this.button11);
-            this.panel4.Location = new System.Drawing.Point(0, 372);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 58);
-            this.panel4.TabIndex = 6;
-            this.panel4.Visible = false;
+            this.AccountContainer.Controls.Add(this.accountBtn);
+            this.AccountContainer.Location = new System.Drawing.Point(0, 372);
+            this.AccountContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.AccountContainer.Name = "AccountContainer";
+            this.AccountContainer.Size = new System.Drawing.Size(200, 58);
+            this.AccountContainer.TabIndex = 6;
+            this.AccountContainer.Visible = false;
             // 
-            // button11
+            // accountBtn
             // 
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button11.Location = new System.Drawing.Point(0, 0);
-            this.button11.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(200, 50);
-            this.button11.TabIndex = 2;
-            this.button11.Text = "submenu";
-            this.button11.UseVisualStyleBackColor = true;
+            this.accountBtn.FlatAppearance.BorderSize = 0;
+            this.accountBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.accountBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.accountBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.accountBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.accountBtn.Location = new System.Drawing.Point(0, 0);
+            this.accountBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.accountBtn.Name = "accountBtn";
+            this.accountBtn.Size = new System.Drawing.Size(200, 50);
+            this.accountBtn.TabIndex = 2;
+            this.accountBtn.Text = "Account";
+            this.accountBtn.UseVisualStyleBackColor = true;
+            this.accountBtn.Click += new System.EventHandler(this.accountBtn_Click);
             // 
             // panel5
             // 
@@ -994,8 +996,8 @@
             this.subSidebar.ResumeLayout(false);
             this.GoodsContainer.ResumeLayout(false);
             this.RestockContainer.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.StaffContainer.ResumeLayout(false);
+            this.AccountContainer.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -1062,10 +1064,10 @@
         private System.Windows.Forms.Button GoodsBtn;
         private System.Windows.Forms.Panel RestockContainer;
         private System.Windows.Forms.Button restockRequestBtn;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Panel StaffContainer;
+        private System.Windows.Forms.Button staffBtn;
+        private System.Windows.Forms.Panel AccountContainer;
+        private System.Windows.Forms.Button accountBtn;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Panel panel6;

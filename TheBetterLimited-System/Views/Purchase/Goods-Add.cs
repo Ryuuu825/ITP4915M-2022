@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 namespace TheBetterLimited.Views
 {
-    public partial class Inventorymanagement_Add : Form
+    public partial class Goods_Add : Form
     {
         private bool isUpload = false;
         private ControllerBase con = new ControllerBase("Catalogue");
@@ -23,7 +23,7 @@ namespace TheBetterLimited.Views
             public string Name { get; set; }
         }
 
-        public Inventorymanagement_Add()
+        public Goods_Add()
         {
             InitializeComponent();
             RestResponse result = con.GetAll();

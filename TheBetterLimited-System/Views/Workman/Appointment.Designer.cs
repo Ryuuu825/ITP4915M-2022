@@ -49,6 +49,8 @@
             this.print = new System.Windows.Forms.DataGridViewImageColumn();
             this.arrange = new System.Windows.Forms.DataGridViewImageColumn();
             this.Header = new System.Windows.Forms.Panel();
+            this.closeBtn = new System.Windows.Forms.Button();
+            this.RefreshBtn = new System.Windows.Forms.Button();
             this.Title = new System.Windows.Forms.Label();
             this.Data = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -64,8 +66,7 @@
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.closeBtn = new System.Windows.Forms.Button();
-            this.RefreshBtn = new System.Windows.Forms.Button();
+            this.roundButton1 = new TheBetterLimited.CustomizeControl.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGrid)).BeginInit();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
@@ -282,6 +283,32 @@
             this.Header.Size = new System.Drawing.Size(758, 40);
             this.Header.TabIndex = 5;
             // 
+            // closeBtn
+            // 
+            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
+            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeBtn.Location = new System.Drawing.Point(716, 3);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(38, 33);
+            this.closeBtn.TabIndex = 7;
+            this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // RefreshBtn
+            // 
+            this.RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RefreshBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
+            this.RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RefreshBtn.Location = new System.Drawing.Point(675, 3);
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.Size = new System.Drawing.Size(38, 33);
+            this.RefreshBtn.TabIndex = 6;
+            this.RefreshBtn.UseVisualStyleBackColor = true;
+            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
+            // 
             // Title
             // 
             this.Title.AutoSize = true;
@@ -326,6 +353,7 @@
             // Action
             // 
             this.Action.BackColor = System.Drawing.Color.White;
+            this.Action.Controls.Add(this.roundButton1);
             this.Action.Controls.Add(this.MultiArrangeBtn);
             this.Action.Controls.Add(this.DeliveryDatePicker);
             this.Action.Controls.Add(this.SearchBar);
@@ -457,31 +485,25 @@
             this.dataGridViewImageColumn7.Image = global::TheBetterLimited.Properties.Resources.list_check;
             this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
             // 
-            // closeBtn
+            // roundButton1
             // 
-            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
-            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Location = new System.Drawing.Point(716, 3);
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.Size = new System.Drawing.Size(38, 33);
-            this.closeBtn.TabIndex = 7;
-            this.closeBtn.UseVisualStyleBackColor = true;
-            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
-            // RefreshBtn
-            // 
-            this.RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RefreshBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
-            this.RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RefreshBtn.Location = new System.Drawing.Point(675, 3);
-            this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.Size = new System.Drawing.Size(38, 33);
-            this.RefreshBtn.TabIndex = 6;
-            this.RefreshBtn.UseVisualStyleBackColor = true;
-            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
+            this.roundButton1.BackColor = System.Drawing.Color.SeaGreen;
+            this.roundButton1.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.roundButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.roundButton1.BorderRadius = 10;
+            this.roundButton1.BorderSize = 0;
+            this.roundButton1.FlatAppearance.BorderSize = 0;
+            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.roundButton1.ForeColor = System.Drawing.Color.White;
+            this.roundButton1.IsChecked = false;
+            this.roundButton1.Location = new System.Drawing.Point(380, 1);
+            this.roundButton1.Name = "roundButton1";
+            this.roundButton1.Size = new System.Drawing.Size(124, 38);
+            this.roundButton1.TabIndex = 12;
+            this.roundButton1.Text = "Complete";
+            this.roundButton1.TextColor = System.Drawing.Color.White;
+            this.roundButton1.UseVisualStyleBackColor = false;
             // 
             // Appointment
             // 
@@ -540,5 +562,6 @@
         private System.Windows.Forms.DataGridViewImageColumn arrange;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button RefreshBtn;
+        private CustomizeControl.RoundButton roundButton1;
     }
 }

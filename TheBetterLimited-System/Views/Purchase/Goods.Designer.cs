@@ -1,6 +1,6 @@
 ﻿namespace TheBetterLimited.Views
 {
-    partial class InventoryManagement
+    partial class Goods
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryManagement));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Goods));
             this.GoodsDataGrid = new System.Windows.Forms.DataGridView();
             this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();

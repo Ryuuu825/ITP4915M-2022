@@ -63,7 +63,7 @@ namespace TheBetterLimited.Views
                     e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
                     UserDataGrid.Columns[e.ColumnIndex].ToolTipText = "Unlock";
-                    UserDataGrid.Rows[e.RowIndex].Cells["lockAcc"].Value = Properties.Resources.unlock;
+                    UserDataGrid.Rows[e.RowIndex].Cells["lockAcc"].Value = Properties.Resources.unlock24;
                     UserDataGrid.Rows[e.RowIndex].Cells["lockAcc"].Tag = 1;
                 }
                 else
