@@ -155,6 +155,7 @@ namespace TheBetterLimited.Views
             if (result.StatusCode == HttpStatusCode.OK)
             {
                 MessageBox.Show("Add new stock successfully");
+                this.OnExit.Invoke();
                 this.Close();
             }
             else
@@ -168,7 +169,6 @@ namespace TheBetterLimited.Views
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            this.OnExit.Invoke();
             this.Close();
             this.Dispose();
         }

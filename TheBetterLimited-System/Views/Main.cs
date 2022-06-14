@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheBetterLimited.Controller;
 using System.Drawing.Drawing2D;
+using System.Text.RegularExpressions;
 
 namespace TheBetterLimited.Views
 {

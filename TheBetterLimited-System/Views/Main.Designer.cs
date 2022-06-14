@@ -216,10 +216,10 @@
             this.UserInformation.Controls.Add(this.UserIcon);
             this.UserInformation.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UserInformation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.UserInformation.Location = new System.Drawing.Point(1053, 0);
+            this.UserInformation.Location = new System.Drawing.Point(1016, 0);
             this.UserInformation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UserInformation.Name = "UserInformation";
-            this.UserInformation.Size = new System.Drawing.Size(211, 100);
+            this.UserInformation.Size = new System.Drawing.Size(248, 100);
             this.UserInformation.TabIndex = 0;
             this.UserInformation.Click += new System.EventHandler(this.UserInformation_Click);
             // 
@@ -229,10 +229,10 @@
             this.txtJobTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtJobTitle.Location = new System.Drawing.Point(67, 50);
             this.txtJobTitle.Name = "txtJobTitle";
-            this.txtJobTitle.Size = new System.Drawing.Size(136, 25);
+            this.txtJobTitle.Size = new System.Drawing.Size(178, 25);
             this.txtJobTitle.TabIndex = 2;
-            this.txtJobTitle.Text = "Admin";
-            this.txtJobTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtJobTitle.Text = "Technical Workman";
+            this.txtJobTitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.txtJobTitle.Click += new System.EventHandler(this.UserInformation_Click);
             // 
             // txtUsername
@@ -241,10 +241,10 @@
             this.txtUsername.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtUsername.Location = new System.Drawing.Point(67, 25);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(136, 25);
+            this.txtUsername.Size = new System.Drawing.Size(178, 18);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.Text = "Chan Tai Man";
-            this.txtUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtUsername.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.txtUsername.Click += new System.EventHandler(this.UserInformation_Click);
             // 
             // UserIcon
@@ -319,11 +319,11 @@
             this.user_droplist.Controls.Add(this.changePwd);
             this.user_droplist.Dock = System.Windows.Forms.DockStyle.Right;
             this.user_droplist.ForeColor = System.Drawing.Color.Transparent;
-            this.user_droplist.Location = new System.Drawing.Point(1053, 100);
+            this.user_droplist.Location = new System.Drawing.Point(1016, 100);
             this.user_droplist.Margin = new System.Windows.Forms.Padding(0);
-            this.user_droplist.MaximumSize = new System.Drawing.Size(211, 200);
+            this.user_droplist.MaximumSize = new System.Drawing.Size(248, 200);
             this.user_droplist.Name = "user_droplist";
-            this.user_droplist.Size = new System.Drawing.Size(211, 200);
+            this.user_droplist.Size = new System.Drawing.Size(248, 200);
             this.user_droplist.TabIndex = 3;
             this.user_droplist.Visible = false;
             // 
@@ -342,9 +342,9 @@
             this.ProfileBtn.Margin = new System.Windows.Forms.Padding(0);
             this.ProfileBtn.Name = "ProfileBtn";
             this.ProfileBtn.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.ProfileBtn.Size = new System.Drawing.Size(211, 50);
+            this.ProfileBtn.Size = new System.Drawing.Size(248, 50);
             this.ProfileBtn.TabIndex = 8;
-            this.ProfileBtn.Text = "            Profile";
+            this.ProfileBtn.Text = "                 Profile";
             this.ProfileBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ProfileBtn.UseVisualStyleBackColor = false;
             // 
@@ -364,9 +364,9 @@
             this.MessageBtn.Margin = new System.Windows.Forms.Padding(0);
             this.MessageBtn.Name = "MessageBtn";
             this.MessageBtn.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.MessageBtn.Size = new System.Drawing.Size(211, 50);
+            this.MessageBtn.Size = new System.Drawing.Size(248, 50);
             this.MessageBtn.TabIndex = 6;
-            this.MessageBtn.Text = "            Message";
+            this.MessageBtn.Text = "                 Message";
             this.MessageBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MessageBtn.UseVisualStyleBackColor = false;
             // 
@@ -385,9 +385,9 @@
             this.LanguageBtn.Margin = new System.Windows.Forms.Padding(0);
             this.LanguageBtn.Name = "LanguageBtn";
             this.LanguageBtn.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.LanguageBtn.Size = new System.Drawing.Size(211, 50);
+            this.LanguageBtn.Size = new System.Drawing.Size(248, 50);
             this.LanguageBtn.TabIndex = 5;
-            this.LanguageBtn.Text = "            Sign out";
+            this.LanguageBtn.Text = "                 Sign out";
             this.LanguageBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LanguageBtn.UseVisualStyleBackColor = false;
             this.LanguageBtn.Click += new System.EventHandler(this.Logout_Click);
@@ -408,9 +408,9 @@
             this.changePwd.Margin = new System.Windows.Forms.Padding(0);
             this.changePwd.Name = "changePwd";
             this.changePwd.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.changePwd.Size = new System.Drawing.Size(211, 50);
+            this.changePwd.Size = new System.Drawing.Size(248, 50);
             this.changePwd.TabIndex = 4;
-            this.changePwd.Text = "            Language";
+            this.changePwd.Text = "                 Language";
             this.changePwd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.changePwd.UseVisualStyleBackColor = false;
             // 

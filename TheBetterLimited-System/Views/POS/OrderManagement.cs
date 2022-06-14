@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -87,6 +88,14 @@ namespace TheBetterLimited.Views
                     e.CellStyle.ForeColor = Color.FromArgb(250, 182, 99);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(250, 182, 99);
                 }
+                var reg = @"(?=[A-Z])";
+                var status = Regex.Split(e.Value.ToString(), reg);
+                var value = "";
+                foreach (var item in status)
+                {
+                    value += item + " ";
+                }
+                e.Value = value;
             }
         }
 

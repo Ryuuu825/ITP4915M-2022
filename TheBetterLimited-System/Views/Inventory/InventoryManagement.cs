@@ -152,14 +152,6 @@ namespace TheBetterLimited.Views
             GoodsDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
             GoodsDataGrid.Columns["size"].HeaderText = "Size";
             GoodsDataGrid.Columns["status"].HeaderText = "Status";
-            // GoodsDataGrid.Columns["id"].HeaderText = "ID";
-            // GoodsDataGrid.Columns["userName"].HeaderText = "User Name";
-            // GoodsDataGrid.Columns["staffName"].HeaderText = "Staff Name";
-            // GoodsDataGrid.Columns["emailAddress"].HeaderText = "Email Address";
-            // GoodsDataGrid.Columns["status"].HeaderText = "Status";
-            // GoodsDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
-            // GoodsDataGrid.Columns["remarks"].HeaderText = "Remark";
-
             for (int i = 0; i < GoodsDataGrid.RowCount; i++)
                 GoodsDataGrid["select", i].Tag = 0;
 
@@ -318,29 +310,6 @@ namespace TheBetterLimited.Views
             };
 
             bgWorker.RunWorkerAsync();
-
-
-
-            // BackgroundWorker bgw = new BackgroundWorker();
-            // CustomizeControl.Loading process = new Loading();
-            // process.Show();
-            // bgw.DoWork += new DoWorkEventHandler(((o, args) =>
-            // {
-            //     
-            // }));
-            // bgw.ProgressChanged += new ProgressChangedEventHandler(((o, args) =>
-            // {
-            // }));
-            // bgw.RunWorkerCompleted += (o, args) =>
-            // { 
-            // };
-            // bgw.RunWorkerAsync();
-            // get "application/pdf"
-
-
-
-
-
         }
 
         private void curdAction_Paint(object sender, PaintEventArgs e)

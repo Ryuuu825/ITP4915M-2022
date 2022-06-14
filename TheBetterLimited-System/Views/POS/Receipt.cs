@@ -163,7 +163,10 @@ namespace TheBetterLimited.Views
             final.Text = String.Format("{0:C2}", ((double)info["total"]-(double)info["total"]));
             if (isBooking)
             {
-                deposit = (double)info["total"] * 0.2;
+                if ((double)info["total"] >= 5000)
+                {
+                    deposit = (double)info["total"] * 0.2;
+                }
                 paid.Text = String.Format("{0:C2}", deposit);
                 final.Text = String.Format("{0:C2}", ((double)info["total"] - deposit));
             }

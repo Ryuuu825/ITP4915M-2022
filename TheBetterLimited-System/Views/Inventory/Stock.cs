@@ -185,7 +185,6 @@ namespace TheBetterLimited.Views
                 // result = cbStockGoods.GetAll();
                 RestRequest req = new RestRequest("/api/inventory/sgs" , Method.Get);
                 result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
-
             }
             // else
             // {
@@ -289,7 +288,7 @@ namespace TheBetterLimited.Views
         private void AddBtn_Click(object sender, EventArgs e)
         {
             Stock_Add goodsAdd = new Stock_Add();
-            goodsAdd.OnExit += () => GetStock();
+            goodsAdd.OnExit += GetStock;
             goodsAdd.Show();
         }
 
