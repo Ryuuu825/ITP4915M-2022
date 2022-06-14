@@ -70,25 +70,33 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     });
                 }
 
-                var orderId = _SalesOrderItem_AppointmentTable.GetBySQL(
-                    Helpers.Sql.QueryStringBuilder.GetSqlStatement<SalesOrderItem_Appointment>($"_appointmentId:{item.ID}")
-                ).FirstOrDefault().SalesOrderItem._salesOrderId;
+                try
+                {
+                    var orderId = _SalesOrderItem_AppointmentTable.GetBySQL(
+                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<SalesOrderItem_Appointment>($"_appointmentId:{item.ID}")
+                    ).FirstOrDefault().SalesOrderItem._salesOrderId;
 
-                res.Add(
-                    new Dto
-                    {
-                        AppointmentId = item.ID,
-                        Date = item.Session.Date,
-                        StartTime = item.Session.StartTime,
-                        EndTime = item.Session.EndTime,
-                        Items = itemsDto,
-                        sessionId = item.Session.ID,
-                        customer = item.Customer,
-                        team = item.Team,
-                        salesOrderStatus = items[0].SalesOrderItem.SalesOrder.Status.ToString(),
-                        orderId = orderId
-                    }
-                );
+
+                    res.Add(
+                        new Dto
+                        {
+                            AppointmentId = item.ID,
+                            Date = item.Session.Date,
+                            StartTime = item.Session.StartTime,
+                            EndTime = item.Session.EndTime,
+                            Items = itemsDto,
+                            sessionId = item.Session.ID,
+                            customer = item.Customer,
+                            team = item.Team,
+                            salesOrderStatus = items[0].SalesOrderItem.SalesOrder.Status.ToString(),
+                            orderId = orderId
+                        }
+                    );
+                }catch(Exception e)
+                {
+                    continue; 
+                }
+
             }
             return res;
         }
