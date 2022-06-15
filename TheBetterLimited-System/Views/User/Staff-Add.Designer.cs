@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.BottomBtn = new System.Windows.Forms.Panel();
-            this.btnCancel = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.btnAddSupplier = new TheBetterLimited.CustomizeControl.RoundButton();
             this.MainForm = new System.Windows.Forms.Panel();
             this.UserInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -38,26 +36,28 @@
             this.FemaleGenderRadio = new System.Windows.Forms.RadioButton();
             this.MaleGenderRadio = new System.Windows.Forms.RadioButton();
             this.gender = new System.Windows.Forms.Label();
-            this.cbTeam = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cbWarehouse = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.cbStore = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.cbPosition = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtLastName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
+            this.SupplierInfoHeader = new System.Windows.Forms.Label();
+            this.cbTeam = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.cbWarehouse = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.cbStore = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.cbPosition = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.txtLastName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.txtAge = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.cbDept = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.txtFistName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.lblPhone = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
             this.txtPhone = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
-            this.SupplierInfoHeader = new System.Windows.Forms.Label();
+            this.btnCancel = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.btnAddSupplier = new TheBetterLimited.CustomizeControl.RoundButton();
             this.BottomBtn.SuspendLayout();
             this.MainForm.SuspendLayout();
             this.UserInfo.SuspendLayout();
@@ -79,49 +79,6 @@
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.BottomBtn.Size = new System.Drawing.Size(457, 54);
             this.BottomBtn.TabIndex = 1;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Silver;
-            this.btnCancel.BackgroundColor = System.Drawing.Color.Silver;
-            this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCancel.BorderRadius = 10;
-            this.btnCancel.BorderSize = 0;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.IsChecked = false;
-            this.btnCancel.Location = new System.Drawing.Point(89, 6);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(128, 40);
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextColor = System.Drawing.Color.White;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.CancelBtn_Click);
-            // 
-            // btnAddSupplier
-            // 
-            this.btnAddSupplier.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnAddSupplier.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.btnAddSupplier.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAddSupplier.BorderRadius = 10;
-            this.btnAddSupplier.BorderSize = 0;
-            this.btnAddSupplier.FlatAppearance.BorderSize = 0;
-            this.btnAddSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddSupplier.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddSupplier.ForeColor = System.Drawing.Color.White;
-            this.btnAddSupplier.IsChecked = false;
-            this.btnAddSupplier.Location = new System.Drawing.Point(234, 6);
-            this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(128, 40);
-            this.btnAddSupplier.TabIndex = 6;
-            this.btnAddSupplier.Text = "Add Staff";
-            this.btnAddSupplier.TextColor = System.Drawing.Color.White;
-            this.btnAddSupplier.UseVisualStyleBackColor = false;
-            this.btnAddSupplier.Click += new System.EventHandler(this.CreateUser_Click);
             // 
             // MainForm
             // 
@@ -194,7 +151,7 @@
             this.FemaleGenderRadio.Margin = new System.Windows.Forms.Padding(2);
             this.FemaleGenderRadio.Name = "FemaleGenderRadio";
             this.FemaleGenderRadio.Size = new System.Drawing.Size(63, 19);
-            this.FemaleGenderRadio.TabIndex = 59;
+            this.FemaleGenderRadio.TabIndex = 4;
             this.FemaleGenderRadio.Text = "Female";
             this.FemaleGenderRadio.UseVisualStyleBackColor = true;
             // 
@@ -208,7 +165,7 @@
             this.MaleGenderRadio.Margin = new System.Windows.Forms.Padding(2);
             this.MaleGenderRadio.Name = "MaleGenderRadio";
             this.MaleGenderRadio.Size = new System.Drawing.Size(51, 19);
-            this.MaleGenderRadio.TabIndex = 58;
+            this.MaleGenderRadio.TabIndex = 3;
             this.MaleGenderRadio.Text = "Male";
             this.MaleGenderRadio.UseVisualStyleBackColor = true;
             // 
@@ -223,28 +180,6 @@
             this.gender.TabIndex = 57;
             this.gender.Text = "Gender*";
             // 
-            // cbTeam
-            // 
-            this.cbTeam.BackColor = System.Drawing.Color.White;
-            this.cbTeam.BorderColor = System.Drawing.Color.LightGray;
-            this.cbTeam.BorderRadius = 1;
-            this.cbTeam.BorderSize = 1;
-            this.cbTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTeam.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTeam.ForeColor = System.Drawing.Color.DimGray;
-            this.cbTeam.IconColor = System.Drawing.Color.LightGray;
-            this.cbTeam.ListBackColor = System.Drawing.Color.White;
-            this.cbTeam.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbTeam.Location = new System.Drawing.Point(122, 439);
-            this.cbTeam.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cbTeam.Name = "cbTeam";
-            this.cbTeam.Padding = new System.Windows.Forms.Padding(1);
-            this.cbTeam.Size = new System.Drawing.Size(307, 31);
-            this.cbTeam.TabIndex = 56;
-            this.cbTeam.Texts = "Team";
-            this.cbTeam.UnderlinedStyle = false;
-            this.cbTeam.Click += new System.EventHandler(this.cbTeam_Click);
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -256,28 +191,6 @@
             this.label7.TabIndex = 55;
             this.label7.Text = "Team";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cbWarehouse
-            // 
-            this.cbWarehouse.BackColor = System.Drawing.Color.White;
-            this.cbWarehouse.BorderColor = System.Drawing.Color.LightGray;
-            this.cbWarehouse.BorderRadius = 1;
-            this.cbWarehouse.BorderSize = 1;
-            this.cbWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbWarehouse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbWarehouse.ForeColor = System.Drawing.Color.DimGray;
-            this.cbWarehouse.IconColor = System.Drawing.Color.LightGray;
-            this.cbWarehouse.ListBackColor = System.Drawing.Color.White;
-            this.cbWarehouse.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbWarehouse.Location = new System.Drawing.Point(122, 396);
-            this.cbWarehouse.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cbWarehouse.Name = "cbWarehouse";
-            this.cbWarehouse.Padding = new System.Windows.Forms.Padding(1);
-            this.cbWarehouse.Size = new System.Drawing.Size(307, 31);
-            this.cbWarehouse.TabIndex = 54;
-            this.cbWarehouse.Texts = "Warehouse";
-            this.cbWarehouse.UnderlinedStyle = false;
-            this.cbWarehouse.Click += new System.EventHandler(this.cbWarehouse_Click);
             // 
             // label5
             // 
@@ -303,51 +216,6 @@
             this.label6.Text = "Store";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cbStore
-            // 
-            this.cbStore.BackColor = System.Drawing.Color.White;
-            this.cbStore.BorderColor = System.Drawing.Color.LightGray;
-            this.cbStore.BorderRadius = 1;
-            this.cbStore.BorderSize = 1;
-            this.cbStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbStore.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbStore.ForeColor = System.Drawing.Color.DimGray;
-            this.cbStore.IconColor = System.Drawing.Color.LightGray;
-            this.cbStore.ListBackColor = System.Drawing.Color.White;
-            this.cbStore.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbStore.Location = new System.Drawing.Point(122, 353);
-            this.cbStore.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cbStore.Name = "cbStore";
-            this.cbStore.Padding = new System.Windows.Forms.Padding(1);
-            this.cbStore.Size = new System.Drawing.Size(307, 31);
-            this.cbStore.TabIndex = 51;
-            this.cbStore.Texts = "Store";
-            this.cbStore.UnderlinedStyle = false;
-            this.cbStore.Click += new System.EventHandler(this.cbStore_Click);
-            // 
-            // cbPosition
-            // 
-            this.cbPosition.BackColor = System.Drawing.Color.White;
-            this.cbPosition.BorderColor = System.Drawing.Color.LightGray;
-            this.cbPosition.BorderRadius = 1;
-            this.cbPosition.BorderSize = 1;
-            this.cbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPosition.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbPosition.ForeColor = System.Drawing.Color.DimGray;
-            this.cbPosition.IconColor = System.Drawing.Color.LightGray;
-            this.cbPosition.ListBackColor = System.Drawing.Color.White;
-            this.cbPosition.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbPosition.Location = new System.Drawing.Point(122, 310);
-            this.cbPosition.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cbPosition.Name = "cbPosition";
-            this.cbPosition.Padding = new System.Windows.Forms.Padding(1);
-            this.cbPosition.Size = new System.Drawing.Size(307, 31);
-            this.cbPosition.TabIndex = 50;
-            this.cbPosition.Texts = "Position";
-            this.cbPosition.UnderlinedStyle = false;
-            this.cbPosition.OnSelectedIndexChanged += new System.EventHandler(this.cbPosition_OnSelectedIndexChanged);
-            this.cbPosition.Click += new System.EventHandler(this.cbPosition_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -371,33 +239,6 @@
             this.label3.TabIndex = 47;
             this.label3.Text = "Department*";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.BackColor = System.Drawing.Color.White;
-            this.txtLastName.BorderColor = System.Drawing.Color.LightGray;
-            this.txtLastName.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.txtLastName.BorderRadius = 10;
-            this.txtLastName.BorderSize = 1;
-            this.txtLastName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.ForeColor = System.Drawing.Color.Black;
-            this.txtLastName.IsError = false;
-            this.txtLastName.Location = new System.Drawing.Point(122, 74);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtLastName.MaxLength = 32767;
-            this.txtLastName.Multiline = false;
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtLastName.PasswordChar = false;
-            this.txtLastName.Placeholder = "Please enter the last name";
-            this.txtLastName.ReadOnly = false;
-            this.txtLastName.Size = new System.Drawing.Size(307, 38);
-            this.txtLastName.TabIndex = 46;
-            this.txtLastName.TbBackColor = System.Drawing.Color.White;
-            this.txtLastName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.txtLastName.Texts = "Please enter the last name";
-            this.txtLastName.UnderlinedStyle = false;
-            this.txtLastName.Click += new System.EventHandler(this.txtLastName_Click);
             // 
             // label2
             // 
@@ -423,6 +264,167 @@
             this.label1.Text = "Age*";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // lblPhone
+            // 
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(39, 226);
+            this.lblPhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(61, 21);
+            this.lblPhone.TabIndex = 3;
+            this.lblPhone.Text = "Phone*";
+            this.lblPhone.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(23, 33);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(93, 21);
+            this.lblName.TabIndex = 2;
+            this.lblName.Text = "First Name*";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // UserInfoHeaderContainer
+            // 
+            this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
+            this.UserInfoHeaderContainer.Controls.Add(this.SupplierInfoHeader);
+            this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
+            this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
+            this.UserInfoHeaderContainer.Size = new System.Drawing.Size(457, 40);
+            this.UserInfoHeaderContainer.TabIndex = 20;
+            // 
+            // SupplierInfoHeader
+            // 
+            this.SupplierInfoHeader.AutoSize = true;
+            this.SupplierInfoHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SupplierInfoHeader.Location = new System.Drawing.Point(3, 7);
+            this.SupplierInfoHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SupplierInfoHeader.Name = "SupplierInfoHeader";
+            this.SupplierInfoHeader.Size = new System.Drawing.Size(167, 25);
+            this.SupplierInfoHeader.TabIndex = 6;
+            this.SupplierInfoHeader.Text = "Staff Information";
+            // 
+            // cbTeam
+            // 
+            this.cbTeam.BackColor = System.Drawing.Color.White;
+            this.cbTeam.BorderColor = System.Drawing.Color.LightGray;
+            this.cbTeam.BorderRadius = 1;
+            this.cbTeam.BorderSize = 1;
+            this.cbTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTeam.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTeam.ForeColor = System.Drawing.Color.DimGray;
+            this.cbTeam.IconColor = System.Drawing.Color.LightGray;
+            this.cbTeam.ListBackColor = System.Drawing.Color.White;
+            this.cbTeam.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbTeam.Location = new System.Drawing.Point(122, 439);
+            this.cbTeam.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbTeam.Name = "cbTeam";
+            this.cbTeam.Padding = new System.Windows.Forms.Padding(1);
+            this.cbTeam.Size = new System.Drawing.Size(307, 31);
+            this.cbTeam.TabIndex = 11;
+            this.cbTeam.Texts = "Team";
+            this.cbTeam.UnderlinedStyle = false;
+            this.cbTeam.Click += new System.EventHandler(this.cbTeam_Click);
+            // 
+            // cbWarehouse
+            // 
+            this.cbWarehouse.BackColor = System.Drawing.Color.White;
+            this.cbWarehouse.BorderColor = System.Drawing.Color.LightGray;
+            this.cbWarehouse.BorderRadius = 1;
+            this.cbWarehouse.BorderSize = 1;
+            this.cbWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbWarehouse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbWarehouse.ForeColor = System.Drawing.Color.DimGray;
+            this.cbWarehouse.IconColor = System.Drawing.Color.LightGray;
+            this.cbWarehouse.ListBackColor = System.Drawing.Color.White;
+            this.cbWarehouse.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbWarehouse.Location = new System.Drawing.Point(122, 396);
+            this.cbWarehouse.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbWarehouse.Name = "cbWarehouse";
+            this.cbWarehouse.Padding = new System.Windows.Forms.Padding(1);
+            this.cbWarehouse.Size = new System.Drawing.Size(307, 31);
+            this.cbWarehouse.TabIndex = 10;
+            this.cbWarehouse.Texts = "Warehouse";
+            this.cbWarehouse.UnderlinedStyle = false;
+            this.cbWarehouse.Click += new System.EventHandler(this.cbWarehouse_Click);
+            // 
+            // cbStore
+            // 
+            this.cbStore.BackColor = System.Drawing.Color.White;
+            this.cbStore.BorderColor = System.Drawing.Color.LightGray;
+            this.cbStore.BorderRadius = 1;
+            this.cbStore.BorderSize = 1;
+            this.cbStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStore.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStore.ForeColor = System.Drawing.Color.DimGray;
+            this.cbStore.IconColor = System.Drawing.Color.LightGray;
+            this.cbStore.ListBackColor = System.Drawing.Color.White;
+            this.cbStore.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbStore.Location = new System.Drawing.Point(122, 353);
+            this.cbStore.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbStore.Name = "cbStore";
+            this.cbStore.Padding = new System.Windows.Forms.Padding(1);
+            this.cbStore.Size = new System.Drawing.Size(307, 31);
+            this.cbStore.TabIndex = 9;
+            this.cbStore.Texts = "Store";
+            this.cbStore.UnderlinedStyle = false;
+            this.cbStore.Click += new System.EventHandler(this.cbStore_Click);
+            // 
+            // cbPosition
+            // 
+            this.cbPosition.BackColor = System.Drawing.Color.White;
+            this.cbPosition.BorderColor = System.Drawing.Color.LightGray;
+            this.cbPosition.BorderRadius = 1;
+            this.cbPosition.BorderSize = 1;
+            this.cbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPosition.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPosition.ForeColor = System.Drawing.Color.DimGray;
+            this.cbPosition.IconColor = System.Drawing.Color.LightGray;
+            this.cbPosition.ListBackColor = System.Drawing.Color.White;
+            this.cbPosition.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbPosition.Location = new System.Drawing.Point(122, 310);
+            this.cbPosition.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbPosition.Name = "cbPosition";
+            this.cbPosition.Padding = new System.Windows.Forms.Padding(1);
+            this.cbPosition.Size = new System.Drawing.Size(307, 31);
+            this.cbPosition.TabIndex = 8;
+            this.cbPosition.Texts = "Position";
+            this.cbPosition.UnderlinedStyle = false;
+            this.cbPosition.OnSelectedIndexChanged += new System.EventHandler(this.cbPosition_OnSelectedIndexChanged);
+            this.cbPosition.Click += new System.EventHandler(this.cbPosition_Click);
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.BackColor = System.Drawing.Color.White;
+            this.txtLastName.BorderColor = System.Drawing.Color.LightGray;
+            this.txtLastName.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtLastName.BorderRadius = 10;
+            this.txtLastName.BorderSize = 1;
+            this.txtLastName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.ForeColor = System.Drawing.Color.Black;
+            this.txtLastName.IsError = false;
+            this.txtLastName.Location = new System.Drawing.Point(122, 74);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtLastName.MaxLength = 32767;
+            this.txtLastName.Multiline = false;
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtLastName.PasswordChar = false;
+            this.txtLastName.Placeholder = "Please enter the last name";
+            this.txtLastName.ReadOnly = false;
+            this.txtLastName.Size = new System.Drawing.Size(307, 38);
+            this.txtLastName.TabIndex = 2;
+            this.txtLastName.TbBackColor = System.Drawing.Color.White;
+            this.txtLastName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtLastName.Texts = "Please enter the last name";
+            this.txtLastName.UnderlinedStyle = false;
+            this.txtLastName.Click += new System.EventHandler(this.txtLastName_Click);
+            // 
             // txtAge
             // 
             this.txtAge.BackColor = System.Drawing.Color.White;
@@ -435,7 +437,7 @@
             this.txtAge.IsError = false;
             this.txtAge.Location = new System.Drawing.Point(122, 167);
             this.txtAge.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtAge.MaxLength = 32767;
+            this.txtAge.MaxLength = 2;
             this.txtAge.Multiline = false;
             this.txtAge.Name = "txtAge";
             this.txtAge.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -443,11 +445,13 @@
             this.txtAge.Placeholder = "Please enter the age";
             this.txtAge.ReadOnly = false;
             this.txtAge.Size = new System.Drawing.Size(307, 38);
-            this.txtAge.TabIndex = 44;
+            this.txtAge.TabIndex = 5;
             this.txtAge.TbBackColor = System.Drawing.Color.White;
             this.txtAge.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtAge.Texts = "Please enter the age";
             this.txtAge.UnderlinedStyle = false;
+            this.txtAge._TextChanged += new System.EventHandler(this.txtAge__TextChanged);
+            this.txtAge._Leave += new System.EventHandler(this.txtAge__Leave);
             this.txtAge.Click += new System.EventHandler(this.txtAge_Click);
             // 
             // cbDept
@@ -467,7 +471,7 @@
             this.cbDept.Name = "cbDept";
             this.cbDept.Padding = new System.Windows.Forms.Padding(1);
             this.cbDept.Size = new System.Drawing.Size(307, 31);
-            this.cbDept.TabIndex = 42;
+            this.cbDept.TabIndex = 7;
             this.cbDept.Texts = "Department";
             this.cbDept.UnderlinedStyle = false;
             this.cbDept.OnSelectedIndexChanged += new System.EventHandler(this.departmentCombo_OnSelectedIndexChanged);
@@ -493,36 +497,12 @@
             this.txtFistName.Placeholder = "Please enter the first name";
             this.txtFistName.ReadOnly = false;
             this.txtFistName.Size = new System.Drawing.Size(307, 38);
-            this.txtFistName.TabIndex = 41;
+            this.txtFistName.TabIndex = 1;
             this.txtFistName.TbBackColor = System.Drawing.Color.White;
             this.txtFistName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtFistName.Texts = "Please enter the first name";
             this.txtFistName.UnderlinedStyle = false;
             this.txtFistName.Click += new System.EventHandler(this.txtFistName_Click);
-            // 
-            // lblPhone
-            // 
-            this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(39, 226);
-            this.lblPhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(61, 21);
-            this.lblPhone.TabIndex = 3;
-            this.lblPhone.Text = "Phone*";
-            this.lblPhone.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(23, 33);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(93, 21);
-            this.lblName.TabIndex = 2;
-            this.lblName.Text = "First Name*";
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtPhone
             // 
@@ -544,34 +524,57 @@
             this.txtPhone.Placeholder = "Please enter the phone number";
             this.txtPhone.ReadOnly = false;
             this.txtPhone.Size = new System.Drawing.Size(307, 38);
-            this.txtPhone.TabIndex = 25;
+            this.txtPhone.TabIndex = 6;
             this.txtPhone.TbBackColor = System.Drawing.Color.White;
             this.txtPhone.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtPhone.Texts = "Please enter the phone number";
             this.txtPhone.UnderlinedStyle = false;
             this.txtPhone._TextChanged += new System.EventHandler(this.txtPhone__TextChanged);
+            this.txtPhone._Leave += new System.EventHandler(this.txtPhone__Leave);
             this.txtPhone.Click += new System.EventHandler(this.txtPhone_Click);
             // 
-            // UserInfoHeaderContainer
+            // btnCancel
             // 
-            this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
-            this.UserInfoHeaderContainer.Controls.Add(this.SupplierInfoHeader);
-            this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
-            this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
-            this.UserInfoHeaderContainer.Size = new System.Drawing.Size(457, 40);
-            this.UserInfoHeaderContainer.TabIndex = 20;
+            this.btnCancel.BackColor = System.Drawing.Color.Silver;
+            this.btnCancel.BackgroundColor = System.Drawing.Color.Silver;
+            this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancel.BorderRadius = 10;
+            this.btnCancel.BorderSize = 0;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.IsChecked = false;
+            this.btnCancel.Location = new System.Drawing.Point(89, 6);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(128, 40);
+            this.btnCancel.TabIndex = 13;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
-            // SupplierInfoHeader
+            // btnAddSupplier
             // 
-            this.SupplierInfoHeader.AutoSize = true;
-            this.SupplierInfoHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SupplierInfoHeader.Location = new System.Drawing.Point(3, 7);
-            this.SupplierInfoHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.SupplierInfoHeader.Name = "SupplierInfoHeader";
-            this.SupplierInfoHeader.Size = new System.Drawing.Size(167, 25);
-            this.SupplierInfoHeader.TabIndex = 6;
-            this.SupplierInfoHeader.Text = "Staff Information";
+            this.btnAddSupplier.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddSupplier.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.btnAddSupplier.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAddSupplier.BorderRadius = 10;
+            this.btnAddSupplier.BorderSize = 0;
+            this.btnAddSupplier.FlatAppearance.BorderSize = 0;
+            this.btnAddSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddSupplier.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSupplier.ForeColor = System.Drawing.Color.White;
+            this.btnAddSupplier.IsChecked = false;
+            this.btnAddSupplier.Location = new System.Drawing.Point(234, 6);
+            this.btnAddSupplier.Name = "btnAddSupplier";
+            this.btnAddSupplier.Size = new System.Drawing.Size(128, 40);
+            this.btnAddSupplier.TabIndex = 12;
+            this.btnAddSupplier.Text = "Add Staff";
+            this.btnAddSupplier.TextColor = System.Drawing.Color.White;
+            this.btnAddSupplier.UseVisualStyleBackColor = false;
+            this.btnAddSupplier.Click += new System.EventHandler(this.CreateUser_Click);
             // 
             // Staff_Add
             // 

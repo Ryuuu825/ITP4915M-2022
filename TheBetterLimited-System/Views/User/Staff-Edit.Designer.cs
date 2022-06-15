@@ -35,27 +35,27 @@
             this.FemaleGenderRadio = new System.Windows.Forms.RadioButton();
             this.MaleGenderRadio = new System.Windows.Forms.RadioButton();
             this.gender = new System.Windows.Forms.Label();
-            this.customizeComboBox3 = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.customizeComboBox1 = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.customizeComboBox2 = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.positionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtLastName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtAge = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.cbDept = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.txtFistName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.txtPhone = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.SupplierInfoHeader = new System.Windows.Forms.Label();
             this.BottomBtn = new System.Windows.Forms.Panel();
+            this.cbTeam = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.cbWarehouse = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.cbStore = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.cbPosition = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.txtLastName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.txtAge = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.cbDept = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.txtFistName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.txtPhone = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.btnCancel = new TheBetterLimited.CustomizeControl.RoundButton();
             this.btnAddSupplier = new TheBetterLimited.CustomizeControl.RoundButton();
             this.MainForm.SuspendLayout();
@@ -96,13 +96,13 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.panel1.Controls.Add(this.genderBox);
             this.panel1.Controls.Add(this.gender);
-            this.panel1.Controls.Add(this.customizeComboBox3);
+            this.panel1.Controls.Add(this.cbTeam);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.customizeComboBox1);
+            this.panel1.Controls.Add(this.cbWarehouse);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.customizeComboBox2);
-            this.panel1.Controls.Add(this.positionCombo);
+            this.panel1.Controls.Add(this.cbStore);
+            this.panel1.Controls.Add(this.cbPosition);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtLastName);
@@ -132,20 +132,18 @@
             // FemaleGenderRadio
             // 
             this.FemaleGenderRadio.AutoSize = true;
-            this.FemaleGenderRadio.Enabled = false;
             this.FemaleGenderRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FemaleGenderRadio.Location = new System.Drawing.Point(185, 6);
             this.FemaleGenderRadio.Margin = new System.Windows.Forms.Padding(2);
             this.FemaleGenderRadio.Name = "FemaleGenderRadio";
             this.FemaleGenderRadio.Size = new System.Drawing.Size(63, 19);
-            this.FemaleGenderRadio.TabIndex = 59;
+            this.FemaleGenderRadio.TabIndex = 4;
             this.FemaleGenderRadio.Text = "Female";
             this.FemaleGenderRadio.UseVisualStyleBackColor = true;
             // 
             // MaleGenderRadio
             // 
             this.MaleGenderRadio.AutoSize = true;
-            this.MaleGenderRadio.Enabled = false;
             this.MaleGenderRadio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.MaleGenderRadio.FlatAppearance.CheckedBackColor = System.Drawing.Color.SeaGreen;
             this.MaleGenderRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -153,7 +151,7 @@
             this.MaleGenderRadio.Margin = new System.Windows.Forms.Padding(2);
             this.MaleGenderRadio.Name = "MaleGenderRadio";
             this.MaleGenderRadio.Size = new System.Drawing.Size(51, 19);
-            this.MaleGenderRadio.TabIndex = 58;
+            this.MaleGenderRadio.TabIndex = 3;
             this.MaleGenderRadio.Text = "Male";
             this.MaleGenderRadio.UseVisualStyleBackColor = true;
             // 
@@ -161,33 +159,12 @@
             // 
             this.gender.AutoSize = true;
             this.gender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gender.Location = new System.Drawing.Point(39, 129);
+            this.gender.Location = new System.Drawing.Point(35, 129);
             this.gender.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gender.Name = "gender";
-            this.gender.Size = new System.Drawing.Size(61, 21);
+            this.gender.Size = new System.Drawing.Size(68, 21);
             this.gender.TabIndex = 57;
-            this.gender.Text = "Gender";
-            // 
-            // customizeComboBox3
-            // 
-            this.customizeComboBox3.BackColor = System.Drawing.Color.White;
-            this.customizeComboBox3.BorderColor = System.Drawing.Color.LightGray;
-            this.customizeComboBox3.BorderRadius = 1;
-            this.customizeComboBox3.BorderSize = 1;
-            this.customizeComboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.customizeComboBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customizeComboBox3.ForeColor = System.Drawing.Color.DimGray;
-            this.customizeComboBox3.IconColor = System.Drawing.Color.LightGray;
-            this.customizeComboBox3.ListBackColor = System.Drawing.Color.White;
-            this.customizeComboBox3.ListTextColor = System.Drawing.Color.DimGray;
-            this.customizeComboBox3.Location = new System.Drawing.Point(122, 439);
-            this.customizeComboBox3.MinimumSize = new System.Drawing.Size(200, 30);
-            this.customizeComboBox3.Name = "customizeComboBox3";
-            this.customizeComboBox3.Padding = new System.Windows.Forms.Padding(1);
-            this.customizeComboBox3.Size = new System.Drawing.Size(307, 31);
-            this.customizeComboBox3.TabIndex = 56;
-            this.customizeComboBox3.Texts = "Team";
-            this.customizeComboBox3.UnderlinedStyle = false;
+            this.gender.Text = "Gender*";
             // 
             // label7
             // 
@@ -200,27 +177,6 @@
             this.label7.TabIndex = 55;
             this.label7.Text = "Team";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // customizeComboBox1
-            // 
-            this.customizeComboBox1.BackColor = System.Drawing.Color.White;
-            this.customizeComboBox1.BorderColor = System.Drawing.Color.LightGray;
-            this.customizeComboBox1.BorderRadius = 1;
-            this.customizeComboBox1.BorderSize = 1;
-            this.customizeComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.customizeComboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customizeComboBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.customizeComboBox1.IconColor = System.Drawing.Color.LightGray;
-            this.customizeComboBox1.ListBackColor = System.Drawing.Color.White;
-            this.customizeComboBox1.ListTextColor = System.Drawing.Color.DimGray;
-            this.customizeComboBox1.Location = new System.Drawing.Point(122, 396);
-            this.customizeComboBox1.MinimumSize = new System.Drawing.Size(200, 30);
-            this.customizeComboBox1.Name = "customizeComboBox1";
-            this.customizeComboBox1.Padding = new System.Windows.Forms.Padding(1);
-            this.customizeComboBox1.Size = new System.Drawing.Size(307, 31);
-            this.customizeComboBox1.TabIndex = 54;
-            this.customizeComboBox1.Texts = "Warehouse";
-            this.customizeComboBox1.UnderlinedStyle = false;
             // 
             // label5
             // 
@@ -246,244 +202,77 @@
             this.label6.Text = "Store";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // customizeComboBox2
-            // 
-            this.customizeComboBox2.BackColor = System.Drawing.Color.White;
-            this.customizeComboBox2.BorderColor = System.Drawing.Color.LightGray;
-            this.customizeComboBox2.BorderRadius = 1;
-            this.customizeComboBox2.BorderSize = 1;
-            this.customizeComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.customizeComboBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customizeComboBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.customizeComboBox2.IconColor = System.Drawing.Color.LightGray;
-            this.customizeComboBox2.ListBackColor = System.Drawing.Color.White;
-            this.customizeComboBox2.ListTextColor = System.Drawing.Color.DimGray;
-            this.customizeComboBox2.Location = new System.Drawing.Point(122, 353);
-            this.customizeComboBox2.MinimumSize = new System.Drawing.Size(200, 30);
-            this.customizeComboBox2.Name = "customizeComboBox2";
-            this.customizeComboBox2.Padding = new System.Windows.Forms.Padding(1);
-            this.customizeComboBox2.Size = new System.Drawing.Size(307, 31);
-            this.customizeComboBox2.TabIndex = 51;
-            this.customizeComboBox2.Texts = "Store";
-            this.customizeComboBox2.UnderlinedStyle = false;
-            // 
-            // positionCombo
-            // 
-            this.positionCombo.BackColor = System.Drawing.Color.White;
-            this.positionCombo.BorderColor = System.Drawing.Color.LightGray;
-            this.positionCombo.BorderRadius = 1;
-            this.positionCombo.BorderSize = 1;
-            this.positionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.positionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.positionCombo.ForeColor = System.Drawing.Color.DimGray;
-            this.positionCombo.IconColor = System.Drawing.Color.LightGray;
-            this.positionCombo.ListBackColor = System.Drawing.Color.White;
-            this.positionCombo.ListTextColor = System.Drawing.Color.DimGray;
-            this.positionCombo.Location = new System.Drawing.Point(122, 310);
-            this.positionCombo.MinimumSize = new System.Drawing.Size(200, 30);
-            this.positionCombo.Name = "positionCombo";
-            this.positionCombo.Padding = new System.Windows.Forms.Padding(1);
-            this.positionCombo.Size = new System.Drawing.Size(307, 31);
-            this.positionCombo.TabIndex = 50;
-            this.positionCombo.Texts = "Position";
-            this.positionCombo.UnderlinedStyle = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(37, 315);
+            this.label4.Location = new System.Drawing.Point(33, 315);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 21);
+            this.label4.Size = new System.Drawing.Size(72, 21);
             this.label4.TabIndex = 49;
-            this.label4.Text = "Position";
+            this.label4.Text = "Position*";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(23, 272);
+            this.label3.Location = new System.Drawing.Point(19, 272);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 21);
+            this.label3.Size = new System.Drawing.Size(100, 21);
             this.label3.TabIndex = 47;
-            this.label3.Text = "Department";
+            this.label3.Text = "Department*";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtLastName
-            // 
-            this.txtLastName.BackColor = System.Drawing.Color.White;
-            this.txtLastName.BorderColor = System.Drawing.Color.LightGray;
-            this.txtLastName.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.txtLastName.BorderRadius = 10;
-            this.txtLastName.BorderSize = 1;
-            this.txtLastName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.ForeColor = System.Drawing.Color.Black;
-            this.txtLastName.IsError = false;
-            this.txtLastName.Location = new System.Drawing.Point(122, 74);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtLastName.MaxLength = 32767;
-            this.txtLastName.Multiline = false;
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtLastName.PasswordChar = false;
-            this.txtLastName.Placeholder = "Please enter the first name";
-            this.txtLastName.ReadOnly = false;
-            this.txtLastName.Size = new System.Drawing.Size(307, 38);
-            this.txtLastName.TabIndex = 46;
-            this.txtLastName.TbBackColor = System.Drawing.Color.White;
-            this.txtLastName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.txtLastName.Texts = "Please enter the first name";
-            this.txtLastName.UnderlinedStyle = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 83);
+            this.label2.Location = new System.Drawing.Point(24, 83);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(84, 21);
+            this.label2.Size = new System.Drawing.Size(91, 21);
             this.label2.TabIndex = 45;
-            this.label2.Text = "Last Name";
+            this.label2.Text = "Last Name*";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(51, 176);
+            this.label1.Location = new System.Drawing.Point(47, 176);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 21);
+            this.label1.Size = new System.Drawing.Size(44, 21);
             this.label1.TabIndex = 43;
-            this.label1.Text = "Age";
+            this.label1.Text = "Age*";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtAge
-            // 
-            this.txtAge.BackColor = System.Drawing.Color.White;
-            this.txtAge.BorderColor = System.Drawing.Color.LightGray;
-            this.txtAge.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.txtAge.BorderRadius = 10;
-            this.txtAge.BorderSize = 1;
-            this.txtAge.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAge.ForeColor = System.Drawing.Color.Black;
-            this.txtAge.IsError = false;
-            this.txtAge.Location = new System.Drawing.Point(123, 167);
-            this.txtAge.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtAge.MaxLength = 32767;
-            this.txtAge.Multiline = false;
-            this.txtAge.Name = "txtAge";
-            this.txtAge.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtAge.PasswordChar = false;
-            this.txtAge.Placeholder = "Please enter the age";
-            this.txtAge.ReadOnly = false;
-            this.txtAge.Size = new System.Drawing.Size(307, 38);
-            this.txtAge.TabIndex = 44;
-            this.txtAge.TbBackColor = System.Drawing.Color.White;
-            this.txtAge.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.txtAge.Texts = "Please enter the age";
-            this.txtAge.UnderlinedStyle = false;
-            // 
-            // cbDept
-            // 
-            this.cbDept.BackColor = System.Drawing.Color.White;
-            this.cbDept.BorderColor = System.Drawing.Color.LightGray;
-            this.cbDept.BorderRadius = 1;
-            this.cbDept.BorderSize = 1;
-            this.cbDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDept.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDept.ForeColor = System.Drawing.Color.DimGray;
-            this.cbDept.IconColor = System.Drawing.Color.LightGray;
-            this.cbDept.ListBackColor = System.Drawing.Color.White;
-            this.cbDept.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbDept.Location = new System.Drawing.Point(122, 267);
-            this.cbDept.MinimumSize = new System.Drawing.Size(200, 30);
-            this.cbDept.Name = "cbDept";
-            this.cbDept.Padding = new System.Windows.Forms.Padding(1);
-            this.cbDept.Size = new System.Drawing.Size(307, 31);
-            this.cbDept.TabIndex = 42;
-            this.cbDept.Texts = "Department";
-            this.cbDept.UnderlinedStyle = false;
-            // 
-            // txtFistName
-            // 
-            this.txtFistName.BackColor = System.Drawing.Color.White;
-            this.txtFistName.BorderColor = System.Drawing.Color.LightGray;
-            this.txtFistName.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.txtFistName.BorderRadius = 10;
-            this.txtFistName.BorderSize = 1;
-            this.txtFistName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFistName.ForeColor = System.Drawing.Color.Black;
-            this.txtFistName.IsError = false;
-            this.txtFistName.Location = new System.Drawing.Point(122, 24);
-            this.txtFistName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtFistName.MaxLength = 32767;
-            this.txtFistName.Multiline = false;
-            this.txtFistName.Name = "txtFistName";
-            this.txtFistName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtFistName.PasswordChar = false;
-            this.txtFistName.Placeholder = "Please enter the first name";
-            this.txtFistName.ReadOnly = false;
-            this.txtFistName.Size = new System.Drawing.Size(307, 38);
-            this.txtFistName.TabIndex = 41;
-            this.txtFistName.TbBackColor = System.Drawing.Color.White;
-            this.txtFistName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.txtFistName.Texts = "Please enter the first name";
-            this.txtFistName.UnderlinedStyle = false;
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
             this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.Location = new System.Drawing.Point(42, 226);
+            this.lblPhone.Location = new System.Drawing.Point(39, 226);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(54, 21);
+            this.lblPhone.Size = new System.Drawing.Size(61, 21);
             this.lblPhone.TabIndex = 3;
-            this.lblPhone.Text = "Phone";
+            this.lblPhone.Text = "Phone*";
             this.lblPhone.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(26, 33);
+            this.lblName.Location = new System.Drawing.Point(23, 33);
             this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(86, 21);
+            this.lblName.Size = new System.Drawing.Size(93, 21);
             this.lblName.TabIndex = 2;
-            this.lblName.Text = "First Name";
+            this.lblName.Text = "First Name*";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.BackColor = System.Drawing.Color.White;
-            this.txtPhone.BorderColor = System.Drawing.Color.LightGray;
-            this.txtPhone.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.txtPhone.BorderRadius = 10;
-            this.txtPhone.BorderSize = 1;
-            this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.ForeColor = System.Drawing.Color.Black;
-            this.txtPhone.IsError = false;
-            this.txtPhone.Location = new System.Drawing.Point(122, 217);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtPhone.MaxLength = 32767;
-            this.txtPhone.Multiline = false;
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtPhone.PasswordChar = false;
-            this.txtPhone.Placeholder = "Please enter the phone number";
-            this.txtPhone.ReadOnly = false;
-            this.txtPhone.Size = new System.Drawing.Size(307, 38);
-            this.txtPhone.TabIndex = 25;
-            this.txtPhone.TbBackColor = System.Drawing.Color.White;
-            this.txtPhone.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.txtPhone.Texts = "Please enter the phone number";
-            this.txtPhone.UnderlinedStyle = false;
             // 
             // UserInfoHeaderContainer
             // 
@@ -520,6 +309,228 @@
             this.BottomBtn.Size = new System.Drawing.Size(468, 54);
             this.BottomBtn.TabIndex = 1;
             // 
+            // cbTeam
+            // 
+            this.cbTeam.BackColor = System.Drawing.Color.White;
+            this.cbTeam.BorderColor = System.Drawing.Color.LightGray;
+            this.cbTeam.BorderRadius = 1;
+            this.cbTeam.BorderSize = 1;
+            this.cbTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTeam.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTeam.ForeColor = System.Drawing.Color.DimGray;
+            this.cbTeam.IconColor = System.Drawing.Color.LightGray;
+            this.cbTeam.ListBackColor = System.Drawing.Color.White;
+            this.cbTeam.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbTeam.Location = new System.Drawing.Point(122, 439);
+            this.cbTeam.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbTeam.Name = "cbTeam";
+            this.cbTeam.Padding = new System.Windows.Forms.Padding(1);
+            this.cbTeam.Size = new System.Drawing.Size(307, 31);
+            this.cbTeam.TabIndex = 11;
+            this.cbTeam.Texts = "Team";
+            this.cbTeam.UnderlinedStyle = false;
+            this.cbTeam.Click += new System.EventHandler(this.cbTeam_Click);
+            // 
+            // cbWarehouse
+            // 
+            this.cbWarehouse.BackColor = System.Drawing.Color.White;
+            this.cbWarehouse.BorderColor = System.Drawing.Color.LightGray;
+            this.cbWarehouse.BorderRadius = 1;
+            this.cbWarehouse.BorderSize = 1;
+            this.cbWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbWarehouse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbWarehouse.ForeColor = System.Drawing.Color.DimGray;
+            this.cbWarehouse.IconColor = System.Drawing.Color.LightGray;
+            this.cbWarehouse.ListBackColor = System.Drawing.Color.White;
+            this.cbWarehouse.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbWarehouse.Location = new System.Drawing.Point(122, 396);
+            this.cbWarehouse.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbWarehouse.Name = "cbWarehouse";
+            this.cbWarehouse.Padding = new System.Windows.Forms.Padding(1);
+            this.cbWarehouse.Size = new System.Drawing.Size(307, 31);
+            this.cbWarehouse.TabIndex = 10;
+            this.cbWarehouse.Texts = "Warehouse";
+            this.cbWarehouse.UnderlinedStyle = false;
+            this.cbWarehouse.Click += new System.EventHandler(this.cbWarehouse_Click);
+            // 
+            // cbStore
+            // 
+            this.cbStore.BackColor = System.Drawing.Color.White;
+            this.cbStore.BorderColor = System.Drawing.Color.LightGray;
+            this.cbStore.BorderRadius = 1;
+            this.cbStore.BorderSize = 1;
+            this.cbStore.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStore.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStore.ForeColor = System.Drawing.Color.DimGray;
+            this.cbStore.IconColor = System.Drawing.Color.LightGray;
+            this.cbStore.ListBackColor = System.Drawing.Color.White;
+            this.cbStore.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbStore.Location = new System.Drawing.Point(122, 353);
+            this.cbStore.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbStore.Name = "cbStore";
+            this.cbStore.Padding = new System.Windows.Forms.Padding(1);
+            this.cbStore.Size = new System.Drawing.Size(307, 31);
+            this.cbStore.TabIndex = 9;
+            this.cbStore.Texts = "Store";
+            this.cbStore.UnderlinedStyle = false;
+            this.cbStore.Click += new System.EventHandler(this.cbStore_Click);
+            // 
+            // cbPosition
+            // 
+            this.cbPosition.BackColor = System.Drawing.Color.White;
+            this.cbPosition.BorderColor = System.Drawing.Color.LightGray;
+            this.cbPosition.BorderRadius = 1;
+            this.cbPosition.BorderSize = 1;
+            this.cbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPosition.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbPosition.ForeColor = System.Drawing.Color.DimGray;
+            this.cbPosition.IconColor = System.Drawing.Color.LightGray;
+            this.cbPosition.ListBackColor = System.Drawing.Color.White;
+            this.cbPosition.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbPosition.Location = new System.Drawing.Point(122, 310);
+            this.cbPosition.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbPosition.Name = "cbPosition";
+            this.cbPosition.Padding = new System.Windows.Forms.Padding(1);
+            this.cbPosition.Size = new System.Drawing.Size(307, 31);
+            this.cbPosition.TabIndex = 8;
+            this.cbPosition.Texts = "Position";
+            this.cbPosition.UnderlinedStyle = false;
+            this.cbPosition.OnSelectedIndexChanged += new System.EventHandler(this.cbPosition_OnSelectedIndexChanged);
+            this.cbPosition.Click += new System.EventHandler(this.cbPosition_Click);
+            // 
+            // txtLastName
+            // 
+            this.txtLastName.BackColor = System.Drawing.Color.White;
+            this.txtLastName.BorderColor = System.Drawing.Color.LightGray;
+            this.txtLastName.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtLastName.BorderRadius = 10;
+            this.txtLastName.BorderSize = 1;
+            this.txtLastName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.ForeColor = System.Drawing.Color.Black;
+            this.txtLastName.IsError = false;
+            this.txtLastName.Location = new System.Drawing.Point(122, 74);
+            this.txtLastName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtLastName.MaxLength = 32767;
+            this.txtLastName.Multiline = false;
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtLastName.PasswordChar = false;
+            this.txtLastName.Placeholder = "Please enter the last name";
+            this.txtLastName.ReadOnly = false;
+            this.txtLastName.Size = new System.Drawing.Size(307, 38);
+            this.txtLastName.TabIndex = 2;
+            this.txtLastName.TbBackColor = System.Drawing.Color.White;
+            this.txtLastName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtLastName.Texts = "Please enter the last name";
+            this.txtLastName.UnderlinedStyle = false;
+            this.txtLastName.Click += new System.EventHandler(this.txtLastName_Click);
+            // 
+            // txtAge
+            // 
+            this.txtAge.BackColor = System.Drawing.Color.White;
+            this.txtAge.BorderColor = System.Drawing.Color.LightGray;
+            this.txtAge.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtAge.BorderRadius = 10;
+            this.txtAge.BorderSize = 1;
+            this.txtAge.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAge.ForeColor = System.Drawing.Color.Black;
+            this.txtAge.IsError = false;
+            this.txtAge.Location = new System.Drawing.Point(122, 167);
+            this.txtAge.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtAge.MaxLength = 2;
+            this.txtAge.Multiline = false;
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtAge.PasswordChar = false;
+            this.txtAge.Placeholder = "Please enter the age";
+            this.txtAge.ReadOnly = false;
+            this.txtAge.Size = new System.Drawing.Size(307, 38);
+            this.txtAge.TabIndex = 5;
+            this.txtAge.TbBackColor = System.Drawing.Color.White;
+            this.txtAge.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtAge.Texts = "Please enter the age";
+            this.txtAge.UnderlinedStyle = false;
+            this.txtAge._Leave += new System.EventHandler(this.txtAge__Leave);
+            this.txtAge.Click += new System.EventHandler(this.txtAge_Click);
+            // 
+            // cbDept
+            // 
+            this.cbDept.BackColor = System.Drawing.Color.White;
+            this.cbDept.BorderColor = System.Drawing.Color.LightGray;
+            this.cbDept.BorderRadius = 1;
+            this.cbDept.BorderSize = 1;
+            this.cbDept.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDept.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDept.ForeColor = System.Drawing.Color.DimGray;
+            this.cbDept.IconColor = System.Drawing.Color.LightGray;
+            this.cbDept.ListBackColor = System.Drawing.Color.White;
+            this.cbDept.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbDept.Location = new System.Drawing.Point(122, 267);
+            this.cbDept.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbDept.Name = "cbDept";
+            this.cbDept.Padding = new System.Windows.Forms.Padding(1);
+            this.cbDept.Size = new System.Drawing.Size(307, 31);
+            this.cbDept.TabIndex = 7;
+            this.cbDept.Texts = "Department";
+            this.cbDept.UnderlinedStyle = false;
+            this.cbDept.OnSelectedIndexChanged += new System.EventHandler(this.departmentCombo_OnSelectedIndexChanged);
+            this.cbDept.Click += new System.EventHandler(this.cbDept_Click);
+            // 
+            // txtFistName
+            // 
+            this.txtFistName.BackColor = System.Drawing.Color.White;
+            this.txtFistName.BorderColor = System.Drawing.Color.LightGray;
+            this.txtFistName.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtFistName.BorderRadius = 10;
+            this.txtFistName.BorderSize = 1;
+            this.txtFistName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFistName.ForeColor = System.Drawing.Color.Black;
+            this.txtFistName.IsError = false;
+            this.txtFistName.Location = new System.Drawing.Point(122, 24);
+            this.txtFistName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtFistName.MaxLength = 32767;
+            this.txtFistName.Multiline = false;
+            this.txtFistName.Name = "txtFistName";
+            this.txtFistName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtFistName.PasswordChar = false;
+            this.txtFistName.Placeholder = "Please enter the first name";
+            this.txtFistName.ReadOnly = false;
+            this.txtFistName.Size = new System.Drawing.Size(307, 38);
+            this.txtFistName.TabIndex = 1;
+            this.txtFistName.TbBackColor = System.Drawing.Color.White;
+            this.txtFistName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtFistName.Texts = "Please enter the first name";
+            this.txtFistName.UnderlinedStyle = false;
+            this.txtFistName.Click += new System.EventHandler(this.txtFistName_Click);
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.BackColor = System.Drawing.Color.White;
+            this.txtPhone.BorderColor = System.Drawing.Color.LightGray;
+            this.txtPhone.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtPhone.BorderRadius = 10;
+            this.txtPhone.BorderSize = 1;
+            this.txtPhone.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhone.ForeColor = System.Drawing.Color.Black;
+            this.txtPhone.IsError = false;
+            this.txtPhone.Location = new System.Drawing.Point(122, 217);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtPhone.MaxLength = 32767;
+            this.txtPhone.Multiline = false;
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtPhone.PasswordChar = false;
+            this.txtPhone.Placeholder = "Please enter the phone number";
+            this.txtPhone.ReadOnly = false;
+            this.txtPhone.Size = new System.Drawing.Size(307, 38);
+            this.txtPhone.TabIndex = 6;
+            this.txtPhone.TbBackColor = System.Drawing.Color.White;
+            this.txtPhone.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtPhone.Texts = "Please enter the phone number";
+            this.txtPhone.UnderlinedStyle = false;
+            this.txtPhone._Leave += new System.EventHandler(this.txtPhone__Leave);
+            this.txtPhone.Click += new System.EventHandler(this.txtPhone_Click);
+            // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Silver;
@@ -536,10 +547,11 @@
             this.btnCancel.Location = new System.Drawing.Point(89, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(128, 40);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextColor = System.Drawing.Color.White;
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // btnAddSupplier
             // 
@@ -556,10 +568,11 @@
             this.btnAddSupplier.Location = new System.Drawing.Point(234, 6);
             this.btnAddSupplier.Name = "btnAddSupplier";
             this.btnAddSupplier.Size = new System.Drawing.Size(128, 40);
-            this.btnAddSupplier.TabIndex = 6;
-            this.btnAddSupplier.Text = "Add Staff";
+            this.btnAddSupplier.TabIndex = 12;
+            this.btnAddSupplier.Text = "Update Staff";
             this.btnAddSupplier.TextColor = System.Drawing.Color.White;
             this.btnAddSupplier.UseVisualStyleBackColor = false;
+            this.btnAddSupplier.Click += new System.EventHandler(this.UpdateUser_Click);
             // 
             // Staff_Edit
             // 
@@ -575,7 +588,7 @@
             this.Name = "Staff_Edit";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Edit Supplier";
+            this.Text = "Edit Staff";
             this.MainForm.ResumeLayout(false);
             this.UserInfo.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -598,13 +611,13 @@
         private System.Windows.Forms.RadioButton FemaleGenderRadio;
         private System.Windows.Forms.RadioButton MaleGenderRadio;
         private System.Windows.Forms.Label gender;
-        private CustomizeControl.CustomizeComboBox customizeComboBox3;
+        private CustomizeControl.CustomizeComboBox cbTeam;
         private System.Windows.Forms.Label label7;
-        private CustomizeControl.CustomizeComboBox customizeComboBox1;
+        private CustomizeControl.CustomizeComboBox cbWarehouse;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private CustomizeControl.CustomizeComboBox customizeComboBox2;
-        private CustomizeControl.CustomizeComboBox positionCombo;
+        private CustomizeControl.CustomizeComboBox cbStore;
+        private CustomizeControl.CustomizeComboBox cbPosition;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private CustomizeControl.CustomizeTextbox txtLastName;

@@ -9,8 +9,8 @@ namespace TheBetterLimited.Models
 {
     internal enum PositionEnum
     {
-        Server = 000,
-        Admin = 001,
+        Server = 0,
+        Admin = 1,
         Salesman = 201,
         [Description("Sales Manager")]
         SalesManager = 202,
@@ -36,6 +36,6 @@ namespace TheBetterLimited.Models
         [Description("Purchase Manager")]
         PurchaseManager = 802,
         President = 904,
-        Freeride = President
+        Freerider = 999,
     }
 }

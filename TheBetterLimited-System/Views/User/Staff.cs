@@ -85,14 +85,14 @@ namespace TheBetterLimited.Views
             }
             if(StaffDataGrid.Columns[e.ColumnIndex].Name == "Position")
             {
-/*                var reg = @"(?=[A-Z])";
+                var reg = @"(?=[A-Z])";
                 var status = Regex.Split(e.Value.ToString(), reg);
                 var value = "";
                 foreach (var item in status)
                 {
                     value = item;
                 }
-                e.Value = value;*/
+                e.Value = value;
             }
         }
 
@@ -118,8 +118,7 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == StaffDataGrid.Columns["edit"].Index)
             {
-                MessageBox.Show("You have selected row " + StaffDataGrid["Id", e.RowIndex].Value + " cell");
-                Staff_Edit editStaff = new Staff_Edit(StaffDataGrid["id", e.RowIndex].Value.ToString());
+                Staff_Edit editStaff = new Staff_Edit(staffList[e.RowIndex]);
                 editStaff.Show();
                 editStaff.OnExit += () => GetStaff();
             }
@@ -159,6 +158,7 @@ namespace TheBetterLimited.Views
         private void GetStaff()
         {
             dataTable.Clear();
+            staffList.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
                 response = cbStaff.GetAll();

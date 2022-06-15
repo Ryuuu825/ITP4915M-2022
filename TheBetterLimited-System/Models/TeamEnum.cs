@@ -21,13 +21,13 @@ namespace TheBetterLimited.Models
         DeliveryT5 = 305,
         [Description("Installation T1")]
         InstallationT1 = 701,
-        [Description("Installation T1")]
+        [Description("Installation T2")]
         InstallationT2 = 702,
-        [Description("Installation T1")]
+        [Description("Installation T3")]
         InstallationT3 = 703,
-        [Description("Installation T1")]
+        [Description("Installation T4")]
         InstallationT4 = 704,
-        [Description("Installation T1")]
+        [Description("Installation T5")]
         InstallationT5 = 705,
     }
 }

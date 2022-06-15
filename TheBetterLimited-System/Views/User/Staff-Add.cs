@@ -22,16 +22,16 @@ namespace TheBetterLimited.Views
     {
         private RestResponse result = new RestResponse();
         private ControllerBase cbStaff = new ControllerBase("Staff");
-        string firstName = "";
-        string lastName = "";
-        string departmentId = "";
-        string positionId = "";
-        string sex = "";
-        int age = 0;
-        string store = null;
-        string warehouse = null;
-        string phone = "";
-        string team = null;
+        private string firstName = "";
+        private string lastName = "";
+        private string departmentId = "";
+        private string positionId = "";
+        private string sex = "";
+        private int age = 0;
+        private string store = null;
+        private string warehouse = null;
+        private string phone = "";
+        private string team = null;
         public Staff_Add()
         {
             InitializeComponent();
@@ -76,6 +76,13 @@ namespace TheBetterLimited.Views
                 }
             }
 
+            if (txtAge.Texts.Equals(txtAge.Placeholder) || age == 0)
+            {
+                txtAge.IsError = true;
+                return;
+            }
+            age = Convert.ToInt16(txtAge.Texts);
+
             if (txtPhone.Texts.Equals(txtPhone.Placeholder))
             {
                 txtPhone.IsError = true;
@@ -103,7 +110,7 @@ namespace TheBetterLimited.Views
                     cbStore.BorderColor = Color.Red;
                     return;
                 }
-                store = ((LocationEnum)Enum.Parse(typeof(LocationEnum), (cbStore.SelectedItem).ToString().Replace(" ", ""), true)).ToString();
+                store = ((LocationEnum)(cbStore.SelectedIndex + 2)).ToString();
             }
 
             if (departmentId == ((int)DepartmentEnum.Inventory).ToString("000"))
@@ -127,21 +134,12 @@ namespace TheBetterLimited.Views
                 }
                 team = ((int)(TeamEnum)Enum.Parse(typeof(TeamEnum), (cbTeam.SelectedItem).ToString().Replace(" ", ""), true)).ToString("000");
             }
-            Console.WriteLine(departmentId);
-            Console.WriteLine(positionId);
-            Console.WriteLine(warehouse);
-            Console.WriteLine(store);
-            Console.WriteLine(team);
-            Console.WriteLine(firstName);
-            Console.WriteLine(lastName);
-            Console.WriteLine(sex);
-            Console.WriteLine(age);
-            Console.WriteLine(phone);
+
             // send the request to the server
             result = cbStaff.Create(
                 new
                 {
-                    Id = "S0331",
+                    Id = "",
                     _departmentId = departmentId,
                     _positionId = positionId,
                     _warehouseId = warehouse,
@@ -154,7 +152,7 @@ namespace TheBetterLimited.Views
                     Phone = phone
                 }
             );
-            if(result.StatusCode == HttpStatusCode.OK)
+            if (result.StatusCode == HttpStatusCode.OK)
             {
                 // show the result
                 MessageBox.Show(result.Content);
@@ -162,7 +160,8 @@ namespace TheBetterLimited.Views
                 this.OnExit.Invoke();
                 this.Close();
                 this.Dispose();
-            }else
+            }
+            else
             {
                 MessageBox.Show(result.Content);
             }
@@ -173,7 +172,6 @@ namespace TheBetterLimited.Views
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            this.OnExit.Invoke();
             this.Close();
             this.Dispose();
         }
@@ -184,14 +182,31 @@ namespace TheBetterLimited.Views
             departmentId = ((int)department).ToString("000");
             cbPosition.Items.Clear();
             cbStore.Items.Clear();
+            cbWarehouse.Items.Clear();
+            cbTeam.Items.Clear();
             cbPosition.Texts = "Position";
-            foreach (var item in Enum.GetValues(typeof(PositionEnum)))
+            cbStore.Texts = "Store";
+            cbWarehouse.Texts = "Warehouse";
+            cbTeam.Texts = "Team";
+            if (department == DepartmentEnum.System)
             {
-                if ((int)item > (int)department && (int)item < ((int)department + 99))
+                cbPosition.Items.Add(EnumExtensions.Description((PositionEnum)0));
+            }
+            else if (department == DepartmentEnum.Admin)
+            {
+                cbPosition.Items.Add(EnumExtensions.Description((PositionEnum)1));
+            }
+            else
+            {
+                foreach (var item in Enum.GetValues(typeof(PositionEnum)))
                 {
-                    cbPosition.Items.Add(EnumExtensions.Description((PositionEnum)item));
+                    if ((int)item > (int)department && (int)item < ((int)department + 99))
+                    {
+                        cbPosition.Items.Add(EnumExtensions.Description((PositionEnum)item));
+                    }
                 }
             }
+
             if (department == DepartmentEnum.Sales)
             {
                 foreach (var item in Enum.GetValues(typeof(LocationEnum)))
@@ -199,16 +214,19 @@ namespace TheBetterLimited.Views
                     if ((int)item > 1)
                         cbStore.Items.Add(EnumExtensions.Description((LocationEnum)item));
                 }
+                return;
             }
             if (department == DepartmentEnum.Inventory)
             {
                 cbWarehouse.Items.Add(EnumExtensions.Description(LocationEnum.KolwoonWarehouse));
+                return;
             }
         }
 
         private void cbPosition_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             cbTeam.Items.Clear();
+            cbTeam.Texts = "Team";
             var department = (DepartmentEnum)Enum.Parse(typeof(DepartmentEnum), (cbDept.SelectedItem).ToString().Replace(" ", ""), true);
             var position = (PositionEnum)Enum.Parse(typeof(PositionEnum), (cbPosition.SelectedItem).ToString().Replace(" ", ""), true);
             positionId = ((int)position).ToString("000");
@@ -287,6 +305,59 @@ namespace TheBetterLimited.Views
             {
                 MessageBox.Show("Please enter a valid number");
                 return;
+            }
+        }
+
+        private void txtAge__TextChanged(object sender, EventArgs e)
+        {
+            string discountTxt = txtAge.Texts;
+            if (discountTxt.Trim() == "") return;
+            for (int i = 0; i < discountTxt.Length; i++)
+            {
+                if (!char.IsNumber(discountTxt[i]))
+                {
+                    MessageBox.Show("Please enter a valid number");
+                    txtAge.Texts = "";
+                    return;
+                }
+            }
+
+        }
+
+        private void txtAge__Leave(object sender, EventArgs e)
+        {
+            if (txtAge.Texts != txtAge.Placeholder && txtAge.Texts != "")
+            {
+                try
+                {
+                    age = Convert.ToInt16(txtAge.Texts);
+                    if (age < 18 || age > 99)
+                    {
+                        MessageBox.Show("Age should between 18 to 99!");
+                        txtAge.Texts = "";
+                        age = 0;
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Please enter a valid number");
+                    txtAge.Texts = "";
+                    return;
+                }
+            }
+        }
+
+        private void txtPhone__Leave(object sender, EventArgs e)
+        {
+            if (txtPhone.Texts != txtPhone.Placeholder && txtPhone.Texts != "")
+            {
+                if (txtPhone.Texts.Length != 8 && txtPhone.Texts.Length != 11)
+                {
+                    txtPhone.IsError = true;
+                    MessageBox.Show("The phone number should have 8 or 11 digits");
+                    return;
+                }
             }
         }
     }
