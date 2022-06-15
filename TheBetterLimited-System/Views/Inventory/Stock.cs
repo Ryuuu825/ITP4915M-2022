@@ -292,6 +292,15 @@ namespace TheBetterLimited.Views
             goodsAdd.Show();
         }
 
+        private void RestockBtn_Click(object sender, EventArgs e)
+        {
+            if(selectStockID.Count <= 0)
+            {
+                MessageBox.Show("You have not select any goods");
+                return;
+            }
+        }
+
 
 
         // Export stock records PDF

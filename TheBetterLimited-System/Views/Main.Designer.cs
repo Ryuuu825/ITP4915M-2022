@@ -858,7 +858,7 @@
             this.Workman.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.Workman.Size = new System.Drawing.Size(227, 50);
             this.Workman.TabIndex = 2;
-            this.Workman.Text = "            Workman";
+            this.Workman.Text = "            Shipping";
             this.Workman.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Workman.UseVisualStyleBackColor = true;
             this.Workman.Click += new System.EventHandler(this.Workman_Click);

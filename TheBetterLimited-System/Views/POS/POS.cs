@@ -338,9 +338,7 @@ namespace TheBetterLimited.Views
             var list = JArray.Parse(json);
             foreach (JObject c in list)
             {
-                JToken storeStock = c["StockLevel"]["inStoreStock"];
-                JToken warehouseStock = c["StockLevel"]["warehouseStock"];
-                if (storeStock.Type == JTokenType.Null && warehouseStock.Type == JTokenType.Null)
+                if (c["StockLevel"]["inStoreStock"].Type == JTokenType.Null && c["StockLevel"]["warehouseStock"].Type == JTokenType.Null)
                 {
                     continue;
                 }
@@ -380,6 +378,7 @@ namespace TheBetterLimited.Views
                 productBox.BorderSelectedColor = Color.SeaGreen;
                 productBox.PicInfoClicked += new EventHandler(PictureBox_Click);
                 ProductInfoContainer.Controls.Add(productBox);
+                response = null;
             }
         }
 
@@ -588,9 +587,10 @@ namespace TheBetterLimited.Views
 
         public void ClearOrder()
         {
+            loadAll = true;
             discount = 0;
             totalAmount = 0;
-            orderItems.Clear();
+            orderItems = null;
             cusInfo = null;
             oi = null;
             Form payment = Application.OpenForms["PaymentMethod"];
