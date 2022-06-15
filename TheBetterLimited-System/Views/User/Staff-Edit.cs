@@ -88,7 +88,7 @@ namespace TheBetterLimited.Views
             if (staff["_teamId"].Type != JTokenType.Null)
             {
                 TeamEnum teamEnum = ((TeamEnum)Convert.ToInt32(staff["_teamId"].ToString()));
-                team = EnumExtensions.Description((LocationEnum)teamEnum);
+                team = EnumExtensions.Description((TeamEnum)teamEnum);
             }
             if (staff["Sex"].ToString().Equals("F"))
             {
@@ -242,7 +242,7 @@ namespace TheBetterLimited.Views
                 if (cbTeam.SelectedIndex == -1)
                 {
                     MessageBox.Show("Please select the team of this workman.");
-                    cbWarehouse.BorderColor = Color.Red;
+                    cbTeam.BorderColor = Color.Red;
                     return;
                 }
                 var team = ((int)(TeamEnum)Enum.Parse(typeof(TeamEnum), (cbTeam.SelectedItem).ToString().Replace(" ", ""), true)).ToString("000");

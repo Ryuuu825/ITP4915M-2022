@@ -26,7 +26,7 @@ namespace TheBetterLimited.Views
         private BindingSource bs = new BindingSource();
         private DataTable dt = new DataTable();
         private DialogResult choose;
-        private RestResponse result;
+        private RestResponse response;
         private List<JObject> goods = new List<JObject>();
         private List<object> orderItems = new List<object>();
         private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
@@ -38,22 +38,72 @@ namespace TheBetterLimited.Views
         private List<object> appointments = null;
         private double totalAmount;
         private int discount;
-        private BackgroundWorker bgWorker = new BackgroundWorker();
+        private BackgroundWorker bw = new BackgroundWorker();
+        private bool loadAll = true;
+        private string QryString = "";
 
         public POS()
         {
             InitializeComponent();
-            GetAll();
+            initBackgroundWorker();
+            bw.RunWorkerAsync();
         }
         /*
          * Dom Style/Event Process
          */
+
+        private void initBackgroundWorker()
+        {
+            bw = new BackgroundWorker();
+            bw.WorkerReportsProgress = true;
+            bw.WorkerSupportsCancellation = true;
+            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
+        }
+
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (loadAll)
+            {
+                response = cbGoods.GetAll();
+            }else
+            {
+                response = cbGoods.GetByQueryString(QryString);
+            }
+        }
+
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            loadPic.Hide();
+            if (loadAll)
+            {
+                GetAll();
+            }
+            else
+            {
+                GetByQry();
+            }
+            
+        }
 
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        public void LoadAllGoods()
+        {
+            loadPic.Show();
+            loadAll = true;
+            bw.RunWorkerAsync();
+        }
+
+        public void LoadQryGoods()
+        {
+            loadPic.Show();
+            loadAll = false;
+            bw.RunWorkerAsync();
+        }
 
         //search bar text changed event
         private void SearchBarTxt__TextChanged(object sender, EventArgs e)
@@ -61,7 +111,7 @@ namespace TheBetterLimited.Views
             selectedProduct = -1;
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
             {
-                GetAll();
+                LoadAllGoods();
             }
             else
             {
@@ -71,10 +121,10 @@ namespace TheBetterLimited.Views
                 {
                     str += $"|_catalogueId:{CatalogueCombox.SelectedIndex}";
                 }
-                GetByQry(str);
+                QryString = str;
+                LoadQryGoods();
             }
         }
-
 
         /*
         * Dom Event Handler
@@ -247,11 +297,12 @@ namespace TheBetterLimited.Views
             selectedProduct = -1;
             if (CatalogueCombox.SelectedIndex != 0)
             {
-                GetByQry($"_catalogueId:{CatalogueCombox.SelectedIndex}");
+                QryString = $"_catalogueId:{CatalogueCombox.SelectedIndex}";
+                LoadQryGoods();
             }
             else
             {
-                GetAll();
+                LoadAllGoods();
             }
         }
 
@@ -274,19 +325,15 @@ namespace TheBetterLimited.Views
         {
             ProductInfoContainer.Controls.Clear();
             goods.Clear();
-            RestResponse response;
-            bgWorker.RunWorkerAsync(response = cbGoods.GetAll());
-            
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 InitList(response.Content);
             }
         }
-        private void GetByQry(string str)
+        private void GetByQry()
         {
             ProductInfoContainer.Controls.Clear();
             goods.Clear();
-            var response = cbGoods.GetByQueryString(str);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 InitList(response.Content);
@@ -327,11 +374,12 @@ namespace TheBetterLimited.Views
                         img = new Bitmap(ms);
                         ms.Close();
                     }
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     img = Properties.Resources.product1;
                 }
-               
+
                 ProductInfo productBox = new ProductInfo();
                 productBox.Title = c["GoodsName"].ToString();
                 productBox.ProductPrice = (double)c["Price"];
@@ -550,7 +598,6 @@ namespace TheBetterLimited.Views
             discount = 0;
             totalAmount = 0;
             orderItems.Clear();
-            goods.Clear();
             cusInfo = null;
             oi = null;
             Form payment = Application.OpenForms["PaymentMethod"];
@@ -574,7 +621,6 @@ namespace TheBetterLimited.Views
                 booking.Dispose();
             }
             InitializeCartGridView();
-            GetAll();
             GC.Collect();
         }
 

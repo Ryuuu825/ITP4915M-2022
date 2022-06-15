@@ -215,15 +215,18 @@ namespace TheBetterLimited.Views
                         foreach (string uid in selectStaffID)
                         {
                             response = cbStaff.Delete(uid);
+                            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                            {
+                                throw new Exception("Cannot delete the "+uid);
+                            }
                         }
                         MessageBox.Show(selectStaffID.Count + " records have been deleted!", "Delete Staff Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetStaff();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Cannot delete the staff.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                 }
             }
             else
@@ -244,14 +247,15 @@ namespace TheBetterLimited.Views
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         MessageBox.Show("The " + StaffDataGrid["id", e.RowIndex].Value.ToString() + " is deleted",  "Delete Staff Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        GetStaff();
+                    }else
+                    {
+                        throw new Exception();
                     }
-                    GetStaff();
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.InnerException);
-                    Console.WriteLine(ex.Message);
-                    MessageBox.Show("Cannot delete the staff", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Cannot delete the "+StaffDataGrid["id", e.RowIndex].Value, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }

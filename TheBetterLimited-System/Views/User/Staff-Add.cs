@@ -129,7 +129,7 @@ namespace TheBetterLimited.Views
                 if (cbTeam.SelectedIndex == -1)
                 {
                     MessageBox.Show("Please select the team of this workman.");
-                    cbWarehouse.BorderColor = Color.Red;
+                    cbTeam.BorderColor = Color.Red;
                     return;
                 }
                 team = ((int)(TeamEnum)Enum.Parse(typeof(TeamEnum), (cbTeam.SelectedItem).ToString().Replace(" ", ""), true)).ToString("000");
