@@ -95,34 +95,27 @@ namespace TheBetterLimited.Views
         {
             loadPic.Show();
             loadAll = true;
-            bw.RunWorkerAsync();
+            try
+            {
+                bw.RunWorkerAsync();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Goods are loading.\nPlease wait a moment!");
+            }
         }
 
         public void LoadQryGoods()
         {
             loadPic.Show();
             loadAll = false;
-            bw.RunWorkerAsync();
-        }
-
-        //search bar text changed event
-        private void SearchBarTxt__TextChanged(object sender, EventArgs e)
-        {
-            selectedProduct = -1;
-            if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
+            try
             {
-                LoadAllGoods();
+                bw.RunWorkerAsync();
             }
-            else
+            catch (Exception e)
             {
-                string str = "";
-                str = "GTINCode:" + this.SearchBarTxt.Texts;
-                if (CatalogueCombox.SelectedIndex != 0)
-                {
-                    str += $"|_catalogueId:{CatalogueCombox.SelectedIndex}";
-                }
-                QryString = str;
-                LoadQryGoods();
+                MessageBox.Show("The goods are loading.\nPlease wait a moment!");
             }
         }
 
@@ -661,6 +654,28 @@ namespace TheBetterLimited.Views
         private void settleAccBtn_MouseLeave(object sender, EventArgs e)
         {
             settleAccBtn.TextColor = OrderBtn.BorderColor;
+        }
+
+        private void searchBtn_Click(object sender, EventArgs e)
+        {
+            searchBtn.Focus();
+            selectedProduct = -1;
+            if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
+            {
+                this.SearchBarTxt.Texts = SearchBarTxt.Placeholder;
+                LoadAllGoods();
+            }
+            else
+            {
+                string str = "";
+                str = "GTINCode:" + this.SearchBarTxt.Texts;
+                if (CatalogueCombox.SelectedIndex != 0)
+                {
+                    str += $"|_catalogueId:{CatalogueCombox.SelectedIndex}";
+                }
+                QryString = str;
+                LoadQryGoods();
+            }
         }
     }
 }
