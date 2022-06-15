@@ -687,6 +687,16 @@ namespace TheBetterLimited_Server.Data
                     LastName = "Light",
                     Sex = 'M',
                     Age = 25
+                },
+                new Staff
+                {
+                    Id = "S0716",
+                    _departmentId = "700",
+                    _positionId = "702",
+                    FirstName = "John",
+                    LastName = "Cena",
+                    Sex = 'M',
+                    Age = 45
                 }
             };
         }
@@ -877,6 +887,23 @@ namespace TheBetterLimited_Server.Data
                     unlockDate = DateTime.Now,
                     Icon = null,
                     UserName = "Salesman",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "user@domain.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
+
+                //Technical Manager
+                new Account
+                {
+                    Id = "A0012",
+                    _StaffId = "S0716",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "TechnicalManager",
                     Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
                     EmailAddress = "user@domain.com",
                     Status = "N",
@@ -1246,7 +1273,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "TVA0000003",
                     Name = "@$TVA0000003N",
@@ -1275,11 +1302,11 @@ namespace TheBetterLimited_Server.Data
                     _catalogueId = "100",
                     Description = "@$TVA0000005D",
                     Price = 6399,
-                    GTINCode = GTINGenerator.L((++i).ToString()),    
+                    GTINCode = GTINGenerator.L((++i).ToString()),
                     Size = GoodsSize.Medium,
                     Status = GoodsStatus.Selling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "TVA0000006",
                     Name = "@$TVA0000006N",
@@ -1291,7 +1318,7 @@ namespace TheBetterLimited_Server.Data
                     Status = GoodsStatus.Selling,
                 },
                 //new
-                new Goods 
+                new Goods
                 {
                     Id = "TVA0000007",
                     Name = "@$TVA0000007N",
@@ -1302,7 +1329,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "TVA0000008",
                     Name = "@$TVA0000008N",
@@ -1313,7 +1340,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "TVA0000009",
                     Name = "@$TVA0000009N",
@@ -1324,7 +1351,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "TVA0000010",
                     Name = "@$TVA0000010N",
@@ -1335,7 +1362,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "TVA0000011",
                     Name = "@$TVA0000011N",
@@ -1346,7 +1373,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "TVA0000012",
                     Name = "@$TVA0000012N",
@@ -1527,7 +1554,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.Selling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "RFS1000008",
                     Name = "@$RFS1000008N",
@@ -2298,7 +2325,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Large,
                     Status = GoodsStatus.StopSelling,
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "HKA1000015",
                     Name = "@$HKA1000015N",
@@ -2857,7 +2884,7 @@ namespace TheBetterLimited_Server.Data
                     Status = GoodsStatus.Selling
                 },
                 // end new
-                new Goods 
+                new Goods
                 {
                     Id = "COF1000023",
                     Name = "@$COF1000023N",
@@ -2868,7 +2895,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "COF1000024",
                     Name = "@$COF1000024N",
@@ -2879,7 +2906,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "COF1000025",
                     Name = "@$COF1000025N",
@@ -2890,7 +2917,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "COF1000026",
                     Name = "@$COF1000026N",
@@ -2901,7 +2928,7 @@ namespace TheBetterLimited_Server.Data
                     Size = GoodsSize.Small,
                     Status = GoodsStatus.Selling
                 },
-                new Goods 
+                new Goods
                 {
                     Id = "COF1000027",
                     Name = "@$COF1000027N",
@@ -7379,63 +7406,63 @@ namespace TheBetterLimited_Server.Data
             {
                 new Team
                 {
-                    ID = "001",
-                    Name = "Team 1",
-                    _departmentId = "300"
+                    ID = "301",
+                    _departmentId = "300",
+                    Name = "Delivery T1",
                 },
                 new Team
                 {
-                    ID = "002",
-                    Name = "Team 2",
-                    _departmentId = "300"
+                    ID = "302",
+                    _departmentId = "300",
+                    Name = "Delivery T2",
                 },
                 new Team
                 {
-                    ID = "003",
-                    Name = "Team 3",
-                    _departmentId = "300"
+                    ID = "303",
+                    _departmentId = "300",
+                    Name = "Delivery T3",
                 },
                 new Team
                 {
-                    ID = "004",
-                    Name = "Team 4",
-                    _departmentId = "300"
+                    ID = "304",
+                    _departmentId = "300",
+                    Name = "Delivery T4",
                 },
                 new Team
                 {
-                    ID = "005",
-                    Name = "Team 5",
-                    _departmentId = "300"
+                    ID = "305",
+                    _departmentId = "300",
+                    Name = "Delivery T5",
                 },
                 new Team
                 {
-                    ID = "006",
-                    Name = "Team 6",
-                    _departmentId = "700"
+                    ID = "701",
+                    _departmentId = "700",
+                    Name = "Installation T1",
                 },
                 new Team
                 {
-                    ID = "007",
-                    Name = "Team 7",
-                    _departmentId = "700"
+                    ID = "702",
+                    _departmentId = "700",
+                    Name = "Installation T2",
                 },
                 new Team
                 {
-                    ID = "008",
-                    Name = "Team 8",
-                    _departmentId = "700"
+                    ID = "703",
+                    _departmentId = "700",
+                    Name = "Installation T3",
                 },
                 new Team
                 {
-                    ID = "009",
-                    Name = "Team 9",
-                    _departmentId = "700"
+                    ID = "704",
+                    _departmentId = "700",
+                    Name = "Installation T4",
                 },
                 new Team
                 {
-                    ID = "010",
-                    Name = "Team 10",
-                    _departmentId = "700"
+                    ID = "705",
+                    _departmentId = "700",
+                    Name = "Installation T5",
                 }
             };
         }
@@ -7445,11 +7472,11 @@ namespace TheBetterLimited_Server.Data
             string path = "resources/product/image";
 
             if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + path))
-            {   
+            {
                 Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + path, true);
             }
             ConsoleLogger.Debug(AppDomain.CurrentDomain.BaseDirectory + path);
-            Helpers.File.ZipHelper.Decompress("resources/product/image.zip" , "resources/product" );
+            Helpers.File.ZipHelper.Decompress("resources/product/image.zip", "resources/product");
             // get the all the files in the folder
             // FileInfo[] files = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + path).GetFiles();
 
@@ -7465,7 +7492,7 @@ namespace TheBetterLimited_Server.Data
             List<Goods> goods = db.Set<Goods>().ToList();
 
 
-            foreach(Goods g in goods)
+            foreach (Goods g in goods)
             {
                 g.Photo = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + path + "/" + g.Id + ".png");
                 db.Set<Goods>().Update(g);
@@ -7475,7 +7502,5 @@ namespace TheBetterLimited_Server.Data
             Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + path, true);
 
         }
-
-        
     }
 }
