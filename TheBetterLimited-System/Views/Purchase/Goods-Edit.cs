@@ -18,7 +18,7 @@ using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class Inventorymanagement_Edit : Form
+    public partial class Goods_Edit : Form
     {
         private RestResponse result = new RestResponse();
         private ControllerBase con = new ControllerBase("Goods");
@@ -36,11 +36,11 @@ namespace TheBetterLimited.Views
         private List<string> catList = new List<string>();
         private bool isUpload = false;
 
-        public Inventorymanagement_Edit()
+        public Goods_Edit()
         {
             InitializeComponent();
         }
-        public Inventorymanagement_Edit(string GoodsId)
+        public Goods_Edit(string GoodsId)
         {
             InitializeComponent();
             result =  con.GetById(GoodsId);

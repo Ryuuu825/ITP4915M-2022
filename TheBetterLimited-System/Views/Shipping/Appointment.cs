@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -60,12 +61,10 @@ namespace TheBetterLimited.Views
                 e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold);
                 if (e.Value.ToString().Equals("PendingDelivery"))
                 {
-                    e.Value = "Pending Delivery";
                     e.CellStyle.ForeColor = Color.Orange;
                     e.CellStyle.SelectionForeColor = Color.Orange;
                 }else if (e.Value.ToString().Equals("ReadyToInstall"))
                 {
-                    e.Value = "Ready To Install";
                     e.CellStyle.ForeColor = Color.Orange;
                     e.CellStyle.SelectionForeColor = Color.Orange;
                 }
@@ -84,6 +83,14 @@ namespace TheBetterLimited.Views
                     e.CellStyle.ForeColor = Color.SeaGreen;
                     e.CellStyle.SelectionForeColor = Color.SeaGreen;
                 }
+                var reg = @"(?=[A-Z])";
+                var status = Regex.Split(e.Value.ToString(), reg);
+                var value = "";
+                foreach (var item in status)
+                {
+                    value += item + " ";
+                }
+                e.Value = value;
             }
         }
 

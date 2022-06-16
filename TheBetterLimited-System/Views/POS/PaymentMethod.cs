@@ -82,12 +82,13 @@ namespace TheBetterLimited.Views
                     {
                         waitResult.Close();
                         waitResult.Dispose();
+                        Form appointment = Application.OpenForms["POS"];
+                        ((POS)appointment).ClearOrder();
+                        ((POS)appointment).LoadAllGoods();
                         Console.WriteLine(response.Content);
                         Receipt receipt = new Receipt(response.Content);
                         receipt.ShowDialog();
                         ClearForm();
-                        Form appointment = Application.OpenForms["POS"];
-                        ((POS)appointment).ClearOrder();
                     }
                 }
                 catch (Exception ex)

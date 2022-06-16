@@ -294,14 +294,14 @@ namespace TheBetterLimited.Views
 
         private void PhoneTxt__Leave(object sender, EventArgs e)
         {
-            if (PhoneTxt.Texts.Length == 8 || PhoneTxt.Texts.Length == 11)
+            if (PhoneTxt.Texts != PhoneTxt.Placeholder && PhoneTxt.Texts != "")
             {
-            }
-            else
-            {
-                PhoneTxt.IsError = true;
-                MessageBox.Show("The phone number should have 8 or 11 digits");
-                return;
+                if (PhoneTxt.Texts.Length != 8 && PhoneTxt.Texts.Length != 11)
+                {
+                    PhoneTxt.IsError = true;
+                    MessageBox.Show("The phone number should have 8 or 11 digits");
+                    return;
+                }
             }
         }
     }

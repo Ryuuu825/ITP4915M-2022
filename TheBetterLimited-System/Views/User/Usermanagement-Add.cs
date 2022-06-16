@@ -197,6 +197,7 @@ namespace TheBetterLimited.Views
                 }
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
+                    MessageBox.Show("Create User Account Successfully.");
                     this.Close();
                     this.Dispose();
                     this.OnExit.Invoke();

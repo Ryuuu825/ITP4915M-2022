@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -67,7 +68,7 @@ namespace TheBetterLimited.Views
                     e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
                 }
-                else if(e.Value.Equals("Completed"))
+                else if (e.Value.Equals("Completed"))
                 {
                     e.CellStyle.ForeColor = Color.SeaGreen;
                     e.CellStyle.SelectionForeColor = Color.SeaGreen;
@@ -87,6 +88,14 @@ namespace TheBetterLimited.Views
                     e.CellStyle.ForeColor = Color.FromArgb(250, 182, 99);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(250, 182, 99);
                 }
+                var reg = @"(?=[A-Z])";
+                var status = Regex.Split(e.Value.ToString(), reg);
+                var value = "";
+                foreach (var item in status)
+                {
+                    value += item + " ";
+                }
+                e.Value = value;
             }
         }
 
@@ -220,7 +229,7 @@ namespace TheBetterLimited.Views
                     row["operator"] = o["_operatorId"].ToString();
                     row["createAt"] = ((DateTime)o["createAt"]).ToString("g");
                     row["updateAt"] = ((DateTime)o["updateAt"]).ToString("g");
-                    row["total"] = String.Format("{0:C2}",o["total"]);
+                    row["total"] = String.Format("{0:C2}", o["total"]);
                     row["paid"] = String.Format("{0:C2}", o["paid"]); ;
                     row["status"] = o["status"].ToString();
                     dt.Rows.Add(row);
@@ -250,19 +259,17 @@ namespace TheBetterLimited.Views
                         foreach (string uid in selecteOrderId)
                         {
                             response = cbOrder.Delete(uid);
-                            if(response.StatusCode != System.Net.HttpStatusCode.OK)
+                            if (response.StatusCode != System.Net.HttpStatusCode.OK)
                             {
                                 throw new Exception(response.ErrorMessage);
                             }
                         }
                         MessageBox.Show("The " + selecteOrderId.Count + " order(s) have been deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetOrder();
-                    }
-                    catch (Exception ex)
+                    }catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                 }
             }
             else
@@ -274,28 +281,34 @@ namespace TheBetterLimited.Views
         //Delete Order
         public void DeleteOrder(DataGridViewCellEventArgs e)
         {
-            choose = MessageBox.Show("Do you really want to delete the " + OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-            if (choose == DialogResult.Yes)
+            if (OrderDataGrid.Rows[e.RowIndex].Cells["status"].Value.Equals("Pending Delivery"))
             {
-                try
+                choose = MessageBox.Show("Do you really want to delete the " + OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                if (choose == DialogResult.Yes)
                 {
-                    response = cbOrder.Delete(OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    try
                     {
-                        MessageBox.Show("The order " + OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value + " have been deleted!", "Delete Order ScbOrdercessful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetOrder();
-                    }else
-                    {
-                        MessageBox.Show("The order has been delivered. \n Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        GetOrder();
+                        response = cbOrder.Delete(OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            MessageBox.Show("The order " + OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value + " have been deleted!", "Delete Order ScbOrdercessful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                            GetOrder();
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    MessageBox.Show("Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        MessageBox.Show("Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
+                }
+            }else if ((OrderDataGrid.Rows[e.RowIndex].Cells["status"].Value.Equals("Completed")))
+            {
+                MessageBox.Show("The order has completed. \n Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }else
+            {
+                MessageBox.Show("The order has been processed. \nCannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -45,13 +45,13 @@ namespace TheBetterLimited.Views
         {
             if (totalAmount < 5000)
             {
-                depositTxt.Texts = "0.0";
+                deposit = 0.0;
             }
             else
             {
                 deposit = totalAmount * 0.2;
-                depositTxt.Texts = String.Format("{0:C2}",deposit);
             }
+            depositTxt.Texts = String.Format("{0:C2}", deposit);
         }
 
         private void SaveBtn_Click(object sender, EventArgs e)

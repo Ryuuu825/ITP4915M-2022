@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheBetterLimited.Controller;
 using System.Drawing.Drawing2D;
+using System.Text.RegularExpressions;
 
 namespace TheBetterLimited.Views
 {
@@ -156,7 +157,9 @@ namespace TheBetterLimited.Views
         private void User_Click(object sender, EventArgs e)
         {
             change_MenuButton_style(sender);
-            openChildForm(new UserManagement());
+            StaffContainer.Show();
+            AccountContainer.Show();
+            subSidebarTimer.Start();
         }
         private void POS_Click(object sender, EventArgs e)
         {
@@ -232,7 +235,7 @@ namespace TheBetterLimited.Views
 
         private void GoodsBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new InventoryManagement());
+            openChildForm(new Goods());
             subSidebarTimer.Start();
         }
         
@@ -286,6 +289,18 @@ namespace TheBetterLimited.Views
         private void restockRequestBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new RestockRequest());
+            subSidebarTimer.Start();
+        }
+
+        private void staffBtn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Staff());
+            subSidebarTimer.Start();
+        }
+
+        private void accountBtn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new UserManagement());
             subSidebarTimer.Start();
         }
     }

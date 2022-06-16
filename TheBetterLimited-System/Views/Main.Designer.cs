@@ -55,10 +55,10 @@
             this.GoodsBtn = new System.Windows.Forms.Button();
             this.RestockContainer = new System.Windows.Forms.Panel();
             this.restockRequestBtn = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
+            this.StaffContainer = new System.Windows.Forms.Panel();
+            this.staffBtn = new System.Windows.Forms.Button();
+            this.AccountContainer = new System.Windows.Forms.Panel();
+            this.accountBtn = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -101,8 +101,8 @@
             this.subSidebar.SuspendLayout();
             this.GoodsContainer.SuspendLayout();
             this.RestockContainer.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.StaffContainer.SuspendLayout();
+            this.AccountContainer.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -216,10 +216,10 @@
             this.UserInformation.Controls.Add(this.UserIcon);
             this.UserInformation.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UserInformation.Dock = System.Windows.Forms.DockStyle.Right;
-            this.UserInformation.Location = new System.Drawing.Point(1053, 0);
+            this.UserInformation.Location = new System.Drawing.Point(1016, 0);
             this.UserInformation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UserInformation.Name = "UserInformation";
-            this.UserInformation.Size = new System.Drawing.Size(211, 100);
+            this.UserInformation.Size = new System.Drawing.Size(248, 100);
             this.UserInformation.TabIndex = 0;
             this.UserInformation.Click += new System.EventHandler(this.UserInformation_Click);
             // 
@@ -229,10 +229,10 @@
             this.txtJobTitle.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtJobTitle.Location = new System.Drawing.Point(67, 50);
             this.txtJobTitle.Name = "txtJobTitle";
-            this.txtJobTitle.Size = new System.Drawing.Size(136, 25);
+            this.txtJobTitle.Size = new System.Drawing.Size(178, 25);
             this.txtJobTitle.TabIndex = 2;
-            this.txtJobTitle.Text = "Admin";
-            this.txtJobTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtJobTitle.Text = "Technical Workman";
+            this.txtJobTitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.txtJobTitle.Click += new System.EventHandler(this.UserInformation_Click);
             // 
             // txtUsername
@@ -241,10 +241,10 @@
             this.txtUsername.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.txtUsername.Location = new System.Drawing.Point(67, 25);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(136, 25);
+            this.txtUsername.Size = new System.Drawing.Size(178, 18);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.Text = "Chan Tai Man";
-            this.txtUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.txtUsername.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.txtUsername.Click += new System.EventHandler(this.UserInformation_Click);
             // 
             // UserIcon
@@ -319,11 +319,11 @@
             this.user_droplist.Controls.Add(this.changePwd);
             this.user_droplist.Dock = System.Windows.Forms.DockStyle.Right;
             this.user_droplist.ForeColor = System.Drawing.Color.Transparent;
-            this.user_droplist.Location = new System.Drawing.Point(1053, 100);
+            this.user_droplist.Location = new System.Drawing.Point(1016, 100);
             this.user_droplist.Margin = new System.Windows.Forms.Padding(0);
-            this.user_droplist.MaximumSize = new System.Drawing.Size(211, 200);
+            this.user_droplist.MaximumSize = new System.Drawing.Size(248, 200);
             this.user_droplist.Name = "user_droplist";
-            this.user_droplist.Size = new System.Drawing.Size(211, 200);
+            this.user_droplist.Size = new System.Drawing.Size(248, 200);
             this.user_droplist.TabIndex = 3;
             this.user_droplist.Visible = false;
             // 
@@ -342,9 +342,9 @@
             this.ProfileBtn.Margin = new System.Windows.Forms.Padding(0);
             this.ProfileBtn.Name = "ProfileBtn";
             this.ProfileBtn.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.ProfileBtn.Size = new System.Drawing.Size(211, 50);
+            this.ProfileBtn.Size = new System.Drawing.Size(248, 50);
             this.ProfileBtn.TabIndex = 8;
-            this.ProfileBtn.Text = "            Profile";
+            this.ProfileBtn.Text = "                 Profile";
             this.ProfileBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ProfileBtn.UseVisualStyleBackColor = false;
             // 
@@ -364,9 +364,9 @@
             this.MessageBtn.Margin = new System.Windows.Forms.Padding(0);
             this.MessageBtn.Name = "MessageBtn";
             this.MessageBtn.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.MessageBtn.Size = new System.Drawing.Size(211, 50);
+            this.MessageBtn.Size = new System.Drawing.Size(248, 50);
             this.MessageBtn.TabIndex = 6;
-            this.MessageBtn.Text = "            Message";
+            this.MessageBtn.Text = "                 Message";
             this.MessageBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MessageBtn.UseVisualStyleBackColor = false;
             // 
@@ -385,9 +385,9 @@
             this.LanguageBtn.Margin = new System.Windows.Forms.Padding(0);
             this.LanguageBtn.Name = "LanguageBtn";
             this.LanguageBtn.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.LanguageBtn.Size = new System.Drawing.Size(211, 50);
+            this.LanguageBtn.Size = new System.Drawing.Size(248, 50);
             this.LanguageBtn.TabIndex = 5;
-            this.LanguageBtn.Text = "            Sign out";
+            this.LanguageBtn.Text = "                 Sign out";
             this.LanguageBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LanguageBtn.UseVisualStyleBackColor = false;
             this.LanguageBtn.Click += new System.EventHandler(this.Logout_Click);
@@ -408,9 +408,9 @@
             this.changePwd.Margin = new System.Windows.Forms.Padding(0);
             this.changePwd.Name = "changePwd";
             this.changePwd.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
-            this.changePwd.Size = new System.Drawing.Size(211, 50);
+            this.changePwd.Size = new System.Drawing.Size(248, 50);
             this.changePwd.TabIndex = 4;
-            this.changePwd.Text = "            Language";
+            this.changePwd.Text = "                 Language";
             this.changePwd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.changePwd.UseVisualStyleBackColor = false;
             // 
@@ -422,8 +422,8 @@
             this.subSidebar.Controls.Add(this.StockContainer);
             this.subSidebar.Controls.Add(this.AppointmentContainer);
             this.subSidebar.Controls.Add(this.RestockContainer);
-            this.subSidebar.Controls.Add(this.panel3);
-            this.subSidebar.Controls.Add(this.panel4);
+            this.subSidebar.Controls.Add(this.StaffContainer);
+            this.subSidebar.Controls.Add(this.AccountContainer);
             this.subSidebar.Controls.Add(this.panel5);
             this.subSidebar.Controls.Add(this.panel6);
             this.subSidebar.Controls.Add(this.panel7);
@@ -490,55 +490,57 @@
             this.restockRequestBtn.UseVisualStyleBackColor = true;
             this.restockRequestBtn.Click += new System.EventHandler(this.restockRequestBtn_Click);
             // 
-            // panel3
+            // StaffContainer
             // 
-            this.panel3.Controls.Add(this.button9);
-            this.panel3.Location = new System.Drawing.Point(0, 310);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 58);
-            this.panel3.TabIndex = 5;
-            this.panel3.Visible = false;
+            this.StaffContainer.Controls.Add(this.staffBtn);
+            this.StaffContainer.Location = new System.Drawing.Point(0, 310);
+            this.StaffContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.StaffContainer.Name = "StaffContainer";
+            this.StaffContainer.Size = new System.Drawing.Size(200, 58);
+            this.StaffContainer.TabIndex = 5;
+            this.StaffContainer.Visible = false;
             // 
-            // button9
+            // staffBtn
             // 
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button9.Location = new System.Drawing.Point(0, 0);
-            this.button9.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(200, 50);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "submenu";
-            this.button9.UseVisualStyleBackColor = true;
+            this.staffBtn.FlatAppearance.BorderSize = 0;
+            this.staffBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.staffBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.staffBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.staffBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.staffBtn.Location = new System.Drawing.Point(0, 0);
+            this.staffBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.staffBtn.Name = "staffBtn";
+            this.staffBtn.Size = new System.Drawing.Size(200, 50);
+            this.staffBtn.TabIndex = 2;
+            this.staffBtn.Text = "Staff";
+            this.staffBtn.UseVisualStyleBackColor = true;
+            this.staffBtn.Click += new System.EventHandler(this.staffBtn_Click);
             // 
-            // panel4
+            // AccountContainer
             // 
-            this.panel4.Controls.Add(this.button11);
-            this.panel4.Location = new System.Drawing.Point(0, 372);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 58);
-            this.panel4.TabIndex = 6;
-            this.panel4.Visible = false;
+            this.AccountContainer.Controls.Add(this.accountBtn);
+            this.AccountContainer.Location = new System.Drawing.Point(0, 372);
+            this.AccountContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.AccountContainer.Name = "AccountContainer";
+            this.AccountContainer.Size = new System.Drawing.Size(200, 58);
+            this.AccountContainer.TabIndex = 6;
+            this.AccountContainer.Visible = false;
             // 
-            // button11
+            // accountBtn
             // 
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button11.Location = new System.Drawing.Point(0, 0);
-            this.button11.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(200, 50);
-            this.button11.TabIndex = 2;
-            this.button11.Text = "submenu";
-            this.button11.UseVisualStyleBackColor = true;
+            this.accountBtn.FlatAppearance.BorderSize = 0;
+            this.accountBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.accountBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.accountBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.accountBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.accountBtn.Location = new System.Drawing.Point(0, 0);
+            this.accountBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.accountBtn.Name = "accountBtn";
+            this.accountBtn.Size = new System.Drawing.Size(200, 50);
+            this.accountBtn.TabIndex = 2;
+            this.accountBtn.Text = "Account";
+            this.accountBtn.UseVisualStyleBackColor = true;
+            this.accountBtn.Click += new System.EventHandler(this.accountBtn_Click);
             // 
             // panel5
             // 
@@ -856,7 +858,7 @@
             this.Workman.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
             this.Workman.Size = new System.Drawing.Size(227, 50);
             this.Workman.TabIndex = 2;
-            this.Workman.Text = "            Workman";
+            this.Workman.Text = "            Shipping";
             this.Workman.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Workman.UseVisualStyleBackColor = true;
             this.Workman.Click += new System.EventHandler(this.Workman_Click);
@@ -994,8 +996,8 @@
             this.subSidebar.ResumeLayout(false);
             this.GoodsContainer.ResumeLayout(false);
             this.RestockContainer.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.StaffContainer.ResumeLayout(false);
+            this.AccountContainer.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
@@ -1062,10 +1064,10 @@
         private System.Windows.Forms.Button GoodsBtn;
         private System.Windows.Forms.Panel RestockContainer;
         private System.Windows.Forms.Button restockRequestBtn;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Panel StaffContainer;
+        private System.Windows.Forms.Button staffBtn;
+        private System.Windows.Forms.Panel AccountContainer;
+        private System.Windows.Forms.Button accountBtn;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Panel panel6;

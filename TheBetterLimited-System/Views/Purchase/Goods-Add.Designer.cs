@@ -1,6 +1,6 @@
 ﻿namespace TheBetterLimited.Views
 {
-    partial class Inventorymanagement_Edit
+    partial class Goods_Add
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@
             this.GoodsPic = new System.Windows.Forms.PictureBox();
             this.BottomBtn = new System.Windows.Forms.Panel();
             this.btnCancel = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.btnSave = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.btnAddGoods = new TheBetterLimited.CustomizeControl.RoundButton();
             this.MainForm = new System.Windows.Forms.Panel();
             this.UserInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,15 +48,15 @@
             this.lblGTIＮCode = new System.Windows.Forms.Label();
             this.txtPrice = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.lblPrice = new System.Windows.Forms.Label();
-            this.txtGoodsId = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.lblGoodsName = new System.Windows.Forms.Label();
             this.lblCatalogue = new System.Windows.Forms.Label();
-            this.lblGoodsId = new System.Windows.Forms.Label();
             this.txtDescription = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.txtGoodsName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
+            this.cbxSupplier = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GoodsPic)).BeginInit();
             this.BottomBtn.SuspendLayout();
@@ -77,7 +77,7 @@
             this.Header.Location = new System.Drawing.Point(0, 0);
             this.Header.Margin = new System.Windows.Forms.Padding(2);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(272, 647);
+            this.Header.Size = new System.Drawing.Size(272, 684);
             this.Header.TabIndex = 0;
             // 
             // Info
@@ -108,9 +108,9 @@
             this.Title.ForeColor = System.Drawing.Color.SeaGreen;
             this.Title.Location = new System.Drawing.Point(16, 273);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(120, 30);
+            this.Title.Size = new System.Drawing.Size(123, 30);
             this.Title.TabIndex = 3;
-            this.Title.Text = "Edit Goods";
+            this.Title.Text = "Add Goods";
             // 
             // GoodsPic
             // 
@@ -131,10 +131,10 @@
             // 
             this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.BottomBtn.Controls.Add(this.btnCancel);
-            this.BottomBtn.Controls.Add(this.btnSave);
+            this.BottomBtn.Controls.Add(this.btnAddGoods);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(10, 583);
+            this.BottomBtn.Location = new System.Drawing.Point(10, 620);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
@@ -163,26 +163,26 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
-            // btnSave
+            // btnAddGoods
             // 
-            this.btnSave.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSave.BorderRadius = 10;
-            this.btnSave.BorderSize = 0;
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.IsChecked = false;
-            this.btnSave.Location = new System.Drawing.Point(346, 6);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(128, 40);
-            this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "Save";
-            this.btnSave.TextColor = System.Drawing.Color.White;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.CreateUser_Click);
+            this.btnAddGoods.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAddGoods.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.btnAddGoods.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAddGoods.BorderRadius = 10;
+            this.btnAddGoods.BorderSize = 0;
+            this.btnAddGoods.FlatAppearance.BorderSize = 0;
+            this.btnAddGoods.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddGoods.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddGoods.ForeColor = System.Drawing.Color.White;
+            this.btnAddGoods.IsChecked = false;
+            this.btnAddGoods.Location = new System.Drawing.Point(346, 6);
+            this.btnAddGoods.Name = "btnAddGoods";
+            this.btnAddGoods.Size = new System.Drawing.Size(128, 40);
+            this.btnAddGoods.TabIndex = 6;
+            this.btnAddGoods.Text = "Add Goods";
+            this.btnAddGoods.TextColor = System.Drawing.Color.White;
+            this.btnAddGoods.UseVisualStyleBackColor = false;
+            this.btnAddGoods.Click += new System.EventHandler(this.CreateUser_Click);
             // 
             // MainForm
             // 
@@ -194,7 +194,7 @@
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
             this.MainForm.Padding = new System.Windows.Forms.Padding(10);
-            this.MainForm.Size = new System.Drawing.Size(512, 647);
+            this.MainForm.Size = new System.Drawing.Size(512, 684);
             this.MainForm.TabIndex = 2;
             // 
             // UserInfo
@@ -205,11 +205,13 @@
             this.UserInfo.Dock = System.Windows.Forms.DockStyle.Top;
             this.UserInfo.Location = new System.Drawing.Point(10, 10);
             this.UserInfo.Name = "UserInfo";
-            this.UserInfo.Size = new System.Drawing.Size(492, 562);
+            this.UserInfo.Size = new System.Drawing.Size(492, 598);
             this.UserInfo.TabIndex = 24;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbxSupplier);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbxStatus);
             this.panel1.Controls.Add(this.cbxSize);
             this.panel1.Controls.Add(this.cbxCatalogue);
@@ -219,17 +221,15 @@
             this.panel1.Controls.Add(this.lblGTIＮCode);
             this.panel1.Controls.Add(this.txtPrice);
             this.panel1.Controls.Add(this.lblPrice);
-            this.panel1.Controls.Add(this.txtGoodsId);
             this.panel1.Controls.Add(this.lblGoodsName);
             this.panel1.Controls.Add(this.lblCatalogue);
-            this.panel1.Controls.Add(this.lblGoodsId);
             this.panel1.Controls.Add(this.txtDescription);
             this.panel1.Controls.Add(this.lblDescription);
             this.panel1.Controls.Add(this.txtGoodsName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(492, 522);
+            this.panel1.Size = new System.Drawing.Size(492, 558);
             this.panel1.TabIndex = 27;
             // 
             // cbxStatus
@@ -239,19 +239,20 @@
             this.cbxStatus.BorderRadius = 1;
             this.cbxStatus.BorderSize = 1;
             this.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxStatus.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.cbxStatus.ForeColor = System.Drawing.Color.DimGray;
+            this.cbxStatus.Font = new System.Drawing.Font("Segoe UI", 12.35F);
+            this.cbxStatus.ForeColor = System.Drawing.Color.Black;
             this.cbxStatus.IconColor = System.Drawing.Color.LightGray;
             this.cbxStatus.ListBackColor = System.Drawing.Color.White;
             this.cbxStatus.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbxStatus.Location = new System.Drawing.Point(161, 474);
+            this.cbxStatus.Location = new System.Drawing.Point(161, 452);
             this.cbxStatus.MinimumSize = new System.Drawing.Size(200, 30);
             this.cbxStatus.Name = "cbxStatus";
             this.cbxStatus.Padding = new System.Windows.Forms.Padding(1);
             this.cbxStatus.Size = new System.Drawing.Size(307, 31);
             this.cbxStatus.TabIndex = 41;
-            this.cbxStatus.Texts = "";
+            this.cbxStatus.Texts = "Product Status";
             this.cbxStatus.UnderlinedStyle = false;
+            this.cbxStatus.Click += new System.EventHandler(this.cbxStatus_Click);
             // 
             // cbxSize
             // 
@@ -260,19 +261,20 @@
             this.cbxSize.BorderRadius = 1;
             this.cbxSize.BorderSize = 1;
             this.cbxSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxSize.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.cbxSize.ForeColor = System.Drawing.Color.DimGray;
+            this.cbxSize.Font = new System.Drawing.Font("Segoe UI", 12.35F);
+            this.cbxSize.ForeColor = System.Drawing.Color.Black;
             this.cbxSize.IconColor = System.Drawing.Color.LightGray;
             this.cbxSize.ListBackColor = System.Drawing.Color.White;
             this.cbxSize.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbxSize.Location = new System.Drawing.Point(161, 431);
+            this.cbxSize.Location = new System.Drawing.Point(161, 405);
             this.cbxSize.MinimumSize = new System.Drawing.Size(200, 30);
             this.cbxSize.Name = "cbxSize";
             this.cbxSize.Padding = new System.Windows.Forms.Padding(1);
             this.cbxSize.Size = new System.Drawing.Size(307, 31);
             this.cbxSize.TabIndex = 40;
-            this.cbxSize.Texts = "";
+            this.cbxSize.Texts = "Product Size";
             this.cbxSize.UnderlinedStyle = false;
+            this.cbxSize.Click += new System.EventHandler(this.cbxSize_Click);
             // 
             // cbxCatalogue
             // 
@@ -280,26 +282,27 @@
             this.cbxCatalogue.BorderColor = System.Drawing.Color.LightGray;
             this.cbxCatalogue.BorderRadius = 1;
             this.cbxCatalogue.BorderSize = 1;
-            this.cbxCatalogue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
+            this.cbxCatalogue.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCatalogue.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cbxCatalogue.ForeColor = System.Drawing.Color.Black;
             this.cbxCatalogue.IconColor = System.Drawing.Color.LightGray;
             this.cbxCatalogue.ListBackColor = System.Drawing.Color.White;
             this.cbxCatalogue.ListTextColor = System.Drawing.Color.DimGray;
-            this.cbxCatalogue.Location = new System.Drawing.Point(161, 67);
+            this.cbxCatalogue.Location = new System.Drawing.Point(161, 72);
             this.cbxCatalogue.MinimumSize = new System.Drawing.Size(200, 30);
             this.cbxCatalogue.Name = "cbxCatalogue";
             this.cbxCatalogue.Padding = new System.Windows.Forms.Padding(1);
             this.cbxCatalogue.Size = new System.Drawing.Size(307, 31);
             this.cbxCatalogue.TabIndex = 39;
-            this.cbxCatalogue.Texts = "";
+            this.cbxCatalogue.Texts = "Product Catalogue";
             this.cbxCatalogue.UnderlinedStyle = false;
+            this.cbxCatalogue.Click += new System.EventHandler(this.cbxCatalogue_Click);
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(60, 479);
+            this.lblStatus.Location = new System.Drawing.Point(60, 457);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(52, 21);
@@ -311,7 +314,7 @@
             // 
             this.lblSize.AutoSize = true;
             this.lblSize.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSize.Location = new System.Drawing.Point(67, 436);
+            this.lblSize.Location = new System.Drawing.Point(67, 410);
             this.lblSize.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSize.Name = "lblSize";
             this.lblSize.Size = new System.Drawing.Size(38, 21);
@@ -329,7 +332,7 @@
             this.txtGTINCode.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGTINCode.ForeColor = System.Drawing.Color.Black;
             this.txtGTINCode.IsError = false;
-            this.txtGTINCode.Location = new System.Drawing.Point(161, 381);
+            this.txtGTINCode.Location = new System.Drawing.Point(161, 350);
             this.txtGTINCode.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtGTINCode.MaxLength = 32767;
             this.txtGTINCode.Multiline = false;
@@ -344,12 +347,13 @@
             this.txtGTINCode.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtGTINCode.Texts = "Please enter the GTINCode";
             this.txtGTINCode.UnderlinedStyle = false;
+            this.txtGTINCode.Click += new System.EventHandler(this.txtGTINCode_Click);
             // 
             // lblGTIＮCode
             // 
             this.lblGTIＮCode.AutoSize = true;
             this.lblGTIＮCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGTIＮCode.Location = new System.Drawing.Point(46, 390);
+            this.lblGTIＮCode.Location = new System.Drawing.Point(46, 359);
             this.lblGTIＮCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGTIＮCode.Name = "lblGTIＮCode";
             this.lblGTIＮCode.Size = new System.Drawing.Size(81, 21);
@@ -367,7 +371,7 @@
             this.txtPrice.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrice.ForeColor = System.Drawing.Color.Black;
             this.txtPrice.IsError = false;
-            this.txtPrice.Location = new System.Drawing.Point(161, 331);
+            this.txtPrice.Location = new System.Drawing.Point(161, 295);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtPrice.MaxLength = 32767;
             this.txtPrice.Multiline = false;
@@ -382,12 +386,13 @@
             this.txtPrice.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtPrice.Texts = "Please enter the price";
             this.txtPrice.UnderlinedStyle = false;
+            this.txtPrice.Click += new System.EventHandler(this.txtPrice_Click);
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(64, 340);
+            this.lblPrice.Location = new System.Drawing.Point(64, 304);
             this.lblPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(44, 21);
@@ -395,42 +400,11 @@
             this.lblPrice.Text = "Price";
             this.lblPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // txtGoodsId
-            // 
-            this.txtGoodsId.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.txtGoodsId.BackColor = System.Drawing.Color.White;
-            this.txtGoodsId.BorderColor = System.Drawing.Color.LightGray;
-            this.txtGoodsId.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.txtGoodsId.BorderRadius = 10;
-            this.txtGoodsId.BorderSize = 1;
-            this.txtGoodsId.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGoodsId.ForeColor = System.Drawing.Color.Black;
-            this.txtGoodsId.IsError = false;
-            this.txtGoodsId.Location = new System.Drawing.Point(161, 17);
-            this.txtGoodsId.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtGoodsId.MaxLength = 5;
-            this.txtGoodsId.Multiline = false;
-            this.txtGoodsId.Name = "txtGoodsId";
-            this.txtGoodsId.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtGoodsId.PasswordChar = false;
-            this.txtGoodsId.Placeholder = "Automatically Generated";
-            this.txtGoodsId.ReadOnly = true;
-            this.txtGoodsId.Size = new System.Drawing.Size(307, 38);
-            this.txtGoodsId.TabIndex = 1;
-            this.txtGoodsId.TbBackColor = System.Drawing.Color.White;
-            this.txtGoodsId.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
-            this.txtGoodsId.Texts = "Automatically Generated";
-            this.txtGoodsId.UnderlinedStyle = false;
-            this.txtGoodsId._TextChanged += new System.EventHandler(this.StaffIDTxt__TextChanged);
-            this.txtGoodsId.Click += new System.EventHandler(this.StaffIDTxt_Click);
-            this.txtGoodsId.Enter += new System.EventHandler(this.StaffIDTxt_Enter);
-            this.txtGoodsId.Leave += new System.EventHandler(this.StaffIDTxt_Leave);
-            // 
             // lblGoodsName
             // 
             this.lblGoodsName.AutoSize = true;
             this.lblGoodsName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGoodsName.Location = new System.Drawing.Point(36, 110);
+            this.lblGoodsName.Location = new System.Drawing.Point(36, 26);
             this.lblGoodsName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblGoodsName.Name = "lblGoodsName";
             this.lblGoodsName.Size = new System.Drawing.Size(101, 21);
@@ -442,26 +416,13 @@
             // 
             this.lblCatalogue.AutoSize = true;
             this.lblCatalogue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatalogue.Location = new System.Drawing.Point(46, 72);
+            this.lblCatalogue.Location = new System.Drawing.Point(46, 77);
             this.lblCatalogue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCatalogue.Name = "lblCatalogue";
             this.lblCatalogue.Size = new System.Drawing.Size(80, 21);
             this.lblCatalogue.TabIndex = 2;
             this.lblCatalogue.Text = "Catalogue";
             this.lblCatalogue.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblGoodsId
-            // 
-            this.lblGoodsId.AutoSize = true;
-            this.lblGoodsId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGoodsId.Location = new System.Drawing.Point(46, 26);
-            this.lblGoodsId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblGoodsId.Name = "lblGoodsId";
-            this.lblGoodsId.Size = new System.Drawing.Size(81, 21);
-            this.lblGoodsId.TabIndex = 1;
-            this.lblGoodsId.Text = "Goods ID*";
-            this.lblGoodsId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblGoodsId.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtDescription
             // 
@@ -473,7 +434,7 @@
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.ForeColor = System.Drawing.Color.Black;
             this.txtDescription.IsError = false;
-            this.txtDescription.Location = new System.Drawing.Point(161, 198);
+            this.txtDescription.Location = new System.Drawing.Point(161, 119);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtDescription.MaxLength = 32767;
             this.txtDescription.Multiline = true;
@@ -482,18 +443,19 @@
             this.txtDescription.PasswordChar = false;
             this.txtDescription.Placeholder = "Please enter the description";
             this.txtDescription.ReadOnly = false;
-            this.txtDescription.Size = new System.Drawing.Size(307, 121);
+            this.txtDescription.Size = new System.Drawing.Size(307, 159);
             this.txtDescription.TabIndex = 26;
             this.txtDescription.TbBackColor = System.Drawing.Color.White;
             this.txtDescription.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtDescription.Texts = "Please enter the description";
             this.txtDescription.UnderlinedStyle = false;
+            this.txtDescription.Click += new System.EventHandler(this.txtDescription_Click);
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(46, 198);
+            this.lblDescription.Location = new System.Drawing.Point(42, 119);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(89, 21);
@@ -511,21 +473,22 @@
             this.txtGoodsName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGoodsName.ForeColor = System.Drawing.Color.Black;
             this.txtGoodsName.IsError = false;
-            this.txtGoodsName.Location = new System.Drawing.Point(161, 110);
+            this.txtGoodsName.Location = new System.Drawing.Point(161, 17);
             this.txtGoodsName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtGoodsName.MaxLength = 32767;
-            this.txtGoodsName.Multiline = true;
+            this.txtGoodsName.Multiline = false;
             this.txtGoodsName.Name = "txtGoodsName";
             this.txtGoodsName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.txtGoodsName.PasswordChar = false;
             this.txtGoodsName.Placeholder = "Please enter the name of the goods";
             this.txtGoodsName.ReadOnly = false;
-            this.txtGoodsName.Size = new System.Drawing.Size(307, 76);
+            this.txtGoodsName.Size = new System.Drawing.Size(307, 38);
             this.txtGoodsName.TabIndex = 25;
             this.txtGoodsName.TbBackColor = System.Drawing.Color.White;
             this.txtGoodsName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.txtGoodsName.Texts = "Please enter the name of the goods";
             this.txtGoodsName.UnderlinedStyle = false;
+            this.txtGoodsName.Click += new System.EventHandler(this.txtGoodsName_Click);
             // 
             // UserInfoHeaderContainer
             // 
@@ -548,22 +511,55 @@
             this.GoodsInfoHeader.TabIndex = 6;
             this.GoodsInfoHeader.Text = "Goods Information";
             // 
-            // Inventorymanagement_Edit
+            // cbxSupplier
+            // 
+            this.cbxSupplier.BackColor = System.Drawing.Color.White;
+            this.cbxSupplier.BorderColor = System.Drawing.Color.LightGray;
+            this.cbxSupplier.BorderRadius = 1;
+            this.cbxSupplier.BorderSize = 1;
+            this.cbxSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSupplier.Font = new System.Drawing.Font("Segoe UI", 12.35F);
+            this.cbxSupplier.ForeColor = System.Drawing.Color.Black;
+            this.cbxSupplier.IconColor = System.Drawing.Color.LightGray;
+            this.cbxSupplier.ListBackColor = System.Drawing.Color.White;
+            this.cbxSupplier.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbxSupplier.Location = new System.Drawing.Point(161, 505);
+            this.cbxSupplier.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbxSupplier.Name = "cbxSupplier";
+            this.cbxSupplier.Padding = new System.Windows.Forms.Padding(1);
+            this.cbxSupplier.Size = new System.Drawing.Size(307, 31);
+            this.cbxSupplier.TabIndex = 43;
+            this.cbxSupplier.Texts = "";
+            this.cbxSupplier.UnderlinedStyle = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(52, 510);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 21);
+            this.label1.TabIndex = 42;
+            this.label1.Text = "Supplier";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Inventorymanagement_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(784, 647);
+            this.ClientSize = new System.Drawing.Size(784, 684);
             this.Controls.Add(this.MainForm);
             this.Controls.Add(this.Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1200, 900);
-            this.Name = "Inventorymanagement_Edit";
+            this.Name = "Inventorymanagement_Add";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Edit Goods";
+            this.Text = "Add Goods";
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GoodsPic)).EndInit();
@@ -583,10 +579,7 @@
         private System.Windows.Forms.Panel Header;
         private System.Windows.Forms.Panel BottomBtn;
         private System.Windows.Forms.Panel MainForm;
-        private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Label lblGoodsName;
         private System.Windows.Forms.Label lblCatalogue;
-        private System.Windows.Forms.Label lblGoodsId;
         private System.Windows.Forms.PictureBox GoodsPic;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Label tip;
@@ -594,12 +587,11 @@
         private System.Windows.Forms.Panel UserInfo;
         private System.Windows.Forms.Panel UserInfoHeaderContainer;
         private System.Windows.Forms.Label GoodsInfoHeader;
-        private CustomizeControl.CustomizeTextbox txtGoodsId;
         private CustomizeControl.CustomizeTextbox txtDescription;
         private CustomizeControl.CustomizeTextbox txtGoodsName;
         private System.Windows.Forms.Panel panel1;
         private CustomizeControl.RoundButton btnCancel;
-        private CustomizeControl.RoundButton btnSave;
+        private CustomizeControl.RoundButton btnAddGoods;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblSize;
         private CustomizeControl.CustomizeTextbox txtGTINCode;
@@ -609,5 +601,9 @@
         private CustomizeControl.CustomizeComboBox cbxStatus;
         private CustomizeControl.CustomizeComboBox cbxSize;
         private CustomizeControl.CustomizeComboBox cbxCatalogue;
+        private System.Windows.Forms.Label lblGoodsName;
+        private System.Windows.Forms.Label lblDescription;
+        private CustomizeControl.CustomizeComboBox cbxSupplier;
+        private System.Windows.Forms.Label label1;
     }
 }

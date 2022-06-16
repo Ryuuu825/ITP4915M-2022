@@ -20,7 +20,7 @@ using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class Supplier : Form
+    public partial class Goods : Form
     {
         private UserController uc = new UserController();
         private GoodsController gc = new GoodsController();
@@ -28,9 +28,9 @@ namespace TheBetterLimited.Views
         private List<string> selectGoodsID = new List<string>();
         private DialogResult choose;
         private RestResponse result;
-        private ControllerBase con = new ControllerBase("Supplier");
+        private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
 
-        public Supplier()
+        public Goods()
         {
             InitializeComponent();
             GetGoods();//init user table
@@ -57,7 +57,7 @@ namespace TheBetterLimited.Views
 
         private void GoodsDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (SupplierDataGrid.Columns[e.ColumnIndex].Name == "Status")
+            if (GoodsDataGrid.Columns[e.ColumnIndex].Name == "Status")
             {
                 if (e.Value.ToString().Equals("0"))
                 {
@@ -73,7 +73,7 @@ namespace TheBetterLimited.Views
                 }
             }
 
-            if (SupplierDataGrid.Columns[e.ColumnIndex].Name == "Size")
+            if (GoodsDataGrid.Columns[e.ColumnIndex].Name == "Size")
             {
 
                 if (e.Value.ToString().Equals("0"))
@@ -94,33 +94,34 @@ namespace TheBetterLimited.Views
 
         private void GoodsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == SupplierDataGrid.Columns["select"].Index)
+            if (e.ColumnIndex == GoodsDataGrid.Columns["select"].Index)
             {
-                if (Convert.ToInt32(SupplierDataGrid["select", e.RowIndex].Tag) == 0)
+                if (Convert.ToInt32(GoodsDataGrid["select", e.RowIndex].Tag) == 0)
                 {
-                    SupplierDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
-                    SupplierDataGrid["select", e.RowIndex].Tag = 1;
-                    SupplierDataGrid.Rows[e.RowIndex].Selected = true;
-                    selectGoodsID.Add(SupplierDataGrid["id", e.RowIndex].Value.ToString());
+                    GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
+                    GoodsDataGrid["select", e.RowIndex].Tag = 1;
+                    GoodsDataGrid.Rows[e.RowIndex].Selected = true;
+                    selectGoodsID.Add(GoodsDataGrid["id", e.RowIndex].Value.ToString());
                 }
                 else
                 {
-                    SupplierDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
-                    SupplierDataGrid["select", e.RowIndex].Tag = 0;
-                    SupplierDataGrid.Rows[e.RowIndex].Selected = false;
-                    selectGoodsID.Remove(SupplierDataGrid["id", e.RowIndex].Value.ToString());
+                    GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.square24;
+                    GoodsDataGrid["select", e.RowIndex].Tag = 0;
+                    GoodsDataGrid.Rows[e.RowIndex].Selected = false;
+                    selectGoodsID.Remove(GoodsDataGrid["id", e.RowIndex].Value.ToString());
                 }
             }
 
-            if (e.ColumnIndex == SupplierDataGrid.Columns["edit"].Index)
+            if (e.ColumnIndex == GoodsDataGrid.Columns["edit"].Index)
             {
-                MessageBox.Show("You have selected row " + SupplierDataGrid["Id", e.RowIndex].Value + " cell");
-                Supplier_Edit editGoods = new Supplier_Edit(SupplierDataGrid["id", e.RowIndex].Value.ToString());
-                editGoods.Show();
-                editGoods.OnExit += () => GetGoods();
+                string id = GoodsDataGrid["id" , e.RowIndex].Value.ToString();
+                Goods_Edit editGoodsForm = new Goods_Edit(id);
+                editGoodsForm.Show();
+                editGoodsForm.TopLevel = true;
+                editGoodsForm.OnExit += GetGoods;
             }
 
-            if (e.ColumnIndex == SupplierDataGrid.Columns["delete"].Index)
+            if (e.ColumnIndex == GoodsDataGrid.Columns["delete"].Index)
             {
                 DeleteGoods(e);
             }
@@ -142,23 +143,17 @@ namespace TheBetterLimited.Views
         private void InitializeDataGridView()
         {
             //Main data column
-            SupplierDataGrid.AutoGenerateColumns = false;
-            SupplierDataGrid.DataSource = bs;
-            SupplierDataGrid.Columns["id"].HeaderText = "ID";
-            SupplierDataGrid.Columns["supplierName"].HeaderText = "Name";
-            SupplierDataGrid.Columns["phone"].HeaderText = "Phone";
-            SupplierDataGrid.Columns["contact"].HeaderText = "Contact";
-            SupplierDataGrid.Columns["address"].HeaderText = "Address";
-            // GoodsDataGrid.Columns["id"].HeaderText = "ID";
-            // GoodsDataGrid.Columns["userName"].HeaderText = "User Name";
-            // GoodsDataGrid.Columns["staffName"].HeaderText = "Staff Name";
-            // GoodsDataGrid.Columns["emailAddress"].HeaderText = "Email Address";
-            // GoodsDataGrid.Columns["status"].HeaderText = "Status";
-            // GoodsDataGrid.Columns["_staffId"].HeaderText = "Staff ID";
-            // GoodsDataGrid.Columns["remarks"].HeaderText = "Remark";
-
-            for (int i = 0; i < SupplierDataGrid.RowCount; i++)
-                SupplierDataGrid["select", i].Tag = 0;
+            GoodsDataGrid.AutoGenerateColumns = false;
+            GoodsDataGrid.DataSource = bs;
+            GoodsDataGrid.Columns["id"].HeaderText = "ID";
+            GoodsDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
+            GoodsDataGrid.Columns["name"].HeaderText = "Goods Name";
+            GoodsDataGrid.Columns["price"].HeaderText = "Price";
+            GoodsDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
+            GoodsDataGrid.Columns["size"].HeaderText = "Size";
+            GoodsDataGrid.Columns["status"].HeaderText = "Status";
+            for (int i = 0; i < GoodsDataGrid.RowCount; i++)
+                GoodsDataGrid["select", i].Tag = 0;
 
             selectGoodsID.Clear();
         }
@@ -168,23 +163,35 @@ namespace TheBetterLimited.Views
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
-                result = con.GetAll();
+                result = gc.GetAllGoods();
             }
             else
             {
                 string str = "id:" + this.SearchBarTxt.Texts
-                            + "|description:" + this.SearchBarTxt.Texts + "|price:" + this.SearchBarTxt.Texts
                             + "|gtincode:" + this.SearchBarTxt.Texts + "|size:" + this.SearchBarTxt.Texts
                             + "|status:" + this.SearchBarTxt.Texts;
-                result = con.GetByQueryString(str);
+                result = gc.GetGoodsByQry(str);
             }
             try
             {
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
-               
+                var res = JArray.Parse(result.Content.ToString());
+                List<string> list = new List<string>();
+                dataTable.Columns.Add("Catalogue");
+                foreach (var ctgID in res)
+                {
+                    list.Add(ctgID["_catalogueId"].ToString());
+                }
+                int index = 0;
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                     row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString()).Content)["Name"].ToString();
+                     index++;
+                }
                 bs.DataSource = dataTable;
-                SupplierDataGrid.AutoGenerateColumns = false;
-                SupplierDataGrid.DataSource = bs;
+                GoodsDataGrid.AutoGenerateColumns = false;
+                GoodsDataGrid.DataSource = bs;
                 InitializeDataGridView();
             }
             catch (Exception ex)
@@ -228,96 +235,83 @@ namespace TheBetterLimited.Views
         //Delete Goods
         private void DeleteGoods(DataGridViewCellEventArgs e)
         {
-            choose = MessageBox.Show("Do you really want to delete the " + SupplierDataGrid.Rows[e.RowIndex].Cells["supplierName"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+            choose = MessageBox.Show("Do you really want to delete the " + GoodsDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (choose == DialogResult.Yes)
             {
                 try
                 {
-                    result = con.Delete(SupplierDataGrid["id", e.RowIndex].Value.ToString());
-                    if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                    System.ComponentModel.BackgroundWorker backgroundWorker = new BackgroundWorker();
+                    backgroundWorker.DoWork += (s, eventArg) =>
                     {
-                        MessageBox.Show("The " + SupplierDataGrid["supplierName", e.RowIndex].Value.ToString() + " is deleted",  "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    }
-                    GetGoods();
+                        result = gc.DeleteGoods(GoodsDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                        if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            MessageBox.Show("The " + GoodsDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                        };
+                    };
+
+                    backgroundWorker.RunWorkerCompleted += (s, eventArgs) =>
+                    {
+                        GetGoods();
+                    };
+
+                    backgroundWorker.RunWorkerAsync();
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.InnerException);
-                    Console.WriteLine(ex.Message);
                     MessageBox.Show("Cannot delete the goods", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
+
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            //Goodsmanagement_Add goodsAdd = new Goodsmanagement_Add();
-            //goodsAdd.Show();
-            Supplier_Add supplierAdd = new Supplier_Add();
-            supplierAdd.OnExit += () => GetGoods();
-            supplierAdd.Show();
+            Goods_Add goodsAdd = new Goods_Add();
+            goodsAdd.OnExit += () => GetGoods();
+            goodsAdd.Show();
         }
 
 
-
         // Export Goods PDF
-        private void exportBtn_Click(object sender, EventArgs e)
+        private async void exportBtn_Click(object sender, EventArgs e)
         {
-            Loading progress = new Loading();
-            progress.Show();
-            progress.Update("Fetch data from server ...", 10);
-            byte[] response = gc.GetGoodsPDF();
+            System.ComponentModel.BackgroundWorker bgWorker = new System.ComponentModel.BackgroundWorker();
+
             string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/test.pdf";
-            progress.Update("Generating PDF ...", 30);
-            progress.Update("Writing File ...", 60);
-            System.IO.File.WriteAllBytes(WriteFilePath, response);
-            progress.Update("Finish", 99);
 
-            choose = MessageBox.Show(
+            bgWorker.DoWork += (s, eargs) =>
+            {
+                byte[] response = gc.GetGoodsPDF();
+                System.IO.File.WriteAllBytes(WriteFilePath, response);
+            };
+
+
+            bgWorker.RunWorkerCompleted += (s, eargs) =>
+            {
+                choose = MessageBox.Show(
                 "Open in File Explorer?", "", MessageBoxButtons.YesNo);
-            if (choose == DialogResult.Yes)
-            {
 
-                if (WriteFilePath == null)
-                    throw new ArgumentNullException("filePath");
+                if (choose == DialogResult.Yes)
+                {
 
-                Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
-            }
-            else
-            {
-                MessageBox.Show("Saved at");
-            }
-
-            progress.End();
-
-            // BackgroundWorker bgw = new BackgroundWorker();
-            // CustomizeControl.Loading process = new Loading();
-            // process.Show();
-            // bgw.DoWork += new DoWorkEventHandler(((o, args) =>
-            // {
-            //     
-            // }));
-            // bgw.ProgressChanged += new ProgressChangedEventHandler(((o, args) =>
-            // {
-            // }));
-            // bgw.RunWorkerCompleted += (o, args) =>
-            // { 
-            // };
-            // bgw.RunWorkerAsync();
-            // get "application/pdf"
-
-
-
-
-
+                    if (WriteFilePath == null)
+                        throw new ArgumentNullException("filePath");
+                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
+                }
+                else
+                {
+                    MessageBox.Show("Saved at" + WriteFilePath);
+                }
+            };
+            bgWorker.RunWorkerAsync();
         }
 
         private void curdAction_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
-        
     }
 }

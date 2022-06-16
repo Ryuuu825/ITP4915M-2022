@@ -8,12 +8,13 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>TheBetterLimited</RootNamespace>
     <AssemblyName>TheBetterLimited-System</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,11 +25,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,12 +55,24 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>7ABC443FD56F21D18E9DB6EA6003DB1DD5A204C6</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>TheBetterLimited-System_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo-46.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BarcodeStandard, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\BarcodeLib.2.4.0\lib\netstandard2.0\BarcodeStandard.dll</HintPath>
-    </Reference>
-    <Reference Include="FontAwesome.Sharp, Version=5.15.4.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
-      <HintPath>..\packages\FontAwesome.Sharp.5.15.4\lib\net48\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -78,6 +93,10 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -128,7 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AppointmentController.cs" />
-    <Compile Include="Models\CatalogueEnum.cs" />
     <Compile Include="Controller\ControllerBase.cs" />
     <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\GoodsController.cs" />
@@ -180,10 +198,14 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AppointmentInfo.cs" />
     <Compile Include="Models\CustomerInfo.cs" />
+    <Compile Include="Models\DepartmentEnum.cs" />
     <Compile Include="Models\GlobalsData.cs" />
+    <Compile Include="Models\LocationEnum.cs" />
     <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\PositionEnum.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\StaffModel.cs" />
+    <Compile Include="Models\TeamEnum.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -192,31 +214,50 @@
     </Compile>
     <Compile Include="Models\OrderStatus.cs" />
     <Compile Include="Utils\Compress.cs" />
+    <Compile Include="Utils\EnumExtension.cs" />
     <Compile Include="Utils\Random.cs" />
     <Compile Include="Utils\RestClientUtils.cs" />
-    <Compile Include="Views\Inventory\Appointment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Inventory\Appointment.Designer.cs">
-      <DependentUpon>Appointment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Inventory\Appointment-Arrange.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Inventory\Appointment-Arrange.Designer.cs">
-      <DependentUpon>Appointment-Arrange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Inventory\DeliveryNote.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Inventory\DeliveryNote.Designer.cs">
-      <DependentUpon>DeliveryNote.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Inventory\RestockRequest-Add.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Inventory\RestockRequest-Add.Designer.cs">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\Staff-Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\User\Staff-Add.Designer.cs">
+      <DependentUpon>Staff-Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\Staff-Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\User\Staff-Edit.Designer.cs">
+      <DependentUpon>Staff-Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\Staff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\User\Staff.Designer.cs">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shipping\Appointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Shipping\Appointment.Designer.cs">
+      <DependentUpon>Appointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shipping\Appointment-Arrange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Shipping\Appointment-Arrange.Designer.cs">
+      <DependentUpon>Appointment-Arrange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shipping\DeliveryNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Shipping\DeliveryNote.Designer.cs">
+      <DependentUpon>DeliveryNote.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Inventory\RestockRequest-Edit.cs">
       <SubType>Form</SubType>
@@ -248,41 +289,41 @@
     <Compile Include="Views\Inventory\Stock-Add.Designer.cs">
       <DependentUpon>Stock-Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Inventory\Supplier-Edit.cs">
+    <Compile Include="Views\Purchase\Supplier-Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Inventory\Supplier-Edit.Designer.cs">
+    <Compile Include="Views\Purchase\Supplier-Edit.Designer.cs">
       <DependentUpon>Supplier-Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Inventory\Supplier-Add.cs">
+    <Compile Include="Views\Purchase\Supplier-Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Inventory\Supplier-Add.Designer.cs">
+    <Compile Include="Views\Purchase\Supplier-Add.Designer.cs">
       <DependentUpon>Supplier-Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Inventory\Supplier.cs">
+    <Compile Include="Views\Purchase\Supplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Inventory\Supplier.Designer.cs">
+    <Compile Include="Views\Purchase\Supplier.Designer.cs">
       <DependentUpon>Supplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Inventory\InventoryManagement-Edit.cs">
+    <Compile Include="Views\Purchase\Goods-Edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Inventory\InventoryManagement-Edit.Designer.cs">
-      <DependentUpon>InventoryManagement-Edit.cs</DependentUpon>
+    <Compile Include="Views\Purchase\Goods-Edit.Designer.cs">
+      <DependentUpon>Goods-Edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Inventory\InventoryManagement.cs">
+    <Compile Include="Views\Purchase\Goods.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Inventory\InventoryManagement.Designer.cs">
-      <DependentUpon>InventoryManagement.cs</DependentUpon>
+    <Compile Include="Views\Purchase\Goods.Designer.cs">
+      <DependentUpon>Goods.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Inventory\InventoryManagement-Add.cs">
+    <Compile Include="Views\Purchase\Goods-Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Inventory\InventoryManagement-Add.Designer.cs">
-      <DependentUpon>InventoryManagement-Add.cs</DependentUpon>
+    <Compile Include="Views\Purchase\Goods-Add.Designer.cs">
+      <DependentUpon>Goods-Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login\ResetPwdResult.cs">
       <SubType>Form</SubType>
@@ -430,17 +471,26 @@
     <EmbeddedResource Include="CustomizeControl\ProductInfo.resx">
       <DependentUpon>ProductInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\Appointment.resx">
-      <DependentUpon>Appointment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\Appointment-Arrange.resx">
-      <DependentUpon>Appointment-Arrange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\DeliveryNote.resx">
-      <DependentUpon>DeliveryNote.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\Staff-Add.resx">
+      <DependentUpon>Staff-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\Staff-Edit.resx">
+      <DependentUpon>Staff-Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\Staff.resx">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shipping\Appointment.resx">
+      <DependentUpon>Appointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shipping\Appointment-Arrange.resx">
+      <DependentUpon>Appointment-Arrange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shipping\DeliveryNote.resx">
+      <DependentUpon>DeliveryNote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Edit.resx">
       <DependentUpon>RestockRequest-Edit.cs</DependentUpon>
@@ -457,23 +507,23 @@
     <EmbeddedResource Include="Views\Inventory\Stock-Add.resx">
       <DependentUpon>Stock-Add.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\Supplier-Edit.resx">
+    <EmbeddedResource Include="Views\Purchase\Supplier-Edit.resx">
       <DependentUpon>Supplier-Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\Supplier-Add.resx">
+    <EmbeddedResource Include="Views\Purchase\Supplier-Add.resx">
       <DependentUpon>Supplier-Add.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\Supplier.resx">
+    <EmbeddedResource Include="Views\Purchase\Supplier.resx">
       <DependentUpon>Supplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\InventoryManagement-Edit.resx">
-      <DependentUpon>InventoryManagement-Edit.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Purchase\Goods-Edit.resx">
+      <DependentUpon>Goods-Edit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\InventoryManagement.resx">
-      <DependentUpon>InventoryManagement.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Purchase\Goods.resx">
+      <DependentUpon>Goods.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\InventoryManagement-Add.resx">
-      <DependentUpon>InventoryManagement-Add.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Purchase\Goods-Add.resx">
+      <DependentUpon>Goods-Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\ResetPwdResult.resx">
       <DependentUpon>ResetPwdResult.cs</DependentUpon>
@@ -653,6 +703,7 @@
   <ItemGroup>
     <Folder Include="CustomizeEvent\" />
     <Folder Include="TestJson\" />
+    <Folder Include="Views\Accounting\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\edit-free-icon-font.png" />
@@ -812,6 +863,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\list-check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rotate-right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unlock24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo-46.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />

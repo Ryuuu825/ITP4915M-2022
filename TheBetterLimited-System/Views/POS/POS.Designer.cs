@@ -40,9 +40,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SearchBar = new System.Windows.Forms.Panel();
             this.menuTitle = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.searchBtn = new System.Windows.Forms.PictureBox();
             this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.ProductContainer = new System.Windows.Forms.Panel();
+            this.loadPic = new System.Windows.Forms.PictureBox();
             this.ProductInfoContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.line = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -64,7 +65,6 @@
             this.remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Header = new System.Windows.Forms.Panel();
-            this.RefreshBtn = new FontAwesome.Sharp.IconButton();
             this.Title = new System.Windows.Forms.Label();
             this.DiscountContainer = new System.Windows.Forms.Panel();
             this.DiscountValue = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
@@ -84,8 +84,9 @@
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.SearchBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBtn)).BeginInit();
             this.ProductContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.loadPic)).BeginInit();
             this.panel1.SuspendLayout();
             this.POSActionGroup.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -102,7 +103,7 @@
             // SearchBar
             // 
             this.SearchBar.Controls.Add(this.menuTitle);
-            this.SearchBar.Controls.Add(this.pictureBox1);
+            this.SearchBar.Controls.Add(this.searchBtn);
             this.SearchBar.Controls.Add(this.SearchBarTxt);
             this.SearchBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.SearchBar.Location = new System.Drawing.Point(10, 10);
@@ -123,17 +124,19 @@
             this.menuTitle.Text = "GoodsList";
             this.menuTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pictureBox1
+            // searchBtn
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(138, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(19, 20);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.searchBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("searchBtn.BackgroundImage")));
+            this.searchBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.searchBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.searchBtn.Location = new System.Drawing.Point(138, 10);
+            this.searchBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(19, 20);
+            this.searchBtn.TabIndex = 8;
+            this.searchBtn.TabStop = false;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // SearchBarTxt
             // 
@@ -161,10 +164,10 @@
             this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.SearchBarTxt.Texts = "Search by Keywords";
             this.SearchBarTxt.UnderlinedStyle = false;
-            this.SearchBarTxt._TextChanged += new System.EventHandler(this.SearchBarTxt__TextChanged);
             // 
             // ProductContainer
             // 
+            this.ProductContainer.Controls.Add(this.loadPic);
             this.ProductContainer.Controls.Add(this.ProductInfoContainer);
             this.ProductContainer.Controls.Add(this.line);
             this.ProductContainer.Controls.Add(this.panel1);
@@ -175,6 +178,18 @@
             this.ProductContainer.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.ProductContainer.Size = new System.Drawing.Size(420, 561);
             this.ProductContainer.TabIndex = 4;
+            // 
+            // loadPic
+            // 
+            this.loadPic.BackColor = System.Drawing.Color.White;
+            this.loadPic.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loadPic.Image = global::TheBetterLimited.Properties.Resources.Loading_icon;
+            this.loadPic.Location = new System.Drawing.Point(10, 110);
+            this.loadPic.Name = "loadPic";
+            this.loadPic.Size = new System.Drawing.Size(410, 333);
+            this.loadPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.loadPic.TabIndex = 0;
+            this.loadPic.TabStop = false;
             // 
             // ProductInfoContainer
             // 
@@ -535,7 +550,6 @@
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.White;
-            this.Header.Controls.Add(this.RefreshBtn);
             this.Header.Controls.Add(this.Title);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.ForeColor = System.Drawing.Color.White;
@@ -545,22 +559,6 @@
             this.Header.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.Header.Size = new System.Drawing.Size(606, 40);
             this.Header.TabIndex = 6;
-            // 
-            // RefreshBtn
-            // 
-            this.RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RefreshBtn.FlatAppearance.BorderSize = 0;
-            this.RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RefreshBtn.IconChar = FontAwesome.Sharp.IconChar.RedoAlt;
-            this.RefreshBtn.IconColor = System.Drawing.Color.Black;
-            this.RefreshBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.RefreshBtn.IconSize = 25;
-            this.RefreshBtn.Location = new System.Drawing.Point(564, 4);
-            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.Size = new System.Drawing.Size(39, 36);
-            this.RefreshBtn.TabIndex = 2;
-            this.RefreshBtn.UseVisualStyleBackColor = true;
             // 
             // Title
             // 
@@ -829,8 +827,9 @@
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "POS";
             this.SearchBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchBtn)).EndInit();
             this.ProductContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.loadPic)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.POSActionGroup.ResumeLayout(false);
@@ -853,7 +852,7 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox searchBtn;
         private System.Windows.Forms.Panel SearchBar;
         private CustomizeControl.CustomizeTextbox SearchBarTxt;
         private System.Windows.Forms.Panel ProductContainer;
@@ -865,7 +864,6 @@
         private CustomizeControl.RoundButton HoldBtn;
         private CustomizeControl.RoundButton ClearBtn;
         private System.Windows.Forms.Panel Header;
-        private FontAwesome.Sharp.IconButton RefreshBtn;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Panel DiscountContainer;
         private CustomizeControl.RoundButton PayBtn;
@@ -895,5 +893,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel line;
         private System.Windows.Forms.FlowLayoutPanel ProductInfoContainer;
+        private System.Windows.Forms.PictureBox loadPic;
     }
 }

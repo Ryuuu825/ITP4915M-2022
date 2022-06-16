@@ -8,7 +8,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 namespace TheBetterLimited.Views
 {
-    public partial class Inventorymanagement_Add : Form
+    public partial class Goods_Add : Form
     {
         private bool isUpload = false;
         private ControllerBase con = new ControllerBase("Catalogue");
@@ -23,7 +23,7 @@ namespace TheBetterLimited.Views
             public string Name { get; set; }
         }
 
-        public Inventorymanagement_Add()
+        public Goods_Add()
         {
             InitializeComponent();
             RestResponse result = con.GetAll();
@@ -133,7 +133,7 @@ namespace TheBetterLimited.Views
             Console.WriteLine(re.Content);
 
             // upload photo
-            if (GoodsPic.Image != Properties.Resources._default)
+            if (isUpload)
             {
 
                 System.IO.MemoryStream ms = new System.IO.MemoryStream();
@@ -142,9 +142,9 @@ namespace TheBetterLimited.Views
                 RestRequest req = new RestRequest("/api/pos/goods/" + id + "/image", Method.Post)
                                     .AddHeader("Authorization", "Bearer " + Models.GlobalsData.currentUser["token"])
                                     .AddBody(image);
-
                 var result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
                 Console.WriteLine(result.Content);
+                ms.Close();
             }
 
             if (re.StatusCode == System.Net.HttpStatusCode.OK)
