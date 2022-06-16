@@ -105,6 +105,10 @@ public class DataContext : DbContext
             .HasOne(t => t.Department)
             .WithMany(d => d.teams)
             .HasForeignKey(t => t._departmentId);
+        
+        md.Entity<DefectItemRecord>()
+            .HasKey( d => new { d._salesOrderId , d._supplierGoodsStockId });
+        
     }
     
     // create dbset for all entity in TheBetterLimited.Data.Entity

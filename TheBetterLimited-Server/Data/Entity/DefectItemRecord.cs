@@ -3,10 +3,10 @@ namespace TheBetterLimited_Server.Data.Entity
     [Table("DefectItemRecord")]
     public class DefectItemRecord
     {
-        [Key]
-        [MaxLength(10)]
-        [Column(TypeName = "char(10)")]
-        public string ID { get; set;}
+        // [Key]
+        // [MaxLength(10)]
+        // [Column(TypeName = "char(10)")]
+        // public string ID { get; set;}
 
         public string _supplierGoodsStockId { get; set; }
 
@@ -43,8 +43,16 @@ namespace TheBetterLimited_Server.Data.Entity
         [MaxLength(50)]
         [Column(TypeName = "varchar(50)")]
         public string? Remark { get; set; }
-        
+        public DefectItemHandleStatus HandleStatus { get; set; }
+        public string? _customerId { get; set; }
 
+        [ForeignKey("_customerId")]
+        public virtual Customer? customer { get; set; }
+    }
+    public enum DefectItemHandleStatus
+    {
+        Refund,
+        Exchange
     }
 
     public enum DefectItemRecordStatus 

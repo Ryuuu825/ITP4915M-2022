@@ -19,7 +19,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 repository.Add(
                     new Data.Entity.DefectItemRecord
                     {
-                        ID = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.DefectItemRecord>(db),
                         _supplierGoodsStockId = record._supplierGoodsStockId,
                         _salesOrderId = record._salesOrderId,
                         _creatorId = userInfo.GetStaffFromUserName(user).Id,
@@ -27,7 +26,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         Status = Data.Entity.DefectItemRecordStatus.Pending,
                         createdAt = DateTime.Now,
                         updatedAt = DateTime.Now,
-                        Remark = record.Remark
+                        Remark = record.Remark,
+                        HandleStatus = record.HandleStatus,
+                        _customerId = record._customerId
                     }
                 );
             }
