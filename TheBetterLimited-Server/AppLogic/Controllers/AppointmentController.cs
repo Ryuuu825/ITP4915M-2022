@@ -10,6 +10,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         protected Data.Repositories.Repository<Appointment> repository;
         protected Data.Repositories.Repository<SalesOrderItem_Appointment> _SalesOrderItem_AppointmentTable;
         protected Data.Repositories.Repository<Account> _AccTable;
+        protected Data.Repositories.Repository<SalesOrder> _SalesOrderTable;
         protected readonly Type DtoType;
 
         public AppointmentController(Data.DataContext dataContext)
@@ -18,6 +19,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             repository = new Data.Repositories.Repository<Appointment>(dataContext);
             _SalesOrderItem_AppointmentTable = new Data.Repositories.Repository<SalesOrderItem_Appointment>(dataContext);
             _AccTable = new Data.Repositories.Repository<Account>(dataContext);
+            _SalesOrderTable = new Data.Repositories.Repository<SalesOrder>(dataContext);
         }
 
         public class Dto : Data.Dto.AppointmentOutDto
@@ -54,6 +56,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             List<Dto> res = new List<Dto>();
             foreach( var item in list )
             {
+                // all items in the appointment
                 List<SalesOrderItem_Appointment> items = _SalesOrderItem_AppointmentTable.GetAll().Where(x => x._appointmentId== item.ID).ToList();
                 List<Goods> localizedGoods = new List<Goods>();
                 foreach (var goods in items)
@@ -72,10 +75,30 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
                 try
                 {
-                    var orderId = _SalesOrderItem_AppointmentTable.GetBySQL(
-                        Helpers.Sql.QueryStringBuilder.GetSqlStatement<SalesOrderItem_Appointment>($"_appointmentId:{item.ID}")
-                    ).FirstOrDefault().SalesOrderItem._salesOrderId;
+                    if (items[0].Appointment.Session._departmentId == "700" && 
+                        items[0].Appointment.Session.StartTime.Hour >= DateTime.Now.Hour)
+                    {
+                        items[0].SalesOrderItem.SalesOrder.Status = SalesOrderStatus.PendingInstall;
+                        _SalesOrderTable.Update(items[0].SalesOrderItem.SalesOrder);
+                    }
+                    else if (items[0].Appointment.Session.Date == DateTime.Now.Date )
+                    {
+                        items[0].SalesOrderItem.SalesOrder.Status = SalesOrderStatus.PendingDelivery;
+                        _SalesOrderTable.Update(items[0].SalesOrderItem.SalesOrder);
+                    }
+                    else if (items[0].Appointment.Session.EndTime.Hour >= DateTime.Now.Hour)
+                    {
+                        items[0].SalesOrderItem.SalesOrder.Status = SalesOrderStatus.Completed;
+                        _SalesOrderTable.Update(items[0].SalesOrderItem.SalesOrder);
+                    }
 
+                    // if the appointment is installation appointment
+                    // and the delivery appointment is completed
+                    
+
+                    SalesOrderStatus status = items[0].SalesOrderItem.SalesOrder.Status;
+
+                    var orderId = items[0].SalesOrderItem._salesOrderId;
 
                     res.Add(
                         new Dto
