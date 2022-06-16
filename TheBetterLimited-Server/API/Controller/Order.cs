@@ -74,7 +74,7 @@ namespace TheBetterLimited_Server.API.Controller
         {
             try
             {
-                controller.CleanOrder(id);
+                controller.SoftDeleteOrder(id);
                 return Ok();
             }
             catch (ICustException e)

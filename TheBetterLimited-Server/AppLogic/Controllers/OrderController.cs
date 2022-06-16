@@ -593,6 +593,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             );
             foreach (var soi in salesOrderItems)
             {
+                soi.SupplierGoodsStock.Quantity += soi.Quantity;
                 _SalesOrderItemTable.Delete(soi);
             }
 
@@ -625,6 +626,20 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }catch(FileNotFoundException e)
             {
                 throw new FileNotExistException("The Id is invalid" , HttpStatusCode.BadRequest);
+            }
+        }
+
+        public void SoftDeleteOrder(string id)
+        {
+            var salesOrder = repository.GetById(id);
+
+            if (salesOrder.Status == SalesOrderStatus.Completed)
+            {
+                CleanOrder(id);
+            }
+            else 
+            {
+                CancelOrder(id);
             }
         }
 
