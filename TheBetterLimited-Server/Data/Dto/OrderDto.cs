@@ -96,9 +96,6 @@ namespace TheBetterLimited_Server.Data.Dto
 
     public class CustomerDto
     {
-        [MaxLength(10)]
-        [Column(TypeName = "char(10)")]
-        public string ID { get; set;}
 
         [MaxLength(20)]
         [Column(TypeName = "varchar(20)")]

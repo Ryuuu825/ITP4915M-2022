@@ -11,7 +11,7 @@ using TheBetterLimited_Server.Data;
 namespace TheBetterLimited_Server.Data.EFMigrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220616105945_CleanUp")]
+    [Migration("20220616125626_CleanUp")]
     partial class CleanUp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -244,6 +244,10 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Property<string>("ID")
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
+
+                    b.Property<string>("CollectAddress")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<int>("HandleStatus")
                         .HasColumnType("int");

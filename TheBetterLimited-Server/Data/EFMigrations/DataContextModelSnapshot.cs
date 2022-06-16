@@ -243,6 +243,10 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
+                    b.Property<string>("CollectAddress")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<int>("HandleStatus")
                         .HasColumnType("int");
 

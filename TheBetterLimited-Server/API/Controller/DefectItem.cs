@@ -26,6 +26,19 @@ namespace TheBetterLimited_Server.API.Controller
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
             }
         }
-        
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Get([FromHeader] string Language)
+        {
+            try
+            {
+                return Ok(controller.GetAll(User.Identity.Name , Language));
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }        
     }
 }

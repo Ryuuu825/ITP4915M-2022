@@ -48,6 +48,8 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [ForeignKey("_customerId")]
         public virtual Customer? customer { get; set; }
+
+        public string CollectAddress { get; set; }
     }
     public enum DefectItemHandleStatus
     {
