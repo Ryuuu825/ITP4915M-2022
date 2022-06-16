@@ -107,7 +107,7 @@ public class DataContext : DbContext
             .HasForeignKey(t => t._departmentId);
         
         md.Entity<DefectItemRecord>()
-            .HasKey( d => new { d._salesOrderId , d._supplierGoodsStockId });
+            .HasAlternateKey( d => new { d._salesOrderId , d._supplierGoodsStockId });
         
     }
     

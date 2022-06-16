@@ -18,6 +18,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private readonly Data.Repositories.Repository<Customer> _CustomerTable;
         private readonly Data.Repositories.Repository<SalesOrderItem_Appointment> _SalesOrderItem_AppointmentTable;
         private readonly Data.Repositories.Repository<Session> _SessionTable;
+        private readonly Data.Repositories.Repository<DefectItemRecord> _DefectItemTable;
         private readonly AppLogic.Controllers.MessageController _MessageController;
 
         private readonly Data.DataContext db;
@@ -37,6 +38,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _CustomerTable = new Data.Repositories.Repository<Customer>(db);
             _CustomerTable = new Data.Repositories.Repository<Customer>(db);
             _SessionTable = new Data.Repositories.Repository<Session>(db);
+            _DefectItemTable = new Data.Repositories.Repository<DefectItemRecord>(db);
             _SalesOrderItem_AppointmentTable = new Data.Repositories.Repository<SalesOrderItem_Appointment>(db);
 
             this.db = db;
@@ -102,6 +104,16 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     salesOrderItemDto.SupplierGoodsStockId = salesOrderItem._supplierGoodsStockId;
                     Goods goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
                     salesOrderItemDto.Name = goods.Name;
+
+                    DefectItemRecord potentientDefects = (await _DefectItemTable.GetBySQLAsync(
+                        "SELECT * FROM DefectItemRecord WHERE _salesOrderId = " + salesOrderItem._salesOrderId
+                    )).FirstOrDefault();
+                    if (potentientDefects is not null)
+                    {
+                        salesOrderItemDto._defectItemRecordId = potentientDefects.ID;
+                        salesOrderItemDto._defectItemRecordStatus = potentientDefects.Status.ToString();
+                    }
+
                     tmp.Add(salesOrderItemDto);
                 }
 

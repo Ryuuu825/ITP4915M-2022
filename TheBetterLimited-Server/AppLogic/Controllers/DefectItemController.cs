@@ -19,6 +19,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 repository.Add(
                     new Data.Entity.DefectItemRecord
                     {
+                        ID = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.DefectItemRecord>(db),
                         _supplierGoodsStockId = record._supplierGoodsStockId,
                         _salesOrderId = record._salesOrderId,
                         _creatorId = userInfo.GetStaffFromUserName(user).Id,
@@ -41,7 +42,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 throw new Exceptions.BadForeignKeyException("The foreign key is not valid.");
             }catch(Exception e)
             {
-                throw new BadArgException(e.Message);
+                throw new BadArgException("The entry already exists.");
             }
         }
 

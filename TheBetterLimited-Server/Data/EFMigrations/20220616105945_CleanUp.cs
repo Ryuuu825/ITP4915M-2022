@@ -851,7 +851,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _supplierGoodsStockId = table.Column<string>(type: "varchar(9)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    _salesOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)
+                    _salesOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _creatorId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -861,16 +861,26 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     createdAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     updatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Remark = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    HandleStatus = table.Column<int>(type: "int", nullable: false),
+                    _customerId = table.Column<string>(type: "char(10)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DefectItemRecord", x => x.ID);
+                    table.UniqueConstraint("AK_DefectItemRecord__salesOrderId__supplierGoodsStockId", x => new { x._salesOrderId, x._supplierGoodsStockId });
+                    table.ForeignKey(
+                        name: "FK_DefectItemRecord_Customer__customerId",
+                        column: x => x._customerId,
+                        principalTable: "Customer",
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_DefectItemRecord_SalesOrder__salesOrderId",
                         column: x => x._salesOrderId,
                         principalTable: "SalesOrder",
-                        principalColumn: "ID");
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_DefectItemRecord_Staff__creatorId",
                         column: x => x._creatorId,
@@ -1031,14 +1041,14 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 column: "_creatorId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_DefectItemRecord__customerId",
+                table: "DefectItemRecord",
+                column: "_customerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DefectItemRecord__operatorId",
                 table: "DefectItemRecord",
                 column: "_operatorId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DefectItemRecord__salesOrderId",
-                table: "DefectItemRecord",
-                column: "_salesOrderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DefectItemRecord__supplierGoodsStockId",

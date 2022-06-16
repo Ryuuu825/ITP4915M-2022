@@ -3,10 +3,10 @@ namespace TheBetterLimited_Server.Data.Entity
     [Table("DefectItemRecord")]
     public class DefectItemRecord
     {
-        // [Key]
-        // [MaxLength(10)]
-        // [Column(TypeName = "char(10)")]
-        // public string ID { get; set;}
+        [Key]
+        [MaxLength(10)]
+        [Column(TypeName = "char(10)")]
+        public string ID { get; set;}
 
         public string _supplierGoodsStockId { get; set; }
 

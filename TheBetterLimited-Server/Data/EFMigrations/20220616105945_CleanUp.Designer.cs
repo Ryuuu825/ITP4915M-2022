@@ -11,8 +11,8 @@ using TheBetterLimited_Server.Data;
 namespace TheBetterLimited_Server.Data.EFMigrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220616100454_DefectItem1")]
-    partial class DefectItem1
+    [Migration("20220616105945_CleanUp")]
+    partial class CleanUp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -241,12 +241,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.DefectItemRecord", b =>
                 {
-                    b.Property<string>("_salesOrderId")
+                    b.Property<string>("ID")
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
-
-                    b.Property<string>("_supplierGoodsStockId")
-                        .HasColumnType("varchar(9)");
 
                     b.Property<int>("HandleStatus")
                         .HasColumnType("int");
@@ -271,13 +268,24 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
+                    b.Property<string>("_salesOrderId")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("char(10)");
+
+                    b.Property<string>("_supplierGoodsStockId")
+                        .IsRequired()
+                        .HasColumnType("varchar(9)");
+
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("updatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.HasKey("_salesOrderId", "_supplierGoodsStockId");
+                    b.HasKey("ID");
+
+                    b.HasAlternateKey("_salesOrderId", "_supplierGoodsStockId");
 
                     b.HasIndex("_creatorId");
 
