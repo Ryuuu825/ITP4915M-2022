@@ -11,6 +11,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         protected Data.Repositories.Repository<SalesOrderItem_Appointment> _SalesOrderItem_AppointmentTable;
         protected Data.Repositories.Repository<Account> _AccTable;
         protected Data.Repositories.Repository<SalesOrder> _SalesOrderTable;
+        protected Data.Repositories.Repository<Team> _TeamTable;
         protected readonly Type DtoType;
 
         public AppointmentController(Data.DataContext dataContext)
@@ -20,6 +21,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _SalesOrderItem_AppointmentTable = new Data.Repositories.Repository<SalesOrderItem_Appointment>(dataContext);
             _AccTable = new Data.Repositories.Repository<Account>(dataContext);
             _SalesOrderTable = new Data.Repositories.Repository<SalesOrder>(dataContext);
+            _TeamTable = new Data.Repositories.Repository<Team>(dataContext);
         }
 
         public void AssignTeam(string id , string teamId)
@@ -29,6 +31,31 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             {
                 throw new Exceptions.BadArgException("Appointment not found");
             }
+
+            // appointment._teamId = teamId;
+
+            // check if the team is assigned to another appointment in the same session
+            Session? appointmentSessoion = appointment.Session; 
+            // there should not be any chance that the session is null
+            // but c# nullable is such a pain 
+
+            if (appointmentSessoion is null)
+            {
+                throw new Exceptions.BadArgException("Appointment session not found");
+            }
+
+            List<Appointment> appointmentsInThatSession = repository.GetBySQL(
+                Helpers.Sql.QueryStringBuilder.GetSqlStatement<Appointment>($"_sessionId:{appointmentSessoion.ID}")
+            );
+
+            foreach ( var app in appointmentsInThatSession )
+            {
+                if (app._teamId == teamId)
+                {
+                    throw new Exceptions.BadArgException("Team is already assigned to another appointment in the same session");
+                }
+            }
+
             appointment._teamId = teamId;
 
             try 
