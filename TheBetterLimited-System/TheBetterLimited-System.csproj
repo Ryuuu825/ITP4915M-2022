@@ -42,6 +42,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>0</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -151,6 +152,7 @@
     <Compile Include="Controller\DepartmentController.cs" />
     <Compile Include="Controller\GoodsController.cs" />
     <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\OrderController.cs" />
     <Compile Include="Controller\PostionController.cs" />
     <Compile Include="Controller\SessionController.cs" />
     <Compile Include="Controller\StaffController.cs" />
@@ -222,6 +224,12 @@
     </Compile>
     <Compile Include="Views\Inventory\RestockRequest-Add.Designer.cs">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\POS\DefectItem-Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\POS\DefectItem-Add.Designer.cs">
+      <DependentUpon>DefectItem-Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\User\Staff-Add.cs">
       <SubType>Form</SubType>
@@ -473,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\DefectItem-Add.resx">
+      <DependentUpon>DefectItem-Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\Staff-Add.resx">
       <DependentUpon>Staff-Add.cs</DependentUpon>
@@ -890,6 +901,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-46.ico" />
+    <None Include="Resources\exchange24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.4\build\System.Text.Json.targets')" />

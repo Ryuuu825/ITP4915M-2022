@@ -158,10 +158,6 @@ namespace TheBetterLimited.Views
             {
                 MessageBox.Show("Error");
             }
-           
-
-            MessageBox.Show("Goods Created");
- 
         }
 
         private void UserIconPic_Click(object sender, EventArgs e)

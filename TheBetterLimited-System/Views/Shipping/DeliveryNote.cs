@@ -96,6 +96,14 @@ namespace TheBetterLimited.Views
             dt.Columns.Add("isInstall");
             dt.Columns["isInstall"].DataType = System.Type.GetType("System.Byte[]");
             var isBooking = false;
+            List<string> needInstallItem = new List<string>();
+            if (info["installation"].Type != JTokenType.Null)
+            {
+                foreach (var installItem in (JArray)info["installation"]["items"])
+                {
+                    needInstallItem.Add(installItem["itemNames"].ToString());
+                }
+            }
             foreach (JObject orderItem in orderItems)
             {
                 var row = dt.NewRow();
@@ -104,13 +112,13 @@ namespace TheBetterLimited.Views
                 row["price"] = orderItem["price"];
                 row["qty"] = orderItem["quantity"];
                 row["amount"] = (((int)orderItem["quantity"])*((double)orderItem["price"]));
-                if ((bool)orderItem["needInstall"])
+                row["isInstall"] = new ImageConverter().ConvertTo(Properties.Resources.square24, System.Type.GetType("System.Byte[]"));
+                foreach (var i in needInstallItem)
                 {
-                    row["isInstall"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
-                }
-                else
-                {
-                    row["isInstall"] = new ImageConverter().ConvertTo(Properties.Resources.square24, System.Type.GetType("System.Byte[]"));
+                    if (orderItem["name"].ToString().Equals(i))
+                    {
+                        row["isInstall"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
+                    }
                 }
                 dt.Rows.Add(row);
             }

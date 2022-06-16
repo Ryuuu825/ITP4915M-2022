@@ -29,13 +29,37 @@ namespace TheBetterLimited.Views
         private DialogResult choose;
         private RestResponse result;
         private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
+        private BackgroundWorker bw = new BackgroundWorker();
+        private bool loadAll = true;
+        private string QryString = "";
 
         public Goods()
         {
             InitializeComponent();
-            GetGoods();//init user table
+            initBackgroundWorker();
+            loadPic.Show();
+            bw.RunWorkerAsync();
+
+        }
+        private void initBackgroundWorker()
+        {
+            bw = new BackgroundWorker();
+            bw.WorkerReportsProgress = true;
+            bw.WorkerSupportsCancellation = true;
+            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
         }
 
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            GetGoods();//init
+        }
+
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            InitList();
+            loadPic.Hide();
+        }
         /*
          * Dom Style/Event Process
          */
@@ -47,7 +71,14 @@ namespace TheBetterLimited.Views
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.Invalidate();
-            GetGoods();
+            try
+            {
+                loadPic.Show();
+                bw.RunWorkerAsync();
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Goods are loading.\nPlease wait a moment!");
+            }
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -114,11 +145,14 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == GoodsDataGrid.Columns["edit"].Index)
             {
-                string id = GoodsDataGrid["id" , e.RowIndex].Value.ToString();
+                string id = GoodsDataGrid["id", e.RowIndex].Value.ToString();
                 Goods_Edit editGoodsForm = new Goods_Edit(id);
                 editGoodsForm.Show();
                 editGoodsForm.TopLevel = true;
-                editGoodsForm.OnExit += GetGoods;
+                editGoodsForm.OnExit += ()=> { 
+                    loadPic.Show(); 
+                    bw.RunWorkerAsync(); 
+                };
             }
 
             if (e.ColumnIndex == GoodsDataGrid.Columns["delete"].Index)
@@ -127,13 +161,6 @@ namespace TheBetterLimited.Views
             }
 
         }
-
-        //search bar text changed event
-        private void SearchBarTxt__TextChanged(object sender, EventArgs e)
-        {
-            GetGoods();
-        }
-
 
         /*
         * Dom Event Handler
@@ -172,6 +199,9 @@ namespace TheBetterLimited.Views
                             + "|status:" + this.SearchBarTxt.Texts;
                 result = gc.GetGoodsByQry(str);
             }
+        }
+        private void InitList()
+        {
             try
             {
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
@@ -186,8 +216,8 @@ namespace TheBetterLimited.Views
 
                 foreach (DataRow row in dataTable.Rows)
                 {
-                     row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString()).Content)["Name"].ToString();
-                     index++;
+                    row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString()).Content)["Name"].ToString();
+                    index++;
                 }
                 bs.DataSource = dataTable;
                 GoodsDataGrid.AutoGenerateColumns = false;
@@ -217,7 +247,8 @@ namespace TheBetterLimited.Views
                             result = gc.DeleteGoods(uid);
                         }
                         MessageBox.Show(selectGoodsID.Count + " records have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetGoods();
+                        loadPic.Show();
+                        bw.RunWorkerAsync();
                     }
                     catch (Exception ex)
                     {
@@ -238,9 +269,9 @@ namespace TheBetterLimited.Views
             choose = MessageBox.Show("Do you really want to delete the " + GoodsDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             if (choose == DialogResult.Yes)
             {
+                System.ComponentModel.BackgroundWorker backgroundWorker = new BackgroundWorker();
                 try
                 {
-                    System.ComponentModel.BackgroundWorker backgroundWorker = new BackgroundWorker();
                     backgroundWorker.DoWork += (s, eventArg) =>
                     {
                         result = gc.DeleteGoods(GoodsDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
@@ -253,16 +284,17 @@ namespace TheBetterLimited.Views
 
                     backgroundWorker.RunWorkerCompleted += (s, eventArgs) =>
                     {
-                        GetGoods();
+                        loadPic.Hide();
+                        InitList();
                     };
-
+                    loadPic.Show();
                     backgroundWorker.RunWorkerAsync();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Cannot delete the goods", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
+                backgroundWorker.Dispose();
             }
 
         }
@@ -270,7 +302,10 @@ namespace TheBetterLimited.Views
         private void AddBtn_Click(object sender, EventArgs e)
         {
             Goods_Add goodsAdd = new Goods_Add();
-            goodsAdd.OnExit += () => GetGoods();
+            goodsAdd.OnExit += () => { 
+                loadPic.Show();
+                bw.RunWorkerAsync(); 
+            };
             goodsAdd.Show();
         }
 
@@ -307,11 +342,25 @@ namespace TheBetterLimited.Views
                 }
             };
             bgWorker.RunWorkerAsync();
+            bgWorker.Dispose();
         }
 
         private void curdAction_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                loadPic.Show();
+                bw.RunWorkerAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Goods are loading.\nPlease wait a moment!");
+            }
         }
     }
 }

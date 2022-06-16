@@ -33,30 +33,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appointment));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appointment));
             this.AppointmentDataGrid = new System.Windows.Forms.DataGridView();
-            this.Header = new System.Windows.Forms.Panel();
-            this.closeBtn = new System.Windows.Forms.Button();
-            this.RefreshBtn = new System.Windows.Forms.Button();
-            this.Title = new System.Windows.Forms.Label();
-            this.Data = new System.Windows.Forms.Panel();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Action = new System.Windows.Forms.Panel();
-            this.roundButton1 = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.MultiArrangeBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.DeliveryDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.SearchBar = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +48,24 @@
             this.details = new System.Windows.Forms.DataGridViewImageColumn();
             this.print = new System.Windows.Forms.DataGridViewImageColumn();
             this.arrange = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Header = new System.Windows.Forms.Panel();
+            this.closeBtn = new System.Windows.Forms.Button();
+            this.RefreshBtn = new System.Windows.Forms.Button();
+            this.Title = new System.Windows.Forms.Label();
+            this.Data = new System.Windows.Forms.Panel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Action = new System.Windows.Forms.Panel();
+            this.MultiArrangeBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.DeliveryDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.SearchBar = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGrid)).BeginInit();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
@@ -156,6 +155,119 @@
             this.AppointmentDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
             this.AppointmentDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.AppointmentDataGrid_CellFormatting);
             // 
+            // select
+            // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.select.HeaderText = "";
+            this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.select.MinimumWidth = 6;
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            this.select.Width = 6;
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "Id";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.id.DefaultCellStyle = dataGridViewCellStyle3;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.ToolTipText = "Appointment ID";
+            this.id.Width = 59;
+            // 
+            // time
+            // 
+            this.time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.time.DataPropertyName = "time";
+            this.time.HeaderText = "Time";
+            this.time.MinimumWidth = 6;
+            this.time.Name = "time";
+            this.time.ReadOnly = true;
+            this.time.ToolTipText = "Session Time";
+            this.time.Width = 75;
+            // 
+            // orderId
+            // 
+            this.orderId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.orderId.DataPropertyName = "orderId";
+            this.orderId.HeaderText = "Order ID";
+            this.orderId.MinimumWidth = 6;
+            this.orderId.Name = "orderId";
+            this.orderId.ReadOnly = true;
+            this.orderId.ToolTipText = "Order ID";
+            this.orderId.Width = 98;
+            // 
+            // Address
+            // 
+            this.Address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Address.DataPropertyName = "address";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Address.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Address.HeaderText = "Customer Address";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            this.Address.ToolTipText = "Customer Address";
+            // 
+            // teamId
+            // 
+            this.teamId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.teamId.DataPropertyName = "teamId";
+            this.teamId.HeaderText = "Team ID";
+            this.teamId.MinimumWidth = 6;
+            this.teamId.Name = "teamId";
+            this.teamId.ReadOnly = true;
+            this.teamId.ToolTipText = "Team ID";
+            this.teamId.Width = 95;
+            // 
+            // status
+            // 
+            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.status.DataPropertyName = "status";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.status.DefaultCellStyle = dataGridViewCellStyle5;
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Width = 84;
+            // 
+            // details
+            // 
+            this.details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.details.HeaderText = "";
+            this.details.Image = global::TheBetterLimited.Properties.Resources.eye24;
+            this.details.MinimumWidth = 6;
+            this.details.Name = "details";
+            this.details.ReadOnly = true;
+            this.details.ToolTipText = "View Order Details";
+            this.details.Width = 6;
+            // 
+            // print
+            // 
+            this.print.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.print.HeaderText = "";
+            this.print.Image = global::TheBetterLimited.Properties.Resources.print24;
+            this.print.MinimumWidth = 6;
+            this.print.Name = "print";
+            this.print.ReadOnly = true;
+            this.print.ToolTipText = "Print Note";
+            this.print.Width = 6;
+            // 
+            // arrange
+            // 
+            this.arrange.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.arrange.HeaderText = "";
+            this.arrange.Image = global::TheBetterLimited.Properties.Resources.list_check;
+            this.arrange.MinimumWidth = 6;
+            this.arrange.Name = "arrange";
+            this.arrange.ReadOnly = true;
+            this.arrange.ToolTipText = "Arrange Appointment";
+            this.arrange.Width = 6;
+            // 
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.White;
@@ -240,7 +352,6 @@
             // Action
             // 
             this.Action.BackColor = System.Drawing.Color.White;
-            this.Action.Controls.Add(this.roundButton1);
             this.Action.Controls.Add(this.MultiArrangeBtn);
             this.Action.Controls.Add(this.DeliveryDatePicker);
             this.Action.Controls.Add(this.SearchBar);
@@ -251,26 +362,6 @@
             this.Action.Padding = new System.Windows.Forms.Padding(4, 1, 4, 1);
             this.Action.Size = new System.Drawing.Size(758, 40);
             this.Action.TabIndex = 7;
-            // 
-            // roundButton1
-            // 
-            this.roundButton1.BackColor = System.Drawing.Color.SeaGreen;
-            this.roundButton1.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.roundButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.roundButton1.BorderRadius = 10;
-            this.roundButton1.BorderSize = 0;
-            this.roundButton1.FlatAppearance.BorderSize = 0;
-            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton1.ForeColor = System.Drawing.Color.White;
-            this.roundButton1.IsChecked = false;
-            this.roundButton1.Location = new System.Drawing.Point(380, 1);
-            this.roundButton1.Name = "roundButton1";
-            this.roundButton1.Size = new System.Drawing.Size(124, 38);
-            this.roundButton1.TabIndex = 12;
-            this.roundButton1.Text = "Complete";
-            this.roundButton1.TextColor = System.Drawing.Color.White;
-            this.roundButton1.UseVisualStyleBackColor = false;
             // 
             // MultiArrangeBtn
             // 
@@ -392,119 +483,6 @@
             this.dataGridViewImageColumn7.Image = global::TheBetterLimited.Properties.Resources.list_check;
             this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
             // 
-            // select
-            // 
-            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.select.HeaderText = "";
-            this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.select.MinimumWidth = 6;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            this.select.Width = 6;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "Id";
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.id.DefaultCellStyle = dataGridViewCellStyle3;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.ToolTipText = "Appointment ID";
-            this.id.Width = 59;
-            // 
-            // time
-            // 
-            this.time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.time.DataPropertyName = "time";
-            this.time.HeaderText = "Time";
-            this.time.MinimumWidth = 6;
-            this.time.Name = "time";
-            this.time.ReadOnly = true;
-            this.time.ToolTipText = "Session Time";
-            this.time.Width = 75;
-            // 
-            // orderId
-            // 
-            this.orderId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.orderId.DataPropertyName = "orderId";
-            this.orderId.HeaderText = "Order ID";
-            this.orderId.MinimumWidth = 6;
-            this.orderId.Name = "orderId";
-            this.orderId.ReadOnly = true;
-            this.orderId.ToolTipText = "Order ID";
-            this.orderId.Width = 98;
-            // 
-            // Address
-            // 
-            this.Address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Address.DataPropertyName = "address";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Address.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Address.HeaderText = "Customer Address";
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            this.Address.ToolTipText = "Customer Address";
-            // 
-            // teamId
-            // 
-            this.teamId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.teamId.DataPropertyName = "teamId";
-            this.teamId.HeaderText = "Team ID";
-            this.teamId.MinimumWidth = 6;
-            this.teamId.Name = "teamId";
-            this.teamId.ReadOnly = true;
-            this.teamId.ToolTipText = "Team ID";
-            this.teamId.Width = 95;
-            // 
-            // status
-            // 
-            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.status.DataPropertyName = "status";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.status.DefaultCellStyle = dataGridViewCellStyle5;
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Width = 84;
-            // 
-            // details
-            // 
-            this.details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.details.HeaderText = "";
-            this.details.Image = global::TheBetterLimited.Properties.Resources.eye24;
-            this.details.MinimumWidth = 6;
-            this.details.Name = "details";
-            this.details.ReadOnly = true;
-            this.details.ToolTipText = "View Order Details";
-            this.details.Width = 6;
-            // 
-            // print
-            // 
-            this.print.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.print.HeaderText = "";
-            this.print.Image = global::TheBetterLimited.Properties.Resources.print24;
-            this.print.MinimumWidth = 6;
-            this.print.Name = "print";
-            this.print.ReadOnly = true;
-            this.print.ToolTipText = "Print Note";
-            this.print.Width = 6;
-            // 
-            // arrange
-            // 
-            this.arrange.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.arrange.HeaderText = "";
-            this.arrange.Image = global::TheBetterLimited.Properties.Resources.list_check;
-            this.arrange.MinimumWidth = 6;
-            this.arrange.Name = "arrange";
-            this.arrange.ReadOnly = true;
-            this.arrange.ToolTipText = "Arrange Appointment";
-            this.arrange.Width = 6;
-            // 
             // Appointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -552,7 +530,6 @@
         private CustomizeControl.RoundButton MultiArrangeBtn;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button RefreshBtn;
-        private CustomizeControl.RoundButton roundButton1;
         private System.Windows.Forms.DataGridViewImageColumn select;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn time;
