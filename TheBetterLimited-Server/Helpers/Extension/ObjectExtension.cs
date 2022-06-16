@@ -77,7 +77,7 @@ public static class ObjectExtension
 
         foreach (var item in source.GetType().GetProperties())
         {
-            if (item.GetMethod.IsVirtual || item.PropertyType.IsInterface)
+            if (item.GetMethod.IsVirtual || item.PropertyType.IsInterface || item.PropertyType.IsAbstract || Attribute.IsDefined(item, typeof(AppLogic.Attribute.NotMapToDtoAttribute)))
             {
                 continue;
             }
