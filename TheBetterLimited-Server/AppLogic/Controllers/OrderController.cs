@@ -539,6 +539,39 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return newOrder.ID;
         }
 
+        public void CancelOrder(string id)
+        {
+            // 0000000001
+            // qty : -1
+            var salesOrder = repository.GetById(id);
+            salesOrder.Status = SalesOrderStatus.Cancelled;
+
+            foreach (var item in salesOrder.Items)
+            {
+                // update the stock
+                item.SupplierGoodsStock.Quantity += item.Quantity;
+
+                // delete the booking record
+                if (item.BookingOrder != null)
+                {
+                    ConsoleLogger.Debug(item.BookingOrder.Debug());
+                    _BookingOrderTable.Delete(item.BookingOrder);
+                    db.SaveChanges(); // to prevent delete same record again
+                }
+
+                // delete the appointment record
+                if (item.SaleOrderItem_Appointment != null)
+                {
+                    foreach (var appointment in item.SaleOrderItem_Appointment.ToList())
+                    {
+                        var refappointment = appointment.Appointment;
+                        _AppointmentTable.Delete(refappointment);
+                        db.SaveChanges(); // to prevent delete same record again
+                    }
+                }
+            }
+        }
+
         public void CleanOrder(string id)
         {
             // delete the sales order and the sales order items
@@ -549,6 +582,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             // get the sales order
             var salesOrder = repository.GetById(id);
 
+            if (salesOrder is null)
+            {
+                throw new BadArgException("Invalid sales order id");
+            }
+
             // get the sales order items
             var salesOrderItems = _SalesOrderItemTable.GetBySQL(
                 "SELECT * FROM SalesOrderItem WHERE _salesOrderId = " + salesOrder.ID
@@ -557,7 +595,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             {
                 _SalesOrderItemTable.Delete(soi);
             }
-            // TODO: delete the appointments
+
+            db.SaveChanges();
+
             // TODO: delete the booking order
 
             repository.Delete(salesOrder);

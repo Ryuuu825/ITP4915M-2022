@@ -83,6 +83,20 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
+        [HttpDelete("cancel/{id}")]
+        public async Task<IActionResult> Cancel(string id)
+        {
+            try
+            {
+                controller.CancelOrder(id);
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
         
         [HttpPost("hold")]
         public IActionResult HoldOrder([FromBody] OrderInDto orderItems)
