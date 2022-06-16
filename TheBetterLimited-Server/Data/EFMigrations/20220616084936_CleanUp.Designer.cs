@@ -11,8 +11,8 @@ using TheBetterLimited_Server.Data;
 namespace TheBetterLimited_Server.Data.EFMigrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220610051318_Team")]
-    partial class Team
+    [Migration("20220616084936_CleanUp")]
+    partial class CleanUp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -252,12 +252,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<string>("SupplierGoodsStock_locationId")
-                        .HasColumnType("char(3)");
-
-                    b.Property<string>("SupplierGoodsStock_supplierGoodsId")
-                        .HasColumnType("char(10)");
-
                     b.Property<string>("_creatorId")
                         .IsRequired()
                         .HasMaxLength(10)
@@ -274,7 +268,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.Property<string>("_supplierGoodsStockId")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(9)");
 
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("datetime(6)");
@@ -290,7 +284,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasIndex("_salesOrderId");
 
-                    b.HasIndex("SupplierGoodsStock_supplierGoodsId", "SupplierGoodsStock_locationId");
+                    b.HasIndex("_supplierGoodsStockId");
 
                     b.ToTable("DefectItemRecord");
                 });
@@ -918,7 +912,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(9)");
 
                     b.Property<decimal?>("Price")
-                        .HasColumnType("DECIMAL(7,2)");
+                        .HasColumnType("DECIMAL(8,2)");
 
                     b.Property<string>("_goodsId")
                         .IsRequired()
@@ -972,6 +966,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasIndex("_locationId");
 
+                    b.HasIndex("_supplierGoodsId");
+
                     b.ToTable("Supplier_Goods_Stock");
                 });
 
@@ -983,8 +979,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<string>("_departmentId")
                         .IsRequired()
@@ -1141,8 +1137,10 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Supplier_Goods_Stock", "SupplierGoodsStock")
                         .WithMany("DefectItemRecords")
-                        .HasForeignKey("SupplierGoodsStock_supplierGoodsId", "SupplierGoodsStock_locationId")
-                        .HasPrincipalKey("_supplierGoodsId", "_locationId");
+                        .HasForeignKey("_supplierGoodsStockId")
+                        .HasPrincipalKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Operator");
 

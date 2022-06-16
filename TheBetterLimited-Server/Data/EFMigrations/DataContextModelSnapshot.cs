@@ -250,12 +250,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<string>("SupplierGoodsStock_locationId")
-                        .HasColumnType("char(3)");
-
-                    b.Property<string>("SupplierGoodsStock_supplierGoodsId")
-                        .HasColumnType("char(10)");
-
                     b.Property<string>("_creatorId")
                         .IsRequired()
                         .HasMaxLength(10)
@@ -272,7 +266,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.Property<string>("_supplierGoodsStockId")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(9)");
 
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("datetime(6)");
@@ -288,7 +282,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasIndex("_salesOrderId");
 
-                    b.HasIndex("SupplierGoodsStock_supplierGoodsId", "SupplierGoodsStock_locationId");
+                    b.HasIndex("_supplierGoodsStockId");
 
                     b.ToTable("DefectItemRecord");
                 });
@@ -970,6 +964,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasIndex("_locationId");
 
+                    b.HasIndex("_supplierGoodsId");
+
                     b.ToTable("Supplier_Goods_Stock");
                 });
 
@@ -1139,8 +1135,10 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Supplier_Goods_Stock", "SupplierGoodsStock")
                         .WithMany("DefectItemRecords")
-                        .HasForeignKey("SupplierGoodsStock_supplierGoodsId", "SupplierGoodsStock_locationId")
-                        .HasPrincipalKey("_supplierGoodsId", "_locationId");
+                        .HasForeignKey("_supplierGoodsStockId")
+                        .HasPrincipalKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Operator");
 

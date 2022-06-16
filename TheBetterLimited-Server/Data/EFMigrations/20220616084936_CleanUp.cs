@@ -239,7 +239,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _goodsId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Price = table.Column<decimal>(type: "DECIMAL(7,2)", nullable: true)
+                    Price = table.Column<decimal>(type: "DECIMAL(8,2)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -278,7 +278,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Supplier_Goods_Stock", x => new { x.Id, x._supplierGoodsId, x._locationId });
-                    table.UniqueConstraint("AK_Supplier_Goods_Stock__supplierGoodsId__locationId", x => new { x._supplierGoodsId, x._locationId });
                     table.UniqueConstraint("AK_Supplier_Goods_Stock_Id", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Supplier_Goods_Stock_Location__locationId",
@@ -532,7 +531,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _departmentId = table.Column<string>(type: "char(3)", maxLength: 3, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Name = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false)
+                    Name = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -850,11 +849,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 {
                     ID = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    _supplierGoodsStockId = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    SupplierGoodsStock_supplierGoodsId = table.Column<string>(type: "char(10)", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    SupplierGoodsStock_locationId = table.Column<string>(type: "char(3)", nullable: true)
+                    _supplierGoodsStockId = table.Column<string>(type: "varchar(9)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _salesOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
@@ -889,10 +884,11 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DefectItemRecord_Supplier_Goods_Stock_SupplierGoodsStock_sup~",
-                        columns: x => new { x.SupplierGoodsStock_supplierGoodsId, x.SupplierGoodsStock_locationId },
+                        name: "FK_DefectItemRecord_Supplier_Goods_Stock__supplierGoodsStockId",
+                        column: x => x._supplierGoodsStockId,
                         principalTable: "Supplier_Goods_Stock",
-                        principalColumns: new[] { "_supplierGoodsId", "_locationId" });
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -1045,9 +1041,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 column: "_salesOrderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DefectItemRecord_SupplierGoodsStock_supplierGoodsId_Supplier~",
+                name: "IX_DefectItemRecord__supplierGoodsStockId",
                 table: "DefectItemRecord",
-                columns: new[] { "SupplierGoodsStock_supplierGoodsId", "SupplierGoodsStock_locationId" });
+                column: "_supplierGoodsStockId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Department__budgetId",
@@ -1223,6 +1219,11 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 name: "IX_Supplier_Goods_Stock__locationId",
                 table: "Supplier_Goods_Stock",
                 column: "_locationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Supplier_Goods_Stock__supplierGoodsId",
+                table: "Supplier_Goods_Stock",
+                column: "_supplierGoodsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Team__departmentId",

@@ -48,7 +48,8 @@ public class DataContext : DbContext
         md.Entity<DefectItemRecord>()
             .HasOne(d => d.SupplierGoodsStock)
             .WithMany(sgs => sgs.DefectItemRecords)
-            .HasPrincipalKey(sgs => new { sgs._supplierGoodsId, sgs._locationId });
+            .HasPrincipalKey(sgs => sgs.Id)
+            .HasForeignKey(d => d._supplierGoodsStockId);
         
         // md.Entity<Supplier_Goods_Stock>()
         //     .HasOne(sgs => sgs.Supplier_Goods)
