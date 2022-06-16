@@ -29,12 +29,12 @@ namespace TheBetterLimited.Views
         private ControllerBase cbStore = new ControllerBase("Store");
         private ControllerBase cbWarehouse = new ControllerBase("cbWarehouse");
         private ControllerBase cbLoc = new ControllerBase("Location");
-        private ControllerBase cbStockGoods = new ControllerBase("Supplier_Goods_Stock");
+        private ControllerBase cbStockGoods = new ControllerBase("inventory/sgs");
         private GoodsController gc = new GoodsController();
         private DataTable dataTable;
-
-        private ControllerBase cbGoods = new ControllerBase("pos/Goods");
-
+        private BackgroundWorker bw = new BackgroundWorker();
+        private bool loadAll = true;
+        private string QryString = "";
 
 
         public Stock()
@@ -42,9 +42,29 @@ namespace TheBetterLimited.Views
             dataTable = new DataTable();
             InitializeComponent();
             InitialzeDataTable();
-            GetStock();//init 
+            initBackgroundWorker();
+            loadPic.Show();
+            bw.RunWorkerAsync();
+        }
+        private void initBackgroundWorker()
+        {
+            bw = new BackgroundWorker();
+            bw.WorkerReportsProgress = true;
+            bw.WorkerSupportsCancellation = true;
+            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
         }
 
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            GetStock();
+        }
+
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            InitList();
+            loadPic.Hide();
+        }
         /*
          * Dom Style/Event Process
          */
@@ -56,12 +76,21 @@ namespace TheBetterLimited.Views
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.Invalidate();
-            GetStock();
+            loadPic.Show();
+            try
+            {
+                bw.RunWorkerAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Stock records are loading.\nPlease wait a moment!");
+            }
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.Dispose();
         }
 
         private void StockDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -104,7 +133,18 @@ namespace TheBetterLimited.Views
         {
             string id = StockDataGrid["Id", e.RowIndex].Value.ToString();
             Stock_Edit edit = new Stock_Edit(id);
-            edit.OnExit += () => { GetStock(); };
+            edit.OnExit += () =>
+            {
+                try
+                {
+                    loadPic.Show();
+                    bw.RunWorkerAsync();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Stock records are loading.\nPlease wait a moment!");
+                }
+            };
             edit.Show();
         }
 
@@ -141,13 +181,6 @@ namespace TheBetterLimited.Views
 
         }
 
-        //search bar text changed event
-        private void SearchBarTxt__TextChanged(object sender, EventArgs e)
-        {
-            GetStock();
-        }
-
-
         /*
         * Dom Event Handler
         */
@@ -178,13 +211,9 @@ namespace TheBetterLimited.Views
         //Get Stock
         private void GetStock()
         {
-            Console.WriteLine("CALL GET STOCK");
-            dataTable.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
-                // result = cbStockGoods.GetAll();
-                RestRequest req = new RestRequest("/api/inventory/sgs", Method.Get);
-                result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
+                result = cbStockGoods.GetAll();
             }
             /*else
             {
@@ -192,7 +221,10 @@ namespace TheBetterLimited.Views
                             + "|ReorderLevel:" + this.SearchBarTxt.Texts + "|_locationId:" + this.SearchBarTxt.Texts;
                 result = cbStockGoods.GetByQueryString(str);
             }*/
-
+        }
+        private void InitList()
+        {
+            dataTable.Clear();
             var res = JArray.Parse(result.Content.ToString());
             foreach (var row in res)
             {
@@ -222,8 +254,6 @@ namespace TheBetterLimited.Views
         {
             RestRequest req = new RestRequest("/api/inventory/sgs/" + id, Method.Delete);
             result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
-            Console.WriteLine(result.StatusCode);
-            Console.WriteLine(result.Content);
             return result.StatusCode == System.Net.HttpStatusCode.OK;
         }
 
@@ -249,15 +279,20 @@ namespace TheBetterLimited.Views
                     {
                         MessageBox.Show("Cannot delete the stock records.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                 }
             }
             else
             {
                 MessageBox.Show("You had not selected a stock records.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             }
-            GetStock();
-
+            try
+            {
+                bw.RunWorkerAsync();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Stock records are loading.\nPlease wait a moment!");
+            }
         }
 
         //Delete stock records
@@ -272,7 +307,15 @@ namespace TheBetterLimited.Views
                     if (result.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         MessageBox.Show("The " + StockDataGrid["id", e.RowIndex].Value + " have been deleted!", "Delete stock records Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetStock();
+                        try
+                        {
+                            loadPic.Show();
+                            bw.RunWorkerAsync();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Stock records are loading.\nPlease wait a moment!");
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -280,28 +323,41 @@ namespace TheBetterLimited.Views
                     Console.WriteLine(ex.Message);
                     MessageBox.Show("Cannot delete the stock records", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
-            GetStock();
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
             Stock_Add goodsAdd = new Stock_Add();
-            goodsAdd.OnExit += GetStock;
+            goodsAdd.OnExit += () =>
+            {
+                loadPic.Show();
+                bw.RunWorkerAsync();
+            };
             goodsAdd.Show();
         }
 
         private void RestockBtn_Click(object sender, EventArgs e)
         {
-            if(selectStockID.Count <= 0)
+            if (selectStockID.Count <= 0)
             {
                 MessageBox.Show("You have not select any goods");
                 return;
             }
         }
 
-
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                loadPic.Show();
+                bw.RunWorkerAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Stock records are loading.\nPlease wait a moment!");
+            }
+        }
 
         // Export stock records PDF
         /* private void exportBtn_Click(object sender, EventArgs e)

@@ -59,21 +59,12 @@ namespace TheBetterLimited.Views
             if (AppointmentDataGrid.Columns[e.ColumnIndex].Name == "status")
             {
                 e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold);
-                if (e.Value.ToString().Equals("PendingDelivery"))
-                {
-                    e.CellStyle.ForeColor = Color.Orange;
-                    e.CellStyle.SelectionForeColor = Color.Orange;
-                }else if (e.Value.ToString().Equals("ReadyToInstall"))
+                if (e.Value.ToString().Equals("PendingDelivery") || e.Value.ToString().Equals("PendingInstall"))
                 {
                     e.CellStyle.ForeColor = Color.Orange;
                     e.CellStyle.SelectionForeColor = Color.Orange;
                 }
-                else if (e.Value.ToString().Equals("Installing"))
-                {
-                    e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
-                    e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
-                }
-                else if (e.Value.ToString().Equals("Delivering"))
+                else if (e.Value.ToString().Equals("Installing") || e.Value.ToString().Equals("Delivering"))
                 {
                     e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);

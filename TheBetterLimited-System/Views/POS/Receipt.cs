@@ -86,6 +86,14 @@ namespace TheBetterLimited.Views
             dt.Columns.Add("isInstall");
             dt.Columns["isInstall"].DataType = System.Type.GetType("System.Byte[]");
             var isBooking = false;
+            List<string> needInstallItem = new List<string>();
+            if(info["installation"].Type != JTokenType.Null)
+            {
+                foreach (var installItem in (JArray)info["installation"]["items"])
+                {
+                    needInstallItem.Add(installItem["itemNames"].ToString());
+                }
+            }
             foreach (JObject orderItem in orderItems)
             {
                 var row = dt.NewRow();
@@ -93,7 +101,7 @@ namespace TheBetterLimited.Views
                 row["goodsName"] = orderItem["name"].ToString();
                 row["price"] = orderItem["price"];
                 row["qty"] = orderItem["quantity"];
-                row["amount"] = (((int)orderItem["quantity"])*((double)orderItem["price"]));
+                row["amount"] = (((int)orderItem["quantity"]) * ((double)orderItem["price"]));
                 isBooking = ((bool)orderItem["needBooking"]);
                 /*if (((JToken)orderItem["quantity"]).Type != JTokenType.Null && ((bool)orderItem["quantity"]) == false)
                 {
@@ -102,13 +110,13 @@ namespace TheBetterLimited.Views
                 {
                     row["display"] = Properties.Resources.square24;
                 }*/
-                if ((bool)orderItem["needInstall"])
+                row["isInstall"] = new ImageConverter().ConvertTo(Properties.Resources.square24, System.Type.GetType("System.Byte[]"));
+                foreach (var i in needInstallItem)
                 {
-                    row["isInstall"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
-                }
-                else
-                {
-                    row["isInstall"] = new ImageConverter().ConvertTo(Properties.Resources.square24, System.Type.GetType("System.Byte[]"));
+                    if (orderItem["name"].ToString().Equals(i))
+                    {
+                        row["isInstall"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
+                    }
                 }
                 dt.Rows.Add(row);
             }
@@ -131,7 +139,7 @@ namespace TheBetterLimited.Views
                     deliveryDate.Text = ((DateTime)info["delivery"]["date"]).ToString("d") + " "
                         + ((DateTime)info["delivery"]["startTime"]).ToString("t") + " - "
                         + ((DateTime)info["delivery"]["endTime"]).ToString("t");
-                    if (((JToken)info["installation"]).Type != JTokenType.Null) //check need delivery
+                    if (((JToken)info["installation"]).Type != JTokenType.Null) //check need installation
                     {
                         installDate.Text = ((DateTime)info["installation"]["date"]).ToString("d") + " "
                                         + ((DateTime)info["installation"]["startTime"]).ToString("t") + " - "
@@ -156,11 +164,11 @@ namespace TheBetterLimited.Views
             }
 
             var deposit = 0.0;
-            
+
             totalAmount.Text = String.Format("{0:C2}", info["total"]);
             paid.Text = String.Format("{0:C2}", info["total"]);
             paymentMethod.Text = "";
-            final.Text = String.Format("{0:C2}", ((double)info["total"]-(double)info["total"]));
+            final.Text = String.Format("{0:C2}", ((double)info["total"] - (double)info["total"]));
             if (isBooking)
             {
                 if ((double)info["total"] >= 5000)

@@ -98,6 +98,10 @@ namespace TheBetterLimited.Views
 
         private void StaffDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(e.RowIndex == -1)
+            {
+                return;
+            }
             if (e.ColumnIndex == StaffDataGrid.Columns["select"].Index)
             {
                 if (Convert.ToInt32(StaffDataGrid["select", e.RowIndex].Tag) == 0)

@@ -151,12 +151,6 @@
             this.TeamIDCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TeamIDCombo.ForeColor = System.Drawing.Color.DimGray;
             this.TeamIDCombo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TeamIDCombo.Items.AddRange(new object[] {
-            "001",
-            "002",
-            "003",
-            "004",
-            "005"});
             this.TeamIDCombo.ListBackColor = System.Drawing.Color.White;
             this.TeamIDCombo.ListTextColor = System.Drawing.Color.DimGray;
             this.TeamIDCombo.Location = new System.Drawing.Point(158, 31);

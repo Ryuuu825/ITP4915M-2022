@@ -27,7 +27,7 @@ namespace TheBetterLimited.Views
         private DialogResult choose;
         private RestResponse response;
         private bool isSawDetails = false;
-        private ControllerBase cbOrder = new ControllerBase("Order");
+        private ControllerBase cbOrder = new OrderController("Order");
         private string _storeId;
         private List<JObject> orderList = new List<JObject>();
         private BackgroundWorker bgWorker = new BackgroundWorker();
@@ -283,7 +283,7 @@ namespace TheBetterLimited.Views
         {
             if (OrderDataGrid.Rows[e.RowIndex].Cells["status"].Value.Equals("Pending Delivery"))
             {
-                choose = MessageBox.Show("Do you really want to delete the " + OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                choose = MessageBox.Show("Do you really want to cancel the " + OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
                 if (choose == DialogResult.Yes)
                 {
                     try

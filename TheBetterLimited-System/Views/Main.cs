@@ -22,6 +22,7 @@ namespace TheBetterLimited.Views
         private bool subSidebarExpand;
         private Form activeForm = null;
         private UserController uc = new UserController();
+        private string position = String.Empty;
         public Main()
         {
             InitializeComponent();
@@ -31,6 +32,14 @@ namespace TheBetterLimited.Views
         {
             txtUsername.Text = GlobalsData.currentUser["displayName"];
             txtJobTitle.Text = GlobalsData.currentUser["position"];
+            var reg = @"(?=[A-Z])";
+            var longPosition = Regex.Split(GlobalsData.currentUser["position"].ToString(), reg);
+            var value = "";
+            foreach (var item in longPosition)
+            {
+                value = item;
+            }
+            position = value;
             Bitmap bitmap = uc.GetUserIcon();
             if (bitmap != null)
             {
@@ -133,7 +142,14 @@ namespace TheBetterLimited.Views
         {
             change_MenuButton_style(sender);
             StockContainer.Show();
-            //RestockContainer.Show();
+            if (GlobalsData.currentUser["department"].Equals("Inventory")|| GlobalsData.currentUser["department"].Equals("Purchase"))
+            {
+                RestockContainer.Show();
+            }
+            if (GlobalsData.currentUser["department"].Equals("Sales") && position.Equals("Manager"))
+            {
+                RestockContainer.Show();
+            }
             subSidebarTimer.Start();
         }
 
@@ -202,6 +218,12 @@ namespace TheBetterLimited.Views
                     WorkmanContainer.Show();
                     break;
             }
+            switch (position)
+            {
+                case "Manager":
+                    UserContainer.Show();
+                    break;
+            }
         }
 
         private void UserInformation_Click(object sender, EventArgs e)
@@ -223,6 +245,7 @@ namespace TheBetterLimited.Views
             if (activeForm != null)
             {
                 activeForm.Close();
+                activeForm.Dispose();
             }
             activeForm = child;
             child.TopLevel = false;

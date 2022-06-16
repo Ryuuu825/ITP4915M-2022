@@ -99,7 +99,7 @@ namespace TheBetterLimited.Views
             {
                 bw.RunWorkerAsync();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 MessageBox.Show("Goods are loading.\nPlease wait a moment!");
             }
@@ -113,7 +113,7 @@ namespace TheBetterLimited.Views
             {
                 bw.RunWorkerAsync();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 MessageBox.Show("The goods are loading.\nPlease wait a moment!");
             }

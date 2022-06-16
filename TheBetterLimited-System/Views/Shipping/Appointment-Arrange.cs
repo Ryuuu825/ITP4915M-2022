@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using TheBetterLimited.Controller;
 using TheBetterLimited.CustomizeControl;
 using TheBetterLimited.Models;
+using TheBetterLimited.Utils;
 using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
@@ -22,7 +23,6 @@ namespace TheBetterLimited.Views
 
     public partial class Appointment_Arrange : Form
     {
-        private string[] teamName = { "TW Delivery", "TM Delivery", "SSP Delivery", "KLB Delivery", "KL Delivery", "TW Install", "TM Install", "SSP Team", "KLB Install", "KL Install", "TW Install" };
         public string appointmentId { get; set; }
         public List<string> appointmentIds { get; set; }
         private ControllerBase cbAppointment = new ControllerBase("Appointment");
@@ -31,6 +31,22 @@ namespace TheBetterLimited.Views
         public Appointment_Arrange()
         {
             InitializeComponent();
+            if(GlobalsData.currentUser["department"] == "Inventory")
+            {
+                foreach (int item in Enum.GetValues(typeof(TeamEnum)))
+                {
+                    if(item > 300 && item < 400)
+                        TeamIDCombo.Items.Add(item.ToString());
+                }
+            }
+            else if (GlobalsData.currentUser["department"] == "Technical")
+            {
+                foreach (int item in Enum.GetValues(typeof(TeamEnum)))
+                {
+                    if (item > 700 && item < 800)
+                        TeamIDCombo.Items.Add(item.ToString());
+                }
+            }
         }
 
 
@@ -96,7 +112,7 @@ namespace TheBetterLimited.Views
 
         private void TeamIDCombo_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            TeamNameTxt.Texts = teamName[TeamIDCombo.SelectedIndex];
+            TeamNameTxt.Texts = EnumExtensions.Description((TeamEnum)(Convert.ToInt32(TeamIDCombo.SelectedItem)));
         }
     }
 }
