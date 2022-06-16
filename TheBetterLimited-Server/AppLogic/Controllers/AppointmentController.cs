@@ -22,6 +22,25 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _SalesOrderTable = new Data.Repositories.Repository<SalesOrder>(dataContext);
         }
 
+        public void AssignTeam(string id , string teamId)
+        {
+            Appointment appointment = repository.GetById(id);
+            if (appointment is null)
+            {
+                throw new Exceptions.BadArgException("Appointment not found");
+            }
+            appointment._teamId = teamId;
+
+            try 
+            {
+                repository.Update(appointment);
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exceptions.BadForeignKeyException("Team id is not valid");
+            }
+        }
+
         public class Dto : Data.Dto.AppointmentOutDto
         {
            public string sessionId { get; set; }
