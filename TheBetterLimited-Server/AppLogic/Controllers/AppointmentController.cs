@@ -83,7 +83,12 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             Staff usr = (await _AccTable.GetBySQLAsync(
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{UserName}")
             )).FirstOrDefault().Staff;
-            List<Appointment> res = repository.GetAll().Where(x => x.Session.Date.Day == day && x.Session.Date.Month == month && x.Session._departmentId == usr._departmentId).ToList();
+            List<Appointment> res = repository.GetAll().Where(x => x.Session.Date.Day == day && x.Session.Date.Month == month).ToList();
+
+            if (! Constraint.SudoUserDepartmentId.Contains(usr._departmentId))
+            {
+                res = res.Where(x => x._departmentId == usr._departmentId).ToList();
+            }
             return await ToDto(res);
         }
         public async Task<List<Dto>> ToDto(List<Appointment> list)
