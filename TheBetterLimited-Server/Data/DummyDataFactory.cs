@@ -7781,7 +7781,7 @@ namespace TheBetterLimited_Server.Data
                     ID = "999999999",
                     _departmentId = "300",
                     StartTime = new DateTime(DateTime.Today.Year , DateTime.Today.Month , DateTime.Today.Day - 1 , DateTime.Now.Hour + 1 , 0 , 0),
-                    EndTime = new DateTime(DateTime.Today.Year , DateTime.Today.Month , DateTime.Today.Day - 1 , 9 , 0 , 0),
+                    EndTime = new DateTime(DateTime.Today.Year , DateTime.Today.Month , DateTime.Today.Day - 1 , DateTime.Now.Hour + 2 , 0 , 0),
                     Date = DateTime.Now,
                     NumOfAppointments = 1
                 }

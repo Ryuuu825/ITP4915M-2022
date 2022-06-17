@@ -67,6 +67,34 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             // db.Database.CloseConnection();
         }
 
+        public static void UpdateOrderStatus(SalesOrderItem_Appointment item , Data.Repositories.Repository<SalesOrder> _SalesOrderTable)
+        {
+                if (
+                    item.Appointment.Session.StartTime.Hour >= DateTime.Now.Hour &&
+                    item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery
+                )
+                {
+                    item.SalesOrderItem.SalesOrder.Status = SalesOrderStatus.PendingInstall;
+                    _SalesOrderTable.Update(item.SalesOrderItem.SalesOrder);
+                }
+                else if (
+                    item.Appointment.Session.Date == DateTime.Now.Date && 
+                    item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.Placed
+                )
+                {
+                    item.SalesOrderItem.SalesOrder.Status = SalesOrderStatus.PendingDelivery;
+                    _SalesOrderTable.Update(item.SalesOrderItem.SalesOrder);
+                }
+                else if ( 
+                    item.Appointment.Session.EndTime.Hour >= DateTime.Now.Hour &&
+                    (item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery || item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery)
+                )
+                {
+                    item.SalesOrderItem.SalesOrder.Status = SalesOrderStatus.Completed;
+                    _SalesOrderTable.Update(item.SalesOrderItem.SalesOrder);
+                }
+        }
+
 
 
         public async Task<List<OrderOutDto>> ToDto(List<SalesOrder> salesOrders ,  string lang = "en")
@@ -82,12 +110,14 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             // get delivery appointment
 
 
+
             // all the sales record in the system
             for (var i = 0; i < salesOrders.Count; i++)
             {
                 AppointmentOutDto? deliveryAppointment = null;
                 AppointmentOutDto? installatAppointment = null;
                 Customer? customer = null;
+
 
                 // get the sales record items
                 var salesOrderItemList = (await _SalesOrderItemTable.GetBySQLAsync(
@@ -100,6 +130,12 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 // convert the sales order item to dto
                 foreach(var salesOrderItem in salesOrderItemList)
                 {
+                    if (salesOrderItem.SaleOrderItem_Appointment is not null && salesOrderItem.SaleOrderItem_Appointment.Count() > 0)
+                    {
+                        UpdateOrderStatus(salesOrderItem.SaleOrderItem_Appointment[0] , repository);
+                    }
+                    
+
                     SalesOrderItemOutDto salesOrderItemDto = salesOrderItem.TryCopy<SalesOrderItemOutDto>();
                     salesOrderItemDto.SupplierGoodsStockId = salesOrderItem._supplierGoodsStockId;
                     Goods goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);

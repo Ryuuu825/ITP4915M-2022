@@ -74,7 +74,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
            public string orderId { get; set; }
 
            public Customer customer { get; set; }
-           public Team? team { get; set; }
+           public Hashtable? team { get; set; }
            public string salesOrderStatus  { get; set; }
         }
 
@@ -121,34 +121,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
                 try
                 {
-                    if (
-                        items[0].Appointment.Session.StartTime.Hour >= DateTime.Now.Hour &&
-                        items[0].SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery
-                    )
-                    {
-                        items[0].SalesOrderItem.SalesOrder.Status = SalesOrderStatus.PendingInstall;
-                        _SalesOrderTable.Update(items[0].SalesOrderItem.SalesOrder);
-                    }
-                    else if (
-                        items[0].Appointment.Session.Date == DateTime.Now.Date && 
-                        items[0].SalesOrderItem.SalesOrder.Status == SalesOrderStatus.Placed
-                    )
-                    {
-                        items[0].SalesOrderItem.SalesOrder.Status = SalesOrderStatus.PendingDelivery;
-                        _SalesOrderTable.Update(items[0].SalesOrderItem.SalesOrder);
-                    }
-                    else if ( 
-                        items[0].Appointment.Session.EndTime.Hour >= DateTime.Now.Hour &&
-                        (items[0].SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery || items[0].SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery)
-                    )
-                    {
-                        items[0].SalesOrderItem.SalesOrder.Status = SalesOrderStatus.Completed;
-                        _SalesOrderTable.Update(items[0].SalesOrderItem.SalesOrder);
-                    }
-
+                    OrderController.UpdateOrderStatus(items[0] , _SalesOrderTable);
                     // if the appointment is installation appointment
                     // and the delivery appointment is completed
-                    
 
                     SalesOrderStatus status = items[0].SalesOrderItem.SalesOrder.Status;
 
@@ -164,7 +139,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                             Items = itemsDto,
                             sessionId = item.Session.ID,
                             customer = item.Customer,
-                            team = item.Team,
+                            team = item.Team.MapToDto(),
                             salesOrderStatus = items[0].SalesOrderItem.SalesOrder.Status.ToString(),
                             orderId = orderId
                         }
