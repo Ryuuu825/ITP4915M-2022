@@ -200,7 +200,7 @@
             this.CusNameTxt.IsError = false;
             this.CusNameTxt.Location = new System.Drawing.Point(164, 31);
             this.CusNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.CusNameTxt.MaxLength = 5;
+            this.CusNameTxt.MaxLength = 30;
             this.CusNameTxt.Multiline = false;
             this.CusNameTxt.Name = "CusNameTxt";
             this.CusNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
