@@ -44,6 +44,19 @@ namespace TheBetterLimited_Server.Data
                 }
 
                 CreateGoodsPhoto(db);
+
+                db.Set<Customer>().AddRange(CreateCustomer());
+                db.SaveChanges();
+
+                db.Set<BookingOrder>().AddRange(CreateBookingOrder());
+                db.Set<SalesOrder>().AddRange(CreateSalesOrder());
+                db.SaveChanges();
+
+                db.Set<SalesOrderItem>().AddRange(CreateSalesOrderItem());
+                db.Set<Appointment>().AddRange(CreateAppointment());
+                db.SaveChanges();
+
+                db.Set<SalesOrderItem_Appointment>().AddRange(CreateSalesOrderItem_Appointment());
                 db.SaveChanges();
 
             }
@@ -60,6 +73,360 @@ namespace TheBetterLimited_Server.Data
                 GC.SuppressFinalize(db);
                 GC.Collect();
             }
+        }
+
+        public static List<SalesOrder> CreateSalesOrder()
+        {
+            int i = 1000000000;
+            return new List<SalesOrder>()
+            {
+                new SalesOrder
+                {
+                    ID = (++i).ToString(),
+                    _creatorId = "S0001",
+                    _operatorId = "S0001",
+                    _storeId = "H01",
+                    createdAt = new DateTime(2022, 6, 9, 12, 0, 0),
+                    updatedAt = new DateTime(2022, 6, 9, 12 , 0 ,0),
+                    Status = SalesOrderStatus.Placed
+                },
+                new SalesOrder
+                {
+                    ID = (++i).ToString(),
+                    _creatorId = "S0001",
+                    _operatorId = "S0001",
+                    _storeId = "H01",
+                    createdAt = new DateTime(2022, 6, 9 , 10, 0, 0),
+                    updatedAt = new DateTime(2022, 6, 9, 10, 0, 0),
+                    Status = SalesOrderStatus.Booking 
+                },
+                new SalesOrder
+                {
+                    ID = (++i).ToString(),
+                    _creatorId = "S0001",
+                    _operatorId = "S0001",
+                    _storeId = "H01",
+                    createdAt = new DateTime(2022, 6, 9, 22 , 0, 0),
+                    updatedAt = new DateTime(2022, 6, 9, 22, 0 , 0),
+                    Status = SalesOrderStatus.Completed
+                },
+                new SalesOrder
+                {
+                    ID = (++i).ToString(),
+                    _creatorId = "S0001",
+                    _operatorId = "S0001",
+                    _storeId = "H01",
+                    createdAt = new DateTime(2022, 6, 9, 15, 0 , 0),
+                    updatedAt = new DateTime(2022, 6, 9, 15, 0 , 0),
+                    Status = SalesOrderStatus.Completed
+                },
+                new SalesOrder
+                {
+                    ID = (++i).ToString(),
+                    _creatorId = "S0209",
+                    _operatorId = "S0209",
+                    _storeId = "H02",
+                    createdAt = new DateTime(2022, 6, 9, 15, 0 , 0),
+                    updatedAt = new DateTime(2022, 6, 9, 15, 0 , 0),
+                    Status = SalesOrderStatus.Placed
+                },
+                new SalesOrder
+                {
+                    ID = (++i).ToString(),
+                    _creatorId = "S0001",
+                    _operatorId = "S0001",
+                    _storeId = "H01",
+                    createdAt = new DateTime(2022 , 6 , 17 , 9 , 57 , 0),
+                    updatedAt = new DateTime(2022 , 6 , 17 , 9 , 57 , 0),
+                    Status = SalesOrderStatus.Placed
+                },
+                new SalesOrder
+                {
+                    ID = (++i).ToString(),
+                    _creatorId = "S0001",
+                    _operatorId = "S0001",
+                    _storeId = "H01",
+                    createdAt = new DateTime(2022 , 6 , 17 , 9 , 57 , 0),
+                    updatedAt = new DateTime(2022 , 6 , 17 , 9 , 57 , 0),
+                    Status = SalesOrderStatus.Completed
+                },
+                new SalesOrder
+                {
+                    ID = (++i).ToString(),
+                    _creatorId = "S0001",
+                    _operatorId = "S0001",
+                    _storeId = "H01",
+                    createdAt = new DateTime(2022 , 6 , 17 , 9 , 57 , 0),
+                    updatedAt = new DateTime(2022 , 6 , 17 , 9 , 57 , 0),
+                    Status = SalesOrderStatus.PendingDelivery
+                }
+            };
+        }
+
+        public static List<SalesOrderItem> CreateSalesOrderItem()
+        {
+            int i = 1000000000;
+            return new List<SalesOrderItem>
+            {
+                new SalesOrderItem
+                {
+                    Id = (++i).ToString(),
+                    _salesOrderId = (i).ToString(),
+                    _supplierGoodsStockId = "100000046",
+                    Quantity = 3,
+                    _bookingOrderId = null,
+                    Price = 15580
+                },
+                new SalesOrderItem
+                {
+                    Id = (++i).ToString(),
+                    _salesOrderId = (i).ToString(),
+                    _supplierGoodsStockId = "100000038",
+                    Quantity = 1,
+                    _bookingOrderId = "1000000001",
+                    Price = 3999
+                },
+                new SalesOrderItem
+                {
+                    Id = (++i).ToString(),
+                    _salesOrderId = (i).ToString(),
+                    _supplierGoodsStockId = "100000035",
+                    Quantity = 2,
+                    _bookingOrderId = null,
+                    Price = 799
+                },
+                new SalesOrderItem
+                {
+                    Id = (++i).ToString(),
+                    _salesOrderId = (i).ToString(),
+                    _supplierGoodsStockId = "100000055",
+                    Quantity = 1,
+                    _bookingOrderId = null,
+                    Price = 6399
+                },
+                new SalesOrderItem
+                {
+                    Id = (++i).ToString(),
+                    _salesOrderId = (i).ToString(),
+                    _supplierGoodsStockId = "100000001",
+                    Quantity = 1,
+                    _bookingOrderId = null,
+                    Price = 12990
+                },
+                new SalesOrderItem
+                {
+                    Id = (++i).ToString(),
+                    _salesOrderId = (i).ToString(),
+                    _supplierGoodsStockId = "100000001",
+                    Quantity = 1,
+                    _bookingOrderId = null,
+                    Price = 10990
+                },
+                new SalesOrderItem
+                {
+                    Id = (++i).ToString(),
+                    _salesOrderId = (i).ToString(),
+                    _supplierGoodsStockId = "100000001",
+                    Quantity = 1,
+                    _bookingOrderId = null,
+                    Price = 10990
+                },
+                new SalesOrderItem
+                {
+                    Id = (++i).ToString(),
+                    _salesOrderId = (i).ToString(),
+                    _supplierGoodsStockId = "100000098",
+                    Quantity = 1,
+                    _bookingOrderId = null,
+                    Price = 8560
+                },
+            };
+        }
+
+        public static List<BookingOrder> CreateBookingOrder()
+        {
+            int i = 1000000000;
+            return new List<BookingOrder>()
+            {
+                new BookingOrder
+                {
+                    ID = (++i).ToString(),
+                    _customerId = "1000000001",
+                    _appointmentId = null,
+                    Remarks = "",
+                },
+                new BookingOrder
+                {
+                    ID = (++i).ToString(),
+                    _customerId = "1000000002",
+                    _appointmentId = null,
+                    Remarks = "",
+                },
+                new BookingOrder
+                {
+                    ID = (++i).ToString(),
+                    _customerId = "1000000003",
+                    _appointmentId = null,
+                    Remarks = "",
+                }
+            };
+        }
+
+        public static List<Customer> CreateCustomer()
+        {
+            int i = 1000000000;
+            return new List<Customer>()
+            {
+                new Customer
+                {
+                    ID = (++i).ToString(),
+                    Name = "Ken",
+                    Address = "20 Tsing Yi Road,Tsing Yi Island, New Territories",
+                    Phone = "2436 8333"
+                },
+                new Customer
+                {
+                    ID = (++i).ToString(),
+                    Name = "John C NA",
+                    Address = "Bing Chilling Lin Road,Tsing Yi Island, New Territories",
+                    Phone = "2436 8333"
+                },
+                new Customer
+                {
+                    ID = (++i).ToString(),
+                    Name = "Terence L.",
+                    Address = "駿景園10座1 Tsun King Rd, Royal Ascot",
+                    Phone = "2436 8333"
+                },
+                new Customer
+                {
+                    ID = (++i).ToString(),
+                    Name = "Justin Chan",
+                    Address = "80 Tat Chee Ave, Kowloon Tong",
+                    Phone = "2436 8333"
+                },
+                new Customer
+                {
+                    ID = (++i).ToString(),
+                    Name = "Joe Ng",
+                    Address = "Wong Ching Road, ShaTin, New Territories",
+                    Phone = "2436 8333"
+                },
+                new Customer
+                {
+                    ID = (++i).ToString(),
+                    Name = "Karen",
+                    Address = "8 Chui Chuk St, Chuk Un",
+                    Phone = "2436 8333"
+                },
+            };
+        }
+
+        public static List<Appointment> CreateAppointment()
+        {
+            int i = 1000000000;
+            return new List<Appointment>
+            {
+                new Appointment
+                {   
+                    ID = (++i).ToString(),
+                    _sessionId = "000000008",
+                    _departmentId = "300",
+                    _teamId = null,
+                    _customerId = "1000000001"
+                },
+                new Appointment
+                {
+                    ID = (++i).ToString(),
+                    _sessionId = "000000011",
+                    _departmentId = "700",
+                    _teamId = null,
+                    _customerId = "1000000001"
+                },
+                new Appointment
+                {
+                    ID = (++i).ToString(),
+                    _sessionId = "000000012",
+                    _departmentId = "300",
+                    _teamId = null,
+                    _customerId = "1000000003"
+                },
+                new Appointment
+                {
+                    ID = (++i).ToString(),
+                    _sessionId = "000000031",
+                    _departmentId = "700",
+                    _teamId = null,
+                    _customerId = "1000000003"
+                },
+                new Appointment
+                {
+                    ID = (++i).ToString(),
+                    _sessionId = "000000002", // must be today
+                    _departmentId = "300",
+                    _teamId = "301",
+                    _customerId = "1000000004"
+                },
+                new Appointment
+                {
+                    ID = (++i).ToString(),
+                    _sessionId = "100000001", // must be today
+                    _departmentId = "300",
+                    _teamId = "301",
+                    _customerId = "1000000005"
+                },
+                new Appointment
+                {
+                    ID = "999999999",
+                    _sessionId = "999999999", // must be today
+                    _departmentId = "300",
+                    _teamId = "301",
+                    _customerId = "1000000006"
+                },
+            };
+        }
+
+        public static List<SalesOrderItem_Appointment> CreateSalesOrderItem_Appointment()
+        {
+            int i = 1000000000;
+            return new List<SalesOrderItem_Appointment>
+            {
+                new SalesOrderItem_Appointment
+                {
+                    _salesOrderItemId = "1000000001",
+                    _appointmentId = "1000000001"
+                },
+                new SalesOrderItem_Appointment
+                {
+                    _salesOrderItemId = "1000000001",
+                    _appointmentId = "1000000002"
+                },
+                new SalesOrderItem_Appointment
+                {
+                    _salesOrderItemId = "1000000005",
+                    _appointmentId = "1000000003"
+                },
+                new SalesOrderItem_Appointment
+                {
+                    _salesOrderItemId = "1000000005",
+                    _appointmentId = "1000000004"
+                },
+                new SalesOrderItem_Appointment
+                {
+                    _salesOrderItemId = "1000000006",
+                    _appointmentId = "1000000005"
+                },
+                new SalesOrderItem_Appointment
+                {
+                    _salesOrderItemId = "1000000007",
+                    _appointmentId = "1000000006"
+                },
+                new SalesOrderItem_Appointment
+                {
+                    _salesOrderItemId = "1000000008",
+                    _appointmentId = "999999999"
+                }
+            };
         }
 
         public static List<Staff> CreateStaff()
@@ -7380,6 +7747,46 @@ namespace TheBetterLimited_Server.Data
                 );
                 scounter++;
             }
+
+            int invertCounter = 100000001;
+            for ( int i = 0 ; i < 3 ; i++)
+            {
+                sessions.Add(
+                    new Session
+                    {
+                        ID = (invertCounter++).ToString(),
+                        _departmentId = "300",
+                        StartTime = sessionRange[i].StartTime,
+                        EndTime = sessionRange[i].EndTime,
+                        Date = new DateTime(DateTime.Today.Year , DateTime.Today.Month , DateTime.Today.Day - 1),
+                        NumOfAppointments = (sessionRange[scounter].NumOfAppointments)
+                    }
+                );
+
+                sessions.Add(
+                    new Session
+                    {
+                        ID = (invertCounter++).ToString(),
+                        _departmentId = "700",
+                        StartTime = sessionRange[i].StartTime,
+                        EndTime = sessionRange[i].EndTime,
+                        Date = new DateTime(DateTime.Today.Year , DateTime.Today.Month , DateTime.Today.Day - 1),
+                        NumOfAppointments = (sessionRange[scounter].NumOfAppointments)
+                    }
+                );
+            }
+            sessions.Add( // a specical session for demo purpose. To show the appointment is pending install service
+                new Session
+                {         
+                    ID = "999999999",
+                    _departmentId = "300",
+                    StartTime = new DateTime(DateTime.Today.Year , DateTime.Today.Month , DateTime.Today.Day - 1 , DateTime.Now.Hour + 1 , 0 , 0),
+                    EndTime = new DateTime(DateTime.Today.Year , DateTime.Today.Month , DateTime.Today.Day - 1 , 9 , 0 , 0),
+                    Date = DateTime.Now,
+                    NumOfAppointments = 1
+                }
+            );
+            
 
             return sessions;
         }

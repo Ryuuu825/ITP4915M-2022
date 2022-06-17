@@ -121,18 +121,26 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
                 try
                 {
-                    if (items[0].Appointment.Session._departmentId == "700" && 
-                        items[0].Appointment.Session.StartTime.Hour >= DateTime.Now.Hour)
+                    if (
+                        items[0].Appointment.Session.StartTime.Hour >= DateTime.Now.Hour &&
+                        items[0].SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery
+                    )
                     {
                         items[0].SalesOrderItem.SalesOrder.Status = SalesOrderStatus.PendingInstall;
                         _SalesOrderTable.Update(items[0].SalesOrderItem.SalesOrder);
                     }
-                    else if (items[0].Appointment.Session.Date == DateTime.Now.Date )
+                    else if (
+                        items[0].Appointment.Session.Date == DateTime.Now.Date && 
+                        items[0].SalesOrderItem.SalesOrder.Status == SalesOrderStatus.Placed
+                    )
                     {
                         items[0].SalesOrderItem.SalesOrder.Status = SalesOrderStatus.PendingDelivery;
                         _SalesOrderTable.Update(items[0].SalesOrderItem.SalesOrder);
                     }
-                    else if (items[0].Appointment.Session.EndTime.Hour >= DateTime.Now.Hour)
+                    else if ( 
+                        items[0].Appointment.Session.EndTime.Hour >= DateTime.Now.Hour &&
+                        (items[0].SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery || items[0].SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery)
+                    )
                     {
                         items[0].SalesOrderItem.SalesOrder.Status = SalesOrderStatus.Completed;
                         _SalesOrderTable.Update(items[0].SalesOrderItem.SalesOrder);
