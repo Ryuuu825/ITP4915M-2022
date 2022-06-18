@@ -40,6 +40,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     _CustomerTable.Add(cust);
                     CustomerId = cust.ID;
                 }
+
+                // get the order
+                int TotalQty = orderController.GetById(record._salesOrderId).GetAwaiter().GetResult().orderItems.Where(x => x.SupplierGoodsStockId == record._supplierGoodsStockId).First().NormalQuantity;
+                ConsoleLogger.Debug($"TotalQty: {TotalQty}");
+                if (TotalQty - record.Qty <= 0)
+                    throw new BadArgException("Invalid Quantity");
+
                 repository.Add(
                     new Data.Entity.DefectItemRecord
                     {
@@ -67,10 +74,22 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             catch(Microsoft.EntityFrameworkCore.DbUpdateException e)
             {
                 throw new Exceptions.BadForeignKeyException("The foreign key is not valid.");
-            }catch(Exception e)
+            }
+            catch (ICustException e)
+            {
+                throw e;
+            }
+            catch(Exception e)
             {
                 throw new BadArgException("The entry already exists.");
             }
+        }
+
+        public async Task<List<Data.Entity.DefectItemRecord>> GetPotentialRecord(string salesOrderId , string salesOrderItemId )
+        {
+            return (await repository.GetBySQLAsync(
+                "SELECT * FROM DefectItemRecord WHERE _salesOrderId = \"" + salesOrderId + "\" AND _salesOrderItemId = \"" + salesOrderItemId  + "\""
+            ));
         }
 
 

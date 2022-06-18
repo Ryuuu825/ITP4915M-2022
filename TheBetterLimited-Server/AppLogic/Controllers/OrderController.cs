@@ -149,8 +149,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     salesOrderItemDto.Name = goods.Name;
 
                     List<DefectItemRecord> potentientDefects = (await _DefectItemTable.GetBySQLAsync(
-                        "SELECT * FROM DefectItemRecord WHERE _salesOrderId = " + salesOrderItem._salesOrderId
+                       "SELECT * FROM DefectItemRecord WHERE _salesOrderId = \"" + salesOrders[i].ID + "\" AND _supplierGoodsStockId = \"" + salesOrderItem.SupplierGoodsStock.Id + "\""
                     ));
+                    ConsoleLogger.Debug("SELECT * FROM DefectItemRecord WHERE _salesOrderId = \"" + salesOrders[i].ID + "\" AND _supplierGoodsStockId = \"" + salesOrderItem.SupplierGoodsStock.Id + "\"");
                     List<DefectItemRecordOutDto> defectItems = new List<DefectItemRecordOutDto>();
                     foreach(var record in potentientDefects)
                     {
