@@ -700,7 +700,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         {
             var salesOrder = repository.GetById(id);
 
-            if (salesOrder.Status == SalesOrderStatus.Completed)
+            if (salesOrder.Status == SalesOrderStatus.Completed || salesOrder.Status == SalesOrderStatus.Cancelled)
             {
                 CleanOrder(id);
             }
