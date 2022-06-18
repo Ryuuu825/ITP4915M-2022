@@ -377,10 +377,18 @@ namespace TheBetterLimited_Server.Data
                 },
                 new Appointment
                 {
-                    ID = "999999999",
+                    ID = "000000000",
                     _sessionId = "999999999", // must be today
                     _departmentId = "300",
                     _teamId = "301",
+                    _customerId = "1000000006"
+                },
+                new Appointment
+                {
+                    ID = "000000001",
+                    _sessionId = "999999999", // must be today
+                    _departmentId = "700",
+                    _teamId = "701",
                     _customerId = "1000000006"
                 },
             };
@@ -424,7 +432,12 @@ namespace TheBetterLimited_Server.Data
                 new SalesOrderItem_Appointment
                 {
                     _salesOrderItemId = "1000000008",
-                    _appointmentId = "999999999"
+                    _appointmentId = "000000000"
+                },
+                new SalesOrderItem_Appointment
+                {
+                    _salesOrderItemId = "1000000008",
+                    _appointmentId = "000000001"
                 }
             };
         }

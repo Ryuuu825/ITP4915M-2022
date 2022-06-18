@@ -56,7 +56,6 @@ public static class ObjectExtension
 #if DEBUG
         foreach (var item in o.GetType().GetProperties())
         {
-            
             str.Append($"{item.Name} = {item.GetValue(o)}\n");
         }
 #endif

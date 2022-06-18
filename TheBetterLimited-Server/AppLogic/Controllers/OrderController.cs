@@ -69,6 +69,10 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
         public static void UpdateOrderStatus(SalesOrderItem_Appointment item , Data.Repositories.Repository<SalesOrder> _SalesOrderTable)
         {
+                if (item.Appointment is null || item.SalesOrderItem.BookingOrder is null)
+                {
+                    return;
+                }
                 if (
                     item.Appointment.Session.StartTime.Hour >= DateTime.Now.Hour &&
                     item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery
@@ -345,7 +349,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
             List<SalesOrderItem> salesOrderItems = new List<SalesOrderItem>();
 
-            
+            ConsoleLogger.Debug(order.Debug());
+
             foreach (var item in order.SalesOrderItems)
             {
 
