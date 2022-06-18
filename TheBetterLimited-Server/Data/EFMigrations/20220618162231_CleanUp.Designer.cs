@@ -11,7 +11,7 @@ using TheBetterLimited_Server.Data;
 namespace TheBetterLimited_Server.Data.EFMigrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220616125626_CleanUp")]
+    [Migration("20220618162231_CleanUp")]
     partial class CleanUp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -252,6 +252,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Property<int>("HandleStatus")
                         .HasColumnType("int");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<string>("Remark")
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
@@ -289,7 +292,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasKey("ID");
 
-                    b.HasAlternateKey("_salesOrderId", "_supplierGoodsStockId");
+                    b.HasAlternateKey("_salesOrderId", "_supplierGoodsStockId", "HandleStatus");
 
                     b.HasIndex("_creatorId");
 

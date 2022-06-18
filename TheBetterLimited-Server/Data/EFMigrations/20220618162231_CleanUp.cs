@@ -851,6 +851,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _supplierGoodsStockId = table.Column<string>(type: "varchar(9)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
                     _salesOrderId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     _creatorId = table.Column<string>(type: "char(10)", maxLength: 10, nullable: false)
@@ -871,7 +872,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_DefectItemRecord", x => x.ID);
-                    table.UniqueConstraint("AK_DefectItemRecord__salesOrderId__supplierGoodsStockId", x => new { x._salesOrderId, x._supplierGoodsStockId });
+                    table.UniqueConstraint("AK_DefectItemRecord__salesOrderId__supplierGoodsStockId_HandleS~", x => new { x._salesOrderId, x._supplierGoodsStockId, x.HandleStatus });
                     table.ForeignKey(
                         name: "FK_DefectItemRecord_Customer__customerId",
                         column: x => x._customerId,

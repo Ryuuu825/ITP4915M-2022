@@ -290,7 +290,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasKey("ID");
 
-                    b.HasAlternateKey("_salesOrderId", "_supplierGoodsStockId");
+                    b.HasAlternateKey("_salesOrderId", "_supplierGoodsStockId", "HandleStatus");
 
                     b.HasIndex("_creatorId");
 
