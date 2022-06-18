@@ -626,16 +626,6 @@ namespace TheBetterLimited.Views
             this.appointments = appointments;
         }
 
-        private void defectItemBtn_MouseHover(object sender, EventArgs e)
-        {
-            defectItemBtn.TextColor = Color.White;
-        }
-
-        private void defectItemBtn_MouseLeave(object sender, EventArgs e)
-        {
-            defectItemBtn.TextColor = defectItemBtn.BorderColor;
-        }
-
         private void OrderBtn_MouseHover(object sender, EventArgs e)
         {
             OrderBtn.TextColor = Color.White;

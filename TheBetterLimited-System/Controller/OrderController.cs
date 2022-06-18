@@ -16,7 +16,7 @@ namespace TheBetterLimited.Controller
             this.ControllerName = ControllerName;
         }
 
-        public RestResponse Delete(string id, string lang = "en")
+        public RestResponse Cancel(string id, string lang = "en")
         {
             var request = new RestRequest("/api/" + ControllerName + "/cancel/" + id, Method.Delete)
                         .AddHeader("Language", lang)

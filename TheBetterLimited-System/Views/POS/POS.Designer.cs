@@ -48,7 +48,6 @@
             this.line = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.POSActionGroup = new System.Windows.Forms.FlowLayoutPanel();
-            this.defectItemBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.OrderBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.settleAccBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -186,7 +185,7 @@
             this.loadPic.Image = global::TheBetterLimited.Properties.Resources.Loading_icon;
             this.loadPic.Location = new System.Drawing.Point(10, 110);
             this.loadPic.Name = "loadPic";
-            this.loadPic.Size = new System.Drawing.Size(410, 333);
+            this.loadPic.Size = new System.Drawing.Size(410, 374);
             this.loadPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.loadPic.TabIndex = 0;
             this.loadPic.TabStop = false;
@@ -199,7 +198,7 @@
             this.ProductInfoContainer.Location = new System.Drawing.Point(10, 110);
             this.ProductInfoContainer.Name = "ProductInfoContainer";
             this.ProductInfoContainer.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.ProductInfoContainer.Size = new System.Drawing.Size(410, 333);
+            this.ProductInfoContainer.Size = new System.Drawing.Size(410, 374);
             this.ProductInfoContainer.TabIndex = 0;
             // 
             // line
@@ -215,10 +214,10 @@
             // 
             this.panel1.Controls.Add(this.POSActionGroup);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(10, 443);
+            this.panel1.Location = new System.Drawing.Point(10, 484);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.panel1.Size = new System.Drawing.Size(410, 118);
+            this.panel1.Size = new System.Drawing.Size(410, 77);
             this.panel1.TabIndex = 8;
             // 
             // POSActionGroup
@@ -226,39 +225,14 @@
             this.POSActionGroup.AutoScroll = true;
             this.POSActionGroup.AutoSize = true;
             this.POSActionGroup.BackColor = System.Drawing.Color.White;
-            this.POSActionGroup.Controls.Add(this.defectItemBtn);
             this.POSActionGroup.Controls.Add(this.OrderBtn);
             this.POSActionGroup.Controls.Add(this.settleAccBtn);
             this.POSActionGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.POSActionGroup.Location = new System.Drawing.Point(0, 10);
             this.POSActionGroup.Name = "POSActionGroup";
             this.POSActionGroup.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
-            this.POSActionGroup.Size = new System.Drawing.Size(410, 108);
+            this.POSActionGroup.Size = new System.Drawing.Size(410, 67);
             this.POSActionGroup.TabIndex = 10;
-            // 
-            // defectItemBtn
-            // 
-            this.defectItemBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.defectItemBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.defectItemBtn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.defectItemBtn.BorderRadius = 5;
-            this.defectItemBtn.BorderSize = 2;
-            this.defectItemBtn.FlatAppearance.BorderSize = 0;
-            this.defectItemBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.defectItemBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.defectItemBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.defectItemBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.defectItemBtn.IsChecked = false;
-            this.defectItemBtn.Location = new System.Drawing.Point(13, 13);
-            this.defectItemBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.defectItemBtn.Name = "defectItemBtn";
-            this.defectItemBtn.Size = new System.Drawing.Size(165, 40);
-            this.defectItemBtn.TabIndex = 3;
-            this.defectItemBtn.Text = "Handle Defect Item";
-            this.defectItemBtn.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.defectItemBtn.UseVisualStyleBackColor = false;
-            this.defectItemBtn.MouseLeave += new System.EventHandler(this.defectItemBtn_MouseLeave);
-            this.defectItemBtn.MouseHover += new System.EventHandler(this.defectItemBtn_MouseHover);
             // 
             // OrderBtn
             // 
@@ -273,7 +247,7 @@
             this.OrderBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OrderBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.OrderBtn.IsChecked = false;
-            this.OrderBtn.Location = new System.Drawing.Point(188, 13);
+            this.OrderBtn.Location = new System.Drawing.Point(13, 13);
             this.OrderBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.OrderBtn.Name = "OrderBtn";
             this.OrderBtn.Size = new System.Drawing.Size(165, 40);
@@ -298,7 +272,7 @@
             this.settleAccBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settleAccBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.settleAccBtn.IsChecked = false;
-            this.settleAccBtn.Location = new System.Drawing.Point(13, 59);
+            this.settleAccBtn.Location = new System.Drawing.Point(188, 13);
             this.settleAccBtn.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.settleAccBtn.Name = "settleAccBtn";
             this.settleAccBtn.Size = new System.Drawing.Size(165, 40);
@@ -874,7 +848,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label AmountTitle;
         private System.Windows.Forms.Label TotalAmountTxt;
-        private CustomizeControl.RoundButton defectItemBtn;
         private CustomizeControl.RoundButton OrderBtn;
         private CustomizeControl.RoundButton settleAccBtn;
         private System.Windows.Forms.Splitter splitter1;

@@ -185,6 +185,12 @@
     <Compile Include="CustomizeControl\PaymentPicBox.Designer.cs">
       <DependentUpon>PaymentPicBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomizeControl\DisplayItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomizeControl\DisplayItem.Designer.cs">
+      <DependentUpon>DisplayItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="CustomizeControl\ProductInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,6 +206,7 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AppointmentInfo.cs" />
     <Compile Include="Models\CustomerInfo.cs" />
+    <Compile Include="Models\DefectItem.cs" />
     <Compile Include="Models\DepartmentEnum.cs" />
     <Compile Include="Models\GlobalsData.cs" />
     <Compile Include="Models\LocationEnum.cs" />
@@ -219,6 +226,24 @@
     <Compile Include="Utils\EnumExtension.cs" />
     <Compile Include="Utils\Random.cs" />
     <Compile Include="Utils\RestClientUtils.cs" />
+    <Compile Include="Views\Inventory\DefectiveItem-Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\DefectiveItem-Add.Designer.cs">
+      <DependentUpon>DefectiveItem-Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\DefectiveItem-Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\DefectiveItem-Details.Designer.cs">
+      <DependentUpon>DefectiveItem-Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\DefectiveItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\DefectiveItem.Designer.cs">
+      <DependentUpon>DefectiveItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Inventory\RestockRequest-Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -476,8 +501,20 @@
     <EmbeddedResource Include="CustomizeControl\PaymentPicBox.resx">
       <DependentUpon>PaymentPicBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomizeControl\DisplayItem.resx">
+      <DependentUpon>DisplayItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomizeControl\ProductInfo.resx">
       <DependentUpon>ProductInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\DefectiveItem-Add.resx">
+      <DependentUpon>DefectiveItem-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\DefectiveItem-Details.resx">
+      <DependentUpon>DefectiveItem-Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\DefectiveItem.resx">
+      <DependentUpon>DefectiveItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
@@ -901,6 +938,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-46.ico" />
+    <None Include="Resources\display.png" />
     <None Include="Resources\exchange24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

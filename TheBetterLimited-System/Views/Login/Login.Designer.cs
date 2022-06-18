@@ -40,7 +40,6 @@
             this.username = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.password = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.ChangePassword = new System.Windows.Forms.LinkLabel();
             this.loginBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.forgotPwd = new System.Windows.Forms.LinkLabel();
             this.Welcome = new System.Windows.Forms.Label();
@@ -123,7 +122,6 @@
             this.loginContainer.Controls.Add(this.username);
             this.loginContainer.Controls.Add(this.passwordLabel);
             this.loginContainer.Controls.Add(this.password);
-            this.loginContainer.Controls.Add(this.ChangePassword);
             this.loginContainer.Controls.Add(this.loginBtn);
             this.loginContainer.Controls.Add(this.forgotPwd);
             this.loginContainer.Controls.Add(this.Welcome);
@@ -222,24 +220,6 @@
             this.password.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.password.Texts = "Please input your password";
             this.password.UnderlinedStyle = false;
-            // 
-            // ChangePassword
-            // 
-            this.ChangePassword.ActiveLinkColor = System.Drawing.Color.Black;
-            this.ChangePassword.AutoSize = true;
-            this.ChangePassword.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.ChangePassword.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ChangePassword.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
-            this.ChangePassword.LinkColor = System.Drawing.Color.Black;
-            this.ChangePassword.Location = new System.Drawing.Point(75, 336);
-            this.ChangePassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.ChangePassword.Name = "ChangePassword";
-            this.ChangePassword.Size = new System.Drawing.Size(145, 23);
-            this.ChangePassword.TabIndex = 2;
-            this.ChangePassword.TabStop = true;
-            this.ChangePassword.Text = "Change password";
-            this.ChangePassword.VisitedLinkColor = System.Drawing.Color.Black;
-            this.ChangePassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ChangePassword_LinkClicked);
             // 
             // loginBtn
             // 
@@ -350,7 +330,6 @@
         private CustomizeControl.RoundButton loginBtn;
         private CustomizeControl.CustomizeTextbox password;
         private CustomizeControl.CustomizeTextbox username;
-        private System.Windows.Forms.LinkLabel ChangePassword;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.PictureBox showPwd;
     }
