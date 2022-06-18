@@ -84,8 +84,17 @@ namespace TheBetterLimited_Server.Data.Dto
     public class SalesOrderItemOutDto : SalesOrderItemInDto
     {
         public string Name { get; set; }
-        public string? _defectItemRecordId { get; set; }
-        public string? _defectItemRecordStatus { get; set; }
+        public int NormalQuantity { get; set; } // the quantity of the item which is not a defect
+        public List<DefectItemRecordOutDto>? DefectItemRecords { get; set; }
+    }
+
+    public class DefectItemRecordOutDto
+    {
+        public string Id { get; set; }
+        public string HandleStatus { get; set; }
+        public int qty { get; set; }
+        public string OrderStatus { get; set; }
+
     }
 
     public class AppointmentDto

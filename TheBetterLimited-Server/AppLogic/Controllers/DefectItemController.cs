@@ -7,12 +7,14 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private Data.Repositories.Repository<Data.Entity.DefectItemRecord> repository;
         private Data.Repositories.Repository<Data.Entity.Customer> _CustomerTable;
         private Data.Repositories.UserInfoRepository userInfo;
+        private AppLogic.Controllers.OrderController orderController;
         public DefectItemController(Data.DataContext db) 
         {
             this.db = db;
             repository = new Data.Repositories.Repository<Data.Entity.DefectItemRecord>(db);
             _CustomerTable = new Data.Repositories.Repository<Data.Entity.Customer>(db);
             userInfo = new Data.Repositories.UserInfoRepository(db);
+            orderController = new OrderController(db);
         }
 
         public void AddRefectItemRecord(string user , Data.Dto.DefectItemDto record)
@@ -52,9 +54,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         Remark = record.Remark,
                         HandleStatus = record.HandleStatus,
                         _customerId = CustomerId,
-                        CollectAddress = CollectAddress
+                        CollectAddress = CollectAddress,
+                        Quantity = record.Qty,
                     }
                 );
+
             }
             catch(MySqlConnector.MySqlException e)
             {

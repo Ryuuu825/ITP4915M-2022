@@ -131,29 +131,42 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 // tmp list to convert the sales order item to dto
                 List<SalesOrderItemOutDto> tmp = new List<SalesOrderItemOutDto>(salesOrderItemList.Count);
 
+                int TotalQty = 0;
+                int NormalQty = 0; // the item which are not defect 
                 // convert the sales order item to dto
                 foreach(var salesOrderItem in salesOrderItemList)
                 {
+                    TotalQty += salesOrderItem.Quantity;
+                    NormalQty += salesOrderItem.Quantity;
                     if (salesOrderItem.SaleOrderItem_Appointment is not null && salesOrderItem.SaleOrderItem_Appointment.Count() > 0)
                     {
                         UpdateOrderStatus(salesOrderItem.SaleOrderItem_Appointment[0] , repository);
                     }
-                    
 
                     SalesOrderItemOutDto salesOrderItemDto = salesOrderItem.TryCopy<SalesOrderItemOutDto>();
                     salesOrderItemDto.SupplierGoodsStockId = salesOrderItem._supplierGoodsStockId;
                     Goods goods = Helpers.Localizer.TryLocalize<Goods>(lang, salesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods);
                     salesOrderItemDto.Name = goods.Name;
 
-                    DefectItemRecord potentientDefects = (await _DefectItemTable.GetBySQLAsync(
+                    List<DefectItemRecord> potentientDefects = (await _DefectItemTable.GetBySQLAsync(
                         "SELECT * FROM DefectItemRecord WHERE _salesOrderId = " + salesOrderItem._salesOrderId
-                    )).FirstOrDefault();
-                    if (potentientDefects is not null)
+                    ));
+                    List<DefectItemRecordOutDto> defectItems = new List<DefectItemRecordOutDto>();
+                    foreach(var record in potentientDefects)
                     {
-                        salesOrderItemDto._defectItemRecordId = potentientDefects.ID;
-                        salesOrderItemDto._defectItemRecordStatus = potentientDefects.Status.ToString();
+                        NormalQty -= record.Quantity;
+                        defectItems.Add(
+                            new DefectItemRecordOutDto
+                            {
+                                Id = record.ID,
+                                HandleStatus = record.HandleStatus.ToString(),
+                                qty = record.Quantity,
+                                OrderStatus = record.Status.ToString()
+                            }
+                        );
                     }
-
+                    salesOrderItemDto.DefectItemRecords = defectItems;
+                    salesOrderItemDto.NormalQuantity = NormalQty;
                     tmp.Add(salesOrderItemDto);
                 }
 
