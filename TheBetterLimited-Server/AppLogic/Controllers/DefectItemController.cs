@@ -114,7 +114,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         Status = record.Status.ToString(),
                         GoodsName = localizeGoods.Name,
                         CollectAddress = record.CollectAddress,
-                        SupplierAddress = record.SupplierGoodsStock.Supplier_Goods.Supplier.Address,
+                        Supplier = record.SupplierGoodsStock.Supplier_Goods.Supplier.MapToDto(),
                         CreateAt = record.createdAt,
                         OperatedAt = record.updatedAt
                     }.MapToDto()
