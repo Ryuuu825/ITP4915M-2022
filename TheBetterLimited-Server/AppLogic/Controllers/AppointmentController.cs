@@ -78,6 +78,14 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
            public string salesOrderStatus  { get; set; }
         }
 
+        public async Task<List<Dto>> GetAllAppointment(string UserName )
+        {
+            
+            List<Appointment> res = repository.GetAll().ToList();
+            ConsoleLogger.Debug(res.Count());
+            return await ToDto(res);
+        }
+
         public async Task<List<Dto>> GetAppointment(string UserName , int day, int month)
         {
             Staff usr = (await _AccTable.GetBySQLAsync(
