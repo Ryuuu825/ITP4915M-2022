@@ -244,6 +244,12 @@
     <Compile Include="Views\Inventory\DefectiveItem.Designer.cs">
       <DependentUpon>DefectiveItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Inventory\DefectUpdateOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\DefectUpdateOption.Designer.cs">
+      <DependentUpon>DefectUpdateOption.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Inventory\RestockRequest-Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -515,6 +521,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\DefectiveItem.resx">
       <DependentUpon>DefectiveItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\DefectUpdateOption.resx">
+      <DependentUpon>DefectUpdateOption.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
@@ -938,6 +947,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-46.ico" />
+    <None Include="Resources\package.png" />
     <None Include="Resources\display.png" />
     <None Include="Resources\exchange24.png" />
   </ItemGroup>

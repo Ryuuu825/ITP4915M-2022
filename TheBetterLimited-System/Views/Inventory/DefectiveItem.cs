@@ -44,7 +44,16 @@ namespace TheBetterLimited.Views
          */
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            DeleteSelectedOrder();
+            Form option = Application.OpenForms["DefectUpdateOption"];
+            if (option != null)
+            {
+                option.Close();
+                option.Dispose();
+            }
+            DefectUpdateOption dfo = new DefectUpdateOption();
+            dfo.Show();
+            dfo.TopLevel = true;
+            dfo.OnExit += GetDefectItem;
         }
 
         private void RefreshBtn_Click(object sender, EventArgs e)
@@ -121,43 +130,18 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == OrderDataGrid.Columns["details"].Index)
             {
-                Form order = Application.OpenForms["OrderDetails"];
-                if (order != null)
+                Form defect = Application.OpenForms["DefectiveItem_Details"];
+                if (defect != null)
                 {
-                    order.Close();
-                    order.Dispose();
+                    defect.Close();
+                    defect.Dispose();
                 }
-                OrderDetails od = new OrderDetails();
+                DefectiveItem_Details df = new DefectiveItem_Details();
                 Console.WriteLine(defectList[e.RowIndex].ToString());
-                od.SetOrderData(defectList[e.RowIndex]);
-                od.Show();
-                od.TopLevel = true;
-                od.OnExit += GetDefectItem;
-            }
-
-            if (e.ColumnIndex == OrderDataGrid.Columns["print"].Index)
-            {
-                try
-                {
-                    WaitResult waitResult = new WaitResult();
-                    waitResult.Show();
-                    waitResult.TopMost = true;
-                    bgWorker.RunWorkerAsync(response = cbDefect.GetById(OrderDataGrid["id", e.RowIndex].Value.ToString()));
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                    {
-                        waitResult.Close();
-                        waitResult.Dispose();
-                        Receipt receipt = new Receipt(response.Content);
-                        receipt.ShowDialog();
-                        Form pos = Application.OpenForms["POS"];
-                        ((POS)pos).ClearOrder();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Create Unsuccessful");
-                }
-
+                //df.SetOrderData(defectList[e.RowIndex]);
+                df.Show();
+                df.TopLevel = true;
+                df.OnExit += GetDefectItem;
             }
 
             if (e.ColumnIndex == OrderDataGrid.Columns["delete"].Index)
