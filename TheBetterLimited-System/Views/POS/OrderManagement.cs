@@ -160,10 +160,6 @@ namespace TheBetterLimited.Views
 
             }
 
-            if (e.ColumnIndex == OrderDataGrid.Columns["delete"].Index)
-            {
-                DeleteOrder(e);
-            }
         }
 
         //search bar text changed event

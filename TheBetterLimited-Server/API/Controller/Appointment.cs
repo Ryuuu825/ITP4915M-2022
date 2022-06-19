@@ -18,7 +18,25 @@ namespace TheBetterLimited_Server.API.Controller
         [Authorize]
         public async Task<IActionResult> GetAppointment(int day , int month)
         {
-            return Ok(await ac.GetAppointment(User.Identity.Name , day, month));
+            if (day == 0 || month == 0)
+                return Ok(await ac.GetAllAppointment(User.Identity.Name));
+            else 
+                return Ok(await ac.GetAppointment(User.Identity.Name , day, month));
+        }
+
+
+        [HttpPut("assign/team/{id}")]
+        public async Task<IActionResult> AssignTeam(string id , [FromBody] string TeamId)
+        {
+            try 
+            {
+                ac.AssignTeam(id , TeamId);
+                return Ok();
+            }catch(ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
+
         }
     }
 }

@@ -48,7 +48,8 @@ public class DataContext : DbContext
         md.Entity<DefectItemRecord>()
             .HasOne(d => d.SupplierGoodsStock)
             .WithMany(sgs => sgs.DefectItemRecords)
-            .HasPrincipalKey(sgs => new { sgs._supplierGoodsId, sgs._locationId });
+            .HasPrincipalKey(sgs => sgs.Id)
+            .HasForeignKey(d => d._supplierGoodsStockId);
         
         // md.Entity<Supplier_Goods_Stock>()
         //     .HasOne(sgs => sgs.Supplier_Goods)
@@ -99,6 +100,15 @@ public class DataContext : DbContext
             .HasOne(soia => soia.Appointment)
             .WithMany(a => a.SaleOrderItem_Appointments)
             .HasForeignKey(soia => soia._appointmentId);
+        
+        md.Entity<Team>()   
+            .HasOne(t => t.Department)
+            .WithMany(d => d.teams)
+            .HasForeignKey(t => t._departmentId);
+        
+        md.Entity<DefectItemRecord>()
+            .HasAlternateKey( d => new { d._salesOrderId , d._supplierGoodsStockId  , d.HandleStatus});
+        
     }
     
     // create dbset for all entity in TheBetterLimited.Data.Entity

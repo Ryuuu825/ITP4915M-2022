@@ -38,6 +38,7 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "int(1)")]
         public GoodsStatus Status { get; set; }
 
+        [AppLogic.Attribute.NotMapToDto]
         public byte[]? Photo { get; set; }
 
         public virtual ICollection<Supplier_Goods> Supplier_Goods { get; set; }

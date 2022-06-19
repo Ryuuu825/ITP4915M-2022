@@ -56,7 +56,6 @@ public static class ObjectExtension
 #if DEBUG
         foreach (var item in o.GetType().GetProperties())
         {
-            
             str.Append($"{item.Name} = {item.GetValue(o)}\n");
         }
 #endif
@@ -77,7 +76,7 @@ public static class ObjectExtension
 
         foreach (var item in source.GetType().GetProperties())
         {
-            if (item.GetMethod.IsVirtual || item.PropertyType.IsInterface)
+            if (item.GetMethod.IsVirtual || item.PropertyType.IsInterface || item.PropertyType.IsAbstract || Attribute.IsDefined(item, typeof(AppLogic.Attribute.NotMapToDtoAttribute)))
             {
                 continue;
             }

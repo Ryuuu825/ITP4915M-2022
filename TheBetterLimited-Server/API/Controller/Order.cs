@@ -74,7 +74,21 @@ namespace TheBetterLimited_Server.API.Controller
         {
             try
             {
-                controller.CleanOrder(id);
+                controller.SoftDeleteOrder(id);
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpDelete("cancel/{id}")]
+        public async Task<IActionResult> Cancel(string id)
+        {
+            try
+            {
+                controller.CancelOrder(id);
                 return Ok();
             }
             catch (ICustException e)

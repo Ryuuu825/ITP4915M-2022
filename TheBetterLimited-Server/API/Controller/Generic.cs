@@ -48,10 +48,10 @@ namespace TheBetterLimited_Server.API.Controller
     {
         public Department(Data.DataContext db) : base(db) {}
     }
-    public class DefectItemRecord : APIControllerBase<Data.Entity.DefectItemRecord>
-    {
-        public DefectItemRecord(Data.DataContext db) : base(db) {}
-    }
+    // public class DefectItemRecord : APIControllerBase<Data.Entity.DefectItemRecord>
+    // {
+    //     public DefectItemRecord(Data.DataContext db) : base(db) {}
+    // }
     public class DisplayItem : APIControllerBase<Data.Entity.DisplayItem>
     {
         public DisplayItem(Data.DataContext db) : base(db) {}

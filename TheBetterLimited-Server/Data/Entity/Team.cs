@@ -15,8 +15,8 @@ namespace TheBetterLimited_Server.Data.Entity
         [ForeignKey("_departmentId")]
         public virtual Department Department { get; set; }
 
-        [MaxLength(10)]
-        [Column(TypeName = "varchar(10)")]
+        [MaxLength(30)]
+        [Column(TypeName = "varchar(30)")]
         // The name of the team, which will be prsent to the manager when assigning appointment to them.
         public string Name { get; set; }
     }

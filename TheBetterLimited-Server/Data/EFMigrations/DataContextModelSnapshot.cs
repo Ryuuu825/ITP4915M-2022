@@ -243,6 +243,16 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
+                    b.Property<string>("CollectAddress")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("HandleStatus")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<string>("Remark")
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
@@ -250,15 +260,12 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<string>("SupplierGoodsStock_locationId")
-                        .HasColumnType("char(3)");
-
-                    b.Property<string>("SupplierGoodsStock_supplierGoodsId")
-                        .HasColumnType("char(10)");
-
                     b.Property<string>("_creatorId")
                         .IsRequired()
                         .HasMaxLength(10)
+                        .HasColumnType("char(10)");
+
+                    b.Property<string>("_customerId")
                         .HasColumnType("char(10)");
 
                     b.Property<string>("_operatorId")
@@ -267,12 +274,13 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(10)");
 
                     b.Property<string>("_salesOrderId")
+                        .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
                     b.Property<string>("_supplierGoodsStockId")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(9)");
 
                     b.Property<DateTime>("createdAt")
                         .HasColumnType("datetime(6)");
@@ -282,13 +290,15 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasKey("ID");
 
+                    b.HasAlternateKey("_salesOrderId", "_supplierGoodsStockId", "HandleStatus");
+
                     b.HasIndex("_creatorId");
+
+                    b.HasIndex("_customerId");
 
                     b.HasIndex("_operatorId");
 
-                    b.HasIndex("_salesOrderId");
-
-                    b.HasIndex("SupplierGoodsStock_supplierGoodsId", "SupplierGoodsStock_locationId");
+                    b.HasIndex("_supplierGoodsStockId");
 
                     b.ToTable("DefectItemRecord");
                 });
@@ -916,7 +926,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasColumnType("char(9)");
 
                     b.Property<decimal?>("Price")
-                        .HasColumnType("DECIMAL(7,2)");
+                        .HasColumnType("DECIMAL(8,2)");
 
                     b.Property<string>("_goodsId")
                         .IsRequired()
@@ -970,6 +980,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasIndex("_locationId");
 
+                    b.HasIndex("_supplierGoodsId");
+
                     b.ToTable("Supplier_Goods_Stock");
                 });
 
@@ -981,8 +993,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("varchar(10)");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.Property<string>("_departmentId")
                         .IsRequired()
@@ -1127,6 +1139,10 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.Customer", "customer")
+                        .WithMany()
+                        .HasForeignKey("_customerId");
+
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Staff", "Operator")
                         .WithMany()
                         .HasForeignKey("_operatorId")
@@ -1135,12 +1151,16 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.SalesOrder", "SalesOrder")
                         .WithMany()
-                        .HasForeignKey("_salesOrderId");
+                        .HasForeignKey("_salesOrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Supplier_Goods_Stock", "SupplierGoodsStock")
                         .WithMany("DefectItemRecords")
-                        .HasForeignKey("SupplierGoodsStock_supplierGoodsId", "SupplierGoodsStock_locationId")
-                        .HasPrincipalKey("_supplierGoodsId", "_locationId");
+                        .HasForeignKey("_supplierGoodsStockId")
+                        .HasPrincipalKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Operator");
 
@@ -1149,6 +1169,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Navigation("SupplierGoodsStock");
 
                     b.Navigation("User");
+
+                    b.Navigation("customer");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Department", b =>
@@ -1526,7 +1548,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Team", b =>
                 {
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Department", "Department")
-                        .WithMany()
+                        .WithMany("teams")
                         .HasForeignKey("_departmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1564,6 +1586,8 @@ namespace TheBetterLimited_Server.Data.EFMigrations
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Department", b =>
                 {
                     b.Navigation("staffs");
+
+                    b.Navigation("teams");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Goods", b =>

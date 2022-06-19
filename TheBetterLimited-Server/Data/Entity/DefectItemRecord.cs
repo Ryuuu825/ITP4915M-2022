@@ -13,6 +13,8 @@ namespace TheBetterLimited_Server.Data.Entity
         [ForeignKey("_supplierGoodsStockId")]
         public virtual Supplier_Goods_Stock SupplierGoodsStock { get; set; }
 
+        public int Quantity { get; set; } = 1; // TODO: default value for updating database 
+
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]
         public string? _salesOrderId { get; set; }
@@ -43,8 +45,18 @@ namespace TheBetterLimited_Server.Data.Entity
         [MaxLength(50)]
         [Column(TypeName = "varchar(50)")]
         public string? Remark { get; set; }
-        
+        public DefectItemHandleStatus HandleStatus { get; set; }
+        public string? _customerId { get; set; }
 
+        [ForeignKey("_customerId")]
+        public virtual Customer? customer { get; set; }
+
+        public string CollectAddress { get; set; }
+    }
+    public enum DefectItemHandleStatus
+    {
+        Refund,
+        Exchange
     }
 
     public enum DefectItemRecordStatus 

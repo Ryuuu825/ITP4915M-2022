@@ -48,7 +48,6 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 var p = sgs.GetAll().Where(s => s.Id == id).FirstOrDefault();
                 Hashtable res = p.MapToDto();
-                ConsoleLogger.Debug("sfsfk" + p.Supplier_Goods.Goods.Id);
                 var goods = Helpers.Localizer.TryLocalize<Data.Entity.Goods>(Language , p.Supplier_Goods.Goods);
                 res.Add("GoodsName" , goods.Name);
                 return Ok(res);

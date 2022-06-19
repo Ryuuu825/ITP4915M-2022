@@ -45,7 +45,7 @@ namespace TheBetterLimited_Server.Data.Entity
         PendingDelivery,
         Delivering,
         Delivered,
-        ReadyToInstall,
+        PendingInstall,
         Installing,
         Installed,
         Completed,

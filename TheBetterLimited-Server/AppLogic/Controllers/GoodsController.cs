@@ -69,7 +69,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 ID = Helpers.Sql.PrimaryKeyGenerator.Get<Supplier_Goods>(db),
                 Price = (double) goods.Price
             };
-            ConsoleLogger.Debug("sfsfd" + supplierGoods.Debug());
             await _Supplier_GoodsTable.AddAsync(supplierGoods);
         }
 
@@ -112,7 +111,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         GoodsStatus = localizedEntry.Status,
                         StockLevel = GetGoodsStockOutDtoAsync(user , supplierGoods , localizedEntry , lang).Result,
                         Description = localizedEntry.Description
-
                     }.MapToDto() // convert the object to hashmap
                 );
             }
@@ -237,6 +235,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         public async Task AddImage(string id , byte[] image , string lang = "en")
         {
             var entry = await _GoodsTable.GetByIdAsync(id);
+            if (entry is null)
+                throw new BadArgException("Invalid Id");
             entry.Photo = image;
 
             try

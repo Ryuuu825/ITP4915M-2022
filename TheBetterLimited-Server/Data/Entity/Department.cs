@@ -20,5 +20,6 @@ namespace TheBetterLimited_Server.Data.Entity
         public virtual Budget? budget { get; set; }
 
         public virtual ICollection<Staff> staffs { get; set; }
+        public virtual ICollection<Team> teams { get; set; }
     }
 }

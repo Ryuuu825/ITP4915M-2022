@@ -24,7 +24,7 @@ namespace TheBetterLimited_Server.Data.Entity
         [ForeignKey("_goodsId")]
         public virtual Goods Goods { get; set; }
 
-        [Column(TypeName = "DECIMAL(7,2)")]
+        [Column(TypeName = "DECIMAL(8,2)")]
         public double? Price { get; set; }
 
         public virtual ICollection<Supplier_Goods_Stock> Supplier_Goods_Stocks { get; set; }
