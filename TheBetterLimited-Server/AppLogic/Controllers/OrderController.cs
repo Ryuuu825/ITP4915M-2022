@@ -3,7 +3,7 @@ using TheBetterLimited_Server.Data.Entity;
 
 namespace TheBetterLimited_Server.AppLogic.Controllers
 {
-    public class OrderController :  IDisposable
+    public class OrderController 
     {
         private readonly Data.Repositories.Repository<SalesOrderItem> _SalesOrderItemTable;
         private readonly Data.Repositories.Repository<SalesOrder> repository;
@@ -42,29 +42,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _SalesOrderItem_AppointmentTable = new Data.Repositories.Repository<SalesOrderItem_Appointment>(db);
 
             this.db = db;
-        }
-
-        ~OrderController()
-        {
-            // Dispose();
-        }
-
-        public void Dispose()
-        {
-            // _SalesOrderItemTable.Dispose();
-            // _AppointmentTable.Dispose();
-            // _BookingOrderTable.Dispose();
-            // _Supplier_Goods_StockTable.Dispose();
-            // _StaffTable.Dispose();
-            // _TransactionTable.Dispose();
-            // _StoreTable.Dispose();
-            // _AccountTable.Dispose();
-            // _CustomerTable.Dispose();
-            // _CustomerTable.Dispose();
-            // _SessionTable.Dispose();
-            // _SalesOrderItem_AppointmentTable.Dispose();
-
-            // db.Database.CloseConnection();
         }
 
         public static void UpdateOrderStatus(SalesOrderItem_Appointment item , Data.Repositories.Repository<SalesOrder> _SalesOrderTable)
@@ -492,7 +469,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             else if (isAppointment)
             {
 
-                newOrder.Status = SalesOrderStatus.PendingDelivery;
                 repository.Update(newOrder);
                 
                 if(order.Appointments.Count == 1)
