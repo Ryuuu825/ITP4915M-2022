@@ -89,6 +89,11 @@ namespace TheBetterLimited.Views
                         Receipt receipt = new Receipt(response.Content);
                         receipt.ShowDialog();
                         ClearForm();
+                    }else
+                    {
+                        waitResult.Close();
+                        waitResult.Dispose();
+                        MessageBox.Show("Sorry, an error occurred in server");
                     }
                 }
                 catch (Exception ex)

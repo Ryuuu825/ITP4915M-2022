@@ -59,10 +59,10 @@ namespace TheBetterLimited.Views
             if (AppointmentDataGrid.Columns[e.ColumnIndex].Name == "status")
             {
                 e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold);
-                if (e.Value.ToString().Equals("PendingDelivery") || e.Value.ToString().Equals("PendingInstall"))
+                if (e.Value.ToString().Equals("Delivered") || e.Value.ToString().Equals("Completed"))
                 {
-                    e.CellStyle.ForeColor = Color.Orange;
-                    e.CellStyle.SelectionForeColor = Color.Orange;
+                    e.CellStyle.ForeColor = Color.SeaGreen;
+                    e.CellStyle.SelectionForeColor = Color.SeaGreen;
                 }
                 else if (e.Value.ToString().Equals("Installing") || e.Value.ToString().Equals("Delivering"))
                 {
@@ -71,8 +71,8 @@ namespace TheBetterLimited.Views
                 }
                 else
                 {
-                    e.CellStyle.ForeColor = Color.SeaGreen;
-                    e.CellStyle.SelectionForeColor = Color.SeaGreen;
+                    e.CellStyle.ForeColor = Color.Orange;
+                    e.CellStyle.SelectionForeColor = Color.Orange;
                 }
                 var reg = @"(?=[A-Z])";
                 var status = Regex.Split(e.Value.ToString(), reg);
@@ -223,13 +223,14 @@ namespace TheBetterLimited.Views
                 JArray appointments = JArray.Parse(response.Content);
                 foreach (JObject a in appointments)
                 {
+                    Console.WriteLine(a);
                     var row = dt.NewRow();
                     row["Id"] = a["appointmentId"].ToString();
                     row["time"] = ((DateTime)a["startTime"]).ToString("HH:mm") + " - " + ((DateTime)a["endTime"]).ToString("HH:mm");
                     row["address"] = a["customer"]["address"].ToString();
                     if(((JToken)a["team"]).Type != JTokenType.Null)
                     {
-                        row["teamId"] = a["team"]["id"];
+                        row["teamId"] = a["team"]["Name"];
                     }
                     row["orderId"] = a["orderId"];
                     row["status"] = a["salesOrderStatus"].ToString();
@@ -273,7 +274,7 @@ namespace TheBetterLimited.Views
         {
             DeliveryDatePicker.MinDate = new DateTime(DateTime.Now.Year,1,1);
             DeliveryDatePicker.MaxDate = DateTime.Now.AddDays(29);
-            DeliveryDatePicker.Value = DateTime.Now.AddDays(1);
+            DeliveryDatePicker.Value = DateTime.Now;
         }
 
         private void DeliveryDatePicker_ValueChanged(object sender, EventArgs e)

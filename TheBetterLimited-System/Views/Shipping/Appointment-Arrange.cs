@@ -31,11 +31,11 @@ namespace TheBetterLimited.Views
         public Appointment_Arrange()
         {
             InitializeComponent();
-            if(GlobalsData.currentUser["department"] == "Inventory")
+            if (GlobalsData.currentUser["department"] == "Inventory")
             {
                 foreach (int item in Enum.GetValues(typeof(TeamEnum)))
                 {
-                    if(item > 300 && item < 400)
+                    if (item > 300 && item < 400)
                         TeamIDCombo.Items.Add(item.ToString());
                 }
             }
@@ -45,6 +45,13 @@ namespace TheBetterLimited.Views
                 {
                     if (item > 700 && item < 800)
                         TeamIDCombo.Items.Add(item.ToString());
+                }
+            }
+            else if (GlobalsData.currentUser["department"] == "Admin")
+            {
+                foreach (int item in Enum.GetValues(typeof(TeamEnum)))
+                {
+                    TeamIDCombo.Items.Add(item.ToString());
                 }
             }
         }
@@ -67,7 +74,7 @@ namespace TheBetterLimited.Views
             var teamId = TeamIDCombo.Items.ToString();
             try
             {
-                if (appointmentIds!= null && appointmentIds.Count > 0)
+                if (appointmentIds != null && appointmentIds.Count > 0)
                 {
                     foreach (var item in appointmentIds)
                     {

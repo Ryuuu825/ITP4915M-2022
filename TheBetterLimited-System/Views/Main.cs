@@ -133,7 +133,7 @@ namespace TheBetterLimited.Views
         }
 
         private void Home_Click(object sender, EventArgs e)
-        {   
+        {
             change_MenuButton_style(sender);
             openChildForm(new Home());
         }
@@ -142,13 +142,18 @@ namespace TheBetterLimited.Views
         {
             change_MenuButton_style(sender);
             StockContainer.Show();
-            if (GlobalsData.currentUser["department"].Equals("Inventory")|| GlobalsData.currentUser["department"].Equals("Purchase"))
+            var dept = GlobalsData.currentUser["department"];
+            if (dept.Equals("Admin") || dept.Equals("Inventory") || dept.Equals("Purchase"))
             {
                 RestockContainer.Show();
             }
-            if (GlobalsData.currentUser["department"].Equals("Sales") && position.Equals("Manager"))
+            if (dept.Equals("Sales") && position.Equals("Manager"))
             {
                 RestockContainer.Show();
+            }
+            if (dept.Equals("Admin") || dept.Equals("Sales") || dept.Equals("Inventory") || dept.Equals("Account"))
+            {
+                DefectItemContainer.Show();
             }
             subSidebarTimer.Start();
         }
@@ -156,7 +161,9 @@ namespace TheBetterLimited.Views
         private void Workman_Click(object sender, EventArgs e)
         {
             change_MenuButton_style(sender);
-            AppointmentContainer.Show();
+            /*AppointmentContainer.Show();
+            subSidebarTimer.Start();*/
+            openChildForm(new Appointment());
             subSidebarTimer.Start();
         }
 
@@ -170,6 +177,7 @@ namespace TheBetterLimited.Views
             change_MenuButton_style(sender);
             subSidebarTimer.Start();
         }
+
         private void User_Click(object sender, EventArgs e)
         {
             change_MenuButton_style(sender);
@@ -261,7 +269,7 @@ namespace TheBetterLimited.Views
             openChildForm(new Goods());
             subSidebarTimer.Start();
         }
-        
+
         //Draw a circle icon
         private Image CutEllipse(Image img, Rectangle rec, Size size)
         {
@@ -284,7 +292,7 @@ namespace TheBetterLimited.Views
             gp.AddEllipse(UserIcon.ClientRectangle);
             Region region = new Region(gp);
             UserIcon.Region = region;
-            Pen pen = new Pen(Color.FromArgb(64,64,64), 1);
+            Pen pen = new Pen(Color.FromArgb(64, 64, 64), 1);
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.DrawPath(pen, gp);
             gp.Dispose();
@@ -324,6 +332,12 @@ namespace TheBetterLimited.Views
         private void accountBtn_Click(object sender, EventArgs e)
         {
             openChildForm(new UserManagement());
+            subSidebarTimer.Start();
+        }
+
+        private void DefectItemBtn_Click(object sender, EventArgs e)
+        {
+            openChildForm(new DefectiveItem());
             subSidebarTimer.Start();
         }
     }

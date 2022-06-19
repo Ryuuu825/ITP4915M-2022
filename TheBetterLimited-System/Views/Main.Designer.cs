@@ -59,8 +59,8 @@
             this.staffBtn = new System.Windows.Forms.Button();
             this.AccountContainer = new System.Windows.Forms.Panel();
             this.accountBtn = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button13 = new System.Windows.Forms.Button();
+            this.DefectItemContainer = new System.Windows.Forms.Panel();
+            this.defectItemBtn = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button15 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -103,7 +103,7 @@
             this.RestockContainer.SuspendLayout();
             this.StaffContainer.SuspendLayout();
             this.AccountContainer.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.DefectItemContainer.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -424,7 +424,7 @@
             this.subSidebar.Controls.Add(this.RestockContainer);
             this.subSidebar.Controls.Add(this.StaffContainer);
             this.subSidebar.Controls.Add(this.AccountContainer);
-            this.subSidebar.Controls.Add(this.panel5);
+            this.subSidebar.Controls.Add(this.DefectItemContainer);
             this.subSidebar.Controls.Add(this.panel6);
             this.subSidebar.Controls.Add(this.panel7);
             this.subSidebar.Controls.Add(this.panel1);
@@ -542,30 +542,31 @@
             this.accountBtn.UseVisualStyleBackColor = true;
             this.accountBtn.Click += new System.EventHandler(this.accountBtn_Click);
             // 
-            // panel5
+            // DefectItemContainer
             // 
-            this.panel5.Controls.Add(this.button13);
-            this.panel5.Location = new System.Drawing.Point(0, 434);
-            this.panel5.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 58);
-            this.panel5.TabIndex = 7;
-            this.panel5.Visible = false;
+            this.DefectItemContainer.Controls.Add(this.defectItemBtn);
+            this.DefectItemContainer.Location = new System.Drawing.Point(0, 434);
+            this.DefectItemContainer.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.DefectItemContainer.Name = "DefectItemContainer";
+            this.DefectItemContainer.Size = new System.Drawing.Size(200, 58);
+            this.DefectItemContainer.TabIndex = 7;
+            this.DefectItemContainer.Visible = false;
             // 
-            // button13
+            // defectItemBtn
             // 
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
-            this.button13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button13.Location = new System.Drawing.Point(0, 0);
-            this.button13.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(200, 50);
-            this.button13.TabIndex = 2;
-            this.button13.Text = "submenu";
-            this.button13.UseVisualStyleBackColor = true;
+            this.defectItemBtn.FlatAppearance.BorderSize = 0;
+            this.defectItemBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.defectItemBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.defectItemBtn.Font = new System.Drawing.Font("Segoe UI", 12.10084F);
+            this.defectItemBtn.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.defectItemBtn.Location = new System.Drawing.Point(0, 0);
+            this.defectItemBtn.Margin = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.defectItemBtn.Name = "defectItemBtn";
+            this.defectItemBtn.Size = new System.Drawing.Size(200, 50);
+            this.defectItemBtn.TabIndex = 2;
+            this.defectItemBtn.Text = "Defect Item";
+            this.defectItemBtn.UseVisualStyleBackColor = true;
+            this.defectItemBtn.Click += new System.EventHandler(this.DefectItemBtn_Click);
             // 
             // panel6
             // 
@@ -998,7 +999,7 @@
             this.RestockContainer.ResumeLayout(false);
             this.StaffContainer.ResumeLayout(false);
             this.AccountContainer.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
+            this.DefectItemContainer.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -1068,8 +1069,8 @@
         private System.Windows.Forms.Button staffBtn;
         private System.Windows.Forms.Panel AccountContainer;
         private System.Windows.Forms.Button accountBtn;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Panel DefectItemContainer;
+        private System.Windows.Forms.Button defectItemBtn;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Panel panel7;

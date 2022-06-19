@@ -18,7 +18,7 @@ using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class OrderManagement : Form
+    public partial class DefectiveItem : Form
     {
         private UserController uc = new UserController();
         private DataTable dt = new DataTable();
@@ -27,16 +27,16 @@ namespace TheBetterLimited.Views
         private DialogResult choose;
         private RestResponse response;
         private bool isSawDetails = false;
-        private ControllerBase cbOrder = new OrderController("Order");
+        private ControllerBase cbDefect = new OrderController("DefectItem");
         private string _storeId;
-        private List<JObject> orderList = new List<JObject>();
+        private List<JObject> defectList = new List<JObject>();
         private BackgroundWorker bgWorker = new BackgroundWorker();
 
-        public OrderManagement()
+        public DefectiveItem()
         {
             InitializeComponent();
             InitDataTable();
-            GetOrder();//init table
+            GetDefectItem();//init table
         }
 
         /*
@@ -50,7 +50,7 @@ namespace TheBetterLimited.Views
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.Invalidate();
-            GetOrder();
+            GetDefectItem();
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace TheBetterLimited.Views
             if (OrderDataGrid.Columns[e.ColumnIndex].Name == "status")
             {
                 e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                if (e.Value.Equals("Cancelled"))
+                if (e.Value.Equals("Canceled"))
                 {
                     e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
@@ -128,11 +128,11 @@ namespace TheBetterLimited.Views
                     order.Dispose();
                 }
                 OrderDetails od = new OrderDetails();
-                Console.WriteLine(orderList[e.RowIndex].ToString());
-                od.SetOrderData(orderList[e.RowIndex]);
+                Console.WriteLine(defectList[e.RowIndex].ToString());
+                od.SetOrderData(defectList[e.RowIndex]);
                 od.Show();
                 od.TopLevel = true;
-                od.OnExit += GetOrder;
+                od.OnExit += GetDefectItem;
             }
 
             if (e.ColumnIndex == OrderDataGrid.Columns["print"].Index)
@@ -142,7 +142,7 @@ namespace TheBetterLimited.Views
                     WaitResult waitResult = new WaitResult();
                     waitResult.Show();
                     waitResult.TopMost = true;
-                    bgWorker.RunWorkerAsync(response = cbOrder.GetById(OrderDataGrid["id", e.RowIndex].Value.ToString()));
+                    bgWorker.RunWorkerAsync(response = cbDefect.GetById(OrderDataGrid["id", e.RowIndex].Value.ToString()));
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         waitResult.Close();
@@ -169,19 +169,19 @@ namespace TheBetterLimited.Views
         //search bar text changed event
         private void SearchBarTxt__TextChanged(object sender, EventArgs e)
         {
-            GetOrder();
+            GetDefectItem();
         }
 
         private void InitDataTable()
         {
-            dt.Columns.Add("orderID");
-            dt.Columns.Add("store");
+            dt.Columns.Add("id");
+            dt.Columns.Add("collectAddress");
             dt.Columns.Add("creator");
             dt.Columns.Add("operator");
             dt.Columns.Add("createAt");
             dt.Columns.Add("updateAt");
-            dt.Columns.Add("total");
-            dt.Columns.Add("paid");
+            dt.Columns.Add("goodsName");
+            dt.Columns.Add("qty");
             dt.Columns.Add("status");
         }
 
@@ -203,36 +203,36 @@ namespace TheBetterLimited.Views
         }
 
         //Get Order
-        public void GetOrder()
+        public void GetDefectItem()
         {
             dt.Clear();
-            orderList.Clear();
+            defectList.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
             {
-                response = cbOrder.GetAll();
+                response = cbDefect.GetAll();
             }
-            else
+            /*else
             {
                 string str = "ID:" + this.SearchBarTxt.Texts + "|_creatorId:" + this.SearchBarTxt.Texts
                             + "|Status:" + this.SearchBarTxt.Texts + "|createdAt:" + this.SearchBarTxt.Texts;
-                response = cbOrder.GetByQueryString(str);
-            }
+                response = cbDefect.GetByQueryString(str);
+            }*/
             try
             {
                 JArray orders = JArray.Parse(response.Content);
                 foreach (JObject o in orders)
                 {
-                    orderList.Add(o);
+                    defectList.Add(o);
                     var row = dt.NewRow();
-                    row["orderID"] = o["id"].ToString();
-                    row["store"] = o["store"]["location"]["name"].ToString();
+                    row["id"] = o["Id"].ToString();
+                    row["collectAddress"] = o["CollectAddress"].ToString();
                     row["creator"] = o["_creatorId"].ToString();
                     row["operator"] = o["_operatorId"].ToString();
-                    row["createAt"] = ((DateTime)o["createAt"]).ToString("g");
-                    row["updateAt"] = ((DateTime)o["updateAt"]).ToString("g");
-                    row["total"] = String.Format("{0:C2}", o["total"]);
-                    row["paid"] = String.Format("{0:C2}", o["paid"]); ;
-                    row["status"] = o["status"].ToString();
+                    row["createAt"] = ((DateTime)o["CreateAt"]).ToString("g");
+                    row["updateAt"] = ((DateTime)o["OperatedAt"]).ToString("g");
+                    row["goodsName"] = o["GoodsName"].ToString();
+                    //row["paid"] = String.Format("{0:C2}", o["paid"]); ;
+                    row["status"] = o["Status"].ToString();
                     dt.Rows.Add(row);
                 }
                 bs.DataSource = dt;
@@ -259,14 +259,14 @@ namespace TheBetterLimited.Views
                         int countDeleted = 0;
                         foreach (string uid in selecteOrderId)
                         {
-                            response = cbOrder.Delete(uid);
+                            response = cbDefect.Delete(uid);
                             if (response.StatusCode != System.Net.HttpStatusCode.OK)
                             {
                                 throw new Exception(response.ErrorMessage);
                             }
                         }
                         MessageBox.Show("The " + selecteOrderId.Count + " order(s) have been deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetOrder();
+                        GetDefectItem();
                     }catch (Exception ex)
                     {
                         MessageBox.Show("Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -282,7 +282,35 @@ namespace TheBetterLimited.Views
         //Delete Order
         public void DeleteOrder(DataGridViewCellEventArgs e)
         {
-            
+            if (OrderDataGrid.Rows[e.RowIndex].Cells["status"].Value.Equals("Pending Delivery"))
+            {
+                choose = MessageBox.Show("Do you really want to cancel the " + OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                if (choose == DialogResult.Yes)
+                {
+                    try
+                    {
+                        response = cbDefect.Delete(OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            MessageBox.Show("The order " + OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value + " have been deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                            GetDefectItem();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                        MessageBox.Show("Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+            }else if ((OrderDataGrid.Rows[e.RowIndex].Cells["status"].Value.Equals("Completed")))
+            {
+                MessageBox.Show("The order has completed. \n Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }else
+            {
+                MessageBox.Show("The order has been processed. \nCannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
