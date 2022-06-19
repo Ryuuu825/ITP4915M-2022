@@ -55,6 +55,7 @@ namespace TheBetterLimited.Views
             this.orderData = orderData;
             OrderInfoBox.Enabled = false;
             OrderDataGrid.ReadOnly = true;
+            DeleteBtn.Visible = false;
             SaveBtn.Text = "Arrange";
             SaveBtn.Click -= new EventHandler(SaveBtn_Click);
             SaveBtn.Click += new EventHandler(ArrangeBtn_Click);
