@@ -164,7 +164,6 @@ namespace TheBetterLimited.Views
             /*AppointmentContainer.Show();
             subSidebarTimer.Start();*/
             openChildForm(new Appointment());
-            subSidebarTimer.Start();
         }
 
         private void Accounting_Click(object sender, EventArgs e)

@@ -252,7 +252,7 @@
             this.forgotPwd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.forgotPwd.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.forgotPwd.LinkColor = System.Drawing.Color.Black;
-            this.forgotPwd.Location = new System.Drawing.Point(334, 336);
+            this.forgotPwd.Location = new System.Drawing.Point(317, 336);
             this.forgotPwd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.forgotPwd.Name = "forgotPwd";
             this.forgotPwd.Size = new System.Drawing.Size(144, 23);

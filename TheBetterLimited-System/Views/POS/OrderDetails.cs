@@ -73,14 +73,16 @@ namespace TheBetterLimited.Views
             orderTable.Columns.Add("install");
             orderTable.Columns.Add("booking");
             orderTable.Columns.Add("status");
+            orderTable.Columns.Add("defect");
             orderTable.Columns["install"].DataType = System.Type.GetType("System.Byte[]");
+            orderTable.Columns["defect"].DataType = System.Type.GetType("System.Byte[]");
             //
             foreach (var item in ((JArray)orderData["orderItems"]))
             {
                 var row = orderTable.NewRow();
                 row["goodsName"] = item["name"].ToString();
                 row["supplierGoodsStockId"] = item["supplierGoodsStockId"].ToString();
-                row["quantity"] = item["normalQuantity"].ToString();
+                row["quantity"] = (int)item["normalQuantity"];
                 row["price"] = item["price"].ToString();
                 if (needInstallItem.Count != 0)
                 {
@@ -100,7 +102,11 @@ namespace TheBetterLimited.Views
                 {
                     row["install"] = new ImageConverter().ConvertTo(Properties.Resources.square24, System.Type.GetType("System.Byte[]"));
                 }
-                orderTable.Rows.Add(row);
+                row["defect"] = new ImageConverter().ConvertTo(Properties.Resources.exchange24, System.Type.GetType("System.Byte[]"));
+                if ((int)item["normalQuantity"] > 0)
+                {
+                    orderTable.Rows.Add(row);
+                }
                 if (item["defectItemRecords"].Type != JTokenType.Null)
                 {
                     foreach (var defectitem in ((JArray)item["defectItemRecords"]))
@@ -288,14 +294,14 @@ namespace TheBetterLimited.Views
         private void DeliveryDatePicker_ValueChanged(object sender, EventArgs e)
         {
             if (DeliveryDatePicker.Value.DayOfWeek == DayOfWeek.Sunday) return;
-            InstallDatePicker.MinDate = DeliveryDatePicker.Value;
+            if (needInstall) InstallDatePicker.MinDate = DeliveryDatePicker.Value;
             InitDeliveryComboBox();
         }
 
         private void DeliverySessionCombo_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             deliverySessionId = deliverySessions[DeliverySessionCombo.SelectedIndex].ID1;
-            InitInstallComboBox();
+            if (needInstall) InitInstallComboBox();
         }
 
         private void ArrangeBtn_Click(object sender, EventArgs e)
@@ -468,13 +474,10 @@ namespace TheBetterLimited.Views
         {
             if (e.ColumnIndex == OrderDataGrid.Columns["defect"].Index)
             {
-                DefectItem(e);
+                Console.WriteLine(Convert.ToInt32(OrderDataGrid["defect", e.RowIndex].Tag));
+                if (Convert.ToInt32(OrderDataGrid["defect", e.RowIndex].Tag) != 1)
+                    DefectItem(e);
             }
-
-            /* if (e.ColumnIndex == OrderDataGrid.Columns["delete"].Index)
-             {
-                 DeleteOrder(e);
-             }*/
         }
 
         private void DefectItem(DataGridViewCellEventArgs e)
@@ -565,11 +568,13 @@ namespace TheBetterLimited.Views
                 {
                     e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
+                    OrderDataGrid.Rows[e.RowIndex].Cells["defect"].Tag = 1;
                 }
                 else if (e.Value.Equals("Exchange"))
                 {
                     e.CellStyle.ForeColor = Color.Orange;
                     e.CellStyle.SelectionForeColor = Color.Orange;
+                    OrderDataGrid.Rows[e.RowIndex].Cells["defect"].Tag = 1;
                 }
             }
         }
