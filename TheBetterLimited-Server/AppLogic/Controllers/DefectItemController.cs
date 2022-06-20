@@ -116,7 +116,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         CollectAddress = record.CollectAddress,
                         Supplier = record.SupplierGoodsStock.Supplier_Goods.Supplier.MapToDto(),
                         CreateAt = record.createdAt,
-                        OperatedAt = record.updatedAt
+                        OperatedAt = record.updatedAt,
+                        StoreName = record.SalesOrder.Store.Location.Name
                     }.MapToDto()
                 );
             }

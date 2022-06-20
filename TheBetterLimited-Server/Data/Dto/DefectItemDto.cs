@@ -19,10 +19,12 @@ namespace TheBetterLimited_Server.Data.Dto
         public string Status { get; set ; }
         public string GoodsName { get; set; }
         public string CollectAddress { get; set; }
+        public string? StoreName { get; set; }
         public Hashtable Supplier { get; set; }
         public DateTime CreateAt { get; set; }
         public DateTime OperatedAt { get; set; }
         public int Qty { get; set; }
+
     }
 
     public class DefectItemUpdateStatusDto
