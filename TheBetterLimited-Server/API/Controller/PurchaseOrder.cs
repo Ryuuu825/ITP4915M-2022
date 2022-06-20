@@ -47,7 +47,20 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 return StatusCode(e.ReturnCode , e.GetHttpResult());
             }
-            
+        }
+        
+        [HttpDelete]
+        public IActionResult Delete([FromHeader] string id)
+        {
+            try
+            {
+                controller.Delete(id);
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
         }
     }
 }

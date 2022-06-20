@@ -133,5 +133,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
             repository.Add(entry);
         }
+
+        public void Delete(string id)
+        {
+            var entry = repository.GetById(id);
+            repository.Delete(entry);
+        }
     }
 }
