@@ -15,6 +15,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -31,7 +32,6 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -262,6 +262,12 @@
     </Compile>
     <Compile Include="Views\POS\DefectItem-Add.Designer.cs">
       <DependentUpon>DefectItem-Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase\PurchaseOrder-Create.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Purchase\PurchaseOrder-Create.Designer.cs">
+      <DependentUpon>PurchaseOrder-Create.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\User\Staff-Add.cs">
       <SubType>Form</SubType>
@@ -531,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\POS\DefectItem-Add.resx">
       <DependentUpon>DefectItem-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\PurchaseOrder-Create.resx">
+      <DependentUpon>PurchaseOrder-Create.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\Staff-Add.resx">
       <DependentUpon>Staff-Add.cs</DependentUpon>

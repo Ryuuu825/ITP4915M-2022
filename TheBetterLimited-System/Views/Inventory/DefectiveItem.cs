@@ -132,8 +132,8 @@ namespace TheBetterLimited.Views
                     defect.Close();
                     defect.Dispose();
                 }
-                DefectiveItem_Details df = new DefectiveItem_Details(defectList[e.RowIndex]);
                 Console.WriteLine(defectList[e.RowIndex].ToString());
+                DefectiveItem_Details df = new DefectiveItem_Details(defectList[e.RowIndex]);
                 df.Show();
                 df.TopLevel = true;
                 df.OnExit += GetDefectItem;

@@ -532,6 +532,10 @@ namespace TheBetterLimited.Views
         private Dictionary<string, object> CombineData()
         {
             Dictionary<string, object> data = new Dictionary<string, object>();
+            foreach (OrderItem item in orderItems)
+            {
+                item.Price *= (100.0 - discount) / 100;
+            }
             data.Add("salesOrderItems", orderItems);
             if (appointments != null)
             {
