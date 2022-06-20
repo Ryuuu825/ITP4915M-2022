@@ -24,4 +24,10 @@ namespace TheBetterLimited_Server.Data.Dto
         public DateTime OperatedAt { get; set; }
         public int Qty { get; set; }
     }
+
+    public class DefectItemUpdateStatusDto
+    {
+        public string Id { get; set; }
+        public Data.Entity.DefectItemRecordStatus Status { get; set; }
+    }
 }

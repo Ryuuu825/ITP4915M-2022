@@ -124,6 +124,19 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return res;
         }
 
+
+        public void UpdateDefectItemStatus(string username , Data.Dto.DefectItemUpdateStatusDto status)
+        {
+            var record = repository.GetById(status.Id);
+            if (record is null)
+            {
+                throw new BadArgException("Invalid Id");
+            }
+            record.Status = status.Status;
+            record._operatorId = userInfo.GetStaffFromUserName(username).Id;
+            record.updatedAt = DateTime.Now;
+            repository.Update(record);
+        }
         
     }
 }
