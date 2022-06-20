@@ -5,7 +5,7 @@ namespace TheBetterLimited_Server.Data.Dto
         public string _supplierGoodsStockId { get; set; }
         public string _salesOrderId { get; set; }
         public Data.Entity.DefectItemHandleStatus HandleStatus { get; set; }
-        public CustomerDto Customer { get; set; }
+        public CustomerDto? Customer { get; set; }
         public string Remark { get; set; }
         public int Qty { get; set; }
     }

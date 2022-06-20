@@ -112,7 +112,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             {
                 Data.Entity.Goods goods = record.SupplierGoodsStock.Supplier_Goods.Goods;
                 var localizeGoods = Helpers.Localizer.TryLocalize<Data.Entity.Goods>(lang , goods);
-                Data.Dto.CustomerDto cust ;
+                Data.Dto.CustomerDto cust = null;
 
                 if (record.customer is not null)
                 {
