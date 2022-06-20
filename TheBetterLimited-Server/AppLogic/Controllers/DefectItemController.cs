@@ -6,6 +6,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         protected readonly Data.DataContext db;
         private Data.Repositories.Repository<Data.Entity.DefectItemRecord> repository;
         private Data.Repositories.Repository<Data.Entity.Customer> _CustomerTable;
+        private Data.Repositories.Repository<Data.Entity.SalesOrder> _SalesOrderTable;
         private Data.Repositories.UserInfoRepository userInfo;
         private AppLogic.Controllers.OrderController orderController;
         public DefectItemController(Data.DataContext db) 
@@ -13,6 +14,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             this.db = db;
             repository = new Data.Repositories.Repository<Data.Entity.DefectItemRecord>(db);
             _CustomerTable = new Data.Repositories.Repository<Data.Entity.Customer>(db);
+            _SalesOrderTable = new Data.Repositories.Repository<Data.Entity.SalesOrder>(db);
             userInfo = new Data.Repositories.UserInfoRepository(db);
             orderController = new OrderController(db);
         }
@@ -42,10 +44,18 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 }
 
                 // get the order
-                int TotalQty = orderController.GetById(record._salesOrderId).GetAwaiter().GetResult().orderItems.Where(x => x.SupplierGoodsStockId == record._supplierGoodsStockId).First().NormalQuantity;
-                ConsoleLogger.Debug($"TotalQty: {TotalQty}");
+                var order = _SalesOrderTable.GetById(record._salesOrderId);
+                var orderDto = orderController.GetById(record._salesOrderId).GetAwaiter().GetResult();
+                
+                int TotalQty = orderDto.orderItems.Where(x => x.SupplierGoodsStockId == record._supplierGoodsStockId).First().NormalQuantity;
                 if (TotalQty - record.Qty < 0)
                     throw new BadArgException("Invalid Quantity");
+
+                if (orderDto.orderItems.Count() == 1 && record.HandleStatus == Data.Entity.DefectItemHandleStatus.Refund) // the order consit of one order item only
+                {
+                    order.Status = Data.Entity.SalesOrderStatus.Refunded;
+                }
+                _SalesOrderTable.Update(order);
 
                 repository.Add(
                     new Data.Entity.DefectItemRecord
