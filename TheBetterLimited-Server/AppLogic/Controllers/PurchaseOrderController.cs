@@ -106,12 +106,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             {
                 if (item.Quantity <= 0)
                     throw new BadArgException("Quantity must be greater than 0");
-                Data.Entity.PurchaseOrder_Supplier_Goods entryItem = new Data.Entity.PurchaseOrder_Supplier_Goods();
-                entryItem._purchaseOrderId = entry.ID;
-                entryItem.Quantity = (uint) item.Quantity;
 
                 Data.Entity.Supplier_Goods potential = _Supplier_GoodsTable.GetBySQL(
-                    "SELECT * FROM `Supplier_Goods` WHERE `_supplierId` = '" + dto._supplierId + "' AND `_goodsId` = \"" + item._goodsId + "\""
+                    "SELECT * FROM `Supplier_Goods` WHERE `_goodsId` = \"" + item._goodsId + "\""
                 ).FirstOrDefault();
                 
                 if (potential is null)
@@ -123,9 +120,15 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         _goodsId = item._goodsId,
                         Price = item.Price
                     };
+                    _Supplier_GoodsTable.Add(potential);
                 };
+                Data.Entity.PurchaseOrder_Supplier_Goods entryItem = new Data.Entity.PurchaseOrder_Supplier_Goods();
+                entryItem._purchaseOrderId = entry.ID;
+                
+                entryItem.Quantity = (uint) item.Quantity;
+                entryItem._supplierGoodsId = potential.ID;
 
-                entryItem._purchaseOrderId = potential.ID;
+                entryItem._purchaseOrderId = entry.ID;
                 entry.Items.Add(entryItem);
             }
             repository.Add(entry);
