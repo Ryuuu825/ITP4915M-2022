@@ -90,17 +90,24 @@ namespace TheBetterLimited.Views
         {
             if (GoodsDataGrid.Columns[e.ColumnIndex].Name == "Status")
             {
+                e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold);
                 if (e.Value.ToString().Equals("0"))
                 {
                     e.Value = "Selling";
+                    e.CellStyle.ForeColor = Color.SeaGreen;
+                    e.CellStyle.SelectionForeColor = Color.SeaGreen;
                 }
                 if (e.Value.ToString().Equals("1"))
                 {
-                    e.Value = "PhasingOut";
+                    e.Value = "Phasing Out";
+                    e.CellStyle.ForeColor = Color.Orange;
+                    e.CellStyle.SelectionForeColor = Color.Orange;
                 }
                 if (e.Value.ToString().Equals("2"))
                 {
-                    e.Value = "StopSelling";
+                    e.Value = "Stop Selling";
+                    e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
                 }
             }
 

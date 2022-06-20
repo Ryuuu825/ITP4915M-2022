@@ -44,7 +44,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 // get the order
                 int TotalQty = orderController.GetById(record._salesOrderId).GetAwaiter().GetResult().orderItems.Where(x => x.SupplierGoodsStockId == record._supplierGoodsStockId).First().NormalQuantity;
                 ConsoleLogger.Debug($"TotalQty: {TotalQty}");
-                if (TotalQty - record.Qty <= 0)
+                if (TotalQty - record.Qty < 0)
                     throw new BadArgException("Invalid Quantity");
 
                 repository.Add(
