@@ -486,6 +486,7 @@ namespace TheBetterLimited.Views
             di._salesOrderId = orderData["id"].ToString();
             if (orderData["customer"].Type != JTokenType.Null)
             {
+                Console.WriteLine("create customer");
                 di.customer = new CustomerInfo(orderData["customer"]["name"].ToString(), orderData["customer"]["phone"].ToString(), orderData["customer"]["address"].ToString());
             }
             di._supplierGoodsStockId = orderData["orderItems"][e.RowIndex]["supplierGoodsStockId"].ToString();
@@ -572,8 +573,8 @@ namespace TheBetterLimited.Views
                 }
                 else if (e.Value.Equals("Exchange"))
                 {
-                    e.CellStyle.ForeColor = Color.Orange;
-                    e.CellStyle.SelectionForeColor = Color.Orange;
+                    e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
                     OrderDataGrid.Rows[e.RowIndex].Cells["defect"].Tag = 1;
                 }
             }

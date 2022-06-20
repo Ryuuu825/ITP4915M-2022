@@ -34,10 +34,10 @@
             this.ConfirmBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.CustomerInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
-            this.Title = new System.Windows.Forms.Label();
             this.returnedOption = new TheBetterLimited.CustomizeControl.PendingOptionPicBox();
             this.collectedOption = new TheBetterLimited.CustomizeControl.PendingOptionPicBox();
+            this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
+            this.Title = new System.Windows.Forms.Label();
             this.MainForm.SuspendLayout();
             this.BottomBtn.SuspendLayout();
             this.CustomerInfo.SuspendLayout();
@@ -111,6 +111,7 @@
             this.ConfirmBtn.Text = "Comfirm";
             this.ConfirmBtn.TextColor = System.Drawing.Color.White;
             this.ConfirmBtn.UseVisualStyleBackColor = false;
+            this.ConfirmBtn.Click += new System.EventHandler(this.ConfirmBtn_Click);
             // 
             // CustomerInfo
             // 
@@ -129,12 +130,47 @@
             this.panel1.Controls.Add(this.returnedOption);
             this.panel1.Controls.Add(this.collectedOption);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Enabled = false;
             this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.panel1.Size = new System.Drawing.Size(497, 301);
             this.panel1.TabIndex = 27;
+            // 
+            // returnedOption
+            // 
+            this.returnedOption.BackColor = System.Drawing.Color.Transparent;
+            this.returnedOption.BorderColor = System.Drawing.Color.LightGray;
+            this.returnedOption.BorderRadius = 0;
+            this.returnedOption.BorderSelectedColor = System.Drawing.Color.SeaGreen;
+            this.returnedOption.BorderSize = 2;
+            this.returnedOption.Image = global::TheBetterLimited.Properties.Resources.delivery_truck;
+            this.returnedOption.IsSelected = false;
+            this.returnedOption.Location = new System.Drawing.Point(282, 32);
+            this.returnedOption.Margin = new System.Windows.Forms.Padding(10);
+            this.returnedOption.Name = "returnedOption";
+            this.returnedOption.Padding = new System.Windows.Forms.Padding(5);
+            this.returnedOption.Size = new System.Drawing.Size(169, 191);
+            this.returnedOption.TabIndex = 1;
+            this.returnedOption.Title = "Returned";
+            this.returnedOption.PicInfoClicked += new System.EventHandler(this.returnedOption_Click);
+            // 
+            // collectedOption
+            // 
+            this.collectedOption.BackColor = System.Drawing.Color.Transparent;
+            this.collectedOption.BorderColor = System.Drawing.Color.LightGray;
+            this.collectedOption.BorderRadius = 0;
+            this.collectedOption.BorderSelectedColor = System.Drawing.Color.SeaGreen;
+            this.collectedOption.BorderSize = 2;
+            this.collectedOption.Image = global::TheBetterLimited.Properties.Resources.package;
+            this.collectedOption.IsSelected = false;
+            this.collectedOption.Location = new System.Drawing.Point(39, 32);
+            this.collectedOption.Margin = new System.Windows.Forms.Padding(10);
+            this.collectedOption.Name = "collectedOption";
+            this.collectedOption.Padding = new System.Windows.Forms.Padding(5);
+            this.collectedOption.Size = new System.Drawing.Size(166, 191);
+            this.collectedOption.TabIndex = 0;
+            this.collectedOption.Title = "Collected";
+            this.collectedOption.PicInfoClicked += new System.EventHandler(this.collectedOption_Click);
             // 
             // UserInfoHeaderContainer
             // 
@@ -156,40 +192,6 @@
             this.Title.Size = new System.Drawing.Size(251, 25);
             this.Title.TabIndex = 6;
             this.Title.Text = "Defect Item Update Option";
-            // 
-            // returnedOption
-            // 
-            this.returnedOption.BackColor = System.Drawing.Color.Transparent;
-            this.returnedOption.BorderColor = System.Drawing.Color.LightGray;
-            this.returnedOption.BorderRadius = 0;
-            this.returnedOption.BorderSelectedColor = System.Drawing.Color.Black;
-            this.returnedOption.BorderSize = 2;
-            this.returnedOption.Image = global::TheBetterLimited.Properties.Resources.delivery_truck;
-            this.returnedOption.IsSelected = false;
-            this.returnedOption.Location = new System.Drawing.Point(282, 32);
-            this.returnedOption.Margin = new System.Windows.Forms.Padding(10);
-            this.returnedOption.Name = "returnedOption";
-            this.returnedOption.Padding = new System.Windows.Forms.Padding(5);
-            this.returnedOption.Size = new System.Drawing.Size(169, 191);
-            this.returnedOption.TabIndex = 1;
-            this.returnedOption.Title = "Returned";
-            // 
-            // collectedOption
-            // 
-            this.collectedOption.BackColor = System.Drawing.Color.Transparent;
-            this.collectedOption.BorderColor = System.Drawing.Color.LightGray;
-            this.collectedOption.BorderRadius = 0;
-            this.collectedOption.BorderSelectedColor = System.Drawing.Color.Black;
-            this.collectedOption.BorderSize = 2;
-            this.collectedOption.Image = global::TheBetterLimited.Properties.Resources.package;
-            this.collectedOption.IsSelected = false;
-            this.collectedOption.Location = new System.Drawing.Point(39, 32);
-            this.collectedOption.Margin = new System.Windows.Forms.Padding(10);
-            this.collectedOption.Name = "collectedOption";
-            this.collectedOption.Padding = new System.Windows.Forms.Padding(5);
-            this.collectedOption.Size = new System.Drawing.Size(166, 191);
-            this.collectedOption.TabIndex = 0;
-            this.collectedOption.Title = "Collected";
             // 
             // DefectUpdateOption
             // 

@@ -22,11 +22,11 @@ namespace TheBetterLimited.Views
     public partial class DefectItem_Add : Form
     {
         public object defectItem { get; set; }
+        
         public DefectItem_Add()
         {
             InitializeComponent();
         }
-
 
         public ControllerBase defectCon = new ControllerBase("DefectItem");
         private void CreateUser_Click(object sender, EventArgs e)

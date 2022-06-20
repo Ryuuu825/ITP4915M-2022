@@ -21,14 +21,8 @@ namespace TheBetterLimited.Views
 {
     public partial class DefectUpdateOption : Form
     {
-        private GoodsController uc = new GoodsController();
-        private ControllerBase cbSupplierGoodsStock = new ControllerBase("Supplier_Goods_Stock");
-        private ControllerBase cbSupplierGoods = new ControllerBase("Supplier_Goods");
-        private RestResponse result = new RestResponse();
-        private bool isUpload = false;
-        private Bitmap icon = null;
-        public JObject goodsData { get; set; }
-        private OrderItem oi = new OrderItem();
+        private DefectItemController cbDefect = new DefectItemController("DefectItem");
+        public List<string> ids { get; set; }
 
         public DefectUpdateOption()
         {
@@ -39,10 +33,67 @@ namespace TheBetterLimited.Views
         public event Action OnExit;
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            this.OnExit.Invoke();
             this.Close();
             this.Dispose();
         }
 
+        private void ConfirmBtn_Click(object sender, EventArgs e)
+        {
+            RestResponse result = null;
+            string error = "";
+            if (collectedOption.IsSelected)
+            {
+                foreach (var itemId in ids)
+                {
+                    result = cbDefect.Update(new { id = itemId, status = 1 });
+                    if (result.StatusCode != System.Net.HttpStatusCode.OK)
+                    {
+                        error += result.ErrorMessage + "\n";
+                    }
+                }
+                if (result.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    MessageBox.Show(result.ErrorMessage);
+                }
+                else
+                {
+                    MessageBox.Show("Defect Item(s) Updated!");
+                    this.OnExit.Invoke();
+                    this.Close();
+                    this.Dispose();
+                }
+            }
+            else if (returnedOption.IsSelected)
+            {
+                foreach (var itemId in ids)
+                {
+                    result = cbDefect.Update(new { id = itemId, status = 2 });
+                    if (result.StatusCode != System.Net.HttpStatusCode.OK)
+                    {
+                        error += result.ErrorMessage + "\n";
+                    }
+                }
+                if (result.StatusCode != System.Net.HttpStatusCode.OK)
+                {
+                    MessageBox.Show(result.ErrorMessage);
+                }else
+                {
+                    MessageBox.Show("Defect Item(s) Updated!");
+                    this.OnExit.Invoke();
+                    this.Close();
+                    this.Dispose();
+                }
+            }
+        }
+
+        private void returnedOption_Click(object sender, EventArgs e)
+        {
+            collectedOption.IsSelected = false;
+        }
+
+        private void collectedOption_Click(object sender, EventArgs e)
+        {
+            returnedOption.IsSelected = false;
+        }
     }
 }

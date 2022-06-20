@@ -20,18 +20,9 @@ namespace TheBetterLimited.Views
 {
     public partial class DefectiveItem_Details : Form
     {
-        private RestResponse result = new RestResponse();
-        private ControllerBase con = new ControllerBase("Goods");
-        private ControllerBase catCon = new ControllerBase("Catalogue");
+        private DefectItemController cbDefect = new DefectItemController("DefectItem");
         private string Id;
-        private string CatId;
-        private string CatName;
-        private string Name; 
-        private string Description;
-        private string Price;
-        private string Code;
-        private int size;
-        private int Status;
+        private string recordStatus;
 
         private List<string> catList = new List<string>();
         private bool isUpload = false;
@@ -40,107 +31,48 @@ namespace TheBetterLimited.Views
         {
             InitializeComponent();
         }
-        public DefectiveItem_Details(string GoodsId)
+        public DefectiveItem_Details(JObject itemInfo)
         {
             InitializeComponent();
-            result =  con.GetById(GoodsId);
-            JObject res = JObject.Parse(result.Content);
 
-            Id = res["Id"].ToString();
-            CatId = res["_catalogueId"].ToString();
-            Name = res["Name"].ToString();
-            Description = res["Description"].ToString();
-            Price = res["Price"].ToString();
-            Code = res["GTINCode"].ToString();
-            size = res["Size"].ToObject<int>();
-            Status = res["Status"].ToObject<int>();
+            Id = itemInfo["Id"].ToString();
+            recordStatus = itemInfo["Status"].ToString();
 
-            txtGoodsId.Texts = GoodsId;
-            txtGoodsName.Texts = res["Name"].ToString();
-            txtSupAddress.Texts = res["Description"].ToString();
-            txtPrice.Texts = res["Price"].ToString();
-            txtGTINCode.Texts = res["GTINCode"].ToString();
+            //Defect item info
+            txtGoodsName.Texts = itemInfo["GoodsName"].ToString();
+            txtGoodsId.Texts = itemInfo["_supplierGoodsStockId"].ToString();
+            txtSup.Texts = itemInfo["Supplier"]["Name"].ToString();
+            txtSupTel.Texts = itemInfo["Supplier"]["Phone"].ToString();
+            txtSupAddress.Texts = itemInfo["Supplier"]["Address"].ToString();
+            txtDesc.Texts = itemInfo["Remark"].ToString();
 
-            result = catCon.GetAll();
-            JArray catRes = JArray.Parse(result.Content);
-
-            // convert base64 to image
-            RestRequest req = new RestRequest("/api/pos/goods/" + Id + "/image", Method.Get)
-                                    .AddHeader("Authorization", "Bearer " + Models.GlobalsData.currentUser["token"]);
-
-            var photo = Utils.RestClientUtils.client.DownloadDataAsync(req).GetAwaiter().GetResult();
-            try
+            //Collect info
+            if ((int)itemInfo["HandleStatus"] == 1)
             {
-                using (MemoryStream ms = new MemoryStream(photo, 0, photo.Length))
-                {
-                
-                    ms.Write(photo, 0, photo.Length);
-
-                    // convert image to bitmap
-                    icon = new Bitmap(ms);
-                }
-            }catch(Exception ex)
-            {
-                icon  = Properties.Resources._default;
+                txtStatus.Texts = "Exchange";
+                txtStatus.ForeColor = Color.FromArgb(19, 115, 235);
             }
-                
+            else if ((int)itemInfo["HandleStatus"] == 0)
+            {
+                txtStatus.Texts = "Refund";
+                txtStatus.ForeColor = Color.FromArgb(203, 32, 39);
+            }
+            txtQty.Texts = itemInfo["Qty"].ToString();
+
+            if (itemInfo["Customer"].Type != JTokenType.Null)
+            {
+                txtCollectAddress.Texts = itemInfo["Name"].ToString();
+                txtCusPhone.Texts = itemInfo["Phone"].ToString();
+            }else
+            {
+                txtStore.Texts = itemInfo["StoreName"].ToString();
+            }
+            txtCollectAddress.Texts = itemInfo["CollectAddress"].ToString();
         }
-        private Bitmap icon;
 
         private void StaffIDTxt_Enter(object sender, EventArgs e)
         {
             /*StaffIDTxt.IsError = false;*/
-        }
-
-        private void CreateUser_Click(object sender, EventArgs e)
-        {
-            List<object> UpdateContent = new List<object>();
-
-            if (!txtGoodsName.Texts.Equals(txtGoodsName.Placeholder) && !txtGoodsName.Texts.Equals(Name))
-            {
-                UpdateContent.Add(
-                    new { 
-                        Attribute = "Name",
-                        Value = txtGoodsName.Texts
-                    }
-                );
-            }
-            if (!txtSupAddress.Texts.Equals(txtSupAddress.Placeholder) && !txtSupAddress.Texts.Equals(Description))
-            {
-                UpdateContent.Add(
-                    new { 
-                        Attribute = "Description",
-                        Value = txtSupAddress.Texts
-                    }
-                );
-            }
-
-            if (!txtPrice.Texts.Equals(txtPrice.Placeholder) && !txtPrice.Texts.Equals(Price))
-            {
-                UpdateContent.Add(
-                    new { 
-                        Attribute = "Price",
-                        Value = txtPrice.Texts
-                    }
-                );
-            }
-
-            if (!txtGTINCode.Texts.Equals(txtGTINCode.Placeholder) && !txtGTINCode.Texts.Equals(Code))
-            {
-                UpdateContent.Add(
-                    new { 
-                        Attribute = "GTINCode",
-                        Value = txtGTINCode.Texts
-                    }
-                );
-            }
-            con.Update(Id, UpdateContent);
-
-            this.OnExit.Invoke();
-            this.Close();
-            this.Dispose();
-
-
         }
 
         private void userNameTxt_Click(object sender, EventArgs e)
@@ -148,14 +80,12 @@ namespace TheBetterLimited.Views
         }
 
         public event Action OnExit;
-       
+
         private void CancelBtn_Click(object sender, EventArgs e)
         {
-            this.OnExit.Invoke();
             this.Close();
             this.Dispose();
         }
-
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -167,10 +97,58 @@ namespace TheBetterLimited.Views
             txtGoodsId.IsError = false;
         }
 
-
         private void StaffIDTxt__TextChanged(object sender, EventArgs e)
         {
             txtGoodsId.IsError = false;
+        }
+
+        private void collectBtn_Click(object sender, EventArgs e)
+        {
+            if (recordStatus.Equals("Handling"))
+            {
+                MessageBox.Show("The item had been collected");
+                return;
+            }else if (recordStatus.Equals("Returned"))
+            {
+                MessageBox.Show("The item had been returned to supplier.\nYou cannot return again!");
+                return;
+            }
+            RestResponse result = new RestResponse();
+            result = cbDefect.Update(new { id = Id, status = 1 });
+            if (result.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                MessageBox.Show("Defect Item Updated!");
+                this.OnExit.Invoke();
+                this.Close();
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show(result.ErrorMessage);
+            }
+            result = null;
+        }
+        private void returnedBtn_Click(object sender, EventArgs e)
+        {
+            if (recordStatus.Equals("Returned"))
+            {
+                MessageBox.Show("The item had been returned to supplier.\nYou cannot return again!");
+                return;
+            }
+            RestResponse result = new RestResponse();
+            result = cbDefect.Update(new { id = Id, status = 2 });
+            if (result.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                MessageBox.Show("Defect Item Updated!");
+                this.OnExit.Invoke();
+                this.Close();
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show(result.ErrorMessage);
+            }
+            result = null;
         }
     }
 }
