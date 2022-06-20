@@ -55,6 +55,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 {
                     order.Status = Data.Entity.SalesOrderStatus.Refunded;
                 }
+                order.updatedAt = DateTime.Now;
                 _SalesOrderTable.Update(order);
 
                 repository.Add(
