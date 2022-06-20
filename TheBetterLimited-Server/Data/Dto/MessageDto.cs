@@ -11,6 +11,7 @@ namespace TheBetterLimited_Server.Data.Dto
     public class SendMessageDto 
     {
         public List<string> receiver { get; set; }
+        public string Title { get; set; }
         public string content { get; set; }
     }
 }

@@ -387,6 +387,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     _MessageController.SendMessage("system" ,
                         new SendMessageDto
                         {
+                            Title = "Low Stock Warning",
                             receiver = receivers,
                             content = $"The quantity of {sgs._supplierGoodsId} is less than the minimum limit. Please check the stock."
                         }

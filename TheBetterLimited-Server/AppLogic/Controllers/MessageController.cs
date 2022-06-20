@@ -127,6 +127,7 @@ public class MessageController
 
         var newMessage = new Data.Entity.Message
         {
+            Title = message.Title,
             Content = message.content,
             SentDate = DateTime.Now,
             _senderId = account.Id,
