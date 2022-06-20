@@ -57,6 +57,7 @@ namespace TheBetterLimited.Views
             OrderDataGrid.ReadOnly = true;
             DeleteBtn.Visible = false;
             SaveBtn.Text = "Arrange";
+            OrderDataGrid.Columns["defect"].Visible = false;
             SaveBtn.Click -= new EventHandler(SaveBtn_Click);
             SaveBtn.Click += new EventHandler(ArrangeBtn_Click);
             InitializeOrderInfo();
