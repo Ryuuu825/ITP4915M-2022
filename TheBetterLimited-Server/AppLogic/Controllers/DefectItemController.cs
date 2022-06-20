@@ -112,6 +112,18 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             {
                 Data.Entity.Goods goods = record.SupplierGoodsStock.Supplier_Goods.Goods;
                 var localizeGoods = Helpers.Localizer.TryLocalize<Data.Entity.Goods>(lang , goods);
+                Data.Dto.CustomerDto cust ;
+
+                if (record.customer is not null)
+                {
+                    cust = new Data.Dto.CustomerDto
+                    {
+                        Name = record.customer.Name,
+                        Address = record.customer.Address,
+                        Phone = record.customer.Phone
+                    };
+                }
+               
 
                 res.Add(
                     new Data.Dto.DefectItemOutDto
@@ -127,7 +139,10 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         Supplier = record.SupplierGoodsStock.Supplier_Goods.Supplier.MapToDto(),
                         CreateAt = record.createdAt,
                         OperatedAt = record.updatedAt,
-                        StoreName = record.SalesOrder.Store.Location.Name
+                        StoreName = record.SalesOrder.Store.Location.Name,
+                        Customer = cust,
+                        Qty = record.Quantity,
+                        Remark = record.Remark
                     }.MapToDto()
                 );
             }
