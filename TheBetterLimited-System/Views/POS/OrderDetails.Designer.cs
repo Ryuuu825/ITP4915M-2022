@@ -33,8 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,9 +40,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderDetails));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OrderItemBox = new System.Windows.Forms.Panel();
             this.Data = new System.Windows.Forms.Panel();
             this.OrderDataGrid = new System.Windows.Forms.DataGridView();
+            this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.install = new System.Windows.Forms.DataGridViewImageColumn();
+            this.defect = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.Label();
             this.BottomBtn = new System.Windows.Forms.Panel();
@@ -86,13 +93,6 @@
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.install = new System.Windows.Forms.DataGridViewImageColumn();
-            this.defect = new System.Windows.Forms.DataGridViewImageColumn();
             this.OrderItemBox.SuspendLayout();
             this.Data.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGrid)).BeginInit();
@@ -212,6 +212,95 @@
             this.OrderDataGrid.TabIndex = 3;
             this.OrderDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrderDataGrid_CellClick);
             this.OrderDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.OrderDataGrid_CellFormatting);
+            // 
+            // goodsID
+            // 
+            this.goodsID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.goodsID.DataPropertyName = "supplierGoodsStockId";
+            this.goodsID.HeaderText = "Goods Ref. No";
+            this.goodsID.Name = "goodsID";
+            this.goodsID.ReadOnly = true;
+            this.goodsID.ToolTipText = "Goods Ref. No";
+            this.goodsID.Width = 106;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.DataPropertyName = "goodsName";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle3;
+            this.ID.HeaderText = "Goods Name";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.ToolTipText = "Goods Name";
+            // 
+            // Price
+            // 
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Price.DataPropertyName = "price";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Price.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Price.HeaderText = "Price";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.ToolTipText = "Remark of Account";
+            this.Price.Width = 75;
+            // 
+            // CreatorId
+            // 
+            this.CreatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CreatorId.DataPropertyName = "quantity";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.CreatorId.DefaultCellStyle = dataGridViewCellStyle5;
+            this.CreatorId.HeaderText = "Qty";
+            this.CreatorId.MinimumWidth = 6;
+            this.CreatorId.Name = "CreatorId";
+            this.CreatorId.ReadOnly = true;
+            this.CreatorId.ToolTipText = "Quantity";
+            this.CreatorId.Width = 68;
+            // 
+            // status
+            // 
+            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.status.DataPropertyName = "status";
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status.DefaultCellStyle = dataGridViewCellStyle6;
+            this.status.HeaderText = "Status";
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Width = 84;
+            // 
+            // install
+            // 
+            this.install.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.install.DataPropertyName = "install";
+            dataGridViewCellStyle7.NullValue = null;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.install.DefaultCellStyle = dataGridViewCellStyle7;
+            this.install.HeaderText = "Need Install";
+            this.install.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.install.Name = "install";
+            this.install.ReadOnly = true;
+            this.install.ToolTipText = "Need to install?";
+            this.install.Width = 91;
+            // 
+            // defect
+            // 
+            this.defect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.defect.DataPropertyName = "defect";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle8.NullValue")));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.defect.DefaultCellStyle = dataGridViewCellStyle8;
+            this.defect.HeaderText = "Defect";
+            this.defect.Image = global::TheBetterLimited.Properties.Resources.exchange24;
+            this.defect.MinimumWidth = 6;
+            this.defect.Name = "defect";
+            this.defect.ReadOnly = true;
+            this.defect.Width = 65;
             // 
             // panel5
             // 
@@ -533,7 +622,6 @@
             // 
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Enabled = false;
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -781,95 +869,6 @@
             this.dataGridViewImageColumn6.MinimumWidth = 6;
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
             this.dataGridViewImageColumn6.ToolTipText = "Edit";
-            // 
-            // goodsID
-            // 
-            this.goodsID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.goodsID.DataPropertyName = "supplierGoodsStockId";
-            this.goodsID.HeaderText = "Goods Ref. No";
-            this.goodsID.Name = "goodsID";
-            this.goodsID.ReadOnly = true;
-            this.goodsID.ToolTipText = "Goods Ref. No";
-            this.goodsID.Width = 106;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ID.DataPropertyName = "goodsName";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ID.HeaderText = "Goods Name";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.ToolTipText = "Goods Name";
-            // 
-            // Price
-            // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Price.DataPropertyName = "price";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Price.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.ToolTipText = "Remark of Account";
-            this.Price.Width = 75;
-            // 
-            // CreatorId
-            // 
-            this.CreatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CreatorId.DataPropertyName = "quantity";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CreatorId.DefaultCellStyle = dataGridViewCellStyle5;
-            this.CreatorId.HeaderText = "Qty";
-            this.CreatorId.MinimumWidth = 6;
-            this.CreatorId.Name = "CreatorId";
-            this.CreatorId.ReadOnly = true;
-            this.CreatorId.ToolTipText = "Quantity";
-            this.CreatorId.Width = 68;
-            // 
-            // status
-            // 
-            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.status.DataPropertyName = "status";
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status.DefaultCellStyle = dataGridViewCellStyle6;
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Width = 84;
-            // 
-            // install
-            // 
-            this.install.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.install.DataPropertyName = "install";
-            dataGridViewCellStyle7.NullValue = null;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.install.DefaultCellStyle = dataGridViewCellStyle7;
-            this.install.HeaderText = "Need Install";
-            this.install.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.install.Name = "install";
-            this.install.ReadOnly = true;
-            this.install.ToolTipText = "Need to install?";
-            this.install.Width = 91;
-            // 
-            // defect
-            // 
-            this.defect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.defect.DataPropertyName = "defect";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle8.NullValue")));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.defect.DefaultCellStyle = dataGridViewCellStyle8;
-            this.defect.HeaderText = "Defect";
-            this.defect.Image = global::TheBetterLimited.Properties.Resources.exchange24;
-            this.defect.MinimumWidth = 6;
-            this.defect.Name = "defect";
-            this.defect.ReadOnly = true;
-            this.defect.Width = 65;
             // 
             // OrderDetails
             // 

@@ -22,7 +22,6 @@ namespace TheBetterLimited.Views
 {
     public partial class Goods : Form
     {
-        private UserController uc = new UserController();
         private GoodsController gc = new GoodsController();
         private BindingSource bs = new BindingSource();
         private List<string> selectGoodsID = new List<string>();

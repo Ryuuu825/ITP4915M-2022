@@ -28,31 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseOrder_Create));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OrderItemBox = new System.Windows.Forms.Panel();
             this.Data = new System.Windows.Forms.Panel();
             this.OrderDataGrid = new System.Windows.Forms.DataGridView();
-            this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.install = new System.Windows.Forms.DataGridViewImageColumn();
-            this.defect = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.AddBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.Title = new System.Windows.Forms.Label();
             this.BottomBtn = new System.Windows.Forms.Panel();
             this.DeleteBtn = new TheBetterLimited.CustomizeControl.RoundButton();
@@ -61,26 +51,22 @@
             this.OrderInfoBox = new System.Windows.Forms.Panel();
             this.AppointmentBox = new System.Windows.Forms.Panel();
             this.AppointmentInfoBox = new System.Windows.Forms.Panel();
-            this.InstallSessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.DeliverySessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
-            this.InstallDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.DeliveryDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.cbWarehouse = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.GTINCode = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.txtWHAddress = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.CustomerInfo = new System.Windows.Forms.Panel();
             this.CustomerInfoBox = new System.Windows.Forms.Panel();
-            this.NameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.GTINCode = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSupAddress = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.cbSup = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTel = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.Catalogue = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.AddressTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.PhoneTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.txtContact = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -90,7 +76,11 @@
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.roundButton1 = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.OrderItemBox.SuspendLayout();
             this.Data.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGrid)).BeginInit();
@@ -115,7 +105,7 @@
             this.OrderItemBox.Location = new System.Drawing.Point(436, 0);
             this.OrderItemBox.Margin = new System.Windows.Forms.Padding(2);
             this.OrderItemBox.Name = "OrderItemBox";
-            this.OrderItemBox.Size = new System.Drawing.Size(625, 629);
+            this.OrderItemBox.Size = new System.Drawing.Size(644, 606);
             this.OrderItemBox.TabIndex = 0;
             // 
             // Data
@@ -126,7 +116,7 @@
             this.Data.Margin = new System.Windows.Forms.Padding(2);
             this.Data.Name = "Data";
             this.Data.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.Data.Size = new System.Drawing.Size(625, 522);
+            this.Data.Size = new System.Drawing.Size(644, 499);
             this.Data.TabIndex = 11;
             // 
             // OrderDataGrid
@@ -135,24 +125,24 @@
             this.OrderDataGrid.AllowUserToOrderColumns = true;
             this.OrderDataGrid.AllowUserToResizeColumns = false;
             this.OrderDataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle27.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            this.OrderDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle21.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            this.OrderDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.OrderDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.OrderDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.OrderDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.OrderDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OrderDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.OrderDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI Semibold", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrderDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI Semibold", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OrderDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.OrderDataGrid.ColumnHeadersHeight = 50;
             this.OrderDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.OrderDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -160,18 +150,16 @@
             this.ID,
             this.Price,
             this.CreatorId,
-            this.status,
-            this.install,
-            this.defect});
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle35.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.OrderDataGrid.DefaultCellStyle = dataGridViewCellStyle35;
+            this.delete});
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.OrderDataGrid.DefaultCellStyle = dataGridViewCellStyle26;
             this.OrderDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OrderDataGrid.EnableHeadersVisualStyles = false;
             this.OrderDataGrid.GridColor = System.Drawing.Color.White;
@@ -179,137 +167,71 @@
             this.OrderDataGrid.Margin = new System.Windows.Forms.Padding(0);
             this.OrderDataGrid.MultiSelect = false;
             this.OrderDataGrid.Name = "OrderDataGrid";
-            this.OrderDataGrid.ReadOnly = true;
             this.OrderDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrderDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OrderDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.OrderDataGrid.RowHeadersVisible = false;
             this.OrderDataGrid.RowHeadersWidth = 30;
             this.OrderDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle37.NullValue = null;
-            dataGridViewCellStyle37.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrderDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle28.NullValue = null;
+            dataGridViewCellStyle28.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OrderDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle28;
             this.OrderDataGrid.RowTemplate.Height = 30;
             this.OrderDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.OrderDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.OrderDataGrid.Size = new System.Drawing.Size(625, 520);
+            this.OrderDataGrid.Size = new System.Drawing.Size(644, 497);
             this.OrderDataGrid.StandardTab = true;
             this.OrderDataGrid.TabIndex = 3;
             this.OrderDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrderDataGrid_CellClick);
             this.OrderDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.OrderDataGrid_CellFormatting);
-            // 
-            // goodsID
-            // 
-            this.goodsID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.goodsID.DataPropertyName = "supplierGoodsStockId";
-            this.goodsID.HeaderText = "Goods Ref. No";
-            this.goodsID.Name = "goodsID";
-            this.goodsID.ReadOnly = true;
-            this.goodsID.ToolTipText = "Goods Ref. No";
-            this.goodsID.Width = 106;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ID.DataPropertyName = "goodsName";
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle29;
-            this.ID.HeaderText = "Goods Name";
-            this.ID.MinimumWidth = 6;
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.ToolTipText = "Goods Name";
-            // 
-            // Price
-            // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Price.DataPropertyName = "price";
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Price.DefaultCellStyle = dataGridViewCellStyle30;
-            this.Price.HeaderText = "Price";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.ToolTipText = "Remark of Account";
-            this.Price.Width = 75;
-            // 
-            // CreatorId
-            // 
-            this.CreatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CreatorId.DataPropertyName = "quantity";
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.CreatorId.DefaultCellStyle = dataGridViewCellStyle31;
-            this.CreatorId.HeaderText = "Qty";
-            this.CreatorId.MinimumWidth = 6;
-            this.CreatorId.Name = "CreatorId";
-            this.CreatorId.ReadOnly = true;
-            this.CreatorId.ToolTipText = "Quantity";
-            this.CreatorId.Width = 68;
-            // 
-            // status
-            // 
-            this.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.status.DataPropertyName = "status";
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.status.DefaultCellStyle = dataGridViewCellStyle32;
-            this.status.HeaderText = "Status";
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Width = 84;
-            // 
-            // install
-            // 
-            this.install.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.install.DataPropertyName = "install";
-            dataGridViewCellStyle33.NullValue = null;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.install.DefaultCellStyle = dataGridViewCellStyle33;
-            this.install.HeaderText = "Need Install";
-            this.install.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.install.Name = "install";
-            this.install.ReadOnly = true;
-            this.install.ToolTipText = "Need to install?";
-            this.install.Width = 91;
-            // 
-            // defect
-            // 
-            this.defect.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.defect.DataPropertyName = "defect";
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle34.NullValue")));
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.defect.DefaultCellStyle = dataGridViewCellStyle34;
-            this.defect.HeaderText = "Defect";
-            this.defect.Image = global::TheBetterLimited.Properties.Resources.exchange24;
-            this.defect.MinimumWidth = 6;
-            this.defect.Name = "defect";
-            this.defect.ReadOnly = true;
-            this.defect.Width = 65;
+            this.OrderDataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.OrderDataGrid_DataError);
+            this.OrderDataGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.OrderDataGrid_EditingControlShowing);
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Controls.Add(this.roundButton1);
+            this.panel5.Controls.Add(this.AddBtn);
             this.panel5.Controls.Add(this.Title);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.ForeColor = System.Drawing.Color.White;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(625, 53);
+            this.panel5.Size = new System.Drawing.Size(644, 53);
             this.panel5.TabIndex = 9;
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.AddBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.AddBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.AddBtn.BorderRadius = 10;
+            this.AddBtn.BorderSize = 0;
+            this.AddBtn.FlatAppearance.BorderSize = 0;
+            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddBtn.ForeColor = System.Drawing.Color.White;
+            this.AddBtn.IsChecked = false;
+            this.AddBtn.Location = new System.Drawing.Point(513, 7);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(119, 40);
+            this.AddBtn.TabIndex = 2;
+            this.AddBtn.Text = "Add Item";
+            this.AddBtn.TextColor = System.Drawing.Color.White;
+            this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // Title
             // 
@@ -319,9 +241,9 @@
             this.Title.Location = new System.Drawing.Point(2, 14);
             this.Title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(109, 25);
+            this.Title.Size = new System.Drawing.Size(194, 25);
             this.Title.TabIndex = 1;
-            this.Title.Text = "Order Item";
+            this.Title.Text = "Purchase Order Item";
             // 
             // BottomBtn
             // 
@@ -331,11 +253,11 @@
             this.BottomBtn.Controls.Add(this.SaveBtn);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(0, 575);
+            this.BottomBtn.Location = new System.Drawing.Point(0, 552);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.BottomBtn.Size = new System.Drawing.Size(625, 54);
+            this.BottomBtn.Size = new System.Drawing.Size(644, 54);
             this.BottomBtn.TabIndex = 1;
             // 
             // DeleteBtn
@@ -358,7 +280,7 @@
             this.DeleteBtn.Text = "Cancel Order";
             this.DeleteBtn.TextColor = System.Drawing.Color.White;
             this.DeleteBtn.UseVisualStyleBackColor = false;
-            this.DeleteBtn.Click += new System.EventHandler(this.CancelOrderBtn_Click);
+            this.DeleteBtn.Visible = false;
             // 
             // CancelBtn
             // 
@@ -374,7 +296,7 @@
             this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelBtn.ForeColor = System.Drawing.Color.White;
             this.CancelBtn.IsChecked = false;
-            this.CancelBtn.Location = new System.Drawing.Point(350, 6);
+            this.CancelBtn.Location = new System.Drawing.Point(369, 6);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(128, 40);
             this.CancelBtn.TabIndex = 1;
@@ -396,11 +318,11 @@
             this.SaveBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveBtn.ForeColor = System.Drawing.Color.White;
             this.SaveBtn.IsChecked = false;
-            this.SaveBtn.Location = new System.Drawing.Point(484, 6);
+            this.SaveBtn.Location = new System.Drawing.Point(503, 6);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(128, 40);
             this.SaveBtn.TabIndex = 0;
-            this.SaveBtn.Text = "Modify";
+            this.SaveBtn.Text = "Create";
             this.SaveBtn.TextColor = System.Drawing.Color.White;
             this.SaveBtn.UseVisualStyleBackColor = false;
             this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
@@ -415,7 +337,7 @@
             this.OrderInfoBox.Margin = new System.Windows.Forms.Padding(2);
             this.OrderInfoBox.Name = "OrderInfoBox";
             this.OrderInfoBox.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.OrderInfoBox.Size = new System.Drawing.Size(436, 629);
+            this.OrderInfoBox.Size = new System.Drawing.Size(436, 606);
             this.OrderInfoBox.TabIndex = 2;
             // 
             // AppointmentBox
@@ -425,167 +347,104 @@
             this.AppointmentBox.Controls.Add(this.panel2);
             this.AppointmentBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AppointmentBox.ForeColor = System.Drawing.Color.Black;
-            this.AppointmentBox.Location = new System.Drawing.Point(0, 286);
+            this.AppointmentBox.Location = new System.Drawing.Point(0, 343);
             this.AppointmentBox.Name = "AppointmentBox";
-            this.AppointmentBox.Size = new System.Drawing.Size(426, 343);
+            this.AppointmentBox.Size = new System.Drawing.Size(426, 263);
             this.AppointmentBox.TabIndex = 25;
             // 
             // AppointmentInfoBox
             // 
             this.AppointmentInfoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.AppointmentInfoBox.Controls.Add(this.InstallSessionCombo);
-            this.AppointmentInfoBox.Controls.Add(this.DeliverySessionCombo);
-            this.AppointmentInfoBox.Controls.Add(this.InstallDatePicker);
-            this.AppointmentInfoBox.Controls.Add(this.DeliveryDatePicker);
+            this.AppointmentInfoBox.Controls.Add(this.cbWarehouse);
+            this.AppointmentInfoBox.Controls.Add(this.GTINCode);
             this.AppointmentInfoBox.Controls.Add(this.label7);
-            this.AppointmentInfoBox.Controls.Add(this.label8);
-            this.AppointmentInfoBox.Controls.Add(this.label6);
-            this.AppointmentInfoBox.Controls.Add(this.label3);
-            this.AppointmentInfoBox.Controls.Add(this.label4);
-            this.AppointmentInfoBox.Controls.Add(this.label5);
+            this.AppointmentInfoBox.Controls.Add(this.txtWHAddress);
             this.AppointmentInfoBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AppointmentInfoBox.Location = new System.Drawing.Point(0, 40);
             this.AppointmentInfoBox.Name = "AppointmentInfoBox";
-            this.AppointmentInfoBox.Size = new System.Drawing.Size(426, 303);
+            this.AppointmentInfoBox.Size = new System.Drawing.Size(426, 223);
             this.AppointmentInfoBox.TabIndex = 34;
             // 
-            // InstallSessionCombo
+            // cbWarehouse
             // 
-            this.InstallSessionCombo.BackColor = System.Drawing.Color.White;
-            this.InstallSessionCombo.BorderColor = System.Drawing.Color.LightGray;
-            this.InstallSessionCombo.BorderRadius = 1;
-            this.InstallSessionCombo.BorderSize = 1;
-            this.InstallSessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.InstallSessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InstallSessionCombo.ForeColor = System.Drawing.Color.DimGray;
-            this.InstallSessionCombo.IconColor = System.Drawing.Color.LightGray;
-            this.InstallSessionCombo.ListBackColor = System.Drawing.Color.White;
-            this.InstallSessionCombo.ListTextColor = System.Drawing.Color.DimGray;
-            this.InstallSessionCombo.Location = new System.Drawing.Point(163, 223);
-            this.InstallSessionCombo.MinimumSize = new System.Drawing.Size(200, 30);
-            this.InstallSessionCombo.Name = "InstallSessionCombo";
-            this.InstallSessionCombo.Padding = new System.Windows.Forms.Padding(1);
-            this.InstallSessionCombo.Size = new System.Drawing.Size(233, 30);
-            this.InstallSessionCombo.TabIndex = 33;
-            this.InstallSessionCombo.Texts = "Installation Service";
-            this.InstallSessionCombo.UnderlinedStyle = false;
-            this.InstallSessionCombo.OnSelectedIndexChanged += new System.EventHandler(this.InstallSessionCombo_OnSelectedIndexChanged);
+            this.cbWarehouse.AutoCompleteCustomSource.AddRange(new string[] {
+            "Kolwoon Warehouse"});
+            this.cbWarehouse.BackColor = System.Drawing.Color.White;
+            this.cbWarehouse.BorderColor = System.Drawing.Color.LightGray;
+            this.cbWarehouse.BorderRadius = 1;
+            this.cbWarehouse.BorderSize = 1;
+            this.cbWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbWarehouse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbWarehouse.ForeColor = System.Drawing.Color.DimGray;
+            this.cbWarehouse.IconColor = System.Drawing.Color.LightGray;
+            this.cbWarehouse.Items.AddRange(new object[] {
+            "Kolwoon Warehouse"});
+            this.cbWarehouse.ListBackColor = System.Drawing.Color.White;
+            this.cbWarehouse.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbWarehouse.Location = new System.Drawing.Point(167, 23);
+            this.cbWarehouse.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbWarehouse.Name = "cbWarehouse";
+            this.cbWarehouse.Padding = new System.Windows.Forms.Padding(1);
+            this.cbWarehouse.Size = new System.Drawing.Size(233, 31);
+            this.cbWarehouse.TabIndex = 33;
+            this.cbWarehouse.Texts = "Warehouse";
+            this.cbWarehouse.UnderlinedStyle = false;
+            this.cbWarehouse.OnSelectedIndexChanged += new System.EventHandler(this.cbWarehouse_OnSelectedIndexChanged);
+            this.cbWarehouse.Click += new System.EventHandler(this.cbWarehouse_Click);
             // 
-            // DeliverySessionCombo
+            // GTINCode
             // 
-            this.DeliverySessionCombo.BackColor = System.Drawing.Color.White;
-            this.DeliverySessionCombo.BorderColor = System.Drawing.Color.LightGray;
-            this.DeliverySessionCombo.BorderRadius = 1;
-            this.DeliverySessionCombo.BorderSize = 1;
-            this.DeliverySessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DeliverySessionCombo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeliverySessionCombo.ForeColor = System.Drawing.Color.DimGray;
-            this.DeliverySessionCombo.IconColor = System.Drawing.Color.LightGray;
-            this.DeliverySessionCombo.ListBackColor = System.Drawing.Color.White;
-            this.DeliverySessionCombo.ListTextColor = System.Drawing.Color.DimGray;
-            this.DeliverySessionCombo.Location = new System.Drawing.Point(165, 86);
-            this.DeliverySessionCombo.MinimumSize = new System.Drawing.Size(200, 30);
-            this.DeliverySessionCombo.Name = "DeliverySessionCombo";
-            this.DeliverySessionCombo.Padding = new System.Windows.Forms.Padding(1);
-            this.DeliverySessionCombo.Size = new System.Drawing.Size(233, 30);
-            this.DeliverySessionCombo.TabIndex = 32;
-            this.DeliverySessionCombo.Texts = "Delivery Session";
-            this.DeliverySessionCombo.UnderlinedStyle = false;
-            this.DeliverySessionCombo.OnSelectedIndexChanged += new System.EventHandler(this.DeliverySessionCombo_OnSelectedIndexChanged);
-            // 
-            // InstallDatePicker
-            // 
-            this.InstallDatePicker.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InstallDatePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InstallDatePicker.Location = new System.Drawing.Point(164, 177);
-            this.InstallDatePicker.Name = "InstallDatePicker";
-            this.InstallDatePicker.Size = new System.Drawing.Size(233, 29);
-            this.InstallDatePicker.TabIndex = 31;
-            this.InstallDatePicker.ValueChanged += new System.EventHandler(this.InstallDatePicker_ValueChanged);
-            // 
-            // DeliveryDatePicker
-            // 
-            this.DeliveryDatePicker.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeliveryDatePicker.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeliveryDatePicker.Location = new System.Drawing.Point(165, 40);
-            this.DeliveryDatePicker.Name = "DeliveryDatePicker";
-            this.DeliveryDatePicker.Size = new System.Drawing.Size(233, 29);
-            this.DeliveryDatePicker.TabIndex = 30;
-            this.DeliveryDatePicker.ValueChanged += new System.EventHandler(this.DeliveryDatePicker_ValueChanged);
+            this.GTINCode.AutoSize = true;
+            this.GTINCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GTINCode.Location = new System.Drawing.Point(55, 110);
+            this.GTINCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.GTINCode.Name = "GTINCode";
+            this.GTINCode.Size = new System.Drawing.Size(66, 21);
+            this.GTINCode.TabIndex = 3;
+            this.GTINCode.Text = "Address";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(53, 228);
+            this.label7.Location = new System.Drawing.Point(44, 28);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 21);
+            this.label7.Size = new System.Drawing.Size(88, 21);
             this.label7.TabIndex = 27;
-            this.label7.Text = "Session";
+            this.label7.Text = "Warehouse";
             // 
-            // label8
+            // txtWHAddress
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(63, 181);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 21);
-            this.label8.TabIndex = 26;
-            this.label8.Text = "Date";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(4, 146);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 21);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Installation Service";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(4, 3);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 21);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Delivery Service";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(53, 91);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 21);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Session";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(63, 44);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 21);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Date";
+            this.txtWHAddress.BackColor = System.Drawing.Color.White;
+            this.txtWHAddress.BorderColor = System.Drawing.Color.LightGray;
+            this.txtWHAddress.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtWHAddress.BorderRadius = 10;
+            this.txtWHAddress.BorderSize = 1;
+            this.txtWHAddress.Enabled = false;
+            this.txtWHAddress.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWHAddress.ForeColor = System.Drawing.Color.Black;
+            this.txtWHAddress.IsError = false;
+            this.txtWHAddress.Location = new System.Drawing.Point(167, 66);
+            this.txtWHAddress.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtWHAddress.MaxLength = 120;
+            this.txtWHAddress.Multiline = true;
+            this.txtWHAddress.Name = "txtWHAddress";
+            this.txtWHAddress.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtWHAddress.PasswordChar = false;
+            this.txtWHAddress.Placeholder = "Automatic Generation";
+            this.txtWHAddress.ReadOnly = true;
+            this.txtWHAddress.Size = new System.Drawing.Size(235, 109);
+            this.txtWHAddress.TabIndex = 25;
+            this.txtWHAddress.TbBackColor = System.Drawing.Color.White;
+            this.txtWHAddress.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtWHAddress.Texts = "Automatic Generation";
+            this.txtWHAddress.UnderlinedStyle = false;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Enabled = false;
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -600,9 +459,9 @@
             this.label2.Location = new System.Drawing.Point(3, 7);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 25);
+            this.label2.Size = new System.Drawing.Size(224, 25);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Appointment";
+            this.label2.Text = "Warehouse Information";
             // 
             // CustomerInfo
             // 
@@ -613,136 +472,174 @@
             this.CustomerInfo.Location = new System.Drawing.Point(0, 0);
             this.CustomerInfo.Name = "CustomerInfo";
             this.CustomerInfo.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.CustomerInfo.Size = new System.Drawing.Size(426, 286);
+            this.CustomerInfo.Size = new System.Drawing.Size(426, 343);
             this.CustomerInfo.TabIndex = 24;
             // 
             // CustomerInfoBox
             // 
             this.CustomerInfoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.CustomerInfoBox.Controls.Add(this.NameTxt);
-            this.CustomerInfoBox.Controls.Add(this.GTINCode);
+            this.CustomerInfoBox.Controls.Add(this.label4);
+            this.CustomerInfoBox.Controls.Add(this.txtSupAddress);
+            this.CustomerInfoBox.Controls.Add(this.cbSup);
+            this.CustomerInfoBox.Controls.Add(this.label3);
+            this.CustomerInfoBox.Controls.Add(this.txtTel);
             this.CustomerInfoBox.Controls.Add(this.Catalogue);
             this.CustomerInfoBox.Controls.Add(this.label1);
-            this.CustomerInfoBox.Controls.Add(this.AddressTxt);
-            this.CustomerInfoBox.Controls.Add(this.PhoneTxt);
+            this.CustomerInfoBox.Controls.Add(this.txtContact);
             this.CustomerInfoBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomerInfoBox.Location = new System.Drawing.Point(0, 40);
             this.CustomerInfoBox.Name = "CustomerInfoBox";
             this.CustomerInfoBox.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.CustomerInfoBox.Size = new System.Drawing.Size(426, 236);
+            this.CustomerInfoBox.Size = new System.Drawing.Size(426, 293);
             this.CustomerInfoBox.TabIndex = 27;
             // 
-            // NameTxt
+            // label4
             // 
-            this.NameTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.NameTxt.BackColor = System.Drawing.Color.White;
-            this.NameTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.NameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.NameTxt.BorderRadius = 10;
-            this.NameTxt.BorderSize = 1;
-            this.NameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameTxt.ForeColor = System.Drawing.Color.Black;
-            this.NameTxt.IsError = false;
-            this.NameTxt.Location = new System.Drawing.Point(164, 11);
-            this.NameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.NameTxt.MaxLength = 5;
-            this.NameTxt.Multiline = false;
-            this.NameTxt.Name = "NameTxt";
-            this.NameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.NameTxt.PasswordChar = false;
-            this.NameTxt.Placeholder = "Please enter customer name";
-            this.NameTxt.ReadOnly = false;
-            this.NameTxt.Size = new System.Drawing.Size(234, 38);
-            this.NameTxt.TabIndex = 24;
-            this.NameTxt.TbBackColor = System.Drawing.Color.White;
-            this.NameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.NameTxt.Texts = "Please enter customer name";
-            this.NameTxt.UnderlinedStyle = false;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(55, 201);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 21);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "Address";
             // 
-            // GTINCode
+            // txtSupAddress
             // 
-            this.GTINCode.AutoSize = true;
-            this.GTINCode.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GTINCode.Location = new System.Drawing.Point(21, 105);
-            this.GTINCode.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.GTINCode.Name = "GTINCode";
-            this.GTINCode.Size = new System.Drawing.Size(127, 21);
-            this.GTINCode.TabIndex = 3;
-            this.GTINCode.Text = "Delivery Address";
+            this.txtSupAddress.BackColor = System.Drawing.Color.White;
+            this.txtSupAddress.BorderColor = System.Drawing.Color.LightGray;
+            this.txtSupAddress.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtSupAddress.BorderRadius = 10;
+            this.txtSupAddress.BorderSize = 1;
+            this.txtSupAddress.Enabled = false;
+            this.txtSupAddress.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupAddress.ForeColor = System.Drawing.Color.Black;
+            this.txtSupAddress.IsError = false;
+            this.txtSupAddress.Location = new System.Drawing.Point(163, 157);
+            this.txtSupAddress.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtSupAddress.MaxLength = 120;
+            this.txtSupAddress.Multiline = true;
+            this.txtSupAddress.Name = "txtSupAddress";
+            this.txtSupAddress.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtSupAddress.PasswordChar = false;
+            this.txtSupAddress.Placeholder = "Automatic Generation";
+            this.txtSupAddress.ReadOnly = true;
+            this.txtSupAddress.Size = new System.Drawing.Size(235, 109);
+            this.txtSupAddress.TabIndex = 36;
+            this.txtSupAddress.TbBackColor = System.Drawing.Color.White;
+            this.txtSupAddress.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtSupAddress.Texts = "Automatic Generation";
+            this.txtSupAddress.UnderlinedStyle = false;
+            // 
+            // cbSup
+            // 
+            this.cbSup.BackColor = System.Drawing.Color.White;
+            this.cbSup.BorderColor = System.Drawing.Color.LightGray;
+            this.cbSup.BorderRadius = 1;
+            this.cbSup.BorderSize = 1;
+            this.cbSup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSup.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSup.ForeColor = System.Drawing.Color.DimGray;
+            this.cbSup.IconColor = System.Drawing.Color.LightGray;
+            this.cbSup.ListBackColor = System.Drawing.Color.White;
+            this.cbSup.ListTextColor = System.Drawing.Color.DimGray;
+            this.cbSup.Location = new System.Drawing.Point(163, 15);
+            this.cbSup.MinimumSize = new System.Drawing.Size(200, 30);
+            this.cbSup.Name = "cbSup";
+            this.cbSup.Padding = new System.Windows.Forms.Padding(1);
+            this.cbSup.Size = new System.Drawing.Size(233, 31);
+            this.cbSup.TabIndex = 34;
+            this.cbSup.Texts = "Supplier";
+            this.cbSup.UnderlinedStyle = false;
+            this.cbSup.OnSelectedIndexChanged += new System.EventHandler(this.cbSup_OnSelectedIndexChanged);
+            this.cbSup.Click += new System.EventHandler(this.cbSup_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(57, 66);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 21);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Contact";
+            // 
+            // txtTel
+            // 
+            this.txtTel.BackColor = System.Drawing.Color.White;
+            this.txtTel.BorderColor = System.Drawing.Color.LightGray;
+            this.txtTel.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtTel.BorderRadius = 10;
+            this.txtTel.BorderSize = 1;
+            this.txtTel.Enabled = false;
+            this.txtTel.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTel.ForeColor = System.Drawing.Color.Black;
+            this.txtTel.IsError = false;
+            this.txtTel.Location = new System.Drawing.Point(163, 107);
+            this.txtTel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtTel.MaxLength = 32767;
+            this.txtTel.Multiline = false;
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtTel.PasswordChar = false;
+            this.txtTel.Placeholder = "Automatic Generation";
+            this.txtTel.ReadOnly = true;
+            this.txtTel.Size = new System.Drawing.Size(235, 38);
+            this.txtTel.TabIndex = 26;
+            this.txtTel.TbBackColor = System.Drawing.Color.White;
+            this.txtTel.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtTel.Texts = "Automatic Generation";
+            this.txtTel.UnderlinedStyle = false;
             // 
             // Catalogue
             // 
             this.Catalogue.AutoSize = true;
             this.Catalogue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Catalogue.Location = new System.Drawing.Point(57, 67);
+            this.Catalogue.Location = new System.Drawing.Point(74, 116);
             this.Catalogue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Catalogue.Name = "Catalogue";
-            this.Catalogue.Size = new System.Drawing.Size(54, 21);
+            this.Catalogue.Size = new System.Drawing.Size(28, 21);
             this.Catalogue.TabIndex = 2;
-            this.Catalogue.Text = "Phone";
+            this.Catalogue.Text = "Tel";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(58, 20);
+            this.label1.Location = new System.Drawing.Point(54, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 21);
+            this.label1.Size = new System.Drawing.Size(68, 21);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Name";
+            this.label1.Text = "Supplier";
             // 
-            // AddressTxt
+            // txtContact
             // 
-            this.AddressTxt.BackColor = System.Drawing.Color.White;
-            this.AddressTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.AddressTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.AddressTxt.BorderRadius = 10;
-            this.AddressTxt.BorderSize = 1;
-            this.AddressTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddressTxt.ForeColor = System.Drawing.Color.Black;
-            this.AddressTxt.IsError = false;
-            this.AddressTxt.Location = new System.Drawing.Point(163, 105);
-            this.AddressTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.AddressTxt.MaxLength = 120;
-            this.AddressTxt.Multiline = true;
-            this.AddressTxt.Name = "AddressTxt";
-            this.AddressTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.AddressTxt.PasswordChar = false;
-            this.AddressTxt.Placeholder = "Please enter customer address";
-            this.AddressTxt.ReadOnly = false;
-            this.AddressTxt.Size = new System.Drawing.Size(235, 109);
-            this.AddressTxt.TabIndex = 25;
-            this.AddressTxt.TbBackColor = System.Drawing.Color.White;
-            this.AddressTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.AddressTxt.Texts = "Please enter customer address";
-            this.AddressTxt.UnderlinedStyle = false;
-            // 
-            // PhoneTxt
-            // 
-            this.PhoneTxt.BackColor = System.Drawing.Color.White;
-            this.PhoneTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.PhoneTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.PhoneTxt.BorderRadius = 10;
-            this.PhoneTxt.BorderSize = 1;
-            this.PhoneTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PhoneTxt.ForeColor = System.Drawing.Color.Black;
-            this.PhoneTxt.IsError = false;
-            this.PhoneTxt.Location = new System.Drawing.Point(163, 58);
-            this.PhoneTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.PhoneTxt.MaxLength = 32767;
-            this.PhoneTxt.Multiline = false;
-            this.PhoneTxt.Name = "PhoneTxt";
-            this.PhoneTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.PhoneTxt.PasswordChar = false;
-            this.PhoneTxt.Placeholder = "Please enter customer phone";
-            this.PhoneTxt.ReadOnly = false;
-            this.PhoneTxt.Size = new System.Drawing.Size(235, 38);
-            this.PhoneTxt.TabIndex = 22;
-            this.PhoneTxt.TbBackColor = System.Drawing.Color.White;
-            this.PhoneTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.PhoneTxt.Texts = "Please enter customer phone";
-            this.PhoneTxt.UnderlinedStyle = false;
+            this.txtContact.BackColor = System.Drawing.Color.White;
+            this.txtContact.BorderColor = System.Drawing.Color.LightGray;
+            this.txtContact.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.txtContact.BorderRadius = 10;
+            this.txtContact.BorderSize = 1;
+            this.txtContact.Enabled = false;
+            this.txtContact.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContact.ForeColor = System.Drawing.Color.Black;
+            this.txtContact.IsError = false;
+            this.txtContact.Location = new System.Drawing.Point(163, 57);
+            this.txtContact.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtContact.MaxLength = 32767;
+            this.txtContact.Multiline = false;
+            this.txtContact.Name = "txtContact";
+            this.txtContact.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtContact.PasswordChar = false;
+            this.txtContact.Placeholder = "Automatic Generation";
+            this.txtContact.ReadOnly = true;
+            this.txtContact.Size = new System.Drawing.Size(235, 38);
+            this.txtContact.TabIndex = 22;
+            this.txtContact.TbBackColor = System.Drawing.Color.White;
+            this.txtContact.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.txtContact.Texts = "Automatic Generation";
+            this.txtContact.UnderlinedStyle = false;
             // 
             // UserInfoHeaderContainer
             // 
@@ -787,10 +684,10 @@
             // 
             this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.dataGridViewImageColumn4.DataPropertyName = "install";
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle38.NullValue = null;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn4.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.NullValue = null;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn4.DefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridViewImageColumn4.HeaderText = "";
             this.dataGridViewImageColumn4.Image = global::TheBetterLimited.Properties.Resources.square;
             this.dataGridViewImageColumn4.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -802,10 +699,10 @@
             // dataGridViewImageColumn5
             // 
             this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle39.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle39.NullValue")));
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn5.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle30.NullValue = null;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn5.DefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridViewImageColumn5.HeaderText = "";
             this.dataGridViewImageColumn5.Image = global::TheBetterLimited.Properties.Resources.lock1;
             this.dataGridViewImageColumn5.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -834,33 +731,68 @@
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
             this.dataGridViewImageColumn6.ToolTipText = "Edit";
             // 
-            // roundButton1
+            // goodsID
             // 
-            this.roundButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.roundButton1.BackColor = System.Drawing.Color.SeaGreen;
-            this.roundButton1.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.roundButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.roundButton1.BorderRadius = 10;
-            this.roundButton1.BorderSize = 0;
-            this.roundButton1.FlatAppearance.BorderSize = 0;
-            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.roundButton1.ForeColor = System.Drawing.Color.White;
-            this.roundButton1.IsChecked = false;
-            this.roundButton1.Location = new System.Drawing.Point(503, 6);
-            this.roundButton1.Name = "roundButton1";
-            this.roundButton1.Size = new System.Drawing.Size(119, 40);
-            this.roundButton1.TabIndex = 2;
-            this.roundButton1.Text = "Add Item";
-            this.roundButton1.TextColor = System.Drawing.Color.White;
-            this.roundButton1.UseVisualStyleBackColor = false;
+            this.goodsID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.goodsID.DataPropertyName = "_goodsId";
+            this.goodsID.HeaderText = "Goods Ref. No";
+            this.goodsID.Name = "goodsID";
+            this.goodsID.ReadOnly = true;
+            this.goodsID.ToolTipText = "Goods Ref. No";
+            this.goodsID.Width = 106;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.DataPropertyName = "goodsName";
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle23;
+            this.ID.HeaderText = "Goods Name";
+            this.ID.MinimumWidth = 6;
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.ToolTipText = "Goods Name";
+            // 
+            // Price
+            // 
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Price.DataPropertyName = "price";
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.Format = "C2";
+            dataGridViewCellStyle24.NullValue = null;
+            this.Price.DefaultCellStyle = dataGridViewCellStyle24;
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 75;
+            // 
+            // CreatorId
+            // 
+            this.CreatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CreatorId.DataPropertyName = "quantity";
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.CreatorId.DefaultCellStyle = dataGridViewCellStyle25;
+            this.CreatorId.HeaderText = "Qty";
+            this.CreatorId.MinimumWidth = 6;
+            this.CreatorId.Name = "CreatorId";
+            this.CreatorId.ToolTipText = "Quantity";
+            this.CreatorId.Width = 68;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.delete.HeaderText = "";
+            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash24;
+            this.delete.Name = "delete";
+            this.delete.Width = 5;
             // 
             // PurchaseOrder_Create
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1061, 629);
+            this.ClientSize = new System.Drawing.Size(1080, 606);
             this.Controls.Add(this.OrderItemBox);
             this.Controls.Add(this.OrderInfoBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -903,9 +835,8 @@
         private System.Windows.Forms.Panel CustomerInfo;
         private System.Windows.Forms.Panel UserInfoHeaderContainer;
         private System.Windows.Forms.Label GoodsInfoHeader;
-        private CustomizeControl.CustomizeTextbox PhoneTxt;
-        private CustomizeControl.CustomizeTextbox NameTxt;
-        private CustomizeControl.CustomizeTextbox AddressTxt;
+        private CustomizeControl.CustomizeTextbox txtContact;
+        private CustomizeControl.CustomizeTextbox txtWHAddress;
         private System.Windows.Forms.Panel CustomerInfoBox;
         private CustomizeControl.RoundButton CancelBtn;
         private CustomizeControl.RoundButton SaveBtn;
@@ -913,16 +844,11 @@
         private System.Windows.Forms.Panel AppointmentBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel AppointmentInfoBox;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel Data;
         private System.Windows.Forms.DataGridView OrderDataGrid;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn7;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn5;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
@@ -930,19 +856,19 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn6;
-        private System.Windows.Forms.DateTimePicker DeliveryDatePicker;
-        private System.Windows.Forms.DateTimePicker InstallDatePicker;
-        private CustomizeControl.CustomizeComboBox DeliverySessionCombo;
-        private CustomizeControl.CustomizeComboBox InstallSessionCombo;
+        private CustomizeControl.CustomizeComboBox cbWarehouse;
         private System.Windows.Forms.DataGridViewImageColumn isInstall;
         private CustomizeControl.RoundButton DeleteBtn;
+        private CustomizeControl.RoundButton AddBtn;
+        private System.Windows.Forms.Label label3;
+        private CustomizeControl.CustomizeTextbox txtTel;
+        private CustomizeControl.CustomizeComboBox cbSup;
+        private System.Windows.Forms.Label label4;
+        private CustomizeControl.CustomizeTextbox txtSupAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn goodsID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatorId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewImageColumn install;
-        private System.Windows.Forms.DataGridViewImageColumn defect;
-        private CustomizeControl.RoundButton roundButton1;
+        private System.Windows.Forms.DataGridViewImageColumn delete;
     }
 }

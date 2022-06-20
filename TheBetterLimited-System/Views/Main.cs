@@ -130,6 +130,7 @@ namespace TheBetterLimited.Views
             subSidebarTimer.Start();
             GoodsContainer.Show();
             SupplierContainer.Show();
+            PurchaseGoodsContainer.Show();
         }
 
         private void Home_Click(object sender, EventArgs e)
@@ -310,9 +311,9 @@ namespace TheBetterLimited.Views
             subSidebarTimer.Start();
         }
 
-        private void appointmentBtn_Click(object sender, EventArgs e)
+        private void purchaseBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new Appointment());
+            openChildForm(new POManagement());
             subSidebarTimer.Start();
         }
 
