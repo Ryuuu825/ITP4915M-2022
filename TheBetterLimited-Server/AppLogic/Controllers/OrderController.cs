@@ -690,6 +690,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         {
             SalesOrder order = repository.GetById(dto.OrderId);
             List<SalesOrderItem> items = order.Items;
+            order.updatedAt = DateTime.Now;
+            repository.Update(order);
 
             if (dto.DeliverySessionId is not null || dto.InstallationtSessionId is not null)
             {
