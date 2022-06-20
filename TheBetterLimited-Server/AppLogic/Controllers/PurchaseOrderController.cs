@@ -70,6 +70,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 dto.Status = entry.Status;
                 dto.Items = new List<PurchaseOrderItemOutDto>();
 
+
                 decimal Total = 0;
                 foreach(var item in entry.Items)
                 {
