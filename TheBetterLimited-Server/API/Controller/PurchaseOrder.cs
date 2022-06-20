@@ -12,7 +12,6 @@ namespace TheBetterLimited_Server.API.Controller
         public Purchase_PurchaseOrder(Data.DataContext db)
         {
             controller = new AppLogic.Controllers.PurchaseOrderController(db);
-
         }
 
 
