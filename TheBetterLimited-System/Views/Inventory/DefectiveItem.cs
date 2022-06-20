@@ -44,6 +44,11 @@ namespace TheBetterLimited.Views
          */
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
+            if(selecteOrderId.Count <= 0)
+            {
+                MessageBox.Show("You have not selected a defect item record.");
+                return;
+            }
             Form option = Application.OpenForms["DefectUpdateOption"];
             if (option != null)
             {
@@ -53,6 +58,7 @@ namespace TheBetterLimited.Views
             DefectUpdateOption dfo = new DefectUpdateOption();
             dfo.Show();
             dfo.TopLevel = true;
+            dfo.ids = selecteOrderId;
             dfo.OnExit += GetDefectItem;
         }
 
@@ -77,20 +83,10 @@ namespace TheBetterLimited.Views
                     e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
                 }
-                else if (e.Value.Equals("Completed"))
+                else if (e.Value.Equals("Returned"))
                 {
                     e.CellStyle.ForeColor = Color.SeaGreen;
                     e.CellStyle.SelectionForeColor = Color.SeaGreen;
-                }
-                else if (e.Value.Equals("Booking"))
-                {
-                    e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
-                    e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
-                }
-                else if (e.Value.Equals("Refunded"))
-                {
-                    e.CellStyle.ForeColor = Color.DimGray;
-                    e.CellStyle.SelectionForeColor = Color.DimGray;
                 }
                 else
                 {
@@ -136,9 +132,8 @@ namespace TheBetterLimited.Views
                     defect.Close();
                     defect.Dispose();
                 }
-                DefectiveItem_Details df = new DefectiveItem_Details();
+                DefectiveItem_Details df = new DefectiveItem_Details(defectList[e.RowIndex]);
                 Console.WriteLine(defectList[e.RowIndex].ToString());
-                //df.SetOrderData(defectList[e.RowIndex]);
                 df.Show();
                 df.TopLevel = true;
                 df.OnExit += GetDefectItem;
