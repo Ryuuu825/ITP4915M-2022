@@ -43,7 +43,7 @@ namespace TheBetterLimited.Views
             InitializeComponent();
             InitialzeDataTable();
             initBackgroundWorker();
-            loadPic.Show();
+            showLoading();
             bw.RunWorkerAsync();
         }
         private void initBackgroundWorker()
@@ -53,6 +53,17 @@ namespace TheBetterLimited.Views
             bw.WorkerSupportsCancellation = true;
             bw.DoWork += new DoWorkEventHandler(bw_DoWork);
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
+        }
+        private void showLoading()
+        {
+            Loading load = new Loading();
+            load.TopLevel = false;
+            load.Dock = DockStyle.Fill;
+            loadPic.Controls.Add(load);
+            loadPic.Tag = load;
+            loadPic.BringToFront();
+            load.Show();
+            loadPic.Show();
         }
 
         private void bw_DoWork(object sender, DoWorkEventArgs e)
@@ -76,7 +87,7 @@ namespace TheBetterLimited.Views
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.Invalidate();
-            loadPic.Show();
+            showLoading();
             try
             {
                 bw.RunWorkerAsync();
@@ -137,7 +148,7 @@ namespace TheBetterLimited.Views
             {
                 try
                 {
-                    loadPic.Show();
+                    showLoading();
                     bw.RunWorkerAsync();
                 }
                 catch (Exception ex)
@@ -309,7 +320,7 @@ namespace TheBetterLimited.Views
                         MessageBox.Show("The " + StockDataGrid["id", e.RowIndex].Value + " have been deleted!", "Delete stock records Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         try
                         {
-                            loadPic.Show();
+                            showLoading();
                             bw.RunWorkerAsync();
                         }
                         catch (Exception ex)
@@ -331,7 +342,7 @@ namespace TheBetterLimited.Views
             Stock_Add goodsAdd = new Stock_Add();
             goodsAdd.OnExit += () =>
             {
-                loadPic.Show();
+                showLoading();
                 bw.RunWorkerAsync();
             };
             goodsAdd.Show();
@@ -350,7 +361,7 @@ namespace TheBetterLimited.Views
         {
             try
             {
-                loadPic.Show();
+                showLoading();
                 bw.RunWorkerAsync();
             }
             catch (Exception ex)
