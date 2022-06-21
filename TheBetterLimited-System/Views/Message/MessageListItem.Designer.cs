@@ -34,8 +34,7 @@ namespace TheBetterLimited.Views.Message
             this.Title = new System.Windows.Forms.Label();
             this.Sender = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.Label();
-            this.isRead = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.isRead)).BeginInit();
+            this.isRead = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Title
@@ -67,12 +66,13 @@ namespace TheBetterLimited.Views.Message
             // 
             // isRead
             // 
-            this.isRead.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.isRead.Location = new System.Drawing.Point(234, 17);
+            this.isRead.AutoSize = true;
+            this.isRead.BackColor = System.Drawing.Color.Lime;
+            this.isRead.Location = new System.Drawing.Point(243, 28);
             this.isRead.Name = "isRead";
-            this.isRead.Size = new System.Drawing.Size(24, 25);
-            this.isRead.TabIndex = 3;
-            this.isRead.TabStop = false;
+            this.isRead.Size = new System.Drawing.Size(14, 12);
+            this.isRead.TabIndex = 4;
+            this.isRead.Text = "   ";
             // 
             // MessageListItem
             // 
@@ -84,9 +84,9 @@ namespace TheBetterLimited.Views.Message
             this.Controls.Add(this.Sender);
             this.Controls.Add(this.Title);
             this.Name = "MessageListItem";
-            this.Size = new System.Drawing.Size(261, 65);
-            ((System.ComponentModel.ISupportInitialize)(this.isRead)).EndInit();
+            this.Size = new System.Drawing.Size(267, 65);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -98,6 +98,6 @@ namespace TheBetterLimited.Views.Message
 
         #endregion
 
-        private System.Windows.Forms.PictureBox isRead;
+        private System.Windows.Forms.Label isRead;
     }
 }

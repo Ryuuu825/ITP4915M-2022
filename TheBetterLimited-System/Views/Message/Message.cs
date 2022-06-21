@@ -34,34 +34,28 @@ namespace TheBetterLimited.Views.Message
 
         }
 
-        public void SetMessage(RestSharp.RestResponse result, bool isReverse = false) // isReverse mean add the message to the front
+        public void SetMessage(RestSharp.RestResponse result, bool isNewMessage = false) // isReverse mean add the message to the front
         {
-            Console.WriteLine(result.Content);
-            try
+            var messages = JObject.Parse(result.Content)["messages"].ToString();
+            JArray messageList = JArray.Parse(messages);
+            foreach (var message in messageList)
             {
-                var messages = JObject.Parse(result.Content)["messages"].ToString();
-                Console.WriteLine(messages);
-                JArray messageList = JArray.Parse(messages);
-                foreach (var message in messageList)
+                /*
+                        "senderName": "system",
+                        "sentDate": "21/6/2022",
+                        "title": "Low Stock Warning",
+                        "content": "The quantity of 100000041 is less than the minimum limit. Please check the stock."
+                */
+
+                // string title , string message, string sender, string date
+                var msg = new MessageListItem(message["title"].ToString(), message["content"].ToString(), message["senderName"].ToString(), message["sentDate"].ToString() , false);
+
+                this.MessageList.Controls.Add(msg);
+                if (isNewMessage)
                 {
-                    /*
-                          "senderName": "system",
-                          "sentDate": "21/6/2022",
-                          "title": "Low Stock Warning",
-                          "content": "The quantity of 100000041 is less than the minimum limit. Please check the stock."
-                    */
-
-                    // string title , string message, string sender, string date
-                    var msg = new MessageListItem(message["title"].ToString(), message["content"].ToString(), message["senderName"].ToString(), message["sentDate"].ToString() , false);
-
-                    this.MessageList.Controls.Add(msg);
-                    if (isReverse)
-                        this.MessageList.Controls.SetChildIndex(msg, 0);
+                    this.MessageList.Controls.SetChildIndex(msg, 0);
                 }
-            }
-            catch (JsonReaderException ex) // no message
-            {
-                return;
+
             }
 
         }
@@ -90,7 +84,6 @@ namespace TheBetterLimited.Views.Message
 
         private void button1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void isUnreadOnly_CheckedChanged(object sender, EventArgs e)
@@ -105,5 +98,7 @@ namespace TheBetterLimited.Views.Message
                 ReceiveMessage();
             }
         }
+
+        
     }
 }

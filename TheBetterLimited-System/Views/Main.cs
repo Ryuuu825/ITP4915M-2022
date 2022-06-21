@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using TheBetterLimited.Controller;
 using System.Drawing.Drawing2D;
 using System.Text.RegularExpressions;
+using TheBetterLimited.Views.Message;
 
 namespace TheBetterLimited.Views
 {
@@ -23,9 +24,11 @@ namespace TheBetterLimited.Views
         private Form activeForm = null;
         private UserController uc = new UserController();
         private string position = String.Empty;
+        private MessageDelegate Delegate;
         public Main()
         {
             InitializeComponent();
+            Delegate = new MessageDelegate(() => {  }, 1000, () => { } , testing);
         }
 
         private void Main_Load(object sender, EventArgs e)

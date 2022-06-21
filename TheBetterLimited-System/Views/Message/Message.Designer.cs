@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Message));
             this.label1 = new System.Windows.Forms.Label();
             this.MessageList = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.isUnreadOnly = new System.Windows.Forms.CheckBox();
+            this.prompt = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // label1
@@ -153,6 +155,15 @@
             this.isUnreadOnly.UseVisualStyleBackColor = true;
             this.isUnreadOnly.CheckedChanged += new System.EventHandler(this.isUnreadOnly_CheckedChanged);
             // 
+            // prompt
+            // 
+            this.prompt.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.prompt.BalloonTipText = "sdfasfsf";
+            this.prompt.BalloonTipTitle = "sdfsdfsf";
+            this.prompt.Icon = ((System.Drawing.Icon)(resources.GetObject("prompt.Icon")));
+            this.prompt.Text = "notifyIcon1";
+            this.prompt.Visible = true;
+            // 
             // Message
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -169,7 +180,6 @@
             this.Controls.Add(this.MessageList);
             this.Controls.Add(this.label1);
             this.Name = "Message";
-            this.Text = "MessageForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +200,6 @@
         #endregion
 
         private System.Windows.Forms.CheckBox isUnreadOnly;
+        private System.Windows.Forms.NotifyIcon prompt;
     }
 }

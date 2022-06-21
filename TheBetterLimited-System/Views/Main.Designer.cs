@@ -89,6 +89,7 @@
             this.SettingContainer = new System.Windows.Forms.Panel();
             this.Setting = new System.Windows.Forms.Button();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
+            this.testing = new System.Windows.Forms.NotifyIcon(this.components);
             this.PurchaseGoodsContainer.SuspendLayout();
             this.SupplierContainer.SuspendLayout();
             this.StockContainer.SuspendLayout();
@@ -964,6 +965,15 @@
             this.sidebarTimer.Interval = 1;
             this.sidebarTimer.Tick += new System.EventHandler(this.sidebarTimer_Tick);
             // 
+            // testing
+            // 
+            this.testing.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.testing.BalloonTipText = "sdfsaf";
+            this.testing.BalloonTipTitle = "safsfs";
+            this.testing.Icon = ((System.Drawing.Icon)(resources.GetObject("testing.Icon")));
+            this.testing.Text = "notifyIcon1";
+            this.testing.Visible = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -1078,6 +1088,7 @@
         private System.Windows.Forms.Button button17;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.NotifyIcon testing;
     }
 }
 

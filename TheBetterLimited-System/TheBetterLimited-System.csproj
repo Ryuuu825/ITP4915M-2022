@@ -261,6 +261,7 @@
     <Compile Include="Views\Message\Message.Designer.cs">
       <DependentUpon>Message.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Message\MessageController.cs" />
     <Compile Include="Views\Message\MessageListItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
