@@ -369,6 +369,7 @@
             this.MessageBtn.Text = "                 Message";
             this.MessageBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.MessageBtn.UseVisualStyleBackColor = false;
+            this.MessageBtn.Click += new System.EventHandler(this.MessageBtn_Click);
             // 
             // LanguageBtn
             // 

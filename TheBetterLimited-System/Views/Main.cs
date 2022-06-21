@@ -340,5 +340,13 @@ namespace TheBetterLimited.Views
             openChildForm(new DefectiveItem());
             subSidebarTimer.Start();
         }
+
+        private void MessageBtn_Click(object sender, EventArgs e)
+        {
+            user_droplist.Visible = user_droplist.Visible == true ? false : true;
+            Message.Message msg = new Message.Message();
+            msg.Show();
+        }
+
     }
 }
