@@ -35,9 +35,7 @@ namespace TheBetterLimited.Views
 
         private void Main_Load(object sender, EventArgs e)
         {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en");
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
-            //MultiLanguage.LoadLanguage(this, typeof(Main));
+            MultiLanguage.LoadLanguage(this, typeof(Main));
             dropMenu.Controls.Remove(enBtn);
             dropMenu.Controls.Remove(zhBtn);
             dropMenu.Hide();
