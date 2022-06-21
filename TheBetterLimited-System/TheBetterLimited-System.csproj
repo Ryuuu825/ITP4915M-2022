@@ -269,6 +269,7 @@
       <DependentUpon>MessageListItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Message\MessageModel.cs" />
+    <Compile Include="Views\Message\OnMessageItemClick.cs" />
     <Compile Include="Views\POS\DefectItem-Add.cs">
       <SubType>Form</SubType>
     </Compile>

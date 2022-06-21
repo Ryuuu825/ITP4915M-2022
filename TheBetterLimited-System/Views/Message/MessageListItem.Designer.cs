@@ -78,13 +78,14 @@ namespace TheBetterLimited.Views.Message
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.Controls.Add(this.isRead);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.Sender);
             this.Controls.Add(this.Title);
             this.Name = "MessageListItem";
             this.Size = new System.Drawing.Size(267, 65);
+            this.Click += new System.EventHandler(this.MessageListItem_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

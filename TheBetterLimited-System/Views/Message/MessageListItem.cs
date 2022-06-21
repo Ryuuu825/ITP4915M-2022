@@ -17,20 +17,25 @@ namespace TheBetterLimited.Views.Message
             InitializeComponent();
         }
 
+        string id;
         string title;
         string message;
         string sender;
         string date;
         bool Readed;
-        public MessageListItem(string title, string message, string sender, string date, bool isRead)
+        OnMessageItemClick Delegate;
+
+        public MessageListItem(MessageModel model, OnMessageItemClick Delegate)
         {
             InitializeComponent();
 
-            this.title = title;
-            this.message = message;
-            this.sender = sender;
-            this.date = date;
-            this.Readed = isRead;
+            this.title = model.Title;
+            this.message = model.content;
+            this.sender = model.senderName;
+            this.date = model.sendDate;
+            this.Readed = model.isRead;
+            this.id = model.id;
+
 
             this.Title.Text = title;
             this.Sender.Text = sender;
@@ -38,6 +43,50 @@ namespace TheBetterLimited.Views.Message
 
             if (Readed)
                 this.isRead.Visible = false;
+
+            this.Delegate = Delegate;
+
+            this.Title.MouseEnter += (e, arg) => { ChangeBgColor(); };
+            this.Title.MouseLeave += (e, arg) => { ChangeBackToNormal(); };
+            this.Title.Click += (e, args) => Delegate.Click(id, sender, title, message);
+
+            this.Sender.MouseEnter += (e, arg) => { ChangeBgColor(); };
+            this.Sender.MouseLeave += (e, arg) => { ChangeBackToNormal(); };
+            this.Sender.Click += (e, args) => Delegate.Click(id, sender, title, message);
+
+
+            this.Time.MouseEnter += (e, arg) => { ChangeBgColor(); };
+            this.Time.MouseLeave += (e, arg) => { ChangeBackToNormal(); };
+            this.Time.Click += (e, args) => Delegate.Click(id, sender, title, message);
+        }
+
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            ChangeBgColor();
+            base.OnMouseEnter(e);
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            ChangeBackToNormal();
+            base.OnMouseLeave(e);
+        }
+
+        public void ChangeBgColor()
+        {
+            this.BackColor = Color.SeaGreen;
+        }
+
+        public void ChangeBackToNormal()
+        {
+            BackColor = Color.LightGray;
+        }
+
+        private void MessageListItem_Click(object sender, EventArgs e)
+        {
+            Delegate.Click(id , this.sender, title, message);
+            this.isRead.Visible = false;
+
         }
     }
 }

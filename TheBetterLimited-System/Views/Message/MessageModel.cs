@@ -8,9 +8,11 @@ namespace TheBetterLimited.Views.Message
 {
     public class MessageModel
     {
-        string senderName;
-        string sendDate;
-        string Title;
-        string content;
+        public string id;
+        public string senderName;
+        public string sendDate;
+        public string Title;
+        public string content;
+        public bool isRead;
     }
 }

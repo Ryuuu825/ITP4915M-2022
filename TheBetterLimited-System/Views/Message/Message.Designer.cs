@@ -35,9 +35,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.senderText = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.titleText = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.contentText = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Timer(this.components);
             this.isUnreadOnly = new System.Windows.Forms.CheckBox();
@@ -59,12 +59,12 @@
             this.MessageList.AutoScroll = true;
             this.MessageList.Location = new System.Drawing.Point(12, 65);
             this.MessageList.Name = "MessageList";
-            this.MessageList.Size = new System.Drawing.Size(277, 411);
+            this.MessageList.Size = new System.Drawing.Size(300, 411);
             this.MessageList.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(214, 482);
+            this.button1.Location = new System.Drawing.Point(223, 482);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 34);
             this.button1.TabIndex = 3;
@@ -94,17 +94,17 @@
             this.senderText.TabIndex = 6;
             this.senderText.Text = "dfsafsdf";
             // 
-            // textBox1
+            // titleText
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Black", 9.75F);
-            this.textBox1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.textBox1.Location = new System.Drawing.Point(397, 149);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(319, 46);
-            this.textBox1.TabIndex = 8;
-            this.textBox1.Text = "A title";
+            this.titleText.Enabled = false;
+            this.titleText.Font = new System.Drawing.Font("Segoe UI Black", 9.75F);
+            this.titleText.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.titleText.Location = new System.Drawing.Point(397, 149);
+            this.titleText.Multiline = true;
+            this.titleText.Name = "titleText";
+            this.titleText.Size = new System.Drawing.Size(319, 46);
+            this.titleText.TabIndex = 8;
+            this.titleText.Text = "A title";
             // 
             // label3
             // 
@@ -116,17 +116,17 @@
             this.label3.Text = "Title";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox2
+            // contentText
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.textBox2.Location = new System.Drawing.Point(397, 212);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(319, 264);
-            this.textBox2.TabIndex = 10;
-            this.textBox2.Text = "Please update the system";
+            this.contentText.Enabled = false;
+            this.contentText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contentText.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.contentText.Location = new System.Drawing.Point(397, 212);
+            this.contentText.Multiline = true;
+            this.contentText.Name = "contentText";
+            this.contentText.Size = new System.Drawing.Size(319, 264);
+            this.contentText.TabIndex = 10;
+            this.contentText.Text = "Please update the system";
             // 
             // label4
             // 
@@ -170,9 +170,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 524);
             this.Controls.Add(this.isUnreadOnly);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.contentText);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.titleText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.senderText);
             this.Controls.Add(this.label2);
@@ -192,9 +192,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox senderText;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox titleText;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox contentText;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer Timer;
 
