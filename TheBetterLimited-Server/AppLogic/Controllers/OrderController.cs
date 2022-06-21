@@ -20,7 +20,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private readonly Data.Repositories.Repository<Session> _SessionTable;
         private readonly Data.Repositories.Repository<DefectItemRecord> _DefectItemTable;
         private readonly AppLogic.Controllers.MessageController _MessageController;
-
+        private readonly Data.Repositories.UserInfoRepository userInfo;
         private readonly Data.DataContext db;
 
         public OrderController(Data.DataContext db) 
@@ -40,7 +40,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _SessionTable = new Data.Repositories.Repository<Session>(db);
             _DefectItemTable = new Data.Repositories.Repository<DefectItemRecord>(db);
             _SalesOrderItem_AppointmentTable = new Data.Repositories.Repository<SalesOrderItem_Appointment>(db);
-
+            userInfo = new Data.Repositories.UserInfoRepository(db);
             this.db = db;
         }
 
@@ -387,6 +387,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     _MessageController.SendMessage("system" ,
                         new SendMessageDto
                         {
+                            Title = "Low Stock Warning",
                             receiver = receivers,
                             content = $"The quantity of {sgs._supplierGoodsId} is less than the minimum limit. Please check the stock."
                         }
@@ -686,10 +687,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
         }
 
-        public void updateOrder(UpdateOrderDto dto)
+        public void updateOrder(string username , UpdateOrderDto dto)
         {
             SalesOrder order = repository.GetById(dto.OrderId);
             List<SalesOrderItem> items = order.Items;
+            order.updatedAt = DateTime.Now;
+            order._operatorId = userInfo.GetStaffFromUserName(username).Id;
+            repository.Update(order);
 
             if (dto.DeliverySessionId is not null || dto.InstallationtSessionId is not null)
             {

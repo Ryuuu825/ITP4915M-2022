@@ -45,6 +45,7 @@ namespace TheBetterLimited.Views
         public POS()
         {
             InitializeComponent();
+            showLoading();
             initBackgroundWorker();
             bw.RunWorkerAsync();
         }
@@ -61,6 +62,18 @@ namespace TheBetterLimited.Views
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
         }
 
+        private void showLoading()
+        {
+            Loading load = new Loading();
+            load.TopLevel = false;
+            load.Dock = DockStyle.Fill;
+            loadPic.Controls.Add(load);
+            loadPic.Tag = load;
+            loadPic.BringToFront();
+            load.Show();
+            loadPic.Show();
+        }
+
         private void bw_DoWork(object sender, DoWorkEventArgs e)
         {
             if (loadAll)
@@ -75,6 +88,7 @@ namespace TheBetterLimited.Views
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             loadPic.Hide();
+            loadPic.Controls.Clear();
             if (loadAll)
             {
                 GetAll();
@@ -93,7 +107,7 @@ namespace TheBetterLimited.Views
 
         public void LoadAllGoods()
         {
-            loadPic.Show();
+            showLoading();
             loadAll = true;
             try
             {
@@ -107,7 +121,7 @@ namespace TheBetterLimited.Views
 
         public void LoadQryGoods()
         {
-            loadPic.Show();
+            showLoading();
             loadAll = false;
             try
             {

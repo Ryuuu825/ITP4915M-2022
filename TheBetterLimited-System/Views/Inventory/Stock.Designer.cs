@@ -72,7 +72,6 @@
             this.Title = new System.Windows.Forms.Label();
             this.Data = new System.Windows.Forms.Panel();
             this.loadPic = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -84,8 +83,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
-            this.loadPic.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // StockDataGrid
@@ -643,24 +640,12 @@
             // loadPic
             // 
             this.loadPic.BackColor = System.Drawing.Color.White;
-            this.loadPic.Controls.Add(this.pictureBox2);
             this.loadPic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.loadPic.Location = new System.Drawing.Point(0, 10);
             this.loadPic.Name = "loadPic";
             this.loadPic.Size = new System.Drawing.Size(544, 395);
             this.loadPic.TabIndex = 4;
             this.loadPic.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::TheBetterLimited.Properties.Resources.Loading_icon;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(544, 395);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // dataGridViewImageColumn1
             // 
@@ -704,8 +689,6 @@
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             this.Data.ResumeLayout(false);
-            this.loadPic.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -734,7 +717,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Panel loadPic;
         private CustomizeControl.RoundButton inBtn;
         private System.Windows.Forms.Panel panel5;

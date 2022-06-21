@@ -50,7 +50,8 @@ public class MessageController
             {
                 senderName = message.message.sender.UserName,
                 sentDate = message.message.SentDate.ToShortDateString(),
-                content = message.message.Content
+                content = message.message.Content,
+                Title = message.message.Title
                 
             });
         }
@@ -91,7 +92,8 @@ public class MessageController
                 {
                     senderName = message.message.sender.UserName,
                     sentDate = message.message.SentDate.ToShortDateString(),
-                    content = message.message.Content
+                    content = message.message.Content,
+                    Title = message.message.Title
 
                 });
             }
@@ -127,6 +129,7 @@ public class MessageController
 
         var newMessage = new Data.Entity.Message
         {
+            Title = message.Title,
             Content = message.content,
             SentDate = DateTime.Now,
             _senderId = account.Id,

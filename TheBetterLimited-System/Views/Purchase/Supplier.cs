@@ -263,7 +263,7 @@ namespace TheBetterLimited.Views
         // Export Goods PDF
         private void exportBtn_Click(object sender, EventArgs e)
         {
-            Loading progress = new Loading();
+            CustomizeControl.Loading progress = new CustomizeControl.Loading();
             progress.Show();
             progress.Update("Fetch data from server ...", 10);
             byte[] response = gc.GetGoodsPDF();

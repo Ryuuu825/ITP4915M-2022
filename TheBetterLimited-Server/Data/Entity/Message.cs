@@ -15,6 +15,9 @@ namespace TheBetterLimited_Server.Data.Entity
         [ForeignKey("_senderId")]
         public virtual Account sender { get; set; }
 
+        [MaxLength(30)]
+        public string Title { get; set; }
+         
         [MaxLength(200)]
         [Column(TypeName = "varchar(200)")]
         public string Content { get; set; }

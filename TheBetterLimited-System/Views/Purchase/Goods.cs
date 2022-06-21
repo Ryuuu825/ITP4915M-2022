@@ -36,7 +36,7 @@ namespace TheBetterLimited.Views
         {
             InitializeComponent();
             initBackgroundWorker();
-            loadPic.Show();
+            showLoading();
             bw.RunWorkerAsync();
 
         }
@@ -48,6 +48,17 @@ namespace TheBetterLimited.Views
             bw.DoWork += new DoWorkEventHandler(bw_DoWork);
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
         }
+        private void showLoading()
+        {
+            Loading load = new Loading();
+            load.TopLevel = false;
+            load.Dock = DockStyle.Fill;
+            loadPic.Controls.Add(load);
+            loadPic.Tag = load;
+            loadPic.BringToFront();
+            load.Show();
+            loadPic.Show();
+        }
 
         private void bw_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -58,6 +69,7 @@ namespace TheBetterLimited.Views
         {
             InitList();
             loadPic.Hide();
+            loadPic.Controls.Clear();
         }
         /*
          * Dom Style/Event Process
@@ -72,7 +84,7 @@ namespace TheBetterLimited.Views
             this.Invalidate();
             try
             {
-                loadPic.Show();
+                showLoading();
                 bw.RunWorkerAsync();
             }catch (Exception ex)
             {
@@ -155,8 +167,8 @@ namespace TheBetterLimited.Views
                 Goods_Edit editGoodsForm = new Goods_Edit(id);
                 editGoodsForm.Show();
                 editGoodsForm.TopLevel = true;
-                editGoodsForm.OnExit += ()=> { 
-                    loadPic.Show(); 
+                editGoodsForm.OnExit += ()=> {
+                    showLoading();
                     bw.RunWorkerAsync(); 
                 };
             }
@@ -253,7 +265,7 @@ namespace TheBetterLimited.Views
                             result = gc.DeleteGoods(uid);
                         }
                         MessageBox.Show(selectGoodsID.Count + " records have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        loadPic.Show();
+                        showLoading();
                         bw.RunWorkerAsync();
                     }
                     catch (Exception ex)
@@ -308,8 +320,8 @@ namespace TheBetterLimited.Views
         private void AddBtn_Click(object sender, EventArgs e)
         {
             Goods_Add goodsAdd = new Goods_Add();
-            goodsAdd.OnExit += () => { 
-                loadPic.Show();
+            goodsAdd.OnExit += () => {
+                showLoading();
                 bw.RunWorkerAsync(); 
             };
             goodsAdd.Show();
@@ -360,7 +372,7 @@ namespace TheBetterLimited.Views
         {
             try
             {
-                loadPic.Show();
+                showLoading();
                 bw.RunWorkerAsync();
             }
             catch (Exception ex)
