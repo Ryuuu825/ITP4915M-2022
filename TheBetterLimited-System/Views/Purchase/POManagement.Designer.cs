@@ -73,6 +73,7 @@
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.details = new System.Windows.Forms.DataGridViewImageColumn();
             this.Print = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -118,7 +119,8 @@
             this.Paid,
             this.status,
             this.details,
-            this.Print});
+            this.Print,
+            this.delete});
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -540,6 +542,16 @@
             this.Print.ToolTipText = "Print Receipt";
             this.Print.Width = 6;
             // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.delete.HeaderText = "";
+            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash24;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.ToolTipText = "Delete Order";
+            this.delete.Width = 5;
+            // 
             // POManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -600,5 +612,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewImageColumn details;
         private System.Windows.Forms.DataGridViewImageColumn Print;
+        private System.Windows.Forms.DataGridViewImageColumn delete;
     }
 }

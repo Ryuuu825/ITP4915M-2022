@@ -149,13 +149,11 @@ namespace TheBetterLimited.Views
                         waitResult.Dispose();
                         Receipt receipt = new Receipt(response.Content);
                         receipt.ShowDialog();
-                        Form pos = Application.OpenForms["POS"];
-                        ((POS)pos).ClearOrder();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Create Unsuccessful");
+                    MessageBox.Show(ex.Message, "Print Unsuccessful");
                 }
 
             }

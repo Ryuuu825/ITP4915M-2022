@@ -27,7 +27,7 @@ namespace TheBetterLimited.Views
         private DialogResult choose;
         private RestResponse response;
         private bool isSawDetails = false;
-        private ControllerBase cbOrder = new ControllerBase("PurchaseOrder");
+        private ControllerBase cbOrder = new ControllerBase("Purchase/Order");
         private string _storeId;
         private List<JObject> orderList = new List<JObject>();
         private BackgroundWorker bgWorker = new BackgroundWorker();
@@ -145,19 +145,30 @@ namespace TheBetterLimited.Views
                     bgWorker.RunWorkerAsync(response = cbOrder.GetById(OrderDataGrid["id", e.RowIndex].Value.ToString()));
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        waitResult.Close();
-                        waitResult.Dispose();
                         Receipt receipt = new Receipt(response.Content);
                         receipt.ShowDialog();
-                        Form pos = Application.OpenForms["POS"];
-                        ((POS)pos).ClearOrder();
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Create Unsuccessful");
+                    MessageBox.Show(ex.Message, "Print Unsuccessful");
                 }
+            }
 
+            if (e.ColumnIndex == OrderDataGrid.Columns["delete"].Index)
+            {
+                try
+                {
+                    bgWorker.RunWorkerAsync(response = cbOrder.Delete(OrderDataGrid["id", e.RowIndex].Value.ToString()));
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        MessageBox.Show("Record Deleted Successfully");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Deleted Unsuccessful");
+                }
             }
 
         }

@@ -168,7 +168,9 @@ namespace TheBetterLimited.Views
         {
             if (e.ColumnIndex == OrderDataGrid.Columns["delete"].Index)
             {
-                Console.WriteLine();
+                orderItems.RemoveAt(e.RowIndex);
+                InitializeCartGridView();
+                return;
             }
         }
 
@@ -190,11 +192,6 @@ namespace TheBetterLimited.Views
                     OrderDataGrid.Rows[e.RowIndex].Cells["defect"].Tag = 1;
                 }
             }
-        }
-
-        private void DeleteItemBtn_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void OrderDataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
