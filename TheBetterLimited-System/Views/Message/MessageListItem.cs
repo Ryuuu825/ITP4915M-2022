@@ -21,7 +21,8 @@ namespace TheBetterLimited.Views.Message
         string message;
         string sender;
         string date;
-        public MessageListItem(string title, string message, string sender, string date)
+        bool Readed;
+        public MessageListItem(string title, string message, string sender, string date, bool isRead)
         {
             InitializeComponent();
 
@@ -29,10 +30,14 @@ namespace TheBetterLimited.Views.Message
             this.message = message;
             this.sender = sender;
             this.date = date;
+            this.Readed = isRead;
 
             this.Title.Text = title;
             this.Sender.Text = sender;
             this.Time.Text = date;
+
+            if (Readed)
+                this.isRead.Visible = false;
         }
     }
 }

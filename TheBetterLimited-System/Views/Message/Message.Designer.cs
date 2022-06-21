@@ -29,14 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Message";
-
             this.label1 = new System.Windows.Forms.Label();
             this.MessageList = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.senderText = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -44,6 +39,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.isUnreadOnly = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -66,21 +62,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(133, 482);
+            this.button1.Location = new System.Drawing.Point(214, 482);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 34);
             this.button1.TabIndex = 3;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(214, 482);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 34);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -150,30 +138,40 @@
             // 
             // Timer
             // 
-            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             this.Timer.Interval = 1000;
-
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
-            // MessageForm
+            // isUnreadOnly
+            // 
+            this.isUnreadOnly.AutoSize = true;
+            this.isUnreadOnly.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.isUnreadOnly.Location = new System.Drawing.Point(12, 490);
+            this.isUnreadOnly.Name = "isUnreadOnly";
+            this.isUnreadOnly.Size = new System.Drawing.Size(139, 19);
+            this.isUnreadOnly.TabIndex = 11;
+            this.isUnreadOnly.Text = "Unread message only";
+            this.isUnreadOnly.UseVisualStyleBackColor = true;
+            this.isUnreadOnly.CheckedChanged += new System.EventHandler(this.isUnreadOnly_CheckedChanged);
+            // 
+            // Message
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 524);
+            this.Controls.Add(this.isUnreadOnly);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.senderText);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.MessageList);
             this.Controls.Add(this.label1);
-            this.Name = "MessageForm";
+            this.Name = "Message";
             this.Text = "MessageForm";
             this.ResumeLayout(false);
             this.PerformLayout();
-
 
         }
 
@@ -181,7 +179,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel MessageList;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox senderText;
         private System.Windows.Forms.TextBox textBox1;
@@ -191,5 +188,7 @@
         private System.Windows.Forms.Timer Timer;
 
         #endregion
+
+        private System.Windows.Forms.CheckBox isUnreadOnly;
     }
 }

@@ -85,13 +85,21 @@ namespace TheBetterLimited.Views
             Dictionary<string, object> data = new Dictionary<string, object>();
             data.Add("_warehouseId", warehouseId);
             data.Add("_supplierId", supplierId);
-            data.Add("_items", orderItems);
+            data.Add("Items", orderItems);
             foreach (PurchaseItem value in orderItems)
             {
                 Console.WriteLine("Value of the Dictionary Item is: {0}", value.goodsName);
             }
-            var response = cbPO.Create(data);
-            if(response.StatusCode == System.Net.HttpStatusCode.OK)
+            // var response = cbPO.Create(data);
+
+            string re = JObject.FromObject(data).ToString();
+
+            var req = new RestRequest("/api/purchase/order", Method.Post)
+                                .AddHeader("Language", "en")
+                                .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
+                                .AddJsonBody(re);
+            var res = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
+            if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 MessageBox.Show("Create Purchase Order Successfully");
                 this.OnExit.Invoke();
@@ -99,7 +107,8 @@ namespace TheBetterLimited.Views
                 this.Dispose();
             }else
             {
-                MessageBox.Show(response.Content);
+                Console.WriteLine(res.StatusCode);
+                MessageBox.Show(res.Content);
             }
         }
 

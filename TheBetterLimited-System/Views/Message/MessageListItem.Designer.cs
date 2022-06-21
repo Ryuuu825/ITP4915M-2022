@@ -34,6 +34,8 @@ namespace TheBetterLimited.Views.Message
             this.Title = new System.Windows.Forms.Label();
             this.Sender = new System.Windows.Forms.Label();
             this.Time = new System.Windows.Forms.Label();
+            this.isRead = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.isRead)).BeginInit();
             this.SuspendLayout();
             // 
             // Title
@@ -63,16 +65,27 @@ namespace TheBetterLimited.Views.Message
             this.Time.TabIndex = 2;
             this.Time.Text = "20/6/2022 22:25";
             // 
+            // isRead
+            // 
+            this.isRead.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.isRead.Location = new System.Drawing.Point(234, 17);
+            this.isRead.Name = "isRead";
+            this.isRead.Size = new System.Drawing.Size(24, 25);
+            this.isRead.TabIndex = 3;
+            this.isRead.TabStop = false;
+            // 
             // MessageListItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Controls.Add(this.isRead);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.Sender);
             this.Controls.Add(this.Title);
             this.Name = "MessageListItem";
-            this.Size = new System.Drawing.Size(249, 65);
+            this.Size = new System.Drawing.Size(261, 65);
+            ((System.ComponentModel.ISupportInitialize)(this.isRead)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -84,5 +97,7 @@ namespace TheBetterLimited.Views.Message
         private System.Windows.Forms.Label Title;
 
         #endregion
+
+        private System.Windows.Forms.PictureBox isRead;
     }
 }

@@ -558,6 +558,9 @@
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Message\Message.resx">
+      <DependentUpon>Message.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Message\MessageListItem.resx">
       <DependentUpon>MessageListItem.cs</DependentUpon>
     </EmbeddedResource>
