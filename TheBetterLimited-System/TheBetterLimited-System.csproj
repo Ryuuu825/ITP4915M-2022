@@ -255,6 +255,19 @@
     <Compile Include="Views\Inventory\RestockRequest-Add.Designer.cs">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Message\Message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Message\Message.Designer.cs">
+      <DependentUpon>Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Message\MessageListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Message\MessageListItem.Designer.cs">
+      <DependentUpon>MessageListItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Message\MessageModel.cs" />
     <Compile Include="Views\POS\DefectItem-Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -544,6 +557,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Message\MessageListItem.resx">
+      <DependentUpon>MessageListItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\POS\DefectItem-Add.resx">
       <DependentUpon>DefectItem-Add.cs</DependentUpon>
