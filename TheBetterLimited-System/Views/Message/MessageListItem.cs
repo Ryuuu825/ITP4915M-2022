@@ -12,9 +12,27 @@ namespace TheBetterLimited.Views.Message
 {
     public partial class MessageListItem : UserControl
     {
-        public MessageListItem()
+        public MessageListItem(string v)
         {
             InitializeComponent();
+        }
+
+        string title;
+        string message;
+        string sender;
+        string date;
+        public MessageListItem(string title, string message, string sender, string date)
+        {
+            InitializeComponent();
+
+            this.title = title;
+            this.message = message;
+            this.sender = sender;
+            this.date = date;
+
+            this.Title.Text = title;
+            this.Sender.Text = sender;
+            this.Time.Text = date;
         }
     }
 }

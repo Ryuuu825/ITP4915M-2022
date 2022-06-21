@@ -150,7 +150,7 @@
             // 
             // Timer
             // 
-            // this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             this.Timer.Interval = 1000;
 
             // 
