@@ -19,7 +19,7 @@ using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class PurchaseOrder_Create : Form
+    public partial class PurchaseOrder_Details : Form
     {
         private RestResponse response = new RestResponse();
         private DataTable orderTable = new DataTable();
@@ -29,28 +29,52 @@ namespace TheBetterLimited.Views
         private string supplierId = String.Empty;
         private ControllerBase cbSupplier = new ControllerBase("Supplier");
         private ControllerBase cbPO = new ControllerBase("purchase/order");
-        private bool firstInit = false;
         public List<object> orderItems = new List<object>();
+        private string POID;
+        private string supId;
 
-        public PurchaseOrder_Create()
+        public PurchaseOrder_Details()
         {
             InitializeComponent();
             InitSupplierCombo();
         }
 
+        public PurchaseOrder_Details(string id)
+        {
+            POID = id;
+            InitializeComponent();
+            InitSupplierCombo();
+            InitPurchaseOrder(id);
+        }
+
         private void InitSupplierCombo()
         {
             response = cbSupplier.GetAll();
-            if(response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                var sups =  JArray.Parse(response.Content);
-                foreach(JObject sup in sups)
+                var sups = JArray.Parse(response.Content);
+                foreach (JObject sup in sups)
                 {
                     suppliers.Add(sup);
-                    Console.WriteLine(sup.ToString());
                     cbSup.Items.Add(sup["Name"].ToString());
                 }
             }
+        }
+
+        private void InitPurchaseOrder(string id)
+        {
+            response = cbPO.GetById(id);
+            var res = JObject.Parse(response.Content);
+            cbSup.SelectedItem = res["Supplier"]["Name"].ToString();
+            txtSupAddress.Texts = res["Supplier"]["Address"].ToString();
+            txtTel.Texts = res["Supplier"]["Phone"].ToString();
+            txtContact.Texts = res["Supplier"]["Contact"].ToString();
+            cbWarehouse.SelectedIndex = 0;
+            foreach(var item in (JArray)res["Items"])
+            {
+                orderItems.Add(item);
+            }
+            InitializeCartGridView();
         }
 
         public event Action OnExit;
@@ -62,47 +86,57 @@ namespace TheBetterLimited.Views
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
+            List<object> updateData = new List<object>();
             if (cbSup.SelectedIndex == -1)
             {
                 cbSup.BorderColor = Color.Red;
                 return;
             }
-            var supplierId = suppliers[cbSup.SelectedIndex]["ID"].ToString();
+            string supplierId;
+            if (suppliers[cbSup.SelectedIndex]["ID"].ToString() != supId)
+            {
+                updateData.Add(new { Attribute = "_supplierId", Value = suppliers[cbSup.SelectedIndex]["ID"].ToString() });
+            }
 
             if (cbWarehouse.SelectedIndex == -1)
             {
                 cbWarehouse.BorderColor = Color.Red;
                 return;
             }
-            var warehouseId = (cbWarehouse.SelectedIndex+1).ToString("000");
+            var warehouseId = (cbWarehouse.SelectedIndex + 1).ToString("000");
 
-            if(orderItems.Count == 0)
+            if (orderItems.Count == 0)
             {
                 MessageBox.Show("You have not added any items");
                 return;
             }
 
-            Dictionary<string, object> data = new Dictionary<string, object>();
+            /*Dictionary<string, object> data = new Dictionary<string, object>();
             data.Add("_warehouseId", warehouseId);
             data.Add("_supplierId", supplierId);
-            data.Add("Items", orderItems);
+            data.Add("Items", orderItems);*/
 
-            var response = cbPO.Create(data);
+            
+            var response = cbPO.Update(POID, updateData);
+
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                MessageBox.Show("Create Purchase Order Successfully");
+                MessageBox.Show("Update Purchase Order Successfully");
                 this.OnExit.Invoke();
                 this.Close();
                 this.Dispose();
-            }else
+            }
+            else
             {
                 Console.WriteLine(response.StatusCode);
                 MessageBox.Show(response.Content);
             }
         }
 
-        public void AddItem(List<object> ois) {
-            foreach (var item in ois) {
+        public void AddItem(List<object> ois)
+        {
+            foreach (var item in ois)
+            {
                 bool isExist = false;
                 if (this.orderItems.Count == 0)
                 {
@@ -197,10 +231,10 @@ namespace TheBetterLimited.Views
             txtSupAddress.Texts = suppliers[cbSup.SelectedIndex]["Address"].ToString();
             supplierId = suppliers[cbSup.SelectedIndex]["ID"].ToString();
 
-            if(orderItems.Count != 0)
+            if (orderItems.Count != 0)
             {
-                DialogResult result = MessageBox.Show("Changing the supplier will clear all current order items,\nDo you really need to change?", "",MessageBoxButtons.YesNo);
-                if(result == DialogResult.Yes)
+                DialogResult result = MessageBox.Show("Changing the supplier will clear all current order items,\nDo you really need to change?", "", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
                 {
                     orderItems.Clear();
                     InitializeCartGridView();
@@ -221,7 +255,7 @@ namespace TheBetterLimited.Views
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if(cbSup.SelectedIndex == -1)
+            if (cbSup.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a supplier first.");
                 cbSup.BorderColor = Color.Red;
@@ -243,7 +277,7 @@ namespace TheBetterLimited.Views
 
         private void OrderDataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            MessageBox.Show("Quantity value is invalid!");
+            MessageBox.Show("Quantity value " + OrderDataGrid["quantity", e.RowIndex].Value + " is invalid!");
         }
 
         private void cbWarehouse_Click(object sender, EventArgs e)
