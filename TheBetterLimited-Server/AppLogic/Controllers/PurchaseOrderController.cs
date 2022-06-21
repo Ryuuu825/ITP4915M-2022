@@ -26,7 +26,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _Supplier_GoodsTable = new Data.Repositories.Repository<Data.Entity.Supplier_Goods>(db);
             _WarehouseTable = new Data.Repositories.Repository<Data.Entity.Warehouse>(db);
             _PurchaseOrder_Supplier_GoodsTable = new Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods>(db);
-
         }
 
         public List<PurchaseOrderOutDto> GetAll(string username, string lang)
@@ -92,15 +91,19 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
         public void CreateEntry(PurchaseOrderInDto dto, string username)
         {
-            Data.Entity.PurchaseOrder entry = new Data.Entity.PurchaseOrder();
-            entry.ID = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.PurchaseOrder>(db);
-            entry.CreateTime = DateTime.Now;
-            entry.OperateTime = DateTime.Now;
-            entry._operatorId = userInfoRepository.GetStaffFromUserName(username).Id;
-            entry._createrId =  userInfoRepository.GetStaffFromUserName(username).Id;
-            entry.Status = Data.Entity.PurchaseOrderStatus.Pending;
-            entry._warehouseId = dto._warehouseId;
-            entry._supplierId = dto._supplierId;
+            Helpers.Entity.EntityValidator.Validate<PurchaseOrderInDto>(dto);
+            Data.Entity.PurchaseOrder entry = new Data.Entity.PurchaseOrder()
+            {
+                ID = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.PurchaseOrder>(db),
+                CreateTime = DateTime.Now,
+                OperateTime = DateTime.Now,
+                _operatorId = userInfoRepository.GetStaffFromUserName(username).Id,
+                _createrId = userInfoRepository.GetStaffFromUserName(username).Id,
+                Status = Data.Entity.PurchaseOrderStatus.Pending,
+                _warehouseId = dto._warehouseId,
+                _supplierId = dto._supplierId,
+                Items = new List<Data.Entity.PurchaseOrder_Supplier_Goods>()
+            };
             entry.Items = new List<Data.Entity.PurchaseOrder_Supplier_Goods>();
             foreach(var item in dto.Items)
             {

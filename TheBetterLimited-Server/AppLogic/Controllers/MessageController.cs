@@ -46,13 +46,14 @@ public class MessageController
         List<ReceiveMessageDto> messageList = new List<ReceiveMessageDto>();
         foreach (var message in messages)
         {
+            message.Status = Data.Entity.StaffMessageStatus.Received;
+            _receiveMessageTable.Update(message);
             messageList.Add(new ReceiveMessageDto
             {
                 senderName = message.message.sender.UserName,
                 sentDate = message.message.SentDate.ToShortDateString(),
                 content = message.message.Content,
                 Title = message.message.Title
-                
             });
         }
         var messageModel = new Models.ReceiveMessageModel
@@ -83,9 +84,58 @@ public class MessageController
         List<ReceiveMessageDto> messageList = new List<ReceiveMessageDto>();
         foreach (var message in messages)
         {
-           if (message.Status == Data.Entity.StaffMessageStatus.Unread)
+           if (message.Status == Data.Entity.StaffMessageStatus.Received)
             {
-                message.Status = Data.Entity.StaffMessageStatus.Read;
+                messageList.Add(new ReceiveMessageDto
+                {
+                    senderName = message.message.sender.UserName,
+                    sentDate = message.message.SentDate.ToShortDateString(),
+                    content = message.message.Content,
+                    Title = message.message.Title
+
+                });
+            }
+        }
+        try
+        {
+            _db.SaveChanges();
+        }
+        catch (System.Exception)
+        {
+            throw new OperationFailException("Cannot update message status.");
+        }
+
+        Models.ReceiveMessageModel messageModel = new Models.ReceiveMessageModel
+        {
+            messageReceived = (short)messageList.Count,
+            messages = messageList
+        };
+
+        return messageModel;
+    }
+
+     public Models.ReceiveMessageModel GetUnreceivedMessage(string username)
+    {
+        
+        var account = _accountTable.GetBySQL(
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{username}")
+        ).FirstOrDefault();
+
+        if (account is null)
+        {
+            throw new BadArgException("Account is not exist in database.");
+        }
+
+        var messages = _receiveMessageTable.GetBySQL(
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Staff_Message>($"_receiverId:{account.Id}" )
+        );
+
+        List<ReceiveMessageDto> messageList = new List<ReceiveMessageDto>();
+        foreach (var message in messages)
+        {
+           if (message.Status == Data.Entity.StaffMessageStatus.Unreceived)
+            {
+                message.Status = Data.Entity.StaffMessageStatus.Received;
                 _receiveMessageTable.Update(message);
 
                 messageList.Add(new ReceiveMessageDto
@@ -115,7 +165,32 @@ public class MessageController
 
         return messageModel;
     }
+
+
     
+    public void setMessageRead(string id)
+    {
+        var message = _receiveMessageTable.GetBySQL(
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Staff_Message>($"Id:{id}")
+        ).FirstOrDefault();
+
+        if (message is null)
+        {
+            throw new BadArgException("Message is not exist in database.");
+        }
+
+        message.Status = Data.Entity.StaffMessageStatus.Read;
+
+        try
+        {
+            _db.SaveChanges();
+        }
+        catch (System.Exception)
+        {
+            throw new OperationFailException("Cannot update message status.");
+        }
+    }
+
     public void SendMessage(string SenderUserName , Data.Dto.SendMessageDto message)
     {
         var account = _accountTable.GetBySQL(
@@ -155,6 +230,7 @@ public class MessageController
                 _receiverId = acc.Id,
                 message = newMessage,
                 _messageId = newMessage.Id,
+                Status = Data.Entity.StaffMessageStatus.Unreceived
             };
             try
             {

@@ -22,6 +22,21 @@ namespace TheBetterLimited_Server.API.Controller
             return controller.GetUnReadMessage( User.Identity.Name );
         }
 
+        [HttpGet("unreceived")]
+        [Authorize]
+        public ReceiveMessageModel GetUnreceiveMessage()
+        {
+            return controller.GetUnreceivedMessage( User.Identity.Name );
+        }
+
+        [HttpPut("read/{id}")]
+        [Authorize]
+        public void GetMessage(string id)
+        {
+            controller.setMessageRead(id);
+        }
+
+
         [HttpGet]
         [Authorize]
         public ReceiveMessageModel GetReadMessage(uint limit = 0)
