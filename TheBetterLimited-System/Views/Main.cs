@@ -348,7 +348,9 @@ namespace TheBetterLimited.Views
         {
             user_droplist.Visible = user_droplist.Visible == true ? false : true;
             Message.Message msg = new Message.Message();
+            msg.FormClosing += (s, ea) => this.Delegate.Start();
             msg.Show();
+            this.Delegate.Stop();
         }
 
     }

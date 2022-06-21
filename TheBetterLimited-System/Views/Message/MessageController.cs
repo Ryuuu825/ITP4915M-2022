@@ -74,12 +74,18 @@ namespace TheBetterLimited.Views.Message
                                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             var res = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
             OnMessageReceived.Invoke();
-
-
-
-           
         }
 
+
+        public void Start()
+        {
+            this.timer.Start();
+        }
+
+        public void Stop()
+        {
+            this.timer.Stop();
+        }
 
 
 

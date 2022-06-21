@@ -19,6 +19,7 @@ namespace TheBetterLimited.Views.Message
     {
         TheBetterLimited_System.Controller.ControllerBase controller = new TheBetterLimited_System.Controller.ControllerBase("message");
 
+
         public Message()
         {
             InitializeComponent();
@@ -99,6 +100,9 @@ namespace TheBetterLimited.Views.Message
             }
         }
 
-        
+        private void Message_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
