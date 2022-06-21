@@ -15,6 +15,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -31,7 +32,6 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -213,6 +213,7 @@
     <Compile Include="Models\LocationEnum.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\PositionEnum.cs" />
+    <Compile Include="Models\PurchaseItem.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\StaffModel.cs" />
     <Compile Include="Models\TeamEnum.cs" />
@@ -262,6 +263,24 @@
     </Compile>
     <Compile Include="Views\POS\DefectItem-Add.Designer.cs">
       <DependentUpon>DefectItem-Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase\POManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Purchase\POManagement.Designer.cs">
+      <DependentUpon>POManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase\SupplierGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Purchase\SupplierGoods.Designer.cs">
+      <DependentUpon>SupplierGoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase\PurchaseOrder-Create.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Purchase\PurchaseOrder-Create.Designer.cs">
+      <DependentUpon>PurchaseOrder-Create.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\User\Staff-Add.cs">
       <SubType>Form</SubType>
@@ -531,6 +550,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\POS\DefectItem-Add.resx">
       <DependentUpon>DefectItem-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\POManagement.resx">
+      <DependentUpon>POManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\SupplierGoods.resx">
+      <DependentUpon>SupplierGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\PurchaseOrder-Create.resx">
+      <DependentUpon>PurchaseOrder-Create.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\Staff-Add.resx">
       <DependentUpon>Staff-Add.cs</DependentUpon>

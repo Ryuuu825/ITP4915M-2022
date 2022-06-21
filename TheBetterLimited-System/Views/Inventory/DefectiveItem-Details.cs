@@ -61,8 +61,8 @@ namespace TheBetterLimited.Views
 
             if (itemInfo["Customer"].Type != JTokenType.Null)
             {
-                txtCollectAddress.Texts = itemInfo["Name"].ToString();
-                txtCusPhone.Texts = itemInfo["Phone"].ToString();
+                txtCusName.Texts = itemInfo["Customer"]["name"].ToString();
+                txtCusPhone.Texts = itemInfo["Customer"]["phone"].ToString();
             }else
             {
                 txtStore.Texts = itemInfo["StoreName"].ToString();
