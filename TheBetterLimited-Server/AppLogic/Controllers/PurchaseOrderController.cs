@@ -26,6 +26,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _Supplier_GoodsTable = new Data.Repositories.Repository<Data.Entity.Supplier_Goods>(db);
             _WarehouseTable = new Data.Repositories.Repository<Data.Entity.Warehouse>(db);
             _PurchaseOrder_Supplier_GoodsTable = new Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods>(db);
+            _GoodsController = new AppLogic.Controllers.GoodsController(db);
         }
 
         public List<PurchaseOrderOutDto> GetAll(string username, string lang)

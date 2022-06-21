@@ -27,10 +27,6 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 return StatusCode(e.ReturnCode , e.GetHttpResult());
             }
-            catch (Exception e)
-            {
-                return StatusCode(500, e.Message);
-            }
         }
 
         [HttpPost]
