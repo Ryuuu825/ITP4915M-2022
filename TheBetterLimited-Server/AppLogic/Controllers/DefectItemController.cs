@@ -6,6 +6,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         protected readonly Data.DataContext db;
         private Data.Repositories.Repository<Data.Entity.DefectItemRecord> repository;
         private Data.Repositories.Repository<Data.Entity.Customer> _CustomerTable;
+        private Data.Repositories.Repository<Data.Entity.SalesOrder> _SalesOrderTable;
         private Data.Repositories.UserInfoRepository userInfo;
         private AppLogic.Controllers.OrderController orderController;
         public DefectItemController(Data.DataContext db) 
@@ -13,6 +14,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             this.db = db;
             repository = new Data.Repositories.Repository<Data.Entity.DefectItemRecord>(db);
             _CustomerTable = new Data.Repositories.Repository<Data.Entity.Customer>(db);
+            _SalesOrderTable = new Data.Repositories.Repository<Data.Entity.SalesOrder>(db);
             userInfo = new Data.Repositories.UserInfoRepository(db);
             orderController = new OrderController(db);
         }
@@ -42,10 +44,19 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 }
 
                 // get the order
-                int TotalQty = orderController.GetById(record._salesOrderId).GetAwaiter().GetResult().orderItems.Where(x => x.SupplierGoodsStockId == record._supplierGoodsStockId).First().NormalQuantity;
-                ConsoleLogger.Debug($"TotalQty: {TotalQty}");
+                var order = _SalesOrderTable.GetById(record._salesOrderId);
+                var orderDto = orderController.GetById(record._salesOrderId).GetAwaiter().GetResult();
+                
+                int TotalQty = orderDto.orderItems.Where(x => x.SupplierGoodsStockId == record._supplierGoodsStockId).First().NormalQuantity;
                 if (TotalQty - record.Qty < 0)
                     throw new BadArgException("Invalid Quantity");
+
+                if (orderDto.orderItems.Count() == 1 && record.HandleStatus == Data.Entity.DefectItemHandleStatus.Refund) // the order consit of one order item only
+                {
+                    order.Status = Data.Entity.SalesOrderStatus.Refunded;
+                }
+                order.updatedAt = DateTime.Now;
+                _SalesOrderTable.Update(order);
 
                 repository.Add(
                     new Data.Entity.DefectItemRecord
@@ -102,6 +113,18 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             {
                 Data.Entity.Goods goods = record.SupplierGoodsStock.Supplier_Goods.Goods;
                 var localizeGoods = Helpers.Localizer.TryLocalize<Data.Entity.Goods>(lang , goods);
+                Data.Dto.CustomerDto cust = null;
+
+                if (record.customer is not null)
+                {
+                    cust = new Data.Dto.CustomerDto
+                    {
+                        Name = record.customer.Name,
+                        Address = record.customer.Address,
+                        Phone = record.customer.Phone
+                    };
+                }
+               
 
                 res.Add(
                     new Data.Dto.DefectItemOutDto
@@ -116,7 +139,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                         CollectAddress = record.CollectAddress,
                         Supplier = record.SupplierGoodsStock.Supplier_Goods.Supplier.MapToDto(),
                         CreateAt = record.createdAt,
-                        OperatedAt = record.updatedAt
+                        OperatedAt = record.updatedAt,
+                        StoreName = record.SalesOrder.Store.Location.Name,
+                        Customer = cust,
+                        Qty = record.Quantity,
+                        Remark = record.Remark
                     }.MapToDto()
                 );
             }
@@ -124,6 +151,19 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return res;
         }
 
+
+        public void UpdateDefectItemStatus(string username , Data.Dto.DefectItemUpdateStatusDto status)
+        {
+            var record = repository.GetById(status.Id);
+            if (record is null)
+            {
+                throw new BadArgException("Invalid Id");
+            }
+            record.Status = status.Status;
+            record._operatorId = userInfo.GetStaffFromUserName(username).Id;
+            record.updatedAt = DateTime.Now;
+            repository.Update(record);
+        }
         
     }
 }

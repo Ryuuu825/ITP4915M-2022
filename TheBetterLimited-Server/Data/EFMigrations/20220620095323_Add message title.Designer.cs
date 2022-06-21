@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheBetterLimited_Server.Data;
 
@@ -10,9 +11,10 @@ using TheBetterLimited_Server.Data;
 namespace TheBetterLimited_Server.Data.EFMigrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220620095323_Add message title")]
+    partial class Addmessagetitle
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -543,10 +545,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .HasMaxLength(5)
                         .HasColumnType("char(5)");
 
-                    b.Property<string>("_supplierId")
-                        .IsRequired()
-                        .HasColumnType("char(5)");
-
                     b.Property<string>("_warehouseId")
                         .IsRequired()
                         .HasMaxLength(3)
@@ -557,8 +555,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.HasIndex("_createrId");
 
                     b.HasIndex("_operatorId");
-
-                    b.HasIndex("_supplierId");
 
                     b.HasIndex("_warehouseId");
 
@@ -1284,12 +1280,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .WithMany()
                         .HasForeignKey("_operatorId");
 
-                    b.HasOne("TheBetterLimited_Server.Data.Entity.Supplier", "Supplier")
-                        .WithMany()
-                        .HasForeignKey("_supplierId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("TheBetterLimited_Server.Data.Entity.Warehouse", "Warehouse")
                         .WithMany()
                         .HasForeignKey("_warehouseId")
@@ -1300,15 +1290,13 @@ namespace TheBetterLimited_Server.Data.EFMigrations
 
                     b.Navigation("Operator");
 
-                    b.Navigation("Supplier");
-
                     b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.PurchaseOrder_Supplier_Goods", b =>
                 {
                     b.HasOne("TheBetterLimited_Server.Data.Entity.PurchaseOrder", "PurchaseOrder")
-                        .WithMany("Items")
+                        .WithMany()
                         .HasForeignKey("_purchaseOrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1627,11 +1615,6 @@ namespace TheBetterLimited_Server.Data.EFMigrations
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Position", b =>
                 {
                     b.Navigation("permissions");
-                });
-
-            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.PurchaseOrder", b =>
-                {
-                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.SalesOrder", b =>

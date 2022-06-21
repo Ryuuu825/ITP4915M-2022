@@ -143,9 +143,10 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpPut("d")]
+        [Authorize]
         public IActionResult Update([FromBody] OrderController.UpdateOrderDto entity, string language)
         {
-            controller.updateOrder(entity);
+            controller.updateOrder(User.Identity.Name , entity);
             return Ok();
         }
 

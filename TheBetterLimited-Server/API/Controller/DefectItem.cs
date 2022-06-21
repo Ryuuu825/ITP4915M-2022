@@ -40,5 +40,20 @@ namespace TheBetterLimited_Server.API.Controller
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
             }
         }        
+
+        [HttpPut]
+        [Authorize]
+        public IActionResult UpdateDefectItemStatus([FromBody] Data.Dto.DefectItemUpdateStatusDto status)
+        {
+            try
+            {
+                controller.UpdateDefectItemStatus(User.Identity.Name ,status);
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
     }
 }

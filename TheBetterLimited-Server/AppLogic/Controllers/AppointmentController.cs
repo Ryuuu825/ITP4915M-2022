@@ -10,6 +10,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         protected Data.Repositories.Repository<Appointment> repository;
         protected Data.Repositories.Repository<SalesOrderItem_Appointment> _SalesOrderItem_AppointmentTable;
         protected Data.Repositories.Repository<Account> _AccTable;
+
         protected Data.Repositories.Repository<SalesOrder> _SalesOrderTable;
         protected Data.Repositories.Repository<Team> _TeamTable;
         protected readonly Type DtoType;
@@ -91,6 +92,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             Staff usr = (await _AccTable.GetBySQLAsync(
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{UserName}")
             )).FirstOrDefault().Staff;
+
+            // List<Session> sessions = .GetBySQL(
+            //     "SELECT * FROM `Session` WHERE Date LIKE \"%-%" + month + "-%" + day + "%\""
+            // );
+
             List<Appointment> res = repository.GetAll().Where(x => x.Session.Date.Day == day && x.Session.Date.Month == month).ToList();
 
             if (! Constraint.SudoUserDepartmentId.Contains(usr._departmentId))
@@ -141,6 +147,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     SalesOrderStatus status = items[0].SalesOrderItem.SalesOrder.Status;
 
                     var orderId = items[0].SalesOrderItem._salesOrderId;
+                    Hashtable? team = null;
+                    if (item.Team is not null)
+                    {
+                        team = item.Team.MapToDto();
+                    }
 
                     res.Add(
                         new Dto
@@ -152,13 +163,14 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                             Items = itemsDto,
                             sessionId = item.Session.ID,
                             customer = item.Customer,
-                            team = item.Team.MapToDto(),
+                            team = team,
                             salesOrderStatus = items[0].SalesOrderItem.SalesOrder.Status.ToString(),
                             orderId = orderId
                         }
                     );
                 }catch(Exception e)
                 {
+                    ConsoleLogger.Debug(e.Message);
                     continue; 
                 }
 

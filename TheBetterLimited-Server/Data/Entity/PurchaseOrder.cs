@@ -23,6 +23,13 @@ namespace TheBetterLimited_Server.Data.Entity
         [ForeignKey("_operatorId")]
         public virtual Staff? Operator { get; set; }
 
+        public string _supplierId { get; set;}
+
+        [ForeignKey("_supplierId")]
+        public virtual Supplier Supplier { get; set; }
+
+
+
 
         // warehouse
         [MaxLength(3)]
@@ -36,7 +43,8 @@ namespace TheBetterLimited_Server.Data.Entity
 
         public DateTime OperateTime { get; set; }
 
-        public PurchaseOrderStatus Status { get; set; }
+        public virtual PurchaseOrderStatus Status { get; set; }
+        public virtual List<PurchaseOrder_Supplier_Goods> Items { get; set; }
     }
 
     public enum PurchaseOrderStatus
