@@ -353,7 +353,7 @@ namespace TheBetterLimited.Views
         private void MessageBtn_Click(object sender, EventArgs e)
         {
             dropMenu.Visible = dropMenu.Visible == true ? false : true;
-            Message.Message msg = new Message.Message();
+            Message.MessageForm msg = new Message.MessageForm();
             msg.FormClosing += (s, ea) => this.Delegate.Start();
             msg.Show();
             this.Delegate.Stop();

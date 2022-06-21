@@ -256,6 +256,18 @@
     <Compile Include="Views\Inventory\RestockRequest-Add.Designer.cs">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Message\ContentListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Message\ContentListItem.Designer.cs">
+      <DependentUpon>ContentListItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Message\MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Message\MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Message\SendMessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -584,6 +596,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Main.zh.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Message\ContentListItem.resx">
+      <DependentUpon>ContentListItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Message\MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Message\SendMessageForm.resx">
       <DependentUpon>SendMessageForm.cs</DependentUpon>

@@ -34,6 +34,10 @@
             this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.CustomerInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.receiverList = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.receiverName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.plusBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cbxType = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,10 +47,6 @@
             this.PhoneTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
-            this.plusBtn = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.CusNameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.label3 = new System.Windows.Forms.Label();
             this.MainForm.SuspendLayout();
             this.BottomBtn.SuspendLayout();
             this.CustomerInfo.SuspendLayout();
@@ -63,7 +63,7 @@
             this.MainForm.Location = new System.Drawing.Point(0, 40);
             this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
-            this.MainForm.Size = new System.Drawing.Size(520, 456);
+            this.MainForm.Size = new System.Drawing.Size(520, 474);
             this.MainForm.TabIndex = 3;
             // 
             // BottomBtn
@@ -73,12 +73,13 @@
             this.BottomBtn.Controls.Add(this.SaveBtn);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(0, 391);
+            this.BottomBtn.Location = new System.Drawing.Point(0, 409);
             this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
             this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
             this.BottomBtn.Size = new System.Drawing.Size(520, 65);
             this.BottomBtn.TabIndex = 34;
+            this.BottomBtn.Paint += new System.Windows.Forms.PaintEventHandler(this.BottomBtn_Paint);
             // 
             // CancelBtn
             // 
@@ -131,15 +132,15 @@
             this.CustomerInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CustomerInfo.Location = new System.Drawing.Point(0, 0);
             this.CustomerInfo.Name = "CustomerInfo";
-            this.CustomerInfo.Size = new System.Drawing.Size(520, 456);
+            this.CustomerInfo.Size = new System.Drawing.Size(520, 474);
             this.CustomerInfo.TabIndex = 24;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.panel1.Controls.Add(this.receiverList);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.CusNameTxt);
-            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Controls.Add(this.receiverName);
             this.panel1.Controls.Add(this.plusBtn);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbxType);
@@ -152,8 +153,67 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.panel1.Size = new System.Drawing.Size(520, 456);
+            this.panel1.Size = new System.Drawing.Size(520, 474);
             this.panel1.TabIndex = 27;
+            // 
+            // receiverList
+            // 
+            this.receiverList.Location = new System.Drawing.Point(163, 282);
+            this.receiverList.Name = "receiverList";
+            this.receiverList.Size = new System.Drawing.Size(307, 110);
+            this.receiverList.TabIndex = 53;
+            this.receiverList.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(46, 282);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 21);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Receiver";
+            // 
+            // receiverName
+            // 
+            this.receiverName.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.receiverName.BackColor = System.Drawing.Color.White;
+            this.receiverName.BorderColor = System.Drawing.Color.LightGray;
+            this.receiverName.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.receiverName.BorderRadius = 10;
+            this.receiverName.BorderSize = 1;
+            this.receiverName.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiverName.ForeColor = System.Drawing.Color.Black;
+            this.receiverName.IsError = false;
+            this.receiverName.Location = new System.Drawing.Point(163, 235);
+            this.receiverName.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.receiverName.MaxLength = 30;
+            this.receiverName.Multiline = false;
+            this.receiverName.Name = "receiverName";
+            this.receiverName.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.receiverName.PasswordChar = false;
+            this.receiverName.Placeholder = "Send to ...";
+            this.receiverName.ReadOnly = false;
+            this.receiverName.Size = new System.Drawing.Size(260, 38);
+            this.receiverName.TabIndex = 51;
+            this.receiverName.TbBackColor = System.Drawing.Color.White;
+            this.receiverName.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.receiverName.Texts = "Send to ...";
+            this.receiverName.UnderlinedStyle = false;
+            // 
+            // plusBtn
+            // 
+            this.plusBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.plus24;
+            this.plusBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.plusBtn.FlatAppearance.BorderSize = 0;
+            this.plusBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.plusBtn.Location = new System.Drawing.Point(446, 241);
+            this.plusBtn.Name = "plusBtn";
+            this.plusBtn.Size = new System.Drawing.Size(24, 24);
+            this.plusBtn.TabIndex = 49;
+            this.plusBtn.UseVisualStyleBackColor = true;
+            this.plusBtn.Click += new System.EventHandler(this.plusBtn_Click);
             // 
             // label1
             // 
@@ -299,69 +359,12 @@
             this.GoodsInfoHeader.TabIndex = 6;
             this.GoodsInfoHeader.Text = "Customer Information";
             // 
-            // plusBtn
-            // 
-            this.plusBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.plus24;
-            this.plusBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.plusBtn.FlatAppearance.BorderSize = 0;
-            this.plusBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.plusBtn.Location = new System.Drawing.Point(446, 241);
-            this.plusBtn.Name = "plusBtn";
-            this.plusBtn.Size = new System.Drawing.Size(24, 24);
-            this.plusBtn.TabIndex = 49;
-            this.plusBtn.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(163, 282);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(307, 104);
-            this.flowLayoutPanel1.TabIndex = 50;
-            // 
-            // CusNameTxt
-            // 
-            this.CusNameTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.CusNameTxt.BackColor = System.Drawing.Color.White;
-            this.CusNameTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.CusNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.CusNameTxt.BorderRadius = 10;
-            this.CusNameTxt.BorderSize = 1;
-            this.CusNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CusNameTxt.ForeColor = System.Drawing.Color.Black;
-            this.CusNameTxt.IsError = false;
-            this.CusNameTxt.Location = new System.Drawing.Point(163, 235);
-            this.CusNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.CusNameTxt.MaxLength = 30;
-            this.CusNameTxt.Multiline = false;
-            this.CusNameTxt.Name = "CusNameTxt";
-            this.CusNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.CusNameTxt.PasswordChar = false;
-            this.CusNameTxt.Placeholder = "Send to ...";
-            this.CusNameTxt.ReadOnly = false;
-            this.CusNameTxt.Size = new System.Drawing.Size(260, 38);
-            this.CusNameTxt.TabIndex = 51;
-            this.CusNameTxt.TbBackColor = System.Drawing.Color.White;
-            this.CusNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.CusNameTxt.Texts = "Send to ...";
-            this.CusNameTxt.UnderlinedStyle = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(46, 282);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 21);
-            this.label3.TabIndex = 52;
-            this.label3.Text = "Receiver";
-            // 
             // SendMessageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(520, 496);
+            this.ClientSize = new System.Drawing.Size(520, 514);
             this.Controls.Add(this.MainForm);
             this.Controls.Add(this.UserInfoHeaderContainer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -401,8 +404,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private CustomizeControl.CustomizeTextbox CusNameTxt;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private CustomizeControl.CustomizeTextbox receiverName;
         private System.Windows.Forms.Button plusBtn;
+        private System.Windows.Forms.RichTextBox receiverList;
     }
 }

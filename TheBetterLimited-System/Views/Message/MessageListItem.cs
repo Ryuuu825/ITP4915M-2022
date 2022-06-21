@@ -27,6 +27,7 @@ namespace TheBetterLimited.Views.Message
 
         public MessageListItem(MessageModel model, OnMessageItemClick Delegate)
         {
+            Console.WriteLine(model.id);
             InitializeComponent();
 
             this.title = model.Title;

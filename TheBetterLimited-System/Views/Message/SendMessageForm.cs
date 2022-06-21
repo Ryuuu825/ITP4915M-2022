@@ -23,6 +23,7 @@ namespace TheBetterLimited.Views
     public partial class SendMessageForm : Form
     {
 
+        private List<string> receiver = new List<string>();
         public SendMessageForm()
         {
             InitializeComponent();
@@ -40,12 +41,12 @@ namespace TheBetterLimited.Views
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (CusNameTxt.Texts.Equals(String.Empty) || CusNameTxt.Texts.Equals(CusNameTxt.Placeholder))
+            if (receiverName.Texts.Equals(String.Empty) || receiverName.Texts.Equals(receiverName.Placeholder))
             {
-                CusNameTxt.IsError = true;
+                receiverName.IsError = true;
                 return;
             }
-            var name = CusNameTxt.Texts;
+            var name = receiverName.Texts;
 
             if (PhoneTxt.Texts.Equals(String.Empty) || PhoneTxt.Texts.Equals(PhoneTxt.Placeholder))
             {
@@ -63,6 +64,27 @@ namespace TheBetterLimited.Views
             {
                 address = CusAddressTxt.Texts;
             }
+
+            /*
+             * 
+              {
+                  "receiver": [
+                    "admin"
+                  ],
+                  "title": "Hello From Server",
+                  "content": "string"
+                }
+             */
+
+            RestRequest req = new RestRequest("/api/message", Method.Post)
+                                    .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
+                                    .AddBody(new { receiver = this.receiver, title = PhoneTxt.Texts, content = CusAddressTxt.Texts });
+            var res = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
+            Console.WriteLine(res.Content);
+            Console.WriteLine(res.StatusCode);
+
+
+
 
         }
 
@@ -87,6 +109,29 @@ namespace TheBetterLimited.Views
         }
 
         private void cbxType_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void plusBtn_Click(object sender, EventArgs e)
+        {
+            RestRequest req = new RestRequest("api/message/user/" + this.receiverName.Texts , Method.Get);
+            var res = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
+
+            if ( receiver.Contains(this.receiverName.Texts))
+            {
+                MessageBox.Show(this.receiverName.Texts + " already inserted");
+            }
+            else if (res.StatusCode == System.Net.HttpStatusCode.OK )
+            {
+                receiver.Add(this.receiverName.Texts);
+                this.receiverList.Text = this.receiverName.Texts + "\r\n" + this.receiverList.Text;
+            }
+            else
+                MessageBox.Show("No user found");
+        }
+
+        private void BottomBtn_Paint(object sender, PaintEventArgs e)
         {
 
         }
