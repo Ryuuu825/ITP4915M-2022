@@ -31,6 +31,7 @@ namespace TheBetterLimited.Views
         {
             InitializeComponent();
             Delegate = new MessageDelegate(() => {  }, 1000, () => { } , testing);
+            this.FormClosing += (s, e) => {Delegate.Stop();};
         }
 
         private void Main_Load(object sender, EventArgs e)

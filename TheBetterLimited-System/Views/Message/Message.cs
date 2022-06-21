@@ -95,6 +95,8 @@ namespace TheBetterLimited.Views.Message
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SendMessageForm send = new SendMessageForm();
+            send.Show();
         }
 
         private void isUnreadOnly_CheckedChanged(object sender, EventArgs e)
