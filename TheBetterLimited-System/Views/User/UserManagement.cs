@@ -31,7 +31,6 @@ namespace TheBetterLimited.Views
 
         public UserManagement()
         {
-            MultiLanguage.LoadLanguage(this);
             InitializeComponent();
             InitialzeDataTable();
             GetAccount();//init user table

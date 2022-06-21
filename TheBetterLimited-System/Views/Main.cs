@@ -13,6 +13,8 @@ using TheBetterLimited.Controller;
 using System.Drawing.Drawing2D;
 using System.Text.RegularExpressions;
 using TheBetterLimited.Views.Message;
+using TheBetterLimited.Utils;
+using System.Globalization;
 
 namespace TheBetterLimited.Views
 {
@@ -33,6 +35,12 @@ namespace TheBetterLimited.Views
 
         private void Main_Load(object sender, EventArgs e)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en");
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+            //MultiLanguage.LoadLanguage(this, typeof(Main));
+            dropMenu.Controls.Remove(enBtn);
+            dropMenu.Controls.Remove(zhBtn);
+            dropMenu.Hide();
             txtUsername.Text = GlobalsData.currentUser["displayName"];
             txtJobTitle.Text = GlobalsData.currentUser["position"];
             var reg = @"(?=[A-Z])";
@@ -63,17 +71,16 @@ namespace TheBetterLimited.Views
             if (sidebarExpand)
             {
                 sidebar.Width -= 50;
-                if (sidebar.Width == sidebar.MinimumSize.Width)
+                if (sidebar.Width <= sidebar.MinimumSize.Width)
                 {
                     sidebarExpand = false;
                     sidebarTimer.Stop();
                 }
-
             }
             else
             {
                 sidebar.Width += 50;
-                if (sidebar.Width == sidebar.MaximumSize.Width)
+                if (sidebar.Width >= sidebar.MaximumSize.Width)
                 {
                     sidebarExpand = true;
                     sidebarTimer.Stop();
@@ -87,7 +94,7 @@ namespace TheBetterLimited.Views
             if (subSidebarExpand)
             {
                 subSidebar.Width -= 50;
-                if (subSidebar.Width == subSidebar.MinimumSize.Width)
+                if (subSidebar.Width <= subSidebar.MinimumSize.Width)
                 {
                     subSidebarExpand = false;
                     subSidebarTimer.Stop();
@@ -100,7 +107,7 @@ namespace TheBetterLimited.Views
             else
             {
                 subSidebar.Width += 50;
-                if (subSidebar.Width == 200)
+                if (subSidebar.Width >= 200)
                 {
                     subSidebarExpand = true;
                     subSidebarTimer.Stop();
@@ -239,7 +246,7 @@ namespace TheBetterLimited.Views
 
         private void UserInformation_Click(object sender, EventArgs e)
         {
-            user_droplist.Visible = user_droplist.Visible == true ? false : true;
+            dropMenu.Visible = dropMenu.Visible == true ? false : true;
         }
 
         private void Logout_Click(object sender, EventArgs e)
@@ -346,12 +353,94 @@ namespace TheBetterLimited.Views
 
         private void MessageBtn_Click(object sender, EventArgs e)
         {
-            user_droplist.Visible = user_droplist.Visible == true ? false : true;
+            dropMenu.Visible = dropMenu.Visible == true ? false : true;
             Message.Message msg = new Message.Message();
             msg.FormClosing += (s, ea) => this.Delegate.Start();
             msg.Show();
             this.Delegate.Stop();
         }
 
+        private bool subBtnShowed = false;
+        private void LangBtn_Click(object sender, EventArgs e)
+        {
+            if (!subBtnShowed)
+            {
+                dropMenu.Controls.Remove(SignOutBtn);
+                dropMenu.Controls.Add(enBtn);
+                dropMenu.Controls.Add(zhBtn);
+                dropMenu.Controls.Add(SignOutBtn);
+            }
+            else
+            {
+                dropMenu.Controls.Remove(enBtn);
+                dropMenu.Controls.Remove(zhBtn);
+            }
+            subBtnShowed = subBtnShowed == true ? false : true;
+        }
+
+        private void dropMenu_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            dropMenu.Height = dropMenu.Controls.Count * 50;
+        }
+
+        private void dropMenu_ControlAdded(object sender, ControlEventArgs e)
+        {
+            dropMenu.Height = dropMenu.Controls.Count * 50;
+        }
+
+        private void LoadAll(Form form)
+        {
+            if (form.Name == "Main")
+            {
+                MultiLanguage.LoadLanguage(form, typeof(Main));
+            }
+            else if (form.Name == "Home")
+            {
+                MultiLanguage.LoadLanguage(form, typeof(Home));
+            }
+            else if (form.Name == "Staff")
+            {
+                MultiLanguage.LoadLanguage(form, typeof(Staff));
+            }
+            else if (form.Name == "Staff_Edit")
+            {
+                MultiLanguage.LoadLanguage(form, typeof(Staff_Edit));
+            }
+            else if (form.Name == "Staff_Add")
+            {
+                MultiLanguage.LoadLanguage(form, typeof(Staff_Add));
+            }
+            else if (form.Name == "Usermanagement_Edit")
+            {
+                MultiLanguage.LoadLanguage(form, typeof(Usermanagement_Edit));
+            }
+            else if (form.Name == "Usermanagement_Add")
+            {
+                MultiLanguage.LoadLanguage(form, typeof(Usermanagement_Add));
+            }
+            else if (form.Name == "UserManagement")
+            {
+                MultiLanguage.LoadLanguage(form, typeof(UserManagement));
+            }
+        }
+
+        private void enBtn_Click(object sender, EventArgs e)
+        {
+            MultiLanguage.SetDefaultLanguage("en-US");
+            foreach (Form form in Application.OpenForms)
+            {
+                LoadAll(form);
+            }
+        }
+
+        private void zhBtn_Click(object sender, EventArgs e)
+        {
+            MultiLanguage.SetDefaultLanguage("zh-CN");
+            foreach (Form form in Application.OpenForms)
+            {
+                Console.WriteLine(form.Name);
+                LoadAll(form);
+            }
+        }
     }
 }
