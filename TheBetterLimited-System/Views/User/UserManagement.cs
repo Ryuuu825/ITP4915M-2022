@@ -6,13 +6,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using TheBetterLimited.Controller;
 using TheBetterLimited.Models;
+using TheBetterLimited.Utils;
 
 namespace TheBetterLimited.Views
 {
@@ -28,6 +31,7 @@ namespace TheBetterLimited.Views
 
         public UserManagement()
         {
+            MultiLanguage.LoadLanguage(this);
             InitializeComponent();
             InitialzeDataTable();
             GetAccount();//init user table

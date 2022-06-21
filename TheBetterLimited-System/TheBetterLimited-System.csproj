@@ -223,6 +223,7 @@
     <Compile Include="Models\OrderStatus.cs" />
     <Compile Include="Utils\Compress.cs" />
     <Compile Include="Utils\EnumExtension.cs" />
+    <Compile Include="Utils\MultiLanguage.cs" />
     <Compile Include="Utils\Random.cs" />
     <Compile Include="Utils\RestClientUtils.cs" />
     <Compile Include="Views\Inventory\DefectiveItem-Add.cs">
@@ -506,11 +507,11 @@
     <Compile Include="Views\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\User\UserManagement .cs">
+    <Compile Include="Views\User\UserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\User\UserManagement .Designer.cs">
-      <DependentUpon>UserManagement .cs</DependentUpon>
+    <Compile Include="Views\User\UserManagement.Designer.cs">
+      <DependentUpon>UserManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\User\Usermanagement-Edit.cs">
       <SubType>Form</SubType>
@@ -565,6 +566,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Main.en-US.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Main.en.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Main.zh.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Message\Message.resx">
       <DependentUpon>Message.cs</DependentUpon>
@@ -650,9 +663,6 @@
     <EmbeddedResource Include="Views\Login\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -694,8 +704,11 @@
     <EmbeddedResource Include="Views\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\User\UserManagement .resx">
-      <DependentUpon>UserManagement .cs</DependentUpon>
+    <EmbeddedResource Include="Views\User\UserManagement.en.resx">
+      <DependentUpon>UserManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\UserManagement.resx">
+      <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\Usermanagement-Edit.resx">
       <DependentUpon>Usermanagement-Edit.cs</DependentUpon>
@@ -705,6 +718,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\UserManagement.zh.resx">
+      <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

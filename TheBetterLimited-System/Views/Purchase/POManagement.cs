@@ -27,7 +27,7 @@ namespace TheBetterLimited.Views
         private DialogResult choose;
         private RestResponse response;
         private bool isSawDetails = false;
-        private ControllerBase cbOrder = new OrderController("Order");
+        private ControllerBase cbOrder = new ControllerBase("PurchaseOrder");
         private string _storeId;
         private List<JObject> orderList = new List<JObject>();
         private BackgroundWorker bgWorker = new BackgroundWorker();
@@ -220,15 +220,15 @@ namespace TheBetterLimited.Views
                 {
                     orderList.Add(o);
                     var row = dt.NewRow();
-                    row["orderID"] = o["id"].ToString();
-                    row["store"] = o["store"]["location"]["name"].ToString();
-                    row["creator"] = o["_creatorId"].ToString();
+                    row["orderID"] = o["ID"].ToString();
+                    row["store"] = o["_warehouseId"].ToString();
+                    row["creator"] = o["_createrId"].ToString();
                     row["operator"] = o["_operatorId"].ToString();
-                    row["createAt"] = ((DateTime)o["createAt"]).ToString("g");
-                    row["updateAt"] = ((DateTime)o["updateAt"]).ToString("g");
-                    row["total"] = String.Format("{0:C2}", o["total"]);
-                    row["paid"] = String.Format("{0:C2}", o["paid"]); ;
-                    row["status"] = o["status"].ToString();
+                    row["createAt"] = ((DateTime)o["CreateTime"]).ToString("g");
+                    row["updateAt"] = ((DateTime)o["OperateTime"]).ToString("g");
+/*                    row["total"] = String.Format("{0:C2}", o["total"]);
+                    row["paid"] = String.Format("{0:C2}", o["paid"]);*/
+/*                    row["status"] = o["status"].ToString();*/
                     dt.Rows.Add(row);
                 }
                 bs.DataSource = dt;

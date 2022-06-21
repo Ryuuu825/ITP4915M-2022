@@ -39,7 +39,7 @@ namespace TheBetterLimited.Views
         {
             InitializeComponent();
             initBackgroundWorker();
-            loadPic.Show();
+            showLoading();
             bw.RunWorkerAsync();
         }
 
@@ -49,7 +49,7 @@ namespace TheBetterLimited.Views
             Console.WriteLine(supplierId);
             InitializeComponent();
             initBackgroundWorker();
-            loadPic.Show();
+            showLoading();
             bw.RunWorkerAsync();
         }
 
@@ -57,7 +57,7 @@ namespace TheBetterLimited.Views
         {
             this.suplierId = supplierId;
             initBackgroundWorker();
-            loadPic.Show();
+            showLoading();
             try
             {
                 bw.RunWorkerAsync();
@@ -66,6 +66,18 @@ namespace TheBetterLimited.Views
             {
                 MessageBox.Show("Goods are loading.");  
             }
+        }
+
+        private void showLoading()
+        {
+            Loading load = new Loading();
+            load.TopLevel = false;
+            load.Dock = DockStyle.Fill;
+            loadPic.Controls.Add(load);
+            loadPic.Tag = load;
+            loadPic.BringToFront();
+            load.Show();
+            loadPic.Show();
         }
 
         private void initBackgroundWorker()
@@ -96,7 +108,7 @@ namespace TheBetterLimited.Views
             this.Invalidate();
             try
             {
-                loadPic.Show();
+                showLoading();
                 bw.RunWorkerAsync();
             }
             catch (Exception ex)

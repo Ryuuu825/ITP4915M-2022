@@ -75,6 +75,7 @@ namespace TheBetterLimited.Views
         {
             InitList();
             loadPic.Hide();
+            loadPic.Controls.Clear();
         }
         /*
          * Dom Style/Event Process

@@ -90,16 +90,11 @@ namespace TheBetterLimited.Views
             {
                 Console.WriteLine("Value of the Dictionary Item is: {0}", value.goodsName);
             }
-            // var response = cbPO.Create(data);
-
             string re = JObject.FromObject(data).ToString();
 
-            var req = new RestRequest("/api/purchase/order", Method.Post)
-                                .AddHeader("Language", "en")
-                                .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
-                                .AddJsonBody(re);
-            var res = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
-            if (res.StatusCode == System.Net.HttpStatusCode.OK)
+            var response = cbPO.Create(re);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 MessageBox.Show("Create Purchase Order Successfully");
                 this.OnExit.Invoke();
@@ -107,8 +102,8 @@ namespace TheBetterLimited.Views
                 this.Dispose();
             }else
             {
-                Console.WriteLine(res.StatusCode);
-                MessageBox.Show(res.Content);
+                Console.WriteLine(response.StatusCode);
+                MessageBox.Show(response.Content);
             }
         }
 
@@ -267,7 +262,6 @@ namespace TheBetterLimited.Views
             this.Tag = od;
             od.BringToFront();
             od.Show();
-            //od.OnExit += AddItem;
         }
 
         private void cbSup_Click(object sender, EventArgs e)
