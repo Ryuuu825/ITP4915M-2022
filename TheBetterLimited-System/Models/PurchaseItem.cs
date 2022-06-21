@@ -8,6 +8,9 @@ namespace TheBetterLimited.Models
 {
     internal class PurchaseItem
     {
+        public PurchaseItem()
+        {
+        }
         public PurchaseItem(string goodsId, string name, int price, int quantity)
         {
             _goodsId = goodsId;

@@ -64,7 +64,7 @@ namespace TheBetterLimited.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Goods are loading.");  
+                MessageBox.Show("Goods are loading.");
             }
         }
 
@@ -153,19 +153,38 @@ namespace TheBetterLimited.Views
         {
             if (e.ColumnIndex == GoodsDataGrid.Columns["select"].Index)
             {
+                Console.WriteLine(GoodsDataGrid["Status", e.RowIndex].Value);
+                if (GoodsDataGrid["Status", e.RowIndex].Value.ToString().Equals("2"))
+                {
+                    MessageBox.Show(GoodsDataGrid["id", e.RowIndex].Value.ToString() + " is no longer be sold!");
+                    return;
+                }
+
+                if (GoodsDataGrid["Status", e.RowIndex].Value.ToString().Equals("1"))
+                {
+                    DialogResult result = MessageBox.Show(GoodsDataGrid["id", e.RowIndex].Value.ToString() + " is being phase out!\nAre you sure to purchase this goods?", "Warning", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+
                 if (Convert.ToInt32(GoodsDataGrid["select", e.RowIndex].Tag) == 0)
                 {
+
                     GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
                     GoodsDataGrid["select", e.RowIndex].Tag = 1;
                     GoodsDataGrid.Rows[e.RowIndex].Selected = true;
-                    selectGoods.Add(new PurchaseItem(supGoods[e.RowIndex]["Id"].ToString(), supGoods[e.RowIndex]["Name"].ToString(),(int)supGoods[e.RowIndex]["Price"], 1));
+                    var item = new PurchaseItem(supGoods[e.RowIndex]["Id"].ToString(), supGoods[e.RowIndex]["Name"].ToString(), (int)supGoods[e.RowIndex]["Price"], 1);
+                    selectGoods.Add(item);
                 }
                 else
                 {
                     GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.square24;
                     GoodsDataGrid["select", e.RowIndex].Tag = 0;
                     GoodsDataGrid.Rows[e.RowIndex].Selected = false;
-                    selectGoods.Remove(new PurchaseItem(supGoods[e.RowIndex]["Id"].ToString(), supGoods[e.RowIndex]["Name"].ToString(), (int)supGoods[e.RowIndex]["Price"], 1));
+                    var item = selectGoods.Single(x => ((PurchaseItem)x)._goodsId == GoodsDataGrid["id", e.RowIndex].Value.ToString());
+                    selectGoods.Remove(item);
                 }
             }
         }
@@ -244,7 +263,7 @@ namespace TheBetterLimited.Views
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            if(selectGoods.Count == 0)
+            if (selectGoods.Count == 0)
             {
                 MessageBox.Show("You have not selected any goods");
                 return;
