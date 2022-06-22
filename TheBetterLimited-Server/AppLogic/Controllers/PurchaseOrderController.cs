@@ -50,8 +50,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 }
             */
             List<Data.Entity.PurchaseOrder> query = repository.GetAll();
+            ConsoleLogger.Debug(query.Count);
             return ToDto(query , username , lang);
-
            
         }
 
@@ -86,6 +86,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 dto.Total = Total;
                 dto._warehouseId = entry._warehouseId;
                 dto._supplierId = entry._supplierId;
+                result.Add(dto);
             }
             return result;
         }
