@@ -137,7 +137,6 @@ namespace TheBetterLimited.Views
             data.Add("id", PO["id"].ToString());
             try
             {
-                Console.WriteLine("Request: " + JsonConvert.SerializeObject(data));
                 var response = cbPO.Update(data);
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {

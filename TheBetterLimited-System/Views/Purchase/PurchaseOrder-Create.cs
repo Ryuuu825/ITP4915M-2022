@@ -48,7 +48,6 @@ namespace TheBetterLimited.Views
                 foreach(JObject sup in sups)
                 {
                     suppliers.Add(sup);
-                    Console.WriteLine(sup.ToString());
                     cbSup.Items.Add(sup["Name"].ToString());
                 }
             }
