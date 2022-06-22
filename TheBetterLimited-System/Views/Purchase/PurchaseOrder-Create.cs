@@ -31,6 +31,7 @@ namespace TheBetterLimited.Views
         private ControllerBase cbPO = new ControllerBase("purchase/order");
         private bool firstInit = false;
         public List<object> orderItems = new List<object>();
+        private int selectedSup;
 
         public PurchaseOrder_Create()
         {
@@ -197,13 +198,17 @@ namespace TheBetterLimited.Views
             txtSupAddress.Texts = suppliers[cbSup.SelectedIndex]["Address"].ToString();
             supplierId = suppliers[cbSup.SelectedIndex]["ID"].ToString();
 
-            if(orderItems.Count != 0)
+            if(orderItems.Count != 0 && cbSup.SelectedIndex != selectedSup)
             {
                 DialogResult result = MessageBox.Show("Changing the supplier will clear all current order items,\nDo you really need to change?", "",MessageBoxButtons.YesNo);
                 if(result == DialogResult.Yes)
                 {
+                    selectedSup = cbSup.SelectedIndex;
                     orderItems.Clear();
                     InitializeCartGridView();
+                }else
+                {
+                    cbSup.SelectedIndex = selectedSup;
                 }
             }
 

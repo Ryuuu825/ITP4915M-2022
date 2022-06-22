@@ -87,17 +87,9 @@ namespace TheBetterLimited.Views
 
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            GetAll();
             loadPic.Hide();
             loadPic.Controls.Clear();
-            if (loadAll)
-            {
-                GetAll();
-            }
-            else
-            {
-                GetByQry();
-            }
-            
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -329,15 +321,6 @@ namespace TheBetterLimited.Views
         }
 
         private void GetAll()
-        {
-            ProductInfoContainer.Controls.Clear();
-            goods.Clear();
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                InitList(response.Content);
-            }
-        }
-        private void GetByQry()
         {
             ProductInfoContainer.Controls.Clear();
             goods.Clear();
