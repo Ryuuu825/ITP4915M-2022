@@ -78,7 +78,7 @@ namespace TheBetterLimited_Server.API.Controller
 
         [HttpPut("status/{id}")]
         [Authorize]
-        public IActionResult UpdateOrderStatus(string id , [FromBody] Data.Entity.PurchaseOrderStatus status)
+        public IActionResult UpdateOrderStatus(string id , [FromBody] int status)
         {
             try
             {

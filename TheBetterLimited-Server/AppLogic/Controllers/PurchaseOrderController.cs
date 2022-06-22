@@ -182,8 +182,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         }
         
         
-        public void UpdateStatus(string username , string id , Data.Entity.PurchaseOrderStatus status)
+        public void UpdateStatus(string username , string id , int status_i)
         {
+            var status = (Data.Entity.PurchaseOrderStatus) status_i;
             var staff = userInfoRepository.GetStaffFromUserName(username);
             var entry = repository.GetById(id);
             entry._operatorId  = staff.Id;
