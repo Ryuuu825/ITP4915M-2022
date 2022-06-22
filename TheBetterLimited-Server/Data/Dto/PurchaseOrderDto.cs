@@ -24,6 +24,11 @@ namespace TheBetterLimited_Server.Data.Dto
         public List<PurchaseOrderItemInDto> Items { get; set; }
     }
 
+     public class PurchaseOrderUpdateDto : PurchaseOrderInDto
+    {
+        public string Id { get; set; }
+    }
+
     public class PurchaseOrderOutDto : PurchaseOrderDto
     {
         public string Id { get; set; }

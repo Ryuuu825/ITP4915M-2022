@@ -12,6 +12,8 @@ public class MessageController
     private readonly Data.Repositories.Repository<Data.Entity.Message> _sendMessageTable;
     private readonly Data.Repositories.Repository<Data.Entity.Staff_Message> _receiveMessageTable;
     private readonly Data.Repositories.Repository<Data.Entity.Account> _accountTable;
+    private readonly Data.Repositories.Repository<Data.Entity.Staff> _staffTable;
+    private readonly Data.Repositories.UserInfoRepository userInfo;
 
     public MessageController(DataContext dataContext)
     {
@@ -19,6 +21,8 @@ public class MessageController
         _sendMessageTable = new Data.Repositories.Repository<Data.Entity.Message>(dataContext);
         _receiveMessageTable = new Data.Repositories.Repository<Data.Entity.Staff_Message>(dataContext);
         _accountTable = new Data.Repositories.Repository<Data.Entity.Account>(dataContext);
+        _staffTable = new Data.Repositories.Repository<Data.Entity.Staff>(dataContext);
+        userInfo = new Data.Repositories.UserInfoRepository(dataContext);
     }
 
     public Models.ReceiveMessageModel GetMessage(string username , uint limit = 0 )
@@ -46,13 +50,14 @@ public class MessageController
         List<ReceiveMessageDto> messageList = new List<ReceiveMessageDto>();
         foreach (var message in messages)
         {
+            message.Status = Data.Entity.StaffMessageStatus.Received;
+            _receiveMessageTable.Update(message);
             messageList.Add(new ReceiveMessageDto
             {
                 senderName = message.message.sender.UserName,
                 sentDate = message.message.SentDate.ToShortDateString(),
                 content = message.message.Content,
                 Title = message.message.Title
-                
             });
         }
         var messageModel = new Models.ReceiveMessageModel
@@ -83,9 +88,58 @@ public class MessageController
         List<ReceiveMessageDto> messageList = new List<ReceiveMessageDto>();
         foreach (var message in messages)
         {
-           if (message.Status == Data.Entity.StaffMessageStatus.Unread)
+           if (message.Status == Data.Entity.StaffMessageStatus.Received)
             {
-                message.Status = Data.Entity.StaffMessageStatus.Read;
+                messageList.Add(new ReceiveMessageDto
+                {
+                    senderName = message.message.sender.UserName,
+                    sentDate = message.message.SentDate.ToShortDateString(),
+                    content = message.message.Content,
+                    Title = message.message.Title
+
+                });
+            }
+        }
+        try
+        {
+            _db.SaveChanges();
+        }
+        catch (System.Exception)
+        {
+            throw new OperationFailException("Cannot update message status.");
+        }
+
+        Models.ReceiveMessageModel messageModel = new Models.ReceiveMessageModel
+        {
+            messageReceived = (short)messageList.Count,
+            messages = messageList
+        };
+
+        return messageModel;
+    }
+
+     public Models.ReceiveMessageModel GetUnreceivedMessage(string username)
+    {
+        
+        var account = _accountTable.GetBySQL(
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{username}")
+        ).FirstOrDefault();
+
+        if (account is null)
+        {
+            throw new BadArgException("Account is not exist in database.");
+        }
+
+        var messages = _receiveMessageTable.GetBySQL(
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Staff_Message>($"_receiverId:{account.Id}" )
+        );
+
+        List<ReceiveMessageDto> messageList = new List<ReceiveMessageDto>();
+        foreach (var message in messages)
+        {
+           if (message.Status == Data.Entity.StaffMessageStatus.Unreceived)
+            {
+                message.Status = Data.Entity.StaffMessageStatus.Received;
                 _receiveMessageTable.Update(message);
 
                 messageList.Add(new ReceiveMessageDto
@@ -115,7 +169,32 @@ public class MessageController
 
         return messageModel;
     }
+
+
     
+    public void setMessageRead(string id)
+    {
+        var message = _receiveMessageTable.GetBySQL(
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Staff_Message>($"Id:{id}")
+        ).FirstOrDefault();
+
+        if (message is null)
+        {
+            throw new BadArgException("Message is not exist in database.");
+        }
+
+        message.Status = Data.Entity.StaffMessageStatus.Read;
+
+        try
+        {
+            _db.SaveChanges();
+        }
+        catch (System.Exception)
+        {
+            throw new OperationFailException("Cannot update message status.");
+        }
+    }
+
     public void SendMessage(string SenderUserName , Data.Dto.SendMessageDto message)
     {
         var account = _accountTable.GetBySQL(
@@ -155,6 +234,7 @@ public class MessageController
                 _receiverId = acc.Id,
                 message = newMessage,
                 _messageId = newMessage.Id,
+                Status = Data.Entity.StaffMessageStatus.Unreceived
             };
             try
             {
@@ -169,6 +249,15 @@ public class MessageController
                 failedUsername.Append(recevier + ", ");
             }
         }
+        #if DEBUG
+            var receiverMessage = new Data.Entity.Staff_Message
+            {
+                _receiverId =  "A0001",
+                message = newMessage,
+                _messageId = newMessage.Id,
+                Status = Data.Entity.StaffMessageStatus.Unreceived
+            };
+        #endif 
 
         if (isFailed)
         {
@@ -183,9 +272,29 @@ public class MessageController
         {
             throw new OperationFailException("Send message failed.");
         }
-
         
     }
 
+
+    public void BoardcastMessage(string username , string departmentId, string title , string content)
+    {
+        // get all the user
+        var staffs = _staffTable.GetBySQL(
+            $"SELECT * FROM `Staff` WHERE `_departmentId` = \"{departmentId}\""
+        );
+        if (staffs.Count == 0) return;
+        var accountIds = new List<string>();
+        foreach(var staff in staffs)
+        {
+            accountIds.Add(staff._AccountId);
+        }
+        var SendMessageDto = new SendMessageDto()
+        {
+            receiver = accountIds,
+            Title = title,
+            content = content
+        };
+        this.SendMessage(username , SendMessageDto);
+    }
     
 }

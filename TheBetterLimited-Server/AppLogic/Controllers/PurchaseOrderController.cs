@@ -13,6 +13,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private readonly Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods> _PurchaseOrder_Supplier_GoodsTable;
 
         private readonly Data.Repositories.Repository<Data.Entity.Supplier_Goods> _Supplier_GoodsTable;
+        private readonly AppLogic.Controllers.MessageController _message;
 
         private readonly AppLogic.Controllers.GoodsController _GoodsController;
 
@@ -26,7 +27,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _Supplier_GoodsTable = new Data.Repositories.Repository<Data.Entity.Supplier_Goods>(db);
             _WarehouseTable = new Data.Repositories.Repository<Data.Entity.Warehouse>(db);
             _PurchaseOrder_Supplier_GoodsTable = new Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods>(db);
-
+            _GoodsController = new AppLogic.Controllers.GoodsController(db);
+            _message = new MessageController(db);
         }
 
         public List<PurchaseOrderOutDto> GetAll(string username, string lang)
@@ -50,8 +52,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 }
             */
             List<Data.Entity.PurchaseOrder> query = repository.GetAll();
+            ConsoleLogger.Debug(query.Count);
             return ToDto(query , username , lang);
-
            
         }
 
@@ -86,21 +88,26 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 dto.Total = Total;
                 dto._warehouseId = entry._warehouseId;
                 dto._supplierId = entry._supplierId;
+                result.Add(dto);
             }
             return result;
         }
 
         public void CreateEntry(PurchaseOrderInDto dto, string username)
         {
-            Data.Entity.PurchaseOrder entry = new Data.Entity.PurchaseOrder();
-            entry.ID = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.PurchaseOrder>(db);
-            entry.CreateTime = DateTime.Now;
-            entry.OperateTime = DateTime.Now;
-            entry._operatorId = userInfoRepository.GetStaffFromUserName(username).Id;
-            entry._createrId =  userInfoRepository.GetStaffFromUserName(username).Id;
-            entry.Status = Data.Entity.PurchaseOrderStatus.Pending;
-            entry._warehouseId = dto._warehouseId;
-            entry._supplierId = dto._supplierId;
+            Helpers.Entity.EntityValidator.Validate<PurchaseOrderInDto>(dto);
+            Data.Entity.PurchaseOrder entry = new Data.Entity.PurchaseOrder()
+            {
+                ID = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.PurchaseOrder>(db),
+                CreateTime = DateTime.Now,
+                OperateTime = DateTime.Now,
+                _operatorId = userInfoRepository.GetStaffFromUserName(username).Id,
+                _createrId = userInfoRepository.GetStaffFromUserName(username).Id,
+                Status = Data.Entity.PurchaseOrderStatus.Pending,
+                _warehouseId = dto._warehouseId,
+                _supplierId = dto._supplierId,
+                Items = new List<Data.Entity.PurchaseOrder_Supplier_Goods>()
+            };
             entry.Items = new List<Data.Entity.PurchaseOrder_Supplier_Goods>();
             foreach(var item in dto.Items)
             {
@@ -138,6 +145,65 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         {
             var entry = repository.GetById(id);
             repository.Delete(entry);
+        }
+
+        public void Update(string username , Data.Dto.PurchaseOrderUpdateDto content)
+        {
+            var entry = repository.GetById(content.Id);
+            var staff = userInfoRepository.GetStaffFromUserName(username);
+            entry._operatorId = staff.Id;
+            entry.OperateTime = DateTime.Now;
+            
+            foreach(var item in entry.Items.ToList())
+            {
+                var s = item;
+                _PurchaseOrder_Supplier_GoodsTable.Delete(s);
+            }
+            entry.Items = new List<Data.Entity.PurchaseOrder_Supplier_Goods>();
+
+            foreach( var item in content.Items)
+            {
+                Data.Entity.Supplier_Goods potential = _Supplier_GoodsTable.GetBySQL(
+                    "SELECT * FROM `Supplier_Goods` WHERE `_goodsId` = \"" + item._goodsId + "\""
+                ).FirstOrDefault();
+
+
+                entry.Items.Add(
+                   new Data.Entity.PurchaseOrder_Supplier_Goods
+                   {
+                        _purchaseOrderId = content.Id,
+                        _supplierGoodsId = potential.ID,
+                        Quantity = (uint) item.Quantity
+                   });
+            }
+            entry._supplierId = content._supplierId;
+            entry._warehouseId = content._warehouseId;
+            repository.Update(entry);
+        }
+        
+        
+        public void UpdateStatus(string username , string id , int status_i)
+        {
+            var status = (Data.Entity.PurchaseOrderStatus) status_i;
+            var staff = userInfoRepository.GetStaffFromUserName(username);
+            var entry = repository.GetById(id);
+            ConsoleLogger.Debug(staff is null);
+            ConsoleLogger.Debug(entry is null);
+            entry._operatorId  = staff.Id;
+            entry.OperateTime = DateTime.Now;
+            entry.Status = status;
+
+            if (status == Data.Entity.PurchaseOrderStatus.Pending) // waiting for purchase department to approval
+            {
+                // 800 : purchase department
+                _message.BoardcastMessage(username , "800", "New Purchase request pulled!" , "Please approval / rejected the request");
+            }
+            else if (status == Data.Entity.PurchaseOrderStatus.PendingApproval) 
+            {
+                _message.BoardcastMessage(username , "400", "New Purchase request pulled!" , "Please approval / rejected the request");
+            }
+
+            repository.Update(entry);
         }
     }
 }
