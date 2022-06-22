@@ -168,7 +168,12 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
             entry._supplierId = content._supplierId;
             entry._warehouseId = content._warehouseId;
-            entry.Status = content.Status;
+            repository.Update(entry);
+        }
+        
+        public void UpdateStatus(string username , string id , Data.Entity.PurchaseOrderStatus status)
+        {
+
         }
     }
 }

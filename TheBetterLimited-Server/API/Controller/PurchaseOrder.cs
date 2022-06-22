@@ -75,5 +75,19 @@ namespace TheBetterLimited_Server.API.Controller
             }
 
         }  
+
+        [HttpPut("status/{id}")]
+        public IActionResult UpdateOrderStatus(string id , [FromBody] Data.Entity.PurchaseOrderStatus status)
+        {
+            try
+            {
+                controller.UpdateStatus(User.Identity.Name , id , status);
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
+        }
     }
 }
