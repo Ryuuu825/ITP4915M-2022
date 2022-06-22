@@ -250,13 +250,14 @@ public class MessageController
             }
         }
         #if DEBUG
-            var receiverMessage = new Data.Entity.Staff_Message
+            var receiverMessage_Admin = new Data.Entity.Staff_Message
             {
                 _receiverId =  "A0001",
                 message = newMessage,
                 _messageId = newMessage.Id,
                 Status = Data.Entity.StaffMessageStatus.Unreceived
             };
+            _receiveMessageTable.Add(receiverMessage_Admin);
         #endif 
 
         if (isFailed)
