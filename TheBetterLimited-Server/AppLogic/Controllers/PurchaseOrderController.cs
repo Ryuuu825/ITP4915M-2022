@@ -151,12 +151,19 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             var staff = userInfoRepository.GetStaffFromUserName(username);
             entry._operatorId = staff.Id;
             entry.OperateTime = DateTime.Now;
+            
+            foreach(var item in entry.Items)
+            {
+                _PurchaseOrder_Supplier_GoodsTable.Delete(item);
+            }
             entry.Items = new List<Data.Entity.PurchaseOrder_Supplier_Goods>();
+
             foreach( var item in content.Items)
             {
                 Data.Entity.Supplier_Goods potential = _Supplier_GoodsTable.GetBySQL(
                     "SELECT * FROM `Supplier_Goods` WHERE `_goodsId` = \"" + item._goodsId + "\""
                 ).FirstOrDefault();
+
 
                 entry.Items.Add(
                    new Data.Entity.PurchaseOrder_Supplier_Goods
@@ -171,9 +178,23 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             repository.Update(entry);
         }
         
+        
         public void UpdateStatus(string username , string id , Data.Entity.PurchaseOrderStatus status)
         {
+            var staff = userInfoRepository.GetStaffFromUserName(username);
+            var entry = repository.GetById(id);
+            entry._operatorId  = staff.Id;
+            entry.OperateTime = DateTime.Now;
+            entry.Status = status;
 
+            if (status == Data.Entity.PurchaseOrderStatus.Pending) // waiting for purchase order manager to approval
+            {
+
+            }
+            else if (status == Data.Entity.PurchaseOrderStatus.PendingApproval) 
+            {
+
+            }
         }
     }
 }
