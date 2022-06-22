@@ -6,6 +6,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheBetterLimited.CustomizeControl;
+using System.Resources;
+using System.Globalization;
 
 namespace TheBetterLimited.Views
 {
@@ -13,9 +15,18 @@ namespace TheBetterLimited.Views
     {
         private LoginController loginController = new LoginController();
         private System.ComponentModel.BackgroundWorker bgWorker;
+        private static ResourceManager rm;
         public Login()
         {
-            Console.WriteLine(System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
+            rm = new ResourceManager("Login", typeof(Login).Assembly);
+
+            CultureInfo culture = CultureInfo.CreateSpecificCulture(Properties.Settings.Default.DefaultLanguage);
+
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
+
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
             InitializeComponent();
         }
 

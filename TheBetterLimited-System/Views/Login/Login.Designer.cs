@@ -35,15 +35,15 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.loginContainer = new System.Windows.Forms.Panel();
             this.usernameLabel = new System.Windows.Forms.Label();
-            this.username = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.passwordLabel = new System.Windows.Forms.Label();
-            this.password = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.loginBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.forgotPwd = new System.Windows.Forms.LinkLabel();
             this.Welcome = new System.Windows.Forms.Label();
             this.LoginTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.showPwd = new System.Windows.Forms.PictureBox();
+            this.username = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.password = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.loginBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.Logo.SuspendLayout();
             this.mainPanel.SuspendLayout();
             this.loginContainer.SuspendLayout();
@@ -99,67 +99,11 @@
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Click += new System.EventHandler(this.usernameLabel_Click);
             // 
-            // username
-            // 
-            resources.ApplyResources(this.username, "username");
-            this.username.BackColor = System.Drawing.Color.Transparent;
-            this.username.BorderColor = System.Drawing.Color.LightGray;
-            this.username.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.username.BorderRadius = 20;
-            this.username.BorderSize = 1;
-            this.username.IsError = false;
-            this.username.MaxLength = 20;
-            this.username.Multiline = false;
-            this.username.Name = "username";
-            this.username.PasswordChar = false;
-            this.username.Placeholder = "Plese input user name";
-            this.username.ReadOnly = false;
-            this.username.TbBackColor = System.Drawing.SystemColors.Window;
-            this.username.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.username.Texts = "Plese input user name";
-            this.username.UnderlinedStyle = false;
-            // 
             // passwordLabel
             // 
             resources.ApplyResources(this.passwordLabel, "passwordLabel");
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Click += new System.EventHandler(this.passwordLabel_Click);
-            // 
-            // password
-            // 
-            resources.ApplyResources(this.password, "password");
-            this.password.BackColor = System.Drawing.Color.Transparent;
-            this.password.BorderColor = System.Drawing.Color.LightGray;
-            this.password.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.password.BorderRadius = 20;
-            this.password.BorderSize = 1;
-            this.password.IsError = false;
-            this.password.MaxLength = 20;
-            this.password.Multiline = false;
-            this.password.Name = "password";
-            this.password.PasswordChar = true;
-            this.password.Placeholder = "Please input your password";
-            this.password.ReadOnly = false;
-            this.password.TbBackColor = System.Drawing.SystemColors.Window;
-            this.password.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.password.Texts = "Please input your password";
-            this.password.UnderlinedStyle = false;
-            // 
-            // loginBtn
-            // 
-            resources.ApplyResources(this.loginBtn, "loginBtn");
-            this.loginBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.loginBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.loginBtn.BorderColor = System.Drawing.Color.SeaGreen;
-            this.loginBtn.BorderRadius = 20;
-            this.loginBtn.BorderSize = 0;
-            this.loginBtn.FlatAppearance.BorderSize = 0;
-            this.loginBtn.ForeColor = System.Drawing.Color.White;
-            this.loginBtn.IsChecked = false;
-            this.loginBtn.Name = "loginBtn";
-            this.loginBtn.TextColor = System.Drawing.Color.White;
-            this.loginBtn.UseVisualStyleBackColor = false;
-            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // forgotPwd
             // 
@@ -197,6 +141,62 @@
             this.showPwd.Name = "showPwd";
             this.showPwd.TabStop = false;
             this.showPwd.Click += new System.EventHandler(this.showPwd_Click);
+            // 
+            // username
+            // 
+            resources.ApplyResources(this.username, "username");
+            this.username.BackColor = System.Drawing.Color.Transparent;
+            this.username.BorderColor = System.Drawing.Color.LightGray;
+            this.username.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.username.BorderRadius = 20;
+            this.username.BorderSize = 1;
+            this.username.IsError = false;
+            this.username.MaxLength = 20;
+            this.username.Multiline = false;
+            this.username.Name = "username";
+            this.username.PasswordChar = false;
+            this.username.Placeholder = "Plese input user name";
+            this.username.ReadOnly = false;
+            this.username.TbBackColor = System.Drawing.SystemColors.Window;
+            this.username.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.username.Texts = "Plese input user name";
+            this.username.UnderlinedStyle = false;
+            // 
+            // password
+            // 
+            resources.ApplyResources(this.password, "password");
+            this.password.BackColor = System.Drawing.Color.Transparent;
+            this.password.BorderColor = System.Drawing.Color.LightGray;
+            this.password.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.password.BorderRadius = 20;
+            this.password.BorderSize = 1;
+            this.password.IsError = false;
+            this.password.MaxLength = 20;
+            this.password.Multiline = false;
+            this.password.Name = "password";
+            this.password.PasswordChar = true;
+            this.password.Placeholder = "Please input your password";
+            this.password.ReadOnly = false;
+            this.password.TbBackColor = System.Drawing.SystemColors.Window;
+            this.password.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.password.Texts = "Please input your password";
+            this.password.UnderlinedStyle = false;
+            // 
+            // loginBtn
+            // 
+            resources.ApplyResources(this.loginBtn, "loginBtn");
+            this.loginBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.loginBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.loginBtn.BorderColor = System.Drawing.Color.SeaGreen;
+            this.loginBtn.BorderRadius = 20;
+            this.loginBtn.BorderSize = 0;
+            this.loginBtn.FlatAppearance.BorderSize = 0;
+            this.loginBtn.ForeColor = System.Drawing.Color.White;
+            this.loginBtn.IsChecked = false;
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.TextColor = System.Drawing.Color.White;
+            this.loginBtn.UseVisualStyleBackColor = false;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // Login
             // 

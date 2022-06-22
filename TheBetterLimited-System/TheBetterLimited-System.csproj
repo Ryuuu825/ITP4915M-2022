@@ -600,6 +600,9 @@
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login\Login.en.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\Login.zh.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
