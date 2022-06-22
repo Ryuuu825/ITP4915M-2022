@@ -143,5 +143,31 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             var entry = repository.GetById(id);
             repository.Delete(entry);
         }
+
+        public void Update(string username , Data.Dto.PurchaseOrderUpdateDto content)
+        {
+            var entry = repository.GetById(content.Id);
+            var staff = userInfoRepository.GetStaffFromUserName(username);
+            entry._operatorId = staff.Id;
+            entry.OperateTime = DateTime.Now;
+            entry.Items = new List<Data.Entity.PurchaseOrder_Supplier_Goods>();
+            foreach( var item in content.Items)
+            {
+                Data.Entity.Supplier_Goods potential = _Supplier_GoodsTable.GetBySQL(
+                    "SELECT * FROM `Supplier_Goods` WHERE `_goodsId` = \"" + item._goodsId + "\""
+                ).FirstOrDefault();
+
+                entry.Items.Add(
+                   new Data.Entity.PurchaseOrder_Supplier_Goods
+                   {
+                        _purchaseOrderId = content.Id,
+                        _supplierGoodsId = potential.ID,
+                        Quantity = (uint) item.Quantity
+                   });
+            }
+            entry._supplierId = content._supplierId;
+            entry._warehouseId = content._warehouseId;
+            entry.Status = content.Status;
+        }
     }
 }

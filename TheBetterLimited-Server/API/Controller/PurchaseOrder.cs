@@ -59,5 +59,21 @@ namespace TheBetterLimited_Server.API.Controller
                 return StatusCode(e.ReturnCode , e.GetHttpResult());
             }
         }
+
+        [HttpPut]
+        [Authorize]
+        public IActionResult Update([FromBody] Data.Dto.PurchaseOrderUpdateDto Content)
+        {
+            try 
+            {
+                controller.Update(User.Identity.Name , Content);
+                return Ok();
+
+            }catch( ICustException e)
+            {
+                return StatusCode( e.ReturnCode , e.GetHttpResult());
+            }
+
+        }  
     }
 }
