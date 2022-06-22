@@ -61,13 +61,22 @@ public class EntityValidator : IDisposable
         bool res;
         using (var v = new EntityValidator(typeof(T)))
         {
-            res = v.Validate(o);
-#if DEBUG
-            foreach (var item in v._res)
+
+            try 
             {
-                ConsoleLogger.Error(item.ErrorMessage);
+                res = v.Validate(o);
+                #if DEBUG
+                    foreach (var item in v._res)
+                    {
+                        ConsoleLogger.Error(item.ErrorMessage);
+                    }
+                #endif
+            }catch(Exception e)
+            {
+                ConsoleLogger.Error(e.Message);
+                res = false;
             }
-#endif
+
         }
 
         return res;

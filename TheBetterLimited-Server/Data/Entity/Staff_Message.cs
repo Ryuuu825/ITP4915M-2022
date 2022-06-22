@@ -22,7 +22,8 @@ namespace TheBetterLimited_Server.Data.Entity
 
     public enum StaffMessageStatus
     {
-        Unread,
-        Read
+        Read,
+        Received,
+        Unreceived
     }
 }
