@@ -249,6 +249,15 @@ public class MessageController
                 failedUsername.Append(recevier + ", ");
             }
         }
+        #if DEBUG
+            var receiverMessage = new Data.Entity.Staff_Message
+            {
+                _receiverId =  "A0001",
+                message = newMessage,
+                _messageId = newMessage.Id,
+                Status = Data.Entity.StaffMessageStatus.Unreceived
+            };
+        #endif 
 
         if (isFailed)
         {
