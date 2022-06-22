@@ -46,9 +46,6 @@ namespace TheBetterLimited.Views.Message
             var messages = JObject.Parse(res.Content)["messages"].ToString();
             JArray messageList = JArray.Parse(messages);
 
-            Console.WriteLine(res.Content);
-
-
             if (messageList.Count > 1)
             {
                 prompt.BalloonTipTitle = "You receive few new messages!";
