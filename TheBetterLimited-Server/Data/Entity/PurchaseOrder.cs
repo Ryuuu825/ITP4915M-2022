@@ -50,11 +50,11 @@ namespace TheBetterLimited_Server.Data.Entity
     public enum PurchaseOrderStatus
     {
         Pending,
-        Approved,
+        PendingApproval,
         Rejected,
         Cancelled,
         SentToSupplier,
-        ReceivedFromSupplier,
+        Inbound,
         Completed
     }
 }

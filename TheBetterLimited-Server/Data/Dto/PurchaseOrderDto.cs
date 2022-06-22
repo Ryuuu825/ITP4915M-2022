@@ -27,7 +27,6 @@ namespace TheBetterLimited_Server.Data.Dto
      public class PurchaseOrderUpdateDto : PurchaseOrderInDto
     {
         public string Id { get; set; }
-        public Data.Entity.PurchaseOrderStatus Status { get; set; }
     }
 
     public class PurchaseOrderOutDto : PurchaseOrderDto
