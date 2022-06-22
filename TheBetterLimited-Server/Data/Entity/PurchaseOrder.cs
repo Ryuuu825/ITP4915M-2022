@@ -53,6 +53,7 @@ namespace TheBetterLimited_Server.Data.Entity
         PendingApproval,
         Rejected,
         Cancelled,
+        Approved,
         SentToSupplier,
         Inbound,
         Completed
