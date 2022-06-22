@@ -152,9 +152,10 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             entry._operatorId = staff.Id;
             entry.OperateTime = DateTime.Now;
             
-            foreach(var item in entry.Items)
+            foreach(var item in entry.Items.ToList())
             {
-                _PurchaseOrder_Supplier_GoodsTable.Delete(item);
+                var s = item;
+                _PurchaseOrder_Supplier_GoodsTable.Delete(s);
             }
             entry.Items = new List<Data.Entity.PurchaseOrder_Supplier_Goods>();
 
