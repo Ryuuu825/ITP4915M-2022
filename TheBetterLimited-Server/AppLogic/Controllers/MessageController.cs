@@ -12,6 +12,8 @@ public class MessageController
     private readonly Data.Repositories.Repository<Data.Entity.Message> _sendMessageTable;
     private readonly Data.Repositories.Repository<Data.Entity.Staff_Message> _receiveMessageTable;
     private readonly Data.Repositories.Repository<Data.Entity.Account> _accountTable;
+    private readonly Data.Repositories.Repository<Data.Entity.Staff> _staffTable;
+    private readonly Data.Repositories.UserInfoRepository userInfo;
 
     public MessageController(DataContext dataContext)
     {
@@ -19,6 +21,8 @@ public class MessageController
         _sendMessageTable = new Data.Repositories.Repository<Data.Entity.Message>(dataContext);
         _receiveMessageTable = new Data.Repositories.Repository<Data.Entity.Staff_Message>(dataContext);
         _accountTable = new Data.Repositories.Repository<Data.Entity.Account>(dataContext);
+        _staffTable = new Data.Repositories.Repository<Data.Entity.Staff>(dataContext);
+        userInfo = new Data.Repositories.UserInfoRepository(dataContext);
     }
 
     public Models.ReceiveMessageModel GetMessage(string username , uint limit = 0 )
@@ -259,9 +263,28 @@ public class MessageController
         {
             throw new OperationFailException("Send message failed.");
         }
-
         
     }
 
+
+    public void BoardcastMessage(string username , string departmentId, string title , string content)
+    {
+        // get all the user
+        var staffs = _staffTable.GetBySQL(
+            $"SELECT * FROM `Staff` WHERE `_departmentId` = \"{departmentId}\""
+        );
+        var accountIds = new List<string>();
+        foreach(var staff in staffs)
+        {
+            accountIds.Add(staff._AccountId);
+        }
+        var SendMessageDto = new SendMessageDto()
+        {
+            receiver = accountIds,
+            Title = title,
+            content = content
+        };
+        this.SendMessage(username , SendMessageDto);
+    }
     
 }
