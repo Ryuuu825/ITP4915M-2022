@@ -1,15 +1,11 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using TheBetterLimited.Controller;
@@ -20,15 +16,12 @@ namespace TheBetterLimited.Views
 {
     public partial class POManagement : Form
     {
-        private UserController uc = new UserController();
         private DataTable dt = new DataTable();
         private BindingSource bs = new BindingSource();
         private List<string> selecteOrderId = new List<string>();
         private DialogResult choose;
         private RestResponse response;
-        private bool isSawDetails = false;
         private POController cbOrder = new POController("Purchase/Order");
-        private string _storeId;
         private List<JObject> orderList = new List<JObject>();
         private BackgroundWorker bgWorker = new BackgroundWorker();
 
