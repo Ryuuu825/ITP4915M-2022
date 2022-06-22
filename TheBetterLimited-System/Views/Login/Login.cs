@@ -15,6 +15,7 @@ namespace TheBetterLimited.Views
         private System.ComponentModel.BackgroundWorker bgWorker;
         public Login()
         {
+            Console.WriteLine(System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName);
             InitializeComponent();
         }
 

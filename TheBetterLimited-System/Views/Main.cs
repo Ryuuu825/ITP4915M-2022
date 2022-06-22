@@ -29,6 +29,9 @@ namespace TheBetterLimited.Views
         private MessageDelegate Delegate;
         public Main()
         {
+            Console.WriteLine(Properties.Settings.Default.DefaultLanguage);
+            System.Globalization.CultureInfo currentLang = new CultureInfo(Properties.Settings.Default.DefaultLanguage);
+            
             InitializeComponent();
             Delegate = new MessageDelegate(() => {  }, 1000, () => { } , testing);
             this.FormClosing += (s, e) => {Delegate.Stop();};
@@ -161,7 +164,7 @@ namespace TheBetterLimited.Views
             {
                 RestockContainer.Show();
             }
-            if (dept.Equals("Admin") || dept.Equals("Sales") || dept.Equals("Inventory") || dept.Equals("Account"))
+            if (dept.Equals("Admin") || dept.Equals("Sales") || dept.Equals("Inventory") || dept.Equals("Accounting"))
             {
                 DefectItemContainer.Show();
             }
@@ -230,6 +233,7 @@ namespace TheBetterLimited.Views
                 case "Accounting":
                     AccountingContainer.Show();
                     InventoryContainer.Show();
+                    PurchaseContainer.Show();
                     break;
                 case "Technical":
                     WorkmanContainer.Show();
@@ -427,20 +431,20 @@ namespace TheBetterLimited.Views
         private void enBtn_Click(object sender, EventArgs e)
         {
             MultiLanguage.SetDefaultLanguage("en-US");
-            foreach (Form form in Application.OpenForms)
+            /*foreach (Form form in Application.OpenForms)
             {
                 LoadAll(form);
-            }
+            }*/
         }
 
         private void zhBtn_Click(object sender, EventArgs e)
         {
             MultiLanguage.SetDefaultLanguage("zh-CN");
-            foreach (Form form in Application.OpenForms)
+            /*foreach (Form form in Application.OpenForms)
             {
                 Console.WriteLine(form.Name);
                 LoadAll(form);
-            }
+            }*/
         }
     }
 }

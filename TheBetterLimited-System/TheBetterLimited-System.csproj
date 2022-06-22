@@ -600,6 +600,15 @@
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login\Login.zh.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login\ResetPwd.zh.resx">
+      <DependentUpon>ResetPwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Login\ResetPwdResult.zh.resx">
+      <DependentUpon>ResetPwdResult.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Main.en-US.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -751,6 +760,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\Usermanagement-Add.zh.resx">
+      <DependentUpon>Usermanagement-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\Usermanagement-Edit.zh.resx">
+      <DependentUpon>Usermanagement-Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\UserManagement.en.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>

@@ -43,18 +43,31 @@ namespace TheBetterLimited.Views
 
         public PurchaseOrder_Details(JObject po)
         {
-            if(GlobalsData.currentUser["department"].ToString() == "Accounting")
+            PO = po;
+            InitializeComponent();
+            if (GlobalsData.currentUser["department"].ToString() == "Accounting")
             {
                 ApproveBtn.Visible = true;
                 RejectBtn.Visible = true;
+                BackBtn.Visible = true;
                 ConfirmBtn.Visible = false;
                 CancelBtn.Visible = false;
                 AddBtn.Visible = false;
+                SaveBtn.Visible = false;
                 OrderInfoBox.Enabled = false;
                 OrderDataGrid.ReadOnly = true;
+                OrderDataGrid.Columns["delete"].Visible = false;
+            }else if ((int)PO["status"] == (int)POStatus.Approved)
+            {
+                ConfirmBtn.Visible = false;
+                AddBtn.Visible = false;
+                OrderInfoBox.Enabled = false;
+                OrderDataGrid.ReadOnly = true;
+                SaveBtn.Visible = false;
+                SentBtn.Visible = true;
+                OrderDataGrid.Columns["delete"].Visible = false;
             }
-            PO = po;
-            InitializeComponent();
+
             InitSupplierCombo();
             InitPurchaseOrder();
         }
@@ -405,10 +418,44 @@ namespace TheBetterLimited.Views
             }
         }
 
-        private void Back_Click(object sender, EventArgs e)
+            private void Back_Click(object sender, EventArgs e)
         {
             this.Close();
             this.Dispose();
+        }
+
+        private void SentBtn_Click(object sender, EventArgs e)
+        {
+            if ((int)PO["status"] == (int)POStatus.Approved)
+            {
+                DialogResult result = MessageBox.Show("Have you sent out the purchase order to the supplier?", "Confirmation Request", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        response = cbPO.UpdateStatus(PO["id"].ToString(), (int)POStatus.SentToSupplier);
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            MessageBox.Show("The purchase order updated successfully");
+                            this.OnExit.Invoke();
+                            this.Close();
+                            this.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Update purchase order error.\n" + response.Content);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Update purchase order error.\n" + response.Content);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("The purchase order has been processed.");
+            }
         }
     }
 }

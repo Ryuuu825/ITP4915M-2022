@@ -10,9 +10,9 @@ namespace TheBetterLimited.Models
     {
         Pending,
         PendingApproval,
-        Approved,
         Rejected,
         Cancelled,
+        Approved,
         SentToSupplier,
         Inbound,
         Completed

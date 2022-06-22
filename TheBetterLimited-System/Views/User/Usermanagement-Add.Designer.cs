@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usermanagement_Add));
             this.Header = new System.Windows.Forms.Panel();
             this.Info = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.Label();
@@ -90,61 +91,37 @@
             // 
             // Header
             // 
+            resources.ApplyResources(this.Header, "Header");
             this.Header.BackColor = System.Drawing.Color.White;
             this.Header.Controls.Add(this.Info);
             this.Header.Controls.Add(this.tip);
             this.Header.Controls.Add(this.Title);
             this.Header.Controls.Add(this.UserIconPic);
-            this.Header.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Header.Location = new System.Drawing.Point(0, 0);
-            this.Header.Margin = new System.Windows.Forms.Padding(2);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(272, 571);
-            this.Header.TabIndex = 0;
             // 
             // Info
             // 
-            this.Info.AutoSize = true;
-            this.Info.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Info.Location = new System.Drawing.Point(17, 303);
+            resources.ApplyResources(this.Info, "Info");
             this.Info.Name = "Info";
-            this.Info.Size = new System.Drawing.Size(240, 84);
-            this.Info.TabIndex = 5;
-            this.Info.Text = "Users belong to one organisation\r\nand can log in and use Better \r\nLimited System " +
-    "either using a \r\nusername and password.";
             // 
             // tip
             // 
-            this.tip.AutoSize = true;
-            this.tip.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tip.Location = new System.Drawing.Point(84, 245);
+            resources.ApplyResources(this.tip, "tip");
             this.tip.Name = "tip";
-            this.tip.Size = new System.Drawing.Size(167, 15);
-            this.tip.TabIndex = 4;
-            this.tip.Text = "Click image to upload photo";
             // 
             // Title
             // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.Title, "Title");
             this.Title.ForeColor = System.Drawing.Color.SeaGreen;
-            this.Title.Location = new System.Drawing.Point(16, 273);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(103, 30);
-            this.Title.TabIndex = 3;
-            this.Title.Text = "Add User";
             // 
             // UserIconPic
             // 
+            resources.ApplyResources(this.UserIconPic, "UserIconPic");
             this.UserIconPic.BackColor = System.Drawing.Color.Transparent;
             this.UserIconPic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UserIconPic.Image = global::TheBetterLimited.Properties.Resources._default;
-            this.UserIconPic.Location = new System.Drawing.Point(21, 12);
             this.UserIconPic.Name = "UserIconPic";
-            this.UserIconPic.Size = new System.Drawing.Size(230, 230);
-            this.UserIconPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.UserIconPic.TabIndex = 2;
             this.UserIconPic.TabStop = false;
             this.UserIconPic.Click += new System.EventHandler(this.UserIconPic_Click);
             this.UserIconPic.Paint += new System.Windows.Forms.PaintEventHandler(this.UserIconPic_Paint);
@@ -153,20 +130,16 @@
             // 
             // BottomBtn
             // 
+            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.BottomBtn.Controls.Add(this.CancelBtn);
             this.BottomBtn.Controls.Add(this.CreateUser);
-            this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Location = new System.Drawing.Point(10, 507);
-            this.BottomBtn.Margin = new System.Windows.Forms.Padding(2);
             this.BottomBtn.Name = "BottomBtn";
-            this.BottomBtn.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.BottomBtn.Size = new System.Drawing.Size(492, 54);
-            this.BottomBtn.TabIndex = 1;
             // 
             // CancelBtn
             // 
+            resources.ApplyResources(this.CancelBtn, "CancelBtn");
             this.CancelBtn.BackColor = System.Drawing.Color.Silver;
             this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
             this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
@@ -174,68 +147,49 @@
             this.CancelBtn.BorderSize = 0;
             this.CancelBtn.FlatAppearance.BorderSize = 0;
             this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
-            this.CancelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CancelBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CancelBtn.ForeColor = System.Drawing.Color.White;
             this.CancelBtn.IsChecked = false;
-            this.CancelBtn.Location = new System.Drawing.Point(212, 6);
             this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.Size = new System.Drawing.Size(128, 40);
-            this.CancelBtn.TabIndex = 1;
-            this.CancelBtn.Text = "Cancel";
             this.CancelBtn.TextColor = System.Drawing.Color.White;
             this.CancelBtn.UseVisualStyleBackColor = false;
             this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // CreateUser
             // 
+            resources.ApplyResources(this.CreateUser, "CreateUser");
             this.CreateUser.BackColor = System.Drawing.Color.SeaGreen;
             this.CreateUser.BackgroundColor = System.Drawing.Color.SeaGreen;
             this.CreateUser.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.CreateUser.BorderRadius = 10;
             this.CreateUser.BorderSize = 0;
             this.CreateUser.FlatAppearance.BorderSize = 0;
-            this.CreateUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateUser.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateUser.ForeColor = System.Drawing.Color.White;
             this.CreateUser.IsChecked = false;
-            this.CreateUser.Location = new System.Drawing.Point(346, 6);
             this.CreateUser.Name = "CreateUser";
-            this.CreateUser.Size = new System.Drawing.Size(128, 40);
-            this.CreateUser.TabIndex = 6;
-            this.CreateUser.Text = "Create User";
             this.CreateUser.TextColor = System.Drawing.Color.White;
             this.CreateUser.UseVisualStyleBackColor = false;
             this.CreateUser.Click += new System.EventHandler(this.CreateUser_Click);
             // 
             // MainForm
             // 
+            resources.ApplyResources(this.MainForm, "MainForm");
             this.MainForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.MainForm.Controls.Add(this.BottomBtn);
             this.MainForm.Controls.Add(this.AccountInfo);
             this.MainForm.Controls.Add(this.UserInfo);
-            this.MainForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainForm.Location = new System.Drawing.Point(272, 0);
-            this.MainForm.Margin = new System.Windows.Forms.Padding(2);
             this.MainForm.Name = "MainForm";
-            this.MainForm.Padding = new System.Windows.Forms.Padding(10);
-            this.MainForm.Size = new System.Drawing.Size(512, 571);
-            this.MainForm.TabIndex = 2;
             // 
             // AccountInfo
             // 
+            resources.ApplyResources(this.AccountInfo, "AccountInfo");
             this.AccountInfo.BackColor = System.Drawing.Color.Transparent;
             this.AccountInfo.Controls.Add(this.AccountInfoContainer);
             this.AccountInfo.Controls.Add(this.AccountHeaderContainer);
-            this.AccountInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AccountInfo.Location = new System.Drawing.Point(10, 271);
             this.AccountInfo.Name = "AccountInfo";
-            this.AccountInfo.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.AccountInfo.Size = new System.Drawing.Size(492, 290);
-            this.AccountInfo.TabIndex = 25;
             // 
             // AccountInfoContainer
             // 
+            resources.ApplyResources(this.AccountInfoContainer, "AccountInfoContainer");
             this.AccountInfoContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.AccountInfoContainer.Controls.Add(this.showPwd);
             this.AccountInfoContainer.Controls.Add(this.DoubleCheckCorrect);
@@ -249,129 +203,94 @@
             this.AccountInfoContainer.Controls.Add(this.userName);
             this.AccountInfoContainer.Controls.Add(this.userNameTxt);
             this.AccountInfoContainer.Controls.Add(this.pwdTxt);
-            this.AccountInfoContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AccountInfoContainer.Location = new System.Drawing.Point(0, 50);
             this.AccountInfoContainer.Name = "AccountInfoContainer";
-            this.AccountInfoContainer.Size = new System.Drawing.Size(492, 240);
-            this.AccountInfoContainer.TabIndex = 25;
             // 
             // showPwd
             // 
+            resources.ApplyResources(this.showPwd, "showPwd");
             this.showPwd.BackgroundImage = global::TheBetterLimited.Properties.Resources.eye;
-            this.showPwd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.showPwd.Location = new System.Drawing.Point(437, 104);
-            this.showPwd.Margin = new System.Windows.Forms.Padding(2);
             this.showPwd.Name = "showPwd";
-            this.showPwd.Size = new System.Drawing.Size(22, 24);
-            this.showPwd.TabIndex = 36;
             this.showPwd.TabStop = false;
             this.showPwd.Click += new System.EventHandler(this.showPwd_Click);
             // 
             // DoubleCheckCorrect
             // 
+            resources.ApplyResources(this.DoubleCheckCorrect, "DoubleCheckCorrect");
             this.DoubleCheckCorrect.BackgroundImage = global::TheBetterLimited.Properties.Resources.corret;
-            this.DoubleCheckCorrect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.DoubleCheckCorrect.Location = new System.Drawing.Point(472, 107);
             this.DoubleCheckCorrect.Name = "DoubleCheckCorrect";
-            this.DoubleCheckCorrect.Size = new System.Drawing.Size(15, 15);
-            this.DoubleCheckCorrect.TabIndex = 35;
             this.DoubleCheckCorrect.TabStop = false;
-            this.DoubleCheckCorrect.Visible = false;
             // 
             // PwdCorrect
             // 
+            resources.ApplyResources(this.PwdCorrect, "PwdCorrect");
             this.PwdCorrect.BackgroundImage = global::TheBetterLimited.Properties.Resources.corret;
-            this.PwdCorrect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PwdCorrect.Location = new System.Drawing.Point(472, 64);
             this.PwdCorrect.Name = "PwdCorrect";
-            this.PwdCorrect.Size = new System.Drawing.Size(15, 15);
-            this.PwdCorrect.TabIndex = 34;
             this.PwdCorrect.TabStop = false;
-            this.PwdCorrect.Visible = false;
             // 
             // panel2
             // 
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.StrengthCircle3);
             this.panel2.Controls.Add(this.StrengthCircle2);
             this.panel2.Controls.Add(this.StrengthCircle1);
-            this.panel2.Location = new System.Drawing.Point(412, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(47, 27);
-            this.panel2.TabIndex = 33;
             // 
             // StrengthCircle3
             // 
+            resources.ApplyResources(this.StrengthCircle3, "StrengthCircle3");
             this.StrengthCircle3.BackColor = System.Drawing.Color.LightGray;
             this.StrengthCircle3.BackgroundColor = System.Drawing.Color.LightGray;
             this.StrengthCircle3.BorderColor = System.Drawing.Color.DimGray;
             this.StrengthCircle3.BorderRadius = 6;
             this.StrengthCircle3.BorderSize = 0;
             this.StrengthCircle3.ForeColor = System.Drawing.Color.White;
-            this.StrengthCircle3.Location = new System.Drawing.Point(31, 7);
             this.StrengthCircle3.Name = "StrengthCircle3";
-            this.StrengthCircle3.Size = new System.Drawing.Size(12, 12);
-            this.StrengthCircle3.TabIndex = 31;
             // 
             // StrengthCircle2
             // 
+            resources.ApplyResources(this.StrengthCircle2, "StrengthCircle2");
             this.StrengthCircle2.BackColor = System.Drawing.Color.LightGray;
             this.StrengthCircle2.BackgroundColor = System.Drawing.Color.LightGray;
             this.StrengthCircle2.BorderColor = System.Drawing.Color.DimGray;
             this.StrengthCircle2.BorderRadius = 6;
             this.StrengthCircle2.BorderSize = 0;
             this.StrengthCircle2.ForeColor = System.Drawing.Color.White;
-            this.StrengthCircle2.Location = new System.Drawing.Point(17, 7);
             this.StrengthCircle2.Name = "StrengthCircle2";
-            this.StrengthCircle2.Size = new System.Drawing.Size(12, 12);
-            this.StrengthCircle2.TabIndex = 31;
             // 
             // StrengthCircle1
             // 
+            resources.ApplyResources(this.StrengthCircle1, "StrengthCircle1");
             this.StrengthCircle1.BackColor = System.Drawing.Color.LightGray;
             this.StrengthCircle1.BackgroundColor = System.Drawing.Color.LightGray;
             this.StrengthCircle1.BorderColor = System.Drawing.Color.DimGray;
             this.StrengthCircle1.BorderRadius = 6;
             this.StrengthCircle1.BorderSize = 0;
             this.StrengthCircle1.ForeColor = System.Drawing.Color.White;
-            this.StrengthCircle1.Location = new System.Drawing.Point(3, 7);
             this.StrengthCircle1.Name = "StrengthCircle1";
-            this.StrengthCircle1.Size = new System.Drawing.Size(12, 12);
-            this.StrengthCircle1.TabIndex = 30;
             // 
             // Email
             // 
-            this.Email.AutoSize = true;
-            this.Email.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Email.Location = new System.Drawing.Point(23, 147);
-            this.Email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.Email, "Email");
             this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(115, 21);
-            this.Email.TabIndex = 28;
-            this.Email.Text = "Email Address*";
             this.Email.Click += new System.EventHandler(this.Email_Click);
             // 
             // emailTxt
             // 
+            resources.ApplyResources(this.emailTxt, "emailTxt");
             this.emailTxt.BackColor = System.Drawing.Color.White;
             this.emailTxt.BorderColor = System.Drawing.Color.LightGray;
             this.emailTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.emailTxt.BorderRadius = 10;
             this.emailTxt.BorderSize = 1;
-            this.emailTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTxt.ForeColor = System.Drawing.Color.Black;
             this.emailTxt.IsError = false;
-            this.emailTxt.Location = new System.Drawing.Point(159, 140);
-            this.emailTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.emailTxt.MaxLength = 20;
             this.emailTxt.Multiline = false;
             this.emailTxt.Name = "emailTxt";
-            this.emailTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.emailTxt.PasswordChar = false;
             this.emailTxt.Placeholder = "Please enter email address";
             this.emailTxt.ReadOnly = false;
-            this.emailTxt.Size = new System.Drawing.Size(308, 38);
-            this.emailTxt.TabIndex = 5;
             this.emailTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.emailTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.emailTxt.Texts = "Please enter email address";
@@ -379,37 +298,26 @@
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 104);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 21);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Password Again*";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pwdTxt2
             // 
+            resources.ApplyResources(this.pwdTxt2, "pwdTxt2");
             this.pwdTxt2.BackColor = System.Drawing.Color.White;
             this.pwdTxt2.BorderColor = System.Drawing.Color.LightGray;
             this.pwdTxt2.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.pwdTxt2.BorderRadius = 10;
             this.pwdTxt2.BorderSize = 1;
-            this.pwdTxt2.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwdTxt2.ForeColor = System.Drawing.Color.Black;
             this.pwdTxt2.IsError = false;
-            this.pwdTxt2.Location = new System.Drawing.Point(159, 97);
-            this.pwdTxt2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pwdTxt2.MaxLength = 20;
             this.pwdTxt2.Multiline = false;
             this.pwdTxt2.Name = "pwdTxt2";
-            this.pwdTxt2.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.pwdTxt2.PasswordChar = true;
             this.pwdTxt2.Placeholder = "Please enter password again";
             this.pwdTxt2.ReadOnly = false;
-            this.pwdTxt2.Size = new System.Drawing.Size(308, 38);
-            this.pwdTxt2.TabIndex = 4;
             this.pwdTxt2.TbBackColor = System.Drawing.Color.White;
             this.pwdTxt2.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.pwdTxt2.Texts = "Please enter password again";
@@ -421,49 +329,32 @@
             // 
             // password
             // 
-            this.password.AutoSize = true;
-            this.password.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password.Location = new System.Drawing.Point(39, 61);
-            this.password.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.password, "password");
             this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(83, 21);
-            this.password.TabIndex = 7;
-            this.password.Text = "Password*";
             this.password.Click += new System.EventHandler(this.password_Click);
             // 
             // userName
             // 
-            this.userName.AutoSize = true;
-            this.userName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userName.Location = new System.Drawing.Point(37, 18);
-            this.userName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.userName, "userName");
             this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(88, 21);
-            this.userName.TabIndex = 6;
-            this.userName.Text = "Username*";
             this.userName.Click += new System.EventHandler(this.userName_Click);
             // 
             // userNameTxt
             // 
+            resources.ApplyResources(this.userNameTxt, "userNameTxt");
             this.userNameTxt.BackColor = System.Drawing.Color.White;
             this.userNameTxt.BorderColor = System.Drawing.Color.LightGray;
             this.userNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.userNameTxt.BorderRadius = 10;
             this.userNameTxt.BorderSize = 1;
-            this.userNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userNameTxt.ForeColor = System.Drawing.Color.Black;
             this.userNameTxt.IsError = false;
-            this.userNameTxt.Location = new System.Drawing.Point(160, 11);
-            this.userNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.userNameTxt.MaxLength = 20;
             this.userNameTxt.Multiline = false;
             this.userNameTxt.Name = "userNameTxt";
-            this.userNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.userNameTxt.PasswordChar = false;
             this.userNameTxt.Placeholder = "Please enter user name";
             this.userNameTxt.ReadOnly = false;
-            this.userNameTxt.Size = new System.Drawing.Size(308, 38);
-            this.userNameTxt.TabIndex = 2;
             this.userNameTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.userNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.userNameTxt.Texts = "Please enter user name";
@@ -473,25 +364,20 @@
             // 
             // pwdTxt
             // 
+            resources.ApplyResources(this.pwdTxt, "pwdTxt");
             this.pwdTxt.BackColor = System.Drawing.Color.White;
             this.pwdTxt.BorderColor = System.Drawing.Color.LightGray;
             this.pwdTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.pwdTxt.BorderRadius = 10;
             this.pwdTxt.BorderSize = 1;
-            this.pwdTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwdTxt.ForeColor = System.Drawing.Color.Black;
             this.pwdTxt.IsError = false;
-            this.pwdTxt.Location = new System.Drawing.Point(160, 54);
-            this.pwdTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pwdTxt.MaxLength = 20;
             this.pwdTxt.Multiline = false;
             this.pwdTxt.Name = "pwdTxt";
-            this.pwdTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.pwdTxt.PasswordChar = true;
             this.pwdTxt.Placeholder = "Please enter password";
             this.pwdTxt.ReadOnly = false;
-            this.pwdTxt.Size = new System.Drawing.Size(308, 38);
-            this.pwdTxt.TabIndex = 3;
             this.pwdTxt.TbBackColor = System.Drawing.Color.White;
             this.pwdTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.pwdTxt.Texts = "Please enter password";
@@ -503,38 +389,27 @@
             // 
             // AccountHeaderContainer
             // 
+            resources.ApplyResources(this.AccountHeaderContainer, "AccountHeaderContainer");
             this.AccountHeaderContainer.BackColor = System.Drawing.Color.White;
             this.AccountHeaderContainer.Controls.Add(this.AccountHeader);
-            this.AccountHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AccountHeaderContainer.Location = new System.Drawing.Point(0, 10);
             this.AccountHeaderContainer.Name = "AccountHeaderContainer";
-            this.AccountHeaderContainer.Size = new System.Drawing.Size(492, 40);
-            this.AccountHeaderContainer.TabIndex = 24;
             // 
             // AccountHeader
             // 
-            this.AccountHeader.AutoSize = true;
-            this.AccountHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccountHeader.Location = new System.Drawing.Point(3, 7);
-            this.AccountHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.AccountHeader, "AccountHeader");
             this.AccountHeader.Name = "AccountHeader";
-            this.AccountHeader.Size = new System.Drawing.Size(86, 25);
-            this.AccountHeader.TabIndex = 5;
-            this.AccountHeader.Text = "Account";
             // 
             // UserInfo
             // 
+            resources.ApplyResources(this.UserInfo, "UserInfo");
             this.UserInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.UserInfo.Controls.Add(this.panel1);
             this.UserInfo.Controls.Add(this.UserInfoHeaderContainer);
-            this.UserInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.UserInfo.Location = new System.Drawing.Point(10, 10);
             this.UserInfo.Name = "UserInfo";
-            this.UserInfo.Size = new System.Drawing.Size(492, 261);
-            this.UserInfo.TabIndex = 24;
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.SearchStaffBtn);
             this.panel1.Controls.Add(this.StaffIDTxt);
             this.panel1.Controls.Add(this.label3);
@@ -547,18 +422,14 @@
             this.panel1.Controls.Add(this.StaffNameTxt);
             this.panel1.Controls.Add(this.MaleGenderRadio);
             this.panel1.Controls.Add(this.FemaleGenderRadio);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 40);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(492, 221);
-            this.panel1.TabIndex = 27;
             // 
             // SearchStaffBtn
             // 
+            resources.ApplyResources(this.SearchStaffBtn, "SearchStaffBtn");
             this.SearchStaffBtn.BackColor = System.Drawing.Color.Transparent;
             this.SearchStaffBtn.BackgroundColor = System.Drawing.Color.Transparent;
             this.SearchStaffBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.search;
-            this.SearchStaffBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SearchStaffBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.SearchStaffBtn.BorderRadius = 0;
             this.SearchStaffBtn.BorderSize = 0;
@@ -566,40 +437,30 @@
             this.SearchStaffBtn.FlatAppearance.BorderSize = 0;
             this.SearchStaffBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.SearchStaffBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.SearchStaffBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SearchStaffBtn.ForeColor = System.Drawing.Color.White;
-            this.SearchStaffBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SearchStaffBtn.IsChecked = false;
-            this.SearchStaffBtn.Location = new System.Drawing.Point(438, 13);
             this.SearchStaffBtn.Name = "SearchStaffBtn";
-            this.SearchStaffBtn.Size = new System.Drawing.Size(30, 30);
-            this.SearchStaffBtn.TabIndex = 27;
             this.SearchStaffBtn.TextColor = System.Drawing.Color.White;
             this.SearchStaffBtn.UseVisualStyleBackColor = false;
             this.SearchStaffBtn.Click += new System.EventHandler(this.SearchStaffBtn_Click);
             // 
             // StaffIDTxt
             // 
+            resources.ApplyResources(this.StaffIDTxt, "StaffIDTxt");
             this.StaffIDTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.StaffIDTxt.BackColor = System.Drawing.Color.White;
             this.StaffIDTxt.BorderColor = System.Drawing.Color.LightGray;
             this.StaffIDTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.StaffIDTxt.BorderRadius = 10;
             this.StaffIDTxt.BorderSize = 1;
-            this.StaffIDTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffIDTxt.ForeColor = System.Drawing.Color.Black;
             this.StaffIDTxt.IsError = false;
-            this.StaffIDTxt.Location = new System.Drawing.Point(161, 11);
-            this.StaffIDTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.StaffIDTxt.MaxLength = 5;
             this.StaffIDTxt.Multiline = false;
             this.StaffIDTxt.Name = "StaffIDTxt";
-            this.StaffIDTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.StaffIDTxt.PasswordChar = false;
             this.StaffIDTxt.Placeholder = "Please enter staff ID";
             this.StaffIDTxt.ReadOnly = false;
-            this.StaffIDTxt.Size = new System.Drawing.Size(274, 38);
-            this.StaffIDTxt.TabIndex = 1;
             this.StaffIDTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.StaffIDTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.StaffIDTxt.Texts = "Please enter staff ID";
@@ -611,60 +472,36 @@
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(35, 104);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 21);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Department";
             // 
             // staffName
             // 
-            this.staffName.AutoSize = true;
-            this.staffName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.staffName.Location = new System.Drawing.Point(38, 61);
-            this.staffName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.staffName, "staffName");
             this.staffName.Name = "staffName";
-            this.staffName.Size = new System.Drawing.Size(87, 21);
-            this.staffName.TabIndex = 2;
-            this.staffName.Text = "Staff Name";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(48, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 21);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Staff ID*";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // PositionTxt
             // 
+            resources.ApplyResources(this.PositionTxt, "PositionTxt");
             this.PositionTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PositionTxt.BorderColor = System.Drawing.Color.LightGray;
             this.PositionTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.PositionTxt.BorderRadius = 10;
             this.PositionTxt.BorderSize = 1;
-            this.PositionTxt.Enabled = false;
-            this.PositionTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PositionTxt.ForeColor = System.Drawing.Color.LightGray;
             this.PositionTxt.IsError = false;
-            this.PositionTxt.Location = new System.Drawing.Point(161, 140);
-            this.PositionTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PositionTxt.MaxLength = 32767;
             this.PositionTxt.Multiline = false;
             this.PositionTxt.Name = "PositionTxt";
-            this.PositionTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.PositionTxt.PasswordChar = false;
             this.PositionTxt.Placeholder = "";
             this.PositionTxt.ReadOnly = false;
-            this.PositionTxt.Size = new System.Drawing.Size(307, 38);
-            this.PositionTxt.TabIndex = 26;
             this.PositionTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
             this.PositionTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
             this.PositionTxt.Texts = "Automatic Data Entry";
@@ -672,37 +509,25 @@
             // 
             // position
             // 
-            this.position.AutoSize = true;
-            this.position.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.position.Location = new System.Drawing.Point(49, 147);
-            this.position.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.position, "position");
             this.position.Name = "position";
-            this.position.Size = new System.Drawing.Size(65, 21);
-            this.position.TabIndex = 4;
-            this.position.Text = "Position";
             // 
             // DeptTxt
             // 
+            resources.ApplyResources(this.DeptTxt, "DeptTxt");
             this.DeptTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.DeptTxt.BorderColor = System.Drawing.Color.LightGray;
             this.DeptTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.DeptTxt.BorderRadius = 10;
             this.DeptTxt.BorderSize = 1;
-            this.DeptTxt.Enabled = false;
-            this.DeptTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeptTxt.ForeColor = System.Drawing.Color.LightGray;
             this.DeptTxt.IsError = false;
-            this.DeptTxt.Location = new System.Drawing.Point(161, 97);
-            this.DeptTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.DeptTxt.MaxLength = 32767;
             this.DeptTxt.Multiline = false;
             this.DeptTxt.Name = "DeptTxt";
-            this.DeptTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.DeptTxt.PasswordChar = false;
             this.DeptTxt.Placeholder = "";
             this.DeptTxt.ReadOnly = false;
-            this.DeptTxt.Size = new System.Drawing.Size(307, 38);
-            this.DeptTxt.TabIndex = 25;
             this.DeptTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
             this.DeptTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
             this.DeptTxt.Texts = "Automatic Data Entry";
@@ -710,37 +535,25 @@
             // 
             // gender
             // 
-            this.gender.AutoSize = true;
-            this.gender.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gender.Location = new System.Drawing.Point(51, 182);
-            this.gender.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.gender, "gender");
             this.gender.Name = "gender";
-            this.gender.Size = new System.Drawing.Size(61, 21);
-            this.gender.TabIndex = 9;
-            this.gender.Text = "Gender";
             // 
             // StaffNameTxt
             // 
+            resources.ApplyResources(this.StaffNameTxt, "StaffNameTxt");
             this.StaffNameTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.StaffNameTxt.BorderColor = System.Drawing.Color.LightGray;
             this.StaffNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.StaffNameTxt.BorderRadius = 10;
             this.StaffNameTxt.BorderSize = 1;
-            this.StaffNameTxt.Enabled = false;
-            this.StaffNameTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StaffNameTxt.ForeColor = System.Drawing.Color.LightGray;
             this.StaffNameTxt.IsError = false;
-            this.StaffNameTxt.Location = new System.Drawing.Point(161, 54);
-            this.StaffNameTxt.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.StaffNameTxt.MaxLength = 32767;
             this.StaffNameTxt.Multiline = false;
             this.StaffNameTxt.Name = "StaffNameTxt";
-            this.StaffNameTxt.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
             this.StaffNameTxt.PasswordChar = false;
             this.StaffNameTxt.Placeholder = "";
             this.StaffNameTxt.ReadOnly = false;
-            this.StaffNameTxt.Size = new System.Drawing.Size(307, 38);
-            this.StaffNameTxt.TabIndex = 22;
             this.StaffNameTxt.TbBackColor = System.Drawing.Color.WhiteSmoke;
             this.StaffNameTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Center;
             this.StaffNameTxt.Texts = "Automatic Data Entry";
@@ -748,69 +561,41 @@
             // 
             // MaleGenderRadio
             // 
-            this.MaleGenderRadio.AutoSize = true;
-            this.MaleGenderRadio.Enabled = false;
+            resources.ApplyResources(this.MaleGenderRadio, "MaleGenderRadio");
             this.MaleGenderRadio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.MaleGenderRadio.FlatAppearance.CheckedBackColor = System.Drawing.Color.SeaGreen;
-            this.MaleGenderRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaleGenderRadio.Location = new System.Drawing.Point(168, 183);
-            this.MaleGenderRadio.Margin = new System.Windows.Forms.Padding(2);
             this.MaleGenderRadio.Name = "MaleGenderRadio";
-            this.MaleGenderRadio.Size = new System.Drawing.Size(51, 19);
-            this.MaleGenderRadio.TabIndex = 18;
-            this.MaleGenderRadio.Text = "Male";
             this.MaleGenderRadio.UseVisualStyleBackColor = true;
             // 
             // FemaleGenderRadio
             // 
-            this.FemaleGenderRadio.AutoSize = true;
-            this.FemaleGenderRadio.Enabled = false;
-            this.FemaleGenderRadio.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FemaleGenderRadio.Location = new System.Drawing.Point(275, 183);
-            this.FemaleGenderRadio.Margin = new System.Windows.Forms.Padding(2);
+            resources.ApplyResources(this.FemaleGenderRadio, "FemaleGenderRadio");
             this.FemaleGenderRadio.Name = "FemaleGenderRadio";
-            this.FemaleGenderRadio.Size = new System.Drawing.Size(63, 19);
-            this.FemaleGenderRadio.TabIndex = 19;
-            this.FemaleGenderRadio.Text = "Female";
             this.FemaleGenderRadio.UseVisualStyleBackColor = true;
             // 
             // UserInfoHeaderContainer
             // 
+            resources.ApplyResources(this.UserInfoHeaderContainer, "UserInfoHeaderContainer");
             this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
             this.UserInfoHeaderContainer.Controls.Add(this.UserInfoHeader);
-            this.UserInfoHeaderContainer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.UserInfoHeaderContainer.Location = new System.Drawing.Point(0, 0);
             this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
-            this.UserInfoHeaderContainer.Size = new System.Drawing.Size(492, 40);
-            this.UserInfoHeaderContainer.TabIndex = 20;
             // 
             // UserInfoHeader
             // 
-            this.UserInfoHeader.AutoSize = true;
-            this.UserInfoHeader.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserInfoHeader.Location = new System.Drawing.Point(3, 7);
-            this.UserInfoHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            resources.ApplyResources(this.UserInfoHeader, "UserInfoHeader");
             this.UserInfoHeader.Name = "UserInfoHeader";
-            this.UserInfoHeader.Size = new System.Drawing.Size(165, 25);
-            this.UserInfoHeader.TabIndex = 6;
-            this.UserInfoHeader.Text = "User Information";
             // 
             // Usermanagement_Add
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(784, 571);
             this.Controls.Add(this.MainForm);
             this.Controls.Add(this.Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1200, 900);
             this.Name = "Usermanagement_Add";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add User";
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UserIconPic)).EndInit();
