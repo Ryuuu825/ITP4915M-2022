@@ -194,11 +194,11 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             if (status == Data.Entity.PurchaseOrderStatus.Pending) // waiting for purchase department to approval
             {
                 // 800 : purchase department
-                _message.BoardcastMessage(username , "800", "New Purchase request has been pulled!" , "Please approval / rejected the request");
+                _message.BoardcastMessage(username , "800", "New Purchase request pulled!" , "Please approval / rejected the request");
             }
             else if (status == Data.Entity.PurchaseOrderStatus.PendingApproval) 
             {
-                _message.BoardcastMessage(username , "400", "New Purchase request has been pulled!" , "Please approval / rejected the request");
+                _message.BoardcastMessage(username , "400", "New Purchase request pulled!" , "Please approval / rejected the request");
             }
         }
     }

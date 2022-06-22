@@ -273,6 +273,7 @@ public class MessageController
         var staffs = _staffTable.GetBySQL(
             $"SELECT * FROM `Staff` WHERE `_departmentId` = \"{departmentId}\""
         );
+        if (staffs.Count == 0) return;
         var accountIds = new List<string>();
         foreach(var staff in staffs)
         {
