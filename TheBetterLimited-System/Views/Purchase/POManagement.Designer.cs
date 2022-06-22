@@ -489,12 +489,13 @@
             this.TotalAmount.Name = "TotalAmount";
             this.TotalAmount.ReadOnly = true;
             this.TotalAmount.ToolTipText = "Total Amount";
-            this.TotalAmount.Visible = false;
             // 
             // Paid
             // 
             this.Paid.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Paid.DataPropertyName = "paid";
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.Paid.DefaultCellStyle = dataGridViewCellStyle9;
             this.Paid.HeaderText = "Paid";
@@ -516,7 +517,6 @@
             this.status.Name = "status";
             this.status.ReadOnly = true;
             this.status.ToolTipText = "Order Status";
-            this.status.Visible = false;
             this.status.Width = 84;
             // 
             // details

@@ -28,10 +28,12 @@ namespace TheBetterLimited.Views
         List<JObject> suppliers = new List<JObject>();
         private string supplierId = String.Empty;
         private ControllerBase cbSupplier = new ControllerBase("Supplier");
-        private ControllerBase cbPO = new ControllerBase("purchase/order");
+        private POController cbPO = new POController("purchase/order");
         public List<object> orderItems = new List<object>();
-        private string POID;
+        private JObject PO;
         private string supId;
+        private int selectedSup;
+        private bool dataChange = false;
 
         public PurchaseOrder_Details()
         {
@@ -39,12 +41,12 @@ namespace TheBetterLimited.Views
             InitSupplierCombo();
         }
 
-        public PurchaseOrder_Details(string id)
+        public PurchaseOrder_Details(JObject po)
         {
-            POID = id;
+            PO = po;
             InitializeComponent();
             InitSupplierCombo();
-            InitPurchaseOrder(id);
+            InitPurchaseOrder();
         }
 
         private void InitSupplierCombo()
@@ -61,18 +63,16 @@ namespace TheBetterLimited.Views
             }
         }
 
-        private void InitPurchaseOrder(string id)
+        private void InitPurchaseOrder()
         {
-            response = cbPO.GetById(id);
-            var res = JObject.Parse(response.Content);
-            cbSup.SelectedItem = res["Supplier"]["Name"].ToString();
-            txtSupAddress.Texts = res["Supplier"]["Address"].ToString();
-            txtTel.Texts = res["Supplier"]["Phone"].ToString();
-            txtContact.Texts = res["Supplier"]["Contact"].ToString();
+            var supplier = suppliers.Single(sup => sup["ID"].ToString() == PO["_supplierId"].ToString());
+            cbSup.SelectedItem = supplier["Name"].ToString();
+            supplierId = supplier["ID"].ToString();
             cbWarehouse.SelectedIndex = 0;
-            foreach(var item in (JArray)res["Items"])
+            foreach (JObject item in (JArray)PO["items"])
             {
-                orderItems.Add(item);
+                var i = new PurchaseItem(item["goods"]["GoodsId"].ToString(), item["goods"]["GoodsName"].ToString(), (int)item["goods"]["Price"], (int)item["quantity"]);
+                orderItems.Add(i);
             }
             InitializeCartGridView();
         }
@@ -86,16 +86,19 @@ namespace TheBetterLimited.Views
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            List<object> updateData = new List<object>();
             if (cbSup.SelectedIndex == -1)
             {
                 cbSup.BorderColor = Color.Red;
                 return;
             }
-            string supplierId;
-            if (suppliers[cbSup.SelectedIndex]["ID"].ToString() != supId)
+            string supId = "";
+            if (supplierId != suppliers[cbSup.SelectedIndex]["ID"].ToString())
             {
-                updateData.Add(new { Attribute = "_supplierId", Value = suppliers[cbSup.SelectedIndex]["ID"].ToString() });
+                supId = suppliers[cbSup.SelectedIndex]["ID"].ToString();
+                dataChange = true;
+            }else
+            {
+                supId = supplierId;
             }
 
             if (cbWarehouse.SelectedIndex == -1)
@@ -103,7 +106,7 @@ namespace TheBetterLimited.Views
                 cbWarehouse.BorderColor = Color.Red;
                 return;
             }
-            var warehouseId = (cbWarehouse.SelectedIndex + 1).ToString("000");
+            string warehouseId = (cbWarehouse.SelectedIndex + 1).ToString("000");
 
             if (orderItems.Count == 0)
             {
@@ -111,30 +114,42 @@ namespace TheBetterLimited.Views
                 return;
             }
 
-            /*Dictionary<string, object> data = new Dictionary<string, object>();
-            data.Add("_warehouseId", warehouseId);
-            data.Add("_supplierId", supplierId);
-            data.Add("Items", orderItems);*/
-
-            
-            var response = cbPO.Update(POID, updateData);
-
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (!dataChange)
             {
-                MessageBox.Show("Update Purchase Order Successfully");
-                this.OnExit.Invoke();
-                this.Close();
-                this.Dispose();
+                MessageBox.Show("You have not changed any things");
+                return;
             }
-            else
+            Dictionary<string, object> data = new Dictionary<string, object>();
+            data.Add("_warehouseId", warehouseId);
+            data.Add("_supplierId", supId);
+            data.Add("Items", orderItems);
+            data.Add("id", PO["id"].ToString());
+            try
             {
-                Console.WriteLine(response.StatusCode);
-                MessageBox.Show(response.Content);
+                Console.WriteLine("Request: " + JsonConvert.SerializeObject(data));
+                var response = cbPO.Update(data);
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    MessageBox.Show("Update Purchase Order Successfully");
+                    this.OnExit.Invoke();
+                    this.Close();
+                    this.Dispose();
+                }
+                else
+                {
+                    Console.WriteLine(response.StatusCode);
+                    MessageBox.Show("Update Purchase Order Unsuccessfully");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 
         public void AddItem(List<object> ois)
         {
+            dataChange = true;
             foreach (var item in ois)
             {
                 bool isExist = false;
@@ -183,26 +198,6 @@ namespace TheBetterLimited.Views
             }
         }
 
-        private void OrderDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            if (OrderDataGrid.Columns[e.ColumnIndex].Name == "status")
-            {
-                e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                if (e.Value.Equals("Refund"))
-                {
-                    e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
-                    e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
-                    OrderDataGrid.Rows[e.RowIndex].Cells["defect"].Tag = 1;
-                }
-                else if (e.Value.Equals("Exchange"))
-                {
-                    e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
-                    e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
-                    OrderDataGrid.Rows[e.RowIndex].Cells["defect"].Tag = 1;
-                }
-            }
-        }
-
         private void OrderDataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
@@ -231,13 +226,17 @@ namespace TheBetterLimited.Views
             txtSupAddress.Texts = suppliers[cbSup.SelectedIndex]["Address"].ToString();
             supplierId = suppliers[cbSup.SelectedIndex]["ID"].ToString();
 
-            if (orderItems.Count != 0)
+            if (orderItems.Count != 0 && cbSup.SelectedIndex != selectedSup)
             {
                 DialogResult result = MessageBox.Show("Changing the supplier will clear all current order items,\nDo you really need to change?", "", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
+                    selectedSup = cbSup.SelectedIndex;
                     orderItems.Clear();
                     InitializeCartGridView();
+                }else
+                {
+                    cbSup.SelectedIndex = selectedSup;
                 }
             }
 
@@ -287,7 +286,16 @@ namespace TheBetterLimited.Views
 
         private void OrderDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            if(((PurchaseItem)orderItems[e.RowIndex]).quantity == Convert.ToInt32(OrderDataGrid["quantity", e.RowIndex].Value)){
+                return;
+            }
             ((PurchaseItem)orderItems[e.RowIndex]).quantity = Convert.ToInt32(OrderDataGrid["quantity", e.RowIndex].Value);
+            dataChange = true;
+        }
+
+        private void ConfirmBtn_Click(object sender, EventArgs e)
+        {
+            cbPO.UpdateStatus(PO["id"].ToString(), 1);
         }
     }
 }

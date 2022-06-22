@@ -270,8 +270,15 @@ namespace TheBetterLimited.Views
             }
 
             Form po = Application.OpenForms["PurchaseOrder_Create"];
-            ((PurchaseOrder_Create)po).AddItem(selectGoods);
-            //this.OnExit.Invoke();
+            if (po != null)
+            {
+                ((PurchaseOrder_Create)po).AddItem(selectGoods);
+            }else
+            {
+                po = Application.OpenForms["PurchaseOrder_Details"];
+                ((PurchaseOrder_Details)po).AddItem(selectGoods);
+            }
+            
             this.Close();
             this.Dispose();
         }

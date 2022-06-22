@@ -44,13 +44,13 @@
             this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.AddBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.Title = new System.Windows.Forms.Label();
             this.BottomBtn = new System.Windows.Forms.Panel();
-            this.DeleteBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.RejectBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.OrderInfoBox = new System.Windows.Forms.Panel();
@@ -81,6 +81,8 @@
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ConfirmBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.ApproveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.OrderItemBox.SuspendLayout();
             this.Data.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGrid)).BeginInit();
@@ -149,7 +151,7 @@
             this.goodsID,
             this.ID,
             this.Price,
-            this.CreatorId,
+            this.quantity,
             this.delete});
             dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
@@ -195,7 +197,6 @@
             this.OrderDataGrid.TabIndex = 3;
             this.OrderDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrderDataGrid_CellClick);
             this.OrderDataGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrderDataGrid_CellEndEdit);
-            this.OrderDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.OrderDataGrid_CellFormatting);
             this.OrderDataGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.OrderDataGrid_DataError);
             this.OrderDataGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.OrderDataGrid_EditingControlShowing);
             // 
@@ -235,17 +236,17 @@
             this.Price.ReadOnly = true;
             this.Price.Width = 75;
             // 
-            // CreatorId
+            // quantity
             // 
-            this.CreatorId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CreatorId.DataPropertyName = "quantity";
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.quantity.DataPropertyName = "quantity";
             dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.CreatorId.DefaultCellStyle = dataGridViewCellStyle25;
-            this.CreatorId.HeaderText = "Qty";
-            this.CreatorId.MinimumWidth = 6;
-            this.CreatorId.Name = "CreatorId";
-            this.CreatorId.ToolTipText = "Quantity";
-            this.CreatorId.Width = 68;
+            this.quantity.DefaultCellStyle = dataGridViewCellStyle25;
+            this.quantity.HeaderText = "Qty";
+            this.quantity.MinimumWidth = 6;
+            this.quantity.Name = "quantity";
+            this.quantity.ToolTipText = "Quantity";
+            this.quantity.Width = 68;
             // 
             // delete
             // 
@@ -305,7 +306,9 @@
             // BottomBtn
             // 
             this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.BottomBtn.Controls.Add(this.DeleteBtn);
+            this.BottomBtn.Controls.Add(this.ApproveBtn);
+            this.BottomBtn.Controls.Add(this.ConfirmBtn);
+            this.BottomBtn.Controls.Add(this.RejectBtn);
             this.BottomBtn.Controls.Add(this.CancelBtn);
             this.BottomBtn.Controls.Add(this.SaveBtn);
             this.BottomBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -317,27 +320,27 @@
             this.BottomBtn.Size = new System.Drawing.Size(644, 54);
             this.BottomBtn.TabIndex = 1;
             // 
-            // DeleteBtn
+            // RejectBtn
             // 
-            this.DeleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.DeleteBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.DeleteBtn.BorderColor = System.Drawing.Color.White;
-            this.DeleteBtn.BorderRadius = 10;
-            this.DeleteBtn.BorderSize = 0;
-            this.DeleteBtn.FlatAppearance.BorderSize = 0;
-            this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteBtn.ForeColor = System.Drawing.Color.White;
-            this.DeleteBtn.IsChecked = false;
-            this.DeleteBtn.Location = new System.Drawing.Point(12, 6);
-            this.DeleteBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(128, 40);
-            this.DeleteBtn.TabIndex = 4;
-            this.DeleteBtn.Text = "Cancel Order";
-            this.DeleteBtn.TextColor = System.Drawing.Color.White;
-            this.DeleteBtn.UseVisualStyleBackColor = false;
-            this.DeleteBtn.Visible = false;
+            this.RejectBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.RejectBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.RejectBtn.BorderColor = System.Drawing.Color.White;
+            this.RejectBtn.BorderRadius = 10;
+            this.RejectBtn.BorderSize = 0;
+            this.RejectBtn.FlatAppearance.BorderSize = 0;
+            this.RejectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RejectBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RejectBtn.ForeColor = System.Drawing.Color.White;
+            this.RejectBtn.IsChecked = false;
+            this.RejectBtn.Location = new System.Drawing.Point(370, 6);
+            this.RejectBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.RejectBtn.Name = "RejectBtn";
+            this.RejectBtn.Size = new System.Drawing.Size(128, 40);
+            this.RejectBtn.TabIndex = 4;
+            this.RejectBtn.Text = "Reject";
+            this.RejectBtn.TextColor = System.Drawing.Color.White;
+            this.RejectBtn.UseVisualStyleBackColor = false;
+            this.RejectBtn.Visible = false;
             // 
             // CancelBtn
             // 
@@ -788,6 +791,50 @@
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
             this.dataGridViewImageColumn6.ToolTipText = "Edit";
             // 
+            // ConfirmBtn
+            // 
+            this.ConfirmBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ConfirmBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.ConfirmBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.ConfirmBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.ConfirmBtn.BorderRadius = 10;
+            this.ConfirmBtn.BorderSize = 0;
+            this.ConfirmBtn.FlatAppearance.BorderSize = 0;
+            this.ConfirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ConfirmBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmBtn.ForeColor = System.Drawing.Color.White;
+            this.ConfirmBtn.IsChecked = false;
+            this.ConfirmBtn.Location = new System.Drawing.Point(13, 6);
+            this.ConfirmBtn.Name = "ConfirmBtn";
+            this.ConfirmBtn.Size = new System.Drawing.Size(128, 40);
+            this.ConfirmBtn.TabIndex = 5;
+            this.ConfirmBtn.Text = "Confirm";
+            this.ConfirmBtn.TextColor = System.Drawing.Color.White;
+            this.ConfirmBtn.UseVisualStyleBackColor = false;
+            this.ConfirmBtn.Click += new System.EventHandler(this.ConfirmBtn_Click);
+            // 
+            // ApproveBtn
+            // 
+            this.ApproveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ApproveBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.ApproveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.ApproveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.ApproveBtn.BorderRadius = 10;
+            this.ApproveBtn.BorderSize = 0;
+            this.ApproveBtn.FlatAppearance.BorderSize = 0;
+            this.ApproveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ApproveBtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApproveBtn.ForeColor = System.Drawing.Color.White;
+            this.ApproveBtn.IsChecked = false;
+            this.ApproveBtn.Location = new System.Drawing.Point(504, 6);
+            this.ApproveBtn.Name = "ApproveBtn";
+            this.ApproveBtn.Size = new System.Drawing.Size(128, 40);
+            this.ApproveBtn.TabIndex = 6;
+            this.ApproveBtn.Text = "Approve";
+            this.ApproveBtn.TextColor = System.Drawing.Color.White;
+            this.ApproveBtn.UseVisualStyleBackColor = false;
+            this.ApproveBtn.Visible = false;
+            // 
             // PurchaseOrder_Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -859,7 +906,7 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn6;
         private CustomizeControl.CustomizeComboBox cbWarehouse;
         private System.Windows.Forms.DataGridViewImageColumn isInstall;
-        private CustomizeControl.RoundButton DeleteBtn;
+        private CustomizeControl.RoundButton RejectBtn;
         private CustomizeControl.RoundButton AddBtn;
         private System.Windows.Forms.Label label3;
         private CustomizeControl.CustomizeTextbox txtTel;
@@ -869,7 +916,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn goodsID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreatorId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private CustomizeControl.RoundButton ConfirmBtn;
+        private CustomizeControl.RoundButton ApproveBtn;
     }
 }

@@ -151,6 +151,7 @@
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\DefectItemController.cs" />
     <Compile Include="Controller\OrderController.cs" />
+    <Compile Include="Controller\POController.cs" />
     <Compile Include="Controller\PostionController.cs" />
     <Compile Include="Controller\SessionController.cs" />
     <Compile Include="Controller\StaffController.cs" />
@@ -213,6 +214,7 @@
     <Compile Include="Models\PurchaseItem.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\StaffModel.cs" />
+    <Compile Include="Models\Supplier.cs" />
     <Compile Include="Models\TeamEnum.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -306,6 +308,12 @@
     </Compile>
     <Compile Include="Views\Purchase\PurchaseOrder-Details.Designer.cs">
       <DependentUpon>PurchaseOrder-Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Purchase\PONote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Purchase\PONote.Designer.cs">
+      <DependentUpon>PONote.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Purchase\SupplierGoods.cs">
       <SubType>Form</SubType>
@@ -626,6 +634,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase\PurchaseOrder-Details.resx">
       <DependentUpon>PurchaseOrder-Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\PONote.resx">
+      <DependentUpon>PONote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase\SupplierGoods.resx">
       <DependentUpon>SupplierGoods.cs</DependentUpon>
@@ -1055,6 +1066,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo-46.ico" />
+    <None Include="Resources\message.png" />
     <None Include="Resources\package.png" />
     <None Include="Resources\display.png" />
     <None Include="Resources\exchange24.png" />

@@ -27,7 +27,7 @@ namespace TheBetterLimited.Views
         private DialogResult choose;
         private RestResponse response;
         private bool isSawDetails = false;
-        private ControllerBase cbOrder = new ControllerBase("PurchaseOrder");
+        private POController cbOrder = new POController("Purchase/Order");
         private string _storeId;
         private List<JObject> orderList = new List<JObject>();
         private BackgroundWorker bgWorker = new BackgroundWorker();
@@ -63,30 +63,29 @@ namespace TheBetterLimited.Views
             if (OrderDataGrid.Columns[e.ColumnIndex].Name == "status")
             {
                 e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                if (e.Value.Equals("Cancelled"))
+                if (e.Value.Equals("2"))
                 {
-                    e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
-                    e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
-                }
-                else if (e.Value.Equals("Completed"))
-                {
+                    e.Value = "Inbounded";
                     e.CellStyle.ForeColor = Color.SeaGreen;
                     e.CellStyle.SelectionForeColor = Color.SeaGreen;
                 }
-                else if (e.Value.Equals("Booking"))
+                else if (e.Value.Equals("1"))
                 {
+                    e.Value = "Processing";
                     e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
                 }
-                else if (e.Value.Equals("Refunded"))
+                else if (e.Value.Equals("0"))
                 {
-                    e.CellStyle.ForeColor = Color.DimGray;
-                    e.CellStyle.SelectionForeColor = Color.DimGray;
+                    e.Value = "Pending";
+                    e.CellStyle.ForeColor = Color.Orange;
+                    e.CellStyle.SelectionForeColor = Color.Orange;
                 }
                 else
                 {
-                    e.CellStyle.ForeColor = Color.FromArgb(250, 182, 99);
-                    e.CellStyle.SelectionForeColor = Color.FromArgb(250, 182, 99);
+                    e.Value = "Unknown";
+                    e.CellStyle.ForeColor = Color.DimGray;
+                    e.CellStyle.SelectionForeColor = Color.DimGray;
                 }
                 var reg = @"(?=[A-Z])";
                 var status = Regex.Split(e.Value.ToString(), reg);
@@ -127,7 +126,7 @@ namespace TheBetterLimited.Views
                     order.Close();
                     order.Dispose();
                 }
-                PurchaseOrder_Details od = new PurchaseOrder_Details(OrderDataGrid["id", e.RowIndex].Value.ToString());
+                PurchaseOrder_Details od = new PurchaseOrder_Details(orderList[e.RowIndex]);
                 od.Show();
                 od.TopLevel = true;
                 od.OnExit += GetOrder;
@@ -165,6 +164,7 @@ namespace TheBetterLimited.Views
                         {
                             MessageBox.Show("Record Deleted Successfully");
                         }
+                        GetOrder();
                     }
                     catch (Exception ex)
                     {
@@ -183,7 +183,7 @@ namespace TheBetterLimited.Views
         private void InitDataTable()
         {
             dt.Columns.Add("orderID");
-            dt.Columns.Add("store");
+            dt.Columns.Add("warehouse");
             dt.Columns.Add("creator");
             dt.Columns.Add("operator");
             dt.Columns.Add("createAt");
@@ -232,15 +232,14 @@ namespace TheBetterLimited.Views
                 {
                     orderList.Add(o);
                     var row = dt.NewRow();
-                    row["orderID"] = o["ID"].ToString();
-                    row["store"] = o["_warehouseId"].ToString();
-                    row["creator"] = o["_createrId"].ToString();
+                    row["orderID"] = o["id"].ToString();
+                    row["warehouse"] = "Kolwoon Warehouse";
+                    row["creator"] = o["_creatorId"].ToString();
                     row["operator"] = o["_operatorId"].ToString();
-                    row["createAt"] = ((DateTime)o["CreateTime"]).ToString("g");
-                    row["updateAt"] = ((DateTime)o["OperateTime"]).ToString("g");
-/*                    row["total"] = String.Format("{0:C2}", o["total"]);
-                    row["paid"] = String.Format("{0:C2}", o["paid"]);*/
-/*                    row["status"] = o["status"].ToString();*/
+                    row["createAt"] = ((DateTime)o["createAt"]).ToString("g");
+                    row["updateAt"] = ((DateTime)o["updateAt"]).ToString("g");
+                    row["total"] = o["total"];
+                    row["status"] = o["status"];
                     dt.Rows.Add(row);
                 }
                 bs.DataSource = dt;
