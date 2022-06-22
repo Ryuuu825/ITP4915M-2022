@@ -251,6 +251,7 @@ namespace TheBetterLimited.Views
         private void Logout_Click(object sender, EventArgs e)
         {
             this.Dispose();
+            this.Delegate.Stop();
             GlobalsData.currentUser.Clear();
             var th = new Thread(() => Application.Run(new Login()));
             th.SetApartmentState(ApartmentState.STA);
