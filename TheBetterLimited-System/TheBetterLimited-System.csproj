@@ -211,6 +211,7 @@
     <Compile Include="Models\LocationEnum.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\PositionEnum.cs" />
+    <Compile Include="Models\POStatusEnum.cs" />
     <Compile Include="Models\PurchaseItem.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\StaffModel.cs" />

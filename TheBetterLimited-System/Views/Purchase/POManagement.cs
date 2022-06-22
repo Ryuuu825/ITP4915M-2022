@@ -56,34 +56,37 @@ namespace TheBetterLimited.Views
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.Dispose();
         }
 
         private void OrderDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (OrderDataGrid.Columns[e.ColumnIndex].Name == "status")
             {
+                e.Value = (POStatus)(Convert.ToInt32(e.Value));
                 e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                if (e.Value.Equals("2"))
+                if (e.Value.Equals(POStatus.Inbound) || e.Value.Equals(POStatus.Completed))
                 {
-                    e.Value = "Inbounded";
                     e.CellStyle.ForeColor = Color.SeaGreen;
                     e.CellStyle.SelectionForeColor = Color.SeaGreen;
                 }
-                else if (e.Value.Equals("1"))
+                else if (e.Value.Equals(POStatus.PendingApproval) || e.Value.Equals(POStatus.SentToSupplier))
                 {
-                    e.Value = "Processing";
                     e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
                 }
-                else if (e.Value.Equals("0"))
+                else if (e.Value.Equals(POStatus.Pending))
                 {
-                    e.Value = "Pending";
                     e.CellStyle.ForeColor = Color.Orange;
                     e.CellStyle.SelectionForeColor = Color.Orange;
                 }
+                else if (e.Value.Equals(POStatus.Rejected))
+                {
+                    e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
+                }
                 else
                 {
-                    e.Value = "Unknown";
                     e.CellStyle.ForeColor = Color.DimGray;
                     e.CellStyle.SelectionForeColor = Color.DimGray;
                 }
@@ -136,15 +139,8 @@ namespace TheBetterLimited.Views
             {
                 try
                 {
-                    WaitResult waitResult = new WaitResult();
-                    waitResult.Show();
-                    waitResult.TopMost = true;
-                    bgWorker.RunWorkerAsync(response = cbOrder.GetById(OrderDataGrid["id", e.RowIndex].Value.ToString()));
-                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                    {
-                        Receipt receipt = new Receipt(response.Content);
-                        receipt.ShowDialog();
-                    }
+                    PONote poNote = new PONote(orderList[e.RowIndex]);
+                    poNote.ShowDialog();
                 }
                 catch (Exception ex)
                 {
@@ -155,7 +151,7 @@ namespace TheBetterLimited.Views
             if (e.ColumnIndex == OrderDataGrid.Columns["delete"].Index)
             {
                 DialogResult result = MessageBox.Show("Do you really need to delete this purchase order?", "Confirmation Request", MessageBoxButtons.YesNo);
-                if(result == DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
                     try
                     {
@@ -230,6 +226,13 @@ namespace TheBetterLimited.Views
                 JArray orders = JArray.Parse(response.Content);
                 foreach (JObject o in orders)
                 {
+                    if (GlobalsData.currentUser["department"].ToString() == "Accounting")
+                    {
+                        if (o["status"].Equals(POStatus.Pending))
+                        {
+                            continue;
+                        }
+                    }
                     orderList.Add(o);
                     var row = dt.NewRow();
                     row["orderID"] = o["id"].ToString();
@@ -274,7 +277,8 @@ namespace TheBetterLimited.Views
                         }
                         MessageBox.Show("The " + selecteOrderId.Count + " order(s) have been deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         GetOrder();
-                    }catch (Exception ex)
+                    }
+                    catch (Exception ex)
                     {
                         MessageBox.Show("Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -289,7 +293,7 @@ namespace TheBetterLimited.Views
         //Delete Order
         public void DeleteOrder(DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void AddBtn_Click(object sender, EventArgs e)

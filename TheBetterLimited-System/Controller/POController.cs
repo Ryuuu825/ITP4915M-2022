@@ -33,7 +33,7 @@ namespace TheBetterLimited.Controller
         }
         public RestResponse UpdateStatus(string id, int status, string lang = "en")
         {
-            var request = new RestRequest("/api/" + ControllerName + "/status/"+id, Method.Delete)
+            var request = new RestRequest("/api/" + ControllerName + "/status/"+id, Method.Put)
                         .AddHeader("Language", lang)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
                         .AddBody(status);

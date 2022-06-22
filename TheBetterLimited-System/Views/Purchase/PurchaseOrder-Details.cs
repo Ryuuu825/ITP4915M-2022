@@ -43,6 +43,16 @@ namespace TheBetterLimited.Views
 
         public PurchaseOrder_Details(JObject po)
         {
+            if(GlobalsData.currentUser["department"].ToString() == "Accounting")
+            {
+                ApproveBtn.Visible = true;
+                RejectBtn.Visible = true;
+                ConfirmBtn.Visible = false;
+                CancelBtn.Visible = false;
+                AddBtn.Visible = false;
+                OrderInfoBox.Enabled = false;
+                OrderDataGrid.ReadOnly = true;
+            }
             PO = po;
             InitializeComponent();
             InitSupplierCombo();
@@ -96,7 +106,8 @@ namespace TheBetterLimited.Views
             {
                 supId = suppliers[cbSup.SelectedIndex]["ID"].ToString();
                 dataChange = true;
-            }else
+            }
+            else
             {
                 supId = supplierId;
             }
@@ -234,7 +245,8 @@ namespace TheBetterLimited.Views
                     selectedSup = cbSup.SelectedIndex;
                     orderItems.Clear();
                     InitializeCartGridView();
-                }else
+                }
+                else
                 {
                     cbSup.SelectedIndex = selectedSup;
                 }
@@ -286,7 +298,8 @@ namespace TheBetterLimited.Views
 
         private void OrderDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if(((PurchaseItem)orderItems[e.RowIndex]).quantity == Convert.ToInt32(OrderDataGrid["quantity", e.RowIndex].Value)){
+            if (((PurchaseItem)orderItems[e.RowIndex]).quantity == Convert.ToInt32(OrderDataGrid["quantity", e.RowIndex].Value))
+            {
                 return;
             }
             ((PurchaseItem)orderItems[e.RowIndex]).quantity = Convert.ToInt32(OrderDataGrid["quantity", e.RowIndex].Value);
@@ -295,7 +308,108 @@ namespace TheBetterLimited.Views
 
         private void ConfirmBtn_Click(object sender, EventArgs e)
         {
-            cbPO.UpdateStatus(PO["id"].ToString(), 1);
+            if ((int)PO["status"] == (int)POStatus.Pending)
+            {
+                DialogResult result = MessageBox.Show("Are you sure to send the purchase order to accounting department?", "Confirmation Request", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        response = cbPO.UpdateStatus(PO["id"].ToString(), (int)POStatus.PendingApproval);
+                        if(response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            MessageBox.Show("The purchase order has been send to accounting department.");
+                            this.OnExit.Invoke();
+                            this.Close();
+                            this.Dispose();
+                        }else
+                        {
+                            MessageBox.Show("Confirm purchase order error.\n" + response.Content);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Confirm purchase order error.\n" + response.Content);
+                    }
+                }
+            }else
+            {
+                MessageBox.Show("The purchase order has been processed.");
+            }
+        }
+
+        private void ApproveBtn_Click(object sender, EventArgs e)
+        {
+            if ((int)PO["status"] == (int)POStatus.PendingApproval)
+            {
+                DialogResult result = MessageBox.Show("Are you sure to approve the purchase order?", "Confirmation Request", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        response = cbPO.UpdateStatus(PO["id"].ToString(), (int)POStatus.Approved) ;
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            MessageBox.Show("The purchase order approved successfully");
+                            this.OnExit.Invoke();
+                            this.Close();
+                            this.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Approve purchase order error.\n" + response.Content);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Approve purchase order error.\n" + response.Content);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("The purchase order has been processed.");
+            }
+        }
+
+        private void RejectBtn_Click(object sender, EventArgs e)
+        {
+            if ((int)PO["status"] == (int)POStatus.PendingApproval)
+            {
+                DialogResult result = MessageBox.Show("Are you sure to reject the purchase order?", "Confirmation Request", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        response = cbPO.UpdateStatus(PO["id"].ToString(), (int)POStatus.Approved);
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            MessageBox.Show("The purchase order rejected successfully");
+                            this.OnExit.Invoke();
+                            this.Close();
+                            this.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Reject purchase order error.\n" + response.Content);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Reject purchase order error.\n" + response.Content);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("The purchase order has been processed.");
+            }
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
         }
     }
 }
