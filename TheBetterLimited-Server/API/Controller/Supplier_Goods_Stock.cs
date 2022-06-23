@@ -196,7 +196,7 @@ namespace TheBetterLimited_Server.API.Controller
             }
             else 
             {
-                return StatusCode(401 , "unauthorized")
+                return StatusCode(401 , "unauthorized");
             }
 
             if (location.Equals(String.Empty))
