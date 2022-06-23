@@ -764,6 +764,9 @@
     <EmbeddedResource Include="Views\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\Staff.zh.resx">
+      <DependentUpon>Staff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\User\Usermanagement-Add.zh.resx">
       <DependentUpon>Usermanagement-Add.cs</DependentUpon>
     </EmbeddedResource>
