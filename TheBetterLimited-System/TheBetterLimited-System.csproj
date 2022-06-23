@@ -585,6 +585,9 @@
     <EmbeddedResource Include="CustomizeControl\ProductInfo.resx">
       <DependentUpon>ProductInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home.zh.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\DefectiveItem-Add.resx">
       <DependentUpon>DefectiveItem-Add.cs</DependentUpon>
     </EmbeddedResource>
@@ -599,6 +602,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Loading.zh.resx">
+      <DependentUpon>Loading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login\Login.en.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -642,6 +648,9 @@
     <EmbeddedResource Include="Views\POS\DefectItem-Add.resx">
       <DependentUpon>DefectItem-Add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\POS.zh.resx">
+      <DependentUpon>POS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase\POManagement.resx">
       <DependentUpon>POManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -660,7 +669,13 @@
     <EmbeddedResource Include="Views\User\Staff-Add.resx">
       <DependentUpon>Staff-Add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\Staff-Add.zh.resx">
+      <DependentUpon>Staff-Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\User\Staff-Edit.resx">
+      <DependentUpon>Staff-Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\Staff-Edit.zh.resx">
       <DependentUpon>Staff-Edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\Staff.resx">
