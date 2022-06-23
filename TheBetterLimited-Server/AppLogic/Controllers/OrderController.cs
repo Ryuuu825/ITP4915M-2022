@@ -67,7 +67,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     _SalesOrderTable.Update(item.SalesOrderItem.SalesOrder);
                 }
                 else if ( 
-                    item.Appointment.Session.EndTime.Hour >= DateTime.Now.Hour &&
+                    item.Appointment.Session.EndTime.Hour <= DateTime.Now.Hour &&
                     (item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery || item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery)
                 )
                 {
