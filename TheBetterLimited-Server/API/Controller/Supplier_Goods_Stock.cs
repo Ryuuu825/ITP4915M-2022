@@ -189,11 +189,18 @@ namespace TheBetterLimited_Server.API.Controller
             else if (staff.store is null && staff.warehouse is not null)
             {
                 location = staff.warehouse._locationID;
+            } 
+            else if (AppLogic.Constraint.AdminDepartmentId.Contains(staff._departmentId)) 
+            { 
+                return Ok();
+            }
+            else 
+            {
+                return StatusCode(401 , "unauthorized")
             }
 
             if (location.Equals(String.Empty))
                 return StatusCode(404, "No location is found");
-                
 
             try 
             {
@@ -214,10 +221,6 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 return StatusCode(500 , e.Message);
             }
-
-
-           
-
             
             return Ok();
         }
