@@ -14,6 +14,7 @@ namespace TheBetterLimited_Server.API.Controller
         private readonly Data.Repositories.Repository<Data.Entity.Store> StoreTable;
         private readonly Data.Repositories.Repository<Data.Entity.Warehouse> WarehouseTable;
         private readonly Data.Repositories.Repository<Data.Entity.Account> AccTable;
+         private readonly Data.Repositories.UserInfoRepository userInfo;
         private readonly DataContext db;
 
         private readonly AppLogic.Controllers.GoodsController goodsController;
@@ -26,6 +27,7 @@ namespace TheBetterLimited_Server.API.Controller
             AccTable = new Data.Repositories.Repository<Data.Entity.Account>(db);
             WarehouseTable = new Data.Repositories.Repository<Data.Entity.Warehouse>(db);
             goodsController = new AppLogic.Controllers.GoodsController(db);
+            userInfo = new Data.Repositories.UserInfoRepository(db);
             this.db = db;
         }
 
@@ -174,6 +176,52 @@ namespace TheBetterLimited_Server.API.Controller
            
         }
 
+        [HttpPut("bound")]
+        [Authorize]
+        public IActionResult InBoundOutBound([FromBody] InOutBoundDto dto)
+        {   
+            var staff = userInfo.GetStaffFromUserName(User.Identity.Name);
+            string location = String.Empty;
+            if (staff.warehouse is null && staff.store is not null)
+            {
+                location = staff.store._locationID;
+            }
+            else if (staff.store is null && staff.warehouse is not null)
+            {
+                location = staff.warehouse._locationID;
+            }
+
+            if (location.Equals(String.Empty))
+                return StatusCode(404, "No location is found");
+                
+
+            try 
+            {
+                Data.Entity.Supplier_Goods_Stock stock = repository.GetBySQL(
+                                $"SELECT * FROM `Goods` WHERE `Id` = {dto._goodsId}"
+                            ).FirstOrDefault()
+                            .Supplier_Goods.FirstOrDefault()
+                            .Supplier_Goods_Stocks.Where(x => x._locationId == location)
+                            .FirstOrDefault();
+
+                if (stock is null) throw new Exception("Not record found");
+                if (stock.isSoftDeleted) throw new Exception("The stock records is soft deleted");
+
+                stock.Quantity += dto.qty;
+                sgs.Update(stock);
+                
+            }catch(Exception e)
+            {
+                return StatusCode(500 , e.Message);
+            }
+
+
+           
+
+            
+            return Ok();
+        }
+
         public class InDto 
         {
             public string GoodsId { get; set; }
@@ -181,7 +229,12 @@ namespace TheBetterLimited_Server.API.Controller
             public int MaxLimit { get; set; }   
             public int MinLimit { get; set; }
             public int ReorderLevel { get; set; }
+        }
 
+        public class InOutBoundDto
+        {
+            public string _goodsId { get; set; }
+            public int qty { get; set; }
         }
     }
 }

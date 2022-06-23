@@ -22,7 +22,6 @@ namespace TheBetterLimited_Server.Data.Entity
         public virtual Supplier_Goods Supplier_Goods { get; set; }
 
         [Column(TypeName = "MEDIUMINT")]
-        [Range(0, 99999)]
         public int Quantity { get; set; }
 
         [Column(TypeName = "MEDIUMINT")]
