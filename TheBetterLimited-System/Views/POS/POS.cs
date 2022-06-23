@@ -78,10 +78,10 @@ namespace TheBetterLimited.Views
         {
             if (loadAll)
             {
-                response = cbGoods.GetAll();
+                response = cbGoods.GetAll(lang:CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             }else
             {
-                response = cbGoods.GetByQueryString(QryString);
+                response = cbGoods.GetByQueryString(QryString, lang: CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             }
         }
 
@@ -307,7 +307,7 @@ namespace TheBetterLimited.Views
 
         private void CatalogueCombox_Load(object sender, EventArgs e)
         {
-            var response = cbCatalogue.GetAll();
+            var response = cbCatalogue.GetAll(lang: CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var catalogues = JArray.Parse(response.Content);

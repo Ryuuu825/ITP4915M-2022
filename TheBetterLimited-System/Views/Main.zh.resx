@@ -157,4 +157,28 @@
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="accountBtn.Text" xml:space="preserve">
+    <value>用户账号</value>
+  </data>
+  <data name="defectItemBtn.Text" xml:space="preserve">
+    <value>损坏商品</value>
+  </data>
+  <data name="GoodsBtn.Text" xml:space="preserve">
+    <value>商品管理</value>
+  </data>
+  <data name="purchaseBtn.Text" xml:space="preserve">
+    <value>采购订单</value>
+  </data>
+  <data name="restockRequestBtn.Text" xml:space="preserve">
+    <value>进货请求</value>
+  </data>
+  <data name="staffBtn.Text" xml:space="preserve">
+    <value>员工管理</value>
+  </data>
+  <data name="stockBtn.Text" xml:space="preserve">
+    <value>库存管理</value>
+  </data>
+  <data name="supplierBtn.Text" xml:space="preserve">
+    <value>供应商管理</value>
+  </data>
 </root>

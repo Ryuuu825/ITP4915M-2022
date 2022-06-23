@@ -46,6 +46,10 @@ namespace TheBetterLimited.Views
             if (result.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 Msg.Text = "Email has been resent! \n Please check your mail box (or junk box also).";
+                if (System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "zh")
+                {
+                    Msg.Text = "邮件已重新发送! \n请检查您的邮箱(或垃圾邮件)。";
+                }
                 resendTimer.Start();
             }
             else
@@ -61,6 +65,10 @@ namespace TheBetterLimited.Views
             {
                 resendTimer.Stop();
                 resendBtn.Text = "Resent Email";
+                if (System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "zh")
+                {
+                    resendBtn.Text = "重发邮件";
+                }
                 resendBtn.Enabled = true;
                 resendBtn.BackColor = Color.SeaGreen;
                 duration = 60;
@@ -68,6 +76,11 @@ namespace TheBetterLimited.Views
             else if (duration > 0)
             {
                 resendBtn.Text = "Try again after " + duration + "s";
+
+                if(System.Globalization.CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "zh")
+                {
+                    resendBtn.Text = "在" + duration + "秒后重试";
+                }
                 resendBtn.BackColor = Color.Gray;
                 resendBtn.Enabled = false;
                 duration--;

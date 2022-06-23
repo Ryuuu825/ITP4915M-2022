@@ -117,6 +117,73 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="id.HeaderText" xml:space="preserve">
+    <value>用户编号</value>
+  </data>
+  <data name="id.ToolTipText" xml:space="preserve">
+    <value>用户编号</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="id.Width" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
+  <data name="userName.HeaderText" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="userName.ToolTipText" xml:space="preserve">
+    <value>用户名</value>
+  </data>
+  <data name="userName.Width" type="System.Int32, mscorlib">
+    <value>84</value>
+  </data>
+  <data name="staffName.HeaderText" xml:space="preserve">
+    <value>员工名称</value>
+  </data>
+  <data name="staffName.ToolTipText" xml:space="preserve">
+    <value>员工名称</value>
+  </data>
+  <data name="staffName.Width" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
+  <data name="emailAddress.HeaderText" xml:space="preserve">
+    <value>邮箱地址</value>
+  </data>
+  <data name="emailAddress.ToolTipText" xml:space="preserve">
+    <value>邮箱地址</value>
+  </data>
+  <data name="status.HeaderText" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="status.ToolTipText" xml:space="preserve">
+    <value>账号状态</value>
+  </data>
+  <data name="status.Width" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="_StaffId.HeaderText" xml:space="preserve">
+    <value>员工编号</value>
+  </data>
+  <data name="_StaffId.ToolTipText" xml:space="preserve">
+    <value>员工编号</value>
+  </data>
+  <data name="_StaffId.Width" type="System.Int32, mscorlib">
+    <value>97</value>
+  </data>
+  <data name="remarks.HeaderText" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="remarks.ToolTipText" xml:space="preserve">
+    <value>账号备注</value>
+  </data>
+  <data name="lockAcc.ToolTipText" xml:space="preserve">
+    <value>锁定</value>
+  </data>
+  <data name="edit.ToolTipText" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="delete.ToolTipText" xml:space="preserve">
+    <value>删除</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -143,6 +210,33 @@
         NTXK5KCsJmFUrg6rtAZUxhNbwIqNRQtb8rpsusx2EiYpC6K/QTQJbs/74H+v2SSg2SSg2SSg2SSg2SSg
         cUfkG3BeKFoJ9hXXKqMPXaOTcN69fCG3g8t+Pgqdm/sX1jemh/a/aA0AAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="DeleteBtn.Text" xml:space="preserve">
+    <value>删除多项</value>
+  </data>
+  <data name="AddBtn.Text" xml:space="preserve">
+    <value>      新增</value>
+  </data>
+  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 9</value>
+  </data>
+  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 21</value>
+  </data>
+  <data name="Title.Text" xml:space="preserve">
+    <value>用户账号</value>
+  </data>
+  <data name="dataGridViewImageColumn5.ToolTipText" xml:space="preserve">
+    <value>锁定</value>
+  </data>
+  <data name="dataGridViewImageColumn6.ToolTipText" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="dataGridViewImageColumn7.ToolTipText" xml:space="preserve">
+    <value>删除</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3440,98 +3534,5 @@
         AAAAAAAAP//////////////////////AAAAAAAAAAAAAAAAAAAP//////////////////////+AAAAAA
         AAAAAAAAAAAAD/////8=
 </value>
-  </data>
-  <data name="AddBtn.Texts" xml:space="preserve">
-    <value>      新增</value>
-  </data>
-  <data name="dataGridViewImageColumn4.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="dataGridViewImageColumn5.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="dataGridViewImageColumn5.ToolTipText" xml:space="preserve">
-    <value>锁定</value>
-  </data>
-  <data name="dataGridViewImageColumn6.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="dataGridViewImageColumn6.ToolTipText" xml:space="preserve">
-    <value>编辑</value>
-  </data>
-  <data name="dataGridViewImageColumn7.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="dataGridViewImageColumn7.ToolTipText" xml:space="preserve">
-    <value>删除</value>
-  </data>
-  <data name="delete.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="delete.ToolTipText" xml:space="preserve">
-    <value>删除</value>
-  </data>
-  <data name="DeleteBtn.Text" xml:space="preserve">
-    <value>多项删除</value>
-  </data>
-  <data name="edit.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="edit.ToolTipText" xml:space="preserve">
-    <value>编辑</value>
-  </data>
-  <data name="emailAddress.HeaderText" xml:space="preserve">
-    <value>邮箱</value>
-  </data>
-  <data name="emailAddress.ToolTipText" xml:space="preserve">
-    <value>邮箱地址</value>
-  </data>
-  <data name="id.HeaderText" xml:space="preserve">
-    <value>用户编号</value>
-  </data>
-  <data name="id.ToolTipText" xml:space="preserve">
-    <value>用户编号</value>
-  </data>
-  <data name="lockAcc.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lockAcc.ToolTipText" xml:space="preserve">
-    <value>锁定</value>
-  </data>
-  <data name="remarks.HeaderText" xml:space="preserve">
-    <value>备注</value>
-  </data>
-  <data name="remarks.ToolTipText" xml:space="preserve">
-    <value>账号备注</value>
-  </data>
-  <data name="select.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="staffName.HeaderText" xml:space="preserve">
-    <value>员工名称</value>
-  </data>
-  <data name="staffName.ToolTipText" xml:space="preserve">
-    <value>员工名称</value>
-  </data>
-  <data name="status.HeaderText" xml:space="preserve">
-    <value>状态</value>
-  </data>
-  <data name="status.ToolTipText" xml:space="preserve">
-    <value>账号状态</value>
-  </data>
-  <data name="Title.Text" xml:space="preserve">
-    <value>用户账号</value>
-  </data>
-  <data name="userName.HeaderText" xml:space="preserve">
-    <value>用户名</value>
-  </data>
-  <data name="userName.ToolTipText" xml:space="preserve">
-    <value>用户名</value>
-  </data>
-  <data name="_StaffId.HeaderText" xml:space="preserve">
-    <value>员工编号</value>
-  </data>
-  <data name="_StaffId.ToolTipText" xml:space="preserve">
-    <value>员工编号</value>
   </data>
 </root>

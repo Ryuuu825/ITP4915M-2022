@@ -13,6 +13,7 @@ namespace TheBetterLimited.Utils
 
         public static void SetDefaultLanguage(string lang)
         {
+            Console.WriteLine(lang);
             DefaultLanguage = lang;
             Properties.Settings.Default.DefaultLanguage = lang;
             Properties.Settings.Default.Save();

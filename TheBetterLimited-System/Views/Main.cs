@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using TheBetterLimited.Views.Message;
 using TheBetterLimited.Utils;
 using System.Globalization;
+using System.Resources;
 
 namespace TheBetterLimited.Views
 {
@@ -27,11 +28,23 @@ namespace TheBetterLimited.Views
         private UserController uc = new UserController();
         private string position = String.Empty;
         private MessageDelegate Delegate;
+        private static ResourceManager rm;
         public Main()
         {
+            AppDomain domain = AppDomain.CurrentDomain;
+            rm = new ResourceManager("Main", typeof(Main).Assembly);
+
+            CultureInfo culture = CultureInfo.CreateSpecificCulture(Properties.Settings.Default.DefaultLanguage);
+
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
+
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+
             InitializeComponent();
-            Delegate = new MessageDelegate(() => {  }, 1000, () => { } , testing);
-            this.FormClosing += (s, e) => {Delegate.Stop();};
+            Delegate = new MessageDelegate(() => { }, 1000, () => { }, testing);
+            this.FormClosing += (s, e) => { Delegate.Stop(); };
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -161,7 +174,7 @@ namespace TheBetterLimited.Views
             {
                 RestockContainer.Show();
             }
-            if (dept.Equals("Admin") || dept.Equals("Sales") || dept.Equals("Inventory") || dept.Equals("Account"))
+            if (dept.Equals("Admin") || dept.Equals("Sales") || dept.Equals("Inventory") || dept.Equals("Accounting"))
             {
                 DefectItemContainer.Show();
             }
@@ -230,6 +243,7 @@ namespace TheBetterLimited.Views
                 case "Accounting":
                     AccountingContainer.Show();
                     InventoryContainer.Show();
+                    PurchaseContainer.Show();
                     break;
                 case "Technical":
                     WorkmanContainer.Show();
@@ -426,20 +440,39 @@ namespace TheBetterLimited.Views
 
         private void enBtn_Click(object sender, EventArgs e)
         {
-            MultiLanguage.SetDefaultLanguage("en-US");
-            foreach (Form form in Application.OpenForms)
+            if(MultiLanguage.DefaultLanguage == "en")
             {
-                LoadAll(form);
+                MessageBox.Show("Current system language is English, you don't need to change");
+            }
+            DialogResult result = MessageBox.Show("更换系统语言需要重新登入系统, \n请问是否进行更换?", "提醒", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                MultiLanguage.SetDefaultLanguage("en-US");
+                this.Dispose();
+                this.Delegate.Stop();
+                GlobalsData.currentUser.Clear();
+                var th = new Thread(() => Application.Run(new Login()));
+                th.SetApartmentState(ApartmentState.STA);
+                th.Start();
             }
         }
 
         private void zhBtn_Click(object sender, EventArgs e)
         {
-            MultiLanguage.SetDefaultLanguage("zh-CN");
-            foreach (Form form in Application.OpenForms)
+            if (MultiLanguage.DefaultLanguage == "zh")
             {
-                Console.WriteLine(form.Name);
-                LoadAll(form);
+                MessageBox.Show("当前系统语言为简体中文，\n你不需要进行更换。");
+            }
+            DialogResult result = MessageBox.Show("Change language will re-login the system, \nAre you sure to change the system language?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                MultiLanguage.SetDefaultLanguage("zh-CN");
+                this.Dispose();
+                this.Delegate.Stop();
+                GlobalsData.currentUser.Clear();
+                var th = new Thread(() => Application.Run(new Login()));
+                th.SetApartmentState(ApartmentState.STA);
+                th.Start();
             }
         }
     }

@@ -58,7 +58,7 @@ namespace TheBetterLimited.Views
             {
                 e.Value = (POStatus)(Convert.ToInt32(e.Value));
                 e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                if (e.Value.Equals(POStatus.Inbound) || e.Value.Equals(POStatus.Completed))
+                if (e.Value.Equals(POStatus.Inbound) || e.Value.Equals(POStatus.Completed) || e.Value.Equals(POStatus.Approved))
                 {
                     e.CellStyle.ForeColor = Color.SeaGreen;
                     e.CellStyle.SelectionForeColor = Color.SeaGreen;
@@ -107,6 +107,11 @@ namespace TheBetterLimited.Views
                 }
                 else
                 {
+                    if ((int)orderList[e.RowIndex]["status"] != (int)POStatus.Pending && (int)orderList[e.RowIndex]["status"] != (int)POStatus.PendingApproval)
+                    {
+                        MessageBox.Show("The purchase order has been processed");
+                        return;
+                    }
                     OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.square24;
                     OrderDataGrid["select", e.RowIndex].Tag = 0;
                     OrderDataGrid.Rows[e.RowIndex].Selected = false;
@@ -143,6 +148,12 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == OrderDataGrid.Columns["delete"].Index)
             {
+                if((int)orderList[e.RowIndex]["status"] != (int)POStatus.Pending && (int)orderList[e.RowIndex]["status"] != (int)POStatus.PendingApproval)
+                {
+                    MessageBox.Show("The purchase order has been processed");
+                    return;
+                }
+
                 DialogResult result = MessageBox.Show("Do you really need to delete this purchase order?", "Confirmation Request", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
@@ -234,7 +245,7 @@ namespace TheBetterLimited.Views
                     row["operator"] = o["_operatorId"].ToString();
                     row["createAt"] = ((DateTime)o["createAt"]).ToString("g");
                     row["updateAt"] = ((DateTime)o["updateAt"]).ToString("g");
-                    row["total"] = o["total"];
+                    row["total"] = String.Format("{0:C2}",o["total"]);
                     row["status"] = o["status"];
                     dt.Rows.Add(row);
                 }

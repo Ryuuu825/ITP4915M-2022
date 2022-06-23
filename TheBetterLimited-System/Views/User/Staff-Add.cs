@@ -155,7 +155,7 @@ namespace TheBetterLimited.Views
             if (result.StatusCode == HttpStatusCode.OK)
             {
                 // show the result
-                MessageBox.Show(result.Content);
+                MessageBox.Show("Add Staff Successfully!");
                 // close the form
                 this.OnExit.Invoke();
                 this.Close();
