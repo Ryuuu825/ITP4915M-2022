@@ -756,8 +756,14 @@
     <EmbeddedResource Include="Views\Purchase\Supplier-Edit.zh.resx">
       <DependentUpon>Supplier-Edit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\Supplier.cgg-UG.resx">
+      <DependentUpon>Supplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase\Supplier.zh.resx">
       <DependentUpon>Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\SupplierGoods.ca.resx">
+      <DependentUpon>SupplierGoods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase\SupplierGoods.resx">
       <DependentUpon>SupplierGoods.cs</DependentUpon>

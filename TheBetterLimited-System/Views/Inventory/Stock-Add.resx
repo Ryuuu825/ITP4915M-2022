@@ -149,9 +149,6 @@
   <data name="&gt;&gt;lblMaxLimit.Name" xml:space="preserve">
     <value>lblMaxLimit</value>
   </data>
-  <data name="&gt;&gt;StaffNameTxt.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
   <data name="SearchStaffBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 30</value>
   </data>
@@ -162,8 +159,8 @@
   <data name="&gt;&gt;lblQuantity.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="txtSupplierGoodsId.Size" type="System.Drawing.Size, System.Drawing">
+    <value>269, 38</value>
   </data>
   <data name="&gt;&gt;staffName.Name" xml:space="preserve">
     <value>staffName</value>
@@ -188,9 +185,6 @@
   </data>
   <data name="&gt;&gt;lblQuantity.Name" xml:space="preserve">
     <value>lblQuantity</value>
-  </data>
-  <data name="MainForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
   </data>
   <data name="staffName.Size" type="System.Drawing.Size, System.Drawing">
     <value>101, 21</value>
@@ -221,6 +215,9 @@
   </data>
   <data name="StockInfoHeaderContainer.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;lblMaxLimit.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>62, 187</value>
@@ -258,12 +255,6 @@
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 3</value>
   </data>
-  <data name="StockInfoHeader.Text" xml:space="preserve">
-    <value>Stock Information</value>
-  </data>
-  <data name="txtMinLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
-  </data>
   <data name="lblMaxLimit.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 21</value>
   </data>
@@ -282,14 +273,14 @@
   <data name="lblReorderLevel.Text" xml:space="preserve">
     <value>Reorder Level</value>
   </data>
-  <data name="BottomBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 0</value>
-  </data>
   <data name="lblReorderLevel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="&gt;&gt;txtQuantity.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 40</value>
   </data>
   <data name="lblQuantity.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -333,9 +324,6 @@
   <data name="btnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
-  </data>
   <data name="&gt;&gt;txtMinLimit.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
@@ -345,20 +333,20 @@
   <data name="txtSupplierGoodsId.Location" type="System.Drawing.Point, System.Drawing">
     <value>198, 17</value>
   </data>
+  <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
   <data name="&gt;&gt;roundPanel5.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.RoundPanel, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblReorderLevel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
-  <data name="&gt;&gt;txtSupplierGoodsId.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
   </data>
-  <data name="txtReorderLevel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>201, 468</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
   </data>
   <data name="lblSize.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 21</value>
@@ -375,8 +363,8 @@
   <data name="txtMaxLimit.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 7, 10, 7</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;txtReorderLevel.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -386,9 +374,6 @@
   </data>
   <data name="&gt;&gt;StockInfoHeaderContainer.Name" xml:space="preserve">
     <value>StockInfoHeaderContainer</value>
-  </data>
-  <data name="MainForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>550, 684</value>
   </data>
   <data name="BottomBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>530, 54</value>
@@ -414,11 +399,11 @@
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 19</value>
   </data>
-  <data name="&gt;&gt;btnAddSupplier.Parent" xml:space="preserve">
-    <value>BottomBtn</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="SearchStaffBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;lblReorderLevel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnAddSupplier.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -435,8 +420,8 @@
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="StaffNameTxt.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="StockInfoHeader.Text" xml:space="preserve">
+    <value>Stock Information</value>
   </data>
   <data name="&gt;&gt;SizeGroup.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -444,11 +429,11 @@
   <data name="staffName.Text" xml:space="preserve">
     <value>Goods Name</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
     <value>btnCancel</value>
+  </data>
+  <data name="lblReorderLevel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="lblQuantity.Text" xml:space="preserve">
     <value>Quantity</value>
@@ -461,6 +446,9 @@
   </data>
   <data name="&gt;&gt;lblSize.Name" xml:space="preserve">
     <value>lblSize</value>
+  </data>
+  <data name="StaffNameTxt.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Small</value>
@@ -489,14 +477,17 @@
   <data name="txtQuantity.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 7, 10, 7</value>
   </data>
+  <data name="lblMaxLimit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
   </data>
   <data name="txtSupplierGoodsId.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 7, 10, 7</value>
   </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="BottomBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -516,8 +507,8 @@
   <data name="btnCancel.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="txtSupplierGoodsId.Size" type="System.Drawing.Size, System.Drawing">
-    <value>269, 38</value>
+  <data name="txtReorderLevel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>201, 468</value>
   </data>
   <data name="&gt;&gt;MainForm.Name" xml:space="preserve">
     <value>MainForm</value>
@@ -543,14 +534,11 @@
   <data name="&gt;&gt;lblMinLimit.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="lblMaxLimit.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
+  <data name="&gt;&gt;staffName.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtReorderLevel.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -561,14 +549,14 @@
   <data name="lblReorderLevel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
+  <data name="&gt;&gt;roundPanel5.Name" xml:space="preserve">
+    <value>roundPanel5</value>
+  </data>
   <data name="SizeGroup.Location" type="System.Drawing.Point, System.Drawing">
     <value>198, 237</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 19</value>
-  </data>
-  <data name="SearchStaffBtn.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;label6.Parent" xml:space="preserve">
     <value>roundPanel6</value>
@@ -576,8 +564,11 @@
   <data name="staffName.Location" type="System.Drawing.Point, System.Drawing">
     <value>49, 103</value>
   </data>
-  <data name="&gt;&gt;roundPanel6.Parent" xml:space="preserve">
-    <value>SizeGroup</value>
+  <data name="&gt;&gt;StaffNameTxt.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="SearchStaffBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;roundPanel6.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.RoundPanel, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -594,8 +585,8 @@
   <data name="lblMinLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
-  <data name="&gt;&gt;txtReorderLevel.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;txtReorderLevel.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;lblSupplierGoodsId.ZOrder" xml:space="preserve">
     <value>14</value>
@@ -606,8 +597,8 @@
   <data name="lblQuantity.Location" type="System.Drawing.Point, System.Drawing">
     <value>61, 309</value>
   </data>
-  <data name="lblSize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;roundPanel5.Parent" xml:space="preserve">
     <value>SizeGroup</value>
@@ -627,11 +618,14 @@
   <data name="roundPanel6.Location" type="System.Drawing.Point, System.Drawing">
     <value>223, 5</value>
   </data>
+  <data name="roundPanel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 25</value>
+  </data>
   <data name="btnAddSupplier.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="StaffNameTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 73</value>
+  <data name="txtMinLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
   </data>
   <data name="&gt;&gt;btnAddSupplier.Name" xml:space="preserve">
     <value>btnAddSupplier</value>
@@ -639,11 +633,17 @@
   <data name="&gt;&gt;lblMaxLimit.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
+  <data name="lblSize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
   <data name="StockInfoHeaderContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
   <data name="StaffNameTxt.Size" type="System.Drawing.Size, System.Drawing">
     <value>307, 80</value>
+  </data>
+  <data name="StaffNameTxt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>197, 73</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -656,6 +656,9 @@
   </data>
   <data name="&gt;&gt;lblMinLimit.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnAddSupplier.Parent" xml:space="preserve">
+    <value>BottomBtn</value>
   </data>
   <data name="txtReorderLevel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 6, 4, 6</value>
@@ -684,17 +687,17 @@
   <data name="&gt;&gt;lblMinLimit.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
+  <data name="&gt;&gt;staffName.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="staffName.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
-  </data>
-  <data name="&gt;&gt;staffName.Parent" xml:space="preserve">
-    <value>panel1</value>
   </data>
   <data name="txtReorderLevel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12.10084pt</value>
   </data>
-  <data name="txtMinLimit.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
+  <data name="&gt;&gt;MainForm.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="BottomBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
@@ -717,8 +720,8 @@
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 19</value>
   </data>
-  <data name="txtMaxLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
+  <data name="MainForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>550, 684</value>
   </data>
   <data name="BottomBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 620</value>
@@ -737,9 +740,6 @@
   </data>
   <data name="DeptTxt.Location" type="System.Drawing.Point, System.Drawing">
     <value>200, 176</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;txtSupplierGoodsId.ZOrder" xml:space="preserve">
     <value>16</value>
@@ -764,9 +764,6 @@
   </data>
   <data name="btnAddSupplier.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;MainForm.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;lblSupplierGoodsId.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -825,14 +822,14 @@
   <data name="&gt;&gt;txtReorderLevel.Name" xml:space="preserve">
     <value>txtReorderLevel</value>
   </data>
-  <data name="&gt;&gt;lblMaxLimit.ZOrder" xml:space="preserve">
-    <value>13</value>
+  <data name="StockInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
   <data name="lblReorderLevel.Location" type="System.Drawing.Point, System.Drawing">
     <value>43, 477</value>
   </data>
-  <data name="MainForm.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="txtMinLimit.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
   </data>
   <data name="&gt;&gt;roundPanel4.Parent" xml:space="preserve">
     <value>SizeGroup</value>
@@ -879,14 +876,11 @@
   <data name="btnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="StockInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
   <data name="StockInfoHeader.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;roundPanel5.Name" xml:space="preserve">
-    <value>roundPanel5</value>
+  <data name="MainForm.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;lblQuantity.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -902,6 +896,9 @@
   </data>
   <data name="&gt;&gt;txtSupplierGoodsId.Name" xml:space="preserve">
     <value>txtSupplierGoodsId</value>
+  </data>
+  <data name="txtMaxLimit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>GTINCode</value>
@@ -938,9 +935,6 @@
   </data>
   <data name="&gt;&gt;DeptTxt.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="BottomBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
   </data>
   <data name="&gt;&gt;roundPanel5.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1020,8 +1014,8 @@
   <data name="&gt;&gt;StockInfoHeaderContainer.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;lblReorderLevel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblMinLimit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>1200, 900</value>
@@ -1029,14 +1023,11 @@
   <data name="&gt;&gt;BottomBtn.Parent" xml:space="preserve">
     <value>MainForm</value>
   </data>
-  <data name="&gt;&gt;lblReorderLevel.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
   <data name="&gt;&gt;StockInfo.Parent" xml:space="preserve">
     <value>MainForm</value>
   </data>
-  <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
+  <data name="&gt;&gt;roundPanel6.Parent" xml:space="preserve">
+    <value>SizeGroup</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -1044,8 +1035,8 @@
   <data name="&gt;&gt;lblSupplierGoodsId.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="StockInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 10</value>
+  <data name="MainForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="staffName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
@@ -1053,8 +1044,8 @@
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 3</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 40</value>
+  <data name="&gt;&gt;lblReorderLevel.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;StockInfoHeaderContainer.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1068,8 +1059,8 @@
   <data name="&gt;&gt;SizeGroup.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="lblMinLimit.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
+  <data name="BottomBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 0</value>
   </data>
   <data name="lblSupplierGoodsId.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1080,8 +1071,8 @@
   <data name="staffName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
-  <data name="lblReorderLevel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="StockInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 10</value>
   </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1089,8 +1080,8 @@
   <data name="&gt;&gt;txtQuantity.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="roundPanel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 25</value>
+  <data name="&gt;&gt;txtSupplierGoodsId.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="lblSupplierGoodsId.Text" xml:space="preserve">
     <value>Goods ID</value>
@@ -1104,8 +1095,11 @@
   <data name="&gt;&gt;SizeGroup.Name" xml:space="preserve">
     <value>SizeGroup</value>
   </data>
-  <data name="&gt;&gt;staffName.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;txtReorderLevel.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="SearchStaffBtn.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1115,6 +1109,9 @@
   </data>
   <data name="lblQuantity.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="lblReorderLevel.TabIndex" type="System.Int32, mscorlib">
     <value>42</value>

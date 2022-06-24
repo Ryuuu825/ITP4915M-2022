@@ -48,23 +48,24 @@
             // 
             // MainForm
             // 
+            resources.ApplyResources(this.MainForm, "MainForm");
             this.MainForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.MainForm.Controls.Add(this.BottomBtn);
             this.MainForm.Controls.Add(this.CustomerInfo);
-            resources.ApplyResources(this.MainForm, "MainForm");
             this.MainForm.Name = "MainForm";
             // 
             // BottomBtn
             // 
+            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.BottomBtn.Controls.Add(this.CancelBtn);
             this.BottomBtn.Controls.Add(this.ConfirmBtn);
-            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BottomBtn.Name = "BottomBtn";
             // 
             // CancelBtn
             // 
+            resources.ApplyResources(this.CancelBtn, "CancelBtn");
             this.CancelBtn.BackColor = System.Drawing.Color.Silver;
             this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
             this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
@@ -72,7 +73,6 @@
             this.CancelBtn.BorderSize = 0;
             this.CancelBtn.FlatAppearance.BorderSize = 0;
             this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
-            resources.ApplyResources(this.CancelBtn, "CancelBtn");
             this.CancelBtn.ForeColor = System.Drawing.Color.White;
             this.CancelBtn.IsChecked = false;
             this.CancelBtn.Name = "CancelBtn";
@@ -81,13 +81,13 @@
             // 
             // ConfirmBtn
             // 
+            resources.ApplyResources(this.ConfirmBtn, "ConfirmBtn");
             this.ConfirmBtn.BackColor = System.Drawing.Color.SeaGreen;
             this.ConfirmBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
             this.ConfirmBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.ConfirmBtn.BorderRadius = 10;
             this.ConfirmBtn.BorderSize = 0;
             this.ConfirmBtn.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.ConfirmBtn, "ConfirmBtn");
             this.ConfirmBtn.ForeColor = System.Drawing.Color.White;
             this.ConfirmBtn.IsChecked = false;
             this.ConfirmBtn.Name = "ConfirmBtn";
@@ -96,25 +96,25 @@
             // 
             // CustomerInfo
             // 
+            resources.ApplyResources(this.CustomerInfo, "CustomerInfo");
             this.CustomerInfo.BackColor = System.Drawing.Color.Transparent;
             this.CustomerInfo.Controls.Add(this.panel1);
             this.CustomerInfo.Controls.Add(this.UserInfoHeaderContainer);
-            resources.ApplyResources(this.CustomerInfo, "CustomerInfo");
             this.CustomerInfo.Name = "CustomerInfo";
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.panel1.Controls.Add(this.pendingOptionPicBox2);
             this.panel1.Controls.Add(this.pendingOptionPicBox1);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // UserInfoHeaderContainer
             // 
+            resources.ApplyResources(this.UserInfoHeaderContainer, "UserInfoHeaderContainer");
             this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
             this.UserInfoHeaderContainer.Controls.Add(this.Title);
-            resources.ApplyResources(this.UserInfoHeaderContainer, "UserInfoHeaderContainer");
             this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
             // 
             // Title
@@ -124,6 +124,7 @@
             // 
             // pendingOptionPicBox2
             // 
+            resources.ApplyResources(this.pendingOptionPicBox2, "pendingOptionPicBox2");
             this.pendingOptionPicBox2.BackColor = System.Drawing.Color.Transparent;
             this.pendingOptionPicBox2.BorderColor = System.Drawing.Color.LightGray;
             this.pendingOptionPicBox2.BorderRadius = 0;
@@ -131,12 +132,12 @@
             this.pendingOptionPicBox2.BorderSize = 2;
             this.pendingOptionPicBox2.Image = global::TheBetterLimited.Properties.Resources.delivery_truck;
             this.pendingOptionPicBox2.IsSelected = false;
-            resources.ApplyResources(this.pendingOptionPicBox2, "pendingOptionPicBox2");
             this.pendingOptionPicBox2.Name = "pendingOptionPicBox2";
             this.pendingOptionPicBox2.Title = "Delivery";
             // 
             // pendingOptionPicBox1
             // 
+            resources.ApplyResources(this.pendingOptionPicBox1, "pendingOptionPicBox1");
             this.pendingOptionPicBox1.BackColor = System.Drawing.Color.Transparent;
             this.pendingOptionPicBox1.BorderColor = System.Drawing.Color.LightGray;
             this.pendingOptionPicBox1.BorderRadius = 0;
@@ -144,7 +145,6 @@
             this.pendingOptionPicBox1.BorderSize = 2;
             this.pendingOptionPicBox1.Image = global::TheBetterLimited.Properties.Resources.booking;
             this.pendingOptionPicBox1.IsSelected = false;
-            resources.ApplyResources(this.pendingOptionPicBox1, "pendingOptionPicBox1");
             this.pendingOptionPicBox1.Name = "pendingOptionPicBox1";
             this.pendingOptionPicBox1.Title = "Booking";
             // 

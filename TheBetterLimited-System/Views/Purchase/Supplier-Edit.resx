@@ -125,8 +125,8 @@
     <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="lblPhone.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;UserInfo.Parent" xml:space="preserve">
     <value>MainForm</value>
@@ -219,8 +219,8 @@
   <data name="SupplierInfoHeader.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lblEmail.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Edit Supplier</value>
   </data>
   <data name="lblContact.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -230,6 +230,9 @@
   </data>
   <data name="txtEmail.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
+  </data>
+  <data name="&gt;&gt;lblContact.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="&gt;&gt;lblName.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -315,8 +318,8 @@
   <data name="SupplierInfoHeader.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
-  <data name="&gt;&gt;lblSupplierId.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblEmail.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
   </data>
   <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -362,6 +365,9 @@
   </data>
   <data name="txtAddress.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12.10084pt</value>
+  </data>
+  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="lblSupplierId.Text" xml:space="preserve">
     <value>Supplier ID*</value>
@@ -462,8 +468,8 @@
   <data name="lblPhone.Text" xml:space="preserve">
     <value>Phone</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Edit Supplier</value>
+  <data name="&gt;&gt;lblSupplierId.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -489,8 +495,8 @@
   <data name="txtEmail.Size" type="System.Drawing.Size, System.Drawing">
     <value>307, 38</value>
   </data>
-  <data name="lblPhone.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="lblSupplierId.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 21</value>
@@ -621,9 +627,6 @@
   <data name="BottomBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>503, 54</value>
   </data>
-  <data name="btnSave.Text" xml:space="preserve">
-    <value>Save</value>
-  </data>
   <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
     <value>338, 7</value>
   </data>
@@ -711,8 +714,8 @@
   <data name="&gt;&gt;btnSave.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;lblContact.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;lblPhone.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtContact.Name" xml:space="preserve">
     <value>txtContact</value>
@@ -746,9 +749,6 @@
   </data>
   <data name="UserInfoHeaderContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
-  </data>
-  <data name="&gt;&gt;lblPhone.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="MainForm.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>

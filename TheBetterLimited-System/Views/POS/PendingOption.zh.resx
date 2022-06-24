@@ -119,32 +119,16 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="CancelBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15.75pt, style=Bold</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="CancelBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="CancelBtn.Text" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="ConfirmBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15.75pt, style=Bold</value>
-  </data>
-  <data name="ConfirmBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="ConfirmBtn.Text" xml:space="preserve">
     <value>确认</value>
-  </data>
-  <data name="pendingOptionPicBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>172, 191</value>
-  </data>
-  <data name="pendingOptionPicBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 191</value>
-  </data>
-  <data name="Title.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 25</value>
@@ -152,8 +136,15 @@
   <data name="Title.Text" xml:space="preserve">
     <value>选择提货选项</value>
   </data>
+  <data name="pendingOptionPicBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>172, 191</value>
+  </data>
+  <data name="pendingOptionPicBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 191</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Inherit</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>提货选项</value>

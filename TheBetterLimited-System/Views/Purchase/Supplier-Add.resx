@@ -117,9 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;btnAddSupplier.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="UserInfoHeaderContainer.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;txtContact.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblPhone.TabIndex" type="System.Int32, mscorlib">
@@ -177,20 +183,14 @@
   <data name="lblContact.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="btnAddSupplier.Location" type="System.Drawing.Point, System.Drawing">
     <value>294, 6</value>
   </data>
   <data name="lblContact.Text" xml:space="preserve">
     <value>Contact</value>
   </data>
-  <data name="&gt;&gt;txtSupplierName.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="lblPhone.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 21</value>
   </data>
   <data name="lblEmail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -201,17 +201,11 @@
   <data name="txtAddress.Location" type="System.Drawing.Point, System.Drawing">
     <value>122, 242</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>477, 412</value>
-  </data>
   <data name="txtContact.Size" type="System.Drawing.Size, System.Drawing">
     <value>307, 38</value>
   </data>
   <data name="lblEmail.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
-  </data>
-  <data name="&gt;&gt;SupplierInfoHeader.Parent" xml:space="preserve">
-    <value>UserInfoHeaderContainer</value>
   </data>
   <data name="&gt;&gt;lblContact.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -230,9 +224,6 @@
   </data>
   <data name="&gt;&gt;lblName.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblPhone.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
   </data>
   <data name="UserInfoHeaderContainer.Size" type="System.Drawing.Size, System.Drawing">
     <value>457, 40</value>
@@ -261,11 +252,17 @@
   <data name="lblAddress.Text" xml:space="preserve">
     <value>Address</value>
   </data>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="txtSupplierName.Size" type="System.Drawing.Size, System.Drawing">
     <value>307, 38</value>
   </data>
-  <data name="txtEmail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 40</value>
+  </data>
+  <data name="&gt;&gt;txtPhone.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;txtContact.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -278,12 +275,6 @@
   </data>
   <data name="txtPhone.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 6, 4, 6</value>
-  </data>
-  <data name="SupplierInfoHeader.Text" xml:space="preserve">
-    <value>Supplier Information</value>
-  </data>
-  <data name="&gt;&gt;txtAddress.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="&gt;&gt;txtContact.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -318,32 +309,32 @@
   <data name="&gt;&gt;lblContact.Name" xml:space="preserve">
     <value>lblContact</value>
   </data>
+  <data name="lblAddress.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
   <data name="lblContact.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 21</value>
+  <data name="BottomBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 348</value>
   </data>
   <data name="&gt;&gt;btnAddSupplier.Parent" xml:space="preserve">
     <value>BottomBtn</value>
   </data>
-  <data name="txtAddress.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="UserInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+  <data name="SupplierInfoHeader.Text" xml:space="preserve">
+    <value>Supplier Information</value>
   </data>
   <data name="lblName.Text" xml:space="preserve">
     <value>Name*</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 40</value>
   </data>
   <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
     <value>btnCancel</value>
   </data>
   <data name="SupplierInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 14.25pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;btnAddSupplier.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="txtContact.TabIndex" type="System.Int32, mscorlib">
     <value>40</value>
@@ -381,11 +372,11 @@
   <data name="txtEmail.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 7, 10, 7</value>
   </data>
-  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;txtSupplierName.Name" xml:space="preserve">
+    <value>txtSupplierName</value>
   </data>
-  <data name="&gt;&gt;UserInfoHeaderContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="&gt;&gt;MainForm.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -398,9 +389,6 @@
   </data>
   <data name="MainForm.Size" type="System.Drawing.Size, System.Drawing">
     <value>477, 412</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
   </data>
   <data name="&gt;&gt;txtSupplierName.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -420,14 +408,14 @@
   <data name="lblAddress.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 21</value>
   </data>
-  <data name="UserInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>457, 395</value>
-  </data>
   <data name="lblContact.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="&gt;&gt;BottomBtn.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="lblAddress.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lblEmail.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -444,11 +432,8 @@
   <data name="lblPhone.Text" xml:space="preserve">
     <value>Phone</value>
   </data>
-  <data name="&gt;&gt;UserInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="txtSupplierName.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
+  <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;UserInfoHeaderContainer.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -465,23 +450,29 @@
   <data name="&gt;&gt;txtEmail.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
+  <data name="lblAddress.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="txtEmail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 38</value>
+  </data>
+  <data name="txtAddress.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
   <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="lblContact.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="SupplierInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 25</value>
+  <data name="UserInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
   <data name="lblEmail.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 21</value>
   </data>
   <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 33</value>
-  </data>
-  <data name="&gt;&gt;SupplierInfoHeader.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="txtAddress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 6, 4, 6</value>
@@ -510,9 +501,6 @@
   <data name="MainForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="lblAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 251</value>
-  </data>
   <data name="txtContact.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 7, 10, 7</value>
   </data>
@@ -522,14 +510,11 @@
   <data name="txtSupplierName.Location" type="System.Drawing.Point, System.Drawing">
     <value>122, 24</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;MainForm.Name" xml:space="preserve">
     <value>MainForm</value>
   </data>
-  <data name="lblAddress.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblContact.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 139</value>
@@ -537,8 +522,8 @@
   <data name="UserInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 10</value>
   </data>
-  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 40</value>
+  <data name="&gt;&gt;SupplierInfoHeader.Parent" xml:space="preserve">
+    <value>UserInfoHeaderContainer</value>
   </data>
   <data name="&gt;&gt;lblName.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -546,11 +531,11 @@
   <data name="&gt;&gt;lblContact.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnAddSupplier.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="lblPhone.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
-  <data name="BottomBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 348</value>
+  <data name="&gt;&gt;txtAddress.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;txtEmail.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -564,17 +549,20 @@
   <data name="txtEmail.Location" type="System.Drawing.Point, System.Drawing">
     <value>122, 181</value>
   </data>
-  <data name="&gt;&gt;txtContact.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="lblPhone.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
-  <data name="&gt;&gt;btnAddSupplier.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;UserInfoHeaderContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>1200, 900</value>
   </data>
   <data name="&gt;&gt;txtSupplierName.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="MainForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="lblName.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -587,6 +575,12 @@
   </data>
   <data name="&gt;&gt;lblEmail.Name" xml:space="preserve">
     <value>lblEmail</value>
+  </data>
+  <data name="txtSupplierName.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="btnAddSupplier.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;txtAddress.Name" xml:space="preserve">
     <value>txtAddress</value>
@@ -603,8 +597,8 @@
   <data name="&gt;&gt;lblEmail.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="lblAddress.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;UserInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtPhone.Location" type="System.Drawing.Point, System.Drawing">
     <value>122, 74</value>
@@ -612,20 +606,29 @@
   <data name="&gt;&gt;txtPhone.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <data name="txtEmail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
+  </data>
   <data name="MainForm.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;txtPhone.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>477, 412</value>
   </data>
   <data name="lblName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
-  <data name="txtEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 38</value>
+  <data name="&gt;&gt;SupplierInfoHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
     <value>BottomBtn</value>
+  </data>
+  <data name="lblName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 40</value>
   </data>
   <data name="&gt;&gt;lblPhone.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -636,8 +639,8 @@
   <data name="lblAddress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
-  <data name="MainForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;txtSupplierName.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>149, 6</value>
@@ -651,11 +654,11 @@
   <data name="&gt;&gt;txtContact.Name" xml:space="preserve">
     <value>txtContact</value>
   </data>
-  <data name="lblAddress.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="SupplierInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 25</value>
   </data>
-  <data name="lblName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+  <data name="lblAddress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 251</value>
   </data>
   <data name="MainForm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>
@@ -663,14 +666,11 @@
   <data name="&gt;&gt;lblEmail.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;txtSupplierName.Name" xml:space="preserve">
-    <value>txtSupplierName</value>
+  <data name="UserInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>457, 395</value>
   </data>
   <data name="&gt;&gt;lblAddress.Parent" xml:space="preserve">
     <value>panel1</value>
-  </data>
-  <data name="btnAddSupplier.Text" xml:space="preserve">
-    <value>Add Supplier</value>
   </data>
   <data name="&gt;&gt;MainForm.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -684,8 +684,8 @@
   <data name="MainForm.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="btnAddSupplier.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="btnAddSupplier.Text" xml:space="preserve">
+    <value>Add Supplier</value>
   </data>
   <data name="&gt;&gt;txtEmail.Name" xml:space="preserve">
     <value>txtEmail</value>

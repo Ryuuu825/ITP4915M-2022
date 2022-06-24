@@ -141,9 +141,6 @@
   <data name="&gt;&gt;curdAction.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="dataGridViewImageColumn7.HeaderText" xml:space="preserve">
-    <value />
-  </data>
   <data name="Title.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -202,7 +199,7 @@
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="dataGridViewImageColumn5.Width" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 0, 0, 0</value>
@@ -220,25 +217,28 @@
     <value>6</value>
   </data>
   <data name="details.Width" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="TotalAmount.HeaderText" xml:space="preserve">
     <value>Total Amount</value>
   </data>
-  <data name="&gt;&gt;dataGridViewImageColumn5.Name" xml:space="preserve">
-    <value>dataGridViewImageColumn5</value>
+  <data name="RefreshBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>685, 4</value>
   </data>
   <data name="CreatorId.ToolTipText" xml:space="preserve">
     <value>Creator ID</value>
   </data>
   <data name="select.Width" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="OrderDataGrid.Size" type="System.Drawing.Size, System.Drawing">
     <value>768, 379</value>
   </data>
   <data name="dataGridViewImageColumn6.HeaderText" xml:space="preserve">
     <value />
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>778, 465</value>
   </data>
   <data name="dataGridViewImageColumn2.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
@@ -261,8 +261,8 @@
   <data name="SearchBar.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="Action.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;id.Name" xml:space="preserve">
+    <value>id</value>
   </data>
   <data name="&gt;&gt;RefreshBtn.Name" xml:space="preserve">
     <value>RefreshBtn</value>
@@ -291,11 +291,8 @@
   <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
     <value>pictureBox1</value>
   </data>
-  <data name="Header.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="Paid.Width" type="System.Int32, mscorlib">
-    <value>59</value>
+    <value>72</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
@@ -306,8 +303,8 @@
   <data name="dataGridViewImageColumn5.ToolTipText" xml:space="preserve">
     <value>Lock</value>
   </data>
-  <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
-    <value>dataGridViewImageColumn1</value>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="OrderDataGrid.RowHeadersWidth" type="System.Int32, mscorlib">
     <value>30</value>
@@ -319,10 +316,13 @@
     <value>details</value>
   </data>
   <data name="Print.Width" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 1</value>
+  </data>
+  <data name="RefreshBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn4.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -354,6 +354,9 @@
   <data name="OperatorId.Width" type="System.Int32, mscorlib">
     <value>101</value>
   </data>
+  <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="CreateAt.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
@@ -368,6 +371,9 @@
   </data>
   <data name="Data.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="RefreshBtn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -436,7 +442,7 @@
     <value>Right</value>
   </data>
   <data name="dataGridViewImageColumn4.Width" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="closeBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -446,6 +452,9 @@
   </data>
   <data name="&gt;&gt;Action.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="Action.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="&gt;&gt;SearchBar.Name" xml:space="preserve">
     <value>SearchBar</value>
@@ -476,6 +485,9 @@
   </data>
   <data name="&gt;&gt;storeId.Name" xml:space="preserve">
     <value>storeId</value>
+  </data>
+  <data name="UpdateAt.ToolTipText" xml:space="preserve">
+    <value>Update Time</value>
   </data>
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -542,8 +554,8 @@
   <data name="&gt;&gt;CreateAt.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;RefreshBtn.Parent" xml:space="preserve">
-    <value>Header</value>
+  <data name="dataGridViewImageColumn7.HeaderText" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;OperatorId.Name" xml:space="preserve">
     <value>OperatorId</value>
@@ -554,14 +566,17 @@
   <data name="&gt;&gt;dataGridViewImageColumn3.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="UpdateAt.ToolTipText" xml:space="preserve">
-    <value>Update Time</value>
+  <data name="Title.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="Action.Size" type="System.Drawing.Size, System.Drawing">
     <value>768, 44</value>
   </data>
-  <data name="curdAction.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
+    <value>dataGridViewImageColumn1</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn5.Name" xml:space="preserve">
+    <value>dataGridViewImageColumn5</value>
   </data>
   <data name="&gt;&gt;closeBtn.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -638,8 +653,8 @@
   <data name="Print.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;id.Name" xml:space="preserve">
-    <value>id</value>
+  <data name="Header.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="OrderDataGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
     <value>50</value>
@@ -4007,8 +4022,8 @@
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>778, 465</value>
+  <data name="&gt;&gt;RefreshBtn.Parent" xml:space="preserve">
+    <value>Header</value>
   </data>
   <data name="&gt;&gt;CreatorId.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -4022,11 +4037,14 @@
   <data name="OrderDataGrid.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
+  <data name="closeBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="&gt;&gt;SearchBarTxt.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Action.Name" xml:space="preserve">
+    <value>Action</value>
   </data>
   <data name="&gt;&gt;closeBtn.Name" xml:space="preserve">
     <value>closeBtn</value>
@@ -4053,7 +4071,7 @@
     <value>Header</value>
   </data>
   <data name="dataGridViewImageColumn6.Width" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="Data.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -4085,8 +4103,8 @@
   <data name="Header.Size" type="System.Drawing.Size, System.Drawing">
     <value>768, 40</value>
   </data>
-  <data name="RefreshBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>685, 4</value>
+  <data name="curdAction.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="closeBtn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -4096,9 +4114,6 @@
   </data>
   <data name="Action.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;Action.Name" xml:space="preserve">
-    <value>Action</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn6.Name" xml:space="preserve">
     <value>dataGridViewImageColumn6</value>

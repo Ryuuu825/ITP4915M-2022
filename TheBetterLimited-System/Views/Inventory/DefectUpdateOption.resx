@@ -141,8 +141,8 @@
   <data name="returnedOption.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>251, 25</value>
+  <data name="ConfirmBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 40</value>
   </data>
   <data name="CancelBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>145, 40</value>
@@ -167,6 +167,9 @@
   </data>
   <data name="collectedOption.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;CustomerInfo.Name" xml:space="preserve">
+    <value>CustomerInfo</value>
   </data>
   <data name="Title.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -204,8 +207,11 @@
   <data name="&gt;&gt;UserInfoHeaderContainer.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ConfirmBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 40</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Title.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="UserInfoHeaderContainer.Size" type="System.Drawing.Size, System.Drawing">
     <value>497, 40</value>
@@ -285,8 +291,8 @@
   <data name="&gt;&gt;CancelBtn.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;CustomerInfo.Name" xml:space="preserve">
-    <value>CustomerInfo</value>
+  <data name="CancelBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -330,6 +336,9 @@
   <data name="&gt;&gt;panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ConfirmBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="collectedOption.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>5, 5, 5, 5</value>
   </data>
@@ -345,8 +354,8 @@
   <data name="CustomerInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>497, 341</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;collectedOption.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.PendingOptionPicBox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -401,6 +410,9 @@
   </data>
   <data name="BottomBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 0</value>
+  </data>
+  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
+    <value>251, 25</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DefectUpdateOption</value>

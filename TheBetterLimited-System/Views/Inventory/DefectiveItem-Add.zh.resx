@@ -132,20 +132,23 @@
   <data name="tip.Text" xml:space="preserve">
     <value>点击图片上传照片</value>
   </data>
+  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 14.25pt, style=Bold</value>
+  </data>
   <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 30</value>
+    <value>96, 25</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
     <value>添加商品</value>
   </data>
   <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15.75pt, style=Bold</value>
+    <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="btnAddGoods.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15.75pt, style=Bold</value>
+    <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="btnAddGoods.Text" xml:space="preserve">
     <value>添加商品</value>
@@ -223,10 +226,10 @@
     <value>说明</value>
   </data>
   <data name="GoodsInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 18pt, style=Bold</value>
+    <value>Segoe UI, 14.25pt, style=Bold</value>
   </data>
   <data name="GoodsInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 32</value>
+    <value>96, 25</value>
   </data>
   <data name="GoodsInfoHeader.Text" xml:space="preserve">
     <value>商品资讯</value>

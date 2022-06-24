@@ -45,26 +45,27 @@
             // 
             // PaymentMethodBox
             // 
+            resources.ApplyResources(this.PaymentMethodBox, "PaymentMethodBox");
             this.PaymentMethodBox.Controls.Add(this.paymentPicBox1);
             this.PaymentMethodBox.Controls.Add(this.paymentPicBox2);
             this.PaymentMethodBox.Controls.Add(this.paymentPicBox3);
             this.PaymentMethodBox.Controls.Add(this.paymentPicBox4);
             this.PaymentMethodBox.Controls.Add(this.paymentPicBox5);
             this.PaymentMethodBox.Controls.Add(this.paymentPicBox6);
-            resources.ApplyResources(this.PaymentMethodBox, "PaymentMethodBox");
             this.PaymentMethodBox.Name = "PaymentMethodBox";
             // 
             // BottomBtn
             // 
+            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.BottomBtn.Controls.Add(this.CancelBtn);
             this.BottomBtn.Controls.Add(this.SaveBtn);
-            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BottomBtn.Name = "BottomBtn";
             // 
             // CancelBtn
             // 
+            resources.ApplyResources(this.CancelBtn, "CancelBtn");
             this.CancelBtn.BackColor = System.Drawing.Color.Silver;
             this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
             this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
@@ -72,7 +73,6 @@
             this.CancelBtn.BorderSize = 0;
             this.CancelBtn.FlatAppearance.BorderSize = 0;
             this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
-            resources.ApplyResources(this.CancelBtn, "CancelBtn");
             this.CancelBtn.ForeColor = System.Drawing.Color.White;
             this.CancelBtn.IsChecked = false;
             this.CancelBtn.Name = "CancelBtn";
@@ -82,13 +82,13 @@
             // 
             // SaveBtn
             // 
+            resources.ApplyResources(this.SaveBtn, "SaveBtn");
             this.SaveBtn.BackColor = System.Drawing.Color.SeaGreen;
             this.SaveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
             this.SaveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.SaveBtn.BorderRadius = 10;
             this.SaveBtn.BorderSize = 0;
             this.SaveBtn.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.SaveBtn, "SaveBtn");
             this.SaveBtn.ForeColor = System.Drawing.Color.White;
             this.SaveBtn.IsChecked = false;
             this.SaveBtn.Name = "SaveBtn";
@@ -98,6 +98,7 @@
             // 
             // paymentPicBox1
             // 
+            resources.ApplyResources(this.paymentPicBox1, "paymentPicBox1");
             this.paymentPicBox1.BackColor = System.Drawing.Color.Transparent;
             this.paymentPicBox1.BorderColor = System.Drawing.Color.LightGray;
             this.paymentPicBox1.BorderRadius = 0;
@@ -105,13 +106,13 @@
             this.paymentPicBox1.BorderSize = 2;
             this.paymentPicBox1.Image = global::TheBetterLimited.Properties.Resources.cash;
             this.paymentPicBox1.IsSelected = true;
-            resources.ApplyResources(this.paymentPicBox1, "paymentPicBox1");
             this.paymentPicBox1.Name = "paymentPicBox1";
             this.paymentPicBox1.Title = "Cash";
             this.paymentPicBox1.PicInfoClicked += new System.EventHandler(this.paymentPicBox_Click);
             // 
             // paymentPicBox2
             // 
+            resources.ApplyResources(this.paymentPicBox2, "paymentPicBox2");
             this.paymentPicBox2.BackColor = System.Drawing.Color.Transparent;
             this.paymentPicBox2.BorderColor = System.Drawing.Color.LightGray;
             this.paymentPicBox2.BorderRadius = 0;
@@ -119,13 +120,13 @@
             this.paymentPicBox2.BorderSize = 2;
             this.paymentPicBox2.Image = global::TheBetterLimited.Properties.Resources.visa;
             this.paymentPicBox2.IsSelected = false;
-            resources.ApplyResources(this.paymentPicBox2, "paymentPicBox2");
             this.paymentPicBox2.Name = "paymentPicBox2";
             this.paymentPicBox2.Title = "Visa";
             this.paymentPicBox2.PicInfoClicked += new System.EventHandler(this.paymentPicBox_Click);
             // 
             // paymentPicBox3
             // 
+            resources.ApplyResources(this.paymentPicBox3, "paymentPicBox3");
             this.paymentPicBox3.BackColor = System.Drawing.Color.Transparent;
             this.paymentPicBox3.BorderColor = System.Drawing.Color.LightGray;
             this.paymentPicBox3.BorderRadius = 0;
@@ -133,13 +134,13 @@
             this.paymentPicBox3.BorderSize = 2;
             this.paymentPicBox3.Image = global::TheBetterLimited.Properties.Resources.master;
             this.paymentPicBox3.IsSelected = false;
-            resources.ApplyResources(this.paymentPicBox3, "paymentPicBox3");
             this.paymentPicBox3.Name = "paymentPicBox3";
             this.paymentPicBox3.Title = "MasterCard";
             this.paymentPicBox3.PicInfoClicked += new System.EventHandler(this.paymentPicBox_Click);
             // 
             // paymentPicBox4
             // 
+            resources.ApplyResources(this.paymentPicBox4, "paymentPicBox4");
             this.paymentPicBox4.BackColor = System.Drawing.Color.Transparent;
             this.paymentPicBox4.BorderColor = System.Drawing.Color.LightGray;
             this.paymentPicBox4.BorderRadius = 0;
@@ -147,13 +148,13 @@
             this.paymentPicBox4.BorderSize = 2;
             this.paymentPicBox4.Image = global::TheBetterLimited.Properties.Resources.apple;
             this.paymentPicBox4.IsSelected = false;
-            resources.ApplyResources(this.paymentPicBox4, "paymentPicBox4");
             this.paymentPicBox4.Name = "paymentPicBox4";
             this.paymentPicBox4.Title = "Apple Pay";
             this.paymentPicBox4.PicInfoClicked += new System.EventHandler(this.paymentPicBox_Click);
             // 
             // paymentPicBox5
             // 
+            resources.ApplyResources(this.paymentPicBox5, "paymentPicBox5");
             this.paymentPicBox5.BackColor = System.Drawing.Color.Transparent;
             this.paymentPicBox5.BorderColor = System.Drawing.Color.LightGray;
             this.paymentPicBox5.BorderRadius = 0;
@@ -161,13 +162,13 @@
             this.paymentPicBox5.BorderSize = 2;
             this.paymentPicBox5.Image = global::TheBetterLimited.Properties.Resources.google;
             this.paymentPicBox5.IsSelected = false;
-            resources.ApplyResources(this.paymentPicBox5, "paymentPicBox5");
             this.paymentPicBox5.Name = "paymentPicBox5";
             this.paymentPicBox5.Title = "Google Pay";
             this.paymentPicBox5.PicInfoClicked += new System.EventHandler(this.paymentPicBox_Click);
             // 
             // paymentPicBox6
             // 
+            resources.ApplyResources(this.paymentPicBox6, "paymentPicBox6");
             this.paymentPicBox6.BackColor = System.Drawing.Color.Transparent;
             this.paymentPicBox6.BorderColor = System.Drawing.Color.LightGray;
             this.paymentPicBox6.BorderRadius = 0;
@@ -175,7 +176,6 @@
             this.paymentPicBox6.BorderSize = 2;
             this.paymentPicBox6.Image = global::TheBetterLimited.Properties.Resources.unknown;
             this.paymentPicBox6.IsSelected = false;
-            resources.ApplyResources(this.paymentPicBox6, "paymentPicBox6");
             this.paymentPicBox6.Name = "paymentPicBox6";
             this.paymentPicBox6.Title = "Alipay";
             this.paymentPicBox6.PicInfoClicked += new System.EventHandler(this.paymentPicBox_Click);

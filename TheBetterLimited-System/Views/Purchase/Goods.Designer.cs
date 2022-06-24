@@ -348,6 +348,7 @@
             resources.ApplyResources(this.dataGridViewImageColumn4, "dataGridViewImageColumn4");
             this.dataGridViewImageColumn4.Image = global::TheBetterLimited.Properties.Resources.square24;
             this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            this.dataGridViewImageColumn4.ReadOnly = true;
             // 
             // dataGridViewImageColumn5
             // 
@@ -355,6 +356,7 @@
             resources.ApplyResources(this.dataGridViewImageColumn5, "dataGridViewImageColumn5");
             this.dataGridViewImageColumn5.Image = global::TheBetterLimited.Properties.Resources.pencil;
             this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
+            this.dataGridViewImageColumn5.ReadOnly = true;
             // 
             // dataGridViewImageColumn6
             // 
@@ -362,6 +364,7 @@
             resources.ApplyResources(this.dataGridViewImageColumn6, "dataGridViewImageColumn6");
             this.dataGridViewImageColumn6.Image = global::TheBetterLimited.Properties.Resources.trash24;
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
+            this.dataGridViewImageColumn6.ReadOnly = true;
             // 
             // select
             // 

@@ -117,15 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Info.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="Info.Text" xml:space="preserve">
     <value>商品是公司销售的物品、物品、产品或商品。用户可以使用此界面添加 Better Limited 销售的商品</value>
-  </data>
-  <data name="tip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="tip.Location" type="System.Drawing.Point, System.Drawing">
@@ -137,38 +130,23 @@
   <data name="tip.Text" xml:space="preserve">
     <value>点击图片上传照片</value>
   </data>
-  <data name="Title.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
     <value>105, 30</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
     <value>编辑商品</value>
   </data>
-  <data name="GoodsPic.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15.75pt, style=Bold</value>
-  </data>
-  <data name="btnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="btnSave.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15.75pt, style=Bold</value>
-  </data>
-  <data name="btnSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="btnSave.Text" xml:space="preserve">
     <value>保存</value>
-  </data>
-  <data name="lblStatus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="lblStatus.Location" type="System.Drawing.Point, System.Drawing">
     <value>64, 479</value>
@@ -179,9 +157,6 @@
   <data name="lblStatus.Text" xml:space="preserve">
     <value>状态</value>
   </data>
-  <data name="lblSize.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="lblSize.Location" type="System.Drawing.Point, System.Drawing">
     <value>64, 436</value>
   </data>
@@ -190,9 +165,6 @@
   </data>
   <data name="lblSize.Text" xml:space="preserve">
     <value>尺寸</value>
-  </data>
-  <data name="lblGTIＮCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="lblGTIＮCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>45, 390</value>
@@ -203,14 +175,8 @@
   <data name="lblGTIＮCode.Text" xml:space="preserve">
     <value>GTIN 代码</value>
   </data>
-  <data name="lblPrice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="lblPrice.Text" xml:space="preserve">
     <value>价格</value>
-  </data>
-  <data name="lblGoodsName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="lblGoodsName.Location" type="System.Drawing.Point, System.Drawing">
     <value>47, 110</value>
@@ -221,9 +187,6 @@
   <data name="lblGoodsName.Text" xml:space="preserve">
     <value>商品名称</value>
   </data>
-  <data name="lblCatalogue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="lblCatalogue.Location" type="System.Drawing.Point, System.Drawing">
     <value>64, 72</value>
   </data>
@@ -232,9 +195,6 @@
   </data>
   <data name="lblCatalogue.Text" xml:space="preserve">
     <value>种类</value>
-  </data>
-  <data name="lblGoodsId.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="lblGoodsId.Location" type="System.Drawing.Point, System.Drawing">
     <value>44, 26</value>
@@ -245,9 +205,6 @@
   <data name="lblGoodsId.Text" xml:space="preserve">
     <value>商品编号*</value>
   </data>
-  <data name="lblDescription.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="lblDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>64, 198</value>
   </data>
@@ -257,17 +214,15 @@
   <data name="lblDescription.Text" xml:space="preserve">
     <value>说明</value>
   </data>
-  <data name="GoodsInfoHeader.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="GoodsInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 25</value>
   </data>
   <data name="GoodsInfoHeader.Text" xml:space="preserve">
     <value>商品资讯</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Inherit</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>编辑商品</value>
