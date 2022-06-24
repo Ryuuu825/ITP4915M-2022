@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Goods));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -35,7 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Goods));
             this.GoodsDataGrid = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.catalogue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +80,7 @@
             // 
             // GoodsDataGrid
             // 
+            resources.ApplyResources(this.GoodsDataGrid, "GoodsDataGrid");
             this.GoodsDataGrid.AllowUserToAddRows = false;
             this.GoodsDataGrid.AllowUserToResizeColumns = false;
             this.GoodsDataGrid.AllowUserToResizeRows = false;
@@ -101,7 +102,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.GoodsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.GoodsDataGrid.ColumnHeadersHeight = 50;
             this.GoodsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.GoodsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.select,
@@ -123,11 +123,8 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.GoodsDataGrid.DefaultCellStyle = dataGridViewCellStyle5;
-            this.GoodsDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GoodsDataGrid.EnableHeadersVisualStyles = false;
             this.GoodsDataGrid.GridColor = System.Drawing.Color.White;
-            this.GoodsDataGrid.Location = new System.Drawing.Point(0, 2);
-            this.GoodsDataGrid.Margin = new System.Windows.Forms.Padding(0);
             this.GoodsDataGrid.MultiSelect = false;
             this.GoodsDataGrid.Name = "GoodsDataGrid";
             this.GoodsDataGrid.ReadOnly = true;
@@ -141,7 +138,6 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.GoodsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.GoodsDataGrid.RowHeadersVisible = false;
-            this.GoodsDataGrid.RowHeadersWidth = 30;
             this.GoodsDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -154,9 +150,7 @@
             this.GoodsDataGrid.RowTemplate.Height = 30;
             this.GoodsDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.GoodsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GoodsDataGrid.Size = new System.Drawing.Size(758, 359);
             this.GoodsDataGrid.StandardTab = true;
-            this.GoodsDataGrid.TabIndex = 3;
             this.GoodsDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
             this.GoodsDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GoodsDataGrid_CellFormatting);
             // 
@@ -164,23 +158,17 @@
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
+            resources.ApplyResources(this.id, "id");
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.ToolTipText = "Goods ID";
-            this.id.Width = 59;
             // 
             // catalogue
             // 
             this.catalogue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.catalogue.DataPropertyName = "Catalogue";
-            this.catalogue.HeaderText = "Catalogue";
-            this.catalogue.MinimumWidth = 6;
+            resources.ApplyResources(this.catalogue, "catalogue");
             this.catalogue.Name = "catalogue";
             this.catalogue.ReadOnly = true;
-            this.catalogue.ToolTipText = "Catalogue";
-            this.catalogue.Width = 107;
             // 
             // name
             // 
@@ -188,11 +176,9 @@
             this.name.DataPropertyName = "Name";
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.name.DefaultCellStyle = dataGridViewCellStyle3;
-            this.name.HeaderText = "Goods Name";
-            this.name.MinimumWidth = 6;
+            resources.ApplyResources(this.name, "name");
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.ToolTipText = "Goods Name";
             // 
             // price
             // 
@@ -201,98 +187,71 @@
             dataGridViewCellStyle4.Format = "C2";
             dataGridViewCellStyle4.NullValue = null;
             this.price.DefaultCellStyle = dataGridViewCellStyle4;
-            this.price.HeaderText = "Price";
-            this.price.MinimumWidth = 6;
+            resources.ApplyResources(this.price, "price");
             this.price.Name = "price";
             this.price.ReadOnly = true;
-            this.price.ToolTipText = "Goods Price";
-            this.price.Width = 75;
             // 
             // gTINCode
             // 
             this.gTINCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.gTINCode.DataPropertyName = "GTINCode";
-            this.gTINCode.HeaderText = "GTINCode";
-            this.gTINCode.MinimumWidth = 6;
+            resources.ApplyResources(this.gTINCode, "gTINCode");
             this.gTINCode.Name = "gTINCode";
             this.gTINCode.ReadOnly = true;
-            this.gTINCode.ToolTipText = "GTINCode";
-            this.gTINCode.Width = 107;
             // 
             // Size
             // 
             this.Size.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Size.DataPropertyName = "Size";
-            this.Size.HeaderText = "Size";
+            resources.ApplyResources(this.Size, "Size");
             this.Size.Name = "Size";
             this.Size.ReadOnly = true;
-            this.Size.Width = 69;
             // 
             // Status
             // 
             this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
+            resources.ApplyResources(this.Status, "Status");
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
-            this.Status.Width = 84;
             // 
             // Action
             // 
+            resources.ApplyResources(this.Action, "Action");
             this.Action.BackColor = System.Drawing.Color.White;
             this.Action.Controls.Add(this.panel1);
-            this.Action.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Action.Location = new System.Drawing.Point(10, 50);
-            this.Action.Margin = new System.Windows.Forms.Padding(2);
             this.Action.Name = "Action";
-            this.Action.Padding = new System.Windows.Forms.Padding(4, 1, 4, 1);
-            this.Action.Size = new System.Drawing.Size(758, 44);
-            this.Action.TabIndex = 7;
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.SearchBar);
             this.panel1.Controls.Add(this.curdAction);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(4, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(750, 38);
-            this.panel1.TabIndex = 6;
             // 
             // SearchBar
             // 
+            resources.ApplyResources(this.SearchBar, "SearchBar");
             this.SearchBar.Controls.Add(this.pictureBox1);
             this.SearchBar.Controls.Add(this.SearchBarTxt);
-            this.SearchBar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.SearchBar.Location = new System.Drawing.Point(530, 0);
-            this.SearchBar.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBar.Name = "SearchBar";
-            this.SearchBar.Size = new System.Drawing.Size(220, 38);
-            this.SearchBar.TabIndex = 9;
             // 
             // SearchBarTxt
             // 
+            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
             this.SearchBarTxt.BackColor = System.Drawing.Color.White;
             this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
             this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.SearchBarTxt.BorderRadius = 10;
             this.SearchBarTxt.BorderSize = 1;
-            this.SearchBarTxt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SearchBarTxt.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchBarTxt.ForeColor = System.Drawing.Color.LightGray;
             this.SearchBarTxt.IsError = false;
-            this.SearchBarTxt.Location = new System.Drawing.Point(0, 0);
-            this.SearchBarTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.SearchBarTxt.MaxLength = 20;
             this.SearchBarTxt.Multiline = false;
             this.SearchBarTxt.Name = "SearchBarTxt";
-            this.SearchBarTxt.Padding = new System.Windows.Forms.Padding(25, 8, 8, 6);
             this.SearchBarTxt.PasswordChar = false;
             this.SearchBarTxt.Placeholder = "Search";
             this.SearchBarTxt.ReadOnly = false;
-            this.SearchBarTxt.Size = new System.Drawing.Size(220, 38);
-            this.SearchBarTxt.TabIndex = 9;
             this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
             this.SearchBarTxt.Texts = "Search";
@@ -300,267 +259,185 @@
             // 
             // curdAction
             // 
+            resources.ApplyResources(this.curdAction, "curdAction");
             this.curdAction.Controls.Add(this.exportBtn);
             this.curdAction.Controls.Add(this.DeleteBtn);
             this.curdAction.Controls.Add(this.AddBtn);
-            this.curdAction.Dock = System.Windows.Forms.DockStyle.Left;
-            this.curdAction.Location = new System.Drawing.Point(0, 0);
-            this.curdAction.Margin = new System.Windows.Forms.Padding(2);
             this.curdAction.Name = "curdAction";
-            this.curdAction.Size = new System.Drawing.Size(773, 38);
-            this.curdAction.TabIndex = 6;
             this.curdAction.Paint += new System.Windows.Forms.PaintEventHandler(this.curdAction_Paint);
             // 
             // exportBtn
             // 
+            resources.ApplyResources(this.exportBtn, "exportBtn");
             this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.exportBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.exportBtn.BorderColor = System.Drawing.Color.White;
             this.exportBtn.BorderRadius = 10;
             this.exportBtn.BorderSize = 0;
             this.exportBtn.FlatAppearance.BorderSize = 0;
-            this.exportBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exportBtn.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exportBtn.ForeColor = System.Drawing.Color.White;
             this.exportBtn.IsChecked = false;
-            this.exportBtn.Location = new System.Drawing.Point(231, 0);
-            this.exportBtn.Margin = new System.Windows.Forms.Padding(2);
             this.exportBtn.Name = "exportBtn";
-            this.exportBtn.Size = new System.Drawing.Size(114, 38);
-            this.exportBtn.TabIndex = 5;
-            this.exportBtn.Text = "Export";
             this.exportBtn.TextColor = System.Drawing.Color.White;
             this.exportBtn.UseVisualStyleBackColor = false;
             this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click);
             // 
             // DeleteBtn
             // 
+            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
             this.DeleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.DeleteBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.DeleteBtn.BorderColor = System.Drawing.Color.White;
             this.DeleteBtn.BorderRadius = 10;
             this.DeleteBtn.BorderSize = 0;
             this.DeleteBtn.FlatAppearance.BorderSize = 0;
-            this.DeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteBtn.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteBtn.ForeColor = System.Drawing.Color.White;
             this.DeleteBtn.IsChecked = false;
-            this.DeleteBtn.Location = new System.Drawing.Point(95, 0);
-            this.DeleteBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(132, 38);
-            this.DeleteBtn.TabIndex = 3;
-            this.DeleteBtn.Text = "Delete Selected";
             this.DeleteBtn.TextColor = System.Drawing.Color.White;
             this.DeleteBtn.UseVisualStyleBackColor = false;
             this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // Header
             // 
+            resources.ApplyResources(this.Header, "Header");
             this.Header.BackColor = System.Drawing.Color.White;
             this.Header.Controls.Add(this.closeBtn);
             this.Header.Controls.Add(this.RefreshBtn);
             this.Header.Controls.Add(this.Title);
-            this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.ForeColor = System.Drawing.Color.White;
-            this.Header.Location = new System.Drawing.Point(10, 10);
-            this.Header.Margin = new System.Windows.Forms.Padding(0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(758, 40);
-            this.Header.TabIndex = 5;
             // 
             // Title
             // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Segoe UI", 13.91597F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.Title, "Title");
             this.Title.ForeColor = System.Drawing.Color.Black;
-            this.Title.Location = new System.Drawing.Point(2, 7);
-            this.Title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(70, 25);
-            this.Title.TabIndex = 1;
-            this.Title.Text = "Goods";
             // 
             // Data
             // 
+            resources.ApplyResources(this.Data, "Data");
             this.Data.Controls.Add(this.loadPic);
             this.Data.Controls.Add(this.GoodsDataGrid);
-            this.Data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Data.Location = new System.Drawing.Point(10, 94);
-            this.Data.Margin = new System.Windows.Forms.Padding(2);
             this.Data.Name = "Data";
-            this.Data.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.Data.Size = new System.Drawing.Size(758, 361);
-            this.Data.TabIndex = 8;
             // 
             // loadPic
             // 
+            resources.ApplyResources(this.loadPic, "loadPic");
             this.loadPic.BackColor = System.Drawing.Color.White;
-            this.loadPic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.loadPic.Location = new System.Drawing.Point(0, 2);
             this.loadPic.Name = "loadPic";
-            this.loadPic.Size = new System.Drawing.Size(758, 359);
-            this.loadPic.TabIndex = 5;
-            this.loadPic.Visible = false;
             // 
             // dataGridViewImageColumn1
             // 
-            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.Width = 124;
             // 
             // dataGridViewImageColumn2
             // 
-            this.dataGridViewImageColumn2.MinimumWidth = 6;
+            resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 124;
             // 
             // dataGridViewImageColumn3
             // 
-            this.dataGridViewImageColumn3.MinimumWidth = 6;
+            resources.ApplyResources(this.dataGridViewImageColumn3, "dataGridViewImageColumn3");
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.Width = 124;
             // 
             // dataGridViewImageColumn4
             // 
             this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn4.HeaderText = "";
+            resources.ApplyResources(this.dataGridViewImageColumn4, "dataGridViewImageColumn4");
             this.dataGridViewImageColumn4.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.dataGridViewImageColumn4.MinimumWidth = 6;
             this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
-            this.dataGridViewImageColumn4.Width = 6;
             // 
             // dataGridViewImageColumn5
             // 
             this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn5.HeaderText = "";
+            resources.ApplyResources(this.dataGridViewImageColumn5, "dataGridViewImageColumn5");
             this.dataGridViewImageColumn5.Image = global::TheBetterLimited.Properties.Resources.pencil;
-            this.dataGridViewImageColumn5.MinimumWidth = 6;
             this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
-            this.dataGridViewImageColumn5.ToolTipText = "Edit";
-            this.dataGridViewImageColumn5.Width = 6;
             // 
             // dataGridViewImageColumn6
             // 
             this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.dataGridViewImageColumn6.HeaderText = "";
+            resources.ApplyResources(this.dataGridViewImageColumn6, "dataGridViewImageColumn6");
             this.dataGridViewImageColumn6.Image = global::TheBetterLimited.Properties.Resources.trash24;
-            this.dataGridViewImageColumn6.MinimumWidth = 6;
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
-            this.dataGridViewImageColumn6.ToolTipText = "Delete";
-            this.dataGridViewImageColumn6.Width = 6;
             // 
             // select
             // 
             this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.select.HeaderText = "";
+            resources.ApplyResources(this.select, "select");
             this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.select.MinimumWidth = 6;
             this.select.Name = "select";
             this.select.ReadOnly = true;
-            this.select.Width = 6;
             // 
             // edit
             // 
             this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.edit.HeaderText = "";
+            resources.ApplyResources(this.edit, "edit");
             this.edit.Image = global::TheBetterLimited.Properties.Resources.pencil;
-            this.edit.MinimumWidth = 6;
             this.edit.Name = "edit";
             this.edit.ReadOnly = true;
-            this.edit.ToolTipText = "Edit";
-            this.edit.Width = 6;
             // 
             // delete
             // 
             this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.delete.HeaderText = "";
+            resources.ApplyResources(this.delete, "delete");
             this.delete.Image = global::TheBetterLimited.Properties.Resources.trash24;
-            this.delete.MinimumWidth = 6;
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
-            this.delete.ToolTipText = "Delete";
-            this.delete.Width = 6;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 10);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(19, 20);
-            this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // AddBtn
             // 
+            resources.ApplyResources(this.AddBtn, "AddBtn");
             this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.AddBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.AddBtn.BorderColor = System.Drawing.Color.White;
             this.AddBtn.BorderRadius = 10;
             this.AddBtn.BorderSize = 0;
             this.AddBtn.FlatAppearance.BorderSize = 0;
-            this.AddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddBtn.Font = new System.Drawing.Font("Segoe UI", 10.28571F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddBtn.ForeColor = System.Drawing.Color.White;
             this.AddBtn.Image = global::TheBetterLimited.Properties.Resources.add;
-            this.AddBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AddBtn.IsChecked = false;
-            this.AddBtn.Location = new System.Drawing.Point(1, 0);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(0);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Padding = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.AddBtn.Size = new System.Drawing.Size(90, 38);
-            this.AddBtn.TabIndex = 4;
-            this.AddBtn.Text = "      New";
             this.AddBtn.TextColor = System.Drawing.Color.White;
             this.AddBtn.UseVisualStyleBackColor = false;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // closeBtn
             // 
-            this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.closeBtn, "closeBtn");
             this.closeBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
-            this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeBtn.Location = new System.Drawing.Point(716, 4);
             this.closeBtn.Name = "closeBtn";
-            this.closeBtn.Size = new System.Drawing.Size(38, 33);
-            this.closeBtn.TabIndex = 7;
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // RefreshBtn
             // 
-            this.RefreshBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.RefreshBtn, "RefreshBtn");
             this.RefreshBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
-            this.RefreshBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.RefreshBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RefreshBtn.Location = new System.Drawing.Point(675, 4);
             this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.Size = new System.Drawing.Size(38, 33);
-            this.RefreshBtn.TabIndex = 6;
             this.RefreshBtn.UseVisualStyleBackColor = true;
             this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // Goods
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(778, 465);
             this.Controls.Add(this.Data);
             this.Controls.Add(this.Action);
             this.Controls.Add(this.Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Goods";
-            this.Padding = new System.Windows.Forms.Padding(10);
-            this.Text = "InventoryManagement";
             ((System.ComponentModel.ISupportInitialize)(this.GoodsDataGrid)).EndInit();
             this.Action.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

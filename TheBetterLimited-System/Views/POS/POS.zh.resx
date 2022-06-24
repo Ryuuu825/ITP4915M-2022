@@ -175,33 +175,6 @@
   <data name="settleAccBtn.Text" xml:space="preserve">
     <value>账号清算</value>
   </data>
-  <data name="PayBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
-  </data>
-  <data name="PayBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="PayBtn.Text" xml:space="preserve">
-    <value>付款</value>
-  </data>
-  <data name="HoldBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt, style=Bold</value>
-  </data>
-  <data name="HoldBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="HoldBtn.Text" xml:space="preserve">
-    <value>保留订单</value>
-  </data>
-  <data name="ClearBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt, style=Bold</value>
-  </data>
-  <data name="ClearBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ClearBtn.Text" xml:space="preserve">
-    <value>清空购物车</value>
-  </data>
   <data name="userName.HeaderText" xml:space="preserve">
     <value>名称</value>
   </data>
@@ -268,6 +241,33 @@
   </data>
   <data name="AmountTitle.Text" xml:space="preserve">
     <value>总额</value>
+  </data>
+  <data name="PayBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="PayBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="PayBtn.Text" xml:space="preserve">
+    <value>付款</value>
+  </data>
+  <data name="HoldBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
+  </data>
+  <data name="HoldBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="HoldBtn.Text" xml:space="preserve">
+    <value>保留订单</value>
+  </data>
+  <data name="ClearBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
+  </data>
+  <data name="ClearBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ClearBtn.Text" xml:space="preserve">
+    <value>清空购物车</value>
   </data>
   <data name="splitter1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -3568,8 +3568,5 @@
         AAAAAAAAP//////////////////////AAAAAAAAAAAAAAAAAAAP//////////////////////+AAAAAA
         AAAAAAAAAAAAD/////8=
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>

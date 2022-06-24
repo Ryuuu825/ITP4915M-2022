@@ -63,13 +63,19 @@
     <ManifestKeyFile>TheBetterLimited-System_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>logo-46.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BarcodeStandard, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -591,17 +597,47 @@
     <EmbeddedResource Include="Views\Inventory\DefectiveItem-Add.resx">
       <DependentUpon>DefectiveItem-Add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\DefectiveItem-Add.zh.resx">
+      <DependentUpon>DefectiveItem-Add.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\DefectiveItem-Details.resx">
+      <DependentUpon>DefectiveItem-Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\DefectiveItem-Details.zh.resx">
       <DependentUpon>DefectiveItem-Details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\DefectiveItem.resx">
       <DependentUpon>DefectiveItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\DefectiveItem.zh.resx">
+      <DependentUpon>DefectiveItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\DefectUpdateOption.resx">
+      <DependentUpon>DefectUpdateOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\DefectUpdateOption.zh.resx">
       <DependentUpon>DefectUpdateOption.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.zh.resx">
+      <DependentUpon>RestockRequest-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\RestockRequest-Edit.zh.resx">
+      <DependentUpon>RestockRequest-Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\RestockRequest.zh.resx">
+      <DependentUpon>RestockRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Stock-Add.zh.resx">
+      <DependentUpon>Stock-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Stock-Edit.zh.resx">
+      <DependentUpon>Stock-Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\Stock.zh.resx">
+      <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Loading.zh.resx">
       <DependentUpon>Loading.cs</DependentUpon>
@@ -645,14 +681,65 @@
     <EmbeddedResource Include="Views\Message\MessageListItem.resx">
       <DependentUpon>MessageListItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\Appointment-Add.zh.resx">
+      <DependentUpon>Appointment-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\Booking.zh.resx">
+      <DependentUpon>Booking.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\POS\DefectItem-Add.resx">
       <DependentUpon>DefectItem-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\DefectItem-Add.zh.resx">
+      <DependentUpon>DefectItem-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\GoodsDetails.zh.resx">
+      <DependentUpon>GoodsDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\OrderDetails.zh.resx">
+      <DependentUpon>OrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\OrderManagement.zh.resx">
+      <DependentUpon>OrderManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\PaymentMethod.zh.resx">
+      <DependentUpon>PaymentMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\PendingOption.zh.resx">
+      <DependentUpon>PendingOption.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\POS\POS.zh.resx">
       <DependentUpon>POS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\Receipt.zh.resx">
+      <DependentUpon>Receipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\WaitResult.zh.resx">
+      <DependentUpon>WaitResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\Goods-Add.zh.resx">
+      <DependentUpon>Goods-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\Goods-Edit.zh.resx">
+      <DependentUpon>Goods-Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\Goods.ccp-Cakm-IN.resx">
+      <DependentUpon>Goods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\Goods.zh.resx">
+      <DependentUpon>Goods.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase\POManagement.resx">
       <DependentUpon>POManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\POManagement.zh.resx">
+      <DependentUpon>POManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\PONote.zh.resx">
+      <DependentUpon>PONote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\PurchaseOrder-Create.zh.resx">
+      <DependentUpon>PurchaseOrder-Create.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase\PurchaseOrder-Details.resx">
       <DependentUpon>PurchaseOrder-Details.cs</DependentUpon>
@@ -660,11 +747,26 @@
     <EmbeddedResource Include="Views\Purchase\PONote.resx">
       <DependentUpon>PONote.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\PurchaseOrder-Details.zh.resx">
+      <DependentUpon>PurchaseOrder-Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\Supplier-Add.zh.resx">
+      <DependentUpon>Supplier-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\Supplier-Edit.zh.resx">
+      <DependentUpon>Supplier-Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\Supplier.zh.resx">
+      <DependentUpon>Supplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase\SupplierGoods.resx">
       <DependentUpon>SupplierGoods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Purchase\PurchaseOrder-Create.resx">
       <DependentUpon>PurchaseOrder-Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Purchase\SupplierGoods.zh.resx">
+      <DependentUpon>SupplierGoods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Shipping\Appointment-Arrange.zh.resx">
       <DependentUpon>Appointment-Arrange.cs</DependentUpon>
@@ -813,6 +915,7 @@
       <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
