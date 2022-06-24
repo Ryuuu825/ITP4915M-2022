@@ -666,6 +666,12 @@
     <EmbeddedResource Include="Views\Purchase\PurchaseOrder-Create.resx">
       <DependentUpon>PurchaseOrder-Create.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shipping\Appointment-Arrange.zh.resx">
+      <DependentUpon>Appointment-Arrange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Shipping\Appointment.zh.resx">
+      <DependentUpon>Appointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\User\Staff-Add.resx">
       <DependentUpon>Staff-Add.cs</DependentUpon>
     </EmbeddedResource>
