@@ -158,6 +158,7 @@
             // 
             // receiverList
             // 
+            this.receiverList.Enabled = false;
             this.receiverList.Location = new System.Drawing.Point(163, 282);
             this.receiverList.Name = "receiverList";
             this.receiverList.Size = new System.Drawing.Size(307, 110);
@@ -355,9 +356,9 @@
             this.GoodsInfoHeader.Location = new System.Drawing.Point(3, 7);
             this.GoodsInfoHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.GoodsInfoHeader.Name = "GoodsInfoHeader";
-            this.GoodsInfoHeader.Size = new System.Drawing.Size(211, 25);
+            this.GoodsInfoHeader.Size = new System.Drawing.Size(133, 25);
             this.GoodsInfoHeader.TabIndex = 6;
-            this.GoodsInfoHeader.Text = "Customer Information";
+            this.GoodsInfoHeader.Text = "New Message";
             // 
             // SendMessageForm
             // 

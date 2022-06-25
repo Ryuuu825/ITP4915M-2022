@@ -115,14 +115,18 @@ namespace TheBetterLimited.Views
 
         private void plusBtn_Click(object sender, EventArgs e)
         {
-            RestRequest req = new RestRequest("api/message/user/" + this.receiverName.Texts , Method.Get);
-            var res = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
+
 
             if ( receiver.Contains(this.receiverName.Texts))
             {
                 MessageBox.Show(this.receiverName.Texts + " already inserted");
+                return;
             }
-            else if (res.StatusCode == System.Net.HttpStatusCode.OK )
+
+            RestRequest req = new RestRequest("api/message/user/" + this.receiverName.Texts, Method.Get);
+            var res = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
+            Console.Write(res.Content);
+            if (res.StatusCode == System.Net.HttpStatusCode.OK )
             {
                 receiver.Add(this.receiverName.Texts);
                 this.receiverList.Text = this.receiverName.Texts + "\r\n" + this.receiverList.Text;
