@@ -232,7 +232,7 @@
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="select.Width" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="dataGridViewImageColumn6.HeaderText" xml:space="preserve">
     <value />
@@ -322,7 +322,7 @@
     <value>3, 5, 3, 5</value>
   </data>
   <data name="edit.Width" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="AddBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10.28571pt, style=Bold</value>
@@ -358,7 +358,7 @@
     <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="delete.Width" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="curdAction.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -401,9 +401,6 @@
   </data>
   <data name="&gt;&gt;AddBtn.Parent" xml:space="preserve">
     <value>curdAction</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="RefreshBtn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Center</value>
@@ -497,9 +494,6 @@
   </data>
   <data name="SearchBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
-  </data>
-  <data name="dataGridViewImageColumn4.Width" type="System.Int32, mscorlib">
-    <value>5</value>
   </data>
   <data name="&gt;&gt;curdAction.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -730,9 +724,6 @@
   </data>
   <data name="pictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
-  </data>
-  <data name="dataGridViewImageColumn5.Width" type="System.Int32, mscorlib">
-    <value>5</value>
   </data>
   <data name="delete.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
@@ -4123,9 +4114,6 @@
   </data>
   <data name="&gt;&gt;SearchBarTxt.Name" xml:space="preserve">
     <value>SearchBarTxt</value>
-  </data>
-  <data name="dataGridViewImageColumn6.Width" type="System.Int32, mscorlib">
-    <value>5</value>
   </data>
   <data name="closeBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
