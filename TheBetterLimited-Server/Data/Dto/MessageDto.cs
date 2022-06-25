@@ -7,6 +7,8 @@ namespace TheBetterLimited_Server.Data.Dto
 
         public string Title { get; set; }
         public string content { get; set; }
+        public string id { get; set; }
+        public bool isRead { get; set; }
     }
 
     public class SendMessageDto 

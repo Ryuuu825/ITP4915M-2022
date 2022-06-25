@@ -50,14 +50,20 @@ public class MessageController
         List<ReceiveMessageDto> messageList = new List<ReceiveMessageDto>();
         foreach (var message in messages)
         {
-            message.Status = Data.Entity.StaffMessageStatus.Received;
+            if (message.Status == Data.Entity.StaffMessageStatus.Unreceived)
+            {
+                message.Status = Data.Entity.StaffMessageStatus.Received;
+                _receiveMessageTable.Update(message);
+            }
             _receiveMessageTable.Update(message);
             messageList.Add(new ReceiveMessageDto
             {
                 senderName = message.message.sender.UserName,
                 sentDate = message.message.SentDate.ToShortDateString(),
                 content = message.message.Content,
-                Title = message.message.Title
+                Title = message.message.Title,
+                id = message.message.Id,
+                isRead = message.Status == Data.Entity.StaffMessageStatus.Read
             });
         }
         var messageModel = new Models.ReceiveMessageModel
@@ -147,7 +153,8 @@ public class MessageController
                     senderName = message.message.sender.UserName,
                     sentDate = message.message.SentDate.ToShortDateString(),
                     content = message.message.Content,
-                    Title = message.message.Title
+                    Title = message.message.Title,
+                    id = message.message.Id
 
                 });
             }
@@ -175,7 +182,7 @@ public class MessageController
     public void setMessageRead(string id)
     {
         var message = _receiveMessageTable.GetBySQL(
-            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Staff_Message>($"Id:{id}")
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Staff_Message>($"_messageId:{id}")
         ).FirstOrDefault();
 
         if (message is null)
@@ -297,5 +304,21 @@ public class MessageController
         };
         this.SendMessage(username , SendMessageDto);
     }
+
+    public bool CheckUserExist(string username)
+    {
+        var account = _accountTable.GetBySQL(
+            Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{username}")
+        ).FirstOrDefault();
+
+        if (account is null)
+        {
+            return false;
+        }
+
+        return true;
+
+    }
+
     
 }

@@ -57,7 +57,16 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 return StatusCode(e.ReturnCode , e.GetHttpResult());
             }
+        }
 
+        [HttpGet("user/{username}")]
+        public IActionResult CheckUserExist(string username)
+        {
+            if (controller.CheckUserExist(username))
+            {
+                return Ok();
+            }
+            return NotFound();
         }
     }
 }
