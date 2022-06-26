@@ -117,18 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="GoodsDataGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
   <data name="id.HeaderText" xml:space="preserve">
     <value>编号</value>
   </data>
   <data name="id.ToolTipText" xml:space="preserve">
     <value>商品编号</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="id.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="catalogue.HeaderText" xml:space="preserve">
     <value>种类</value>
@@ -137,7 +134,7 @@
     <value>种类</value>
   </data>
   <data name="catalogue.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="name.HeaderText" xml:space="preserve">
     <value>商品名称</value>
@@ -152,28 +149,28 @@
     <value>商品价格</value>
   </data>
   <data name="price.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="gTINCode.HeaderText" xml:space="preserve">
-    <value>GTIN 代码</value>
+    <value>商品条码</value>
   </data>
   <data name="gTINCode.ToolTipText" xml:space="preserve">
-    <value>GTIN 代码</value>
+    <value>商品条码</value>
   </data>
   <data name="gTINCode.Width" type="System.Int32, mscorlib">
-    <value>112</value>
+    <value>97</value>
   </data>
   <data name="Size.HeaderText" xml:space="preserve">
     <value>尺寸</value>
   </data>
   <data name="Size.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="Status.HeaderText" xml:space="preserve">
     <value>状态</value>
   </data>
   <data name="Status.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -203,7 +200,7 @@
 </value>
   </data>
   <data name="exportBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
+    <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="exportBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>230, 0</value>
@@ -212,10 +209,10 @@
     <value>115, 38</value>
   </data>
   <data name="exportBtn.Text" xml:space="preserve">
-    <value>输出</value>
+    <value>导出</value>
   </data>
   <data name="DeleteBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
+    <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="DeleteBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>94, 0</value>
@@ -227,7 +224,7 @@
     <value>删除选取项目</value>
   </data>
   <data name="AddBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
+    <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="AddBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>

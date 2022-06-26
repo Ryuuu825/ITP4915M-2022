@@ -32,6 +32,7 @@
             this.Header = new System.Windows.Forms.Panel();
             this.Info = new System.Windows.Forms.Label();
             this.Title = new System.Windows.Forms.Label();
+            this.IconPic = new System.Windows.Forms.PictureBox();
             this.BottomBtn = new System.Windows.Forms.Panel();
             this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
@@ -72,8 +73,8 @@
             this.CatalogueTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
-            this.IconPic = new System.Windows.Forms.PictureBox();
             this.Header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IconPic)).BeginInit();
             this.BottomBtn.SuspendLayout();
             this.MainForm.SuspendLayout();
             this.UserInfo.SuspendLayout();
@@ -87,7 +88,6 @@
             this.roundPanel2.SuspendLayout();
             this.roundPanel3.SuspendLayout();
             this.UserInfoHeaderContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IconPic)).BeginInit();
             this.SuspendLayout();
             // 
             // Header
@@ -109,6 +109,15 @@
             resources.ApplyResources(this.Title, "Title");
             this.Title.ForeColor = System.Drawing.Color.SeaGreen;
             this.Title.Name = "Title";
+            // 
+            // IconPic
+            // 
+            resources.ApplyResources(this.IconPic, "IconPic");
+            this.IconPic.BackColor = System.Drawing.Color.Transparent;
+            this.IconPic.Cursor = System.Windows.Forms.Cursors.Default;
+            this.IconPic.Image = global::TheBetterLimited.Properties.Resources._default;
+            this.IconPic.Name = "IconPic";
+            this.IconPic.TabStop = false;
             // 
             // BottomBtn
             // 
@@ -554,15 +563,6 @@
             resources.ApplyResources(this.GoodsInfoHeader, "GoodsInfoHeader");
             this.GoodsInfoHeader.Name = "GoodsInfoHeader";
             // 
-            // IconPic
-            // 
-            resources.ApplyResources(this.IconPic, "IconPic");
-            this.IconPic.BackColor = System.Drawing.Color.Transparent;
-            this.IconPic.Cursor = System.Windows.Forms.Cursors.Default;
-            this.IconPic.Image = global::TheBetterLimited.Properties.Resources._default;
-            this.IconPic.Name = "IconPic";
-            this.IconPic.TabStop = false;
-            // 
             // GoodsDetails
             // 
             resources.ApplyResources(this, "$this");
@@ -577,6 +577,7 @@
             this.Load += new System.EventHandler(this.GoodsDetails_Load);
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IconPic)).EndInit();
             this.BottomBtn.ResumeLayout(false);
             this.MainForm.ResumeLayout(false);
             this.UserInfo.ResumeLayout(false);
@@ -598,7 +599,6 @@
             this.roundPanel3.PerformLayout();
             this.UserInfoHeaderContainer.ResumeLayout(false);
             this.UserInfoHeaderContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IconPic)).EndInit();
             this.ResumeLayout(false);
 
         }

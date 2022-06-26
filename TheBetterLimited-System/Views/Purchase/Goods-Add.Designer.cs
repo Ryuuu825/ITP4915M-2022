@@ -33,6 +33,7 @@
             this.Info = new System.Windows.Forms.Label();
             this.tip = new System.Windows.Forms.Label();
             this.Title = new System.Windows.Forms.Label();
+            this.GoodsPic = new System.Windows.Forms.PictureBox();
             this.BottomBtn = new System.Windows.Forms.Panel();
             this.btnCancel = new TheBetterLimited.CustomizeControl.RoundButton();
             this.btnAddGoods = new TheBetterLimited.CustomizeControl.RoundButton();
@@ -57,14 +58,13 @@
             this.txtGoodsName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.UserInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.GoodsInfoHeader = new System.Windows.Forms.Label();
-            this.GoodsPic = new System.Windows.Forms.PictureBox();
             this.Header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GoodsPic)).BeginInit();
             this.BottomBtn.SuspendLayout();
             this.MainForm.SuspendLayout();
             this.UserInfo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.UserInfoHeaderContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GoodsPic)).BeginInit();
             this.SuspendLayout();
             // 
             // Header
@@ -92,6 +92,18 @@
             resources.ApplyResources(this.Title, "Title");
             this.Title.ForeColor = System.Drawing.Color.SeaGreen;
             this.Title.Name = "Title";
+            // 
+            // GoodsPic
+            // 
+            resources.ApplyResources(this.GoodsPic, "GoodsPic");
+            this.GoodsPic.BackColor = System.Drawing.Color.Transparent;
+            this.GoodsPic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GoodsPic.Image = global::TheBetterLimited.Properties.Resources.photo_upload;
+            this.GoodsPic.Name = "GoodsPic";
+            this.GoodsPic.TabStop = false;
+            this.GoodsPic.Click += new System.EventHandler(this.UserIconPic_Click);
+            this.GoodsPic.MouseLeave += new System.EventHandler(this.UserIconPic_MouseLeave);
+            this.GoodsPic.MouseHover += new System.EventHandler(this.UserIconPic_MouseHover);
             // 
             // BottomBtn
             // 
@@ -379,18 +391,6 @@
             resources.ApplyResources(this.GoodsInfoHeader, "GoodsInfoHeader");
             this.GoodsInfoHeader.Name = "GoodsInfoHeader";
             // 
-            // GoodsPic
-            // 
-            resources.ApplyResources(this.GoodsPic, "GoodsPic");
-            this.GoodsPic.BackColor = System.Drawing.Color.Transparent;
-            this.GoodsPic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GoodsPic.Image = global::TheBetterLimited.Properties.Resources.photo_upload;
-            this.GoodsPic.Name = "GoodsPic";
-            this.GoodsPic.TabStop = false;
-            this.GoodsPic.Click += new System.EventHandler(this.UserIconPic_Click);
-            this.GoodsPic.MouseLeave += new System.EventHandler(this.UserIconPic_MouseLeave);
-            this.GoodsPic.MouseHover += new System.EventHandler(this.UserIconPic_MouseHover);
-            // 
             // Goods_Add
             // 
             resources.ApplyResources(this, "$this");
@@ -404,6 +404,7 @@
             this.ShowIcon = false;
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GoodsPic)).EndInit();
             this.BottomBtn.ResumeLayout(false);
             this.MainForm.ResumeLayout(false);
             this.UserInfo.ResumeLayout(false);
@@ -411,7 +412,6 @@
             this.panel1.PerformLayout();
             this.UserInfoHeaderContainer.ResumeLayout(false);
             this.UserInfoHeaderContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GoodsPic)).EndInit();
             this.ResumeLayout(false);
 
         }

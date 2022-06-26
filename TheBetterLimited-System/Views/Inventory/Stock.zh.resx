@@ -117,10 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="StockDataGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="select.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -138,17 +134,18 @@
   <data name="id.ToolTipText" xml:space="preserve">
     <value>编号</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="id.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="locationId.HeaderText" xml:space="preserve">
-    <value>位置</value>
+    <value>所在地</value>
   </data>
   <data name="locationId.ToolTipText" xml:space="preserve">
-    <value>位置</value>
+    <value>库存所在地</value>
   </data>
   <data name="locationId.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>84</value>
   </data>
   <data name="supplierGoodsId.HeaderText" xml:space="preserve">
     <value>商品名称</value>
@@ -163,31 +160,34 @@
     <value>数量</value>
   </data>
   <data name="quantity.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="maxLimit.HeaderText" xml:space="preserve">
     <value>最大</value>
   </data>
   <data name="maxLimit.ToolTipText" xml:space="preserve">
-    <value>最大限制</value>
+    <value>库存最大值</value>
   </data>
   <data name="maxLimit.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="minLimit.HeaderText" xml:space="preserve">
     <value>最小</value>
   </data>
   <data name="minLimit.ToolTipText" xml:space="preserve">
-    <value>最小限制</value>
+    <value>库存最小值</value>
   </data>
   <data name="minLimit.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="ReorderLevel.HeaderText" xml:space="preserve">
     <value>再订购</value>
   </data>
   <data name="ReorderLevel.ToolTipText" xml:space="preserve">
     <value>再订购水平</value>
+  </data>
+  <data name="ReorderLevel.Width" type="System.Int32, mscorlib">
+    <value>84</value>
   </data>
   <data name="Status.HeaderText" xml:space="preserve">
     <value>状态</value>
@@ -196,7 +196,7 @@
     <value>状态</value>
   </data>
   <data name="Status.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="edit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -221,37 +221,37 @@
 </value>
   </data>
   <data name="outBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
+    <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="outBtn.Text" xml:space="preserve">
-    <value>出厂</value>
+    <value>出库</value>
   </data>
   <data name="inBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
+    <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="inBtn.Text" xml:space="preserve">
-    <value>进厂</value>
+    <value>入库</value>
   </data>
   <data name="RestockBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
+    <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="RestockBtn.Text" xml:space="preserve">
     <value>补货</value>
   </data>
   <data name="exportBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
+    <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="exportBtn.Text" xml:space="preserve">
-    <value>输出</value>
+    <value>导出</value>
   </data>
   <data name="DeleteBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
+    <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="DeleteBtn.Text" xml:space="preserve">
     <value>删除选取项目</value>
   </data>
   <data name="AddBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 11.25pt, style=Bold</value>
+    <value>Segoe UI, 9pt, style=Bold</value>
   </data>
   <data name="AddBtn.Text" xml:space="preserve">
     <value>新增</value>
@@ -286,7 +286,7 @@
     <value>54, 25</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
-    <value>存货</value>
+    <value>库存</value>
   </data>
   <data name="dataGridViewImageColumn4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
