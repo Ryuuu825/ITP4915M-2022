@@ -68,7 +68,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 }
                 else if ( 
                     item.Appointment.Session.EndTime.Hour <= DateTime.Now.Hour &&
-                    (item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery || item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery)
+                    (item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery || item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingInstall)
                 )
                 {
                     item.SalesOrderItem.SalesOrder.Status = SalesOrderStatus.Completed;
@@ -589,6 +589,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             // qty : -1
             var salesOrder = repository.GetById(id);
             salesOrder.Status = SalesOrderStatus.Cancelled;
+            repository.Update(salesOrder);
 
             foreach (var item in salesOrder.Items)
             {
