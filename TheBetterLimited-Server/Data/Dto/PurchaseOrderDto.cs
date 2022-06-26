@@ -10,6 +10,7 @@ namespace TheBetterLimited_Server.Data.Dto
     {
         public Hashtable Goods { get; set; }
         public int Quantity { get; set; }
+        public bool isNewItem { get; set; }
     }
 
     public class PurchaseOrderItemInDto

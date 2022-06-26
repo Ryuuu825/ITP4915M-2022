@@ -13,6 +13,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private readonly Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods> _PurchaseOrder_Supplier_GoodsTable;
 
         private readonly Data.Repositories.Repository<Data.Entity.Supplier_Goods> _Supplier_GoodsTable;
+        private readonly Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock> _Supplier_GoodsStockTable;
         private readonly AppLogic.Controllers.MessageController _message;
 
         private readonly AppLogic.Controllers.GoodsController _GoodsController;
@@ -28,6 +29,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _WarehouseTable = new Data.Repositories.Repository<Data.Entity.Warehouse>(db);
             _PurchaseOrder_Supplier_GoodsTable = new Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods>(db);
             _GoodsController = new AppLogic.Controllers.GoodsController(db);
+            _Supplier_GoodsStockTable = new Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock>(db);
             _message = new MessageController(db);
         }
 
@@ -63,6 +65,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             List<Data.Entity.Supplier_Goods> supplier_Goods = _Supplier_GoodsTable.GetAll();
             foreach(var entry in query)
             {
+
                 PurchaseOrderOutDto dto = new PurchaseOrderOutDto();
                 dto.Id = entry.ID;
                 dto.CreateAt = entry.CreateTime;
@@ -77,11 +80,15 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 foreach(var item in entry.Items)
                 {
                     Total += (decimal) (item.Supplier_Goods.Price * item.Quantity);
+                    Data.Entity.Supplier_Goods_Stock? sgs = _Supplier_GoodsStockTable.GetBySQL(
+                        $"SELECT * FROM `Supplier_Goods_Stock` WHERE `_supplierGoodsId` = '{item.Supplier_Goods.ID}' AND `_locationId` = '{entry.Warehouse._locationID}'"
+                    ).FirstOrDefault();
                     dto.Items.Add(
                         new PurchaseOrderItemOutDto
                         {
                             Goods = _GoodsController.ToOutDto(item.Supplier_Goods.Goods , username , lang),
-                            Quantity = (int) item.Quantity
+                            Quantity = (int) item.Quantity,
+                            isNewItem = sgs is null
                         }
                     );
                 }
