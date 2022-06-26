@@ -253,6 +253,12 @@
     <Compile Include="Views\Inventory\DefectUpdateOption.Designer.cs">
       <DependentUpon>DefectUpdateOption.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Inventory\OutboundGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\OutboundGoods.Designer.cs">
+      <DependentUpon>OutboundGoods.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Inventory\RestockRequest-Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -611,6 +617,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\DefectUpdateOption.zh.resx">
       <DependentUpon>DefectUpdateOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\OutboundGoods.ca.resx">
+      <DependentUpon>OutboundGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\OutboundGoods.resx">
+      <DependentUpon>OutboundGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\OutboundGoods.zh.resx">
+      <DependentUpon>OutboundGoods.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\RestockRequest-Add.resx">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
