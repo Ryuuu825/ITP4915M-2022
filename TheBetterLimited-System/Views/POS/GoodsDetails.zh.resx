@@ -127,11 +127,44 @@
   <data name="Title.Text" xml:space="preserve">
     <value>商品详情</value>
   </data>
+  <data name="CancelBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
+  </data>
   <data name="CancelBtn.Text" xml:space="preserve">
     <value>取消</value>
   </data>
+  <data name="SaveBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
+  </data>
   <data name="SaveBtn.Text" xml:space="preserve">
     <value>添加到购物车</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 3</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 19</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>小型</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>19, 3</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 19</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>中型</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 3</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 19</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>大型</value>
   </data>
   <data name="lblDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>63, 420</value>
@@ -151,6 +184,12 @@
   <data name="lblGTINCode.Text" xml:space="preserve">
     <value>商品条码</value>
   </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 19</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>销售中</value>
+  </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 3</value>
   </data>
@@ -159,6 +198,15 @@
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>逐步淘汰</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 3</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 19</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>停止销售</value>
   </data>
   <data name="lblStatus.Location" type="System.Drawing.Point, System.Drawing">
     <value>63, 385</value>
@@ -226,59 +274,19 @@
   <data name="lblSize.Text" xml:space="preserve">
     <value>尺寸</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 3</value>
+  <data name="GoodsInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 19</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>小型</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 3</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 19</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>中型</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 3</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 19</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>大型</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 19</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>销售中</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 3</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 19</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>停止销售</value>
+  <data name="GoodsInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 9</value>
   </data>
   <data name="GoodsInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 25</value>
+    <value>82, 21</value>
   </data>
   <data name="GoodsInfoHeader.Text" xml:space="preserve">
     <value>商品资讯</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>商品资讯</value>
+    <value>商品详情</value>
   </data>
 </root>

@@ -167,6 +167,6 @@
     <value>选择团队</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>安排任务</value>
+    <value>指派任务</value>
   </data>
 </root>

@@ -117,4 +117,274 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="icon.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;MessageContent.Name" xml:space="preserve">
+    <value>MessageContent</value>
+  </data>
+  <data name="&gt;&gt;MessageContent.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="icon.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;newMessage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="add.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="newMessage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
+  <data name="SendBtn.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="senderName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Black, 9.75pt</value>
+  </data>
+  <data name="SendBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;SendBtn.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;senderName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="icon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="MsgInput.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;MsgInput.Name" xml:space="preserve">
+    <value>MsgInput</value>
+  </data>
+  <data name="&gt;&gt;add.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="MsgInput.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 406</value>
+  </data>
+  <data name="&gt;&gt;SendBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;add.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;add.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="MessageContent.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="senderName.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="add.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="icon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
+  </data>
+  <data name="SendBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 43</value>
+  </data>
+  <data name="&gt;&gt;SendBtn.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;senderName.Name" xml:space="preserve">
+    <value>senderName</value>
+  </data>
+  <data name="newMessage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="&gt;&gt;newMessage.Name" xml:space="preserve">
+    <value>newMessage</value>
+  </data>
+  <data name="contentBoard.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 58</value>
+  </data>
+  <data name="icon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>264, 12</value>
+  </data>
+  <data name="&gt;&gt;contentBoard.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;icon.Name" xml:space="preserve">
+    <value>icon</value>
+  </data>
+  <data name="&gt;&gt;icon.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="contentBoard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 392</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>MessageForm</value>
+  </data>
+  <data name="&gt;&gt;SendBtn.Name" xml:space="preserve">
+    <value>SendBtn</value>
+  </data>
+  <data name="&gt;&gt;senderName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newMessage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="MessageContent.Location" type="System.Drawing.Point, System.Drawing">
+    <value>257, 58</value>
+  </data>
+  <data name="MsgInput.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12.10084pt</value>
+  </data>
+  <data name="&gt;&gt;contentBoard.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="MsgInput.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;contentBoard.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="senderName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>330, 12</value>
+  </data>
+  <data name="SendBtn.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="MessageContent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>591, 339</value>
+  </data>
+  <data name="senderName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="SendBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="MsgInput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>465, 43</value>
+  </data>
+  <data name="newMessage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="senderName.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="add.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="MessageContent.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;contentBoard.Name" xml:space="preserve">
+    <value>contentBoard</value>
+  </data>
+  <data name="&gt;&gt;MessageContent.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MsgInput.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="MsgInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
+  </data>
+  <data name="SendBtn.Text" xml:space="preserve">
+    <value>send</value>
+  </data>
+  <data name="add.Location" type="System.Drawing.Point, System.Drawing">
+    <value>264, 413</value>
+  </data>
+  <data name="SendBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt</value>
+  </data>
+  <data name="senderName.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="add.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="icon.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MessageForm</value>
+  </data>
+  <data name="newMessage.Text" xml:space="preserve">
+    <value>new</value>
+  </data>
+  <data name="&gt;&gt;add.Name" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="MsgInput.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>864, 462</value>
+  </data>
+  <data name="&gt;&gt;MessageContent.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;MsgInput.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="newMessage.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="senderName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>435, 43</value>
+  </data>
+  <data name="&gt;&gt;senderName.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="MsgInput.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="senderName.Text" xml:space="preserve">
+    <value>Sender</value>
+  </data>
+  <data name="newMessage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 37</value>
+  </data>
+  <data name="SendBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>772, 406</value>
+  </data>
+  <data name="add.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 32</value>
+  </data>
+  <data name="contentBoard.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;icon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;newMessage.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="add.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="&gt;&gt;MsgInput.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;icon.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>zh</value>
+  </metadata>
 </root>

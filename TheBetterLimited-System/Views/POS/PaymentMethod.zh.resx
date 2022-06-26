@@ -119,18 +119,24 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="CancelBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
+    <value>Segoe UI, 10.5pt, style=Bold</value>
   </data>
   <data name="CancelBtn.Text" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="SaveBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
+    <value>Segoe UI, 10.5pt, style=Bold</value>
   </data>
   <data name="SaveBtn.Text" xml:space="preserve">
     <value>确认</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>付款方式</value>
+  </data>
+  <data name="paymentPicBox1.Title" xml:space="preserve">
+    <value>现金</value>
+  </data>
+  <data name="paymentPicBox2.Title" xml:space="preserve">
+    <value />
   </data>
 </root>

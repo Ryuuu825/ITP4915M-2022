@@ -118,76 +118,38 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt, style=Bold</value>
+  <data name="SendBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
   </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>取消</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SendBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="btnAddSupplier.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt, style=Bold</value>
+  <data name="SendBtn.Text" xml:space="preserve">
+    <value>发送</value>
   </data>
-  <data name="btnAddSupplier.Text" xml:space="preserve">
+  <data name="senderName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="senderName.Text" xml:space="preserve">
+    <value>发送人</value>
+  </data>
+  <data name="newMessage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="newMessage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="newMessage.Text" xml:space="preserve">
     <value>新增</value>
   </data>
-  <data name="SupplierInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
+  <data name="icon.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="SupplierInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 9</value>
+  <data name="add.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="SupplierInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="SupplierInfoHeader.Text" xml:space="preserve">
-    <value>供应商资讯</value>
-  </data>
-  <data name="lblAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 251</value>
-  </data>
-  <data name="lblAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="lblAddress.Text" xml:space="preserve">
-    <value>地址</value>
-  </data>
-  <data name="lblEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 190</value>
-  </data>
-  <data name="lblEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="lblEmail.Text" xml:space="preserve">
-    <value>电邮</value>
-  </data>
-  <data name="lblPhone.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 83</value>
-  </data>
-  <data name="lblPhone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="lblPhone.Text" xml:space="preserve">
-    <value>电话</value>
-  </data>
-  <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 33</value>
-  </data>
-  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 21</value>
-  </data>
-  <data name="lblName.Text" xml:space="preserve">
-    <value>名称*</value>
-  </data>
-  <data name="lblContact.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 139</value>
-  </data>
-  <data name="lblContact.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="lblContact.Text" xml:space="preserve">
-    <value>联络</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>供应商-新增</value>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
 </root>

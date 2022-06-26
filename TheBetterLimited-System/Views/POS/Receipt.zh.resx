@@ -153,6 +153,12 @@
   <data name="label12.Text" xml:space="preserve">
     <value>地区 Area:</value>
   </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Deposit 所需订金:</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>Total Amount 总额:</value>
+  </data>
   <data name="label20.Text" xml:space="preserve">
     <value>电话 Tel:</value>
   </data>
@@ -167,7 +173,7 @@
     <value>Segoe UI, 18pt, style=Bold</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 32</value>
+    <value>66, 32</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>发票</value>

@@ -152,10 +152,10 @@
     <value>Segoe UI, 18pt, style=Bold</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 32</value>
+    <value>118, 32</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>购买订单</value>
+    <value>采购订单</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>打印日期 Print Date:</value>
