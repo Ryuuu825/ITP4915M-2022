@@ -168,6 +168,9 @@
   <data name="&gt;&gt;MsgInput.Name" xml:space="preserve">
     <value>MsgInput</value>
   </data>
+  <data name="MsgInput.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;add.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -182,9 +185,6 @@
   </data>
   <data name="&gt;&gt;add.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="MessageContent.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="senderName.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>
@@ -219,11 +219,11 @@
   <data name="&gt;&gt;contentBoard.Type" xml:space="preserve">
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;icon.Name" xml:space="preserve">
-    <value>icon</value>
-  </data>
   <data name="&gt;&gt;icon.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MessageForm</value>
   </data>
   <data name="contentBoard.Size" type="System.Drawing.Size, System.Drawing">
     <value>231, 392</value>
@@ -258,8 +258,14 @@
   <data name="senderName.Location" type="System.Drawing.Point, System.Drawing">
     <value>330, 12</value>
   </data>
+  <data name="add.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
   <data name="SendBtn.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="add.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 32</value>
   </data>
   <data name="MessageContent.Size" type="System.Drawing.Size, System.Drawing">
     <value>591, 339</value>
@@ -272,9 +278,6 @@
   </data>
   <data name="MsgInput.Size" type="System.Drawing.Size, System.Drawing">
     <value>465, 43</value>
-  </data>
-  <data name="newMessage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 12</value>
@@ -293,9 +296,6 @@
   </data>
   <data name="&gt;&gt;MessageContent.Type" xml:space="preserve">
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MsgInput.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="MsgInput.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 6, 4, 6</value>
@@ -318,8 +318,8 @@
   <data name="icon.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MessageForm</value>
+  <data name="&gt;&gt;MsgInput.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="newMessage.Text" xml:space="preserve">
     <value>new</value>
@@ -348,7 +348,7 @@
   <data name="&gt;&gt;senderName.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="MsgInput.Enabled" type="System.Boolean, mscorlib">
+  <data name="MessageContent.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="senderName.Text" xml:space="preserve">
@@ -360,8 +360,8 @@
   <data name="SendBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>772, 406</value>
   </data>
-  <data name="add.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 32</value>
+  <data name="newMessage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="contentBoard.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -372,8 +372,8 @@
   <data name="&gt;&gt;newMessage.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="add.TabIndex" type="System.Int32, mscorlib">
-    <value>50</value>
+  <data name="&gt;&gt;icon.Name" xml:space="preserve">
+    <value>icon</value>
   </data>
   <data name="&gt;&gt;MsgInput.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>

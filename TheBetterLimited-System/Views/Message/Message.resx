@@ -203,8 +203,8 @@
   <data name="MessageList.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 65</value>
   </data>
-  <data name="&gt;&gt;isUnreadOnly.Name" xml:space="preserve">
-    <value>isUnreadOnly</value>
+  <data name="senderText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>397, 84</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>73, 43</value>
@@ -265,9 +265,6 @@
   </data>
   <data name="&gt;&gt;titleText.Name" xml:space="preserve">
     <value>titleText</value>
-  </data>
-  <data name="isUnreadOnly.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
   </data>
   <data name="&gt;&gt;button1.Name" xml:space="preserve">
     <value>button1</value>
@@ -344,8 +341,8 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 12</value>
   </data>
-  <data name="senderText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>397, 84</value>
+  <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -394,9 +391,6 @@
   </data>
   <data name="prompt.Text" xml:space="preserve">
     <value>notifyIcon1</value>
-  </data>
-  <data name="contentText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>397, 212</value>
   </data>
   <data name="prompt.BalloonTipTitle" xml:space="preserve">
     <value>sdfsdfsf</value>
@@ -3713,6 +3707,9 @@
   <data name="&gt;&gt;isUnreadOnly.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;isUnreadOnly.Name" xml:space="preserve">
+    <value>isUnreadOnly</value>
+  </data>
   <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Black, 9.75pt</value>
   </data>
@@ -3722,8 +3719,8 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="contentText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>397, 212</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -3740,8 +3737,8 @@
   <data name="&gt;&gt;isUnreadOnly.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>722, 44</value>
+  <data name="isUnreadOnly.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
   <data name="senderText.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9.75pt</value>
@@ -3749,14 +3746,14 @@
   <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Black, 9.75pt</value>
   </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>722, 44</value>
+  </data>
   <metadata name="Timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>zh</value>
   </metadata>
   <metadata name="prompt.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>112, 17</value>

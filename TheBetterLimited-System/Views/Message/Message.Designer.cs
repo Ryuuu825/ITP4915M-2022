@@ -126,6 +126,7 @@
             this.Controls.Add(this.MessageList);
             this.Controls.Add(this.label1);
             this.Name = "Message";
+            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.Message_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

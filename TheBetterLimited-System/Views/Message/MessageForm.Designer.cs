@@ -134,6 +134,7 @@
             this.Controls.Add(this.MessageContent);
             this.Controls.Add(this.contentBoard);
             this.Name = "MessageForm";
+            this.ShowIcon = false;
             ((System.ComponentModel.ISupportInitialize)(this.icon)).EndInit();
             this.ResumeLayout(false);
 
