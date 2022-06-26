@@ -44,7 +44,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OrderDataGrid = new System.Windows.Forms.DataGridView();
-            this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.storeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,17 +53,12 @@
             this.TotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.details = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Print = new System.Windows.Forms.DataGridViewImageColumn();
             this.Action = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SearchBar = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.curdAction = new System.Windows.Forms.Panel();
             this.Header = new System.Windows.Forms.Panel();
-            this.closeBtn = new System.Windows.Forms.Button();
-            this.RefreshBtn = new System.Windows.Forms.Button();
             this.Title = new System.Windows.Forms.Label();
             this.Data = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -73,14 +67,20 @@
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.details = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Print = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.closeBtn = new System.Windows.Forms.Button();
+            this.RefreshBtn = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SearchBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // OrderDataGrid
@@ -158,14 +158,6 @@
             this.OrderDataGrid.StandardTab = true;
             this.OrderDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrderDataGrid_CellClick);
             this.OrderDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.OrderDataGrid_CellFormatting);
-            // 
-            // select
-            // 
-            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.select, "select");
-            this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
             // 
             // id
             // 
@@ -265,23 +257,6 @@
             this.status.Name = "status";
             this.status.ReadOnly = true;
             // 
-            // details
-            // 
-            this.details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.details, "details");
-            this.details.Image = global::TheBetterLimited.Properties.Resources.eye24;
-            this.details.Name = "details";
-            this.details.ReadOnly = true;
-            // 
-            // Print
-            // 
-            this.Print.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.Print.Description = "Print Receipt";
-            resources.ApplyResources(this.Print, "Print");
-            this.Print.Image = global::TheBetterLimited.Properties.Resources.print24;
-            this.Print.Name = "Print";
-            this.Print.ReadOnly = true;
-            // 
             // Action
             // 
             resources.ApplyResources(this.Action, "Action");
@@ -302,12 +277,6 @@
             this.SearchBar.Controls.Add(this.pictureBox1);
             this.SearchBar.Controls.Add(this.SearchBarTxt);
             this.SearchBar.Name = "SearchBar";
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
             // 
             // SearchBarTxt
             // 
@@ -345,22 +314,6 @@
             this.Header.Controls.Add(this.Title);
             this.Header.ForeColor = System.Drawing.Color.White;
             this.Header.Name = "Header";
-            // 
-            // closeBtn
-            // 
-            resources.ApplyResources(this.closeBtn, "closeBtn");
-            this.closeBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.UseVisualStyleBackColor = true;
-            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
-            // RefreshBtn
-            // 
-            resources.ApplyResources(this.RefreshBtn, "RefreshBtn");
-            this.RefreshBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
-            this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.UseVisualStyleBackColor = true;
-            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // Title
             // 
@@ -417,6 +370,53 @@
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
             this.dataGridViewImageColumn6.ReadOnly = true;
             // 
+            // select
+            // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.select, "select");
+            this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
+            // 
+            // details
+            // 
+            this.details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.details, "details");
+            this.details.Image = global::TheBetterLimited.Properties.Resources.eye24;
+            this.details.Name = "details";
+            this.details.ReadOnly = true;
+            // 
+            // Print
+            // 
+            this.Print.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.Print.Description = "Print Receipt";
+            resources.ApplyResources(this.Print, "Print");
+            this.Print.Image = global::TheBetterLimited.Properties.Resources.print24;
+            this.Print.Name = "Print";
+            this.Print.ReadOnly = true;
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
+            // closeBtn
+            // 
+            resources.ApplyResources(this.closeBtn, "closeBtn");
+            this.closeBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // RefreshBtn
+            // 
+            resources.ApplyResources(this.RefreshBtn, "RefreshBtn");
+            this.RefreshBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.UseVisualStyleBackColor = true;
+            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
+            // 
             // dataGridViewImageColumn7
             // 
             this.dataGridViewImageColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
@@ -440,10 +440,10 @@
             this.Action.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.SearchBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             this.Data.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

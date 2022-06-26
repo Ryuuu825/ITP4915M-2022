@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentMethod));
             this.PaymentMethodBox = new System.Windows.Forms.FlowLayoutPanel();
+            this.BottomBtn = new System.Windows.Forms.Panel();
+            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.paymentPicBox1 = new TheBetterLimited.CustomizeControl.PaymentPicBox();
             this.paymentPicBox2 = new TheBetterLimited.CustomizeControl.PaymentPicBox();
             this.paymentPicBox3 = new TheBetterLimited.CustomizeControl.PaymentPicBox();
             this.paymentPicBox4 = new TheBetterLimited.CustomizeControl.PaymentPicBox();
             this.paymentPicBox5 = new TheBetterLimited.CustomizeControl.PaymentPicBox();
             this.paymentPicBox6 = new TheBetterLimited.CustomizeControl.PaymentPicBox();
-            this.BottomBtn = new System.Windows.Forms.Panel();
-            this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.PaymentMethodBox.SuspendLayout();
             this.BottomBtn.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +53,48 @@
             this.PaymentMethodBox.Controls.Add(this.paymentPicBox5);
             this.PaymentMethodBox.Controls.Add(this.paymentPicBox6);
             this.PaymentMethodBox.Name = "PaymentMethodBox";
+            // 
+            // BottomBtn
+            // 
+            resources.ApplyResources(this.BottomBtn, "BottomBtn");
+            this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.BottomBtn.Controls.Add(this.CancelBtn);
+            this.BottomBtn.Controls.Add(this.SaveBtn);
+            this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BottomBtn.Name = "BottomBtn";
+            // 
+            // CancelBtn
+            // 
+            resources.ApplyResources(this.CancelBtn, "CancelBtn");
+            this.CancelBtn.BackColor = System.Drawing.Color.Silver;
+            this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
+            this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.CancelBtn.BorderRadius = 10;
+            this.CancelBtn.BorderSize = 0;
+            this.CancelBtn.FlatAppearance.BorderSize = 0;
+            this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
+            this.CancelBtn.ForeColor = System.Drawing.Color.White;
+            this.CancelBtn.IsChecked = false;
+            this.CancelBtn.Name = "CancelBtn";
+            this.CancelBtn.TextColor = System.Drawing.Color.White;
+            this.CancelBtn.UseVisualStyleBackColor = false;
+            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
+            // SaveBtn
+            // 
+            resources.ApplyResources(this.SaveBtn, "SaveBtn");
+            this.SaveBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.SaveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.SaveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.SaveBtn.BorderRadius = 10;
+            this.SaveBtn.BorderSize = 0;
+            this.SaveBtn.FlatAppearance.BorderSize = 0;
+            this.SaveBtn.ForeColor = System.Drawing.Color.White;
+            this.SaveBtn.IsChecked = false;
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.TextColor = System.Drawing.Color.White;
+            this.SaveBtn.UseVisualStyleBackColor = false;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // paymentPicBox1
             // 
@@ -137,48 +179,6 @@
             this.paymentPicBox6.Name = "paymentPicBox6";
             this.paymentPicBox6.Title = "Alipay";
             this.paymentPicBox6.PicInfoClicked += new System.EventHandler(this.paymentPicBox_Click);
-            // 
-            // BottomBtn
-            // 
-            resources.ApplyResources(this.BottomBtn, "BottomBtn");
-            this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.BottomBtn.Controls.Add(this.CancelBtn);
-            this.BottomBtn.Controls.Add(this.SaveBtn);
-            this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.BottomBtn.Name = "BottomBtn";
-            // 
-            // CancelBtn
-            // 
-            resources.ApplyResources(this.CancelBtn, "CancelBtn");
-            this.CancelBtn.BackColor = System.Drawing.Color.Silver;
-            this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
-            this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.CancelBtn.BorderRadius = 10;
-            this.CancelBtn.BorderSize = 0;
-            this.CancelBtn.FlatAppearance.BorderSize = 0;
-            this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
-            this.CancelBtn.ForeColor = System.Drawing.Color.White;
-            this.CancelBtn.IsChecked = false;
-            this.CancelBtn.Name = "CancelBtn";
-            this.CancelBtn.TextColor = System.Drawing.Color.White;
-            this.CancelBtn.UseVisualStyleBackColor = false;
-            this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
-            // 
-            // SaveBtn
-            // 
-            resources.ApplyResources(this.SaveBtn, "SaveBtn");
-            this.SaveBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.SaveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.SaveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.SaveBtn.BorderRadius = 10;
-            this.SaveBtn.BorderSize = 0;
-            this.SaveBtn.FlatAppearance.BorderSize = 0;
-            this.SaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveBtn.IsChecked = false;
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.TextColor = System.Drawing.Color.White;
-            this.SaveBtn.UseVisualStyleBackColor = false;
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // PaymentMethod
             // 

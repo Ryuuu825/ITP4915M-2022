@@ -125,6 +125,9 @@
     <value>#supplier address</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="line2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1040, 1</value>
+  </data>
   <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
   </data>
@@ -134,8 +137,9 @@
   <data name="&gt;&gt;CompanyTitle1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;supAddress.Name" xml:space="preserve">
-    <value>supAddress</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CustomerInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="CompanyIcon.Size" type="System.Drawing.Size, System.Drawing">
     <value>110, 116</value>
@@ -164,13 +168,12 @@
   <data name="label8.Text" xml:space="preserve">
     <value>電話 Tel:</value>
   </data>
-  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 78</value>
+  <data name="&gt;&gt;CompanyInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;CompanyInfo.Name" xml:space="preserve">
     <value>CompanyInfo</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="orderId.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -186,11 +189,11 @@
   <data name="&gt;&gt;dataGridViewImageColumn1.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;HeaderContainer.Name" xml:space="preserve">
-    <value>HeaderContainer</value>
-  </data>
   <data name="&gt;&gt;OrderItemDataGrid.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 17</value>
   </data>
   <data name="&gt;&gt;Footer.Name" xml:space="preserve">
     <value>Footer</value>
@@ -201,17 +204,11 @@
   <data name="&gt;&gt;StoreInfo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label20.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;printDocument2.Name" xml:space="preserve">
     <value>printDocument2</value>
   </data>
   <data name="supTel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
-  </data>
-  <data name="printPreviewDialog1.Enabled" type="System.Boolean, mscorlib">
-    <value>True</value>
   </data>
   <data name="&gt;&gt;supTel.Parent" xml:space="preserve">
     <value>StoreInfo</value>
@@ -231,14 +228,17 @@
   <data name="warehouseId.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
   </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>490, 8</value>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
   </data>
   <data name="&gt;&gt;CompanyIcon.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="warehouseId.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
+  </data>
+  <data name="tel.Text" xml:space="preserve">
+    <value>#phone no</value>
   </data>
   <data name="MainForm.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -249,8 +249,8 @@
   <data name="&gt;&gt;printDate.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 17</value>
+  <data name="label20.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="printDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
@@ -258,14 +258,17 @@
   <data name="&gt;&gt;label10.Name" xml:space="preserve">
     <value>label10</value>
   </data>
+  <data name="warehouseAddress.Size" type="System.Drawing.Size, System.Drawing">
+    <value>777, 24</value>
+  </data>
   <data name="label20.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;orderId.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;orderId.Name" xml:space="preserve">
     <value>orderId</value>
-  </data>
-  <data name="&gt;&gt;supAddress.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="line1.Size" type="System.Drawing.Size, System.Drawing">
     <value>1040, 1</value>
@@ -284,6 +287,9 @@
   </data>
   <data name="contact.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 17</value>
+  </data>
+  <data name="&gt;&gt;warehouseId.Name" xml:space="preserve">
+    <value>warehouseId</value>
   </data>
   <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
     <value>386, 50</value>
@@ -309,17 +315,17 @@
   <data name="&gt;&gt;label7.Name" xml:space="preserve">
     <value>label7</value>
   </data>
-  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
-    <value>StoreInfo</value>
-  </data>
   <data name="supAddress.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
   </data>
   <data name="CompanyTitle0.Text" xml:space="preserve">
     <value>Better</value>
   </data>
-  <data name="&gt;&gt;CompanyInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="line4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="&gt;&gt;supName.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="goodsID.ToolTipText" xml:space="preserve">
     <value>Goods ID</value>
@@ -330,11 +336,14 @@
   <data name="&gt;&gt;printPreviewDialog1.Type" xml:space="preserve">
     <value>System.Windows.Forms.PrintPreviewDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="supName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
   <data name="label20.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
   </data>
-  <data name="supTel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;HeaderContainer.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -342,11 +351,8 @@
   <data name="supTel.Location" type="System.Drawing.Point, System.Drawing">
     <value>457, 50</value>
   </data>
-  <data name="line2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="&gt;&gt;CustomerInfo.Parent" xml:space="preserve">
-    <value>MainForm</value>
+  <data name="&gt;&gt;supAddress.Name" xml:space="preserve">
+    <value>supAddress</value>
   </data>
   <data name="&gt;&gt;CompanyIcon.Name" xml:space="preserve">
     <value>CompanyIcon</value>
@@ -363,8 +369,8 @@
   <data name="line2.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
   </data>
-  <data name="&gt;&gt;orderId.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;goodsName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -384,17 +390,20 @@
   <data name="OrderItemDataGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
     <value>50</value>
   </data>
-  <data name="&gt;&gt;line4.Parent" xml:space="preserve">
-    <value>Footer</value>
+  <data name="goodsName.ToolTipText" xml:space="preserve">
+    <value>Goods Name</value>
+  </data>
+  <data name="supTel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="Footer.TabIndex" type="System.Int32, mscorlib">
     <value>58</value>
   </data>
-  <data name="&gt;&gt;StoreInfo.Parent" xml:space="preserve">
-    <value>MainForm</value>
-  </data>
   <data name="CompanyTitle1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;CustomerInfo.Name" xml:space="preserve">
+    <value>CustomerInfo</value>
   </data>
   <data name="&gt;&gt;barcode.Name" xml:space="preserve">
     <value>barcode</value>
@@ -405,14 +414,14 @@
   <data name="label18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;qty.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="printPreviewDialog1.AutoScrollMargin" type="System.Drawing.Size, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="HeaderContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="HeaderContainer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
   </data>
   <data name="qty.ToolTipText" xml:space="preserve">
     <value>Quantity</value>
@@ -420,8 +429,8 @@
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
     <value>763, 8</value>
   </data>
-  <data name="supTel.TabIndex" type="System.Int32, mscorlib">
-    <value>50</value>
+  <data name="HeaderContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="CustomerInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 240</value>
@@ -450,11 +459,8 @@
   <data name="supAddress.Size" type="System.Drawing.Size, System.Drawing">
     <value>783, 17</value>
   </data>
-  <data name="&gt;&gt;CompanyTitle1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="CompanyTitle1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15pt, style=Bold, Italic</value>
+  <data name="supTel.Text" xml:space="preserve">
+    <value>852-32115683</value>
   </data>
   <data name="supTel.Size" type="System.Drawing.Size, System.Drawing">
     <value>194, 17</value>
@@ -462,14 +468,8 @@
   <data name="qty.Width" type="System.Int32, mscorlib">
     <value>70</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 17</value>
-  </data>
-  <data name="&gt;&gt;OrderItemDataGrid.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
+  <data name="line4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 30</value>
@@ -486,11 +486,8 @@
   <data name="&gt;&gt;label12.Name" xml:space="preserve">
     <value>label12</value>
   </data>
-  <data name="CompanyInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="printDate.Text" xml:space="preserve">
-    <value>#print date</value>
+  <data name="&gt;&gt;orderId.Parent" xml:space="preserve">
+    <value>HeaderContainer</value>
   </data>
   <data name="dataGridViewImageColumn1.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
@@ -519,6 +516,9 @@
   <data name="label20.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="label12.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
   </data>
@@ -531,14 +531,17 @@
   <data name="label18.Text" xml:space="preserve">
     <value>Enjoy Your Work!</value>
   </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 78</value>
+  </data>
   <data name="&gt;&gt;CompanyTitle0.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="CompanyIcon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 3, 4, 3</value>
-  </data>
   <data name="supAddress.Location" type="System.Drawing.Point, System.Drawing">
     <value>232, 39</value>
+  </data>
+  <data name="StoreInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1040, 110</value>
   </data>
   <data name="&gt;&gt;printDate.Parent" xml:space="preserve">
     <value>StoreInfo</value>
@@ -558,9 +561,6 @@
   <data name="printDate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
-  <data name="contact.Text" xml:space="preserve">
-    <value>#contact</value>
-  </data>
   <data name="&gt;&gt;CustomerInfo.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -573,8 +573,8 @@
   <data name="line4.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
   </data>
-  <data name="StoreInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1040, 110</value>
+  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 8</value>
@@ -582,20 +582,20 @@
   <data name="&gt;&gt;supName.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="&gt;&gt;line2.Name" xml:space="preserve">
+    <value>line2</value>
+  </data>
   <data name="tel.Size" type="System.Drawing.Size, System.Drawing">
     <value>194, 17</value>
-  </data>
-  <data name="label7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
   </data>
   <data name="warehouseId.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
   </data>
   <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
-  </data>
-  <data name="HeaderContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 50</value>
@@ -624,11 +624,14 @@
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>110, 17</value>
   </data>
+  <data name="orderId.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
+  </data>
   <data name="&gt;&gt;StoreInfo.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>StoreInfo</value>
+  <data name="CompanyInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 0</value>
   </data>
   <data name="&gt;&gt;warehouseAddress.Parent" xml:space="preserve">
     <value>StoreInfo</value>
@@ -657,23 +660,20 @@
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 17</value>
   </data>
-  <data name="MainForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
   <data name="contact.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
   </data>
   <data name="label20.TabIndex" type="System.Int32, mscorlib">
     <value>49</value>
   </data>
-  <data name="label20.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="printPreviewDialog1.Enabled" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="contact.TabIndex" type="System.Int32, mscorlib">
     <value>45</value>
   </data>
-  <data name="&gt;&gt;tel.Name" xml:space="preserve">
-    <value>tel</value>
+  <data name="CompanyInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="&gt;&gt;label8.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -696,9 +696,6 @@
   <data name="&gt;&gt;line1.Name" xml:space="preserve">
     <value>line1</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
@@ -714,8 +711,8 @@
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
   </data>
-  <data name="printPreviewDialog1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>PONote</value>
@@ -726,17 +723,14 @@
   <data name="&gt;&gt;CompanyInfo.Parent" xml:space="preserve">
     <value>HeaderContainer</value>
   </data>
-  <data name="&gt;&gt;barcode.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="&gt;&gt;HeaderContainer.Parent" xml:space="preserve">
     <value>MainForm</value>
   </data>
-  <data name="line4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="line2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
   <data name="&gt;&gt;MainForm.Parent" xml:space="preserve">
     <value>$this</value>
@@ -747,23 +741,23 @@
   <data name="label10.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
   </data>
-  <data name="CompanyInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 0</value>
-  </data>
   <data name="warehouseAddress.Location" type="System.Drawing.Point, System.Drawing">
     <value>225, 74</value>
   </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>列印日期 Print Date:</value>
-  </data>
   <data name="goodsID.Width" type="System.Int32, mscorlib">
     <value>107</value>
+  </data>
+  <data name="CompanyTitle0.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;line2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="&gt;&gt;CustomerInfo.Parent" xml:space="preserve">
+    <value>MainForm</value>
   </data>
   <data name="&gt;&gt;CompanyTitle0.Parent" xml:space="preserve">
     <value>CompanyInfo</value>
@@ -773,12 +767,6 @@
   </data>
   <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
-  </data>
-  <data name="&gt;&gt;goodsName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="warehouseId.Text" xml:space="preserve">
-    <value>#warehoseId</value>
   </data>
   <data name="label10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -792,17 +780,17 @@
   <data name="line4.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;goodsID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label6.Text" xml:space="preserve">
+    <value>供應商名稱 Supplier Name:</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>1040, 1</value>
   </data>
-  <data name="Footer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="&gt;&gt;label10.Parent" xml:space="preserve">
+    <value>StoreInfo</value>
   </data>
-  <data name="&gt;&gt;line1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Receipt</value>
   </data>
   <data name="supAddress.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -812,9 +800,6 @@
   </data>
   <data name="OrderItemDataGrid.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
-  </data>
-  <data name="goodsName.HeaderText" xml:space="preserve">
-    <value>貨品 Product</value>
   </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 21.75pt, style=Bold</value>
@@ -849,8 +834,11 @@
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;warehouseId.Name" xml:space="preserve">
-    <value>warehouseId</value>
+  <data name="CustomerInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="CompanyTitle0.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 15pt, style=Bold, Italic</value>
@@ -858,8 +846,8 @@
   <data name="&gt;&gt;line4.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="warehouseAddress.Size" type="System.Drawing.Size, System.Drawing">
-    <value>777, 24</value>
+  <data name="&gt;&gt;barcode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="CompanyTitle1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -867,14 +855,17 @@
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="barcode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>736, 11</value>
+  </data>
   <data name="&gt;&gt;panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;supName.Parent" xml:space="preserve">
     <value>CustomerInfo</value>
   </data>
-  <data name="barcode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>736, 11</value>
+  <data name="&gt;&gt;line1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MainForm.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -903,11 +894,8 @@
   <data name="line1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="&gt;&gt;supName.Name" xml:space="preserve">
-    <value>supName</value>
-  </data>
-  <data name="&gt;&gt;HeaderContainer.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;supAddress.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="CompanyTitle0.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 28</value>
@@ -1106,9 +1094,6 @@
   <data name="printDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>208, 17</value>
   </data>
-  <data name="&gt;&gt;warehouseId.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
   </data>
@@ -1121,11 +1106,17 @@
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="tel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>StoreInfo</value>
   </data>
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>StoreInfo</value>
+  </data>
+  <data name="warehouseAddress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="supTel.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
   </data>
   <data name="goodsID.HeaderText" xml:space="preserve">
     <value>識別編號 ID No.</value>
@@ -1136,7 +1127,7 @@
   <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 17</value>
   </data>
-  <data name="CustomerInfo.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;OrderItemDataGrid.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -1159,6 +1150,9 @@
   </data>
   <data name="warehouseId.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="line2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
   <data name="&gt;&gt;warehouseId.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -1187,8 +1181,8 @@
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft YaHei, 9pt</value>
   </data>
-  <data name="&gt;&gt;printDate.Name" xml:space="preserve">
-    <value>printDate</value>
+  <data name="&gt;&gt;StoreInfo.Parent" xml:space="preserve">
+    <value>MainForm</value>
   </data>
   <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -1196,11 +1190,11 @@
   <data name="HeaderContainer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>18, 0, 0, 0</value>
   </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
   <data name="tel.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
-  </data>
-  <data name="&gt;&gt;CompanyInfo.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="Footer.Size" type="System.Drawing.Size, System.Drawing">
     <value>1040, 49</value>
@@ -1214,8 +1208,8 @@
   <data name="line4.Size" type="System.Drawing.Size, System.Drawing">
     <value>1040, 1</value>
   </data>
-  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="&gt;&gt;label20.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="CompanyIcon.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1229,11 +1223,14 @@
   <data name="Footer.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 867</value>
   </data>
-  <data name="&gt;&gt;supTel.Name" xml:space="preserve">
-    <value>supTel</value>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;line2.Name" xml:space="preserve">
-    <value>line2</value>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>490, 8</value>
+  </data>
+  <data name="&gt;&gt;HeaderContainer.Name" xml:space="preserve">
+    <value>HeaderContainer</value>
   </data>
   <data name="barcode.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1244,8 +1241,8 @@
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="CompanyTitle0.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="HeaderContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="&gt;&gt;CustomerInfo.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1253,14 +1250,11 @@
   <data name="barcode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="HeaderContainer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+  <data name="label10.Text" xml:space="preserve">
+    <value>列印日期 Print Date:</value>
   </data>
-  <data name="line2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>供應商地址 Supplier Address:</value>
@@ -1268,23 +1262,23 @@
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;orderId.Parent" xml:space="preserve">
-    <value>HeaderContainer</value>
+  <data name="contact.Text" xml:space="preserve">
+    <value>#contact</value>
   </data>
-  <data name="&gt;&gt;supAddress.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="MainForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
-  <data name="&gt;&gt;supName.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;supName.Name" xml:space="preserve">
+    <value>supName</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 17</value>
+  <data name="printPreviewDialog1.AutoScrollMinSize" type="System.Drawing.Size, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
-  <data name="supName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="printDate.Text" xml:space="preserve">
+    <value>#print date</value>
   </data>
   <data name="&gt;&gt;barcode.Parent" xml:space="preserve">
     <value>HeaderContainer</value>
@@ -1292,11 +1286,11 @@
   <data name="&gt;&gt;contact.Name" xml:space="preserve">
     <value>contact</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>供應商名稱 Supplier Name:</value>
+  <data name="warehouseId.Text" xml:space="preserve">
+    <value>#warehoseId</value>
   </data>
-  <data name="line4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 17</value>
   </data>
   <data name="supName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
@@ -1304,14 +1298,14 @@
   <data name="&gt;&gt;Footer.Parent" xml:space="preserve">
     <value>MainForm</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="&gt;&gt;printDate.Name" xml:space="preserve">
+    <value>printDate</value>
   </data>
   <data name="&gt;&gt;line4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="goodsName.ToolTipText" xml:space="preserve">
-    <value>Goods Name</value>
+  <data name="printPreviewDialog1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -1325,29 +1319,29 @@
   <data name="&gt;&gt;CompanyTitle0.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="line2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1040, 1</value>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="CompanyIcon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
+  <data name="&gt;&gt;qty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>StoreInfo</value>
   </data>
-  <data name="CustomerInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
-  <data name="warehouseAddress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="CompanyTitle1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15pt, style=Bold, Italic</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 17</value>
+  <data name="barcode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>289, 95</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -1370,26 +1364,26 @@
   <data name="printDate.Location" type="System.Drawing.Point, System.Drawing">
     <value>814, 3</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="&gt;&gt;goodsID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CompanyInfo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 17</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
   </data>
-  <data name="orderId.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
+  <data name="&gt;&gt;line4.Parent" xml:space="preserve">
+    <value>Footer</value>
   </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;warehouseId.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;CustomerInfo.Name" xml:space="preserve">
-    <value>CustomerInfo</value>
-  </data>
-  <data name="supTel.Text" xml:space="preserve">
-    <value>852-32115683</value>
-  </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 17</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -1400,13 +1394,10 @@
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 108</value>
   </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
+  </data>
   <data name="MainForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="printPreviewDialog1.AutoScrollMinSize" type="System.Drawing.Size, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="OrderItemDataGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
@@ -1415,8 +1406,8 @@
   <data name="&gt;&gt;MainForm.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="OrderItemDataGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;line2.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1433,8 +1424,8 @@
   <data name="StoreInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 130</value>
   </data>
-  <data name="tel.Text" xml:space="preserve">
-    <value>#phone no</value>
+  <data name="CompanyIcon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 3, 4, 3</value>
   </data>
   <data name="orderId.Text" xml:space="preserve">
     <value>#order Id</value>
@@ -1445,8 +1436,8 @@
   <data name="&gt;&gt;Footer.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="barcode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>289, 95</value>
+  <data name="&gt;&gt;CompanyTitle1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1466,8 +1457,11 @@
   <data name="&gt;&gt;warehouseAddress.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Receipt</value>
+  <data name="&gt;&gt;supAddress.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Footer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
   <data name="CompanyTitle0.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1484,14 +1478,20 @@
   <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 9.75pt, style=Bold</value>
+  <data name="goodsName.HeaderText" xml:space="preserve">
+    <value>貨品 Product</value>
   </data>
   <data name="&gt;&gt;MainForm.Name" xml:space="preserve">
     <value>MainForm</value>
   </data>
+  <data name="&gt;&gt;supTel.Name" xml:space="preserve">
+    <value>supTel</value>
+  </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tel.Name" xml:space="preserve">
+    <value>tel</value>
   </data>
   <data name="CompanyInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>234, 130</value>
@@ -1513,9 +1513,6 @@
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>zh</value>
   </metadata>
   <metadata name="qty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

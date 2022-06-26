@@ -46,8 +46,6 @@
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isDisplay = new System.Windows.Forms.DataGridViewImageColumn();
-            this.isInstall = new System.Windows.Forms.DataGridViewImageColumn();
             this.CustomerInfo = new System.Windows.Forms.Panel();
             this.line2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
@@ -95,15 +93,17 @@
             this.printDate = new System.Windows.Forms.Label();
             this.HeaderContainer = new System.Windows.Forms.Panel();
             this.orderId = new System.Windows.Forms.Label();
-            this.barcode = new System.Windows.Forms.PictureBox();
             this.CompanyInfo = new System.Windows.Forms.Panel();
             this.CompanyTitle1 = new System.Windows.Forms.Label();
             this.CompanyTitle0 = new System.Windows.Forms.Label();
-            this.CompanyIcon = new System.Windows.Forms.PictureBox();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.isDisplay = new System.Windows.Forms.DataGridViewImageColumn();
+            this.isInstall = new System.Windows.Forms.DataGridViewImageColumn();
+            this.barcode = new System.Windows.Forms.PictureBox();
+            this.CompanyIcon = new System.Windows.Forms.PictureBox();
             this.MainForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemDataGrid)).BeginInit();
             this.CustomerInfo.SuspendLayout();
@@ -111,8 +111,8 @@
             this.Footer.SuspendLayout();
             this.StoreInfo.SuspendLayout();
             this.HeaderContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.barcode)).BeginInit();
             this.CompanyInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barcode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -254,25 +254,6 @@
             resources.ApplyResources(this.amount, "amount");
             this.amount.Name = "amount";
             this.amount.ReadOnly = true;
-            // 
-            // isDisplay
-            // 
-            this.isDisplay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            resources.ApplyResources(this.isDisplay, "isDisplay");
-            this.isDisplay.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.isDisplay.Name = "isDisplay";
-            this.isDisplay.ReadOnly = true;
-            // 
-            // isInstall
-            // 
-            this.isInstall.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.isInstall.DataPropertyName = "isInstall";
-            resources.ApplyResources(this.isInstall, "isInstall");
-            this.isInstall.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.isInstall.Name = "isInstall";
-            this.isInstall.ReadOnly = true;
-            this.isInstall.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.isInstall.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // CustomerInfo
             // 
@@ -589,12 +570,6 @@
             this.orderId.Name = "orderId";
             this.orderId.UseMnemonic = false;
             // 
-            // barcode
-            // 
-            resources.ApplyResources(this.barcode, "barcode");
-            this.barcode.Name = "barcode";
-            this.barcode.TabStop = false;
-            // 
             // CompanyInfo
             // 
             resources.ApplyResources(this.CompanyInfo, "CompanyInfo");
@@ -613,13 +588,6 @@
             resources.ApplyResources(this.CompanyTitle0, "CompanyTitle0");
             this.CompanyTitle0.ForeColor = System.Drawing.Color.SeaGreen;
             this.CompanyTitle0.Name = "CompanyTitle0";
-            // 
-            // CompanyIcon
-            // 
-            resources.ApplyResources(this.CompanyIcon, "CompanyIcon");
-            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
-            this.CompanyIcon.Name = "CompanyIcon";
-            this.CompanyIcon.TabStop = false;
             // 
             // printDocument2
             // 
@@ -650,6 +618,38 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // isDisplay
+            // 
+            this.isDisplay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            resources.ApplyResources(this.isDisplay, "isDisplay");
+            this.isDisplay.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.isDisplay.Name = "isDisplay";
+            this.isDisplay.ReadOnly = true;
+            // 
+            // isInstall
+            // 
+            this.isInstall.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.isInstall.DataPropertyName = "isInstall";
+            resources.ApplyResources(this.isInstall, "isInstall");
+            this.isInstall.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.isInstall.Name = "isInstall";
+            this.isInstall.ReadOnly = true;
+            this.isInstall.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.isInstall.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // barcode
+            // 
+            resources.ApplyResources(this.barcode, "barcode");
+            this.barcode.Name = "barcode";
+            this.barcode.TabStop = false;
+            // 
+            // CompanyIcon
+            // 
+            resources.ApplyResources(this.CompanyIcon, "CompanyIcon");
+            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
+            this.CompanyIcon.Name = "CompanyIcon";
+            this.CompanyIcon.TabStop = false;
+            // 
             // Receipt
             // 
             resources.ApplyResources(this, "$this");
@@ -671,9 +671,9 @@
             this.StoreInfo.ResumeLayout(false);
             this.StoreInfo.PerformLayout();
             this.HeaderContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             this.CompanyInfo.ResumeLayout(false);
             this.CompanyInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).EndInit();
             this.ResumeLayout(false);
 

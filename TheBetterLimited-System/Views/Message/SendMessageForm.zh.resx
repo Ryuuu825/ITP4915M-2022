@@ -149,9 +149,6 @@
   <data name="label3.Text" xml:space="preserve">
     <value>收信人列表</value>
   </data>
-  <data name="plusBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -211,6 +208,9 @@
   </data>
   <data name="GoodsInfoHeader.Text" xml:space="preserve">
     <value>新增信息</value>
+  </data>
+  <data name="plusBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>

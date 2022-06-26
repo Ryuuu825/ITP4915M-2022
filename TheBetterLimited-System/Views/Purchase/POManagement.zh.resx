@@ -173,7 +173,7 @@
     <value>付款金额</value>
   </data>
   <data name="Paid.Width" type="System.Int32, mscorlib">
-    <value>65</value>
+    <value>58</value>
   </data>
   <data name="status.HeaderText" xml:space="preserve">
     <value>状态</value>

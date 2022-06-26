@@ -126,9 +126,6 @@
   <data name="stockBtn.Text" xml:space="preserve">
     <value>库存管理</value>
   </data>
-  <data name="MessageBtn.Text" xml:space="preserve">
-    <value>                 消息通知</value>
-  </data>
   <data name="GoodsBtn.Text" xml:space="preserve">
     <value>商品管理</value>
   </data>
@@ -3469,6 +3466,9 @@
   <data name="ProfileBtn.Text" xml:space="preserve">
     <value>                 个人中心</value>
   </data>
+  <data name="MessageBtn.Text" xml:space="preserve">
+    <value>                 消息通知</value>
+  </data>
   <data name="LangBtn.Text" xml:space="preserve">
     <value>                 系统语言</value>
   </data>
@@ -6771,5 +6771,9 @@
         AAAAAAAAP//////////////////////AAAAAAAAAAAAAAAAAAAP//////////////////////+AAAAAA
         AAAAAAAAAAAAD/////8=
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
 </root>

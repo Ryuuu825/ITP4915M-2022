@@ -153,6 +153,9 @@
   <data name="txtSupAddress.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 7, 10, 7</value>
   </data>
+  <data name="&gt;&gt;txtCusPhone.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="&gt;&gt;lblGoodsName.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
@@ -183,8 +186,8 @@
   <data name="&gt;&gt;UserInfo.Name" xml:space="preserve">
     <value>UserInfo</value>
   </data>
-  <data name="txtGoodsId.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 17</value>
+  <data name="&gt;&gt;lblCusName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblSupAddress.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
@@ -197,12 +200,6 @@
   </data>
   <data name="&gt;&gt;txtCollectAddress.Parent" xml:space="preserve">
     <value>panel3</value>
-  </data>
-  <data name="txtStore.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
-  </data>
-  <data name="txtDesc.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
   </data>
   <data name="btnBack.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
@@ -237,8 +234,8 @@
   <data name="lblGoodsName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 7</value>
+  <data name="&gt;&gt;txtCollectAddress.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="&gt;&gt;UserInfo.Parent" xml:space="preserve">
     <value>MainForm</value>
@@ -246,14 +243,17 @@
   <data name="&gt;&gt;txtDesc.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="lblSupAddress.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="txtStore.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 38</value>
+  <data name="GoodsInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 7</value>
   </data>
   <data name="MainForm.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
+  </data>
+  <data name="lblCusPhone.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="returnBtn.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -264,8 +264,11 @@
   <data name="&gt;&gt;lblSuppler.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="lblGoodsId.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
+  <data name="&gt;&gt;txtQty.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="BottomBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="lblDesc.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 385</value>
@@ -297,17 +300,14 @@
   <data name="txtCollectAddress.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 7, 10, 7</value>
   </data>
+  <data name="&gt;&gt;lblGoodsName.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="lblSuppler.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
   </data>
-  <data name="txtCollectAddress.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
   <data name="&gt;&gt;txtCollectAddress.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSuppler.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -321,8 +321,8 @@
   <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
-  <data name="BottomBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 0</value>
+  <data name="&gt;&gt;lblDesc.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtCollectAddress.Location" type="System.Drawing.Point, System.Drawing">
     <value>167, 221</value>
@@ -336,29 +336,29 @@
   <data name="&gt;&gt;label8.Parent" xml:space="preserve">
     <value>panel4</value>
   </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 0</value>
   </data>
   <data name="&gt;&gt;txtSupTel.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;txtCusPhone.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="&gt;&gt;txtGoodsId.Name" xml:space="preserve">
+    <value>txtGoodsId</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="lblCusAddress.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 289</value>
   </data>
   <data name="txtStatus.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 6, 4, 6</value>
   </data>
   <data name="&gt;&gt;GoodsInfoHeader.Parent" xml:space="preserve">
     <value>UserInfoHeaderContainer</value>
-  </data>
-  <data name="lblCusPhone.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -377,9 +377,6 @@
   </data>
   <data name="&gt;&gt;lblSuppler.Name" xml:space="preserve">
     <value>lblSuppler</value>
-  </data>
-  <data name="GoodsInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 7</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>871, 590</value>
@@ -402,9 +399,6 @@
   <data name="&gt;&gt;panel5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;txtCollectAddress.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
   <data name="returnBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
@@ -417,14 +411,8 @@
   <data name="GoodsInfoHeader.Text" xml:space="preserve">
     <value>Defect Item Information</value>
   </data>
-  <data name="&gt;&gt;UserInfoHeaderContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;collectBtn.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="BottomBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
   </data>
   <data name="&gt;&gt;panel4.Name" xml:space="preserve">
     <value>panel4</value>
@@ -450,17 +438,14 @@
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>29, 216</value>
   </data>
-  <data name="&gt;&gt;GoodsInfoHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblGoodsName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblGoodsName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="lblDesc.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="lblGoodsId.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 21</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -468,8 +453,11 @@
   <data name="&gt;&gt;txtSupTel.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
-    <value>panel2</value>
+  <data name="txtSup.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="txtStore.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 38</value>
   </data>
   <data name="&gt;&gt;txtQty.Name" xml:space="preserve">
     <value>txtQty</value>
@@ -489,8 +477,8 @@
   <data name="lblSuppler.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
-  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblCusAddress.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 289</value>
   </data>
   <data name="txtCusName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 6, 4, 6</value>
@@ -534,8 +522,8 @@
   <data name="&gt;&gt;BottomBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtSup.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
+  <data name="&gt;&gt;txtCusName.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="&gt;&gt;txtCusPhone.Name" xml:space="preserve">
     <value>txtCusPhone</value>
@@ -545,6 +533,9 @@
   </data>
   <data name="txtSupTel.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 38</value>
+  </data>
+  <data name="&gt;&gt;lblCusPhone.Parent" xml:space="preserve">
+    <value>panel3</value>
   </data>
   <data name="lblCusAddress.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -557,9 +548,6 @@
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
-  </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>MainForm</value>
   </data>
   <data name="lblCusPhone.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 128</value>
@@ -576,14 +564,17 @@
   <data name="&gt;&gt;returnBtn.Parent" xml:space="preserve">
     <value>BottomBtn</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>60, 179</value>
+  <data name="txtCollectAddress.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12.10084pt</value>
   </data>
   <data name="&gt;&gt;lblGoodsName.Name" xml:space="preserve">
     <value>lblGoodsName</value>
   </data>
   <data name="lblSuppler.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
+  </data>
+  <data name="&gt;&gt;lblSuppler.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -594,8 +585,8 @@
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 516</value>
   </data>
-  <data name="&gt;&gt;lblSuppler.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="txtSupAddress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
   </data>
   <data name="btnBack.Text" xml:space="preserve">
     <value>Back</value>
@@ -621,6 +612,9 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 21</value>
   </data>
+  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>46, 21</value>
   </data>
@@ -629,6 +623,9 @@
   </data>
   <data name="&gt;&gt;txtSupAddress.Parent" xml:space="preserve">
     <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;returnBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="GoodsInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 14.25pt, style=Bold</value>
@@ -642,6 +639,9 @@
   <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 179</value>
+  </data>
   <data name="lblSupAddress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
@@ -651,21 +651,17 @@
   <data name="&gt;&gt;txtStatus.Parent" xml:space="preserve">
     <value>panel3</value>
   </data>
-  <data name="lblDesc.Text" xml:space="preserve">
-    <value>Defect
-Description</value>
-  </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 21</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>48, 400</value>
   </data>
-  <data name="UserInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
   <data name="collectBtn.Text" xml:space="preserve">
     <value>Collected</value>
+  </data>
+  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtCusPhone.Size" type="System.Drawing.Size, System.Drawing">
     <value>203, 38</value>
@@ -675,9 +671,6 @@ Description</value>
   </data>
   <data name="&gt;&gt;panel3.Name" xml:space="preserve">
     <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
   </data>
   <data name="lblGoodsName.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -703,9 +696,6 @@ Description</value>
   <data name="txtDesc.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 6, 4, 6</value>
   </data>
-  <data name="UserInfoHeaderContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>446, 40</value>
-  </data>
   <data name="&gt;&gt;MainForm.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
@@ -714,9 +704,6 @@ Description</value>
   </data>
   <data name="&gt;&gt;lblGoodsId.Parent" xml:space="preserve">
     <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>panel3</value>
   </data>
   <data name="&gt;&gt;txtGoodsName.Name" xml:space="preserve">
     <value>txtGoodsName</value>
@@ -727,8 +714,8 @@ Description</value>
   <data name="txtGoodsName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12.10084pt</value>
   </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="lblCusPhone.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="lblCusName.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -738,6 +725,9 @@ Description</value>
   </data>
   <data name="txtDesc.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12.10084pt</value>
+  </data>
+  <data name="txtCusName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 38</value>
   </data>
   <data name="label8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -781,6 +771,9 @@ Description</value>
   <data name="txtDesc.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 91</value>
   </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
@@ -789,6 +782,9 @@ Description</value>
   </data>
   <data name="&gt;&gt;txtSupAddress.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="BottomBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 0</value>
   </data>
   <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -808,9 +804,6 @@ Description</value>
   <data name="txtStatus.Size" type="System.Drawing.Size, System.Drawing">
     <value>203, 36</value>
   </data>
-  <data name="txtCollectAddress.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12.10084pt</value>
-  </data>
   <data name="MainForm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>
   </data>
@@ -820,8 +813,8 @@ Description</value>
   <data name="&gt;&gt;lblCusName.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="lblGoodsName.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -838,14 +831,11 @@ Description</value>
   <data name="txtSup.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12.10084pt</value>
   </data>
-  <data name="lblSuppler.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 166</value>
+  <data name="UserInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
   </data>
   <data name="lblGoodsId.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 21</value>
-  </data>
-  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;MainForm.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -856,9 +846,6 @@ Description</value>
   <data name="&gt;&gt;txtSup.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 40</value>
   </data>
@@ -868,20 +855,11 @@ Description</value>
   <data name="txtGoodsId.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>38</value>
-  </data>
   <data name="txtQty.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 6, 4, 6</value>
   </data>
   <data name="&gt;&gt;btnBack.Name" xml:space="preserve">
     <value>btnBack</value>
-  </data>
-  <data name="&gt;&gt;lblSupAddress.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;txtCusName.ZOrder" xml:space="preserve">
-    <value>9</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Quantity</value>
@@ -946,11 +924,14 @@ Description</value>
   <data name="txtCusName.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 7, 10, 7</value>
   </data>
+  <data name="lblCusAddress.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
+  </data>
   <data name="panel4.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
-  </data>
-  <data name="&gt;&gt;lblDesc.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblSupAddress.Name" xml:space="preserve">
     <value>lblSupAddress</value>
@@ -961,11 +942,17 @@ Description</value>
   <data name="&gt;&gt;lblCusAddress.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="&gt;&gt;txtGoodsName.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="MainForm.Size" type="System.Drawing.Size, System.Drawing">
     <value>871, 590</value>
   </data>
   <data name="UserInfoHeaderContainer.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
+  </data>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>panel2</value>
   </data>
   <data name="&gt;&gt;txtStore.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -988,8 +975,8 @@ Description</value>
   <data name="txtCollectAddress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 6, 4, 6</value>
   </data>
-  <data name="txtGoodsId.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 7</value>
   </data>
   <data name="lblDesc.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -1000,8 +987,11 @@ Description</value>
   <data name="btnBack.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="lblCusPhone.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="lblSuppler.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 166</value>
+  </data>
+  <data name="lblCusPhone.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Supplier Tel</value>
@@ -1015,8 +1005,11 @@ Description</value>
   <data name="&gt;&gt;lblGoodsName.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblCusPhone.Parent" xml:space="preserve">
-    <value>panel3</value>
+  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblGoodsId.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
   </data>
   <data name="txtStore.Location" type="System.Drawing.Point, System.Drawing">
     <value>167, 170</value>
@@ -1029,9 +1022,6 @@ Description</value>
   </data>
   <data name="&gt;&gt;txtCusPhone.ZOrder" xml:space="preserve">
     <value>8</value>
-  </data>
-  <data name="txtSupAddress.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
   </data>
   <data name="txtCusPhone.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 7, 10, 7</value>
@@ -1048,6 +1038,9 @@ Description</value>
   <data name="&gt;&gt;GoodsInfoHeader.Name" xml:space="preserve">
     <value>GoodsInfoHeader</value>
   </data>
+  <data name="&gt;&gt;txtCusName.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="lblGoodsId.Location" type="System.Drawing.Point, System.Drawing">
     <value>37, 26</value>
   </data>
@@ -1057,7 +1050,7 @@ Description</value>
   <data name="txtQty.TabIndex" type="System.Int32, mscorlib">
     <value>36</value>
   </data>
-  <data name="label8.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblGoodsId.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="txtGoodsName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
@@ -1081,14 +1074,14 @@ Description</value>
   <data name="txtSupTel.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12.10084pt</value>
   </data>
-  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
     <value>panel2</value>
   </data>
-  <data name="&gt;&gt;txtQty.Parent" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="lblCusPhone.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
+  <data name="txtGoodsId.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -1096,8 +1089,8 @@ Description</value>
   <data name="lblCusName.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 21</value>
   </data>
-  <data name="txtSupTel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 207</value>
+  <data name="txtCollectAddress.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
   </data>
   <data name="BottomBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
@@ -1105,8 +1098,8 @@ Description</value>
   <data name="txtGoodsId.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 38</value>
   </data>
-  <data name="&gt;&gt;txtCusName.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 21</value>
   </data>
   <data name="&gt;&gt;UserInfoHeaderContainer.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1132,17 +1125,17 @@ Description</value>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblSuppler.Text" xml:space="preserve">
-    <value>Supplier</value>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
   </data>
-  <data name="&gt;&gt;returnBtn.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>panel3</value>
   </data>
   <data name="lblGoodsId.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
-  <data name="lblCusAddress.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
+  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1153,11 +1146,14 @@ Description</value>
   <data name="&gt;&gt;txtQty.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="txtGoodsId.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 17</value>
   </data>
-  <data name="&gt;&gt;txtGoodsId.Name" xml:space="preserve">
-    <value>txtGoodsId</value>
+  <data name="UserInfoHeaderContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>446, 40</value>
+  </data>
+  <data name="returnBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>147, 6</value>
   </data>
   <data name="lblCusName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -1171,11 +1167,11 @@ Description</value>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;lblCusName.Type" xml:space="preserve">
+  <data name="&gt;&gt;GoodsInfoHeader.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSupAddress.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="lblSupAddress.Text" xml:space="preserve">
     <value>Supplier
@@ -1196,11 +1192,12 @@ Address</value>
   <data name="&gt;&gt;txtSup.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="txtCusName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 38</value>
+  <data name="lblDesc.Text" xml:space="preserve">
+    <value>Defect
+Description</value>
   </data>
-  <data name="returnBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 6</value>
+  <data name="txtDesc.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
   </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -1211,8 +1208,8 @@ Address</value>
   <data name="&gt;&gt;MainForm.Name" xml:space="preserve">
     <value>MainForm</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>35</value>
+  <data name="txtStore.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
   </data>
   <data name="txtStore.TabIndex" type="System.Int32, mscorlib">
     <value>34</value>
@@ -1223,8 +1220,8 @@ Address</value>
   <data name="BottomBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>851, 54</value>
   </data>
-  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="lblSupAddress.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
@@ -1238,8 +1235,8 @@ Address</value>
   <data name="&gt;&gt;MainForm.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;txtGoodsName.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="lblSuppler.Text" xml:space="preserve">
+    <value>Supplier</value>
   </data>
   <data name="&gt;&gt;lblGoodsId.Name" xml:space="preserve">
     <value>lblGoodsId</value>
@@ -1250,8 +1247,11 @@ Address</value>
   <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
     <value>395, 40</value>
   </data>
-  <data name="lblGoodsName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="txtSupTel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>144, 207</value>
+  </data>
+  <data name="&gt;&gt;UserInfoHeaderContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblCusPhone.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1307,8 +1307,8 @@ Address</value>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblGoodsName.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>MainForm</value>
   </data>
   <data name="&gt;&gt;collectBtn.Parent" xml:space="preserve">
     <value>BottomBtn</value>
@@ -1327,8 +1327,5 @@ Address</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>zh</value>
   </metadata>
 </root>

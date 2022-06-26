@@ -130,20 +130,17 @@
   <data name="&gt;&gt;print.Name" xml:space="preserve">
     <value>print</value>
   </data>
+  <data name="arrange.ToolTipText" xml:space="preserve">
+    <value>Arrange Appointment</value>
+  </data>
   <data name="arrange.HeaderText" xml:space="preserve">
     <value />
   </data>
   <data name="print.ToolTipText" xml:space="preserve">
     <value>Print Note</value>
   </data>
-  <data name="&gt;&gt;details.Name" xml:space="preserve">
-    <value>details</value>
-  </data>
   <data name="time.HeaderText" xml:space="preserve">
     <value>Time</value>
-  </data>
-  <data name="&gt;&gt;Action.Name" xml:space="preserve">
-    <value>Action</value>
   </data>
   <data name="&gt;&gt;Action.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -158,8 +155,377 @@
   <data name="dataGridViewImageColumn4.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
+  <data name="status.HeaderText" xml:space="preserve">
+    <value>Status</value>
+  </data>
   <data name="SearchBarTxt.Size" type="System.Drawing.Size, System.Drawing">
     <value>220, 38</value>
+  </data>
+  <data name="&gt;&gt;details.Name" xml:space="preserve">
+    <value>details</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="closeBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="SearchBar.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;Title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DeliveryDatePicker.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Action.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="MultiArrangeBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 38</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>19, 20</value>
+  </data>
+  <data name="&gt;&gt;closeBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="orderId.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="select.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Action.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Address.ToolTipText" xml:space="preserve">
+    <value>Customer Address</value>
+  </data>
+  <data name="dataGridViewImageColumn5.ToolTipText" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="id.HeaderText" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="dataGridViewImageColumn5.HeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;AppointmentDataGrid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AppointmentDataGrid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 2</value>
+  </data>
+  <data name="dataGridViewImageColumn1.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;closeBtn.Name" xml:space="preserve">
+    <value>closeBtn</value>
+  </data>
+  <data name="AppointmentDataGrid.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="id.Width" type="System.Int32, mscorlib">
+    <value>39</value>
+  </data>
+  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 7</value>
+  </data>
+  <data name="Header.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 10</value>
+  </data>
+  <data name="&gt;&gt;time.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="closeBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;orderId.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dataGridViewImageColumn3.Width" type="System.Int32, mscorlib">
+    <value>124</value>
+  </data>
+  <data name="print.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
+  </data>
+  <data name="Data.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Appointment</value>
+  </data>
+  <data name="dataGridViewImageColumn2.Width" type="System.Int32, mscorlib">
+    <value>124</value>
+  </data>
+  <data name="time.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DeliveryDatePicker.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 6</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn5.Name" xml:space="preserve">
+    <value>dataGridViewImageColumn5</value>
+  </data>
+  <data name="Action.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="teamId.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Title.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;SearchBarTxt.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dataGridViewImageColumn1.Width" type="System.Int32, mscorlib">
+    <value>124</value>
+  </data>
+  <data name="Data.Size" type="System.Drawing.Size, System.Drawing">
+    <value>758, 365</value>
+  </data>
+  <data name="SearchBar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="&gt;&gt;SearchBarTxt.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 10</value>
+  </data>
+  <data name="&gt;&gt;orderId.Name" xml:space="preserve">
+    <value>orderId</value>
+  </data>
+  <data name="&gt;&gt;closeBtn.Parent" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="&gt;&gt;Title.Parent" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 25</value>
+  </data>
+  <data name="dataGridViewImageColumn4.HeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SearchBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;print.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;status.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="teamId.ToolTipText" xml:space="preserve">
+    <value>Workman Team</value>
+  </data>
+  <data name="&gt;&gt;arrange.Name" xml:space="preserve">
+    <value>arrange</value>
+  </data>
+  <data name="dataGridViewImageColumn5.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="AppointmentDataGrid.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="AppointmentDataGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="closeBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="SearchBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>534, 1</value>
+  </data>
+  <data name="details.Width" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="dataGridViewImageColumn7.HeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="orderId.ToolTipText" xml:space="preserve">
+    <value>Order ID</value>
+  </data>
+  <data name="arrange.Width" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;Title.Name" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="&gt;&gt;AppointmentDataGrid.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="select.Width" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;SearchBarTxt.Parent" xml:space="preserve">
+    <value>SearchBar</value>
+  </data>
+  <data name="DeliveryDatePicker.CalendarFont" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="&gt;&gt;status.Name" xml:space="preserve">
+    <value>status</value>
+  </data>
+  <data name="Data.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;Data.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="details.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>InventoryManagement</value>
+  </data>
+  <data name="SearchBarTxt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12.10084pt</value>
+  </data>
+  <data name="&gt;&gt;SearchBar.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;Data.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn7.Name" xml:space="preserve">
+    <value>dataGridViewImageColumn7</value>
+  </data>
+  <data name="dataGridViewImageColumn2.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RefreshBtn.Parent" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="&gt;&gt;time.Name" xml:space="preserve">
+    <value>time</value>
+  </data>
+  <data name="&gt;&gt;AppointmentDataGrid.Parent" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="closeBtn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>96, 96</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewImageColumn2.Name" xml:space="preserve">
+    <value>dataGridViewImageColumn2</value>
+  </data>
+  <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
+        1wAAAdcBjJIIaAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAASeSURBVHhe7ZtL
+        yFVVFMe/LNFeFgimQkUh0kOSCmqiAyXISHo4EimiwEQRhKBGzpImBU0KAqUCJw0qaqIgFBlEUFA60kjQ
+        gh5UFDUos+fvB9+B22ady3neu0/eP/xGH3efdfbZe+2111rfXMdaAQ/BC/AOfA2/wz8J38BH8ArsgrUw
+        WK2EJ+EYpC9ah9PwPKyBQehmOAh/QPRCbXgP7oEstQxehb8hMr5LnIjbIRs9Cj9BZGxfuMKegUUwNV0G
+        LvfIwIizcBQOwF54GB6Dx0Gn514/AjrJ6PcRn8K1MHEth08gMmqUn+FFcO9eAlXlCbAPTkI07ijfwTqY
+        mK6DUxAZU/AlPAFLoK3uhY8hek7Br3AX9C6//LiXd28+B5dCl7oA7oevIHquOAkboTe558ct+8/gVuhT
+        S+FNiJ4vP8Jq6EXjHN77oHGT0lNQduTqN7rYev+RR130MHkdpnEc7YS/ILJpP3Qmg5yyc94vP82z2OMz
+        ssvVcTd0IiO86CHu+Uku+zK9DJF9boWLoJWM7aO9prfv2+FV1cVgQJTaKDuglcoc37OQk26DyB98AY1X
+        gVfa6FZnkNP1Od+Fyj7WA9BI3uejAY3wctTVcA5Sew9DIx2HdDBj+ysgV0VBktmnK6GWXP7pQGJaK2d5
+        b4js3ga1ZA4vGijbjMy8LoTvIbX7Jaglv3Q6iEspR+eX6i1IbfeYrKV3IR3EZMYQ5D0htV3nWOs4jK6d
+        ZnKGIK/Eqe1yDVRWlLc3jTUE3QSp7VIraxQN8AgMQVdBZP8mqKxogKFMwEKI7DejVFnRANthCPKkiuzf
+        DJUV3QB3wxBUFsTV8gHfQjqAefsh6E5IbZcbobKs0qYDWLQYgvRVqe1/wmKoLEvU6SBWbIagKIr9HGrJ
+        hGM6iAyhZn8CUrtfg1q6BdJB5GnIWTdAZHej1JjNCelAJhpzlvXE1Ga5HmpLrx8N5p07R5kcjU6vD6GR
+        bEtJBxMLldbqctMeiOy1dtBYdmNEg9YKKycg6xM/QGqntcLLobHMAKWDitflHIoihcqKI5047bJVYAIy
+        B22FyD5XRCcfyYaksq4vsy/TlNWpXyCyrXVVaFQ2JEUP8dJk0DQNrQKbKyO7PoAF0JmsAJfV3yxJtfK0
+        DeSXL3t5HV8vjVMOakNS9FDREXkW9y33fNmyl16j1fVgL070YHGV3AF9SIdW5u1HsR2v12DNbqxxk6Bf
+        sFBpra4LuaoMcqJzvozeJ8HUs3steniBuXiPSg2xYlNXXmyM7aPwtgq9T4LdWFUaGcVy1dvgsbkBTF2b
+        vbVYYfeZLfVmckxmeJ+PrrQRfgT3vC8b/b33SbAby4akKIfYNx51hbf3Jac2CcqGpKqroS36AoOc9Jyf
+        +iS4nDXsDERGtKVY7uPC26lPgtLhPQiHICqx1cX7vIFW1VtdFpNQyM4MmxOsz/vvM2V3igKzt/Yim8Nz
+        NTXK5KCsJmFUrg6rtAZUxhNbwIqNRQtb8rpsusx2EiYpC6K/QTQJbs/74H+v2SSg2SSg2SSg2SSg2SSg
+        cUfkG3BeKFoJ9hXXKqMPXaOTcN69fCG3g8t+Pgqdm/sX1jemh/a/aA0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="SearchBarTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 5, 3, 5</value>
+  </data>
+  <data name="&gt;&gt;Action.Name" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="MultiArrangeBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="&gt;&gt;Header.Name" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="select.HeaderText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;SearchBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RefreshBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;select.Name" xml:space="preserve">
+    <value>select</value>
+  </data>
+  <data name="MultiArrangeBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>201, 1</value>
+  </data>
+  <data name="&gt;&gt;Address.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="print.Width" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="DeliveryDatePicker.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 29</value>
+  </data>
+  <data name="&gt;&gt;teamId.Name" xml:space="preserve">
+    <value>teamId</value>
+  </data>
+  <data name="RefreshBtn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RefreshBtn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dataGridViewImageColumn3.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="pictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="&gt;&gt;DeliveryDatePicker.Name" xml:space="preserve">
+    <value>DeliveryDatePicker</value>
+  </data>
+  <data name="&gt;&gt;MultiArrangeBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="orderId.Width" type="System.Int32, mscorlib">
+    <value>91</value>
+  </data>
+  <data name="SearchBarTxt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3458,410 +3824,23 @@
         AAAAAAAAAAAAD/////8=
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="closeBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="SearchBar.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;Title.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Action.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="MultiArrangeBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 38</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewImageColumn3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>19, 20</value>
-  </data>
-  <data name="orderId.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="select.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="Data.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 90</value>
-  </data>
-  <data name="&gt;&gt;Action.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="Address.ToolTipText" xml:space="preserve">
-    <value>Customer Address</value>
-  </data>
-  <data name="AppointmentDataGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewImageColumn1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SearchBarTxt.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;DeliveryDatePicker.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Header.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Address.Name" xml:space="preserve">
-    <value>Address</value>
-  </data>
-  <data name="&gt;&gt;AppointmentDataGrid.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="AppointmentDataGrid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 2</value>
-  </data>
-  <data name="dataGridViewImageColumn1.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;closeBtn.Name" xml:space="preserve">
-    <value>closeBtn</value>
-  </data>
-  <data name="AppointmentDataGrid.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="id.Width" type="System.Int32, mscorlib">
-    <value>39</value>
-  </data>
-  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 7</value>
-  </data>
-  <data name="Title.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="details.Width" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;time.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="closeBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="RefreshBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>675, 3</value>
-  </data>
-  <data name="&gt;&gt;orderId.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="dataGridViewImageColumn3.Width" type="System.Int32, mscorlib">
-    <value>124</value>
-  </data>
-  <data name="print.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
-  </data>
-  <data name="Data.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Appointment</value>
-  </data>
-  <data name="dataGridViewImageColumn2.Width" type="System.Int32, mscorlib">
-    <value>124</value>
-  </data>
-  <data name="time.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewImageColumn5.Name" xml:space="preserve">
-    <value>dataGridViewImageColumn5</value>
-  </data>
-  <data name="&gt;&gt;MultiArrangeBtn.Name" xml:space="preserve">
-    <value>MultiArrangeBtn</value>
-  </data>
-  <data name="&gt;&gt;Title.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;SearchBarTxt.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="dataGridViewImageColumn1.Width" type="System.Int32, mscorlib">
-    <value>124</value>
-  </data>
-  <data name="Data.Size" type="System.Drawing.Size, System.Drawing">
-    <value>758, 365</value>
-  </data>
-  <data name="SearchBar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;SearchBarTxt.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;orderId.Name" xml:space="preserve">
-    <value>orderId</value>
-  </data>
-  <data name="&gt;&gt;closeBtn.Parent" xml:space="preserve">
-    <value>Header</value>
-  </data>
-  <data name="teamId.HeaderText" xml:space="preserve">
-    <value>Team</value>
-  </data>
-  <data name="&gt;&gt;Title.Parent" xml:space="preserve">
-    <value>Header</value>
-  </data>
-  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 25</value>
-  </data>
-  <data name="dataGridViewImageColumn4.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SearchBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;id.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;print.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;status.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="teamId.ToolTipText" xml:space="preserve">
-    <value>Workman Team</value>
-  </data>
-  <data name="&gt;&gt;arrange.Name" xml:space="preserve">
-    <value>arrange</value>
-  </data>
-  <data name="dataGridViewImageColumn5.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="AppointmentDataGrid.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="AppointmentDataGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
-    <value>50</value>
-  </data>
-  <data name="MultiArrangeBtn.Text" xml:space="preserve">
-    <value>Arrange Selected</value>
-  </data>
-  <data name="SearchBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>534, 1</value>
-  </data>
-  <data name="status.HeaderText" xml:space="preserve">
-    <value>Status</value>
-  </data>
-  <data name="dataGridViewImageColumn7.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;details.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="arrange.Width" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;Title.Name" xml:space="preserve">
-    <value>Title</value>
-  </data>
-  <data name="&gt;&gt;AppointmentDataGrid.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="select.Width" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;SearchBarTxt.Parent" xml:space="preserve">
-    <value>SearchBar</value>
-  </data>
-  <data name="DeliveryDatePicker.CalendarFont" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
-  </data>
-  <data name="&gt;&gt;closeBtn.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="Data.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;Data.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="details.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 13.91597pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewImageColumn2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>InventoryManagement</value>
-  </data>
-  <data name="SearchBarTxt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12.10084pt</value>
-  </data>
-  <data name="&gt;&gt;SearchBar.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;Data.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;status.Name" xml:space="preserve">
-    <value>status</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewImageColumn7.Name" xml:space="preserve">
-    <value>dataGridViewImageColumn7</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewImageColumn6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Action.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;RefreshBtn.Parent" xml:space="preserve">
-    <value>Header</value>
-  </data>
-  <data name="&gt;&gt;time.Name" xml:space="preserve">
-    <value>time</value>
-  </data>
-  <data name="&gt;&gt;AppointmentDataGrid.Parent" xml:space="preserve">
-    <value>Data</value>
-  </data>
-  <data name="closeBtn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="dataGridViewImageColumn5.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;dataGridViewImageColumn2.Name" xml:space="preserve">
-    <value>dataGridViewImageColumn2</value>
-  </data>
-  <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        1wAAAdcBjJIIaAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAASeSURBVHhe7ZtL
-        yFVVFMe/LNFeFgimQkUh0kOSCmqiAyXISHo4EimiwEQRhKBGzpImBU0KAqUCJw0qaqIgFBlEUFA60kjQ
-        gh5UFDUos+fvB9+B22ady3neu0/eP/xGH3efdfbZe+2111rfXMdaAQ/BC/AOfA2/wz8J38BH8ArsgrUw
-        WK2EJ+EYpC9ah9PwPKyBQehmOAh/QPRCbXgP7oEstQxehb8hMr5LnIjbIRs9Cj9BZGxfuMKegUUwNV0G
-        LvfIwIizcBQOwF54GB6Dx0Gn514/AjrJ6PcRn8K1MHEth08gMmqUn+FFcO9eAlXlCbAPTkI07ijfwTqY
-        mK6DUxAZU/AlPAFLoK3uhY8hek7Br3AX9C6//LiXd28+B5dCl7oA7oevIHquOAkboTe558ct+8/gVuhT
-        S+FNiJ4vP8Jq6EXjHN77oHGT0lNQduTqN7rYev+RR130MHkdpnEc7YS/ILJpP3Qmg5yyc94vP82z2OMz
-        ssvVcTd0IiO86CHu+Uku+zK9DJF9boWLoJWM7aO9prfv2+FV1cVgQJTaKDuglcoc37OQk26DyB98AY1X
-        gVfa6FZnkNP1Od+Fyj7WA9BI3uejAY3wctTVcA5Sew9DIx2HdDBj+ysgV0VBktmnK6GWXP7pQGJaK2d5
-        b4js3ga1ZA4vGijbjMy8LoTvIbX7Jaglv3Q6iEspR+eX6i1IbfeYrKV3IR3EZMYQ5D0htV3nWOs4jK6d
-        ZnKGIK/Eqe1yDVRWlLc3jTUE3QSp7VIraxQN8AgMQVdBZP8mqKxogKFMwEKI7DejVFnRANthCPKkiuzf
-        DJUV3QB3wxBUFsTV8gHfQjqAefsh6E5IbZcbobKs0qYDWLQYgvRVqe1/wmKoLEvU6SBWbIagKIr9HGrJ
-        hGM6iAyhZn8CUrtfg1q6BdJB5GnIWTdAZHej1JjNCelAJhpzlvXE1Ga5HmpLrx8N5p07R5kcjU6vD6GR
-        bEtJBxMLldbqctMeiOy1dtBYdmNEg9YKKycg6xM/QGqntcLLobHMAKWDitflHIoihcqKI5047bJVYAIy
-        B22FyD5XRCcfyYaksq4vsy/TlNWpXyCyrXVVaFQ2JEUP8dJk0DQNrQKbKyO7PoAF0JmsAJfV3yxJtfK0
-        DeSXL3t5HV8vjVMOakNS9FDREXkW9y33fNmyl16j1fVgL070YHGV3AF9SIdW5u1HsR2v12DNbqxxk6Bf
-        sFBpra4LuaoMcqJzvozeJ8HUs3steniBuXiPSg2xYlNXXmyM7aPwtgq9T4LdWFUaGcVy1dvgsbkBTF2b
-        vbVYYfeZLfVmckxmeJ+PrrQRfgT3vC8b/b33SbAby4akKIfYNx51hbf3Jac2CcqGpKqroS36AoOc9Jyf
-        +iS4nDXsDERGtKVY7uPC26lPgtLhPQiHICqx1cX7vIFW1VtdFpNQyM4MmxOsz/vvM2V3igKzt/Yim8Nz
-        NTXK5KCsJmFUrg6rtAZUxhNbwIqNRQtb8rpsusx2EiYpC6K/QTQJbs/74H+v2SSg2SSg2SSg2SSg2SSg
-        cUfkG3BeKFoJ9hXXKqMPXaOTcN69fCG3g8t+Pgqdm/sX1jemh/a/aA0AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="SearchBarTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 5, 3, 5</value>
-  </data>
-  <data name="&gt;&gt;Action.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="pictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>96, 96</value>
-  </data>
-  <data name="id.HeaderText" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="&gt;&gt;Header.Name" xml:space="preserve">
-    <value>Header</value>
-  </data>
-  <data name="select.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="&gt;&gt;SearchBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RefreshBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;select.Name" xml:space="preserve">
-    <value>select</value>
-  </data>
-  <data name="MultiArrangeBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>201, 1</value>
-  </data>
-  <data name="&gt;&gt;Address.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="print.Width" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="DeliveryDatePicker.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 29</value>
-  </data>
-  <data name="&gt;&gt;teamId.Name" xml:space="preserve">
-    <value>teamId</value>
-  </data>
-  <data name="RefreshBtn.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RefreshBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="dataGridViewImageColumn3.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="dataGridViewImageColumn5.ToolTipText" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="&gt;&gt;MultiArrangeBtn.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="orderId.Width" type="System.Int32, mscorlib">
-    <value>91</value>
-  </data>
-  <data name="SearchBarTxt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="DeliveryDatePicker.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
-  </data>
   <data name="AppointmentDataGrid.Size" type="System.Drawing.Size, System.Drawing">
     <value>758, 363</value>
   </data>
   <data name="&gt;&gt;MultiArrangeBtn.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="Header.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
   <data name="details.HeaderText" xml:space="preserve">
     <value />
   </data>
-  <data name="closeBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 13.91597pt, style=Bold</value>
   </data>
   <data name="SearchBarTxt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>25, 8, 8, 6</value>
   </data>
   <data name="&gt;&gt;SearchBarTxt.Name" xml:space="preserve">
     <value>SearchBarTxt</value>
-  </data>
-  <data name="&gt;&gt;Data.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="DeliveryDatePicker.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -3872,26 +3851,29 @@
   <data name="id.ToolTipText" xml:space="preserve">
     <value>Appointment ID</value>
   </data>
-  <data name="&gt;&gt;Header.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;DeliveryDatePicker.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="arrange.ToolTipText" xml:space="preserve">
-    <value>Arrange Appointment</value>
+  <data name="DeliveryDatePicker.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
   </data>
-  <data name="AppointmentDataGrid.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>30</value>
+  <data name="&gt;&gt;Header.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="time.Width" type="System.Int32, mscorlib">
     <value>72</value>
   </data>
-  <data name="dataGridViewImageColumn6.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
   <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
     <value>dataGridViewImageColumn1</value>
   </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>SearchBar</value>
+  </data>
   <data name="&gt;&gt;closeBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Title.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="dataGridViewImageColumn6.HeaderText" xml:space="preserve">
     <value />
@@ -3899,11 +3881,14 @@
   <data name="&gt;&gt;Header.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="MultiArrangeBtn.Text" xml:space="preserve">
+    <value>Arrange Selected</value>
+  </data>
   <data name="SearchBarTxt.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="Header.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;id.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;SearchBar.Parent" xml:space="preserve">
     <value>Action</value>
@@ -3917,22 +3902,19 @@
   <data name="RefreshBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="Data.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+  <data name="&gt;&gt;dataGridViewImageColumn3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="MultiArrangeBtn.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;Data.Name" xml:space="preserve">
-    <value>Data</value>
+  <data name="SearchBarTxt.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="arrange.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="id.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn7.Type" xml:space="preserve">
@@ -3941,26 +3923,32 @@
   <data name="Action.Size" type="System.Drawing.Size, System.Drawing">
     <value>758, 40</value>
   </data>
-  <data name="&gt;&gt;DeliveryDatePicker.Name" xml:space="preserve">
-    <value>DeliveryDatePicker</value>
-  </data>
-  <data name="&gt;&gt;DeliveryDatePicker.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="RefreshBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;Header.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Data.Name" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="&gt;&gt;Action.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;Data.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn3.Name" xml:space="preserve">
     <value>dataGridViewImageColumn3</value>
   </data>
-  <data name="teamId.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="Data.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 90</value>
   </data>
   <data name="time.ToolTipText" xml:space="preserve">
     <value>Session Time</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>SearchBar</value>
+  <data name="RefreshBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>675, 3</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
     <value>Appointment</value>
@@ -3968,17 +3956,26 @@
   <data name="Header.Size" type="System.Drawing.Size, System.Drawing">
     <value>758, 40</value>
   </data>
+  <data name="&gt;&gt;id.Name" xml:space="preserve">
+    <value>id</value>
+  </data>
   <data name="&gt;&gt;teamId.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Title.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;Address.Name" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="&gt;&gt;MultiArrangeBtn.Name" xml:space="preserve">
+    <value>MultiArrangeBtn</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn5.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 10</value>
+  <data name="Data.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="Title.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="MultiArrangeBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
@@ -3998,44 +3995,47 @@
   <data name="Action.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 50</value>
   </data>
+  <data name="print.HeaderText" xml:space="preserve">
+    <value />
+  </data>
   <data name="Address.HeaderText" xml:space="preserve">
     <value>Customer Address</value>
   </data>
   <data name="&gt;&gt;select.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="MultiArrangeBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="dataGridViewImageColumn6.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="Header.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 10</value>
+  <data name="id.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="RefreshBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 33</value>
+  <data name="teamId.HeaderText" xml:space="preserve">
+    <value>Team</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;id.Name" xml:space="preserve">
-    <value>id</value>
+  <data name="Header.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="Action.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="orderId.ToolTipText" xml:space="preserve">
-    <value>Order ID</value>
+  <data name="Header.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
-  <data name="DeliveryDatePicker.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 6</value>
+  <data name="&gt;&gt;details.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="orderId.HeaderText" xml:space="preserve">
     <value>Order ID</value>
   </data>
+  <data name="AppointmentDataGrid.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
   <data name="&gt;&gt;dataGridViewImageColumn4.Name" xml:space="preserve">
     <value>dataGridViewImageColumn4</value>
   </data>
-  <data name="dataGridViewImageColumn2.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="RefreshBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 33</value>
   </data>
   <data name="&gt;&gt;RefreshBtn.Name" xml:space="preserve">
     <value>RefreshBtn</value>
@@ -4067,8 +4067,8 @@
   <data name="closeBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 33</value>
   </data>
-  <data name="print.HeaderText" xml:space="preserve">
-    <value />
+  <data name="AppointmentDataGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;SearchBar.Name" xml:space="preserve">
     <value>SearchBar</value>
@@ -4081,9 +4081,6 @@
   </metadata>
   <metadata name="select.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>zh</value>
   </metadata>
   <metadata name="print.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

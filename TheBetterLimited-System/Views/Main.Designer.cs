@@ -40,12 +40,9 @@
             this.UserInformation = new System.Windows.Forms.Panel();
             this.txtJobTitle = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.Label();
-            this.UserIcon = new System.Windows.Forms.PictureBox();
             this.CompanyInfo = new System.Windows.Forms.Panel();
             this.CompanyTitle1 = new System.Windows.Forms.Label();
             this.CompanyTitle0 = new System.Windows.Forms.Label();
-            this.CompanyIcon = new System.Windows.Forms.PictureBox();
-            this.MessageBtn = new System.Windows.Forms.Button();
             this.enBtn = new System.Windows.Forms.Button();
             this.zhBtn = new System.Windows.Forms.Button();
             this.subSidebar = new System.Windows.Forms.FlowLayoutPanel();
@@ -69,37 +66,38 @@
             this.mainBox = new System.Windows.Forms.Panel();
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.MenuContainer = new System.Windows.Forms.Panel();
-            this.MenuButton = new System.Windows.Forms.Button();
             this.HomeContainer = new System.Windows.Forms.Panel();
-            this.HomeBtn = new System.Windows.Forms.Button();
             this.POSContainer = new System.Windows.Forms.Panel();
-            this.POSBtn = new System.Windows.Forms.Button();
             this.InventoryContainer = new System.Windows.Forms.Panel();
-            this.Inventory = new System.Windows.Forms.Button();
             this.PurchaseContainer = new System.Windows.Forms.Panel();
-            this.Purchase = new System.Windows.Forms.Button();
             this.WorkmanContainer = new System.Windows.Forms.Panel();
-            this.Workman = new System.Windows.Forms.Button();
             this.AccountingContainer = new System.Windows.Forms.Panel();
-            this.Accounting = new System.Windows.Forms.Button();
             this.UserContainer = new System.Windows.Forms.Panel();
-            this.UserBtn = new System.Windows.Forms.Button();
             this.SettingContainer = new System.Windows.Forms.Panel();
-            this.Setting = new System.Windows.Forms.Button();
             this.sidebarTimer = new System.Windows.Forms.Timer(this.components);
             this.testing = new System.Windows.Forms.NotifyIcon(this.components);
             this.dropMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.ProfileBtn = new System.Windows.Forms.Button();
+            this.MessageBtn = new System.Windows.Forms.Button();
             this.LangBtn = new System.Windows.Forms.Button();
             this.SignOutBtn = new System.Windows.Forms.Button();
+            this.MenuButton = new System.Windows.Forms.Button();
+            this.HomeBtn = new System.Windows.Forms.Button();
+            this.POSBtn = new System.Windows.Forms.Button();
+            this.Inventory = new System.Windows.Forms.Button();
+            this.Purchase = new System.Windows.Forms.Button();
+            this.Workman = new System.Windows.Forms.Button();
+            this.Accounting = new System.Windows.Forms.Button();
+            this.UserBtn = new System.Windows.Forms.Button();
+            this.Setting = new System.Windows.Forms.Button();
+            this.UserIcon = new System.Windows.Forms.PictureBox();
+            this.CompanyIcon = new System.Windows.Forms.PictureBox();
             this.PurchaseGoodsContainer.SuspendLayout();
             this.SupplierContainer.SuspendLayout();
             this.StockContainer.SuspendLayout();
             this.Header.SuspendLayout();
             this.UserInformation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UserIcon)).BeginInit();
             this.CompanyInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).BeginInit();
             this.subSidebar.SuspendLayout();
             this.GoodsContainer.SuspendLayout();
             this.RestockContainer.SuspendLayout();
@@ -120,6 +118,8 @@
             this.UserContainer.SuspendLayout();
             this.SettingContainer.SuspendLayout();
             this.dropMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UserIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // PurchaseGoodsContainer
@@ -197,16 +197,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Click += new System.EventHandler(this.UserInformation_Click);
             // 
-            // UserIcon
-            // 
-            resources.ApplyResources(this.UserIcon, "UserIcon");
-            this.UserIcon.BackColor = System.Drawing.Color.White;
-            this.UserIcon.Image = global::TheBetterLimited.Properties.Resources.portrait_free_icon_font;
-            this.UserIcon.Name = "UserIcon";
-            this.UserIcon.TabStop = false;
-            this.UserIcon.Click += new System.EventHandler(this.UserInformation_Click);
-            this.UserIcon.Paint += new System.Windows.Forms.PaintEventHandler(this.UserIcon_Paint);
-            // 
             // CompanyInfo
             // 
             resources.ApplyResources(this.CompanyInfo, "CompanyInfo");
@@ -225,25 +215,6 @@
             resources.ApplyResources(this.CompanyTitle0, "CompanyTitle0");
             this.CompanyTitle0.ForeColor = System.Drawing.Color.SeaGreen;
             this.CompanyTitle0.Name = "CompanyTitle0";
-            // 
-            // CompanyIcon
-            // 
-            resources.ApplyResources(this.CompanyIcon, "CompanyIcon");
-            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
-            this.CompanyIcon.Name = "CompanyIcon";
-            this.CompanyIcon.TabStop = false;
-            // 
-            // MessageBtn
-            // 
-            resources.ApplyResources(this.MessageBtn, "MessageBtn");
-            this.MessageBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.MessageBtn.FlatAppearance.BorderSize = 0;
-            this.MessageBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.MessageBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.MessageBtn.Image = global::TheBetterLimited.Properties.Resources.envelope;
-            this.MessageBtn.Name = "MessageBtn";
-            this.MessageBtn.UseVisualStyleBackColor = false;
-            this.MessageBtn.Click += new System.EventHandler(this.MessageBtn_Click);
             // 
             // enBtn
             // 
@@ -433,33 +404,11 @@
             this.MenuContainer.Controls.Add(this.MenuButton);
             this.MenuContainer.Name = "MenuContainer";
             // 
-            // MenuButton
-            // 
-            resources.ApplyResources(this.MenuButton, "MenuButton");
-            this.MenuButton.FlatAppearance.BorderSize = 0;
-            this.MenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.MenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.MenuButton.Image = global::TheBetterLimited.Properties.Resources.menu_burger_free_icon_font;
-            this.MenuButton.Name = "MenuButton";
-            this.MenuButton.UseVisualStyleBackColor = true;
-            this.MenuButton.Click += new System.EventHandler(this.menuButton_Click);
-            // 
             // HomeContainer
             // 
             resources.ApplyResources(this.HomeContainer, "HomeContainer");
             this.HomeContainer.Controls.Add(this.HomeBtn);
             this.HomeContainer.Name = "HomeContainer";
-            // 
-            // HomeBtn
-            // 
-            resources.ApplyResources(this.HomeBtn, "HomeBtn");
-            this.HomeBtn.FlatAppearance.BorderSize = 0;
-            this.HomeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.HomeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.HomeBtn.Image = global::TheBetterLimited.Properties.Resources.home_free_icon_font;
-            this.HomeBtn.Name = "HomeBtn";
-            this.HomeBtn.UseVisualStyleBackColor = true;
-            this.HomeBtn.Click += new System.EventHandler(this.Home_Click);
             // 
             // POSContainer
             // 
@@ -467,35 +416,11 @@
             this.POSContainer.Controls.Add(this.POSBtn);
             this.POSContainer.Name = "POSContainer";
             // 
-            // POSBtn
-            // 
-            resources.ApplyResources(this.POSBtn, "POSBtn");
-            this.POSBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.POSBtn.FlatAppearance.BorderSize = 0;
-            this.POSBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.POSBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.POSBtn.Image = global::TheBetterLimited.Properties.Resources.shopping_cart_free_icon_font;
-            this.POSBtn.Name = "POSBtn";
-            this.POSBtn.UseVisualStyleBackColor = true;
-            this.POSBtn.Click += new System.EventHandler(this.POS_Click);
-            // 
             // InventoryContainer
             // 
             resources.ApplyResources(this.InventoryContainer, "InventoryContainer");
             this.InventoryContainer.Controls.Add(this.Inventory);
             this.InventoryContainer.Name = "InventoryContainer";
-            // 
-            // Inventory
-            // 
-            resources.ApplyResources(this.Inventory, "Inventory");
-            this.Inventory.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Inventory.FlatAppearance.BorderSize = 0;
-            this.Inventory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Inventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.Inventory.Image = global::TheBetterLimited.Properties.Resources.cube_free_icon_font;
-            this.Inventory.Name = "Inventory";
-            this.Inventory.UseVisualStyleBackColor = true;
-            this.Inventory.Click += new System.EventHandler(this.Inventory_Click);
             // 
             // PurchaseContainer
             // 
@@ -503,35 +428,11 @@
             this.PurchaseContainer.Controls.Add(this.Purchase);
             this.PurchaseContainer.Name = "PurchaseContainer";
             // 
-            // Purchase
-            // 
-            resources.ApplyResources(this.Purchase, "Purchase");
-            this.Purchase.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Purchase.FlatAppearance.BorderSize = 0;
-            this.Purchase.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Purchase.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.Purchase.Image = global::TheBetterLimited.Properties.Resources.shopping_bag_add_free_icon_font;
-            this.Purchase.Name = "Purchase";
-            this.Purchase.UseVisualStyleBackColor = true;
-            this.Purchase.Click += new System.EventHandler(this.Purchase_Click);
-            // 
             // WorkmanContainer
             // 
             resources.ApplyResources(this.WorkmanContainer, "WorkmanContainer");
             this.WorkmanContainer.Controls.Add(this.Workman);
             this.WorkmanContainer.Name = "WorkmanContainer";
-            // 
-            // Workman
-            // 
-            resources.ApplyResources(this.Workman, "Workman");
-            this.Workman.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Workman.FlatAppearance.BorderSize = 0;
-            this.Workman.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Workman.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.Workman.Image = global::TheBetterLimited.Properties.Resources.truck_side_free_icon_font;
-            this.Workman.Name = "Workman";
-            this.Workman.UseVisualStyleBackColor = true;
-            this.Workman.Click += new System.EventHandler(this.Workman_Click);
             // 
             // AccountingContainer
             // 
@@ -539,53 +440,17 @@
             this.AccountingContainer.Controls.Add(this.Accounting);
             this.AccountingContainer.Name = "AccountingContainer";
             // 
-            // Accounting
-            // 
-            resources.ApplyResources(this.Accounting, "Accounting");
-            this.Accounting.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Accounting.FlatAppearance.BorderSize = 0;
-            this.Accounting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Accounting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.Accounting.Image = global::TheBetterLimited.Properties.Resources.chat_arrow_grow_free_icon_font;
-            this.Accounting.Name = "Accounting";
-            this.Accounting.UseVisualStyleBackColor = true;
-            this.Accounting.Click += new System.EventHandler(this.Accounting_Click);
-            // 
             // UserContainer
             // 
             resources.ApplyResources(this.UserContainer, "UserContainer");
             this.UserContainer.Controls.Add(this.UserBtn);
             this.UserContainer.Name = "UserContainer";
             // 
-            // UserBtn
-            // 
-            resources.ApplyResources(this.UserBtn, "UserBtn");
-            this.UserBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.UserBtn.FlatAppearance.BorderSize = 0;
-            this.UserBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.UserBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.UserBtn.Image = global::TheBetterLimited.Properties.Resources.users_free_icon_font;
-            this.UserBtn.Name = "UserBtn";
-            this.UserBtn.UseVisualStyleBackColor = true;
-            this.UserBtn.Click += new System.EventHandler(this.User_Click);
-            // 
             // SettingContainer
             // 
             resources.ApplyResources(this.SettingContainer, "SettingContainer");
             this.SettingContainer.Controls.Add(this.Setting);
             this.SettingContainer.Name = "SettingContainer";
-            // 
-            // Setting
-            // 
-            resources.ApplyResources(this.Setting, "Setting");
-            this.Setting.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Setting.FlatAppearance.BorderSize = 0;
-            this.Setting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.Setting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
-            this.Setting.Image = global::TheBetterLimited.Properties.Resources.settings_free_icon_font;
-            this.Setting.Name = "Setting";
-            this.Setting.UseVisualStyleBackColor = true;
-            this.Setting.Click += new System.EventHandler(this.Setting_Click);
             // 
             // sidebarTimer
             // 
@@ -621,6 +486,18 @@
             this.ProfileBtn.Name = "ProfileBtn";
             this.ProfileBtn.UseVisualStyleBackColor = false;
             // 
+            // MessageBtn
+            // 
+            resources.ApplyResources(this.MessageBtn, "MessageBtn");
+            this.MessageBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.MessageBtn.FlatAppearance.BorderSize = 0;
+            this.MessageBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.MessageBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.MessageBtn.Image = global::TheBetterLimited.Properties.Resources.envelope;
+            this.MessageBtn.Name = "MessageBtn";
+            this.MessageBtn.UseVisualStyleBackColor = false;
+            this.MessageBtn.Click += new System.EventHandler(this.MessageBtn_Click);
+            // 
             // LangBtn
             // 
             resources.ApplyResources(this.LangBtn, "LangBtn");
@@ -645,6 +522,129 @@
             this.SignOutBtn.UseVisualStyleBackColor = false;
             this.SignOutBtn.Click += new System.EventHandler(this.Logout_Click);
             // 
+            // MenuButton
+            // 
+            resources.ApplyResources(this.MenuButton, "MenuButton");
+            this.MenuButton.FlatAppearance.BorderSize = 0;
+            this.MenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.MenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.MenuButton.Image = global::TheBetterLimited.Properties.Resources.menu_burger_free_icon_font;
+            this.MenuButton.Name = "MenuButton";
+            this.MenuButton.UseVisualStyleBackColor = true;
+            this.MenuButton.Click += new System.EventHandler(this.menuButton_Click);
+            // 
+            // HomeBtn
+            // 
+            resources.ApplyResources(this.HomeBtn, "HomeBtn");
+            this.HomeBtn.FlatAppearance.BorderSize = 0;
+            this.HomeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.HomeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.HomeBtn.Image = global::TheBetterLimited.Properties.Resources.home_free_icon_font;
+            this.HomeBtn.Name = "HomeBtn";
+            this.HomeBtn.UseVisualStyleBackColor = true;
+            this.HomeBtn.Click += new System.EventHandler(this.Home_Click);
+            // 
+            // POSBtn
+            // 
+            resources.ApplyResources(this.POSBtn, "POSBtn");
+            this.POSBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.POSBtn.FlatAppearance.BorderSize = 0;
+            this.POSBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.POSBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.POSBtn.Image = global::TheBetterLimited.Properties.Resources.shopping_cart_free_icon_font;
+            this.POSBtn.Name = "POSBtn";
+            this.POSBtn.UseVisualStyleBackColor = true;
+            this.POSBtn.Click += new System.EventHandler(this.POS_Click);
+            // 
+            // Inventory
+            // 
+            resources.ApplyResources(this.Inventory, "Inventory");
+            this.Inventory.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Inventory.FlatAppearance.BorderSize = 0;
+            this.Inventory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Inventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.Inventory.Image = global::TheBetterLimited.Properties.Resources.cube_free_icon_font;
+            this.Inventory.Name = "Inventory";
+            this.Inventory.UseVisualStyleBackColor = true;
+            this.Inventory.Click += new System.EventHandler(this.Inventory_Click);
+            // 
+            // Purchase
+            // 
+            resources.ApplyResources(this.Purchase, "Purchase");
+            this.Purchase.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Purchase.FlatAppearance.BorderSize = 0;
+            this.Purchase.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Purchase.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.Purchase.Image = global::TheBetterLimited.Properties.Resources.shopping_bag_add_free_icon_font;
+            this.Purchase.Name = "Purchase";
+            this.Purchase.UseVisualStyleBackColor = true;
+            this.Purchase.Click += new System.EventHandler(this.Purchase_Click);
+            // 
+            // Workman
+            // 
+            resources.ApplyResources(this.Workman, "Workman");
+            this.Workman.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Workman.FlatAppearance.BorderSize = 0;
+            this.Workman.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Workman.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.Workman.Image = global::TheBetterLimited.Properties.Resources.truck_side_free_icon_font;
+            this.Workman.Name = "Workman";
+            this.Workman.UseVisualStyleBackColor = true;
+            this.Workman.Click += new System.EventHandler(this.Workman_Click);
+            // 
+            // Accounting
+            // 
+            resources.ApplyResources(this.Accounting, "Accounting");
+            this.Accounting.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Accounting.FlatAppearance.BorderSize = 0;
+            this.Accounting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Accounting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.Accounting.Image = global::TheBetterLimited.Properties.Resources.chat_arrow_grow_free_icon_font;
+            this.Accounting.Name = "Accounting";
+            this.Accounting.UseVisualStyleBackColor = true;
+            this.Accounting.Click += new System.EventHandler(this.Accounting_Click);
+            // 
+            // UserBtn
+            // 
+            resources.ApplyResources(this.UserBtn, "UserBtn");
+            this.UserBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.UserBtn.FlatAppearance.BorderSize = 0;
+            this.UserBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.UserBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.UserBtn.Image = global::TheBetterLimited.Properties.Resources.users_free_icon_font;
+            this.UserBtn.Name = "UserBtn";
+            this.UserBtn.UseVisualStyleBackColor = true;
+            this.UserBtn.Click += new System.EventHandler(this.User_Click);
+            // 
+            // Setting
+            // 
+            resources.ApplyResources(this.Setting, "Setting");
+            this.Setting.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Setting.FlatAppearance.BorderSize = 0;
+            this.Setting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.Setting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SeaGreen;
+            this.Setting.Image = global::TheBetterLimited.Properties.Resources.settings_free_icon_font;
+            this.Setting.Name = "Setting";
+            this.Setting.UseVisualStyleBackColor = true;
+            this.Setting.Click += new System.EventHandler(this.Setting_Click);
+            // 
+            // UserIcon
+            // 
+            resources.ApplyResources(this.UserIcon, "UserIcon");
+            this.UserIcon.BackColor = System.Drawing.Color.White;
+            this.UserIcon.Image = global::TheBetterLimited.Properties.Resources.portrait_free_icon_font;
+            this.UserIcon.Name = "UserIcon";
+            this.UserIcon.TabStop = false;
+            this.UserIcon.Click += new System.EventHandler(this.UserInformation_Click);
+            this.UserIcon.Paint += new System.Windows.Forms.PaintEventHandler(this.UserIcon_Paint);
+            // 
+            // CompanyIcon
+            // 
+            resources.ApplyResources(this.CompanyIcon, "CompanyIcon");
+            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
+            this.CompanyIcon.Name = "CompanyIcon";
+            this.CompanyIcon.TabStop = false;
+            // 
             // Main
             // 
             resources.ApplyResources(this, "$this");
@@ -664,10 +664,8 @@
             this.StockContainer.ResumeLayout(false);
             this.Header.ResumeLayout(false);
             this.UserInformation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.UserIcon)).EndInit();
             this.CompanyInfo.ResumeLayout(false);
             this.CompanyInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).EndInit();
             this.subSidebar.ResumeLayout(false);
             this.GoodsContainer.ResumeLayout(false);
             this.RestockContainer.ResumeLayout(false);
@@ -688,6 +686,8 @@
             this.UserContainer.ResumeLayout(false);
             this.SettingContainer.ResumeLayout(false);
             this.dropMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.UserIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

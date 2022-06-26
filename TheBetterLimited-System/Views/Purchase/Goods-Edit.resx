@@ -117,10 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblCatalogue.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="txtDescription.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12.10084pt</value>
@@ -128,6 +124,7 @@
   <data name="&gt;&gt;BottomBtn.Name" xml:space="preserve">
     <value>BottomBtn</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblDescription.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -159,8 +156,8 @@
   <data name="&gt;&gt;lblGoodsId.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtPrice.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
+  <data name="&gt;&gt;UserInfo.Name" xml:space="preserve">
+    <value>UserInfo</value>
   </data>
   <data name="cbxStatus.Size" type="System.Drawing.Size, System.Drawing">
     <value>307, 31</value>
@@ -178,9 +175,6 @@
     <value>Catalogue</value>
   </data>
   <data name="&gt;&gt;lblGoodsName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblStatus.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblDescription.Type" xml:space="preserve">
@@ -225,8 +219,8 @@
   <data name="&gt;&gt;Title.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;lblCatalogue.ZOrder" xml:space="preserve">
-    <value>11</value>
+  <data name="&gt;&gt;lblPrice.Name" xml:space="preserve">
+    <value>lblPrice</value>
   </data>
   <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 40</value>
@@ -324,11 +318,8 @@
   <data name="&gt;&gt;lblCatalogue.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;UserInfo.Name" xml:space="preserve">
-    <value>UserInfo</value>
-  </data>
-  <data name="&gt;&gt;GoodsInfoHeader.Parent" xml:space="preserve">
-    <value>UserInfoHeaderContainer</value>
+  <data name="cbxStatus.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 1, 1</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 40</value>
@@ -338,6 +329,9 @@
   </data>
   <data name="&gt;&gt;tip.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblGoodsId.Name" xml:space="preserve">
+    <value>lblGoodsId</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>784, 647</value>
@@ -352,6 +346,9 @@
     <value>Fill</value>
   </data>
   <data name="&gt;&gt;lblStatus.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;GoodsPic.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="&gt;&gt;Info.Parent" xml:space="preserve">
@@ -369,14 +366,14 @@
   <data name="lblPrice.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
+  <data name="lblGTIＮCode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
   <data name="lblDescription.Text" xml:space="preserve">
     <value>Description</value>
   </data>
   <data name="cbxCatalogue.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 67</value>
-  </data>
-  <data name="&gt;&gt;GoodsInfoHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cbxSize.Name" xml:space="preserve">
     <value>cbxSize</value>
@@ -432,9 +429,6 @@
   <data name="&gt;&gt;lblCatalogue.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="&gt;&gt;cbxCatalogue.Name" xml:space="preserve">
-    <value>cbxCatalogue</value>
-  </data>
   <data name="lblGTIＮCode.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -458,6 +452,9 @@
   </data>
   <data name="lblSize.Text" xml:space="preserve">
     <value>Size</value>
+  </data>
+  <data name="tip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 245</value>
   </data>
   <data name="cbxCatalogue.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>200, 30</value>
@@ -492,6 +489,9 @@
   <data name="GoodsInfoHeader.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="txtGoodsName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
+  </data>
   <data name="lblStatus.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -519,8 +519,8 @@
   <data name="&gt;&gt;Title.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblGoodsId.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;GoodsInfoHeader.Parent" xml:space="preserve">
+    <value>UserInfoHeaderContainer</value>
   </data>
   <data name="GoodsPic.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -615,8 +615,8 @@
   <data name="lblDescription.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;GoodsPic.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;lblStatus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblPrice.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 21</value>
@@ -642,11 +642,8 @@
   <data name="txtDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 198</value>
   </data>
-  <data name="&gt;&gt;lblGoodsName.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="cbxStatus.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="lblCatalogue.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="lblCatalogue.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 21</value>
@@ -699,9 +696,6 @@
   <data name="btnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
   </data>
-  <data name="&gt;&gt;Header.Name" xml:space="preserve">
-    <value>Header</value>
-  </data>
   <data name="txtGoodsId.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -711,8 +705,8 @@
   <data name="&gt;&gt;GoodsInfoHeader.Name" xml:space="preserve">
     <value>GoodsInfoHeader</value>
   </data>
-  <data name="&gt;&gt;lblGoodsId.Name" xml:space="preserve">
-    <value>lblGoodsId</value>
+  <data name="&gt;&gt;Header.Name" xml:space="preserve">
+    <value>Header</value>
   </data>
   <data name="txtGoodsName.Location" type="System.Drawing.Point, System.Drawing">
     <value>161, 110</value>
@@ -722,6 +716,9 @@
   </data>
   <data name="&gt;&gt;lblSize.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblCatalogue.ZOrder" xml:space="preserve">
+    <value>11</value>
   </data>
   <data name="lblDescription.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -774,6 +771,9 @@
   <data name="tip.Text" xml:space="preserve">
     <value>Click image to upload photo</value>
   </data>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
+  </data>
   <data name="cbxSize.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
@@ -824,9 +824,6 @@
   </data>
   <data name="&gt;&gt;lblDescription.Name" xml:space="preserve">
     <value>lblDescription</value>
-  </data>
-  <data name="&gt;&gt;cbxCatalogue.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeComboBox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="txtGTINCode.Size" type="System.Drawing.Size, System.Drawing">
     <value>307, 38</value>
@@ -894,8 +891,8 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Edit Goods</value>
   </data>
-  <data name="txtGoodsName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
+  <data name="&gt;&gt;cbxCatalogue.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeComboBox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="lblGoodsName.Text" xml:space="preserve">
     <value>Goods Name</value>
@@ -978,17 +975,20 @@
   <data name="&gt;&gt;tip.Parent" xml:space="preserve">
     <value>Header</value>
   </data>
+  <data name="txtPrice.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
+  </data>
   <data name="txtGTINCode.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 7, 10, 7</value>
   </data>
-  <data name="&gt;&gt;lblPrice.Name" xml:space="preserve">
-    <value>lblPrice</value>
+  <data name="&gt;&gt;GoodsInfoHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="cbxSize.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>200, 30</value>
   </data>
-  <data name="tip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 245</value>
+  <data name="lblGoodsId.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 12</value>
@@ -1068,22 +1068,19 @@
   <data name="&gt;&gt;UserInfoHeaderContainer.Parent" xml:space="preserve">
     <value>UserInfo</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
-    <value>btnCancel</value>
+  <data name="&gt;&gt;cbxCatalogue.Name" xml:space="preserve">
+    <value>cbxCatalogue</value>
   </data>
   <data name="Info.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="lblGTIＮCode.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
+  <data name="&gt;&gt;lblGoodsName.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="GoodsPic.Location" type="System.Drawing.Point, System.Drawing">
     <value>21, 12</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>zh</value>
   </metadata>
 </root>

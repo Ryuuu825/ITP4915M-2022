@@ -158,12 +158,6 @@
     <value>71</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="AddBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt, style=Bold</value>
-  </data>
-  <data name="AddBtn.Text" xml:space="preserve">
-    <value>       新增到采购</value>
-  </data>
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
@@ -189,6 +183,12 @@
         NTXK5KCsJmFUrg6rtAZUxhNbwIqNRQtb8rpsusx2EiYpC6K/QTQJbs/74H+v2SSg2SSg2SSg2SSg2SSg
         cUfkG3BeKFoJ9hXXKqMPXaOTcN69fCG3g8t+Pgqdm/sX1jemh/a/aA0AAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="AddBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
+  </data>
+  <data name="AddBtn.Text" xml:space="preserve">
+    <value>       新增到采购</value>
   </data>
   <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>

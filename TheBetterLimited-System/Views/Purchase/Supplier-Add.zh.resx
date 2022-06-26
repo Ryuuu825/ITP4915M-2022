@@ -130,18 +130,6 @@
   <data name="btnAddSupplier.Text" xml:space="preserve">
     <value>新增</value>
   </data>
-  <data name="SupplierInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
-  </data>
-  <data name="SupplierInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 9</value>
-  </data>
-  <data name="SupplierInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
-  </data>
-  <data name="SupplierInfoHeader.Text" xml:space="preserve">
-    <value>供应商资讯</value>
-  </data>
   <data name="lblAddress.Location" type="System.Drawing.Point, System.Drawing">
     <value>32, 251</value>
   </data>
@@ -186,6 +174,18 @@
   </data>
   <data name="lblContact.Text" xml:space="preserve">
     <value>联络</value>
+  </data>
+  <data name="SupplierInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="SupplierInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 9</value>
+  </data>
+  <data name="SupplierInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 21</value>
+  </data>
+  <data name="SupplierInfoHeader.Text" xml:space="preserve">
+    <value>供应商资讯</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>供应商-新增</value>

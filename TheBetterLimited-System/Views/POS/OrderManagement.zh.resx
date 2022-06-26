@@ -117,13 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="select.Width" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="id.HeaderText" xml:space="preserve">
     <value>编号</value>
   </data>
   <data name="id.ToolTipText" xml:space="preserve">
     <value>订单编号</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="id.Width" type="System.Int32, mscorlib">
     <value>71</value>
   </data>
@@ -179,7 +182,7 @@
     <value>付款金额</value>
   </data>
   <data name="Paid.Width" type="System.Int32, mscorlib">
-    <value>65</value>
+    <value>71</value>
   </data>
   <data name="status.HeaderText" xml:space="preserve">
     <value>状态</value>
@@ -189,6 +192,12 @@
   </data>
   <data name="status.Width" type="System.Int32, mscorlib">
     <value>71</value>
+  </data>
+  <data name="details.Width" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="Print.Width" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -228,6 +237,15 @@
   </data>
   <data name="Title.Text" xml:space="preserve">
     <value>销售订单</value>
+  </data>
+  <data name="dataGridViewImageColumn4.Width" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="dataGridViewImageColumn5.Width" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="dataGridViewImageColumn6.Width" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3525,9 +3543,5 @@
         AAAAAAAAP//////////////////////AAAAAAAAAAAAAAAAAAAP//////////////////////+AAAAAA
         AAAAAAAAAAAAD/////8=
 </value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>

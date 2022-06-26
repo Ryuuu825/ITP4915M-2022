@@ -69,13 +69,13 @@
             this.printDate = new System.Windows.Forms.Label();
             this.HeaderContainer = new System.Windows.Forms.Panel();
             this.orderId = new System.Windows.Forms.Label();
-            this.barcode = new System.Windows.Forms.PictureBox();
             this.CompanyInfo = new System.Windows.Forms.Panel();
             this.CompanyTitle1 = new System.Windows.Forms.Label();
             this.CompanyTitle0 = new System.Windows.Forms.Label();
-            this.CompanyIcon = new System.Windows.Forms.PictureBox();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.barcode = new System.Windows.Forms.PictureBox();
+            this.CompanyIcon = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.MainForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemDataGrid)).BeginInit();
@@ -83,8 +83,8 @@
             this.Footer.SuspendLayout();
             this.StoreInfo.SuspendLayout();
             this.HeaderContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.barcode)).BeginInit();
             this.CompanyInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barcode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -378,12 +378,6 @@
             this.orderId.Name = "orderId";
             this.orderId.UseMnemonic = false;
             // 
-            // barcode
-            // 
-            resources.ApplyResources(this.barcode, "barcode");
-            this.barcode.Name = "barcode";
-            this.barcode.TabStop = false;
-            // 
             // CompanyInfo
             // 
             resources.ApplyResources(this.CompanyInfo, "CompanyInfo");
@@ -403,13 +397,6 @@
             this.CompanyTitle0.ForeColor = System.Drawing.Color.SeaGreen;
             this.CompanyTitle0.Name = "CompanyTitle0";
             // 
-            // CompanyIcon
-            // 
-            resources.ApplyResources(this.CompanyIcon, "CompanyIcon");
-            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
-            this.CompanyIcon.Name = "CompanyIcon";
-            this.CompanyIcon.TabStop = false;
-            // 
             // printDocument2
             // 
             this.printDocument2.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument2_EndPrint);
@@ -419,6 +406,19 @@
             // 
             resources.ApplyResources(this.printPreviewDialog1, "printPreviewDialog1");
             this.printPreviewDialog1.Name = "printPreviewDialog1";
+            // 
+            // barcode
+            // 
+            resources.ApplyResources(this.barcode, "barcode");
+            this.barcode.Name = "barcode";
+            this.barcode.TabStop = false;
+            // 
+            // CompanyIcon
+            // 
+            resources.ApplyResources(this.CompanyIcon, "CompanyIcon");
+            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
+            this.CompanyIcon.Name = "CompanyIcon";
+            this.CompanyIcon.TabStop = false;
             // 
             // dataGridViewImageColumn1
             // 
@@ -446,9 +446,9 @@
             this.StoreInfo.ResumeLayout(false);
             this.StoreInfo.PerformLayout();
             this.HeaderContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             this.CompanyInfo.ResumeLayout(false);
             this.CompanyInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).EndInit();
             this.ResumeLayout(false);
 

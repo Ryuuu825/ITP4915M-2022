@@ -145,6 +145,9 @@
   <data name="&gt;&gt;DeleteBtn.Name" xml:space="preserve">
     <value>DeleteBtn</value>
   </data>
+  <data name="SearchBarTxt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12.10084pt</value>
+  </data>
   <data name="&gt;&gt;delete.Name" xml:space="preserve">
     <value>delete</value>
   </data>
@@ -164,16 +167,9 @@
   <data name="dataGridViewImageColumn4.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="edit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        qAAAAKgBefSzxgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADrSURBVEhL7ZTL
-        CcJAFEWjC7En/y5ciNiEJdiDHYgrrUBsQmxAbMQf4sLPuSGDj1lIPpOF4IEDmTfJfcmEmSgQFZziAU+4
-        wyEGoYpLfHk+sIWFsOEXHGMNZ0lti7nxwzvoqOMTj/EoB354Gy36Es3t41FG9EMXqAB5xxE6mnhGzU1U
-        yIL/5pvk+oYD1DKprpru08ukxg/vogLmSU1NbLjuT823H6oma9RcrnC75lfso6WB2lyaX2Gh8B5a/uH/
-        8A+/Gy7sDvVPRY3dwZV5hzr0sCwlXLgGFh25hZbF4jcIGi5cA98g4aLE8Ch6Axteh5xZI9doAAAAAElF
-        TkSuQmCC
-</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="SearchBar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="&gt;&gt;address.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -184,9 +180,6 @@
   <data name="contact.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="email.ToolTipText" xml:space="preserve">
-    <value>Email</value>
-  </data>
   <data name="SearchBar.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
@@ -196,10 +189,6 @@
   <data name="&gt;&gt;Title.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Title.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Action.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
@@ -224,8 +213,11 @@
   <data name="&gt;&gt;dataGridViewImageColumn1.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="id.HeaderText" xml:space="preserve">
-    <value>ID</value>
+  <data name="&gt;&gt;email.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="AddBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -236,20 +228,17 @@
   <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="Action.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 50</value>
+  <data name="button1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
   </data>
   <data name="Title.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;curdAction.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="dataGridViewImageColumn1.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>750, 38</value>
   </data>
   <data name="&gt;&gt;Title.Parent" xml:space="preserve">
     <value>Header</value>
@@ -281,14 +270,17 @@
   <data name="&gt;&gt;AddBtn.Name" xml:space="preserve">
     <value>AddBtn</value>
   </data>
-  <data name="&gt;&gt;supplierName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="dataGridViewImageColumn3.Width" type="System.Int32, mscorlib">
     <value>124</value>
   </data>
-  <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="&gt;&gt;Title.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="edit.HeaderText" xml:space="preserve">
     <value />
@@ -298,9 +290,6 @@
   </data>
   <data name="&gt;&gt;DeleteBtn.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
@@ -326,8 +315,8 @@
   <data name="Action.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="exportBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="contact.ToolTipText" xml:space="preserve">
+    <value>Contact</value>
   </data>
   <data name="&gt;&gt;SupplierDataGrid.Parent" xml:space="preserve">
     <value>Data</value>
@@ -335,26 +324,32 @@
   <data name="&gt;&gt;SearchBarTxt.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="Title.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
   <data name="Data.Size" type="System.Drawing.Size, System.Drawing">
     <value>758, 361</value>
   </data>
-  <data name="SearchBar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="SupplierDataGrid.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
   <data name="&gt;&gt;AddBtn.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="SearchBarTxt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
   <data name="&gt;&gt;SearchBarTxt.Type" xml:space="preserve">
     <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>5, 10</value>
   </data>
   <data name="&gt;&gt;SupplierDataGrid.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;edit.Name" xml:space="preserve">
     <value>edit</value>
+  </data>
+  <data name="contact.HeaderText" xml:space="preserve">
+    <value>Contact</value>
   </data>
   <data name="AddBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>1, 0</value>
@@ -374,11 +369,11 @@
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
   <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 33</value>
+  </data>
+  <data name="DeleteBtn.Text" xml:space="preserve">
+    <value>Delete Selected</value>
   </data>
   <data name="dataGridViewImageColumn5.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
@@ -404,9 +399,6 @@
   <data name="button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="Header.Size" type="System.Drawing.Size, System.Drawing">
-    <value>758, 40</value>
-  </data>
   <data name="edit.ToolTipText" xml:space="preserve">
     <value>Edit</value>
   </data>
@@ -419,8 +411,8 @@
   <data name="supplierName.ToolTipText" xml:space="preserve">
     <value>Name</value>
   </data>
-  <data name="SupplierDataGrid.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="button2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
   </data>
   <data name="&gt;&gt;button2.Name" xml:space="preserve">
     <value>button2</value>
@@ -440,11 +432,11 @@
   <data name="&gt;&gt;Data.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;SearchBarTxt.Name" xml:space="preserve">
-    <value>SearchBarTxt</value>
+  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 13.91597pt, style=Bold</value>
   </data>
-  <data name="SupplierDataGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
-    <value>50</value>
+  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn2.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -455,14 +447,14 @@
   <data name="curdAction.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="exportBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.28571pt, style=Bold</value>
-  </data>
   <data name="&gt;&gt;SearchBar.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;Data.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="button2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="&gt;&gt;address.Name" xml:space="preserve">
     <value>address</value>
@@ -470,8 +462,8 @@
   <data name="&gt;&gt;dataGridViewImageColumn6.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="id.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="id.ToolTipText" xml:space="preserve">
+    <value>Supplier ID</value>
   </data>
   <data name="curdAction.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -514,9 +506,6 @@
   <data name="SearchBarTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 5, 3, 5</value>
   </data>
-  <data name="address.ToolTipText" xml:space="preserve">
-    <value>Address</value>
-  </data>
   <data name="exportBtn.Text" xml:space="preserve">
     <value>Export</value>
   </data>
@@ -526,11 +515,14 @@
   <data name="&gt;&gt;email.Name" xml:space="preserve">
     <value>email</value>
   </data>
+  <data name="Header.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 10</value>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>
-  <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+  <data name="id.HeaderText" xml:space="preserve">
+    <value>ID</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -550,23 +542,23 @@
   <data name="&gt;&gt;curdAction.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dataGridViewImageColumn4.Name" xml:space="preserve">
-    <value>dataGridViewImageColumn4</value>
+  <data name="SupplierDataGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="DeleteBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 0</value>
+  <data name="Action.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 1, 4, 1</value>
   </data>
   <data name="dataGridViewImageColumn1.Width" type="System.Int32, mscorlib">
     <value>124</value>
   </data>
-  <data name="delete.Width" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
   <data name="&gt;&gt;DeleteBtn.Parent" xml:space="preserve">
     <value>curdAction</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="DeleteBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;Title.Name" xml:space="preserve">
+    <value>Title</value>
   </data>
   <data name="dataGridViewImageColumn3.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
@@ -574,11 +566,17 @@
   <data name="pictureBox1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="Action.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 1, 4, 1</value>
+  <data name="AddBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="exportBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>222, 0</value>
+  </data>
+  <data name="&gt;&gt;exportBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="curdAction.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -589,11 +587,11 @@
   <data name="DeleteBtn.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="button1.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
+  <data name="SupplierDataGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>50</value>
   </data>
-  <data name="Header.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 10</value>
+  <data name="SearchBarTxt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3892,6 +3890,9 @@
         AAAAAAAAAAAAD/////8=
 </value>
   </data>
+  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
   <data name="address.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
@@ -3901,14 +3902,17 @@
   <data name="edit.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 13.91597pt, style=Bold</value>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>750, 38</value>
   </data>
-  <data name="SearchBarTxt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12.10084pt</value>
+  <data name="email.ToolTipText" xml:space="preserve">
+    <value>Email</value>
   </data>
-  <data name="&gt;&gt;email.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;SearchBarTxt.Name" xml:space="preserve">
+    <value>SearchBarTxt</value>
+  </data>
+  <data name="DeleteBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 0</value>
   </data>
   <data name="&gt;&gt;curdAction.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -3919,11 +3923,19 @@
   <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="id.ToolTipText" xml:space="preserve">
-    <value>Supplier ID</value>
+  <data name="edit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        qAAAAKgBefSzxgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADrSURBVEhL7ZTL
+        CcJAFEWjC7En/y5ciNiEJdiDHYgrrUBsQmxAbMQf4sLPuSGDj1lIPpOF4IEDmTfJfcmEmSgQFZziAU+4
+        wyEGoYpLfHk+sIWFsOEXHGMNZ0lti7nxwzvoqOMTj/EoB354Gy36Es3t41FG9EMXqAB5xxE6mnhGzU1U
+        yIL/5pvk+oYD1DKprpru08ukxg/vogLmSU1NbLjuT823H6oma9RcrnC75lfso6WB2lyaX2Gh8B5a/uH/
+        8A+/Gy7sDvVPRY3dwZV5hzr0sCwlXLgGFh25hZbF4jcIGi5cA98g4aLE8Ch6Axteh5xZI9doAAAAAElF
+        TkSuQmCC
+</value>
   </data>
-  <data name="&gt;&gt;Header.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="exportBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="button1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -3934,9 +3946,6 @@
   <data name="&gt;&gt;Header.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="exportBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
     <value>dataGridViewImageColumn1</value>
   </data>
@@ -3946,8 +3955,8 @@
   <data name="phone.HeaderText" xml:space="preserve">
     <value>Phone</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>SearchBar</value>
+  <data name="&gt;&gt;exportBtn.Parent" xml:space="preserve">
+    <value>curdAction</value>
   </data>
   <data name="AddBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 38</value>
@@ -3970,9 +3979,6 @@
         gk/hV3jSRq6ZYZYzOdVMUSr1Cd9BhCFBltDuAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="dataGridViewImageColumn6.HeaderText" xml:space="preserve">
     <value />
   </data>
@@ -3985,8 +3991,8 @@
   <data name="SearchBarTxt.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;exportBtn.Parent" xml:space="preserve">
-    <value>curdAction</value>
+  <data name="exportBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="Header.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -4045,14 +4051,11 @@
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
     <value>675, 4</value>
   </data>
-  <data name="button2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Center</value>
+  <data name="&gt;&gt;Header.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;Data.Name" xml:space="preserve">
     <value>Data</value>
-  </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Data.Parent" xml:space="preserve">
     <value>$this</value>
@@ -4072,14 +4075,14 @@
   <data name="delete.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="SupplierDataGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>SearchBar</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
     <value>Supplier</value>
   </data>
-  <data name="button2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="Header.Size" type="System.Drawing.Size, System.Drawing">
+    <value>758, 40</value>
   </data>
   <data name="contact.Width" type="System.Int32, mscorlib">
     <value>93</value>
@@ -4087,20 +4090,20 @@
   <data name="dataGridViewImageColumn2.Width" type="System.Int32, mscorlib">
     <value>124</value>
   </data>
-  <data name="Title.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn5.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="contact.ToolTipText" xml:space="preserve">
-    <value>Contact</value>
+  <data name="Data.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
-  <data name="contact.HeaderText" xml:space="preserve">
-    <value>Contact</value>
+  <data name="exportBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.28571pt, style=Bold</value>
   </data>
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 10</value>
+  <data name="&gt;&gt;curdAction.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="AddBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -4120,8 +4123,8 @@
   <data name="edit.Width" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="DeleteBtn.Text" xml:space="preserve">
-    <value>Delete Selected</value>
+  <data name="Action.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 50</value>
   </data>
   <data name="dataGridViewImageColumn7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4138,8 +4141,8 @@
         gk/hV3jSRq6ZYZYzOdVMUSr1Cd9BhCFBltDuAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="DeleteBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="delete.Width" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="button2.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -4156,17 +4159,17 @@
   <data name="curdAction.Size" type="System.Drawing.Size, System.Drawing">
     <value>773, 38</value>
   </data>
-  <data name="AddBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="id.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <data name="AddBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="address.ToolTipText" xml:space="preserve">
+    <value>Address</value>
   </data>
-  <data name="exportBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="button1.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -4192,14 +4195,11 @@
   <data name="&gt;&gt;id.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Data.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 33</value>
   </data>
-  <data name="AddBtn.Text" xml:space="preserve">
-    <value>      New</value>
+  <data name="&gt;&gt;dataGridViewImageColumn4.Name" xml:space="preserve">
+    <value>dataGridViewImageColumn4</value>
   </data>
   <data name="dataGridViewImageColumn2.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
@@ -4213,8 +4213,8 @@
   <data name="Header.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="&gt;&gt;Title.Name" xml:space="preserve">
-    <value>Title</value>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="dataGridViewImageColumn6.ToolTipText" xml:space="preserve">
     <value>Delete</value>
@@ -4225,17 +4225,17 @@
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>Action</value>
   </data>
-  <data name="&gt;&gt;exportBtn.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;supplierName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="DeleteBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="exportBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="AddBtn.Text" xml:space="preserve">
+    <value>      New</value>
   </data>
   <data name="AddBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>8, 0, 8, 0</value>
@@ -4252,10 +4252,10 @@
   <metadata name="select.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="email.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="email.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -4267,10 +4267,7 @@
   <metadata name="address.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>zh</value>
-  </metadata>
-  <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="contact.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
