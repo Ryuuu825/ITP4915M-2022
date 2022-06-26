@@ -145,8 +145,9 @@ namespace TheBetterLimited.Views
         private void AddItem()
         {
             bool isExist = false;
-            if (orderItems.Count == 0)
+            if (orderItems is null || orderItems.Count == 0)
             {
+                orderItems = new List<object>();
                 orderItems.Add(oi);
             }
             else
@@ -615,7 +616,6 @@ namespace TheBetterLimited.Views
                 booking.Dispose();
             }
             InitializeCartGridView();
-            GC.Collect();
         }
 
         public void SetCusInfo(object customer)
