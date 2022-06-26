@@ -349,4 +349,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>发票</value>
   </data>
+  <data name="isNew.HeaderText" xml:space="preserve">
+    <value>新产品 New</value>
+  </data>
 </root>

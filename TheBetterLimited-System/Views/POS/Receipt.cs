@@ -186,15 +186,5 @@ namespace TheBetterLimited.Views
 
         }
 
-        private void OrderItemDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            OrderItemDataGrid.Columns["isInstall"].HeaderText = "是否安裝\nNeed Install";
-            OrderItemDataGrid.Columns["isDisplay"].HeaderText = "展示商品\nDisplay Item";
-            OrderItemDataGrid.Columns["amount"].HeaderText = "金額\nAmount";
-            OrderItemDataGrid.Columns["price"].HeaderText = "單價\nUnit Price";
-            OrderItemDataGrid.Columns["qty"].HeaderText = "數量\nQTY";
-            OrderItemDataGrid.Columns["goodsName"].HeaderText = "貨品\nProduct";
-            OrderItemDataGrid.Columns["goodsID"].HeaderText = "識別編號\nID No.";
-        }
     }
 }

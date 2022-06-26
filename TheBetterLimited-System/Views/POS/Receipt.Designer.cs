@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receipt));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Receipt));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,6 +46,8 @@
             this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isDisplay = new System.Windows.Forms.DataGridViewImageColumn();
+            this.isInstall = new System.Windows.Forms.DataGridViewImageColumn();
             this.CustomerInfo = new System.Windows.Forms.Panel();
             this.line2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
@@ -93,17 +95,15 @@
             this.printDate = new System.Windows.Forms.Label();
             this.HeaderContainer = new System.Windows.Forms.Panel();
             this.orderId = new System.Windows.Forms.Label();
+            this.barcode = new System.Windows.Forms.PictureBox();
             this.CompanyInfo = new System.Windows.Forms.Panel();
             this.CompanyTitle1 = new System.Windows.Forms.Label();
             this.CompanyTitle0 = new System.Windows.Forms.Label();
+            this.CompanyIcon = new System.Windows.Forms.PictureBox();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.isDisplay = new System.Windows.Forms.DataGridViewImageColumn();
-            this.isInstall = new System.Windows.Forms.DataGridViewImageColumn();
-            this.barcode = new System.Windows.Forms.PictureBox();
-            this.CompanyIcon = new System.Windows.Forms.PictureBox();
             this.MainForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderItemDataGrid)).BeginInit();
             this.CustomerInfo.SuspendLayout();
@@ -111,14 +111,13 @@
             this.Footer.SuspendLayout();
             this.StoreInfo.SuspendLayout();
             this.HeaderContainer.SuspendLayout();
-            this.CompanyInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barcode)).BeginInit();
+            this.CompanyInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // MainForm
             // 
-            resources.ApplyResources(this.MainForm, "MainForm");
             this.MainForm.BackColor = System.Drawing.Color.White;
             this.MainForm.Controls.Add(this.OrderItemDataGrid);
             this.MainForm.Controls.Add(this.CustomerInfo);
@@ -126,11 +125,11 @@
             this.MainForm.Controls.Add(this.Footer);
             this.MainForm.Controls.Add(this.StoreInfo);
             this.MainForm.Controls.Add(this.HeaderContainer);
+            resources.ApplyResources(this.MainForm, "MainForm");
             this.MainForm.Name = "MainForm";
             // 
             // OrderItemDataGrid
             // 
-            resources.ApplyResources(this.OrderItemDataGrid, "OrderItemDataGrid");
             this.OrderItemDataGrid.AllowUserToAddRows = false;
             this.OrderItemDataGrid.AllowUserToOrderColumns = true;
             this.OrderItemDataGrid.AllowUserToResizeColumns = false;
@@ -153,6 +152,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.OrderItemDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.OrderItemDataGrid, "OrderItemDataGrid");
             this.OrderItemDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.OrderItemDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.goodsID,
@@ -198,7 +198,6 @@
             this.OrderItemDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.OrderItemDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.OrderItemDataGrid.StandardTab = true;
-            this.OrderItemDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.OrderItemDataGrid_CellFormatting);
             // 
             // goodsID
             // 
@@ -255,9 +254,27 @@
             this.amount.Name = "amount";
             this.amount.ReadOnly = true;
             // 
+            // isDisplay
+            // 
+            this.isDisplay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            resources.ApplyResources(this.isDisplay, "isDisplay");
+            this.isDisplay.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.isDisplay.Name = "isDisplay";
+            this.isDisplay.ReadOnly = true;
+            // 
+            // isInstall
+            // 
+            this.isInstall.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.isInstall.DataPropertyName = "isInstall";
+            resources.ApplyResources(this.isInstall, "isInstall");
+            this.isInstall.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.isInstall.Name = "isInstall";
+            this.isInstall.ReadOnly = true;
+            this.isInstall.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.isInstall.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // CustomerInfo
             // 
-            resources.ApplyResources(this.CustomerInfo, "CustomerInfo");
             this.CustomerInfo.Controls.Add(this.line2);
             this.CustomerInfo.Controls.Add(this.label16);
             this.CustomerInfo.Controls.Add(this.installDate);
@@ -271,13 +288,14 @@
             this.CustomerInfo.Controls.Add(this.label8);
             this.CustomerInfo.Controls.Add(this.label12);
             this.CustomerInfo.Controls.Add(this.area);
+            resources.ApplyResources(this.CustomerInfo, "CustomerInfo");
             this.CustomerInfo.ForeColor = System.Drawing.Color.Black;
             this.CustomerInfo.Name = "CustomerInfo";
             // 
             // line2
             // 
-            resources.ApplyResources(this.line2, "line2");
             this.line2.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.line2, "line2");
             this.line2.Name = "line2";
             // 
             // label16
@@ -351,7 +369,6 @@
             // 
             // PaymentInfo
             // 
-            resources.ApplyResources(this.PaymentInfo, "PaymentInfo");
             this.PaymentInfo.BackColor = System.Drawing.Color.White;
             this.PaymentInfo.Controls.Add(this.line3);
             this.PaymentInfo.Controls.Add(this.paymentMethod);
@@ -364,14 +381,15 @@
             this.PaymentInfo.Controls.Add(this.label14);
             this.PaymentInfo.Controls.Add(this.totalAmount);
             this.PaymentInfo.Controls.Add(this.label13);
+            resources.ApplyResources(this.PaymentInfo, "PaymentInfo");
             this.PaymentInfo.ForeColor = System.Drawing.Color.Black;
             this.PaymentInfo.Name = "PaymentInfo";
             this.PaymentInfo.Paint += new System.Windows.Forms.PaintEventHandler(this.UserInfo_Paint);
             // 
             // line3
             // 
-            resources.ApplyResources(this.line3, "line3");
             this.line3.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.line3, "line3");
             this.line3.Name = "line3";
             // 
             // paymentMethod
@@ -427,15 +445,15 @@
             // 
             // Footer
             // 
-            resources.ApplyResources(this.Footer, "Footer");
             this.Footer.Controls.Add(this.line4);
             this.Footer.Controls.Add(this.label18);
+            resources.ApplyResources(this.Footer, "Footer");
             this.Footer.Name = "Footer";
             // 
             // line4
             // 
-            resources.ApplyResources(this.line4, "line4");
             this.line4.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.line4, "line4");
             this.line4.Name = "line4";
             // 
             // label18
@@ -445,7 +463,6 @@
             // 
             // StoreInfo
             // 
-            resources.ApplyResources(this.StoreInfo, "StoreInfo");
             this.StoreInfo.Controls.Add(this.panel1);
             this.StoreInfo.Controls.Add(this.label11);
             this.StoreInfo.Controls.Add(this.label20);
@@ -461,13 +478,14 @@
             this.StoreInfo.Controls.Add(this.label1);
             this.StoreInfo.Controls.Add(this.label10);
             this.StoreInfo.Controls.Add(this.printDate);
+            resources.ApplyResources(this.StoreInfo, "StoreInfo");
             this.StoreInfo.ForeColor = System.Drawing.Color.Black;
             this.StoreInfo.Name = "StoreInfo";
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // label11
@@ -483,8 +501,8 @@
             // 
             // line1
             // 
-            resources.ApplyResources(this.line1, "line1");
             this.line1.BackColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.line1, "line1");
             this.line1.Name = "line1";
             // 
             // transcationDate
@@ -557,11 +575,11 @@
             // 
             // HeaderContainer
             // 
-            resources.ApplyResources(this.HeaderContainer, "HeaderContainer");
             this.HeaderContainer.BackColor = System.Drawing.Color.White;
             this.HeaderContainer.Controls.Add(this.orderId);
             this.HeaderContainer.Controls.Add(this.barcode);
             this.HeaderContainer.Controls.Add(this.CompanyInfo);
+            resources.ApplyResources(this.HeaderContainer, "HeaderContainer");
             this.HeaderContainer.Name = "HeaderContainer";
             // 
             // orderId
@@ -570,12 +588,18 @@
             this.orderId.Name = "orderId";
             this.orderId.UseMnemonic = false;
             // 
+            // barcode
+            // 
+            resources.ApplyResources(this.barcode, "barcode");
+            this.barcode.Name = "barcode";
+            this.barcode.TabStop = false;
+            // 
             // CompanyInfo
             // 
-            resources.ApplyResources(this.CompanyInfo, "CompanyInfo");
             this.CompanyInfo.Controls.Add(this.CompanyTitle1);
             this.CompanyInfo.Controls.Add(this.CompanyTitle0);
             this.CompanyInfo.Controls.Add(this.CompanyIcon);
+            resources.ApplyResources(this.CompanyInfo, "CompanyInfo");
             this.CompanyInfo.Name = "CompanyInfo";
             // 
             // CompanyTitle1
@@ -588,6 +612,13 @@
             resources.ApplyResources(this.CompanyTitle0, "CompanyTitle0");
             this.CompanyTitle0.ForeColor = System.Drawing.Color.SeaGreen;
             this.CompanyTitle0.Name = "CompanyTitle0";
+            // 
+            // CompanyIcon
+            // 
+            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
+            resources.ApplyResources(this.CompanyIcon, "CompanyIcon");
+            this.CompanyIcon.Name = "CompanyIcon";
+            this.CompanyIcon.TabStop = false;
             // 
             // printDocument2
             // 
@@ -618,38 +649,6 @@
             this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
-            // isDisplay
-            // 
-            this.isDisplay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            resources.ApplyResources(this.isDisplay, "isDisplay");
-            this.isDisplay.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.isDisplay.Name = "isDisplay";
-            this.isDisplay.ReadOnly = true;
-            // 
-            // isInstall
-            // 
-            this.isInstall.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.isInstall.DataPropertyName = "isInstall";
-            resources.ApplyResources(this.isInstall, "isInstall");
-            this.isInstall.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.isInstall.Name = "isInstall";
-            this.isInstall.ReadOnly = true;
-            this.isInstall.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.isInstall.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // barcode
-            // 
-            resources.ApplyResources(this.barcode, "barcode");
-            this.barcode.Name = "barcode";
-            this.barcode.TabStop = false;
-            // 
-            // CompanyIcon
-            // 
-            resources.ApplyResources(this.CompanyIcon, "CompanyIcon");
-            this.CompanyIcon.Image = global::TheBetterLimited.Properties.Resources.logo46;
-            this.CompanyIcon.Name = "CompanyIcon";
-            this.CompanyIcon.TabStop = false;
-            // 
             // Receipt
             // 
             resources.ApplyResources(this, "$this");
@@ -671,9 +670,9 @@
             this.StoreInfo.ResumeLayout(false);
             this.StoreInfo.PerformLayout();
             this.HeaderContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             this.CompanyInfo.ResumeLayout(false);
             this.CompanyInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.barcode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompanyIcon)).EndInit();
             this.ResumeLayout(false);
 

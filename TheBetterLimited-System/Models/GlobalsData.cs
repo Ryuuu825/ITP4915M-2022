@@ -9,6 +9,5 @@ namespace TheBetterLimited.Models
     internal class GlobalsData
     {
         public static Dictionary<string, string> currentUser = new Dictionary<string, string>();
-        public static OrderItem orderitem = new OrderItem();
     }
 }

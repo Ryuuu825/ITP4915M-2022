@@ -10,7 +10,17 @@ namespace TheBetterLimited.Models
     {
         public PurchaseItem()
         {
+
         }
+
+        public PurchaseItem(string goodsId, string name, int quantity)
+        {
+            _goodsId = goodsId;
+            this.price = 0;
+            this.goodsName = name;
+            this.quantity = quantity;
+        }
+
         public PurchaseItem(string goodsId, string name, int price, int quantity)
         {
             _goodsId = goodsId;

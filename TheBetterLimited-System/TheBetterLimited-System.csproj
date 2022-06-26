@@ -235,12 +235,6 @@
     <Compile Include="Utils\MultiLanguage.cs" />
     <Compile Include="Utils\Random.cs" />
     <Compile Include="Utils\RestClientUtils.cs" />
-    <Compile Include="Views\Inventory\DefectiveItem-Add.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Inventory\DefectiveItem-Add.Designer.cs">
-      <DependentUpon>DefectiveItem-Add.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Inventory\DefectiveItem-Details.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,6 +258,12 @@
     </Compile>
     <Compile Include="Views\Inventory\RestockRequest-Add.Designer.cs">
       <DependentUpon>RestockRequest-Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Inventory\InboundGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Inventory\InboundGoods.Designer.cs">
+      <DependentUpon>InboundGoods.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Message\ContentListItem.cs">
       <SubType>UserControl</SubType>
@@ -594,12 +594,6 @@
     <EmbeddedResource Include="Views\Home.zh.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\DefectiveItem-Add.resx">
-      <DependentUpon>DefectiveItem-Add.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\DefectiveItem-Add.zh.resx">
-      <DependentUpon>DefectiveItem-Add.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\DefectiveItem-Details.resx">
       <DependentUpon>DefectiveItem-Details.cs</DependentUpon>
     </EmbeddedResource>
@@ -639,6 +633,15 @@
     <EmbeddedResource Include="Views\Inventory\Stock.zh.resx">
       <DependentUpon>Stock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\InboundGoods.ca.resx">
+      <DependentUpon>InboundGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\InboundGoods.resx">
+      <DependentUpon>InboundGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Inventory\InboundGoods.zh.resx">
+      <DependentUpon>InboundGoods.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Loading.zh.resx">
       <DependentUpon>Loading.cs</DependentUpon>
     </EmbeddedResource>
@@ -669,7 +672,13 @@
     <EmbeddedResource Include="Views\Message\ContentListItem.resx">
       <DependentUpon>ContentListItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Message\Message.zh.resx">
+      <DependentUpon>Message.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Message\MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Message\MessageForm.zh.resx">
       <DependentUpon>MessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Message\SendMessageForm.resx">
@@ -680,6 +689,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Message\MessageListItem.resx">
       <DependentUpon>MessageListItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Message\SendMessageForm.zh.resx">
+      <DependentUpon>SendMessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\POS\Appointment-Add.zh.resx">
       <DependentUpon>Appointment-Add.cs</DependentUpon>

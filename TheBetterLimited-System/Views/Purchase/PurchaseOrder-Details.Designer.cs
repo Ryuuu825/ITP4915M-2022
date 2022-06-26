@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseOrder_Details));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseOrder_Details));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,7 +46,6 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.AddBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.Title = new System.Windows.Forms.Label();
@@ -83,6 +82,7 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -102,22 +102,21 @@
             // 
             // OrderItemBox
             // 
-            resources.ApplyResources(this.OrderItemBox, "OrderItemBox");
             this.OrderItemBox.BackColor = System.Drawing.Color.White;
             this.OrderItemBox.Controls.Add(this.Data);
             this.OrderItemBox.Controls.Add(this.panel5);
             this.OrderItemBox.Controls.Add(this.BottomBtn);
+            resources.ApplyResources(this.OrderItemBox, "OrderItemBox");
             this.OrderItemBox.Name = "OrderItemBox";
             // 
             // Data
             // 
-            resources.ApplyResources(this.Data, "Data");
             this.Data.Controls.Add(this.OrderDataGrid);
+            resources.ApplyResources(this.Data, "Data");
             this.Data.Name = "Data";
             // 
             // OrderDataGrid
             // 
-            resources.ApplyResources(this.OrderDataGrid, "OrderDataGrid");
             this.OrderDataGrid.AllowUserToAddRows = false;
             this.OrderDataGrid.AllowUserToOrderColumns = true;
             this.OrderDataGrid.AllowUserToResizeColumns = false;
@@ -133,13 +132,14 @@
             this.OrderDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.OrderDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.OrderDataGrid, "OrderDataGrid");
             this.OrderDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.OrderDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.goodsID,
@@ -228,19 +228,12 @@
             resources.ApplyResources(this.quantity, "quantity");
             this.quantity.Name = "quantity";
             // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.delete, "delete");
-            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash24;
-            this.delete.Name = "delete";
-            // 
             // panel5
             // 
-            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.Controls.Add(this.AddBtn);
             this.panel5.Controls.Add(this.Title);
+            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.ForeColor = System.Drawing.Color.White;
             this.panel5.Name = "panel5";
             // 
@@ -268,7 +261,6 @@
             // 
             // BottomBtn
             // 
-            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.BottomBtn.Controls.Add(this.SentBtn);
             this.BottomBtn.Controls.Add(this.BackBtn);
@@ -277,6 +269,7 @@
             this.BottomBtn.Controls.Add(this.RejectBtn);
             this.BottomBtn.Controls.Add(this.CancelBtn);
             this.BottomBtn.Controls.Add(this.SaveBtn);
+            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BottomBtn.Name = "BottomBtn";
             // 
@@ -298,13 +291,13 @@
             // 
             // BackBtn
             // 
-            resources.ApplyResources(this.BackBtn, "BackBtn");
             this.BackBtn.BackColor = System.Drawing.Color.DimGray;
             this.BackBtn.BackgroundColor = System.Drawing.Color.DimGray;
             this.BackBtn.BorderColor = System.Drawing.Color.White;
             this.BackBtn.BorderRadius = 10;
             this.BackBtn.BorderSize = 0;
             this.BackBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.BackBtn, "BackBtn");
             this.BackBtn.ForeColor = System.Drawing.Color.White;
             this.BackBtn.IsChecked = false;
             this.BackBtn.Name = "BackBtn";
@@ -395,34 +388,33 @@
             // 
             // OrderInfoBox
             // 
-            resources.ApplyResources(this.OrderInfoBox, "OrderInfoBox");
             this.OrderInfoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.OrderInfoBox.Controls.Add(this.AppointmentBox);
             this.OrderInfoBox.Controls.Add(this.CustomerInfo);
+            resources.ApplyResources(this.OrderInfoBox, "OrderInfoBox");
             this.OrderInfoBox.Name = "OrderInfoBox";
             // 
             // AppointmentBox
             // 
-            resources.ApplyResources(this.AppointmentBox, "AppointmentBox");
             this.AppointmentBox.BackColor = System.Drawing.Color.White;
             this.AppointmentBox.Controls.Add(this.AppointmentInfoBox);
             this.AppointmentBox.Controls.Add(this.panel2);
+            resources.ApplyResources(this.AppointmentBox, "AppointmentBox");
             this.AppointmentBox.ForeColor = System.Drawing.Color.Black;
             this.AppointmentBox.Name = "AppointmentBox";
             // 
             // AppointmentInfoBox
             // 
-            resources.ApplyResources(this.AppointmentInfoBox, "AppointmentInfoBox");
             this.AppointmentInfoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.AppointmentInfoBox.Controls.Add(this.cbWarehouse);
             this.AppointmentInfoBox.Controls.Add(this.GTINCode);
             this.AppointmentInfoBox.Controls.Add(this.label7);
             this.AppointmentInfoBox.Controls.Add(this.txtWHAddress);
+            resources.ApplyResources(this.AppointmentInfoBox, "AppointmentInfoBox");
             this.AppointmentInfoBox.Name = "AppointmentInfoBox";
             // 
             // cbWarehouse
             // 
-            resources.ApplyResources(this.cbWarehouse, "cbWarehouse");
             this.cbWarehouse.AutoCompleteCustomSource.AddRange(new string[] {
             resources.GetString("cbWarehouse.AutoCompleteCustomSource")});
             this.cbWarehouse.BackColor = System.Drawing.Color.White;
@@ -430,6 +422,7 @@
             this.cbWarehouse.BorderRadius = 1;
             this.cbWarehouse.BorderSize = 1;
             this.cbWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbWarehouse, "cbWarehouse");
             this.cbWarehouse.ForeColor = System.Drawing.Color.DimGray;
             this.cbWarehouse.IconColor = System.Drawing.Color.LightGray;
             this.cbWarehouse.Items.AddRange(new object[] {
@@ -454,12 +447,12 @@
             // 
             // txtWHAddress
             // 
-            resources.ApplyResources(this.txtWHAddress, "txtWHAddress");
             this.txtWHAddress.BackColor = System.Drawing.Color.White;
             this.txtWHAddress.BorderColor = System.Drawing.Color.LightGray;
             this.txtWHAddress.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.txtWHAddress.BorderRadius = 10;
             this.txtWHAddress.BorderSize = 1;
+            resources.ApplyResources(this.txtWHAddress, "txtWHAddress");
             this.txtWHAddress.ForeColor = System.Drawing.Color.Black;
             this.txtWHAddress.IsError = false;
             this.txtWHAddress.MaxLength = 120;
@@ -475,8 +468,8 @@
             // 
             // panel2
             // 
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Controls.Add(this.label2);
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Name = "panel2";
             // 
@@ -488,15 +481,14 @@
             // 
             // CustomerInfo
             // 
-            resources.ApplyResources(this.CustomerInfo, "CustomerInfo");
             this.CustomerInfo.BackColor = System.Drawing.Color.Transparent;
             this.CustomerInfo.Controls.Add(this.CustomerInfoBox);
             this.CustomerInfo.Controls.Add(this.UserInfoHeaderContainer);
+            resources.ApplyResources(this.CustomerInfo, "CustomerInfo");
             this.CustomerInfo.Name = "CustomerInfo";
             // 
             // CustomerInfoBox
             // 
-            resources.ApplyResources(this.CustomerInfoBox, "CustomerInfoBox");
             this.CustomerInfoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.CustomerInfoBox.Controls.Add(this.label4);
             this.CustomerInfoBox.Controls.Add(this.txtSupAddress);
@@ -506,6 +498,7 @@
             this.CustomerInfoBox.Controls.Add(this.Catalogue);
             this.CustomerInfoBox.Controls.Add(this.label1);
             this.CustomerInfoBox.Controls.Add(this.txtContact);
+            resources.ApplyResources(this.CustomerInfoBox, "CustomerInfoBox");
             this.CustomerInfoBox.Name = "CustomerInfoBox";
             // 
             // label4
@@ -515,12 +508,12 @@
             // 
             // txtSupAddress
             // 
-            resources.ApplyResources(this.txtSupAddress, "txtSupAddress");
             this.txtSupAddress.BackColor = System.Drawing.Color.White;
             this.txtSupAddress.BorderColor = System.Drawing.Color.LightGray;
             this.txtSupAddress.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.txtSupAddress.BorderRadius = 10;
             this.txtSupAddress.BorderSize = 1;
+            resources.ApplyResources(this.txtSupAddress, "txtSupAddress");
             this.txtSupAddress.ForeColor = System.Drawing.Color.Black;
             this.txtSupAddress.IsError = false;
             this.txtSupAddress.MaxLength = 120;
@@ -536,12 +529,12 @@
             // 
             // cbSup
             // 
-            resources.ApplyResources(this.cbSup, "cbSup");
             this.cbSup.BackColor = System.Drawing.Color.White;
             this.cbSup.BorderColor = System.Drawing.Color.LightGray;
             this.cbSup.BorderRadius = 1;
             this.cbSup.BorderSize = 1;
             this.cbSup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbSup, "cbSup");
             this.cbSup.ForeColor = System.Drawing.Color.DimGray;
             this.cbSup.IconColor = System.Drawing.Color.LightGray;
             this.cbSup.ListBackColor = System.Drawing.Color.White;
@@ -559,12 +552,12 @@
             // 
             // txtTel
             // 
-            resources.ApplyResources(this.txtTel, "txtTel");
             this.txtTel.BackColor = System.Drawing.Color.White;
             this.txtTel.BorderColor = System.Drawing.Color.LightGray;
             this.txtTel.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.txtTel.BorderRadius = 10;
             this.txtTel.BorderSize = 1;
+            resources.ApplyResources(this.txtTel, "txtTel");
             this.txtTel.ForeColor = System.Drawing.Color.Black;
             this.txtTel.IsError = false;
             this.txtTel.MaxLength = 32767;
@@ -590,12 +583,12 @@
             // 
             // txtContact
             // 
-            resources.ApplyResources(this.txtContact, "txtContact");
             this.txtContact.BackColor = System.Drawing.Color.White;
             this.txtContact.BorderColor = System.Drawing.Color.LightGray;
             this.txtContact.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.txtContact.BorderRadius = 10;
             this.txtContact.BorderSize = 1;
+            resources.ApplyResources(this.txtContact, "txtContact");
             this.txtContact.ForeColor = System.Drawing.Color.Black;
             this.txtContact.IsError = false;
             this.txtContact.MaxLength = 32767;
@@ -611,9 +604,9 @@
             // 
             // UserInfoHeaderContainer
             // 
-            resources.ApplyResources(this.UserInfoHeaderContainer, "UserInfoHeaderContainer");
             this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
             this.UserInfoHeaderContainer.Controls.Add(this.GoodsInfoHeader);
+            resources.ApplyResources(this.UserInfoHeaderContainer, "UserInfoHeaderContainer");
             this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
             // 
             // GoodsInfoHeader
@@ -649,6 +642,13 @@
             this.dataGridViewImageColumn4.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
             this.dataGridViewImageColumn4.ReadOnly = true;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.delete, "delete");
+            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash24;
+            this.delete.Name = "delete";
             // 
             // dataGridViewImageColumn5
             // 

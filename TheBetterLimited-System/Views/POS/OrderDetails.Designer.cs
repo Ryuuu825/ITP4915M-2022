@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderDetails));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderDetails));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -57,8 +57,6 @@
             this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.OrderInfoBox = new System.Windows.Forms.Panel();
-            this.PickUpBox = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.AppointmentBox = new System.Windows.Forms.Panel();
             this.AppointmentInfoBox = new System.Windows.Forms.Panel();
             this.InstallSessionCombo = new TheBetterLimited.CustomizeControl.CustomizeComboBox();
@@ -73,6 +71,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.PickUpBox = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.CustomerInfo = new System.Windows.Forms.Panel();
             this.CustomerInfoBox = new System.Windows.Forms.Panel();
             this.NameTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
@@ -99,10 +99,10 @@
             this.panel5.SuspendLayout();
             this.BottomBtn.SuspendLayout();
             this.OrderInfoBox.SuspendLayout();
-            this.PickUpBox.SuspendLayout();
             this.AppointmentBox.SuspendLayout();
             this.AppointmentInfoBox.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.PickUpBox.SuspendLayout();
             this.CustomerInfo.SuspendLayout();
             this.CustomerInfoBox.SuspendLayout();
             this.UserInfoHeaderContainer.SuspendLayout();
@@ -111,22 +111,21 @@
             // 
             // OrderItemBox
             // 
-            resources.ApplyResources(this.OrderItemBox, "OrderItemBox");
             this.OrderItemBox.BackColor = System.Drawing.Color.White;
             this.OrderItemBox.Controls.Add(this.Data);
             this.OrderItemBox.Controls.Add(this.panel5);
             this.OrderItemBox.Controls.Add(this.BottomBtn);
+            resources.ApplyResources(this.OrderItemBox, "OrderItemBox");
             this.OrderItemBox.Name = "OrderItemBox";
             // 
             // Data
             // 
-            resources.ApplyResources(this.Data, "Data");
             this.Data.Controls.Add(this.OrderDataGrid);
+            resources.ApplyResources(this.Data, "Data");
             this.Data.Name = "Data";
             // 
             // OrderDataGrid
             // 
-            resources.ApplyResources(this.OrderDataGrid, "OrderDataGrid");
             this.OrderDataGrid.AllowUserToAddRows = false;
             this.OrderDataGrid.AllowUserToOrderColumns = true;
             this.OrderDataGrid.AllowUserToResizeColumns = false;
@@ -142,13 +141,14 @@
             this.OrderDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.OrderDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.OrderDataGrid, "OrderDataGrid");
             this.OrderDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.OrderDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.goodsID,
@@ -249,9 +249,9 @@
             // 
             // panel5
             // 
-            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.Controls.Add(this.Title);
+            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.ForeColor = System.Drawing.Color.White;
             this.panel5.Name = "panel5";
             // 
@@ -263,23 +263,23 @@
             // 
             // BottomBtn
             // 
-            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.BottomBtn.Controls.Add(this.DeleteBtn);
             this.BottomBtn.Controls.Add(this.CancelBtn);
             this.BottomBtn.Controls.Add(this.SaveBtn);
+            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BottomBtn.Name = "BottomBtn";
             // 
             // DeleteBtn
             // 
-            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
             this.DeleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.DeleteBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.DeleteBtn.BorderColor = System.Drawing.Color.White;
             this.DeleteBtn.BorderRadius = 10;
             this.DeleteBtn.BorderSize = 0;
             this.DeleteBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
             this.DeleteBtn.ForeColor = System.Drawing.Color.White;
             this.DeleteBtn.IsChecked = false;
             this.DeleteBtn.Name = "DeleteBtn";
@@ -322,39 +322,24 @@
             // 
             // OrderInfoBox
             // 
-            resources.ApplyResources(this.OrderInfoBox, "OrderInfoBox");
             this.OrderInfoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.OrderInfoBox.Controls.Add(this.AppointmentBox);
             this.OrderInfoBox.Controls.Add(this.PickUpBox);
             this.OrderInfoBox.Controls.Add(this.CustomerInfo);
+            resources.ApplyResources(this.OrderInfoBox, "OrderInfoBox");
             this.OrderInfoBox.Name = "OrderInfoBox";
-            // 
-            // PickUpBox
-            // 
-            resources.ApplyResources(this.PickUpBox, "PickUpBox");
-            this.PickUpBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.PickUpBox.Controls.Add(this.pictureBox1);
-            this.PickUpBox.Controls.Add(this.label9);
-            this.PickUpBox.Name = "PickUpBox";
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Name = "label9";
             // 
             // AppointmentBox
             // 
-            resources.ApplyResources(this.AppointmentBox, "AppointmentBox");
             this.AppointmentBox.BackColor = System.Drawing.Color.White;
             this.AppointmentBox.Controls.Add(this.AppointmentInfoBox);
             this.AppointmentBox.Controls.Add(this.panel2);
+            resources.ApplyResources(this.AppointmentBox, "AppointmentBox");
             this.AppointmentBox.ForeColor = System.Drawing.Color.Black;
             this.AppointmentBox.Name = "AppointmentBox";
             // 
             // AppointmentInfoBox
             // 
-            resources.ApplyResources(this.AppointmentInfoBox, "AppointmentInfoBox");
             this.AppointmentInfoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.AppointmentInfoBox.Controls.Add(this.InstallSessionCombo);
             this.AppointmentInfoBox.Controls.Add(this.DeliverySessionCombo);
@@ -366,16 +351,17 @@
             this.AppointmentInfoBox.Controls.Add(this.label3);
             this.AppointmentInfoBox.Controls.Add(this.label4);
             this.AppointmentInfoBox.Controls.Add(this.label5);
+            resources.ApplyResources(this.AppointmentInfoBox, "AppointmentInfoBox");
             this.AppointmentInfoBox.Name = "AppointmentInfoBox";
             // 
             // InstallSessionCombo
             // 
-            resources.ApplyResources(this.InstallSessionCombo, "InstallSessionCombo");
             this.InstallSessionCombo.BackColor = System.Drawing.Color.White;
             this.InstallSessionCombo.BorderColor = System.Drawing.Color.LightGray;
             this.InstallSessionCombo.BorderRadius = 1;
             this.InstallSessionCombo.BorderSize = 1;
             this.InstallSessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.InstallSessionCombo, "InstallSessionCombo");
             this.InstallSessionCombo.ForeColor = System.Drawing.Color.DimGray;
             this.InstallSessionCombo.IconColor = System.Drawing.Color.LightGray;
             this.InstallSessionCombo.ListBackColor = System.Drawing.Color.White;
@@ -387,12 +373,12 @@
             // 
             // DeliverySessionCombo
             // 
-            resources.ApplyResources(this.DeliverySessionCombo, "DeliverySessionCombo");
             this.DeliverySessionCombo.BackColor = System.Drawing.Color.White;
             this.DeliverySessionCombo.BorderColor = System.Drawing.Color.LightGray;
             this.DeliverySessionCombo.BorderRadius = 1;
             this.DeliverySessionCombo.BorderSize = 1;
             this.DeliverySessionCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.DeliverySessionCombo, "DeliverySessionCombo");
             this.DeliverySessionCombo.ForeColor = System.Drawing.Color.DimGray;
             this.DeliverySessionCombo.IconColor = System.Drawing.Color.LightGray;
             this.DeliverySessionCombo.ListBackColor = System.Drawing.Color.White;
@@ -448,8 +434,8 @@
             // 
             // panel2
             // 
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Controls.Add(this.label2);
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Name = "panel2";
             // 
@@ -459,17 +445,30 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Name = "label2";
             // 
+            // PickUpBox
+            // 
+            this.PickUpBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.PickUpBox.Controls.Add(this.pictureBox1);
+            this.PickUpBox.Controls.Add(this.label9);
+            resources.ApplyResources(this.PickUpBox, "PickUpBox");
+            this.PickUpBox.Name = "PickUpBox";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Name = "label9";
+            // 
             // CustomerInfo
             // 
-            resources.ApplyResources(this.CustomerInfo, "CustomerInfo");
             this.CustomerInfo.BackColor = System.Drawing.Color.Transparent;
             this.CustomerInfo.Controls.Add(this.CustomerInfoBox);
             this.CustomerInfo.Controls.Add(this.UserInfoHeaderContainer);
+            resources.ApplyResources(this.CustomerInfo, "CustomerInfo");
             this.CustomerInfo.Name = "CustomerInfo";
             // 
             // CustomerInfoBox
             // 
-            resources.ApplyResources(this.CustomerInfoBox, "CustomerInfoBox");
             this.CustomerInfoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.CustomerInfoBox.Controls.Add(this.NameTxt);
             this.CustomerInfoBox.Controls.Add(this.GTINCode);
@@ -477,17 +476,18 @@
             this.CustomerInfoBox.Controls.Add(this.label1);
             this.CustomerInfoBox.Controls.Add(this.AddressTxt);
             this.CustomerInfoBox.Controls.Add(this.PhoneTxt);
+            resources.ApplyResources(this.CustomerInfoBox, "CustomerInfoBox");
             this.CustomerInfoBox.Name = "CustomerInfoBox";
             // 
             // NameTxt
             // 
-            resources.ApplyResources(this.NameTxt, "NameTxt");
             this.NameTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.NameTxt.BackColor = System.Drawing.Color.White;
             this.NameTxt.BorderColor = System.Drawing.Color.LightGray;
             this.NameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.NameTxt.BorderRadius = 10;
             this.NameTxt.BorderSize = 1;
+            resources.ApplyResources(this.NameTxt, "NameTxt");
             this.NameTxt.ForeColor = System.Drawing.Color.Black;
             this.NameTxt.IsError = false;
             this.NameTxt.MaxLength = 5;
@@ -518,12 +518,12 @@
             // 
             // AddressTxt
             // 
-            resources.ApplyResources(this.AddressTxt, "AddressTxt");
             this.AddressTxt.BackColor = System.Drawing.Color.White;
             this.AddressTxt.BorderColor = System.Drawing.Color.LightGray;
             this.AddressTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.AddressTxt.BorderRadius = 10;
             this.AddressTxt.BorderSize = 1;
+            resources.ApplyResources(this.AddressTxt, "AddressTxt");
             this.AddressTxt.ForeColor = System.Drawing.Color.Black;
             this.AddressTxt.IsError = false;
             this.AddressTxt.MaxLength = 120;
@@ -539,12 +539,12 @@
             // 
             // PhoneTxt
             // 
-            resources.ApplyResources(this.PhoneTxt, "PhoneTxt");
             this.PhoneTxt.BackColor = System.Drawing.Color.White;
             this.PhoneTxt.BorderColor = System.Drawing.Color.LightGray;
             this.PhoneTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.PhoneTxt.BorderRadius = 10;
             this.PhoneTxt.BorderSize = 1;
+            resources.ApplyResources(this.PhoneTxt, "PhoneTxt");
             this.PhoneTxt.ForeColor = System.Drawing.Color.Black;
             this.PhoneTxt.IsError = false;
             this.PhoneTxt.MaxLength = 32767;
@@ -560,9 +560,9 @@
             // 
             // UserInfoHeaderContainer
             // 
-            resources.ApplyResources(this.UserInfoHeaderContainer, "UserInfoHeaderContainer");
             this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
             this.UserInfoHeaderContainer.Controls.Add(this.GoodsInfoHeader);
+            resources.ApplyResources(this.UserInfoHeaderContainer, "UserInfoHeaderContainer");
             this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
             // 
             // GoodsInfoHeader
@@ -641,8 +641,8 @@
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Image = global::TheBetterLimited.Properties.Resources.store254;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
@@ -680,13 +680,13 @@
             this.panel5.PerformLayout();
             this.BottomBtn.ResumeLayout(false);
             this.OrderInfoBox.ResumeLayout(false);
-            this.PickUpBox.ResumeLayout(false);
-            this.PickUpBox.PerformLayout();
             this.AppointmentBox.ResumeLayout(false);
             this.AppointmentInfoBox.ResumeLayout(false);
             this.AppointmentInfoBox.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.PickUpBox.ResumeLayout(false);
+            this.PickUpBox.PerformLayout();
             this.CustomerInfo.ResumeLayout(false);
             this.CustomerInfoBox.ResumeLayout(false);
             this.CustomerInfoBox.PerformLayout();
