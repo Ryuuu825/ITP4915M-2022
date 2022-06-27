@@ -248,9 +248,13 @@ namespace TheBetterLimited_Server.API.Controller
                     {
                         
                     }
+                    // store stock inbound
                     else if (potentialStore is not null)
                     {
+                        var rr = RestockRequestTable.GetById(dto._restockRequestId);
+                        rr.Status = Data.Entity.RestockRequestStatus.Completed;
 
+                        RestockRequestTable.Update(rr);
                     }
                 }
                 
