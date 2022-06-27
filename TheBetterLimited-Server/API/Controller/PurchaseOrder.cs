@@ -29,6 +29,20 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
+
+        [HttpGet("{id}")]
+        [Authorize]
+        public IActionResult GetById(string id, [FromHeader] string Language)
+        {
+            try 
+            {
+                return Ok(controller.GetById(id , User.Identity.Name , Language));
+            }catch(ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
+        }
+
         [HttpPost]
         [Authorize]
         public IActionResult Post([FromBody] Data.Dto.PurchaseOrderInDto dto)
