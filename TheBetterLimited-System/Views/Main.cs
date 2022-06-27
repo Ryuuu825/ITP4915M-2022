@@ -43,7 +43,7 @@ namespace TheBetterLimited.Views
             Thread.CurrentThread.CurrentUICulture = culture;
 
             InitializeComponent();
-            Delegate = new MessageDelegate(() => { }, 1000, () => { }, testing);
+            Delegate = new MessageDelegate(() => { }, 5000, () => { }, testing);
             this.FormClosing += (s, e) => { Delegate.Stop(); };
         }
 

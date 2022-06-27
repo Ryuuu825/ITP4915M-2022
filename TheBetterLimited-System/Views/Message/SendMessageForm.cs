@@ -80,12 +80,8 @@ namespace TheBetterLimited.Views
                                     .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
                                     .AddBody(new { receiver = this.receiver, title = PhoneTxt.Texts, content = CusAddressTxt.Texts });
             var res = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
-            Console.WriteLine(res.Content);
-            Console.WriteLine(res.StatusCode);
-
-
-
-
+            this.Close();
+            this.Dispose();
         }
 
         private void CusNameTxt_Click(object sender, EventArgs e)

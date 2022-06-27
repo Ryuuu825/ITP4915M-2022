@@ -27,6 +27,7 @@ namespace TheBetterLimited.Views.Message
             this.timer.Elapsed += (o,s) => { ReceiveNewMessage(); };
             this.timer.Elapsed += (o, s) => this.Delegate();
             this.timer.Start();
+
         }
 
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -40,7 +41,6 @@ namespace TheBetterLimited.Views.Message
             var req = new RestSharp.RestRequest("/api/message/unreceived", RestSharp.Method.Get)
                                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             var res = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
-            OnMessageReceived.Invoke();
 
 
             var messages = JObject.Parse(res.Content)["messages"].ToString();
@@ -51,6 +51,8 @@ namespace TheBetterLimited.Views.Message
                 prompt.BalloonTipTitle = "You receive few new messages!";
                 prompt.Visible = true;
                 prompt.Text = "";
+                prompt.BalloonTipText = "Click me to see it";
+
                 prompt.ShowBalloonTip(1000);
             }
             else if (messageList.Count == 1)
@@ -58,8 +60,12 @@ namespace TheBetterLimited.Views.Message
                 prompt.BalloonTipTitle = "You receive one new messages!";
                 prompt.Visible = true;
                 prompt.Text = "";
+                prompt.BalloonTipText = "Click me to see it";
+
                 prompt.ShowBalloonTip(1000);
             }
+
+            OnMessageReceived.Invoke();
 
         }
 
