@@ -36,7 +36,7 @@ namespace TheBetterLimited_Server.API.Controller
         {
             try 
             {
-                return Ok(controller.GetById(id , User.Identity.Name , Language));
+                return Ok(controller.GetById(User.Identity.Name,id , Language));
             }catch(ICustException e)
             {
                 return StatusCode(e.ReturnCode , e.GetHttpResult());
