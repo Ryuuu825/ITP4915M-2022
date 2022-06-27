@@ -220,7 +220,7 @@ public class MessageController
             SentDate = DateTime.Now,
             _senderId = account.Id,
             sender = account,
-            Id = Helpers.Secure.RandomId.GetID(10)
+            Id = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.Message>(_db) 
         };
 
         _sendMessageTable.Add(newMessage);
@@ -229,13 +229,14 @@ public class MessageController
 
         bool isFailed = false;
         StringBuilder failedUsername = new StringBuilder();
+        bool hasAdminAccount = false;
 
         foreach (var recevier in message.receiver)
         {
             var acc = _accountTable.GetBySQL(
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{recevier}" )
             ).FirstOrDefault();
-            
+
             var receiverMessage = new Data.Entity.Staff_Message
             {
                 _receiverId = acc.Id,
@@ -264,7 +265,13 @@ public class MessageController
                 _messageId = newMessage.Id,
                 Status = Data.Entity.StaffMessageStatus.Unreceived
             };
-            _receiveMessageTable.Add(receiverMessage_Admin);
+            try 
+            {
+                _receiveMessageTable.Add(receiverMessage_Admin);
+            }catch(Exception e)
+            {
+                // ignore
+            }
         #endif 
 
         if (isFailed)
