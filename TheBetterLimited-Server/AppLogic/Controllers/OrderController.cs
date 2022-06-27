@@ -381,9 +381,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
                     foreach (var s in StoreManager)
                     {
-                        receivers.Add(account.UserName);
+                        receivers.Add(s.acc.UserName);
                     }
-
                     _MessageController.SendMessage("system" ,
                         new SendMessageDto
                         {

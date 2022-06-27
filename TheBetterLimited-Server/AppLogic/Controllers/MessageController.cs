@@ -237,6 +237,8 @@ public class MessageController
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{recevier}" )
             ).FirstOrDefault();
 
+            ConsoleLogger.Debug(Helpers.Sql.QueryStringBuilder.GetSqlStatement<Data.Entity.Account>($"UserName:{recevier}"));
+
             var receiverMessage = new Data.Entity.Staff_Message
             {
                 _receiverId = acc.Id,
@@ -270,7 +272,7 @@ public class MessageController
                 _receiveMessageTable.Add(receiverMessage_Admin);
             }catch(Exception e)
             {
-                // ignore
+                // ignoreP
             }
         #endif 
 
@@ -301,7 +303,7 @@ public class MessageController
         var accountIds = new List<string>();
         foreach(var staff in staffs)
         {
-            accountIds.Add(staff._AccountId);
+            accountIds.Add(staff.acc.UserName);
         }
         var SendMessageDto = new SendMessageDto()
         {

@@ -6795,10 +6795,10 @@ namespace TheBetterLimited_Server.Data
                     Id = (++i).ToString(),
                     _locationId = "004",
                     _supplierGoodsId = "100000125",
-                    Quantity = ran.Next(20,100),
-                    MaxLimit= ran.Next(105 , 120),
-                    MinLimit = ran.Next(5, 20),
-                    ReorderLevel = ran.Next(20 , 30)
+                    Quantity = 23,
+                    MaxLimit= 30,
+                    MinLimit = 23,
+                    ReorderLevel = 24
                 },
                 new Supplier_Goods_Stock
                 {

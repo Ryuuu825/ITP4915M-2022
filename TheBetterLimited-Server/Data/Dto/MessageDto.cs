@@ -13,7 +13,7 @@ namespace TheBetterLimited_Server.Data.Dto
 
     public class SendMessageDto 
     {
-        public List<string> receiver { get; set; } // the account id -.-
+        public List<string> receiver { get; set; } // the account id -.- // NO!!!!!!!!!!!!!!!!!!! // this is UserName // fuck this shit i am out
         public string Title { get; set; }
         public string content { get; set; }
     }
