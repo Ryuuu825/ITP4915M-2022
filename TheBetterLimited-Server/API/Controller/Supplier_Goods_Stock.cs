@@ -31,7 +31,7 @@ namespace TheBetterLimited_Server.API.Controller
             WarehouseTable = new Data.Repositories.Repository<Data.Entity.Warehouse>(db);
             PurchaseOrderTable = new Data.Repositories.Repository<Data.Entity.PurchaseOrder>(db);
             RestockRequestTable = new Data.Repositories.Repository<Data.Entity.RestockRequest>(db);
-            PurchaseOrder_SupplierGoods_Table = new Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods>(db)
+            PurchaseOrder_SupplierGoods_Table = new Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods>(db);
             goodsController = new AppLogic.Controllers.GoodsController(db);
             userInfo = new Data.Repositories.UserInfoRepository(db);
             this.db = db;
@@ -236,7 +236,7 @@ namespace TheBetterLimited_Server.API.Controller
                 }
                 else if (dto._restockRequestId is not null)
                 {
-
+                    // warehouse stock outbound 
                 }
                 
             }catch(Exception e)
