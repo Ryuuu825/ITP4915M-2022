@@ -206,8 +206,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             var status = (Data.Entity.PurchaseOrderStatus) status_i;
             var staff = userInfoRepository.GetStaffFromUserName(username);
             var entry = repository.GetById(id);
-            ConsoleLogger.Debug(staff is null);
-            ConsoleLogger.Debug(entry is null);
             entry._operatorId  = staff.Id;
             entry.OperateTime = DateTime.Now;
             entry.Status = status;

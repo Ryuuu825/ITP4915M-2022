@@ -78,6 +78,8 @@ namespace TheBetterLimited_Server.API.Controller
         [Authorize]
         public IActionResult Update([FromBody] Data.Dto.PurchaseOrderUpdateDto Content)
         {
+            // the user will pass the entire object to the server (same with the post method, with id)
+            
             try 
             {
                 controller.Update(User.Identity.Name , Content);

@@ -19,5 +19,8 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [Column(TypeName = "SMALLINT")]
         public uint Quantity { get; set; }
+        
+        [Column(TypeName = "SMALLINT")]
+        public uint ReceivedQuantity { get; set; }
     }
 }

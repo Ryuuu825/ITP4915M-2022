@@ -14,6 +14,9 @@ namespace TheBetterLimited_Server.API.Controller
         private readonly Data.Repositories.Repository<Data.Entity.Store> StoreTable;
         private readonly Data.Repositories.Repository<Data.Entity.Warehouse> WarehouseTable;
         private readonly Data.Repositories.Repository<Data.Entity.Account> AccTable;
+        private readonly Data.Repositories.Repository<Data.Entity.PurchaseOrder> PurchaseOrderTable;
+         private readonly Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods> PurchaseOrder_SupplierGoods_Table;
+        private readonly Data.Repositories.Repository<Data.Entity.RestockRequest> RestockRequestTable;
          private readonly Data.Repositories.UserInfoRepository userInfo;
         private readonly DataContext db;
 
@@ -26,6 +29,9 @@ namespace TheBetterLimited_Server.API.Controller
             StoreTable = new Data.Repositories.Repository<Data.Entity.Store>(db);
             AccTable = new Data.Repositories.Repository<Data.Entity.Account>(db);
             WarehouseTable = new Data.Repositories.Repository<Data.Entity.Warehouse>(db);
+            PurchaseOrderTable = new Data.Repositories.Repository<Data.Entity.PurchaseOrder>(db);
+            RestockRequestTable = new Data.Repositories.Repository<Data.Entity.RestockRequest>(db);
+            PurchaseOrder_SupplierGoods_Table = new Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods>(db)
             goodsController = new AppLogic.Controllers.GoodsController(db);
             userInfo = new Data.Repositories.UserInfoRepository(db);
             this.db = db;
@@ -192,7 +198,7 @@ namespace TheBetterLimited_Server.API.Controller
             } 
             else if (AppLogic.Constraint.AdminDepartmentId.Contains(staff._departmentId)) 
             { 
-                return Ok();
+                return Ok(); // simply do nothing
             }
             else 
             {
@@ -204,6 +210,7 @@ namespace TheBetterLimited_Server.API.Controller
 
             try 
             {
+                // update the stock according to the user location
                 Data.Entity.Supplier_Goods_Stock stock = repository.GetBySQL(
                                 $"SELECT * FROM `Goods` WHERE `Id` = {dto._goodsId}"
                             ).FirstOrDefault()
@@ -214,8 +221,23 @@ namespace TheBetterLimited_Server.API.Controller
                 if (stock is null) throw new Exception("Not record found");
                 if (stock.isSoftDeleted) throw new Exception("The stock records is soft deleted");
 
-                stock.Quantity += dto.qty;
+                stock.Quantity += (int) dto.qty;
                 sgs.Update(stock);
+
+                if (dto._purchaseOrderId is not null && dto._restockRequestId is null) 
+                {
+                    // warehouse stock inbound
+                    var po = PurchaseOrderTable.GetById(dto._purchaseOrderId);
+                    if (po is null) throw new BadArgException("Purchase Order not found");
+
+                    var poItem = po.Items.Where(x => x._supplierGoodsId == stock._supplierGoodsId).FirstOrDefault();
+                    poItem.ReceivedQuantity = dto.qty;
+                    PurchaseOrder_SupplierGoods_Table.Update(poItem);
+                }
+                else if (dto._restockRequestId is not null)
+                {
+
+                }
                 
             }catch(Exception e)
             {
@@ -236,8 +258,10 @@ namespace TheBetterLimited_Server.API.Controller
 
         public class InOutBoundDto
         {
+            public string? _purchaseOrderId { get; set; } // warehouse inbound
+            public string? _restockRequestId { get; set; } // outbound
             public string _goodsId { get; set; }
-            public int qty { get; set; }
+            public uint qty { get; set; }
         }
     }
 }
