@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Supplier));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Supplier));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -77,7 +77,6 @@
             // 
             // SupplierDataGrid
             // 
-            resources.ApplyResources(this.SupplierDataGrid, "SupplierDataGrid");
             this.SupplierDataGrid.AllowUserToAddRows = false;
             this.SupplierDataGrid.AllowUserToResizeColumns = false;
             this.SupplierDataGrid.AllowUserToResizeRows = false;
@@ -91,13 +90,14 @@
             this.SupplierDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.SupplierDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.SupplierDataGrid, "SupplierDataGrid");
             this.SupplierDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.SupplierDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.select,
@@ -158,7 +158,7 @@
             // 
             // supplierName
             // 
-            this.supplierName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.supplierName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.supplierName.DataPropertyName = "Name";
             resources.ApplyResources(this.supplierName, "supplierName");
             this.supplierName.Name = "supplierName";
@@ -198,33 +198,33 @@
             // 
             // Action
             // 
-            resources.ApplyResources(this.Action, "Action");
             this.Action.BackColor = System.Drawing.Color.White;
             this.Action.Controls.Add(this.panel1);
+            resources.ApplyResources(this.Action, "Action");
             this.Action.Name = "Action";
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.SearchBar);
             this.panel1.Controls.Add(this.curdAction);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // SearchBar
             // 
-            resources.ApplyResources(this.SearchBar, "SearchBar");
             this.SearchBar.Controls.Add(this.pictureBox1);
             this.SearchBar.Controls.Add(this.SearchBarTxt);
+            resources.ApplyResources(this.SearchBar, "SearchBar");
             this.SearchBar.Name = "SearchBar";
             // 
             // SearchBarTxt
             // 
-            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
             this.SearchBarTxt.BackColor = System.Drawing.Color.White;
             this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
             this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.SearchBarTxt.BorderRadius = 10;
             this.SearchBarTxt.BorderSize = 1;
+            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
             this.SearchBarTxt.ForeColor = System.Drawing.Color.LightGray;
             this.SearchBarTxt.IsError = false;
             this.SearchBarTxt.MaxLength = 20;
@@ -241,22 +241,22 @@
             // 
             // curdAction
             // 
-            resources.ApplyResources(this.curdAction, "curdAction");
             this.curdAction.Controls.Add(this.exportBtn);
             this.curdAction.Controls.Add(this.DeleteBtn);
             this.curdAction.Controls.Add(this.AddBtn);
+            resources.ApplyResources(this.curdAction, "curdAction");
             this.curdAction.Name = "curdAction";
             this.curdAction.Paint += new System.Windows.Forms.PaintEventHandler(this.curdAction_Paint);
             // 
             // exportBtn
             // 
-            resources.ApplyResources(this.exportBtn, "exportBtn");
             this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.exportBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.exportBtn.BorderColor = System.Drawing.Color.White;
             this.exportBtn.BorderRadius = 10;
             this.exportBtn.BorderSize = 0;
             this.exportBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.exportBtn, "exportBtn");
             this.exportBtn.ForeColor = System.Drawing.Color.White;
             this.exportBtn.IsChecked = false;
             this.exportBtn.Name = "exportBtn";
@@ -266,13 +266,13 @@
             // 
             // DeleteBtn
             // 
-            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
             this.DeleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.DeleteBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.DeleteBtn.BorderColor = System.Drawing.Color.White;
             this.DeleteBtn.BorderRadius = 10;
             this.DeleteBtn.BorderSize = 0;
             this.DeleteBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
             this.DeleteBtn.ForeColor = System.Drawing.Color.White;
             this.DeleteBtn.IsChecked = false;
             this.DeleteBtn.Name = "DeleteBtn";
@@ -282,11 +282,11 @@
             // 
             // Header
             // 
-            resources.ApplyResources(this.Header, "Header");
             this.Header.BackColor = System.Drawing.Color.White;
             this.Header.Controls.Add(this.button1);
             this.Header.Controls.Add(this.button2);
             this.Header.Controls.Add(this.Title);
+            resources.ApplyResources(this.Header, "Header");
             this.Header.ForeColor = System.Drawing.Color.White;
             this.Header.Name = "Header";
             // 
@@ -298,8 +298,8 @@
             // 
             // Data
             // 
-            resources.ApplyResources(this.Data, "Data");
             this.Data.Controls.Add(this.SupplierDataGrid);
+            resources.ApplyResources(this.Data, "Data");
             this.Data.Name = "Data";
             // 
             // dataGridViewImageColumn1
@@ -387,13 +387,13 @@
             // 
             // AddBtn
             // 
-            resources.ApplyResources(this.AddBtn, "AddBtn");
             this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.AddBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.AddBtn.BorderColor = System.Drawing.Color.White;
             this.AddBtn.BorderRadius = 10;
             this.AddBtn.BorderSize = 0;
             this.AddBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.AddBtn, "AddBtn");
             this.AddBtn.ForeColor = System.Drawing.Color.White;
             this.AddBtn.Image = global::TheBetterLimited.Properties.Resources.add;
             this.AddBtn.IsChecked = false;

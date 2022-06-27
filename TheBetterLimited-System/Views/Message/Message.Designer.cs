@@ -46,97 +46,53 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(722, 44);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Message";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MessageList
             // 
-            this.MessageList.AutoScroll = true;
-            this.MessageList.Location = new System.Drawing.Point(12, 65);
+            resources.ApplyResources(this.MessageList, "MessageList");
             this.MessageList.Name = "MessageList";
-            this.MessageList.Size = new System.Drawing.Size(300, 411);
-            this.MessageList.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(223, 482);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 34);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "New Message";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Segoe UI Black", 9.75F);
-            this.label2.Location = new System.Drawing.Point(318, 87);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 43);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Sender:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // senderText
             // 
-            this.senderText.Enabled = false;
-            this.senderText.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            resources.ApplyResources(this.senderText, "senderText");
             this.senderText.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.senderText.Location = new System.Drawing.Point(397, 84);
-            this.senderText.Multiline = true;
             this.senderText.Name = "senderText";
-            this.senderText.Size = new System.Drawing.Size(319, 46);
-            this.senderText.TabIndex = 6;
-            this.senderText.Text = "dfsafsdf";
             // 
             // titleText
             // 
-            this.titleText.Enabled = false;
-            this.titleText.Font = new System.Drawing.Font("Segoe UI Black", 9.75F);
+            resources.ApplyResources(this.titleText, "titleText");
             this.titleText.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.titleText.Location = new System.Drawing.Point(397, 149);
-            this.titleText.Multiline = true;
             this.titleText.Name = "titleText";
-            this.titleText.Size = new System.Drawing.Size(319, 46);
-            this.titleText.TabIndex = 8;
-            this.titleText.Text = "A title";
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 9.75F);
-            this.label3.Location = new System.Drawing.Point(318, 152);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 43);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Title";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // contentText
             // 
-            this.contentText.Enabled = false;
-            this.contentText.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.contentText, "contentText");
             this.contentText.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.contentText.Location = new System.Drawing.Point(397, 212);
-            this.contentText.Multiline = true;
             this.contentText.Name = "contentText";
-            this.contentText.Size = new System.Drawing.Size(319, 264);
-            this.contentText.TabIndex = 10;
-            this.contentText.Text = "Please update the system";
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Segoe UI Black", 9.75F);
-            this.label4.Location = new System.Drawing.Point(318, 215);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 43);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Content";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Timer
             // 
@@ -145,30 +101,20 @@
             // 
             // isUnreadOnly
             // 
-            this.isUnreadOnly.AutoSize = true;
-            this.isUnreadOnly.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.isUnreadOnly.Location = new System.Drawing.Point(12, 490);
+            resources.ApplyResources(this.isUnreadOnly, "isUnreadOnly");
             this.isUnreadOnly.Name = "isUnreadOnly";
-            this.isUnreadOnly.Size = new System.Drawing.Size(139, 19);
-            this.isUnreadOnly.TabIndex = 11;
-            this.isUnreadOnly.Text = "Unread message only";
             this.isUnreadOnly.UseVisualStyleBackColor = true;
             this.isUnreadOnly.CheckedChanged += new System.EventHandler(this.isUnreadOnly_CheckedChanged);
             // 
             // prompt
             // 
             this.prompt.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.prompt.BalloonTipText = "sdfasfsf";
-            this.prompt.BalloonTipTitle = "sdfsdfsf";
-            this.prompt.Icon = ((System.Drawing.Icon)(resources.GetObject("prompt.Icon")));
-            this.prompt.Text = "notifyIcon1";
-            this.prompt.Visible = true;
+            resources.ApplyResources(this.prompt, "prompt");
             // 
             // Message
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 524);
             this.Controls.Add(this.isUnreadOnly);
             this.Controls.Add(this.contentText);
             this.Controls.Add(this.label4);
@@ -180,6 +126,7 @@
             this.Controls.Add(this.MessageList);
             this.Controls.Add(this.label1);
             this.Name = "Message";
+            this.ShowIcon = false;
             this.Load += new System.EventHandler(this.Message_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

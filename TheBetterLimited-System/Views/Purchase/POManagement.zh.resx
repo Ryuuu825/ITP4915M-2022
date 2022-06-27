@@ -117,18 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="OrderDataGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
   <data name="id.HeaderText" xml:space="preserve">
     <value>编号</value>
   </data>
   <data name="id.ToolTipText" xml:space="preserve">
     <value>订单编号</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="id.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="CreatorId.HeaderText" xml:space="preserve">
     <value>创建者</value>
@@ -137,7 +134,7 @@
     <value>创建者编号</value>
   </data>
   <data name="CreatorId.Width" type="System.Int32, mscorlib">
-    <value>94</value>
+    <value>84</value>
   </data>
   <data name="OperatorId.HeaderText" xml:space="preserve">
     <value>操作者</value>
@@ -146,7 +143,7 @@
     <value>操作者编号</value>
   </data>
   <data name="OperatorId.Width" type="System.Int32, mscorlib">
-    <value>94</value>
+    <value>84</value>
   </data>
   <data name="CreateAt.HeaderText" xml:space="preserve">
     <value>创建于</value>
@@ -167,7 +164,7 @@
     <value>总金额</value>
   </data>
   <data name="TotalAmount.Width" type="System.Int32, mscorlib">
-    <value>94</value>
+    <value>84</value>
   </data>
   <data name="Paid.HeaderText" xml:space="preserve">
     <value>付款</value>
@@ -176,7 +173,7 @@
     <value>付款金额</value>
   </data>
   <data name="Paid.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>58</value>
   </data>
   <data name="status.HeaderText" xml:space="preserve">
     <value>状态</value>
@@ -185,7 +182,7 @@
     <value>订单状态</value>
   </data>
   <data name="status.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -215,7 +212,7 @@
 </value>
   </data>
   <data name="AddBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
+    <value>Segoe UI, 10.5pt, style=Bold</value>
   </data>
   <data name="AddBtn.Location" type="System.Drawing.Point, System.Drawing">
     <value>-4, 0</value>
@@ -226,11 +223,17 @@
   <data name="AddBtn.Text" xml:space="preserve">
     <value>      新增</value>
   </data>
+  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 9</value>
+  </data>
   <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 25</value>
+    <value>82, 21</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
-    <value>购买订单</value>
+    <value>采购订单</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

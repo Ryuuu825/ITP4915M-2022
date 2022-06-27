@@ -138,13 +138,16 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="id.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="supplierName.HeaderText" xml:space="preserve">
     <value>名称</value>
   </data>
   <data name="supplierName.ToolTipText" xml:space="preserve">
     <value>名称</value>
+  </data>
+  <data name="supplierName.Width" type="System.Int32, mscorlib">
+    <value>71</value>
   </data>
   <data name="phone.HeaderText" xml:space="preserve">
     <value>电话</value>
@@ -153,7 +156,7 @@
     <value>电话</value>
   </data>
   <data name="phone.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="contact.HeaderText" xml:space="preserve">
     <value>联络</value>
@@ -162,7 +165,7 @@
     <value>联络</value>
   </data>
   <data name="contact.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="email.HeaderText" xml:space="preserve">
     <value>电邮</value>
@@ -179,7 +182,7 @@
   <data name="edit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        rAAAAKwBhgk01AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADrSURBVEhL7ZTL
+        qgAAAKoBBgpwTwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADrSURBVEhL7ZTL
         CcJAFEWjC7En/y5ciNiEJdiDHYgrrUBsQmxAbMQf4sLPuSGDj1lIPpOF4IEDmTfJfcmEmSgQFZziAU+4
         wyEGoYpLfHk+sIWFsOEXHGMNZ0lti7nxwzvoqOMTj/EoB354Gy36Es3t41FG9EMXqAB5xxE6mnhGzU1U
         yIL/5pvk+oYD1DKprpru08ukxg/vogLmSU1NbLjuT823H6oma9RcrnC75lfso6WB2lyaX2Gh8B5a/uH/
@@ -229,25 +232,31 @@
 </value>
   </data>
   <data name="exportBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt, style=Bold</value>
+    <value>Segoe UI, 10.5pt, style=Bold</value>
   </data>
   <data name="exportBtn.Text" xml:space="preserve">
-    <value>输出</value>
+    <value>导出</value>
   </data>
   <data name="DeleteBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt, style=Bold</value>
+    <value>Segoe UI, 10.5pt, style=Bold</value>
   </data>
   <data name="DeleteBtn.Text" xml:space="preserve">
     <value>删除选取项目</value>
   </data>
   <data name="AddBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9.75pt, style=Bold</value>
+    <value>Segoe UI, 10.5pt, style=Bold</value>
   </data>
   <data name="AddBtn.Text" xml:space="preserve">
     <value>      新增</value>
   </data>
+  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 9</value>
+  </data>
   <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 25</value>
+    <value>64, 21</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
     <value>供应商</value>

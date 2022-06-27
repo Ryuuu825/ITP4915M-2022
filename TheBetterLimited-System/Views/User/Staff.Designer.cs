@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Staff));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Staff));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -41,23 +41,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.StaffDataGrid = new System.Windows.Forms.DataGridView();
-            this.Action = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.SearchBar = new System.Windows.Forms.Panel();
-            this.curdAction = new System.Windows.Forms.Panel();
-            this.Header = new System.Windows.Forms.Panel();
-            this.Title = new System.Windows.Forms.Label();
-            this.Data = new System.Windows.Forms.Panel();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,22 +52,38 @@
             this.phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Action = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.SearchBar = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
+            this.curdAction = new System.Windows.Forms.Panel();
             this.DeleteBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.AddBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.Header = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.Title = new System.Windows.Forms.Label();
+            this.Data = new System.Windows.Forms.Panel();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.StaffDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SearchBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.curdAction.SuspendLayout();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // StaffDataGrid
             // 
-            resources.ApplyResources(this.StaffDataGrid, "StaffDataGrid");
             this.StaffDataGrid.AllowUserToAddRows = false;
             this.StaffDataGrid.AllowUserToResizeColumns = false;
             this.StaffDataGrid.AllowUserToResizeRows = false;
@@ -99,13 +98,14 @@
             this.StaffDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.StaffDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.StaffDataGrid, "StaffDataGrid");
             this.StaffDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.StaffDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.select,
@@ -157,128 +157,6 @@
             this.StaffDataGrid.StandardTab = true;
             this.StaffDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StaffDataGrid_CellClick);
             this.StaffDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.StaffDataGrid_CellFormatting);
-            // 
-            // Action
-            // 
-            resources.ApplyResources(this.Action, "Action");
-            this.Action.BackColor = System.Drawing.Color.White;
-            this.Action.Controls.Add(this.panel1);
-            this.Action.Name = "Action";
-            // 
-            // panel1
-            // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Controls.Add(this.SearchBar);
-            this.panel1.Controls.Add(this.curdAction);
-            this.panel1.Name = "panel1";
-            // 
-            // SearchBar
-            // 
-            resources.ApplyResources(this.SearchBar, "SearchBar");
-            this.SearchBar.Controls.Add(this.pictureBox1);
-            this.SearchBar.Controls.Add(this.SearchBarTxt);
-            this.SearchBar.Name = "SearchBar";
-            // 
-            // curdAction
-            // 
-            resources.ApplyResources(this.curdAction, "curdAction");
-            this.curdAction.Controls.Add(this.DeleteBtn);
-            this.curdAction.Controls.Add(this.AddBtn);
-            this.curdAction.Name = "curdAction";
-            // 
-            // Header
-            // 
-            resources.ApplyResources(this.Header, "Header");
-            this.Header.BackColor = System.Drawing.Color.White;
-            this.Header.Controls.Add(this.button1);
-            this.Header.Controls.Add(this.button2);
-            this.Header.Controls.Add(this.Title);
-            this.Header.ForeColor = System.Drawing.Color.White;
-            this.Header.Name = "Header";
-            // 
-            // Title
-            // 
-            resources.ApplyResources(this.Title, "Title");
-            this.Title.ForeColor = System.Drawing.Color.Black;
-            this.Title.Name = "Title";
-            // 
-            // Data
-            // 
-            resources.ApplyResources(this.Data, "Data");
-            this.Data.Controls.Add(this.StaffDataGrid);
-            this.Data.Name = "Data";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
-            // dataGridViewImageColumn2
-            // 
-            resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            // 
-            // dataGridViewImageColumn3
-            // 
-            resources.ApplyResources(this.dataGridViewImageColumn3, "dataGridViewImageColumn3");
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            // 
-            // dataGridViewImageColumn5
-            // 
-            this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.dataGridViewImageColumn5, "dataGridViewImageColumn5");
-            this.dataGridViewImageColumn5.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
-            this.dataGridViewImageColumn5.ReadOnly = true;
-            // 
-            // dataGridViewImageColumn4
-            // 
-            this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.dataGridViewImageColumn4, "dataGridViewImageColumn4");
-            this.dataGridViewImageColumn4.Image = global::TheBetterLimited.Properties.Resources.square;
-            this.dataGridViewImageColumn4.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
-            this.dataGridViewImageColumn4.ReadOnly = true;
-            // 
-            // dataGridViewImageColumn6
-            // 
-            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.dataGridViewImageColumn6, "dataGridViewImageColumn6");
-            this.dataGridViewImageColumn6.Image = global::TheBetterLimited.Properties.Resources.trash;
-            this.dataGridViewImageColumn6.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
-            this.dataGridViewImageColumn6.ReadOnly = true;
-            // 
-            // dataGridViewImageColumn7
-            // 
-            this.dataGridViewImageColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.dataGridViewImageColumn7, "dataGridViewImageColumn7");
-            this.dataGridViewImageColumn7.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn7.Image")));
-            this.dataGridViewImageColumn7.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
-            this.dataGridViewImageColumn7.ReadOnly = true;
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
-            // button2
-            // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // select
             // 
@@ -380,14 +258,41 @@
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             // 
+            // Action
+            // 
+            this.Action.BackColor = System.Drawing.Color.White;
+            this.Action.Controls.Add(this.panel1);
+            resources.ApplyResources(this.Action, "Action");
+            this.Action.Name = "Action";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.SearchBar);
+            this.panel1.Controls.Add(this.curdAction);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // SearchBar
+            // 
+            this.SearchBar.Controls.Add(this.pictureBox1);
+            this.SearchBar.Controls.Add(this.SearchBarTxt);
+            resources.ApplyResources(this.SearchBar, "SearchBar");
+            this.SearchBar.Name = "SearchBar";
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
             // SearchBarTxt
             // 
-            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
             this.SearchBarTxt.BackColor = System.Drawing.Color.White;
             this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
             this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.SearchBarTxt.BorderRadius = 10;
             this.SearchBarTxt.BorderSize = 1;
+            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
             this.SearchBarTxt.ForeColor = System.Drawing.Color.Black;
             this.SearchBarTxt.IsError = false;
             this.SearchBarTxt.MaxLength = 20;
@@ -402,15 +307,22 @@
             this.SearchBarTxt.UnderlinedStyle = false;
             this.SearchBarTxt._TextChanged += new System.EventHandler(this.SearchBarTxt__TextChanged);
             // 
+            // curdAction
+            // 
+            this.curdAction.Controls.Add(this.DeleteBtn);
+            this.curdAction.Controls.Add(this.AddBtn);
+            resources.ApplyResources(this.curdAction, "curdAction");
+            this.curdAction.Name = "curdAction";
+            // 
             // DeleteBtn
             // 
-            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
             this.DeleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.DeleteBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.DeleteBtn.BorderColor = System.Drawing.Color.White;
             this.DeleteBtn.BorderRadius = 10;
             this.DeleteBtn.BorderSize = 0;
             this.DeleteBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
             this.DeleteBtn.ForeColor = System.Drawing.Color.White;
             this.DeleteBtn.IsChecked = false;
             this.DeleteBtn.Name = "DeleteBtn";
@@ -420,13 +332,13 @@
             // 
             // AddBtn
             // 
-            resources.ApplyResources(this.AddBtn, "AddBtn");
             this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.AddBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.AddBtn.BorderColor = System.Drawing.Color.White;
             this.AddBtn.BorderRadius = 10;
             this.AddBtn.BorderSize = 0;
             this.AddBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.AddBtn, "AddBtn");
             this.AddBtn.ForeColor = System.Drawing.Color.White;
             this.AddBtn.Image = global::TheBetterLimited.Properties.Resources.add;
             this.AddBtn.IsChecked = false;
@@ -434,6 +346,94 @@
             this.AddBtn.TextColor = System.Drawing.Color.White;
             this.AddBtn.UseVisualStyleBackColor = false;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // Header
+            // 
+            this.Header.BackColor = System.Drawing.Color.White;
+            this.Header.Controls.Add(this.button1);
+            this.Header.Controls.Add(this.button2);
+            this.Header.Controls.Add(this.Title);
+            resources.ApplyResources(this.Header, "Header");
+            this.Header.ForeColor = System.Drawing.Color.White;
+            this.Header.Name = "Header";
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // button2
+            // 
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.RefreshBtn_Click);
+            // 
+            // Title
+            // 
+            resources.ApplyResources(this.Title, "Title");
+            this.Title.ForeColor = System.Drawing.Color.Black;
+            this.Title.Name = "Title";
+            // 
+            // Data
+            // 
+            this.Data.Controls.Add(this.StaffDataGrid);
+            resources.ApplyResources(this.Data, "Data");
+            this.Data.Name = "Data";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
+            // dataGridViewImageColumn2
+            // 
+            resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            // 
+            // dataGridViewImageColumn3
+            // 
+            resources.ApplyResources(this.dataGridViewImageColumn3, "dataGridViewImageColumn3");
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            // 
+            // dataGridViewImageColumn5
+            // 
+            this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.dataGridViewImageColumn5, "dataGridViewImageColumn5");
+            this.dataGridViewImageColumn5.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
+            this.dataGridViewImageColumn5.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn4
+            // 
+            this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.dataGridViewImageColumn4, "dataGridViewImageColumn4");
+            this.dataGridViewImageColumn4.Image = global::TheBetterLimited.Properties.Resources.square;
+            this.dataGridViewImageColumn4.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            this.dataGridViewImageColumn4.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn6
+            // 
+            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.dataGridViewImageColumn6, "dataGridViewImageColumn6");
+            this.dataGridViewImageColumn6.Image = global::TheBetterLimited.Properties.Resources.trash;
+            this.dataGridViewImageColumn6.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
+            this.dataGridViewImageColumn6.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn7
+            // 
+            this.dataGridViewImageColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.dataGridViewImageColumn7, "dataGridViewImageColumn7");
+            this.dataGridViewImageColumn7.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn7.Image")));
+            this.dataGridViewImageColumn7.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
+            this.dataGridViewImageColumn7.ReadOnly = true;
             // 
             // Staff
             // 
@@ -449,11 +449,11 @@
             this.Action.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.SearchBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.curdAction.ResumeLayout(false);
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             this.Data.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

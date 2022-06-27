@@ -105,7 +105,7 @@ namespace TheBetterLimited.Views
                     StockLevelTxt.ForeColor = Color.FromArgb(203, 32, 39);
                     break;
                 case 1:
-                    StockLevelTxt.Texts = "Re-oder";
+                    StockLevelTxt.Texts = "Re-order";
                     StockLevelTxt.ForeColor = Color.FromArgb(250, 182, 99);
                     break;
                 case 2:

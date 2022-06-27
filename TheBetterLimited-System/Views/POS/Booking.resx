@@ -118,97 +118,139 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="CustomerInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 360</value>
-  </data>
-  <data name="UserInfoHeaderContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="GTINCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 125</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BottomBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>520, 400</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="GTINCode.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
   </data>
-  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
-  </data>
-  <data name="&gt;&gt;PhoneTxt.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;CusNameTxt.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="depositTxt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="PhoneTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 38</value>
-  </data>
-  <data name="PhoneTxt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="CustomerInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="GoodsInfoHeader.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="SaveBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 40</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;BottomBtn.Name" xml:space="preserve">
-    <value>BottomBtn</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;CusNameTxt.Name" xml:space="preserve">
-    <value>CusNameTxt</value>
+  <data name="&gt;&gt;GTINCode.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="GTINCode.Text" xml:space="preserve">
-    <value>Address</value>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="Catalogue.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="&gt;&gt;CustomerInfo.Name" xml:space="preserve">
+    <value>CustomerInfo</value>
+  </data>
+  <data name="&gt;&gt;GoodsInfoHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="GoodsInfoHeader.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
-  <data name="&gt;&gt;SaveBtn.Name" xml:space="preserve">
-    <value>SaveBtn</value>
-  </data>
-  <data name="&gt;&gt;PhoneTxt.Name" xml:space="preserve">
-    <value>PhoneTxt</value>
-  </data>
-  <data name="Catalogue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>57, 87</value>
-  </data>
-  <data name="CusNameTxt.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;UserInfoHeaderContainer.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;depositTxt.Name" xml:space="preserve">
-    <value>depositTxt</value>
-  </data>
-  <data name="&gt;&gt;BottomBtn.ZOrder" xml:space="preserve">
+  <data name="SaveBtn.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="CusAddressTxt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 125</value>
+  </data>
+  <data name="CancelBtn.Text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="MainForm.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;MainForm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CusNameTxt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12.10084pt</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>CustomerInfo</value>
+  </data>
+  <data name="SaveBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;MainForm.Name" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="depositTxt.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
   </data>
   <data name="GTINCode.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
-  <data name="&gt;&gt;CusNameTxt.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;CancelBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Catalogue.Text" xml:space="preserve">
+    <value>Phone*</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="BottomBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 65</value>
+  </data>
+  <data name="&gt;&gt;depositTxt.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="UserInfoHeaderContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="CustomerInfo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Catalogue.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="depositTxt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 246</value>
+  </data>
+  <data name="&gt;&gt;GoodsInfoHeader.Parent" xml:space="preserve">
+    <value>UserInfoHeaderContainer</value>
+  </data>
+  <data name="SaveBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 40</value>
+  </data>
+  <data name="BottomBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;depositTxt.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Name*</value>
+  </data>
+  <data name="&gt;&gt;CancelBtn.Name" xml:space="preserve">
+    <value>CancelBtn</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Booking</value>
+  </data>
+  <data name="UserInfoHeaderContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="PhoneTxt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>163, 78</value>
+  </data>
+  <data name="CusNameTxt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>306, 38</value>
   </data>
   <data name="GoodsInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 7</value>
@@ -216,188 +258,200 @@
   <data name="CusAddressTxt.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12.10084pt</value>
   </data>
-  <data name="CusAddressTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="UserInfoHeaderContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 40</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CusAddressTxt.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
-  </data>
-  <data name="BottomBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 0</value>
-  </data>
-  <data name="PhoneTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
-  </data>
-  <data name="BottomBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="CusNameTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>164, 31</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Catalogue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SaveBtn.Parent" xml:space="preserve">
-    <value>BottomBtn</value>
-  </data>
-  <data name="depositTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+  <data name="CancelBtn.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;CusAddressTxt.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;GTINCode.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;MainForm.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;CusNameTxt.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="CancelBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>58, 40</value>
   </data>
   <data name="&gt;&gt;BottomBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Booking</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
-  <data name="BottomBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>34</value>
+  <data name="&gt;&gt;Catalogue.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="UserInfoHeaderContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+  <data name="Catalogue.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
-  <data name="CusNameTxt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12.10084pt</value>
+  <data name="CustomerInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 360</value>
   </data>
-  <data name="depositTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>164, 246</value>
-  </data>
-  <data name="SaveBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="CustomerInfo.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;depositTxt.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;SaveBtn.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;depositTxt.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 21</value>
-  </data>
-  <data name="CusAddressTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 109</value>
-  </data>
-  <data name="&gt;&gt;MainForm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SaveBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>CustomerInfo</value>
+  <data name="MainForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 40</value>
   </data>
   <data name="MainForm.Size" type="System.Drawing.Size, System.Drawing">
     <value>520, 360</value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="&gt;&gt;CancelBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="CancelBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="PhoneTxt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
   </data>
-  <data name="&gt;&gt;GoodsInfoHeader.Parent" xml:space="preserve">
-    <value>UserInfoHeaderContainer</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 21</value>
   </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="PhoneTxt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 38</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
   </data>
   <data name="&gt;&gt;GoodsInfoHeader.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="PhoneTxt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12.10084pt</value>
+  <data name="&gt;&gt;depositTxt.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="SaveBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="CancelBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 13</value>
+  </data>
+  <data name="&gt;&gt;CusNameTxt.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;MainForm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BottomBtn.Name" xml:space="preserve">
+    <value>BottomBtn</value>
+  </data>
+  <data name="&gt;&gt;GTINCode.Name" xml:space="preserve">
+    <value>GTINCode</value>
+  </data>
+  <data name="GTINCode.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="&gt;&gt;UserInfoHeaderContainer.Name" xml:space="preserve">
+    <value>UserInfoHeaderContainer</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Booking Form</value>
+  </data>
+  <data name="CustomerInfo.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="depositTxt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="&gt;&gt;SaveBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;PhoneTxt.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="GoodsInfoHeader.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;CustomerInfo.Parent" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="CusAddressTxt.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;CusAddressTxt.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="CancelBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;CustomerInfo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;BottomBtn.Parent" xml:space="preserve">
+    <value>MainForm</value>
+  </data>
+  <data name="&gt;&gt;CustomerInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;GoodsInfoHeader.Name" xml:space="preserve">
+    <value>GoodsInfoHeader</value>
+  </data>
+  <data name="MainForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="CusNameTxt.Location" type="System.Drawing.Point, System.Drawing">
+    <value>164, 31</value>
+  </data>
+  <data name="&gt;&gt;UserInfoHeaderContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;CusNameTxt.Name" xml:space="preserve">
+    <value>CusNameTxt</value>
+  </data>
+  <data name="CustomerInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="CusAddressTxt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 109</value>
   </data>
   <data name="SaveBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;CusAddressTxt.Name" xml:space="preserve">
-    <value>CusAddressTxt</value>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 360</value>
+  <data name="PhoneTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
   </data>
-  <data name="SaveBtn.Text" xml:space="preserve">
-    <value>Save</value>
+  <data name="UserInfoHeaderContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;UserInfoHeaderContainer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="CusNameTxt.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Catalogue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 21</value>
   </data>
   <data name="CancelBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="depositTxt.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
+  <data name="SaveBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>296, 13</value>
   </data>
-  <data name="&gt;&gt;GTINCode.Parent" xml:space="preserve">
+  <data name="&gt;&gt;PhoneTxt.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="Catalogue.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="GTINCode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
   </data>
   <data name="&gt;&gt;SaveBtn.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="GTINCode.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;Catalogue.Name" xml:space="preserve">
+    <value>Catalogue</value>
   </data>
-  <data name="GTINCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 21</value>
+  <data name="MainForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
-  <data name="BottomBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>520, 65</value>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1200, 900</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Booking Form</value>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 360</value>
+  </data>
+  <data name="&gt;&gt;SaveBtn.Parent" xml:space="preserve">
+    <value>BottomBtn</value>
   </data>
   <data name="&gt;&gt;CancelBtn.Parent" xml:space="preserve">
     <value>BottomBtn</value>
@@ -405,224 +459,170 @@
   <data name="GoodsInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 14.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;UserInfoHeaderContainer.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="depositTxt.Size" type="System.Drawing.Size, System.Drawing">
+    <value>307, 38</value>
   </data>
-  <data name="&gt;&gt;Catalogue.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 21</value>
   </data>
-  <data name="&gt;&gt;GoodsInfoHeader.Name" xml:space="preserve">
-    <value>GoodsInfoHeader</value>
+  <data name="BottomBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
   </data>
-  <data name="&gt;&gt;BottomBtn.Parent" xml:space="preserve">
-    <value>MainForm</value>
+  <data name="&gt;&gt;SaveBtn.Name" xml:space="preserve">
+    <value>SaveBtn</value>
   </data>
-  <data name="GoodsInfoHeader.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="CusAddressTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
   </data>
-  <data name="&gt;&gt;CustomerInfo.Name" xml:space="preserve">
-    <value>CustomerInfo</value>
+  <data name="&gt;&gt;depositTxt.Name" xml:space="preserve">
+    <value>depositTxt</value>
   </data>
-  <data name="&gt;&gt;CancelBtn.Name" xml:space="preserve">
-    <value>CancelBtn</value>
-  </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="SaveBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="&gt;&gt;Catalogue.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>58, 40</value>
   </data>
   <data name="&gt;&gt;GTINCode.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;PhoneTxt.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="&gt;&gt;GTINCode.Name" xml:space="preserve">
-    <value>GTINCode</value>
-  </data>
-  <data name="&gt;&gt;CancelBtn.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 10</value>
-  </data>
-  <data name="&gt;&gt;CustomerInfo.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;CustomerInfo.Parent" xml:space="preserve">
-    <value>MainForm</value>
-  </data>
-  <data name="Catalogue.Text" xml:space="preserve">
-    <value>Phone*</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="MainForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="CusAddressTxt.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;UserInfoHeaderContainer.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="CustomerInfo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;MainForm.Name" xml:space="preserve">
-    <value>MainForm</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CustomerInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Deposit</value>
-  </data>
-  <data name="&gt;&gt;PhoneTxt.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="MainForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 40</value>
-  </data>
-  <data name="SaveBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 13</value>
-  </data>
-  <data name="BottomBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 295</value>
-  </data>
-  <data name="CusAddressTxt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="GoodsInfoHeader.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="CancelBtn.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="CancelBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 13</value>
-  </data>
-  <data name="PhoneTxt.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;UserInfoHeaderContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1200, 900</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 21</value>
-  </data>
-  <data name="Catalogue.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
-  </data>
-  <data name="PhoneTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 78</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Name*</value>
-  </data>
-  <data name="&gt;&gt;CusAddressTxt.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="Catalogue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 21</value>
-  </data>
-  <data name="depositTxt.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12.10084pt</value>
-  </data>
-  <data name="&gt;&gt;Catalogue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="CusAddressTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>163, 125</value>
-  </data>
-  <data name="&gt;&gt;UserInfoHeaderContainer.Name" xml:space="preserve">
-    <value>UserInfoHeaderContainer</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="&gt;&gt;CusAddressTxt.Name" xml:space="preserve">
+    <value>CusAddressTxt</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>53, 255</value>
   </data>
-  <data name="depositTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 38</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>520, 400</value>
-  </data>
-  <data name="CusNameTxt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="GoodsInfoHeader.Text" xml:space="preserve">
-    <value>Customer Information</value>
-  </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
-  </data>
-  <data name="CusNameTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
-  </data>
-  <data name="&gt;&gt;depositTxt.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="GTINCode.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
-  </data>
-  <data name="MainForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="CancelBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 40</value>
-  </data>
-  <data name="&gt;&gt;CancelBtn.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;GoodsInfoHeader.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="CusNameTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>306, 38</value>
-  </data>
-  <data name="&gt;&gt;Catalogue.Name" xml:space="preserve">
-    <value>Catalogue</value>
-  </data>
-  <data name="&gt;&gt;MainForm.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="UserInfoHeaderContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="MainForm.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Catalogue.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="BottomBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 0</value>
   </data>
   <data name="GoodsInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 25</value>
   </data>
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="depositTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
+  </data>
+  <data name="CusNameTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
+  </data>
+  <data name="&gt;&gt;BottomBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CusNameTxt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="CusAddressTxt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="&gt;&gt;CusAddressTxt.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;GTINCode.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Deposit</value>
+  </data>
+  <data name="GTINCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>54, 125</value>
+  </data>
+  <data name="GoodsInfoHeader.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="BottomBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 295</value>
+  </data>
+  <data name="Catalogue.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="SaveBtn.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;PhoneTxt.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="panel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 10</value>
+  </data>
+  <data name="CancelBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 40</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="&gt;&gt;CusNameTxt.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;CusAddressTxt.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="PhoneTxt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12.10084pt</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="GTINCode.Text" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Catalogue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>57, 87</value>
+  </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="BottomBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="&gt;&gt;Catalogue.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CusNameTxt.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;MainForm.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PhoneTxt.Name" xml:space="preserve">
+    <value>PhoneTxt</value>
+  </data>
+  <data name="UserInfoHeaderContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>520, 40</value>
+  </data>
+  <data name="GoodsInfoHeader.Text" xml:space="preserve">
+    <value>Customer Information</value>
+  </data>
+  <data name="GTINCode.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PhoneTxt.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="depositTxt.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12.10084pt</value>
+  </data>
+  <data name="GTINCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 21</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

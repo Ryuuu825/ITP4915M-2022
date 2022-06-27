@@ -514,7 +514,7 @@ namespace TheBetterLimited.Views
                                 this.Close();
                                 this.Dispose();
                                 this.OnExit.Invoke();
-                                MessageBox.Show("The order " + orderData["id"].ToString() + " have been deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                                MessageBox.Show("The order " + orderData["id"].ToString() + " deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                             }
                         }
                         catch (Exception ex)

@@ -82,13 +82,18 @@ namespace TheBetterLimited.Views
             dt.Columns.Add("goodsId");
             dt.Columns.Add("goodsName");
             dt.Columns.Add("qty");
-           
+            dt.Columns.Add("isNew");
+
             foreach (JObject orderItem in orderItems)
             {
                 var row = dt.NewRow();
                 row["goodsId"] = orderItem["goods"]["GoodsId"].ToString();
                 row["goodsName"] = orderItem["goods"]["GoodsName"].ToString();
                 row["qty"] = orderItem["quantity"];
+                if ((bool)orderItem["isNewItem"])
+                {
+                    row["isNew"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
+                }
                 dt.Rows.Add(row);
             }
             bs.DataSource = dt;
@@ -107,12 +112,6 @@ namespace TheBetterLimited.Views
                 contact.Text = sup["Contact"].ToString();
                 supAddress.Text = sup["Address"].ToString(); ;
             }
-        }
-        private void OrderItemDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            OrderItemDataGrid.Columns["qty"].HeaderText = "數量\nQTY";
-            OrderItemDataGrid.Columns["goodsName"].HeaderText = "貨品\nProduct";
-            OrderItemDataGrid.Columns["goodsID"].HeaderText = "識別編號\nID No.";
         }
     }
 }

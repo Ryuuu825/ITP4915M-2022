@@ -35,6 +35,8 @@
             this.MainForm = new System.Windows.Forms.Panel();
             this.StockInfo = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.subBtn = new System.Windows.Forms.Button();
+            this.plusBtn = new System.Windows.Forms.Button();
             this.lblGoodsName = new System.Windows.Forms.Label();
             this.txtGoodsName = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.txtReorderLevel = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
@@ -53,8 +55,6 @@
             this.txtSupplierGoodsId = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.StockInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.StockInfoHeader = new System.Windows.Forms.Label();
-            this.subBtn = new System.Windows.Forms.Button();
-            this.plusBtn = new System.Windows.Forms.Button();
             this.BottomBtn.SuspendLayout();
             this.MainForm.SuspendLayout();
             this.StockInfo.SuspendLayout();
@@ -143,6 +143,22 @@
             this.panel1.Controls.Add(this.lblQuantity);
             this.panel1.Controls.Add(this.txtSupplierGoodsId);
             this.panel1.Name = "panel1";
+            // 
+            // subBtn
+            // 
+            resources.ApplyResources(this.subBtn, "subBtn");
+            this.subBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.minus;
+            this.subBtn.FlatAppearance.BorderSize = 0;
+            this.subBtn.Name = "subBtn";
+            this.subBtn.UseVisualStyleBackColor = true;
+            // 
+            // plusBtn
+            // 
+            resources.ApplyResources(this.plusBtn, "plusBtn");
+            this.plusBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.plus24;
+            this.plusBtn.FlatAppearance.BorderSize = 0;
+            this.plusBtn.Name = "plusBtn";
+            this.plusBtn.UseVisualStyleBackColor = true;
             // 
             // lblGoodsName
             // 
@@ -369,22 +385,6 @@
             // 
             resources.ApplyResources(this.StockInfoHeader, "StockInfoHeader");
             this.StockInfoHeader.Name = "StockInfoHeader";
-            // 
-            // subBtn
-            // 
-            resources.ApplyResources(this.subBtn, "subBtn");
-            this.subBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.minus;
-            this.subBtn.FlatAppearance.BorderSize = 0;
-            this.subBtn.Name = "subBtn";
-            this.subBtn.UseVisualStyleBackColor = true;
-            // 
-            // plusBtn
-            // 
-            resources.ApplyResources(this.plusBtn, "plusBtn");
-            this.plusBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.plus24;
-            this.plusBtn.FlatAppearance.BorderSize = 0;
-            this.plusBtn.Name = "plusBtn";
-            this.plusBtn.UseVisualStyleBackColor = true;
             // 
             // Stock_Edit
             // 

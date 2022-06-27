@@ -117,18 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="OrderDataGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
   <data name="goodsID.HeaderText" xml:space="preserve">
-    <value>商品参考编号</value>
+    <value>商品编号</value>
   </data>
   <data name="goodsID.ToolTipText" xml:space="preserve">
-    <value>商品参考编号</value>
+    <value>商品编号</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="goodsID.Width" type="System.Int32, mscorlib">
-    <value>142</value>
+    <value>97</value>
   </data>
   <data name="ID.HeaderText" xml:space="preserve">
     <value>商品名称</value>
@@ -143,7 +140,7 @@
     <value>价格</value>
   </data>
   <data name="Price.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <data name="quantity.HeaderText" xml:space="preserve">
     <value>数量</value>
@@ -152,38 +149,68 @@
     <value>数量</value>
   </data>
   <data name="quantity.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>71</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="AddBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
+    <value>Segoe UI, 10.5pt, style=Bold</value>
   </data>
   <data name="AddBtn.Text" xml:space="preserve">
     <value>添加项目</value>
   </data>
+  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 17</value>
+  </data>
   <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 25</value>
+    <value>118, 21</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
-    <value>购买订单项目</value>
+    <value>采购订单项目</value>
   </data>
   <data name="SentBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
+    <value>Segoe UI, 10.5pt, style=Bold</value>
   </data>
   <data name="SentBtn.Text" xml:space="preserve">
-    <value>传送</value>
+    <value>发送</value>
   </data>
   <data name="BackBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
+    <value>Segoe UI, 10.5pt, style=Bold</value>
   </data>
   <data name="BackBtn.Text" xml:space="preserve">
     <value>返回</value>
   </data>
+  <data name="ApproveBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
+  </data>
+  <data name="ApproveBtn.Text" xml:space="preserve">
+    <value>同意</value>
+  </data>
+  <data name="ConfirmBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
+  </data>
+  <data name="ConfirmBtn.Text" xml:space="preserve">
+    <value>确认</value>
+  </data>
   <data name="RejectBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
+    <value>Segoe UI, 10.5pt, style=Bold</value>
   </data>
   <data name="RejectBtn.Text" xml:space="preserve">
     <value>拒绝</value>
+  </data>
+  <data name="CancelBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
+  </data>
+  <data name="CancelBtn.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="SaveBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
+  </data>
+  <data name="SaveBtn.Text" xml:space="preserve">
+    <value>保存</value>
   </data>
   <data name="GTINCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>66, 110</value>
@@ -203,8 +230,14 @@
   <data name="label7.Text" xml:space="preserve">
     <value>仓库</value>
   </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 9</value>
+  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 25</value>
+    <value>82, 21</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>仓库资讯</value>
@@ -245,13 +278,19 @@
   <data name="label1.Text" xml:space="preserve">
     <value>供应商</value>
   </data>
+  <data name="GoodsInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="GoodsInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 9</value>
+  </data>
   <data name="GoodsInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 25</value>
+    <value>100, 21</value>
   </data>
   <data name="GoodsInfoHeader.Text" xml:space="preserve">
     <value>供应商资讯</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>购买订单资讯</value>
+    <value>采购订单详情</value>
   </data>
 </root>

@@ -43,6 +43,7 @@
             this.roundPanel6 = new TheBetterLimited.CustomizeControl.RoundPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.lblSize = new System.Windows.Forms.Label();
+            this.SearchStaffBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.label3 = new System.Windows.Forms.Label();
             this.staffName = new System.Windows.Forms.Label();
             this.DeptTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
@@ -59,7 +60,6 @@
             this.txtSupplierGoodsId = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.StockInfoHeaderContainer = new System.Windows.Forms.Panel();
             this.StockInfoHeader = new System.Windows.Forms.Label();
-            this.SearchStaffBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.BottomBtn.SuspendLayout();
             this.MainForm.SuspendLayout();
             this.StockInfo.SuspendLayout();
@@ -220,6 +220,26 @@
             // 
             resources.ApplyResources(this.lblSize, "lblSize");
             this.lblSize.Name = "lblSize";
+            // 
+            // SearchStaffBtn
+            // 
+            resources.ApplyResources(this.SearchStaffBtn, "SearchStaffBtn");
+            this.SearchStaffBtn.BackColor = System.Drawing.Color.Transparent;
+            this.SearchStaffBtn.BackgroundColor = System.Drawing.Color.Transparent;
+            this.SearchStaffBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.search;
+            this.SearchStaffBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.SearchStaffBtn.BorderRadius = 0;
+            this.SearchStaffBtn.BorderSize = 0;
+            this.SearchStaffBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SearchStaffBtn.FlatAppearance.BorderSize = 0;
+            this.SearchStaffBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.SearchStaffBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.SearchStaffBtn.ForeColor = System.Drawing.Color.White;
+            this.SearchStaffBtn.IsChecked = false;
+            this.SearchStaffBtn.Name = "SearchStaffBtn";
+            this.SearchStaffBtn.TextColor = System.Drawing.Color.White;
+            this.SearchStaffBtn.UseVisualStyleBackColor = false;
+            this.SearchStaffBtn.Click += new System.EventHandler(this.SearchStaffBtn_Click);
             // 
             // label3
             // 
@@ -414,26 +434,6 @@
             // 
             resources.ApplyResources(this.StockInfoHeader, "StockInfoHeader");
             this.StockInfoHeader.Name = "StockInfoHeader";
-            // 
-            // SearchStaffBtn
-            // 
-            resources.ApplyResources(this.SearchStaffBtn, "SearchStaffBtn");
-            this.SearchStaffBtn.BackColor = System.Drawing.Color.Transparent;
-            this.SearchStaffBtn.BackgroundColor = System.Drawing.Color.Transparent;
-            this.SearchStaffBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.search;
-            this.SearchStaffBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.SearchStaffBtn.BorderRadius = 0;
-            this.SearchStaffBtn.BorderSize = 0;
-            this.SearchStaffBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SearchStaffBtn.FlatAppearance.BorderSize = 0;
-            this.SearchStaffBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.SearchStaffBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            this.SearchStaffBtn.ForeColor = System.Drawing.Color.White;
-            this.SearchStaffBtn.IsChecked = false;
-            this.SearchStaffBtn.Name = "SearchStaffBtn";
-            this.SearchStaffBtn.TextColor = System.Drawing.Color.White;
-            this.SearchStaffBtn.UseVisualStyleBackColor = false;
-            this.SearchStaffBtn.Click += new System.EventHandler(this.SearchStaffBtn_Click);
             // 
             // Stock_Add
             // 

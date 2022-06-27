@@ -1,6 +1,6 @@
 ﻿namespace TheBetterLimited.Views
 {
-    partial class SupplierGoods
+    partial class OutboundGoods
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SupplierGoods));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OutboundGoods));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GoodsDataGrid = new System.Windows.Forms.DataGridView();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.catalogue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Action = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.curdAction = new System.Windows.Forms.Panel();
             this.SearchBar = new System.Windows.Forms.Panel();
             this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.curdAction = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Header = new System.Windows.Forms.Panel();
+            this.RefreshBtn = new System.Windows.Forms.Button();
             this.Title = new System.Windows.Forms.Label();
             this.Data = new System.Windows.Forms.Panel();
             this.loadPic = new System.Windows.Forms.Panel();
@@ -55,21 +55,19 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.select = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.AddBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.closeBtn = new System.Windows.Forms.Button();
-            this.RefreshBtn = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.BottomBtn = new System.Windows.Forms.Panel();
+            this.btnCancel = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.btnSave = new TheBetterLimited.CustomizeControl.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.GoodsDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SearchBar.SuspendLayout();
-            this.curdAction.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.BottomBtn.SuspendLayout();
             this.SuspendLayout();
             // 
             // GoodsDataGrid
@@ -77,72 +75,76 @@
             this.GoodsDataGrid.AllowUserToAddRows = false;
             this.GoodsDataGrid.AllowUserToResizeColumns = false;
             this.GoodsDataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            this.GoodsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle13.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            this.GoodsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.GoodsDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GoodsDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.GoodsDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.GoodsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GoodsDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GoodsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GoodsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GoodsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             resources.ApplyResources(this.GoodsDataGrid, "GoodsDataGrid");
             this.GoodsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.GoodsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.select,
             this.id,
-            this.catalogue,
             this.name,
-            this.price,
-            this.Status});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GoodsDataGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            this.qty});
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GoodsDataGrid.DefaultCellStyle = dataGridViewCellStyle16;
             this.GoodsDataGrid.EnableHeadersVisualStyles = false;
             this.GoodsDataGrid.GridColor = System.Drawing.Color.White;
             this.GoodsDataGrid.MultiSelect = false;
             this.GoodsDataGrid.Name = "GoodsDataGrid";
             this.GoodsDataGrid.ReadOnly = true;
             this.GoodsDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GoodsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GoodsDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.GoodsDataGrid.RowHeadersVisible = false;
             this.GoodsDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle7.NullValue = null;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            this.GoodsDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle18.NullValue = null;
+            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
+            this.GoodsDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.GoodsDataGrid.RowTemplate.Height = 30;
             this.GoodsDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.GoodsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GoodsDataGrid.StandardTab = true;
-            this.GoodsDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
-            this.GoodsDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GoodsDataGrid_CellFormatting);
+            // 
+            // select
+            // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.select, "select");
+            this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
             // 
             // id
             // 
@@ -152,41 +154,21 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             // 
-            // catalogue
-            // 
-            this.catalogue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.catalogue.DataPropertyName = "Catalogue";
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.catalogue.DefaultCellStyle = dataGridViewCellStyle3;
-            resources.ApplyResources(this.catalogue, "catalogue");
-            this.catalogue.Name = "catalogue";
-            this.catalogue.ReadOnly = true;
-            // 
             // name
             // 
             this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.name.DataPropertyName = "Name";
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.name.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.name.DefaultCellStyle = dataGridViewCellStyle15;
             resources.ApplyResources(this.name, "name");
             this.name.Name = "name";
             this.name.ReadOnly = true;
             // 
-            // price
+            // qty
             // 
-            this.price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.price.DataPropertyName = "Price";
-            resources.ApplyResources(this.price, "price");
-            this.price.Name = "price";
-            this.price.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Status.DataPropertyName = "Status";
-            resources.ApplyResources(this.Status, "Status");
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
+            resources.ApplyResources(this.qty, "qty");
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
             // 
             // Action
             // 
@@ -197,15 +179,20 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.SearchBar);
             this.panel1.Controls.Add(this.curdAction);
+            this.panel1.Controls.Add(this.SearchBar);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
+            // curdAction
+            // 
+            resources.ApplyResources(this.curdAction, "curdAction");
+            this.curdAction.Name = "curdAction";
+            // 
             // SearchBar
             // 
-            this.SearchBar.Controls.Add(this.pictureBox1);
             this.SearchBar.Controls.Add(this.SearchBarTxt);
+            this.SearchBar.Controls.Add(this.pictureBox1);
             resources.ApplyResources(this.SearchBar, "SearchBar");
             this.SearchBar.Name = "SearchBar";
             // 
@@ -223,28 +210,37 @@
             this.SearchBarTxt.Multiline = false;
             this.SearchBarTxt.Name = "SearchBarTxt";
             this.SearchBarTxt.PasswordChar = false;
-            this.SearchBarTxt.Placeholder = "Search";
+            this.SearchBarTxt.Placeholder = "Enter the Restock Request ID";
             this.SearchBarTxt.ReadOnly = false;
             this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
             this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.SearchBarTxt.Texts = "Search";
+            this.SearchBarTxt.Texts = "Enter the Restock Request ID";
             this.SearchBarTxt.UnderlinedStyle = false;
             // 
-            // curdAction
+            // pictureBox1
             // 
-            this.curdAction.Controls.Add(this.AddBtn);
-            resources.ApplyResources(this.curdAction, "curdAction");
-            this.curdAction.Name = "curdAction";
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.White;
-            this.Header.Controls.Add(this.closeBtn);
             this.Header.Controls.Add(this.RefreshBtn);
             this.Header.Controls.Add(this.Title);
             resources.ApplyResources(this.Header, "Header");
             this.Header.ForeColor = System.Drawing.Color.White;
             this.Header.Name = "Header";
+            // 
+            // RefreshBtn
+            // 
+            resources.ApplyResources(this.RefreshBtn, "RefreshBtn");
+            this.RefreshBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.UseVisualStyleBackColor = true;
+            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // Title
             // 
@@ -288,54 +284,6 @@
             this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
             this.dataGridViewImageColumn4.ReadOnly = true;
             // 
-            // select
-            // 
-            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.select, "select");
-            this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.AddBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.AddBtn.BorderColor = System.Drawing.Color.White;
-            this.AddBtn.BorderRadius = 10;
-            this.AddBtn.BorderSize = 0;
-            this.AddBtn.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.AddBtn, "AddBtn");
-            this.AddBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBtn.Image = global::TheBetterLimited.Properties.Resources.add;
-            this.AddBtn.IsChecked = false;
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.TextColor = System.Drawing.Color.White;
-            this.AddBtn.UseVisualStyleBackColor = false;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
-            // closeBtn
-            // 
-            resources.ApplyResources(this.closeBtn, "closeBtn");
-            this.closeBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.UseVisualStyleBackColor = true;
-            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
-            // RefreshBtn
-            // 
-            resources.ApplyResources(this.RefreshBtn, "RefreshBtn");
-            this.RefreshBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
-            this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.UseVisualStyleBackColor = true;
-            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
-            // 
             // dataGridViewImageColumn5
             // 
             this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
@@ -350,25 +298,69 @@
             this.dataGridViewImageColumn6.Image = global::TheBetterLimited.Properties.Resources.trash24;
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
             // 
-            // SupplierGoods
+            // BottomBtn
+            // 
+            this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.BottomBtn.Controls.Add(this.btnCancel);
+            this.BottomBtn.Controls.Add(this.btnSave);
+            resources.ApplyResources(this.BottomBtn, "BottomBtn");
+            this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.BottomBtn.Name = "BottomBtn";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Silver;
+            this.btnCancel.BackgroundColor = System.Drawing.Color.Silver;
+            this.btnCancel.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancel.BorderRadius = 10;
+            this.btnCancel.BorderSize = 0;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
+            resources.ApplyResources(this.btnCancel, "btnCancel");
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.IsChecked = false;
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.TextColor = System.Drawing.Color.White;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.btnSave.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.BorderSize = 0;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.btnSave, "btnSave");
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.IsChecked = false;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.TextColor = System.Drawing.Color.White;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // OutboundGoods
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Controls.Add(this.BottomBtn);
             this.Controls.Add(this.Data);
             this.Controls.Add(this.Action);
             this.Controls.Add(this.Header);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "SupplierGoods";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "OutboundGoods";
+            this.ShowIcon = false;
             ((System.ComponentModel.ISupportInitialize)(this.GoodsDataGrid)).EndInit();
             this.Action.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.SearchBar.ResumeLayout(false);
-            this.curdAction.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             this.Data.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.BottomBtn.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -380,25 +372,24 @@
         private System.Windows.Forms.Panel Action;
         private System.Windows.Forms.Panel Data;
         private System.Windows.Forms.Panel curdAction;
-        private CustomizeControl.RoundButton AddBtn;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel SearchBar;
-        private CustomizeControl.CustomizeTextbox SearchBarTxt;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button RefreshBtn;
         private System.Windows.Forms.Panel loadPic;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn4;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn5;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn6;
+        private System.Windows.Forms.Panel SearchBar;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private CustomizeControl.CustomizeTextbox SearchBarTxt;
         private System.Windows.Forms.DataGridViewImageColumn select;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn catalogue;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.Panel BottomBtn;
+        private CustomizeControl.RoundButton btnCancel;
+        private CustomizeControl.RoundButton btnSave;
     }
 }

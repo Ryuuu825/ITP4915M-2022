@@ -84,11 +84,11 @@
             // 
             // Header
             // 
+            resources.ApplyResources(this.Header, "Header");
             this.Header.BackColor = System.Drawing.Color.White;
             this.Header.Controls.Add(this.Info);
             this.Header.Controls.Add(this.Title);
             this.Header.Controls.Add(this.UserIconPic);
-            resources.ApplyResources(this.Header, "Header");
             this.Header.Name = "Header";
             // 
             // Info
@@ -104,25 +104,26 @@
             // 
             // UserIconPic
             // 
+            resources.ApplyResources(this.UserIconPic, "UserIconPic");
             this.UserIconPic.BackColor = System.Drawing.Color.Transparent;
             this.UserIconPic.Cursor = System.Windows.Forms.Cursors.Default;
             this.UserIconPic.Image = global::TheBetterLimited.Properties.Resources._default;
-            resources.ApplyResources(this.UserIconPic, "UserIconPic");
             this.UserIconPic.Name = "UserIconPic";
             this.UserIconPic.TabStop = false;
             this.UserIconPic.Paint += new System.Windows.Forms.PaintEventHandler(this.UserIconPic_Paint);
             // 
             // BottomBtn
             // 
+            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.BottomBtn.Controls.Add(this.CancelBtn);
             this.BottomBtn.Controls.Add(this.SaveBtn);
-            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BottomBtn.Name = "BottomBtn";
             // 
             // CancelBtn
             // 
+            resources.ApplyResources(this.CancelBtn, "CancelBtn");
             this.CancelBtn.BackColor = System.Drawing.Color.Silver;
             this.CancelBtn.BackgroundColor = System.Drawing.Color.Silver;
             this.CancelBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
@@ -130,7 +131,6 @@
             this.CancelBtn.BorderSize = 0;
             this.CancelBtn.FlatAppearance.BorderSize = 0;
             this.CancelBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(182)))), ((int)(((byte)(99)))));
-            resources.ApplyResources(this.CancelBtn, "CancelBtn");
             this.CancelBtn.ForeColor = System.Drawing.Color.White;
             this.CancelBtn.IsChecked = false;
             this.CancelBtn.Name = "CancelBtn";
@@ -140,13 +140,13 @@
             // 
             // SaveBtn
             // 
+            resources.ApplyResources(this.SaveBtn, "SaveBtn");
             this.SaveBtn.BackColor = System.Drawing.Color.SeaGreen;
             this.SaveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
             this.SaveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.SaveBtn.BorderRadius = 10;
             this.SaveBtn.BorderSize = 0;
             this.SaveBtn.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(this.SaveBtn, "SaveBtn");
             this.SaveBtn.ForeColor = System.Drawing.Color.White;
             this.SaveBtn.IsChecked = false;
             this.SaveBtn.Name = "SaveBtn";
@@ -156,23 +156,24 @@
             // 
             // MainForm
             // 
+            resources.ApplyResources(this.MainForm, "MainForm");
             this.MainForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.MainForm.Controls.Add(this.BottomBtn);
             this.MainForm.Controls.Add(this.AccountInfo);
             this.MainForm.Controls.Add(this.UserInfo);
-            resources.ApplyResources(this.MainForm, "MainForm");
             this.MainForm.Name = "MainForm";
             // 
             // AccountInfo
             // 
+            resources.ApplyResources(this.AccountInfo, "AccountInfo");
             this.AccountInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.AccountInfo.Controls.Add(this.AccountInfoContainer);
             this.AccountInfo.Controls.Add(this.AccountHeaderContainer);
-            resources.ApplyResources(this.AccountInfo, "AccountInfo");
             this.AccountInfo.Name = "AccountInfo";
             // 
             // AccountInfoContainer
             // 
+            resources.ApplyResources(this.AccountInfoContainer, "AccountInfoContainer");
             this.AccountInfoContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.AccountInfoContainer.Controls.Add(this.Remark);
             this.AccountInfoContainer.Controls.Add(this.RemarkTxt);
@@ -184,7 +185,6 @@
             this.AccountInfoContainer.Controls.Add(this.UserID);
             this.AccountInfoContainer.Controls.Add(this.UserIdTxt);
             this.AccountInfoContainer.Controls.Add(this.UserNameTxt);
-            resources.ApplyResources(this.AccountInfoContainer, "AccountInfoContainer");
             this.AccountInfoContainer.Name = "AccountInfoContainer";
             // 
             // Remark
@@ -194,12 +194,12 @@
             // 
             // RemarkTxt
             // 
+            resources.ApplyResources(this.RemarkTxt, "RemarkTxt");
             this.RemarkTxt.BackColor = System.Drawing.Color.White;
             this.RemarkTxt.BorderColor = System.Drawing.Color.LightGray;
             this.RemarkTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.RemarkTxt.BorderRadius = 10;
             this.RemarkTxt.BorderSize = 1;
-            resources.ApplyResources(this.RemarkTxt, "RemarkTxt");
             this.RemarkTxt.ForeColor = System.Drawing.Color.Black;
             this.RemarkTxt.IsError = false;
             this.RemarkTxt.MaxLength = 20;
@@ -215,9 +215,9 @@
             // 
             // StatusRadioGroup
             // 
+            resources.ApplyResources(this.StatusRadioGroup, "StatusRadioGroup");
             this.StatusRadioGroup.Controls.Add(this.LockStatusRadio);
             this.StatusRadioGroup.Controls.Add(this.NormalStatusRadio);
-            resources.ApplyResources(this.StatusRadioGroup, "StatusRadioGroup");
             this.StatusRadioGroup.Name = "StatusRadioGroup";
             // 
             // LockStatusRadio
@@ -247,12 +247,12 @@
             // 
             // EmailTxt
             // 
+            resources.ApplyResources(this.EmailTxt, "EmailTxt");
             this.EmailTxt.BackColor = System.Drawing.Color.White;
             this.EmailTxt.BorderColor = System.Drawing.Color.LightGray;
             this.EmailTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.EmailTxt.BorderRadius = 10;
             this.EmailTxt.BorderSize = 1;
-            resources.ApplyResources(this.EmailTxt, "EmailTxt");
             this.EmailTxt.ForeColor = System.Drawing.Color.Black;
             this.EmailTxt.IsError = false;
             this.EmailTxt.MaxLength = 20;
@@ -279,12 +279,12 @@
             // 
             // UserIdTxt
             // 
+            resources.ApplyResources(this.UserIdTxt, "UserIdTxt");
             this.UserIdTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.UserIdTxt.BorderColor = System.Drawing.Color.LightGray;
             this.UserIdTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.UserIdTxt.BorderRadius = 10;
             this.UserIdTxt.BorderSize = 1;
-            resources.ApplyResources(this.UserIdTxt, "UserIdTxt");
             this.UserIdTxt.ForeColor = System.Drawing.Color.LightGray;
             this.UserIdTxt.IsError = false;
             this.UserIdTxt.MaxLength = 20;
@@ -300,12 +300,12 @@
             // 
             // UserNameTxt
             // 
+            resources.ApplyResources(this.UserNameTxt, "UserNameTxt");
             this.UserNameTxt.BackColor = System.Drawing.Color.White;
             this.UserNameTxt.BorderColor = System.Drawing.Color.LightGray;
             this.UserNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.UserNameTxt.BorderRadius = 10;
             this.UserNameTxt.BorderSize = 1;
-            resources.ApplyResources(this.UserNameTxt, "UserNameTxt");
             this.UserNameTxt.ForeColor = System.Drawing.Color.Black;
             this.UserNameTxt.IsError = false;
             this.UserNameTxt.MaxLength = 20;
@@ -322,9 +322,9 @@
             // 
             // AccountHeaderContainer
             // 
+            resources.ApplyResources(this.AccountHeaderContainer, "AccountHeaderContainer");
             this.AccountHeaderContainer.BackColor = System.Drawing.Color.White;
             this.AccountHeaderContainer.Controls.Add(this.AccountHeader);
-            resources.ApplyResources(this.AccountHeaderContainer, "AccountHeaderContainer");
             this.AccountHeaderContainer.Name = "AccountHeaderContainer";
             // 
             // AccountHeader
@@ -334,14 +334,15 @@
             // 
             // UserInfo
             // 
+            resources.ApplyResources(this.UserInfo, "UserInfo");
             this.UserInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.UserInfo.Controls.Add(this.panel1);
             this.UserInfo.Controls.Add(this.UserInfoHeaderContainer);
-            resources.ApplyResources(this.UserInfo, "UserInfo");
             this.UserInfo.Name = "UserInfo";
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.SearchStaffBtn);
             this.panel1.Controls.Add(this.StaffIDTxt);
             this.panel1.Controls.Add(this.label3);
@@ -354,15 +355,14 @@
             this.panel1.Controls.Add(this.StaffNameTxt);
             this.panel1.Controls.Add(this.MaleGenderRadio);
             this.panel1.Controls.Add(this.FemaleGenderRadio);
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // SearchStaffBtn
             // 
+            resources.ApplyResources(this.SearchStaffBtn, "SearchStaffBtn");
             this.SearchStaffBtn.BackColor = System.Drawing.Color.Transparent;
             this.SearchStaffBtn.BackgroundColor = System.Drawing.Color.Transparent;
             this.SearchStaffBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.search;
-            resources.ApplyResources(this.SearchStaffBtn, "SearchStaffBtn");
             this.SearchStaffBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.SearchStaffBtn.BorderRadius = 0;
             this.SearchStaffBtn.BorderSize = 0;
@@ -378,13 +378,13 @@
             // 
             // StaffIDTxt
             // 
+            resources.ApplyResources(this.StaffIDTxt, "StaffIDTxt");
             this.StaffIDTxt.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.StaffIDTxt.BackColor = System.Drawing.Color.White;
             this.StaffIDTxt.BorderColor = System.Drawing.Color.LightGray;
             this.StaffIDTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.StaffIDTxt.BorderRadius = 10;
             this.StaffIDTxt.BorderSize = 1;
-            resources.ApplyResources(this.StaffIDTxt, "StaffIDTxt");
             this.StaffIDTxt.ForeColor = System.Drawing.Color.Black;
             this.StaffIDTxt.IsError = false;
             this.StaffIDTxt.MaxLength = 5;
@@ -416,12 +416,12 @@
             // 
             // PositionTxt
             // 
+            resources.ApplyResources(this.PositionTxt, "PositionTxt");
             this.PositionTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.PositionTxt.BorderColor = System.Drawing.Color.LightGray;
             this.PositionTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.PositionTxt.BorderRadius = 10;
             this.PositionTxt.BorderSize = 1;
-            resources.ApplyResources(this.PositionTxt, "PositionTxt");
             this.PositionTxt.ForeColor = System.Drawing.Color.LightGray;
             this.PositionTxt.IsError = false;
             this.PositionTxt.MaxLength = 32767;
@@ -442,12 +442,12 @@
             // 
             // DeptTxt
             // 
+            resources.ApplyResources(this.DeptTxt, "DeptTxt");
             this.DeptTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.DeptTxt.BorderColor = System.Drawing.Color.LightGray;
             this.DeptTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.DeptTxt.BorderRadius = 10;
             this.DeptTxt.BorderSize = 1;
-            resources.ApplyResources(this.DeptTxt, "DeptTxt");
             this.DeptTxt.ForeColor = System.Drawing.Color.LightGray;
             this.DeptTxt.IsError = false;
             this.DeptTxt.MaxLength = 32767;
@@ -468,12 +468,12 @@
             // 
             // StaffNameTxt
             // 
+            resources.ApplyResources(this.StaffNameTxt, "StaffNameTxt");
             this.StaffNameTxt.BackColor = System.Drawing.Color.WhiteSmoke;
             this.StaffNameTxt.BorderColor = System.Drawing.Color.LightGray;
             this.StaffNameTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.StaffNameTxt.BorderRadius = 10;
             this.StaffNameTxt.BorderSize = 1;
-            resources.ApplyResources(this.StaffNameTxt, "StaffNameTxt");
             this.StaffNameTxt.ForeColor = System.Drawing.Color.LightGray;
             this.StaffNameTxt.IsError = false;
             this.StaffNameTxt.MaxLength = 32767;
@@ -503,9 +503,9 @@
             // 
             // UserInfoHeaderContainer
             // 
+            resources.ApplyResources(this.UserInfoHeaderContainer, "UserInfoHeaderContainer");
             this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
             this.UserInfoHeaderContainer.Controls.Add(this.UserInfoHeader);
-            resources.ApplyResources(this.UserInfoHeaderContainer, "UserInfoHeaderContainer");
             this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
             // 
             // UserInfoHeader

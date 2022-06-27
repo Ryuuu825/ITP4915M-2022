@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PurchaseOrder_Create));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OrderItemBox = new System.Windows.Forms.Panel();
             this.Data = new System.Windows.Forms.Panel();
             this.OrderDataGrid = new System.Windows.Forms.DataGridView();
@@ -98,44 +98,44 @@
             // 
             // OrderItemBox
             // 
-            resources.ApplyResources(this.OrderItemBox, "OrderItemBox");
             this.OrderItemBox.BackColor = System.Drawing.Color.White;
             this.OrderItemBox.Controls.Add(this.Data);
             this.OrderItemBox.Controls.Add(this.panel5);
             this.OrderItemBox.Controls.Add(this.BottomBtn);
+            resources.ApplyResources(this.OrderItemBox, "OrderItemBox");
             this.OrderItemBox.Name = "OrderItemBox";
             // 
             // Data
             // 
-            resources.ApplyResources(this.Data, "Data");
             this.Data.Controls.Add(this.OrderDataGrid);
+            resources.ApplyResources(this.Data, "Data");
             this.Data.Name = "Data";
             // 
             // OrderDataGrid
             // 
-            resources.ApplyResources(this.OrderDataGrid, "OrderDataGrid");
             this.OrderDataGrid.AllowUserToAddRows = false;
             this.OrderDataGrid.AllowUserToOrderColumns = true;
             this.OrderDataGrid.AllowUserToResizeColumns = false;
             this.OrderDataGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            this.OrderDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            this.OrderDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.OrderDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.OrderDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.OrderDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.OrderDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OrderDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.OrderDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrderDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.OrderDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.OrderDataGrid, "OrderDataGrid");
             this.OrderDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.OrderDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.goodsID,
@@ -143,38 +143,38 @@
             this.Price,
             this.quantity,
             this.delete});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.OrderDataGrid.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.MediumSeaGreen;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.OrderDataGrid.DefaultCellStyle = dataGridViewCellStyle6;
             this.OrderDataGrid.EnableHeadersVisualStyles = false;
             this.OrderDataGrid.GridColor = System.Drawing.Color.White;
             this.OrderDataGrid.MultiSelect = false;
             this.OrderDataGrid.Name = "OrderDataGrid";
             this.OrderDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrderDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12.10084F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OrderDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.OrderDataGrid.RowHeadersVisible = false;
             this.OrderDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle18.NullValue = null;
-            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.OrderDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.NullValue = null;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5, 5, 10, 5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(203)))), ((int)(((byte)(145)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OrderDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.OrderDataGrid.RowTemplate.Height = 30;
             this.OrderDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.OrderDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -197,9 +197,9 @@
             // 
             this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ID.DataPropertyName = "goodsName";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle3;
             resources.ApplyResources(this.ID, "ID");
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
@@ -208,10 +208,10 @@
             // 
             this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Price.DataPropertyName = "price";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Format = "C2";
-            dataGridViewCellStyle14.NullValue = null;
-            this.Price.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Price.DefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.Price, "Price");
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
@@ -220,17 +220,17 @@
             // 
             this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.quantity.DataPropertyName = "quantity";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.quantity.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.quantity.DefaultCellStyle = dataGridViewCellStyle5;
             resources.ApplyResources(this.quantity, "quantity");
             this.quantity.Name = "quantity";
             // 
             // panel5
             // 
-            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.Controls.Add(this.AddBtn);
             this.panel5.Controls.Add(this.Title);
+            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.ForeColor = System.Drawing.Color.White;
             this.panel5.Name = "panel5";
             // 
@@ -258,23 +258,23 @@
             // 
             // BottomBtn
             // 
-            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.BottomBtn.Controls.Add(this.DeleteBtn);
             this.BottomBtn.Controls.Add(this.CancelBtn);
             this.BottomBtn.Controls.Add(this.SaveBtn);
+            resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BottomBtn.Name = "BottomBtn";
             // 
             // DeleteBtn
             // 
-            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
             this.DeleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.DeleteBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.DeleteBtn.BorderColor = System.Drawing.Color.White;
             this.DeleteBtn.BorderRadius = 10;
             this.DeleteBtn.BorderSize = 0;
             this.DeleteBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
             this.DeleteBtn.ForeColor = System.Drawing.Color.White;
             this.DeleteBtn.IsChecked = false;
             this.DeleteBtn.Name = "DeleteBtn";
@@ -316,34 +316,33 @@
             // 
             // OrderInfoBox
             // 
-            resources.ApplyResources(this.OrderInfoBox, "OrderInfoBox");
             this.OrderInfoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.OrderInfoBox.Controls.Add(this.AppointmentBox);
             this.OrderInfoBox.Controls.Add(this.CustomerInfo);
+            resources.ApplyResources(this.OrderInfoBox, "OrderInfoBox");
             this.OrderInfoBox.Name = "OrderInfoBox";
             // 
             // AppointmentBox
             // 
-            resources.ApplyResources(this.AppointmentBox, "AppointmentBox");
             this.AppointmentBox.BackColor = System.Drawing.Color.White;
             this.AppointmentBox.Controls.Add(this.AppointmentInfoBox);
             this.AppointmentBox.Controls.Add(this.panel2);
+            resources.ApplyResources(this.AppointmentBox, "AppointmentBox");
             this.AppointmentBox.ForeColor = System.Drawing.Color.Black;
             this.AppointmentBox.Name = "AppointmentBox";
             // 
             // AppointmentInfoBox
             // 
-            resources.ApplyResources(this.AppointmentInfoBox, "AppointmentInfoBox");
             this.AppointmentInfoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.AppointmentInfoBox.Controls.Add(this.cbWarehouse);
             this.AppointmentInfoBox.Controls.Add(this.GTINCode);
             this.AppointmentInfoBox.Controls.Add(this.label7);
             this.AppointmentInfoBox.Controls.Add(this.txtWHAddress);
+            resources.ApplyResources(this.AppointmentInfoBox, "AppointmentInfoBox");
             this.AppointmentInfoBox.Name = "AppointmentInfoBox";
             // 
             // cbWarehouse
             // 
-            resources.ApplyResources(this.cbWarehouse, "cbWarehouse");
             this.cbWarehouse.AutoCompleteCustomSource.AddRange(new string[] {
             resources.GetString("cbWarehouse.AutoCompleteCustomSource")});
             this.cbWarehouse.BackColor = System.Drawing.Color.White;
@@ -351,6 +350,7 @@
             this.cbWarehouse.BorderRadius = 1;
             this.cbWarehouse.BorderSize = 1;
             this.cbWarehouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbWarehouse, "cbWarehouse");
             this.cbWarehouse.ForeColor = System.Drawing.Color.DimGray;
             this.cbWarehouse.IconColor = System.Drawing.Color.LightGray;
             this.cbWarehouse.Items.AddRange(new object[] {
@@ -375,12 +375,12 @@
             // 
             // txtWHAddress
             // 
-            resources.ApplyResources(this.txtWHAddress, "txtWHAddress");
             this.txtWHAddress.BackColor = System.Drawing.Color.White;
             this.txtWHAddress.BorderColor = System.Drawing.Color.LightGray;
             this.txtWHAddress.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.txtWHAddress.BorderRadius = 10;
             this.txtWHAddress.BorderSize = 1;
+            resources.ApplyResources(this.txtWHAddress, "txtWHAddress");
             this.txtWHAddress.ForeColor = System.Drawing.Color.Black;
             this.txtWHAddress.IsError = false;
             this.txtWHAddress.MaxLength = 120;
@@ -396,8 +396,8 @@
             // 
             // panel2
             // 
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Controls.Add(this.label2);
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.ForeColor = System.Drawing.Color.Black;
             this.panel2.Name = "panel2";
             // 
@@ -409,15 +409,14 @@
             // 
             // CustomerInfo
             // 
-            resources.ApplyResources(this.CustomerInfo, "CustomerInfo");
             this.CustomerInfo.BackColor = System.Drawing.Color.Transparent;
             this.CustomerInfo.Controls.Add(this.CustomerInfoBox);
             this.CustomerInfo.Controls.Add(this.UserInfoHeaderContainer);
+            resources.ApplyResources(this.CustomerInfo, "CustomerInfo");
             this.CustomerInfo.Name = "CustomerInfo";
             // 
             // CustomerInfoBox
             // 
-            resources.ApplyResources(this.CustomerInfoBox, "CustomerInfoBox");
             this.CustomerInfoBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.CustomerInfoBox.Controls.Add(this.label4);
             this.CustomerInfoBox.Controls.Add(this.txtSupAddress);
@@ -427,6 +426,7 @@
             this.CustomerInfoBox.Controls.Add(this.Catalogue);
             this.CustomerInfoBox.Controls.Add(this.label1);
             this.CustomerInfoBox.Controls.Add(this.txtContact);
+            resources.ApplyResources(this.CustomerInfoBox, "CustomerInfoBox");
             this.CustomerInfoBox.Name = "CustomerInfoBox";
             // 
             // label4
@@ -436,12 +436,12 @@
             // 
             // txtSupAddress
             // 
-            resources.ApplyResources(this.txtSupAddress, "txtSupAddress");
             this.txtSupAddress.BackColor = System.Drawing.Color.White;
             this.txtSupAddress.BorderColor = System.Drawing.Color.LightGray;
             this.txtSupAddress.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.txtSupAddress.BorderRadius = 10;
             this.txtSupAddress.BorderSize = 1;
+            resources.ApplyResources(this.txtSupAddress, "txtSupAddress");
             this.txtSupAddress.ForeColor = System.Drawing.Color.Black;
             this.txtSupAddress.IsError = false;
             this.txtSupAddress.MaxLength = 120;
@@ -457,12 +457,12 @@
             // 
             // cbSup
             // 
-            resources.ApplyResources(this.cbSup, "cbSup");
             this.cbSup.BackColor = System.Drawing.Color.White;
             this.cbSup.BorderColor = System.Drawing.Color.LightGray;
             this.cbSup.BorderRadius = 1;
             this.cbSup.BorderSize = 1;
             this.cbSup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbSup, "cbSup");
             this.cbSup.ForeColor = System.Drawing.Color.DimGray;
             this.cbSup.IconColor = System.Drawing.Color.LightGray;
             this.cbSup.ListBackColor = System.Drawing.Color.White;
@@ -480,12 +480,12 @@
             // 
             // txtTel
             // 
-            resources.ApplyResources(this.txtTel, "txtTel");
             this.txtTel.BackColor = System.Drawing.Color.White;
             this.txtTel.BorderColor = System.Drawing.Color.LightGray;
             this.txtTel.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.txtTel.BorderRadius = 10;
             this.txtTel.BorderSize = 1;
+            resources.ApplyResources(this.txtTel, "txtTel");
             this.txtTel.ForeColor = System.Drawing.Color.Black;
             this.txtTel.IsError = false;
             this.txtTel.MaxLength = 32767;
@@ -511,12 +511,12 @@
             // 
             // txtContact
             // 
-            resources.ApplyResources(this.txtContact, "txtContact");
             this.txtContact.BackColor = System.Drawing.Color.White;
             this.txtContact.BorderColor = System.Drawing.Color.LightGray;
             this.txtContact.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.txtContact.BorderRadius = 10;
             this.txtContact.BorderSize = 1;
+            resources.ApplyResources(this.txtContact, "txtContact");
             this.txtContact.ForeColor = System.Drawing.Color.Black;
             this.txtContact.IsError = false;
             this.txtContact.MaxLength = 32767;
@@ -532,9 +532,9 @@
             // 
             // UserInfoHeaderContainer
             // 
-            resources.ApplyResources(this.UserInfoHeaderContainer, "UserInfoHeaderContainer");
             this.UserInfoHeaderContainer.BackColor = System.Drawing.Color.White;
             this.UserInfoHeaderContainer.Controls.Add(this.GoodsInfoHeader);
+            resources.ApplyResources(this.UserInfoHeaderContainer, "UserInfoHeaderContainer");
             this.UserInfoHeaderContainer.Name = "UserInfoHeaderContainer";
             // 
             // GoodsInfoHeader
@@ -561,10 +561,10 @@
             // 
             this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.dataGridViewImageColumn4.DataPropertyName = "install";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.NullValue = null;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn4.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.NullValue = null;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn4.DefaultCellStyle = dataGridViewCellStyle9;
             resources.ApplyResources(this.dataGridViewImageColumn4, "dataGridViewImageColumn4");
             this.dataGridViewImageColumn4.Image = global::TheBetterLimited.Properties.Resources.square;
             this.dataGridViewImageColumn4.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -581,10 +581,10 @@
             // dataGridViewImageColumn5
             // 
             this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.NullValue = null;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn5.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.NullValue = null;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewImageColumn5.DefaultCellStyle = dataGridViewCellStyle10;
             resources.ApplyResources(this.dataGridViewImageColumn5, "dataGridViewImageColumn5");
             this.dataGridViewImageColumn5.Image = global::TheBetterLimited.Properties.Resources.lock1;
             this.dataGridViewImageColumn5.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;

@@ -117,191 +117,146 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="StockInfoHeader.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="&gt;&gt;StockInfoHeaderContainer.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BottomBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="&gt;&gt;txtRefund.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="txtRefund.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 38</value>
+  <data name="lblQuantity.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 21</value>
   </data>
-  <data name="txtExchange.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
+  <data name="txtExchange.Location" type="System.Drawing.Point, System.Drawing">
+    <value>153, 106</value>
   </data>
-  <data name="btnAddSupplier.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;lblQuantity.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;lblOption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="lblQuantity.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="StockInfoHeaderContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;txtDesc.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="lblQuantity.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblOption.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
-  <data name="cbRefund.Text" xml:space="preserve">
-    <value>Refund</value>
-  </data>
-  <data name="txtExchange.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="&gt;&gt;cbRefund.Parent" xml:space="preserve">
+  <data name="&gt;&gt;txtRefund.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
   <data name="lblQuantity.Location" type="System.Drawing.Point, System.Drawing">
     <value>32, 210</value>
   </data>
-  <data name="cbRefund.TabIndex" type="System.Int32, mscorlib">
-    <value>45</value>
+  <data name="&gt;&gt;txtRefund.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="StockInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>227, 25</value>
+  <data name="StockInfoHeaderContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>467, 40</value>
   </data>
-  <data name="btnAddSupplier.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 6</value>
+  <data name="txtDesc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>153, 156</value>
   </data>
-  <data name="lblQuantity.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
-  </data>
-  <data name="MainForm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="txtRefund.Location" type="System.Drawing.Point, System.Drawing">
-    <value>153, 56</value>
-  </data>
-  <data name="lblOption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 21</value>
-  </data>
-  <data name="&gt;&gt;StockInfoHeaderContainer.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Add Defect Item</value>
-  </data>
-  <data name="cbExchange.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 25</value>
-  </data>
-  <data name="lblOption.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;txtExchange.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;lblQuantity.ZOrder" xml:space="preserve">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="StockInfoHeader.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
-    <value>BottomBtn</value>
+  <data name="&gt;&gt;StockInfo.Parent" xml:space="preserve">
+    <value>MainForm</value>
   </data>
-  <data name="&gt;&gt;StockInfoHeaderContainer.Parent" xml:space="preserve">
-    <value>StockInfo</value>
+  <data name="lblQuantity.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="MainForm.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;cbExchange.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblOption.Text" xml:space="preserve">
+    <value>Operation</value>
   </data>
-  <data name="&gt;&gt;cbRefund.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
-  </data>
-  <data name="BottomBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 0</value>
-  </data>
-  <data name="&gt;&gt;StockInfo.Name" xml:space="preserve">
-    <value>StockInfo</value>
-  </data>
-  <data name="BottomBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="txtDesc.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 40</value>
-  </data>
-  <data name="&gt;&gt;cbRefund.Name" xml:space="preserve">
-    <value>cbRefund</value>
-  </data>
-  <data name="txtDesc.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12.10084pt</value>
-  </data>
-  <data name="&gt;&gt;cbExchange.Name" xml:space="preserve">
-    <value>cbExchange</value>
-  </data>
-  <data name="&gt;&gt;StockInfoHeader.Parent" xml:space="preserve">
-    <value>StockInfoHeaderContainer</value>
-  </data>
-  <data name="&gt;&gt;txtExchange.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;MainForm.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="txtRefund.TabIndex" type="System.Int32, mscorlib">
-    <value>46</value>
+  <data name="&gt;&gt;cbExchange.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1200, 900</value>
+  <data name="txtExchange.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 38</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>StockInfo</value>
+  </data>
+  <data name="&gt;&gt;lblQuantity.Name" xml:space="preserve">
+    <value>lblQuantity</value>
+  </data>
+  <data name="&gt;&gt;StockInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtDesc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 128</value>
+  </data>
+  <data name="cbRefund.Text" xml:space="preserve">
+    <value>Refund</value>
+  </data>
+  <data name="txtRefund.Size" type="System.Drawing.Size, System.Drawing">
+    <value>275, 38</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cbExchange.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnAddSupplier.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="BottomBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>467, 54</value>
   </data>
   <data name="StockInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 10</value>
   </data>
-  <data name="txtRefund.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="btnAddSupplier.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="txtDesc.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
+  <data name="lblOption.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtExchange.Name" xml:space="preserve">
+    <value>txtExchange</value>
+  </data>
+  <data name="lblOption.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="StockInfo.Size" type="System.Drawing.Size, System.Drawing">
     <value>467, 355</value>
   </data>
-  <data name="&gt;&gt;txtRefund.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;StockInfoHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnAddSupplier.Parent" xml:space="preserve">
-    <value>BottomBtn</value>
+  <data name="txtRefund.Location" type="System.Drawing.Point, System.Drawing">
+    <value>153, 56</value>
+  </data>
+  <data name="btnAddSupplier.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="&gt;&gt;StockInfoHeader.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1200, 900</value>
   </data>
   <data name="cbRefund.Location" type="System.Drawing.Point, System.Drawing">
     <value>33, 63</value>
   </data>
-  <data name="&gt;&gt;StockInfo.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="lblOption.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 18</value>
   </data>
-  <data name="&gt;&gt;MainForm.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 40</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
-    <value>btnCancel</value>
+  <data name="&gt;&gt;btnAddSupplier.Name" xml:space="preserve">
+    <value>btnAddSupplier</value>
   </data>
-  <data name="lblQuantity.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 21</value>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="lblQuantity.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>DefectItem_Add</value>
   </data>
   <data name="StockInfo.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -309,107 +264,68 @@
   <data name="&gt;&gt;BottomBtn.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>DefectItem_Add</value>
-  </data>
-  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="txtExchange.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12.10084pt</value>
-  </data>
-  <data name="BottomBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="StockInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="StockInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 10</value>
-  </data>
-  <data name="StockInfoHeaderContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="lblOption.Text" xml:space="preserve">
-    <value>Operation</value>
-  </data>
-  <data name="btnCancel.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="lblQuantity.Text" xml:space="preserve">
-    <value>Description</value>
-  </data>
-  <data name="&gt;&gt;txtDesc.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;lblQuantity.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="StockInfoHeader.Text" xml:space="preserve">
-    <value>Defect Item Information</value>
-  </data>
-  <data name="btnAddSupplier.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;MainForm.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblOption.Name" xml:space="preserve">
-    <value>lblOption</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>StockInfo</value>
-  </data>
-  <data name="MainForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>487, 429</value>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>Cancel</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
-  <data name="cbExchange.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt</value>
+  <data name="txtDesc.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12.10084pt</value>
   </data>
-  <data name="&gt;&gt;txtExchange.Name" xml:space="preserve">
-    <value>txtExchange</value>
+  <data name="MainForm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;btnAddSupplier.Name" xml:space="preserve">
-    <value>btnAddSupplier</value>
+  <data name="MainForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>487, 429</value>
   </data>
-  <data name="StockInfoHeaderContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>487, 429</value>
   </data>
-  <data name="&gt;&gt;txtRefund.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;MainForm.Name" xml:space="preserve">
+    <value>MainForm</value>
   </data>
-  <data name="BottomBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 365</value>
+  <data name="&gt;&gt;cbExchange.Name" xml:space="preserve">
+    <value>cbExchange</value>
   </data>
   <data name="cbRefund.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>467, 305</value>
+  <data name="StockInfoHeader.Text" xml:space="preserve">
+    <value>Defect Item Information</value>
   </data>
-  <data name="lblOption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>32, 18</value>
+  <data name="lblQuantity.Text" xml:space="preserve">
+    <value>Description</value>
   </data>
-  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;MainForm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtExchange.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="txtRefund.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12.10084pt</value>
   </data>
-  <data name="txtExchange.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 38</value>
+  <data name="&gt;&gt;cbRefund.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="StockInfoHeader.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+  <data name="cbExchange.Text" xml:space="preserve">
+    <value>Exchange</value>
   </data>
-  <data name="&gt;&gt;StockInfoHeader.Name" xml:space="preserve">
-    <value>StockInfoHeader</value>
+  <data name="cbRefund.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Add Defect Item</value>
+  </data>
+  <data name="btnAddSupplier.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;StockInfoHeaderContainer.Parent" xml:space="preserve">
+    <value>StockInfo</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="StockInfoHeaderContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
   </data>
   <data name="&gt;&gt;BottomBtn.Parent" xml:space="preserve">
     <value>MainForm</value>
@@ -417,188 +333,272 @@
   <data name="txtRefund.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 6, 4, 6</value>
   </data>
-  <data name="&gt;&gt;txtRefund.Name" xml:space="preserve">
-    <value>txtRefund</value>
-  </data>
-  <data name="&gt;&gt;StockInfoHeaderContainer.Name" xml:space="preserve">
-    <value>StockInfoHeaderContainer</value>
-  </data>
-  <data name="&gt;&gt;StockInfo.Parent" xml:space="preserve">
-    <value>MainForm</value>
-  </data>
-  <data name="txtDesc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>153, 156</value>
-  </data>
-  <data name="cbExchange.Text" xml:space="preserve">
-    <value>Exchange</value>
-  </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="txtExchange.Location" type="System.Drawing.Point, System.Drawing">
-    <value>153, 106</value>
-  </data>
-  <data name="&gt;&gt;StockInfoHeaderContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="lblOption.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
-  </data>
-  <data name="MainForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="cbRefund.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 25</value>
-  </data>
-  <data name="lblOption.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblOption.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;cbExchange.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 40</value>
-  </data>
-  <data name="MainForm.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;btnAddSupplier.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="StockInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 14.25pt, style=Bold</value>
-  </data>
-  <data name="txtExchange.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 6, 4, 6</value>
-  </data>
-  <data name="StockInfoHeader.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;BottomBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;StockInfoHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAddSupplier.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;StockInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbRefund.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="cbExchange.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="BottomBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>467, 54</value>
-  </data>
-  <data name="&gt;&gt;StockInfoHeader.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="txtRefund.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12.10084pt</value>
-  </data>
-  <data name="&gt;&gt;txtDesc.Name" xml:space="preserve">
-    <value>txtDesc</value>
-  </data>
-  <data name="lblOption.TabIndex" type="System.Int32, mscorlib">
-    <value>44</value>
-  </data>
-  <data name="cbExchange.TabIndex" type="System.Int32, mscorlib">
-    <value>47</value>
-  </data>
-  <data name="txtDesc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>275, 128</value>
-  </data>
-  <data name="&gt;&gt;txtRefund.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="StockInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 7</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>487, 429</value>
-  </data>
-  <data name="&gt;&gt;txtDesc.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;lblOption.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;BottomBtn.Name" xml:space="preserve">
-    <value>BottomBtn</value>
-  </data>
-  <data name="&gt;&gt;MainForm.Name" xml:space="preserve">
-    <value>MainForm</value>
-  </data>
-  <data name="StockInfoHeaderContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>467, 40</value>
-  </data>
-  <data name="&gt;&gt;cbExchange.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="StockInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="MainForm.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 6</value>
+  <data name="cbExchange.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
   </data>
-  <data name="lblOption.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="btnAddSupplier.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 40</value>
-  </data>
-  <data name="lblQuantity.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="cbRefund.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;txtExchange.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="txtDesc.TabIndex" type="System.Int32, mscorlib">
-    <value>40</value>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
   </data>
   <data name="btnAddSupplier.Text" xml:space="preserve">
     <value>Comfirm</value>
   </data>
-  <data name="&gt;&gt;MainForm.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;txtDesc.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;StockInfoHeaderContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblOption.TabIndex" type="System.Int32, mscorlib">
+    <value>44</value>
+  </data>
+  <data name="lblQuantity.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BottomBtn.Name" xml:space="preserve">
+    <value>BottomBtn</value>
+  </data>
+  <data name="&gt;&gt;StockInfoHeaderContainer.Name" xml:space="preserve">
+    <value>StockInfoHeaderContainer</value>
+  </data>
+  <data name="lblQuantity.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="cbRefund.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="&gt;&gt;StockInfo.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="txtRefund.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 7, 10, 7</value>
+  <data name="&gt;&gt;lblOption.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="MainForm.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="lblQuantity.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="btnAddSupplier.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="txtExchange.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12.10084pt</value>
+  </data>
+  <data name="&gt;&gt;StockInfoHeader.Name" xml:space="preserve">
+    <value>StockInfoHeader</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Parent" xml:space="preserve">
+    <value>BottomBtn</value>
+  </data>
+  <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 6</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>467, 305</value>
+  </data>
+  <data name="txtRefund.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
   </data>
   <data name="cbExchange.Location" type="System.Drawing.Point, System.Drawing">
     <value>33, 113</value>
   </data>
+  <data name="&gt;&gt;btnAddSupplier.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblOption.Name" xml:space="preserve">
+    <value>lblOption</value>
+  </data>
+  <data name="BottomBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblOption.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="txtRefund.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="StockInfo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 10</value>
+  </data>
+  <data name="StockInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 14.25pt, style=Bold</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="&gt;&gt;StockInfo.Name" xml:space="preserve">
+    <value>StockInfo</value>
+  </data>
+  <data name="MainForm.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;lblQuantity.Name" xml:space="preserve">
-    <value>lblQuantity</value>
+  <data name="&gt;&gt;btnCancel.Name" xml:space="preserve">
+    <value>btnCancel</value>
+  </data>
+  <data name="txtDesc.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
+  </data>
+  <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 40</value>
+  </data>
+  <data name="&gt;&gt;txtDesc.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="txtExchange.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="txtExchange.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="BottomBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 0</value>
+  </data>
+  <data name="btnCancel.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="StockInfoHeaderContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="btnAddSupplier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 40</value>
+  </data>
+  <data name="lblOption.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="StockInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 7</value>
+  </data>
+  <data name="&gt;&gt;lblOption.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtDesc.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="&gt;&gt;StockInfoHeader.Parent" xml:space="preserve">
+    <value>StockInfoHeaderContainer</value>
+  </data>
+  <data name="&gt;&gt;txtRefund.Name" xml:space="preserve">
+    <value>txtRefund</value>
+  </data>
+  <data name="&gt;&gt;cbRefund.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;txtExchange.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;BottomBtn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnCancel.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="StockInfoHeaderContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;lblQuantity.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="txtDesc.TabIndex" type="System.Int32, mscorlib">
+    <value>40</value>
+  </data>
+  <data name="&gt;&gt;cbRefund.Name" xml:space="preserve">
+    <value>cbRefund</value>
+  </data>
+  <data name="lblQuantity.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="&gt;&gt;btnAddSupplier.Parent" xml:space="preserve">
+    <value>BottomBtn</value>
+  </data>
+  <data name="StockInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>227, 25</value>
+  </data>
+  <data name="&gt;&gt;txtExchange.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="BottomBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 365</value>
+  </data>
+  <data name="&gt;&gt;lblQuantity.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;txtDesc.Name" xml:space="preserve">
+    <value>txtDesc</value>
+  </data>
+  <data name="StockInfoHeader.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="txtExchange.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="MainForm.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="txtExchange.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 6, 4, 6</value>
+  </data>
+  <data name="cbRefund.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 25</value>
+  </data>
+  <data name="&gt;&gt;txtDesc.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="cbExchange.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 25</value>
+  </data>
+  <data name="BottomBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="&gt;&gt;cbRefund.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbExchange.TabIndex" type="System.Int32, mscorlib">
+    <value>47</value>
+  </data>
+  <data name="&gt;&gt;MainForm.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;txtExchange.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="BottomBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="&gt;&gt;lblQuantity.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;cbExchange.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="lblOption.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 21</value>
+  </data>
+  <data name="btnAddSupplier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>253, 6</value>
+  </data>
+  <data name="StockInfoHeader.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="&gt;&gt;cbExchange.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtRefund.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 7, 10, 7</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

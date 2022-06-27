@@ -190,13 +190,6 @@ namespace TheBetterLimited.Views
             //Main data column
             GoodsDataGrid.AutoGenerateColumns = false;
             GoodsDataGrid.DataSource = bs;
-            GoodsDataGrid.Columns["id"].HeaderText = "ID";
-            GoodsDataGrid.Columns["catalogue"].HeaderText = "Catalogue";
-            GoodsDataGrid.Columns["name"].HeaderText = "Goods Name";
-            GoodsDataGrid.Columns["price"].HeaderText = "Price";
-            GoodsDataGrid.Columns["gTINCode"].HeaderText = "GTINCode";
-            GoodsDataGrid.Columns["size"].HeaderText = "Size";
-            GoodsDataGrid.Columns["status"].HeaderText = "Status";
             for (int i = 0; i < GoodsDataGrid.RowCount; i++)
                 GoodsDataGrid["select", i].Tag = 0;
 

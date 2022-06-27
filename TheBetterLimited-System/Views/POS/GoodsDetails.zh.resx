@@ -127,8 +127,14 @@
   <data name="Title.Text" xml:space="preserve">
     <value>商品详情</value>
   </data>
+  <data name="CancelBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
+  </data>
   <data name="CancelBtn.Text" xml:space="preserve">
     <value>取消</value>
+  </data>
+  <data name="SaveBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
   </data>
   <data name="SaveBtn.Text" xml:space="preserve">
     <value>添加到购物车</value>
@@ -170,13 +176,13 @@
     <value>说明</value>
   </data>
   <data name="lblGTINCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>44, 112</value>
+    <value>46, 112</value>
   </data>
   <data name="lblGTINCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 21</value>
+    <value>78, 21</value>
   </data>
   <data name="lblGTINCode.Text" xml:space="preserve">
-    <value>GTIN 代码</value>
+    <value>商品条码</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 19</value>
@@ -185,13 +191,13 @@
     <value>销售中</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 3</value>
+    <value>12, 3</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 19</value>
+    <value>65, 19</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>淘汰</value>
+    <value>逐步淘汰</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 3</value>
@@ -236,7 +242,7 @@
     <value>78, 21</value>
   </data>
   <data name="lblStockLevel.Text" xml:space="preserve">
-    <value>存货水平</value>
+    <value>库存水平</value>
   </data>
   <data name="lblPrice.Text" xml:space="preserve">
     <value>价格</value>
@@ -248,7 +254,7 @@
     <value>78, 21</value>
   </data>
   <data name="lblUserName.Text" xml:space="preserve">
-    <value>存货数量</value>
+    <value>库存数量</value>
   </data>
   <data name="lblLocation.Location" type="System.Drawing.Point, System.Drawing">
     <value>63, 245</value>
@@ -268,17 +274,23 @@
   <data name="lblSize.Text" xml:space="preserve">
     <value>尺寸</value>
   </data>
+  <data name="GoodsInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="GoodsInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 9</value>
+  </data>
   <data name="GoodsInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 25</value>
+    <value>82, 21</value>
   </data>
   <data name="GoodsInfoHeader.Text" xml:space="preserve">
     <value>商品资讯</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>Inherit</value>
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>商品资讯</value>
+    <value>商品详情</value>
   </data>
 </root>

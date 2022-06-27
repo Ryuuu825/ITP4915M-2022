@@ -117,128 +117,105 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Info.Text" xml:space="preserve">
-    <value>商品是公司销售的物品、物品、产品或商品。用户可以使用此界面添加 Better Limited 销售的商品
-
-</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 245</value>
-  </data>
-  <data name="tip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 15</value>
-  </data>
-  <data name="tip.Text" xml:space="preserve">
-    <value>点击图片上传照片</value>
-  </data>
-  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 14.25pt, style=Bold</value>
-  </data>
-  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 25</value>
-  </data>
-  <data name="Title.Text" xml:space="preserve">
-    <value>添加商品</value>
-  </data>
-  <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
-  </data>
-  <data name="btnCancel.Text" xml:space="preserve">
-    <value>取消</value>
-  </data>
-  <data name="btnAddGoods.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
-  </data>
-  <data name="btnAddGoods.Text" xml:space="preserve">
-    <value>添加商品</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>45, 510</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 21</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>供应商</value>
-  </data>
-  <data name="lblStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>53, 457</value>
-  </data>
-  <data name="lblStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="lblStatus.Text" xml:space="preserve">
-    <value>状态</value>
-  </data>
-  <data name="lblSize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>53, 410</value>
-  </data>
-  <data name="lblSize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="lblSize.Text" xml:space="preserve">
-    <value>尺寸</value>
-  </data>
-  <data name="lblSize.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="lblGTIＮCode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>34, 359</value>
-  </data>
-  <data name="lblGTIＮCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 21</value>
-  </data>
-  <data name="lblGTIＮCode.Text" xml:space="preserve">
-    <value>GTIN 代码</value>
-  </data>
-  <data name="lblPrice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>53, 304</value>
-  </data>
-  <data name="lblPrice.Text" xml:space="preserve">
-    <value>价格</value>
-  </data>
-  <data name="lblGoodsName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 21</value>
-  </data>
-  <data name="lblGoodsName.Text" xml:space="preserve">
-    <value>商品名称</value>
-  </data>
-  <data name="lblCatalogue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>53, 77</value>
-  </data>
-  <data name="lblCatalogue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="lblCatalogue.Text" xml:space="preserve">
-    <value>种类</value>
-  </data>
-  <data name="lblCatalogue.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="lblDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>53, 119</value>
-  </data>
-  <data name="lblDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 21</value>
-  </data>
-  <data name="lblDescription.Text" xml:space="preserve">
-    <value>说明</value>
-  </data>
-  <data name="GoodsInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 14.25pt, style=Bold</value>
-  </data>
-  <data name="GoodsInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 25</value>
-  </data>
-  <data name="GoodsInfoHeader.Text" xml:space="preserve">
-    <value>商品资讯</value>
+  <data name="CancelBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="CancelBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="CancelBtn.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="SaveBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.5pt, style=Bold</value>
+  </data>
+  <data name="SaveBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="SaveBtn.Text" xml:space="preserve">
+    <value>发送</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>38, 282</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 21</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>收信人列表</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 21</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>收信人*</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>63, 185</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 21</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="GTINCode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GTINCode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 62</value>
+  </data>
+  <data name="GTINCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 21</value>
+  </data>
+  <data name="GTINCode.Text" xml:space="preserve">
+    <value>内容*</value>
+  </data>
+  <data name="Catalogue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Catalogue.Location" type="System.Drawing.Point, System.Drawing">
+    <value>60, 24</value>
+  </data>
+  <data name="Catalogue.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 21</value>
+  </data>
+  <data name="Catalogue.Text" xml:space="preserve">
+    <value>标题*</value>
+  </data>
+  <data name="GoodsInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="GoodsInfoHeader.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="GoodsInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 9</value>
+  </data>
+  <data name="GoodsInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 21</value>
+  </data>
+  <data name="GoodsInfoHeader.Text" xml:space="preserve">
+    <value>新增信息</value>
+  </data>
+  <data name="plusBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>Inherit</value>
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>添加商品</value>
+    <value>发送信息</value>
   </data>
 </root>

@@ -145,7 +145,6 @@ namespace TheBetterLimited.Views
             {
                 orderItems.RemoveAt(e.RowIndex);
                 InitializeCartGridView();
-                return;
             }
         }
 
@@ -245,14 +244,14 @@ namespace TheBetterLimited.Views
             cbSup.BorderColor = Color.LightGray;
         }
 
-        private void OrderDataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            MessageBox.Show("Quantity value is invalid!");
-        }
-
         private void cbWarehouse_Click(object sender, EventArgs e)
         {
             cbWarehouse.BorderColor = Color.LightGray;
+        }
+
+        private void OrderDataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Quantity value is invalid!");
         }
 
         private void OrderDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)

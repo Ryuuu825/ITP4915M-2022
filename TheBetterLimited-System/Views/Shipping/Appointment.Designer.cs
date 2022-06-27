@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appointment));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Appointment));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,7 +38,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AppointmentDataGrid = new System.Windows.Forms.DataGridView();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teamId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.details = new System.Windows.Forms.DataGridViewImageColumn();
+            this.print = new System.Windows.Forms.DataGridViewImageColumn();
+            this.arrange = new System.Windows.Forms.DataGridViewImageColumn();
             this.Header = new System.Windows.Forms.Panel();
+            this.closeBtn = new System.Windows.Forms.Button();
+            this.RefreshBtn = new System.Windows.Forms.Button();
             this.Title = new System.Windows.Forms.Label();
             this.Data = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -48,24 +60,12 @@
             this.MultiArrangeBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.DeliveryDatePicker = new System.Windows.Forms.DateTimePicker();
             this.SearchBar = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teamId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.select = new System.Windows.Forms.DataGridViewImageColumn();
-            this.details = new System.Windows.Forms.DataGridViewImageColumn();
-            this.print = new System.Windows.Forms.DataGridViewImageColumn();
-            this.arrange = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.closeBtn = new System.Windows.Forms.Button();
-            this.RefreshBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGrid)).BeginInit();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
@@ -76,7 +76,6 @@
             // 
             // AppointmentDataGrid
             // 
-            resources.ApplyResources(this.AppointmentDataGrid, "AppointmentDataGrid");
             this.AppointmentDataGrid.AllowUserToAddRows = false;
             this.AppointmentDataGrid.AllowUserToResizeColumns = false;
             this.AppointmentDataGrid.AllowUserToResizeRows = false;
@@ -91,13 +90,14 @@
             this.AppointmentDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.AppointmentDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.AppointmentDataGrid, "AppointmentDataGrid");
             this.AppointmentDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.AppointmentDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.select,
@@ -149,102 +149,13 @@
             this.AppointmentDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
             this.AppointmentDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.AppointmentDataGrid_CellFormatting);
             // 
-            // Header
+            // select
             // 
-            resources.ApplyResources(this.Header, "Header");
-            this.Header.BackColor = System.Drawing.Color.White;
-            this.Header.Controls.Add(this.closeBtn);
-            this.Header.Controls.Add(this.RefreshBtn);
-            this.Header.Controls.Add(this.Title);
-            this.Header.ForeColor = System.Drawing.Color.White;
-            this.Header.Name = "Header";
-            // 
-            // Title
-            // 
-            resources.ApplyResources(this.Title, "Title");
-            this.Title.ForeColor = System.Drawing.Color.Black;
-            this.Title.Name = "Title";
-            // 
-            // Data
-            // 
-            resources.ApplyResources(this.Data, "Data");
-            this.Data.Controls.Add(this.AppointmentDataGrid);
-            this.Data.Name = "Data";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
-            // dataGridViewImageColumn2
-            // 
-            resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            // 
-            // dataGridViewImageColumn3
-            // 
-            resources.ApplyResources(this.dataGridViewImageColumn3, "dataGridViewImageColumn3");
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            // 
-            // Action
-            // 
-            resources.ApplyResources(this.Action, "Action");
-            this.Action.BackColor = System.Drawing.Color.White;
-            this.Action.Controls.Add(this.MultiArrangeBtn);
-            this.Action.Controls.Add(this.DeliveryDatePicker);
-            this.Action.Controls.Add(this.SearchBar);
-            this.Action.Name = "Action";
-            // 
-            // MultiArrangeBtn
-            // 
-            resources.ApplyResources(this.MultiArrangeBtn, "MultiArrangeBtn");
-            this.MultiArrangeBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.MultiArrangeBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.MultiArrangeBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.MultiArrangeBtn.BorderRadius = 10;
-            this.MultiArrangeBtn.BorderSize = 0;
-            this.MultiArrangeBtn.FlatAppearance.BorderSize = 0;
-            this.MultiArrangeBtn.ForeColor = System.Drawing.Color.White;
-            this.MultiArrangeBtn.IsChecked = false;
-            this.MultiArrangeBtn.Name = "MultiArrangeBtn";
-            this.MultiArrangeBtn.TextColor = System.Drawing.Color.White;
-            this.MultiArrangeBtn.UseVisualStyleBackColor = false;
-            this.MultiArrangeBtn.Click += new System.EventHandler(this.MultiArrangeBtn_Click);
-            // 
-            // DeliveryDatePicker
-            // 
-            resources.ApplyResources(this.DeliveryDatePicker, "DeliveryDatePicker");
-            this.DeliveryDatePicker.CalendarTitleBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.DeliveryDatePicker.Name = "DeliveryDatePicker";
-            this.DeliveryDatePicker.ValueChanged += new System.EventHandler(this.DeliveryDatePicker_ValueChanged);
-            // 
-            // SearchBar
-            // 
-            resources.ApplyResources(this.SearchBar, "SearchBar");
-            this.SearchBar.Controls.Add(this.pictureBox1);
-            this.SearchBar.Controls.Add(this.SearchBarTxt);
-            this.SearchBar.Name = "SearchBar";
-            // 
-            // SearchBarTxt
-            // 
-            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
-            this.SearchBarTxt.BackColor = System.Drawing.Color.White;
-            this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.SearchBarTxt.BorderRadius = 10;
-            this.SearchBarTxt.BorderSize = 1;
-            this.SearchBarTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.SearchBarTxt.IsError = false;
-            this.SearchBarTxt.MaxLength = 20;
-            this.SearchBarTxt.Multiline = false;
-            this.SearchBarTxt.Name = "SearchBarTxt";
-            this.SearchBarTxt.PasswordChar = false;
-            this.SearchBarTxt.Placeholder = "Search";
-            this.SearchBarTxt.ReadOnly = false;
-            this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.SearchBarTxt.Texts = "Search";
-            this.SearchBarTxt.UnderlinedStyle = false;
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.select, "select");
+            this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
             // 
             // id
             // 
@@ -303,6 +214,149 @@
             this.status.Name = "status";
             this.status.ReadOnly = true;
             // 
+            // details
+            // 
+            this.details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.details, "details");
+            this.details.Image = global::TheBetterLimited.Properties.Resources.eye24;
+            this.details.Name = "details";
+            this.details.ReadOnly = true;
+            // 
+            // print
+            // 
+            this.print.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.print, "print");
+            this.print.Image = global::TheBetterLimited.Properties.Resources.print24;
+            this.print.Name = "print";
+            this.print.ReadOnly = true;
+            // 
+            // arrange
+            // 
+            this.arrange.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.arrange, "arrange");
+            this.arrange.Image = global::TheBetterLimited.Properties.Resources.list_check;
+            this.arrange.Name = "arrange";
+            this.arrange.ReadOnly = true;
+            // 
+            // Header
+            // 
+            this.Header.BackColor = System.Drawing.Color.White;
+            this.Header.Controls.Add(this.closeBtn);
+            this.Header.Controls.Add(this.RefreshBtn);
+            this.Header.Controls.Add(this.Title);
+            resources.ApplyResources(this.Header, "Header");
+            this.Header.ForeColor = System.Drawing.Color.White;
+            this.Header.Name = "Header";
+            // 
+            // closeBtn
+            // 
+            resources.ApplyResources(this.closeBtn, "closeBtn");
+            this.closeBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // RefreshBtn
+            // 
+            resources.ApplyResources(this.RefreshBtn, "RefreshBtn");
+            this.RefreshBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.UseVisualStyleBackColor = true;
+            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
+            // 
+            // Title
+            // 
+            resources.ApplyResources(this.Title, "Title");
+            this.Title.ForeColor = System.Drawing.Color.Black;
+            this.Title.Name = "Title";
+            // 
+            // Data
+            // 
+            this.Data.Controls.Add(this.AppointmentDataGrid);
+            resources.ApplyResources(this.Data, "Data");
+            this.Data.Name = "Data";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
+            // dataGridViewImageColumn2
+            // 
+            resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            // 
+            // dataGridViewImageColumn3
+            // 
+            resources.ApplyResources(this.dataGridViewImageColumn3, "dataGridViewImageColumn3");
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            // 
+            // Action
+            // 
+            this.Action.BackColor = System.Drawing.Color.White;
+            this.Action.Controls.Add(this.MultiArrangeBtn);
+            this.Action.Controls.Add(this.DeliveryDatePicker);
+            this.Action.Controls.Add(this.SearchBar);
+            resources.ApplyResources(this.Action, "Action");
+            this.Action.Name = "Action";
+            // 
+            // MultiArrangeBtn
+            // 
+            this.MultiArrangeBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.MultiArrangeBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.MultiArrangeBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.MultiArrangeBtn.BorderRadius = 10;
+            this.MultiArrangeBtn.BorderSize = 0;
+            this.MultiArrangeBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.MultiArrangeBtn, "MultiArrangeBtn");
+            this.MultiArrangeBtn.ForeColor = System.Drawing.Color.White;
+            this.MultiArrangeBtn.IsChecked = false;
+            this.MultiArrangeBtn.Name = "MultiArrangeBtn";
+            this.MultiArrangeBtn.TextColor = System.Drawing.Color.White;
+            this.MultiArrangeBtn.UseVisualStyleBackColor = false;
+            this.MultiArrangeBtn.Click += new System.EventHandler(this.MultiArrangeBtn_Click);
+            // 
+            // DeliveryDatePicker
+            // 
+            resources.ApplyResources(this.DeliveryDatePicker, "DeliveryDatePicker");
+            this.DeliveryDatePicker.CalendarTitleBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.DeliveryDatePicker.Name = "DeliveryDatePicker";
+            this.DeliveryDatePicker.ValueChanged += new System.EventHandler(this.DeliveryDatePicker_ValueChanged);
+            // 
+            // SearchBar
+            // 
+            this.SearchBar.Controls.Add(this.pictureBox1);
+            this.SearchBar.Controls.Add(this.SearchBarTxt);
+            resources.ApplyResources(this.SearchBar, "SearchBar");
+            this.SearchBar.Name = "SearchBar";
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
+            // SearchBarTxt
+            // 
+            this.SearchBarTxt.BackColor = System.Drawing.Color.White;
+            this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.SearchBarTxt.BorderRadius = 10;
+            this.SearchBarTxt.BorderSize = 1;
+            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
+            this.SearchBarTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.SearchBarTxt.IsError = false;
+            this.SearchBarTxt.MaxLength = 20;
+            this.SearchBarTxt.Multiline = false;
+            this.SearchBarTxt.Name = "SearchBarTxt";
+            this.SearchBarTxt.PasswordChar = false;
+            this.SearchBarTxt.Placeholder = "Search";
+            this.SearchBarTxt.ReadOnly = false;
+            this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
+            this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.SearchBarTxt.Texts = "Search";
+            this.SearchBarTxt.UnderlinedStyle = false;
+            // 
             // dataGridViewImageColumn4
             // 
             this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
@@ -337,60 +391,6 @@
             this.dataGridViewImageColumn7.Image = global::TheBetterLimited.Properties.Resources.list_check;
             this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
             this.dataGridViewImageColumn7.ReadOnly = true;
-            // 
-            // select
-            // 
-            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.select, "select");
-            this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            // 
-            // details
-            // 
-            this.details.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.details, "details");
-            this.details.Image = global::TheBetterLimited.Properties.Resources.eye24;
-            this.details.Name = "details";
-            this.details.ReadOnly = true;
-            // 
-            // print
-            // 
-            this.print.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.print, "print");
-            this.print.Image = global::TheBetterLimited.Properties.Resources.print24;
-            this.print.Name = "print";
-            this.print.ReadOnly = true;
-            // 
-            // arrange
-            // 
-            this.arrange.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.arrange, "arrange");
-            this.arrange.Image = global::TheBetterLimited.Properties.Resources.list_check;
-            this.arrange.Name = "arrange";
-            this.arrange.ReadOnly = true;
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            // 
-            // closeBtn
-            // 
-            resources.ApplyResources(this.closeBtn, "closeBtn");
-            this.closeBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.UseVisualStyleBackColor = true;
-            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
-            // RefreshBtn
-            // 
-            resources.ApplyResources(this.RefreshBtn, "RefreshBtn");
-            this.RefreshBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
-            this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.UseVisualStyleBackColor = true;
-            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // Appointment
             // 

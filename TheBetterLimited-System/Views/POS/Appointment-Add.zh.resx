@@ -117,19 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="CancelBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
-  </data>
   <data name="CancelBtn.Text" xml:space="preserve">
     <value>取消</value>
-  </data>
-  <data name="SaveBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="SaveBtn.Text" xml:space="preserve">
     <value>保存</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>62, 228</value>
   </data>
@@ -178,11 +172,17 @@
   <data name="label5.Text" xml:space="preserve">
     <value>日期</value>
   </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 9</value>
+  </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 25</value>
+    <value>46, 21</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>任务</value>
+    <value>安排</value>
   </data>
   <data name="GTINCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>45, 105</value>
@@ -211,13 +211,19 @@
   <data name="label1.Text" xml:space="preserve">
     <value>名称</value>
   </data>
+  <data name="GoodsInfoHeader.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="GoodsInfoHeader.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 9</value>
+  </data>
   <data name="GoodsInfoHeader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 25</value>
+    <value>82, 21</value>
   </data>
   <data name="GoodsInfoHeader.Text" xml:space="preserve">
     <value>顾客资讯</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>任务-资讯</value>
+    <value>货运安排</value>
   </data>
 </root>

@@ -117,16 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="select.Width" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="id.HeaderText" xml:space="preserve">
     <value>编号</value>
   </data>
   <data name="id.ToolTipText" xml:space="preserve">
     <value>任务编号</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="id.Width" type="System.Int32, mscorlib">
     <value>52</value>
   </data>
@@ -172,15 +169,6 @@
   <data name="status.Width" type="System.Int32, mscorlib">
     <value>71</value>
   </data>
-  <data name="details.Width" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="print.Width" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="arrange.Width" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="closeBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -211,7 +199,7 @@
     <value>NoControl</value>
   </data>
   <data name="MultiArrangeBtn.Text" xml:space="preserve">
-    <value>安排多项</value>
+    <value>指派多项</value>
   </data>
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POManagement));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(POManagement));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -86,7 +86,6 @@
             // 
             // OrderDataGrid
             // 
-            resources.ApplyResources(this.OrderDataGrid, "OrderDataGrid");
             this.OrderDataGrid.AllowUserToAddRows = false;
             this.OrderDataGrid.AllowUserToOrderColumns = true;
             this.OrderDataGrid.AllowUserToResizeColumns = false;
@@ -102,12 +101,13 @@
             this.OrderDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.OrderDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.OrderDataGrid, "OrderDataGrid");
             this.OrderDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.OrderDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.select,
@@ -256,33 +256,33 @@
             // 
             // Action
             // 
-            resources.ApplyResources(this.Action, "Action");
             this.Action.BackColor = System.Drawing.Color.White;
             this.Action.Controls.Add(this.panel1);
+            resources.ApplyResources(this.Action, "Action");
             this.Action.Name = "Action";
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.SearchBar);
             this.panel1.Controls.Add(this.curdAction);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // SearchBar
             // 
-            resources.ApplyResources(this.SearchBar, "SearchBar");
             this.SearchBar.Controls.Add(this.pictureBox1);
             this.SearchBar.Controls.Add(this.SearchBarTxt);
+            resources.ApplyResources(this.SearchBar, "SearchBar");
             this.SearchBar.Name = "SearchBar";
             // 
             // SearchBarTxt
             // 
-            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
             this.SearchBarTxt.BackColor = System.Drawing.Color.White;
             this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
             this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.SearchBarTxt.BorderRadius = 10;
             this.SearchBarTxt.BorderSize = 1;
+            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
             this.SearchBarTxt.ForeColor = System.Drawing.Color.Black;
             this.SearchBarTxt.IsError = false;
             this.SearchBarTxt.MaxLength = 20;
@@ -299,17 +299,17 @@
             // 
             // curdAction
             // 
-            resources.ApplyResources(this.curdAction, "curdAction");
             this.curdAction.Controls.Add(this.AddBtn);
+            resources.ApplyResources(this.curdAction, "curdAction");
             this.curdAction.Name = "curdAction";
             // 
             // Header
             // 
-            resources.ApplyResources(this.Header, "Header");
             this.Header.BackColor = System.Drawing.Color.White;
             this.Header.Controls.Add(this.closeBtn);
             this.Header.Controls.Add(this.RefreshBtn);
             this.Header.Controls.Add(this.Title);
+            resources.ApplyResources(this.Header, "Header");
             this.Header.ForeColor = System.Drawing.Color.White;
             this.Header.Name = "Header";
             // 
@@ -321,8 +321,8 @@
             // 
             // Data
             // 
-            resources.ApplyResources(this.Data, "Data");
             this.Data.Controls.Add(this.OrderDataGrid);
+            resources.ApplyResources(this.Data, "Data");
             this.Data.Name = "Data";
             // 
             // dataGridViewImageColumn1
@@ -418,13 +418,13 @@
             // 
             // AddBtn
             // 
-            resources.ApplyResources(this.AddBtn, "AddBtn");
             this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.AddBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.AddBtn.BorderColor = System.Drawing.Color.White;
             this.AddBtn.BorderRadius = 10;
             this.AddBtn.BorderSize = 0;
             this.AddBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.AddBtn, "AddBtn");
             this.AddBtn.ForeColor = System.Drawing.Color.White;
             this.AddBtn.Image = global::TheBetterLimited.Properties.Resources.add;
             this.AddBtn.IsChecked = false;

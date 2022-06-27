@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Goods));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Goods));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GoodsDataGrid = new System.Windows.Forms.DataGridView();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.catalogue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,14 +45,20 @@
             this.gTINCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Action = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SearchBar = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SearchBarTxt = new TheBetterLimited.CustomizeControl.CustomizeTextbox();
             this.curdAction = new System.Windows.Forms.Panel();
             this.exportBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.DeleteBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.AddBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.Header = new System.Windows.Forms.Panel();
+            this.closeBtn = new System.Windows.Forms.Button();
+            this.RefreshBtn = new System.Windows.Forms.Button();
             this.Title = new System.Windows.Forms.Label();
             this.Data = new System.Windows.Forms.Panel();
             this.loadPic = new System.Windows.Forms.Panel();
@@ -61,26 +68,18 @@
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.select = new System.Windows.Forms.DataGridViewImageColumn();
-            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.AddBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.closeBtn = new System.Windows.Forms.Button();
-            this.RefreshBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.GoodsDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SearchBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.curdAction.SuspendLayout();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // GoodsDataGrid
             // 
-            resources.ApplyResources(this.GoodsDataGrid, "GoodsDataGrid");
             this.GoodsDataGrid.AllowUserToAddRows = false;
             this.GoodsDataGrid.AllowUserToResizeColumns = false;
             this.GoodsDataGrid.AllowUserToResizeRows = false;
@@ -95,13 +94,14 @@
             this.GoodsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.GoodsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.GoodsDataGrid, "GoodsDataGrid");
             this.GoodsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.GoodsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.select,
@@ -153,6 +153,14 @@
             this.GoodsDataGrid.StandardTab = true;
             this.GoodsDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
             this.GoodsDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.GoodsDataGrid_CellFormatting);
+            // 
+            // select
+            // 
+            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.select, "select");
+            this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.select.Name = "select";
+            this.select.ReadOnly = true;
             // 
             // id
             // 
@@ -215,35 +223,59 @@
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
             // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.edit, "edit");
+            this.edit.Image = global::TheBetterLimited.Properties.Resources.pencil;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            // 
+            // delete
+            // 
+            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.delete, "delete");
+            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash24;
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            // 
             // Action
             // 
-            resources.ApplyResources(this.Action, "Action");
             this.Action.BackColor = System.Drawing.Color.White;
             this.Action.Controls.Add(this.panel1);
+            resources.ApplyResources(this.Action, "Action");
             this.Action.Name = "Action";
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.SearchBar);
             this.panel1.Controls.Add(this.curdAction);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // SearchBar
             // 
-            resources.ApplyResources(this.SearchBar, "SearchBar");
             this.SearchBar.Controls.Add(this.pictureBox1);
             this.SearchBar.Controls.Add(this.SearchBarTxt);
+            resources.ApplyResources(this.SearchBar, "SearchBar");
             this.SearchBar.Name = "SearchBar";
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // SearchBarTxt
             // 
-            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
             this.SearchBarTxt.BackColor = System.Drawing.Color.White;
             this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
             this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
             this.SearchBarTxt.BorderRadius = 10;
             this.SearchBarTxt.BorderSize = 1;
+            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
             this.SearchBarTxt.ForeColor = System.Drawing.Color.LightGray;
             this.SearchBarTxt.IsError = false;
             this.SearchBarTxt.MaxLength = 20;
@@ -259,22 +291,22 @@
             // 
             // curdAction
             // 
-            resources.ApplyResources(this.curdAction, "curdAction");
             this.curdAction.Controls.Add(this.exportBtn);
             this.curdAction.Controls.Add(this.DeleteBtn);
             this.curdAction.Controls.Add(this.AddBtn);
+            resources.ApplyResources(this.curdAction, "curdAction");
             this.curdAction.Name = "curdAction";
             this.curdAction.Paint += new System.Windows.Forms.PaintEventHandler(this.curdAction_Paint);
             // 
             // exportBtn
             // 
-            resources.ApplyResources(this.exportBtn, "exportBtn");
             this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.exportBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
             this.exportBtn.BorderColor = System.Drawing.Color.White;
             this.exportBtn.BorderRadius = 10;
             this.exportBtn.BorderSize = 0;
             this.exportBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.exportBtn, "exportBtn");
             this.exportBtn.ForeColor = System.Drawing.Color.White;
             this.exportBtn.IsChecked = false;
             this.exportBtn.Name = "exportBtn";
@@ -284,13 +316,13 @@
             // 
             // DeleteBtn
             // 
-            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
             this.DeleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.DeleteBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.DeleteBtn.BorderColor = System.Drawing.Color.White;
             this.DeleteBtn.BorderRadius = 10;
             this.DeleteBtn.BorderSize = 0;
             this.DeleteBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
             this.DeleteBtn.ForeColor = System.Drawing.Color.White;
             this.DeleteBtn.IsChecked = false;
             this.DeleteBtn.Name = "DeleteBtn";
@@ -298,15 +330,48 @@
             this.DeleteBtn.UseVisualStyleBackColor = false;
             this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
+            // AddBtn
+            // 
+            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.AddBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.AddBtn.BorderColor = System.Drawing.Color.White;
+            this.AddBtn.BorderRadius = 10;
+            this.AddBtn.BorderSize = 0;
+            this.AddBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.AddBtn, "AddBtn");
+            this.AddBtn.ForeColor = System.Drawing.Color.White;
+            this.AddBtn.Image = global::TheBetterLimited.Properties.Resources.add;
+            this.AddBtn.IsChecked = false;
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.TextColor = System.Drawing.Color.White;
+            this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
             // Header
             // 
-            resources.ApplyResources(this.Header, "Header");
             this.Header.BackColor = System.Drawing.Color.White;
             this.Header.Controls.Add(this.closeBtn);
             this.Header.Controls.Add(this.RefreshBtn);
             this.Header.Controls.Add(this.Title);
+            resources.ApplyResources(this.Header, "Header");
             this.Header.ForeColor = System.Drawing.Color.White;
             this.Header.Name = "Header";
+            // 
+            // closeBtn
+            // 
+            resources.ApplyResources(this.closeBtn, "closeBtn");
+            this.closeBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.UseVisualStyleBackColor = true;
+            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // RefreshBtn
+            // 
+            resources.ApplyResources(this.RefreshBtn, "RefreshBtn");
+            this.RefreshBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.UseVisualStyleBackColor = true;
+            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // Title
             // 
@@ -316,15 +381,15 @@
             // 
             // Data
             // 
-            resources.ApplyResources(this.Data, "Data");
-            this.Data.Controls.Add(this.loadPic);
             this.Data.Controls.Add(this.GoodsDataGrid);
+            this.Data.Controls.Add(this.loadPic);
+            resources.ApplyResources(this.Data, "Data");
             this.Data.Name = "Data";
             // 
             // loadPic
             // 
-            resources.ApplyResources(this.loadPic, "loadPic");
             this.loadPic.BackColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.loadPic, "loadPic");
             this.loadPic.Name = "loadPic";
             // 
             // dataGridViewImageColumn1
@@ -366,71 +431,6 @@
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
             this.dataGridViewImageColumn6.ReadOnly = true;
             // 
-            // select
-            // 
-            this.select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.select, "select");
-            this.select.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.select.Name = "select";
-            this.select.ReadOnly = true;
-            // 
-            // edit
-            // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.edit, "edit");
-            this.edit.Image = global::TheBetterLimited.Properties.Resources.pencil;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            // 
-            // delete
-            // 
-            this.delete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.delete, "delete");
-            this.delete.Image = global::TheBetterLimited.Properties.Resources.trash24;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // AddBtn
-            // 
-            resources.ApplyResources(this.AddBtn, "AddBtn");
-            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.AddBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.AddBtn.BorderColor = System.Drawing.Color.White;
-            this.AddBtn.BorderRadius = 10;
-            this.AddBtn.BorderSize = 0;
-            this.AddBtn.FlatAppearance.BorderSize = 0;
-            this.AddBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBtn.Image = global::TheBetterLimited.Properties.Resources.add;
-            this.AddBtn.IsChecked = false;
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.TextColor = System.Drawing.Color.White;
-            this.AddBtn.UseVisualStyleBackColor = false;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
-            // closeBtn
-            // 
-            resources.ApplyResources(this.closeBtn, "closeBtn");
-            this.closeBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.UseVisualStyleBackColor = true;
-            this.closeBtn.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
-            // RefreshBtn
-            // 
-            resources.ApplyResources(this.RefreshBtn, "RefreshBtn");
-            this.RefreshBtn.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
-            this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.UseVisualStyleBackColor = true;
-            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
-            // 
             // Goods
             // 
             resources.ApplyResources(this, "$this");
@@ -445,11 +445,11 @@
             this.Action.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.SearchBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.curdAction.ResumeLayout(false);
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             this.Data.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
