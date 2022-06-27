@@ -161,6 +161,7 @@
     <Compile Include="Controller\PostionController.cs" />
     <Compile Include="Controller\SessionController.cs" />
     <Compile Include="Controller\StaffController.cs" />
+    <Compile Include="Controller\StockController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Controller\CatalogueController.cs" />
     <Compile Include="CustomizeControl\CustomizeComboBox.cs">

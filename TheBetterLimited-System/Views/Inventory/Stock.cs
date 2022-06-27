@@ -371,6 +371,28 @@ namespace TheBetterLimited.Views
             }
         }
 
+        private void inBtn_Click(object sender, EventArgs e)
+        {
+            InboundGoods inbound = new InboundGoods();
+            inbound.Show();
+            inbound.OnExit += () =>
+            {
+                showLoading();
+                bw.RunWorkerAsync();
+            };
+        }
+
+        private void outBtn_Click(object sender, EventArgs e)
+        {
+            OutboundGoods outbound = new OutboundGoods();
+            outbound.Show();
+            outbound.OnExit += () =>
+            {
+                showLoading();
+                bw.RunWorkerAsync();
+            };
+        }
+
         // Export stock records PDF
         /* private void exportBtn_Click(object sender, EventArgs e)
          {

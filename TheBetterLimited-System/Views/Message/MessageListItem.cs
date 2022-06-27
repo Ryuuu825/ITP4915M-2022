@@ -47,22 +47,23 @@ namespace TheBetterLimited.Views.Message
 
             this.Delegate = Delegate;
 
-            this.Title.MouseEnter += (e, arg) => { ChangeBgColor(); };
+            this.Title.MouseEnter += (e, arg) => { ChangeForeColor(); ChangeBgColor(); };
             this.Title.MouseLeave += (e, arg) => { ChangeBackToNormal(); };
             this.Title.Click += (e, args) => Delegate.Click(id, sender, title, message);
 
-            this.Sender.MouseEnter += (e, arg) => { ChangeBgColor(); };
+            this.Sender.MouseEnter += (e, arg) => { ChangeForeColor(); ChangeBgColor(); };
             this.Sender.MouseLeave += (e, arg) => { ChangeBackToNormal(); };
             this.Sender.Click += (e, args) => Delegate.Click(id, sender, title, message);
 
 
-            this.Time.MouseEnter += (e, arg) => { ChangeBgColor(); };
+            this.Time.MouseEnter += (e, arg) => { ChangeForeColor(); ChangeBgColor(); };
             this.Time.MouseLeave += (e, arg) => { ChangeBackToNormal(); };
             this.Time.Click += (e, args) => Delegate.Click(id, sender, title, message);
         }
 
         protected override void OnMouseEnter(EventArgs e)
         {
+            ChangeForeColor();
             ChangeBgColor();
             base.OnMouseEnter(e);
         }
@@ -72,6 +73,10 @@ namespace TheBetterLimited.Views.Message
             ChangeBackToNormal();
             base.OnMouseLeave(e);
         }
+        public void ChangeForeColor()
+        {
+            this.ForeColor = Color.White;
+        }
 
         public void ChangeBgColor()
         {
@@ -80,14 +85,14 @@ namespace TheBetterLimited.Views.Message
 
         public void ChangeBackToNormal()
         {
-            BackColor = Color.LightGray;
+            this.BackColor = Color.White;
+            this.ForeColor = Color.Black;
         }
 
         private void MessageListItem_Click(object sender, EventArgs e)
         {
+            isRead.Visible = false;
             Delegate.Click(id , this.sender, title, message);
-            this.isRead.Visible = false;
-
         }
     }
 }

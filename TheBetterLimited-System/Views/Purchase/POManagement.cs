@@ -30,6 +30,12 @@ namespace TheBetterLimited.Views
             InitializeComponent();
             InitDataTable();
             GetOrder();//init table
+            if (GlobalsData.currentUser["department"].ToString().Equals("Accounting"))
+            {
+                AddBtn.Visible = false;
+                CompletedBtn.Visible = true;
+                OrderDataGrid.Columns["delete"].Visible = false;
+            }
         }
 
         /*
@@ -232,7 +238,7 @@ namespace TheBetterLimited.Views
                 {
                     if (GlobalsData.currentUser["department"].ToString() == "Accounting")
                     {
-                        if (o["status"].Equals(POStatus.Pending))
+                        if ((int)o["status"] == (int)POStatus.Pending)
                         {
                             continue;
                         }
@@ -250,8 +256,6 @@ namespace TheBetterLimited.Views
                     dt.Rows.Add(row);
                 }
                 bs.DataSource = dt;
-                OrderDataGrid.AutoGenerateColumns = false;
-                OrderDataGrid.DataSource = bs;
                 InitializeDataGridView();
             }
             catch (Exception ex)

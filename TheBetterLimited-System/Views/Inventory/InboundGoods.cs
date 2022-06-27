@@ -29,11 +29,12 @@ namespace TheBetterLimited.Views
         private RestResponse response;
         private BackgroundWorker bw = new BackgroundWorker();
         private ControllerBase cbPO = new ControllerBase("purchase/order");
-        private ControllerBase cbStock = new ControllerBase("inventory/sgs");
+        private ControllerBase cbRQ = new ControllerBase("RestockRequest");
+        private StockController cbStock = new StockController("inventory/sgs");
 
         private bool loadAll = true;
-        private string suplierId = String.Empty;
-        private string QryString = String.Empty;
+        private string purchaseId = String.Empty;
+        private string restockId = String.Empty;
 
         public InboundGoods()
         {
@@ -58,8 +59,11 @@ namespace TheBetterLimited.Views
         {
             dt.Columns.Add("goodsId");
             dt.Columns.Add("goodsName");
-            dt.Columns.Add("qty");
+            dt.Columns.Add("expQty");
+            dt.Columns.Add("recQty");
             dt.Columns.Add("isNew");
+            dt.Columns.Add("catalogue");
+            dt.Columns["isNew"].DataType = System.Type.GetType("System.Byte[]");
         }
 
         /*
@@ -69,6 +73,10 @@ namespace TheBetterLimited.Views
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.Invalidate();
+            SearchBarTxt.Texts = SearchBarTxt.Placeholder;
+            SearchBarTxt.ForeColor = Color.LightGray;
+            dt.Clear();
+            InitializeDataGridView();
         }
 
         /*
@@ -79,42 +87,52 @@ namespace TheBetterLimited.Views
         private void InitializeDataGridView()
         {
             //Main data column
+            bs.DataSource = dt;
             GoodsDataGrid.AutoGenerateColumns = false;
             GoodsDataGrid.DataSource = bs;
-            for (int i = 0; i < GoodsDataGrid.RowCount; i++)
-                GoodsDataGrid["select", i].Tag = 0;
         }
 
         //Get Goods
         private void GetGoods()
         {
-            if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
+            if (GlobalsData.currentUser["department"].ToString().Equals("Sales"))
             {
-                response = cbPO.GetById(SearchBarTxt.Texts);
-            }else
-            {
-                MessageBox.Show("You have not input any things");
+                response = cbRQ.GetById(SearchBarTxt.Texts.ToString());
             }
+            else
+            {
+                response = cbPO.GetById(SearchBarTxt.Texts.ToString());
+            }
+            InitList();
         }
 
         private void InitList()
         {
+            dt.Clear();
+            goodsList.Clear();
             try
             {
                 JArray goodsData = JArray.Parse(response.Content);
-                foreach (JObject o in goodsData["items"])
+                if (((int)goodsData[0]["status"]) == (int)POStatus.Inbound || ((int)goodsData[0]["status"]) == (int)POStatus.Completed)
+                {
+                    MessageBox.Show("The id " + SearchBarTxt.Texts + " has inbounded");
+                }
+                foreach (JObject o in goodsData[0]["items"])
                 {
                     goodsList.Add(o);
                     var row = dt.NewRow();
-                    row["goodsId"] = o["_supplierGoodsid"].ToString();
-                    row["goodsName"] = o["GoodsName"].ToString();
-                    row["qty"] = o["quantity"].ToString();
+                    row["goodsId"] = o["goods"]["GoodsId"].ToString();
+                    row["goodsName"] = o["goods"]["GoodsName"].ToString();
+                    row["expQty"] = o["quantity"].ToString();
+                    row["recQty"] = o["quantity"].ToString();
+                    row["catalogue"] = o["goods"]["Catalogue"].ToString();
                     if ((bool)o["isNewItem"])
                     {
                         row["isNew"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
                     }
                     dt.Rows.Add(row);
                 }
+                purchaseId = SearchBarTxt.Texts;
                 InitializeDataGridView();
             }
             catch (Exception ex)
@@ -128,7 +146,20 @@ namespace TheBetterLimited.Views
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            GetGoods();
+            if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
+            {
+                MessageBox.Show("Please " + SearchBarTxt.Placeholder.ToLower());
+                return;
+            }
+            else if (SearchBarTxt.Texts.Length < 10)
+            {
+                MessageBox.Show("Input invalid!");
+                return;
+            }
+            else
+            {
+                GetGoods();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -143,15 +174,22 @@ namespace TheBetterLimited.Views
             int idx = 0;
             foreach (var item in goodsList)
             {
-                list.Add(new { goodsId = item["_supplierGoodsid"].ToString(), quantity = GoodsDataGrid["recQty", idx] });
+                list.Add(new { _goodsId = item["goods"]["GoodsId"].ToString(), qty = Convert.ToInt32(GoodsDataGrid["recQty", idx].Value) });
                 idx++;
             }
             try
             {
-                response = cbStock.Update("bound", list);
+                Dictionary<string, object> dict = new Dictionary<string, object>();
+                dict.Add("_purchaseOrderId", purchaseId);
+                dict.Add("_restockRequestId", restockId);
+                dict.Add("goods", list);
+                Console.WriteLine("Request: " + JsonConvert.SerializeObject(list));
+                response = cbStock.Update("bound", dict);
+                Console.WriteLine(response.Content);
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     MessageBox.Show("Goods Inbounded successfully");
+                    this.OnExit.Invoke();
                     this.Close();
                     this.Dispose();
                 }
@@ -164,7 +202,11 @@ namespace TheBetterLimited.Views
             {
                 MessageBox.Show("Goods Inbounded Unsuccessfully");
             }
+        }
 
+        private void SearchBarTxt_Click(object sender, EventArgs e)
+        {
+            SearchBarTxt.ForeColor = Color.Black;
         }
     }
 }

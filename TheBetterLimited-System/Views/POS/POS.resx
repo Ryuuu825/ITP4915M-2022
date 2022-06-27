@@ -192,13 +192,13 @@
     <value>NoControl</value>
   </data>
   <data name="searchBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 10</value>
+    <value>360, 2</value>
   </data>
   <data name="searchBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="searchBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>19, 20</value>
+    <value>28, 36</value>
   </data>
   <data name="searchBtn.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -228,10 +228,10 @@
     <value>200, 6, 4, 6</value>
   </data>
   <data name="SearchBarTxt.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>30, 10, 10, 6</value>
+    <value>6, 10, 10, 6</value>
   </data>
   <data name="SearchBarTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>261, 40</value>
+    <value>225, 40</value>
   </data>
   <data name="SearchBarTxt.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -353,99 +353,6 @@
   <data name="&gt;&gt;line.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="POSActionGroup.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="POSActionGroup.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="OrderBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="OrderBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 12pt, style=Bold</value>
-  </data>
-  <data name="OrderBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="OrderBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 13</value>
-  </data>
-  <data name="OrderBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 7, 3</value>
-  </data>
-  <data name="OrderBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 40</value>
-  </data>
-  <data name="OrderBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="OrderBtn.Text" xml:space="preserve">
-    <value>Order Management</value>
-  </data>
-  <data name="&gt;&gt;OrderBtn.Name" xml:space="preserve">
-    <value>OrderBtn</value>
-  </data>
-  <data name="&gt;&gt;OrderBtn.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;OrderBtn.Parent" xml:space="preserve">
-    <value>POSActionGroup</value>
-  </data>
-  <data name="&gt;&gt;OrderBtn.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="settleAccBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="settleAccBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 12pt, style=Bold</value>
-  </data>
-  <data name="settleAccBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="settleAccBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>188, 13</value>
-  </data>
-  <data name="settleAccBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 7, 3</value>
-  </data>
-  <data name="settleAccBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 40</value>
-  </data>
-  <data name="settleAccBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="settleAccBtn.Text" xml:space="preserve">
-    <value>Settle  Account</value>
-  </data>
-  <data name="&gt;&gt;settleAccBtn.Name" xml:space="preserve">
-    <value>settleAccBtn</value>
-  </data>
-  <data name="&gt;&gt;settleAccBtn.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;settleAccBtn.Parent" xml:space="preserve">
-    <value>POSActionGroup</value>
-  </data>
-  <data name="&gt;&gt;settleAccBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="POSActionGroup.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="POSActionGroup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 10</value>
-  </data>
-  <data name="POSActionGroup.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 0, 0</value>
-  </data>
-  <data name="POSActionGroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>410, 67</value>
-  </data>
-  <data name="POSActionGroup.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
   <data name="&gt;&gt;POSActionGroup.Name" xml:space="preserve">
     <value>POSActionGroup</value>
   </data>
@@ -484,24 +391,6 @@
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="CatalogueCombox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 12pt, style=Bold</value>
-  </data>
-  <data name="CatalogueCombox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="CatalogueCombox.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>200, 30</value>
-  </data>
-  <data name="CatalogueCombox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="CatalogueCombox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>289, 40</value>
-  </data>
-  <data name="CatalogueCombox.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;CatalogueCombox.Name" xml:space="preserve">
     <value>CatalogueCombox</value>
@@ -591,6 +480,285 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ProductContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="POSActionGroup.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="POSActionGroup.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;OrderBtn.Name" xml:space="preserve">
+    <value>OrderBtn</value>
+  </data>
+  <data name="&gt;&gt;OrderBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;OrderBtn.Parent" xml:space="preserve">
+    <value>POSActionGroup</value>
+  </data>
+  <data name="&gt;&gt;OrderBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;settleAccBtn.Name" xml:space="preserve">
+    <value>settleAccBtn</value>
+  </data>
+  <data name="&gt;&gt;settleAccBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;settleAccBtn.Parent" xml:space="preserve">
+    <value>POSActionGroup</value>
+  </data>
+  <data name="&gt;&gt;settleAccBtn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="POSActionGroup.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="POSActionGroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 10</value>
+  </data>
+  <data name="POSActionGroup.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 0, 0</value>
+  </data>
+  <data name="POSActionGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>410, 67</value>
+  </data>
+  <data name="POSActionGroup.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;POSActionGroup.Name" xml:space="preserve">
+    <value>POSActionGroup</value>
+  </data>
+  <data name="&gt;&gt;POSActionGroup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;POSActionGroup.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;POSActionGroup.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="OrderBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="OrderBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="OrderBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="OrderBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 13</value>
+  </data>
+  <data name="OrderBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 7, 3</value>
+  </data>
+  <data name="OrderBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 40</value>
+  </data>
+  <data name="OrderBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="OrderBtn.Text" xml:space="preserve">
+    <value>Order Management</value>
+  </data>
+  <data name="&gt;&gt;OrderBtn.Name" xml:space="preserve">
+    <value>OrderBtn</value>
+  </data>
+  <data name="&gt;&gt;OrderBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;OrderBtn.Parent" xml:space="preserve">
+    <value>POSActionGroup</value>
+  </data>
+  <data name="&gt;&gt;OrderBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="settleAccBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="settleAccBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="settleAccBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="settleAccBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>188, 13</value>
+  </data>
+  <data name="settleAccBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 7, 3</value>
+  </data>
+  <data name="settleAccBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 40</value>
+  </data>
+  <data name="settleAccBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="settleAccBtn.Text" xml:space="preserve">
+    <value>Settle  Account</value>
+  </data>
+  <data name="&gt;&gt;settleAccBtn.Name" xml:space="preserve">
+    <value>settleAccBtn</value>
+  </data>
+  <data name="&gt;&gt;settleAccBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;settleAccBtn.Parent" xml:space="preserve">
+    <value>POSActionGroup</value>
+  </data>
+  <data name="&gt;&gt;settleAccBtn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="CatalogueCombox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 12pt, style=Bold</value>
+  </data>
+  <data name="CatalogueCombox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="CatalogueCombox.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>200, 30</value>
+  </data>
+  <data name="CatalogueCombox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 1, 1</value>
+  </data>
+  <data name="CatalogueCombox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>289, 40</value>
+  </data>
+  <data name="CatalogueCombox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;CatalogueCombox.Name" xml:space="preserve">
+    <value>CatalogueCombox</value>
+  </data>
+  <data name="&gt;&gt;CatalogueCombox.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeComboBox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;CatalogueCombox.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;CatalogueCombox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel7.Name" xml:space="preserve">
+    <value>panel7</value>
+  </data>
+  <data name="&gt;&gt;panel7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel7.Parent" xml:space="preserve">
+    <value>CartContainer</value>
+  </data>
+  <data name="&gt;&gt;panel7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;Header.Name" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="&gt;&gt;Header.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Header.Parent" xml:space="preserve">
+    <value>CartContainer</value>
+  </data>
+  <data name="&gt;&gt;Header.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;DiscountContainer.Name" xml:space="preserve">
+    <value>DiscountContainer</value>
+  </data>
+  <data name="&gt;&gt;DiscountContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DiscountContainer.Parent" xml:space="preserve">
+    <value>CartContainer</value>
+  </data>
+  <data name="&gt;&gt;DiscountContainer.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>CartContainer</value>
+  </data>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;OrderBtnGroup.Name" xml:space="preserve">
+    <value>OrderBtnGroup</value>
+  </data>
+  <data name="&gt;&gt;OrderBtnGroup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OrderBtnGroup.Parent" xml:space="preserve">
+    <value>CartContainer</value>
+  </data>
+  <data name="&gt;&gt;OrderBtnGroup.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="CartContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="CartContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 10</value>
+  </data>
+  <data name="CartContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>606, 561</value>
+  </data>
+  <data name="CartContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;CartContainer.Name" xml:space="preserve">
+    <value>CartContainer</value>
+  </data>
+  <data name="&gt;&gt;CartContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CartContainer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;CartContainer.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;CartItemGrid.Name" xml:space="preserve">
+    <value>CartItemGrid</value>
+  </data>
+  <data name="&gt;&gt;CartItemGrid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CartItemGrid.Parent" xml:space="preserve">
+    <value>panel7</value>
+  </data>
+  <data name="&gt;&gt;CartItemGrid.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 40</value>
+  </data>
+  <data name="panel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>606, 345</value>
+  </data>
+  <data name="panel7.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;panel7.Name" xml:space="preserve">
+    <value>panel7</value>
+  </data>
+  <data name="&gt;&gt;panel7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel7.Parent" xml:space="preserve">
+    <value>CartContainer</value>
+  </data>
+  <data name="&gt;&gt;panel7.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="CartItemGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
@@ -728,54 +896,6 @@
   <data name="&gt;&gt;CartItemGrid.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="panel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 40</value>
-  </data>
-  <data name="panel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>606, 345</value>
-  </data>
-  <data name="panel7.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;panel7.Name" xml:space="preserve">
-    <value>panel7</value>
-  </data>
-  <data name="&gt;&gt;panel7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel7.Parent" xml:space="preserve">
-    <value>CartContainer</value>
-  </data>
-  <data name="&gt;&gt;panel7.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="Title.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 15.75pt, style=Bold</value>
-  </data>
-  <data name="Title.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 7</value>
-  </data>
-  <data name="Title.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 30</value>
-  </data>
-  <data name="Title.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="Title.Text" xml:space="preserve">
-    <value>Cart</value>
-  </data>
   <data name="&gt;&gt;Title.Name" xml:space="preserve">
     <value>Title</value>
   </data>
@@ -817,6 +937,96 @@
   </data>
   <data name="&gt;&gt;Header.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="Title.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 15.75pt, style=Bold</value>
+  </data>
+  <data name="Title.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 7</value>
+  </data>
+  <data name="Title.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 30</value>
+  </data>
+  <data name="Title.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="Title.Text" xml:space="preserve">
+    <value>Cart</value>
+  </data>
+  <data name="&gt;&gt;Title.Name" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="&gt;&gt;Title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Title.Parent" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="&gt;&gt;Title.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DiscountValue.Name" xml:space="preserve">
+    <value>DiscountValue</value>
+  </data>
+  <data name="&gt;&gt;DiscountValue.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;DiscountValue.Parent" xml:space="preserve">
+    <value>DiscountContainer</value>
+  </data>
+  <data name="&gt;&gt;DiscountValue.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;DiscountLabel.Name" xml:space="preserve">
+    <value>DiscountLabel</value>
+  </data>
+  <data name="&gt;&gt;DiscountLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DiscountLabel.Parent" xml:space="preserve">
+    <value>DiscountContainer</value>
+  </data>
+  <data name="&gt;&gt;DiscountLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DiscountContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="DiscountContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 385</value>
+  </data>
+  <data name="DiscountContainer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 1, 0, 0</value>
+  </data>
+  <data name="DiscountContainer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="DiscountContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>606, 58</value>
+  </data>
+  <data name="DiscountContainer.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;DiscountContainer.Name" xml:space="preserve">
+    <value>DiscountContainer</value>
+  </data>
+  <data name="&gt;&gt;DiscountContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DiscountContainer.Parent" xml:space="preserve">
+    <value>CartContainer</value>
+  </data>
+  <data name="&gt;&gt;DiscountContainer.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="DiscountValue.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -887,35 +1097,56 @@
   <data name="&gt;&gt;DiscountLabel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="DiscountContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="&gt;&gt;TotalAmountTxt.Name" xml:space="preserve">
+    <value>TotalAmountTxt</value>
   </data>
-  <data name="DiscountContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 385</value>
+  <data name="&gt;&gt;TotalAmountTxt.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="DiscountContainer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 1, 0, 0</value>
+  <data name="&gt;&gt;TotalAmountTxt.Parent" xml:space="preserve">
+    <value>panel2</value>
   </data>
-  <data name="DiscountContainer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+  <data name="&gt;&gt;TotalAmountTxt.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="DiscountContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>606, 58</value>
+  <data name="&gt;&gt;AmountTitle.Name" xml:space="preserve">
+    <value>AmountTitle</value>
   </data>
-  <data name="DiscountContainer.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;AmountTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AmountTitle.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;AmountTitle.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;DiscountContainer.Name" xml:space="preserve">
-    <value>DiscountContainer</value>
+  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
-  <data name="&gt;&gt;DiscountContainer.Type" xml:space="preserve">
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 443</value>
+  </data>
+  <data name="panel2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>606, 60</value>
+  </data>
+  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;DiscountContainer.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
     <value>CartContainer</value>
   </data>
-  <data name="&gt;&gt;DiscountContainer.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="TotalAmountTxt.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -989,32 +1220,74 @@
   <data name="&gt;&gt;AmountTitle.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="&gt;&gt;PayBtn.Name" xml:space="preserve">
+    <value>PayBtn</value>
+  </data>
+  <data name="&gt;&gt;PayBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;PayBtn.Parent" xml:space="preserve">
+    <value>OrderBtnGroup</value>
+  </data>
+  <data name="&gt;&gt;PayBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;HoldBtn.Name" xml:space="preserve">
+    <value>HoldBtn</value>
+  </data>
+  <data name="&gt;&gt;HoldBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;HoldBtn.Parent" xml:space="preserve">
+    <value>OrderBtnGroup</value>
+  </data>
+  <data name="&gt;&gt;HoldBtn.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ClearBtn.Name" xml:space="preserve">
+    <value>ClearBtn</value>
+  </data>
+  <data name="&gt;&gt;ClearBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;ClearBtn.Parent" xml:space="preserve">
+    <value>OrderBtnGroup</value>
+  </data>
+  <data name="&gt;&gt;ClearBtn.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="OrderBtnGroup.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 443</value>
+  <data name="OrderBtnGroup.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>RightToLeft</value>
   </data>
-  <data name="panel2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+  <data name="OrderBtnGroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 503</value>
   </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>606, 60</value>
+  <data name="OrderBtnGroup.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
   </data>
-  <data name="panel2.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="OrderBtnGroup.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 5</value>
   </data>
-  <data name="&gt;&gt;panel2.Name" xml:space="preserve">
-    <value>panel2</value>
+  <data name="OrderBtnGroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>606, 58</value>
   </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="OrderBtnGroup.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;OrderBtnGroup.Name" xml:space="preserve">
+    <value>OrderBtnGroup</value>
+  </data>
+  <data name="&gt;&gt;OrderBtnGroup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OrderBtnGroup.Parent" xml:space="preserve">
     <value>CartContainer</value>
   </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;OrderBtnGroup.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="PayBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1122,63 +1395,6 @@
     <value>OrderBtnGroup</value>
   </data>
   <data name="&gt;&gt;ClearBtn.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="OrderBtnGroup.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="OrderBtnGroup.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
-    <value>RightToLeft</value>
-  </data>
-  <data name="OrderBtnGroup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 503</value>
-  </data>
-  <data name="OrderBtnGroup.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="OrderBtnGroup.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 5</value>
-  </data>
-  <data name="OrderBtnGroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>606, 58</value>
-  </data>
-  <data name="OrderBtnGroup.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;OrderBtnGroup.Name" xml:space="preserve">
-    <value>OrderBtnGroup</value>
-  </data>
-  <data name="&gt;&gt;OrderBtnGroup.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OrderBtnGroup.Parent" xml:space="preserve">
-    <value>CartContainer</value>
-  </data>
-  <data name="&gt;&gt;OrderBtnGroup.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="CartContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="CartContainer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 10</value>
-  </data>
-  <data name="CartContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>606, 561</value>
-  </data>
-  <data name="CartContainer.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;CartContainer.Name" xml:space="preserve">
-    <value>CartContainer</value>
-  </data>
-  <data name="&gt;&gt;CartContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CartContainer.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;CartContainer.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="dataGridViewImageColumn1.MinimumWidth" type="System.Int32, mscorlib">
