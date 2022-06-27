@@ -672,12 +672,6 @@
     <EmbeddedResource Include="Views\Login\ResetPwdResult.zh.resx">
       <DependentUpon>ResetPwdResult.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Main.en-US.resx">
-      <DependentUpon>Main.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Main.en.resx">
-      <DependentUpon>Main.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
