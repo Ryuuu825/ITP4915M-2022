@@ -18,9 +18,31 @@ namespace TheBetterLimited.Views
 {
     public partial class ResetPwd : Form
     {
+        private LoginController loginController = new LoginController();
+        private BackgroundWorker bw = new BackgroundWorker();
+        private RestResponse result;
         public ResetPwd()
         {
             InitializeComponent();
+            initBackgroundWorker();
+        }
+
+        private void initBackgroundWorker()
+        {
+            bw = new BackgroundWorker();
+            bw.WorkerReportsProgress = true;
+            bw.WorkerSupportsCancellation = true;
+            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+            bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
+        }
+
+        private void bw_DoWork(object sender, DoWorkEventArgs e)
+        {
+            result = loginController.ResetPassword(userName.Texts, email.Texts);
+        }
+
+        private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
         }
 
         private void chgPwdBtn_Click(object sender, EventArgs e)
@@ -51,8 +73,6 @@ namespace TheBetterLimited.Views
             /**
              * access Api to get the responseCode and msg
              */
-            LoginController loginController = new LoginController();
-            RestResponse result = loginController.ResetPassword(userName.Texts, email.Texts);
             if (result == null)
             {
                 MessageBox.Show("Cannot connect to server!", "Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);

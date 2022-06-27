@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using TheBetterLimited.CustomizeControl;
 using System.Resources;
 using System.Globalization;
+using TheBetterLimited.Utils;
 
 namespace TheBetterLimited.Views
 {
@@ -19,8 +20,8 @@ namespace TheBetterLimited.Views
         public Login()
         {
             rm = new ResourceManager("Login", typeof(Login).Assembly);
-
-            CultureInfo culture = CultureInfo.CreateSpecificCulture(Properties.Settings.Default.DefaultLanguage);
+            String lang = MultiLanguage.DefaultLanguage;
+            CultureInfo culture = CultureInfo.CreateSpecificCulture(lang);
 
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;

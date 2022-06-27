@@ -41,7 +41,7 @@ namespace TheBetterLimited.Views
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (receiverName.Texts.Equals(String.Empty) || receiverName.Texts.Equals(receiverName.Placeholder))
+            if (this.receiverList.Text.Equals(String.Empty) || this.receiverList.Text.Equals(receiverName.Placeholder))
             {
                 receiverName.IsError = true;
                 return;
@@ -80,12 +80,8 @@ namespace TheBetterLimited.Views
                                     .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
                                     .AddBody(new { receiver = this.receiver, title = PhoneTxt.Texts, content = CusAddressTxt.Texts });
             var res = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
-            Console.WriteLine(res.Content);
-            Console.WriteLine(res.StatusCode);
-
-
-
-
+            this.Close();
+            this.Dispose();
         }
 
         private void CusNameTxt_Click(object sender, EventArgs e)
@@ -130,6 +126,7 @@ namespace TheBetterLimited.Views
             {
                 receiver.Add(this.receiverName.Texts);
                 this.receiverList.Text = this.receiverName.Texts + "\r\n" + this.receiverList.Text;
+                this.receiverName.Texts = "";
             }
             else
                 MessageBox.Show("No user found");
