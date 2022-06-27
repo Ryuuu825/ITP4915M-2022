@@ -44,8 +44,16 @@ namespace TheBetterLimited.Views
 
             InitializeComponent();
             Delegate = new MessageDelegate(() => { }, 5000, () => { }, testing);
+            /*
+             * TODO: maybe the thread is not the same so it become extreme lag
+            Delegate.prompt.BalloonTipClicked += (s, args) =>
+            {
+                this.OpenMsgForm();
+            };
+            */
             this.FormClosing += (s, e) => { Delegate.Stop(); };
         }
+
 
         private void Main_Load(object sender, EventArgs e)
         {
@@ -447,7 +455,7 @@ namespace TheBetterLimited.Views
             DialogResult result = MessageBox.Show("更换系统语言需要重新登入系统, \n请问是否进行更换?", "提醒", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                MultiLanguage.SetDefaultLanguage("en-US");
+                MultiLanguage.SetDefaultLanguage("en");
                 this.Dispose();
                 this.Delegate.Stop();
                 GlobalsData.currentUser.Clear();
@@ -466,7 +474,7 @@ namespace TheBetterLimited.Views
             DialogResult result = MessageBox.Show("Change language will re-login the system, \nAre you sure to change the system language?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                MultiLanguage.SetDefaultLanguage("zh-CN");
+                MultiLanguage.SetDefaultLanguage("zh");
                 this.Dispose();
                 this.Delegate.Stop();
                 GlobalsData.currentUser.Clear();
