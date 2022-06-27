@@ -34,7 +34,7 @@ namespace TheBetterLimited.Views
             AppDomain domain = AppDomain.CurrentDomain;
             rm = new ResourceManager("Main", typeof(Main).Assembly);
 
-            CultureInfo culture = CultureInfo.CreateSpecificCulture(Properties.Settings.Default.DefaultLanguage);
+            CultureInfo culture = CultureInfo.CreateSpecificCulture(MultiLanguage.DefaultLanguage);
 
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
@@ -451,6 +451,7 @@ namespace TheBetterLimited.Views
             if(MultiLanguage.DefaultLanguage == "en")
             {
                 MessageBox.Show("Current system language is English, you don't need to change");
+                return;
             }
             DialogResult result = MessageBox.Show("更换系统语言需要重新登入系统, \n请问是否进行更换?", "提醒", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
@@ -470,6 +471,7 @@ namespace TheBetterLimited.Views
             if (MultiLanguage.DefaultLanguage == "zh")
             {
                 MessageBox.Show("当前系统语言为简体中文，\n你不需要进行更换。");
+                return;
             }
             DialogResult result = MessageBox.Show("Change language will re-login the system, \nAre you sure to change the system language?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)

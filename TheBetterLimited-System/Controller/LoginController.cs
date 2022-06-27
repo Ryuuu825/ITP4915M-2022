@@ -45,7 +45,7 @@ namespace TheBetterLimited.Controller
          */
         public RestResponse ResetPassword(string username, string email)
         {
-            string l = CultureInfo.CurrentCulture.Name.Split('-')[0];
+            string l = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
             var json = new { userName = username, emailAddress = email, lang = l };
             var request = new RestRequest("/api/login/requestresetpwd", Method.Post)
                         .AddHeader("lang", l)
