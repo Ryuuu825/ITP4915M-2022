@@ -230,13 +230,28 @@ namespace TheBetterLimited_Server.API.Controller
                     var po = PurchaseOrderTable.GetById(dto._purchaseOrderId);
                     if (po is null) throw new BadArgException("Purchase Order not found");
 
+                    po.Status = Data.Entity.PurchaseOrderStatus.Inbound;
+                    PurchaseOrderTable.Update(po);
+
                     var poItem = po.Items.Where(x => x._supplierGoodsId == stock._supplierGoodsId).FirstOrDefault();
                     poItem.ReceivedQuantity = dto.qty;
                     PurchaseOrder_SupplierGoods_Table.Update(poItem);
+
                 }
-                else if (dto._restockRequestId is not null)
+                else if (dto._restockRequestId is not null) // warehouse outbound OR store inbound
                 {
+                    var potentialWarehouse = WarehouseTable.GetAll().Where(w => w.Location.Id == location).FirstOrDefault();
+                    var potentialStore = StoreTable.GetAll().Where(s => s.Location.Id == location).FirstOrDefault();
+
                     // warehouse stock outbound 
+                    if ( potentialWarehouse is not null)
+                    {
+                        
+                    }
+                    else if (potentialStore is not null)
+                    {
+
+                    }
                 }
                 
             }catch(Exception e)
