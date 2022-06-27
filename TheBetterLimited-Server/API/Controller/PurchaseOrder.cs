@@ -50,7 +50,6 @@ namespace TheBetterLimited_Server.API.Controller
             try
             {
                 // print the raw request body
-                ConsoleLogger.Debug( dto is null);
                 controller.CreateEntry(dto, User.Identity.Name);
                 return Ok();
             }

@@ -115,6 +115,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         public void CreateEntry(PurchaseOrderInDto dto, string username)
         {
             Helpers.Entity.EntityValidator.Validate<PurchaseOrderInDto>(dto);
+            _message.BoardcastMessage("system" , "800", "New Purchase request pulled!" , "Please approval / rejected the request");
+
             Data.Entity.PurchaseOrder entry = new Data.Entity.PurchaseOrder()
             {
                 ID = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.PurchaseOrder>(db),

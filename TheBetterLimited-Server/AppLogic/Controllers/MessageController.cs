@@ -303,7 +303,12 @@ public class MessageController
         var accountIds = new List<string>();
         foreach(var staff in staffs)
         {
-            accountIds.Add(staff.acc.UserName);
+            try 
+            {
+                accountIds.Add(staff.acc.UserName);
+            }catch(NullReferenceException e) // some staff has no account
+            {
+            }
         }
         var SendMessageDto = new SendMessageDto()
         {

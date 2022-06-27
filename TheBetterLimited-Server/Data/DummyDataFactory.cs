@@ -1077,7 +1077,37 @@ namespace TheBetterLimited_Server.Data
                     LastName = "Cena",
                     Sex = 'M',
                     Age = 45
-                }
+                },
+                new Staff
+                {
+                    Id = "S0717",
+                    _departmentId = "800",
+                    _positionId = "801",
+                    FirstName = "Gwar",
+                    LastName = "Gura",
+                    Sex = 'M',
+                    Age = 45
+                },
+                new Staff
+                {
+                    Id = "S0718",
+                    _departmentId = "800",
+                    _positionId = "801",
+                    FirstName = "Calliope",
+                    LastName = "Mori",
+                    Sex = 'M',
+                    Age = 45
+                },
+                 new Staff
+                {
+                    Id = "S0719",
+                    _departmentId = "800",
+                    _positionId = "802",
+                    FirstName = "Amelia",
+                    LastName = "Waston",
+                    Sex = 'M',
+                    Age = 45
+                },
             };
         }
 
@@ -1288,7 +1318,39 @@ namespace TheBetterLimited_Server.Data
                     EmailAddress = "user@domain.com",
                     Status = "N",
                     Remarks = "none"
-                }
+                },  
+                // Purchase Clerk
+                new Account
+                {
+                    Id = "A0013",
+                    _StaffId = "S0717",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "PurchaseClerk",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "abs@hololive.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
+                // Purchase Manager
+                 new Account
+                {
+                    Id = "A0015",
+                    _StaffId = "S0719",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "PurchaseManager",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "abs@hololive.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
             };
         }
 
