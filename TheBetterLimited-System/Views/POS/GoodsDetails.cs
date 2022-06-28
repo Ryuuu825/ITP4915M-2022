@@ -168,7 +168,7 @@ namespace TheBetterLimited.Views
             }
             ((OrderItem)oi).SupplierGoodsStockId = goodsId;
             ((OrderItem)oi).Name = goodsData["GoodsName"].ToString();
-            ((OrderItem)oi).Price = (int)goodsData["Price"];
+            ((OrderItem)oi).Price = (double)goodsData["Price"];
             ((OrderItem)oi).Stock = stock;
             ((OrderItem)oi).NeedDelivery = needDelivery;
             this.OnExit.Invoke();

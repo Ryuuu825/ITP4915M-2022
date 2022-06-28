@@ -277,7 +277,7 @@ namespace TheBetterLimited.Views
             {
                 total *= (100.0 - discount) / 100;
             }
-            totalAmount = (int)total;
+            totalAmount = total;
             TotalAmountTxt.Text = String.Format("{0:C2}", totalAmount);
         }
 
@@ -532,9 +532,7 @@ namespace TheBetterLimited.Views
             Dictionary<string, object> data = new Dictionary<string, object>();
             foreach (OrderItem item in orderItems)
             {
-                double price = item.Price;
-                price = price * (100.0 - discount) / 100;
-                item.Price = (int)price;
+                item.Price *= (100.0 - discount) / 100;
             }
             data.Add("salesOrderItems", orderItems);
             if (appointments != null)
