@@ -26,7 +26,6 @@ namespace TheBetterLimited_Server.API.Controller
 
         public class RestockRequestInDto
         {
-            public string _locationId { get; set; }
             public List<RestockRequestItemInDto> Items { get; set; }
 
             public class RestockRequestItemInDto
@@ -48,7 +47,7 @@ namespace TheBetterLimited_Server.API.Controller
                     ID = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.RestockRequest>(db),
                     _createrId = s.Id,
                     _operatorId = s.Id,
-                    _storeId = dto._locationId,
+                    _storeId = s.store._locationID,
                     CreateTime = DateTime.Now,
                     OperateTime = DateTime.Now,
                     Status = Data.Entity.RestockRequestStatus.Pending
@@ -71,6 +70,10 @@ namespace TheBetterLimited_Server.API.Controller
             catch (ICustException e)
             {
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+            catch (NullReferenceException e)
+            {
+                return StatusCode((int) HttpStatusCode.BadRequest , new { code = HttpStatusCode.BadRequest , message = e.Message });
             }
         }
     }

@@ -296,7 +296,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return await ToDto(list, lang);
         }
         
-        public async Task<string> CreateSalesOrder(string Username , OrderInDto order)
+        public async Task<string> CreateSalesOrdern(string Username , OrderInDto order)
         {
 
             // first create the sales order
