@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -122,7 +123,7 @@ namespace TheBetterLimited.Views
                 }
                 if (e.Value.ToString().Equals("LowStock"))
                 {
-                    e.Value = "Re-oder";
+                    e.Value = "Re-order";
                     e.CellStyle.ForeColor = Color.FromArgb(250, 182, 99);
                     e.CellStyle.Font = new Font("Segoe UI", 10.10084F, FontStyle.Bold);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(250, 182, 99);
@@ -225,7 +226,7 @@ namespace TheBetterLimited.Views
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
-                result = cbStockGoods.GetAll();
+                result = cbStockGoods.GetAll(lang: CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             }
             /*else
             {

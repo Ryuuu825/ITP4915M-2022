@@ -19,20 +19,22 @@ namespace TheBetterLimited.Models
             this.price = 0;
             this.goodsName = name;
             this.quantity = quantity;
+            this.recQty = 0;
         }
 
-        public PurchaseItem(string goodsId, string name, int price, int quantity)
+        public PurchaseItem(string goodsId, string name, int price, int quantity, int recQty)
         {
             _goodsId = goodsId;
             this.price = price;
             this.goodsName = name;
             this.quantity = quantity;
+            this.recQty = recQty;
         }
 
         public string _goodsId { get; set; }
         public int price { get; set; }
         public string goodsName { get; set; }
         public int quantity { get; set; }
-
+        public int recQty { get; set; }
     }
 }

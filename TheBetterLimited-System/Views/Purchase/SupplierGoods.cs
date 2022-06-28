@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -175,7 +176,7 @@ namespace TheBetterLimited.Views
                     GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
                     GoodsDataGrid["select", e.RowIndex].Tag = 1;
                     GoodsDataGrid.Rows[e.RowIndex].Selected = true;
-                    var item = new PurchaseItem(supGoods[e.RowIndex]["Id"].ToString(), supGoods[e.RowIndex]["Name"].ToString(), (int)supGoods[e.RowIndex]["Price"], 1);
+                    var item = new PurchaseItem(supGoods[e.RowIndex]["Id"].ToString(), supGoods[e.RowIndex]["Name"].ToString(), (int)supGoods[e.RowIndex]["Price"], 1,0);
                     selectGoods.Add(item);
                 }
                 else
@@ -215,7 +216,7 @@ namespace TheBetterLimited.Views
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
-                result = gc.GetById(suplierId);
+                result = gc.GetById(suplierId, lang: CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             }
             /* else
              {
@@ -227,6 +228,7 @@ namespace TheBetterLimited.Views
         }
         private void InitList()
         {
+            supGoods.Clear();
             try
             {
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));

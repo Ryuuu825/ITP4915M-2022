@@ -18,11 +18,12 @@ namespace TheBetterLimited.Controller
         /**
          * Search Department
          */
-        public RestResponse GetAllGoods()
+        public RestResponse GetAllGoods(string lang="en")
         {
             Console.WriteLine("Get all goods");
             var request = new RestRequest("/api/Goods", Method.Get)
                         .AddHeader("limit", 0)
+                        .AddHeader("Language", lang)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             try
             {
@@ -36,12 +37,13 @@ namespace TheBetterLimited.Controller
             }
         }
 
-        public RestResponse GetGoodsByQry(string qry)
+        public RestResponse GetGoodsByQry(string qry, string lang = "en")
         {
             Console.WriteLine("Get departments by " + qry);
             var request = new RestRequest("/api/Goods/search", Method.Get)
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
-                        .AddQueryParameter("querystring", qry);
+                        .AddQueryParameter("querystring", qry)
+                        .AddHeader("Language", lang);
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();
@@ -54,11 +56,12 @@ namespace TheBetterLimited.Controller
             }
         }
 
-        public RestResponse GetGoodsById(string uid)
+        public RestResponse GetGoodsById(string uid, string lang = "en")
         {
             Console.WriteLine("Get goods by " + uid);
             var request = new RestRequest("/api/Goods/" + uid, Method.Get)
-                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
+                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
+                        .AddHeader("Language", lang);
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();

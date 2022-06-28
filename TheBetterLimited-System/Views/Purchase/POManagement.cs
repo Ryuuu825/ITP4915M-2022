@@ -35,6 +35,7 @@ namespace TheBetterLimited.Views
                 AddBtn.Visible = false;
                 CompletedBtn.Visible = true;
                 OrderDataGrid.Columns["delete"].Visible = false;
+                OrderDataGrid.Columns["select"].Visible = true;
             }
         }
 
@@ -104,6 +105,11 @@ namespace TheBetterLimited.Views
         {
             if (e.ColumnIndex == OrderDataGrid.Columns["select"].Index)
             {
+                if ((int)orderList[e.RowIndex]["status"] != (int)POStatus.Inbound)
+                {
+                    MessageBox.Show("The purchase order have not been inbounded.\nCannot complete the purechase order!");
+                    return;
+                }
                 if (Convert.ToInt32(OrderDataGrid["select", e.RowIndex].Tag) == 0)
                 {
                     OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
@@ -113,11 +119,6 @@ namespace TheBetterLimited.Views
                 }
                 else
                 {
-                    if ((int)orderList[e.RowIndex]["status"] != (int)POStatus.Pending && (int)orderList[e.RowIndex]["status"] != (int)POStatus.PendingApproval)
-                    {
-                        MessageBox.Show("The purchase order has been processed");
-                        return;
-                    }
                     OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.square24;
                     OrderDataGrid["select", e.RowIndex].Tag = 0;
                     OrderDataGrid.Rows[e.RowIndex].Selected = false;
@@ -154,9 +155,9 @@ namespace TheBetterLimited.Views
 
             if (e.ColumnIndex == OrderDataGrid.Columns["delete"].Index)
             {
-                if((int)orderList[e.RowIndex]["status"] != (int)POStatus.Pending && (int)orderList[e.RowIndex]["status"] != (int)POStatus.PendingApproval)
+                if ((int)orderList[e.RowIndex]["status"] != (int)POStatus.Pending && (int)orderList[e.RowIndex]["status"] != (int)POStatus.PendingApproval)
                 {
-                    MessageBox.Show("The purchase order has been processed");
+                    MessageBox.Show("The purchase order has been proccessed");
                     return;
                 }
 
@@ -251,7 +252,7 @@ namespace TheBetterLimited.Views
                     row["operator"] = o["_operatorId"].ToString();
                     row["createAt"] = ((DateTime)o["createAt"]).ToString("g");
                     row["updateAt"] = ((DateTime)o["updateAt"]).ToString("g");
-                    row["total"] = String.Format("{0:C2}",o["total"]);
+                    row["total"] = String.Format("{0:C2}", o["total"]);
                     row["status"] = o["status"];
                     dt.Rows.Add(row);
                 }
@@ -316,6 +317,45 @@ namespace TheBetterLimited.Views
             poc.Show();
             poc.TopLevel = true;
             poc.OnExit += GetOrder;
+        }
+
+        private void CompletedBtn_Click(object sender, EventArgs e)
+        {
+            bool allOk = true;
+            string errOrder = "";
+
+            DialogResult result = MessageBox.Show("Are you sure to complete the purchase order(s)?", "Confirmation Request", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                foreach (var poId in selecteOrderId)
+                {
+                    try
+                    {
+                        response = cbOrder.UpdateStatus(poId, (int)POStatus.Completed);
+                        if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                        {
+                            allOk = false;
+                            errOrder += poId + "\n";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Complete purchase order(s) error.\n" + response.Content);
+                    }
+                }
+            }else
+            {
+                return;
+            }
+            if (allOk)
+            {
+                MessageBox.Show("The purchase order(s) completed successfully");
+            }
+            else
+            {
+                MessageBox.Show(errOrder + "Complete purchase order(s) error.");
+            }
+            GetOrder();
         }
     }
 }

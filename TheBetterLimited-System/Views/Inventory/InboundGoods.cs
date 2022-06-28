@@ -116,6 +116,7 @@ namespace TheBetterLimited.Views
                 if (((int)goodsData[0]["status"]) == (int)POStatus.Inbound || ((int)goodsData[0]["status"]) == (int)POStatus.Completed)
                 {
                     MessageBox.Show("The id " + SearchBarTxt.Texts + " has inbounded");
+                    return;
                 }
                 foreach (JObject o in goodsData[0]["items"])
                 {
@@ -138,7 +139,7 @@ namespace TheBetterLimited.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageBox.Show("Input invalid!");
+                MessageBox.Show("Not Found!");
             }
         }
 
@@ -182,8 +183,8 @@ namespace TheBetterLimited.Views
                 Dictionary<string, object> dict = new Dictionary<string, object>();
                 dict.Add("_purchaseOrderId", purchaseId);
                 dict.Add("_restockRequestId", restockId);
-                dict.Add("goods", list);
-                Console.WriteLine("Request: " + JsonConvert.SerializeObject(list));
+                dict.Add("items", list);
+                Console.WriteLine("Request: " + JsonConvert.SerializeObject(dict));
                 response = cbStock.Update("bound", dict);
                 Console.WriteLine(response.Content);
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -200,7 +201,7 @@ namespace TheBetterLimited.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Goods Inbounded Unsuccessfully");
+                MessageBox.Show("Goods Inbounded Unsuccessfully.\nThe purchase order has new item(s),\nyou need to create a new stock record first.");
             }
         }
 
