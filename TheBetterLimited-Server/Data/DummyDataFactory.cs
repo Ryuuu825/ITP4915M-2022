@@ -623,7 +623,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Bob",
                     LastName = "Wong",
                     Sex = 'M',
-                    Age = 33
+                    Age = 33,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -633,7 +634,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Watame",
                     LastName = "Tsunomaki",
                     Sex = 'F',
-                    Age = 18
+                    Age = 18,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -643,7 +645,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Joey",
                     LastName = "Chan",
                     Sex = 'F',
-                    Age = 20
+                    Age = 20,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -653,7 +656,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Athena",
                     LastName = "Lam",
                     Sex = 'F',
-                    Age = 19
+                    Age = 19,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -663,7 +667,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Coco",
                     LastName = "Lam",
                     Sex = 'F',
-                    Age = 19
+                    Age = 19,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -673,7 +678,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Yanny",
                     LastName = "Lam",
                     Sex = 'F',
-                    Age = 19
+                    Age = 19,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -683,7 +689,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Selena",
                     LastName = "Kim",
                     Sex = 'F',
-                    Age = 20
+                    Age = 20,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -693,7 +700,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Jenny",
                     LastName = "Lam",
                     Sex = 'F',
-                    Age = 56
+                    Age = 56,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -703,7 +711,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Mia",
                     LastName = "Wong",
                     Sex = 'F',
-                    Age = 27
+                    Age = 27,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -713,7 +722,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "May",
                     LastName = "Wong",
                     Sex = 'F',
-                    Age = 18
+                    Age = 18,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -723,7 +733,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Ian",
                     LastName = "Lai",
                     Sex = 'M',
-                    Age = 20
+                    Age = 20,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -733,7 +744,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Justin",
                     LastName = "Ng",
                     Sex = 'M',
-                    Age = 19
+                    Age = 19,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -743,7 +755,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Jimmy",
                     LastName = "Lam",
                     Sex = 'M',
-                    Age = 20
+                    Age = 20,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -753,7 +766,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Revees",
                     LastName = "Lai",
                     Sex = 'F',
-                    Age = 27
+                    Age = 27,
+                    _warehouseId = "001"
                 },
                 // one inventory manager
                 new Staff
@@ -764,7 +778,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Sen",
                     LastName = "Ikura",
                     Sex = 'F',
-                    Age = 43
+                    Age = 43,
+                    _warehouseId = "001"
                 },
                 // 15 delivery workman
                 new Staff
@@ -775,7 +790,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Seven",
                     LastName = "Sea",
                     Sex = 'F',
-                    Age = 32
+                    Age = 32,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -785,7 +801,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Pao",
                     LastName = "Chan",
                     Sex = 'M',
-                    Age = 25
+                    Age = 25,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -795,7 +812,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Ben",
                     LastName = "Chao",
                     Sex = 'M',
-                    Age = 18
+                    Age = 18,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -805,7 +823,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Leo",
                     LastName = "Lai",
                     Sex = 'M',
-                    Age = 45
+                    Age = 45,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -815,7 +834,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Arthur",
                     LastName = "Lo",
                     Sex = 'M',
-                    Age = 38
+                    Age = 38,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -825,7 +845,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Stephen",
                     LastName = "Kwok",
                     Sex = 'M',
-                    Age = 40
+                    Age = 40,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -835,7 +856,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Jessie",
                     LastName = "Wong",
                     Sex = 'F',
-                    Age = 20
+                    Age = 20,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -845,7 +867,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Alkoline",
                     LastName = "Water",
                     Sex = 'M',
-                    Age = 60
+                    Age = 60,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -855,7 +878,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Gigi",
                     LastName = "Wong",
                     Sex = 'F',
-                    Age = 21
+                    Age = 21,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -865,7 +889,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Anson",
                     LastName = "Pink",
                     Sex = 'M',
-                    Age = 28
+                    Age = 28,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -875,7 +900,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Momoko",
                     LastName = "Lai",
                     Sex = 'F',
-                    Age = 27
+                    Age = 27,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -885,7 +911,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Joan",
                     LastName = "Lo",
                     Sex = 'M',
-                    Age = 43
+                    Age = 43,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -895,7 +922,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Sophia",
                     LastName = "Lam",
                     Sex = 'F',
-                    Age = 47
+                    Age = 47,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -905,7 +933,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "KK",
                     LastName = "Ip",
                     Sex = 'M',
-                    Age = 51
+                    Age = 51,
+                    _warehouseId = "001"
                 },
                 new Staff
                 {
@@ -915,7 +944,8 @@ namespace TheBetterLimited_Server.Data
                     FirstName = "Michelle",
                     LastName = "Sum",
                     Sex = 'F',
-                    Age = 19
+                    Age = 19,
+                    _warehouseId = "001"
                 },
                 // 15 techinal workman
                 new Staff
