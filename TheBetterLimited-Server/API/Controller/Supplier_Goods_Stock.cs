@@ -223,6 +223,11 @@ namespace TheBetterLimited_Server.API.Controller
                     if (stock is null) throw new BadArgException("Not record found");
                     if (stock.isSoftDeleted) throw new BadArgException("The stock records is soft deleted");
 
+                    ConsoleLogger.Debug(item.qty);
+                    ConsoleLogger.Debug(stock.Quantity);
+                    ConsoleLogger.Debug(item._goodsId);
+                    ConsoleLogger.Debug(stock.Id);
+                    ConsoleLogger.Debug(stock.Supplier_Goods._goodsId);
                     stock.Quantity += (int) item.qty;
                     sgs.Update(stock);
 
@@ -266,10 +271,7 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 return StatusCode(e.ReturnCode , e.GetHttpResult());
             }
-            catch(Exception e)
-            {
-                return StatusCode(500 , e.Message);
-            }
+            
             
             return Ok();
         }
