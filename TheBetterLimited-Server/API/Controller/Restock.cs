@@ -26,7 +26,7 @@ namespace TheBetterLimited_Server.API.Controller
 
         public class RestockRequestInDto
         {
-            public string _storeId { get; set; }
+            public string _locationId { get; set; }
             public List<RestockRequestItemInDto> Items { get; set; }
 
             public class RestockRequestItemInDto
@@ -42,6 +42,30 @@ namespace TheBetterLimited_Server.API.Controller
         {
             try
             {
+                Data.Entity.Staff s = userInfo.GetStaffFromUserName(User.Identity.Name);
+                Data.Entity.RestockRequest rr = new Data.Entity.RestockRequest
+                {
+                    ID = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.RestockRequest>(db),
+                    _createrId = s.Id,
+                    _operatorId = s.Id,
+                    _storeId = dto._locationId,
+                    CreateTime = DateTime.Now,
+                    OperateTime = DateTime.Now,
+                    Status = Data.Entity.RestockRequestStatus.Pending
+                };
+                repository.Add(rr);
+
+                foreach( var item in dto.Items)
+                {
+                    Data.Entity.Supplier_Goods_Stock sgs = _SGSTable.GetById(item._supplierGoodsStockId);
+                    Data.Entity.RestockRequest_Supplier_Goods rgs = new Data.Entity.RestockRequest_Supplier_Goods
+                    {
+                        _restockRequestId = rr.ID,
+                        _supplierGoodsId = sgs.Id,
+                        _quantity = (uint) item.Quantity
+                    };
+                    _RSGTable.Add(rgs);
+                }
                 return Ok();
             }
             catch (ICustException e)
