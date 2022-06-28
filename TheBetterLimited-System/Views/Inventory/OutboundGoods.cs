@@ -40,13 +40,29 @@ namespace TheBetterLimited.Views
             InitializeComponent();
             InitDataTable();
             InitializeDataGridView();
+            if (GlobalsData.currentUser["department"].ToString().Equals("Sales"))
+            {
+                SearchBarTxt.Placeholder = "Enter the Restock Request ID";
+            }
+        }
+
+        public OutboundGoods(List<JObject> goods)
+        {
+            this.goodsList = goods;
+            InitializeComponent();
+            InitDataTable();
+            InitializeDataGridView();
         }
 
         private void InitDataTable()
         {
             dt.Columns.Add("goodsId");
             dt.Columns.Add("goodsName");
-            dt.Columns.Add("quantity");
+            dt.Columns.Add("expQty");
+            dt.Columns.Add("recQty");
+            dt.Columns.Add("isNew");
+            dt.Columns.Add("catalogue");
+            dt.Columns["isNew"].DataType = System.Type.GetType("System.Byte[]");
         }
 
         /*
@@ -66,10 +82,9 @@ namespace TheBetterLimited.Views
         private void InitializeDataGridView()
         {
             //Main data column
+            bs.DataSource = dt;
             GoodsDataGrid.AutoGenerateColumns = false;
             GoodsDataGrid.DataSource = bs;
-            for (int i = 0; i < GoodsDataGrid.RowCount; i++)
-                GoodsDataGrid["select", i].Tag = 0;
         }
 
         //Get Goods
@@ -77,25 +92,41 @@ namespace TheBetterLimited.Views
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
             {
-                response = cbPO.GetById(SearchBarTxt.Texts);
-            }else
+                MessageBox.Show("Please "+ SearchBarTxt.Placeholder.ToLower());
+                return;
+            }
+            else if (SearchBarTxt.Texts.Length < 10)
             {
-                MessageBox.Show("You have not input any things");
+                MessageBox.Show("Input invalid!");
+                return;
+            }
+            else
+            {
+                response = cbPO.GetById(SearchBarTxt.Texts.ToString());
+                InitList();
             }
         }
 
         private void InitList()
         {
+            dt.Clear();
+            goodsList.Clear();
             try
             {
                 JArray goodsData = JArray.Parse(response.Content);
-                foreach (JObject o in goodsData["items"])
+                foreach (JObject o in goodsData[0]["items"])
                 {
                     goodsList.Add(o);
                     var row = dt.NewRow();
-                    row["goodsId"] = o["_supplierGoodsid"].ToString();
-                    row["goodsName"] = o["GoodsName"].ToString();
-                    row["quantity"] = o["quantity"].ToString();
+                    row["goodsId"] = o["goods"]["GoodsId"].ToString();
+                    row["goodsName"] = o["goods"]["GoodsName"].ToString();
+                    row["expQty"] = o["quantity"].ToString();
+                    row["recQty"] = o["quantity"].ToString();
+                    row["catalogue"] = o["goods"]["Catalogue"].ToString();
+                    if ((bool)o["isNewItem"])
+                    {
+                        row["isNew"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
+                    }
                     dt.Rows.Add(row);
                 }
                 InitializeDataGridView();
@@ -123,16 +154,21 @@ namespace TheBetterLimited.Views
         private void btnSave_Click(object sender, EventArgs e)
         {
             List<object> list = new List<object>();
+            int idx = 0;
             foreach (var item in goodsList)
             {
-                list.Add(new { goodsId = item["_supplierGoodsid"].ToString(), quantity = - ((int)item["quantity"]) });
+                list.Add(new { goodsId = item["goods"]["GoodsId"].ToString(), ReceivedQuantity = Convert.ToInt32(GoodsDataGrid["recQty", idx].Value) });
+                idx++;
             }
             try
             {
+                Console.WriteLine("Request: " + JsonConvert.SerializeObject(list));
                 response = cbStock.Update("bound", list);
+                Console.WriteLine(response.Content);
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    MessageBox.Show("Goods Outbounded successfully");
+                    MessageBox.Show("Goods Inbounded successfully");
+                    this.OnExit.Invoke();
                     this.Close();
                     this.Dispose();
                 }
@@ -143,9 +179,8 @@ namespace TheBetterLimited.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Goods Outbounded Unsuccessfully");
+                MessageBox.Show("Goods Inbounded Unsuccessfully");
             }
-
         }
     }
 }

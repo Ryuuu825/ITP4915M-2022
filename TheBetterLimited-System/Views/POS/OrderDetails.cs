@@ -57,6 +57,11 @@ namespace TheBetterLimited.Views
             OrderDataGrid.ReadOnly = true;
             DeleteBtn.Visible = false;
             SaveBtn.Text = "Arrange";
+            if (orderData["status"].ToString().Equals("Completed"))
+            {
+                SaveBtn.Visible = false;
+                CancelBtn.Location = new Point(484, 6);
+            }
             OrderDataGrid.Columns["defect"].Visible = false;
             SaveBtn.Click -= new EventHandler(SaveBtn_Click);
             SaveBtn.Click += new EventHandler(ArrangeBtn_Click);

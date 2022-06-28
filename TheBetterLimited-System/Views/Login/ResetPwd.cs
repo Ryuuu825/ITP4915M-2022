@@ -43,6 +43,7 @@ namespace TheBetterLimited.Views
 
         private void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            showResult();
         }
 
         private void chgPwdBtn_Click(object sender, EventArgs e)
@@ -73,6 +74,12 @@ namespace TheBetterLimited.Views
             /**
              * access Api to get the responseCode and msg
              */
+            bw.RunWorkerAsync();
+
+        }
+        
+        private void showResult()
+        {
             if (result == null)
             {
                 MessageBox.Show("Cannot connect to server!", "Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);

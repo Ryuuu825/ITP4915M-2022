@@ -17,8 +17,7 @@ namespace TheBetterLimited.Views.Message
 {
     public partial class Message : Form, OnMessageItemClick
     {
-        TheBetterLimited_System.Controller.ControllerBase controller = new TheBetterLimited_System.Controller.ControllerBase("message");
-
+        ControllerBase controller = new ControllerBase("message");
 
         public Message()
         {
@@ -60,7 +59,7 @@ namespace TheBetterLimited.Views.Message
                     },
                     this
                    );
-
+                //msg.Dock = DockStyle.Fill;
                 this.MessageList.Controls.Add(msg);
                 if (isNewMessage)
                 {

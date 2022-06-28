@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json.Linq;
 
 namespace TheBetterLimited.Views
 {
@@ -23,11 +24,12 @@ namespace TheBetterLimited.Views
         {
             InitializeComponent();
         }
-        public ResetPwdResult(string username, string email, string msg)
+        public ResetPwdResult(string username, string email, string m)
         {
-            this.username = username;
-            this.email = email;
-            this.msg = msg;
+            JObject msgObj = JObject.Parse(m);
+            username = username;
+            email = email;
+            msg = msgObj["message"].ToString();
             InitializeComponent();
             Msg.Text = msg;
         }

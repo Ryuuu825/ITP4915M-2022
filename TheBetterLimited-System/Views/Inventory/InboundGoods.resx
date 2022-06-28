@@ -121,18 +121,6 @@
   <data name="GoodsDataGrid.ColumnHeadersHeight" type="System.Int32, mscorlib">
     <value>50</value>
   </data>
-  <metadata name="select.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="select.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="select.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="select.Width" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
   <metadata name="id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -147,6 +135,18 @@
   </data>
   <data name="id.Width" type="System.Int32, mscorlib">
     <value>105</value>
+  </data>
+  <metadata name="Catalogue.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Catalogue.HeaderText" xml:space="preserve">
+    <value>Catalogue</value>
+  </data>
+  <data name="Catalogue.ToolTipText" xml:space="preserve">
+    <value>Goods Catalogue</value>
+  </data>
+  <data name="Catalogue.Width" type="System.Int32, mscorlib">
+    <value>110</value>
   </data>
   <metadata name="name.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -164,13 +164,25 @@
     <value>True</value>
   </metadata>
   <data name="expQty.HeaderText" xml:space="preserve">
-    <value>Qty</value>
+    <value>Expect Qty</value>
   </data>
   <data name="expQty.ToolTipText" xml:space="preserve">
-    <value>Purchase Item Quantity</value>
+    <value>Expected quantity</value>
   </data>
   <data name="expQty.Width" type="System.Int32, mscorlib">
-    <value>70</value>
+    <value>115</value>
+  </data>
+  <metadata name="recQty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="recQty.HeaderText" xml:space="preserve">
+    <value>Receive Qty</value>
+  </data>
+  <data name="recQty.ToolTipText" xml:space="preserve">
+    <value>Actully received quantity</value>
+  </data>
+  <data name="recQty.Width" type="System.Int32, mscorlib">
+    <value>122</value>
   </data>
   <metadata name="isNew.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -196,7 +208,7 @@
     <value>30</value>
   </data>
   <data name="GoodsDataGrid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>778, 379</value>
+    <value>909, 478</value>
   </data>
   <data name="GoodsDataGrid.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -223,7 +235,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="curdAction.Size" type="System.Drawing.Size, System.Drawing">
-    <value>479, 38</value>
+    <value>598, 38</value>
   </data>
   <data name="curdAction.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -240,9 +252,6 @@
   <data name="&gt;&gt;curdAction.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="SearchBarTxt.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
   <data name="SearchBarTxt.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12.10084pt</value>
   </data>
@@ -256,7 +265,7 @@
     <value>6, 8, 8, 6</value>
   </data>
   <data name="SearchBarTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 38</value>
+    <value>260, 38</value>
   </data>
   <data name="SearchBarTxt.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -309,13 +318,13 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>268, 0</value>
+    <value>265, 0</value>
   </data>
   <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+    <value>10, 2, 2, 2</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 38</value>
+    <value>26, 38</value>
   </data>
   <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -363,13 +372,13 @@
     <value>Top</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 1</value>
+    <value>10, 1</value>
   </data>
   <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>770, 38</value>
+    <value>889, 38</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -396,10 +405,10 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="Action.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 1, 4, 1</value>
+    <value>10, 1, 10, 1</value>
   </data>
   <data name="Action.Size" type="System.Drawing.Size, System.Drawing">
-    <value>778, 44</value>
+    <value>909, 44</value>
   </data>
   <data name="Action.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -429,7 +438,7 @@
     <value>NoControl</value>
   </data>
   <data name="RefreshBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>736, 4</value>
+    <value>867, 4</value>
   </data>
   <data name="RefreshBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 33</value>
@@ -495,7 +504,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="Header.Size" type="System.Drawing.Size, System.Drawing">
-    <value>778, 40</value>
+    <value>909, 40</value>
   </data>
   <data name="Header.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -519,7 +528,7 @@
     <value>0, 2</value>
   </data>
   <data name="loadPic.Size" type="System.Drawing.Size, System.Drawing">
-    <value>778, 379</value>
+    <value>909, 478</value>
   </data>
   <data name="loadPic.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -552,7 +561,7 @@
     <value>0, 2, 0, 0</value>
   </data>
   <data name="Data.Size" type="System.Drawing.Size, System.Drawing">
-    <value>778, 381</value>
+    <value>909, 480</value>
   </data>
   <data name="Data.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -597,7 +606,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>503, 6</value>
+    <value>634, 6</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 40</value>
@@ -630,7 +639,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>637, 6</value>
+    <value>768, 6</value>
   </data>
   <data name="btnSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 40</value>
@@ -657,7 +666,7 @@
     <value>Bottom</value>
   </data>
   <data name="BottomBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 411</value>
+    <value>0, 510</value>
   </data>
   <data name="BottomBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -666,7 +675,7 @@
     <value>10, 10, 10, 0</value>
   </data>
   <data name="BottomBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>778, 54</value>
+    <value>909, 54</value>
   </data>
   <data name="BottomBtn.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -687,9 +696,6 @@
     <value />
   </data>
   <data name="dataGridViewImageColumn4.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="dataGridViewImageColumn4.Width" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="dataGridViewImageColumn5.HeaderText" xml:space="preserve">
@@ -717,7 +723,7 @@
     <value>96, 96</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>778, 465</value>
+    <value>909, 564</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4016,14 +4022,50 @@
         AAAAAAAAAAAAD/////8=
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Restock-Inbound</value>
+  </data>
+  <data name="&gt;&gt;id.Name" xml:space="preserve">
+    <value>id</value>
+  </data>
+  <data name="&gt;&gt;id.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Catalogue.Name" xml:space="preserve">
+    <value>Catalogue</value>
+  </data>
+  <data name="&gt;&gt;Catalogue.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;name.Name" xml:space="preserve">
+    <value>name</value>
+  </data>
+  <data name="&gt;&gt;name.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;expQty.Name" xml:space="preserve">
+    <value>expQty</value>
+  </data>
+  <data name="&gt;&gt;expQty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;recQty.Name" xml:space="preserve">
+    <value>recQty</value>
+  </data>
+  <data name="&gt;&gt;recQty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;isNew.Name" xml:space="preserve">
+    <value>isNew</value>
+  </data>
+  <data name="&gt;&gt;isNew.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
     <value>dataGridViewImageColumn1</value>
@@ -4059,36 +4101,6 @@
     <value>dataGridViewImageColumn6</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;select.Name" xml:space="preserve">
-    <value>select</value>
-  </data>
-  <data name="&gt;&gt;select.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;id.Name" xml:space="preserve">
-    <value>id</value>
-  </data>
-  <data name="&gt;&gt;id.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;name.Name" xml:space="preserve">
-    <value>name</value>
-  </data>
-  <data name="&gt;&gt;name.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;expQty.Name" xml:space="preserve">
-    <value>expQty</value>
-  </data>
-  <data name="&gt;&gt;expQty.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;isNew.Name" xml:space="preserve">
-    <value>isNew</value>
-  </data>
-  <data name="&gt;&gt;isNew.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

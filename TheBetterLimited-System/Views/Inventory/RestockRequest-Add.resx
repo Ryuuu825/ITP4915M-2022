@@ -131,7 +131,7 @@
     <value>Goods ID</value>
   </data>
   <data name="goodsID.Width" type="System.Int32, mscorlib">
-    <value>102</value>
+    <value>105</value>
   </data>
   <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -152,7 +152,7 @@
     <value>Stock Qty</value>
   </data>
   <data name="curQty.Width" type="System.Int32, mscorlib">
-    <value>105</value>
+    <value>109</value>
   </data>
   <metadata name="max.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -161,7 +161,7 @@
     <value>Max.</value>
   </data>
   <data name="max.Width" type="System.Int32, mscorlib">
-    <value>75</value>
+    <value>77</value>
   </data>
   <metadata name="recQty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -176,7 +176,7 @@
     <value>Quantity</value>
   </data>
   <data name="recQty.Width" type="System.Int32, mscorlib">
-    <value>121</value>
+    <value>124</value>
   </data>
   <metadata name="delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -522,6 +522,42 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Restock Request</value>
   </data>
+  <data name="&gt;&gt;goodsID.Name" xml:space="preserve">
+    <value>goodsID</value>
+  </data>
+  <data name="&gt;&gt;goodsID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ID.Name" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="&gt;&gt;ID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;curQty.Name" xml:space="preserve">
+    <value>curQty</value>
+  </data>
+  <data name="&gt;&gt;curQty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;max.Name" xml:space="preserve">
+    <value>max</value>
+  </data>
+  <data name="&gt;&gt;max.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;recQty.Name" xml:space="preserve">
+    <value>recQty</value>
+  </data>
+  <data name="&gt;&gt;recQty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;delete.Name" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="&gt;&gt;delete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;dataGridViewImageColumn3.Name" xml:space="preserve">
     <value>dataGridViewImageColumn3</value>
   </data>
@@ -562,42 +598,6 @@
     <value>dataGridViewImageColumn6</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;goodsID.Name" xml:space="preserve">
-    <value>goodsID</value>
-  </data>
-  <data name="&gt;&gt;goodsID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ID.Name" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="&gt;&gt;ID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;curQty.Name" xml:space="preserve">
-    <value>curQty</value>
-  </data>
-  <data name="&gt;&gt;curQty.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;max.Name" xml:space="preserve">
-    <value>max</value>
-  </data>
-  <data name="&gt;&gt;max.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;recQty.Name" xml:space="preserve">
-    <value>recQty</value>
-  </data>
-  <data name="&gt;&gt;recQty.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;delete.Name" xml:space="preserve">
-    <value>delete</value>
-  </data>
-  <data name="&gt;&gt;delete.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
