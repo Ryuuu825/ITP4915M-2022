@@ -1138,6 +1138,28 @@ namespace TheBetterLimited_Server.Data
                     Sex = 'M',
                     Age = 45
                 },
+                // accounting
+                new Staff
+                {
+                    Id = "S0400",
+                    _departmentId = "400",
+                    _positionId = "401",
+                    FirstName = "John",
+                    LastName = "Doe",
+                    Sex='M',
+                    Age= 32
+                },
+                new Staff
+                {
+                    Id = "S0401",
+                    _departmentId = "400",
+                    _positionId = "402",
+                    FirstName = "Giovanni",
+                    LastName = "Giorgio",
+                    Sex='M',
+                    Age= 32
+                },
+
             };
         }
 
@@ -1361,7 +1383,7 @@ namespace TheBetterLimited_Server.Data
                     Icon = null,
                     UserName = "PurchaseClerk",
                     Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
-                    EmailAddress = "abs@hololive.com",
+                    EmailAddress = "abs@holo.com",
                     Status = "N",
                     Remarks = "none"
                 },
@@ -1377,7 +1399,38 @@ namespace TheBetterLimited_Server.Data
                     Icon = null,
                     UserName = "PurchaseManager",
                     Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
-                    EmailAddress = "abs@hololive.com",
+                    EmailAddress = "abs@holo.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
+                // accountant
+                 new Account
+                {
+                    Id = "A0016",
+                    _StaffId = "S0400",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "Accountant",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "abs@obs.com",
+                    Status = "N",
+                    Remarks = "none"
+                },
+                 new Account
+                {
+                    Id = "A0017",
+                    _StaffId = "S0401",
+                    LoginFailedCount = 0,
+                    LoginFailedAt = null,
+                    LastLogin = null,
+                    unlockDate = DateTime.Now,
+                    Icon = null,
+                    UserName = "AccountManager",
+                    Password = TheBetterLimited_Server.Helpers.Secure.Hasher.Hash("admin"),
+                    EmailAddress = "abs@obs.com",
                     Status = "N",
                     Remarks = "none"
                 },
