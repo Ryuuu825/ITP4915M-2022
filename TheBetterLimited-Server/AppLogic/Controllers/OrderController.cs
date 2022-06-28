@@ -44,6 +44,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             this.db = db;
         }
 
+
+
         public static void UpdateOrderStatus(SalesOrderItem_Appointment item , Data.Repositories.Repository<SalesOrder> _SalesOrderTable)
         {
                 if (item.Appointment is null || item.SalesOrderItem.BookingOrder is null)
@@ -295,8 +297,14 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             list = list.GetRange((int)offset, limit);
             return await ToDto(list, lang);
         }
-        
-        public async Task<string> CreateSalesOrdern(string Username , OrderInDto order)
+
+        public async Task<List<OrderOutDto>> GetOrderByMonth(int month, string lang = "en")        
+        {
+            // SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE "%-06-%"
+            var list = (await repository.GetBySQLAsync($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"%-{month}-%\"' ")).AsReadOnly().ToList();
+            return await ToDto(list,lang);
+        }
+        public async Task<string> CreateSalesOrder(string Username , OrderInDto order)
         {
 
             // first create the sales order
