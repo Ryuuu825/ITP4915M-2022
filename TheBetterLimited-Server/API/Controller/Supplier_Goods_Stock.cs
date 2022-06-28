@@ -231,7 +231,7 @@ namespace TheBetterLimited_Server.API.Controller
                     stock.Quantity += (int) item.qty;
                     sgs.Update(stock);
 
-                    if (dto._purchaseOrderId is not null) 
+                    if (dto._purchaseOrderId != "") 
                     {
                         // warehouse stock inbound
                         var po = PurchaseOrderTable.GetById(dto._purchaseOrderId);
@@ -246,7 +246,7 @@ namespace TheBetterLimited_Server.API.Controller
                         PurchaseOrder_SupplierGoods_Table.Update(poItem);
 
                     }
-                    else if (dto._restockRequestId is not null) // warehouse outbound OR store inbound
+                    else if (dto._restockRequestId != "") // warehouse outbound OR store inbound
                     {
                         var potentialWarehouse = WarehouseTable.GetAll().Where(w => w.Location.Id == location).FirstOrDefault();
                         var potentialStore = StoreTable.GetAll().Where(s => s.Location.Id == location).FirstOrDefault();
