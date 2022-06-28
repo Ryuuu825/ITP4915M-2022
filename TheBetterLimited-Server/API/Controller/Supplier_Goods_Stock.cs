@@ -236,7 +236,7 @@ namespace TheBetterLimited_Server.API.Controller
                         PurchaseOrderTable.Update(po);
 
                         var poItem = po.Items.Where(x => x._supplierGoodsId == stock._supplierGoodsId).FirstOrDefault();
-                        poItem.ReceivedQuantity = item.qty;
+                        poItem.ReceivedQuantity = (uint) item.qty;
                         PurchaseOrder_SupplierGoods_Table.Update(poItem);
 
                     }
@@ -290,7 +290,7 @@ namespace TheBetterLimited_Server.API.Controller
             public class InOutBoundItem
             {
                 public string _goodsId { get; set; }
-                public uint qty { get; set; }
+                public int qty { get; set; }
             }
             public List<InOutBoundItem> items { get; set; }
         }
