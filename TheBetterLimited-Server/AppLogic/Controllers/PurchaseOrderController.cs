@@ -86,6 +86,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     dto.Items.Add(
                         new PurchaseOrderItemOutDto
                         {
+                            ReceivedQuantity = item.ReceivedQuantity,
                             Goods = _GoodsController.ToOutDto(item.Supplier_Goods.Goods , username , lang),
                             Quantity = (int) item.Quantity,
                             isNewItem = sgs is null
