@@ -175,7 +175,7 @@ namespace TheBetterLimited.Views
                     GoodsDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
                     GoodsDataGrid["select", e.RowIndex].Tag = 1;
                     GoodsDataGrid.Rows[e.RowIndex].Selected = true;
-                    var item = new PurchaseItem(supGoods[e.RowIndex]["Id"].ToString(), supGoods[e.RowIndex]["Name"].ToString(), (int)supGoods[e.RowIndex]["Price"], 1);
+                    var item = new PurchaseItem(supGoods[e.RowIndex]["Id"].ToString(), supGoods[e.RowIndex]["Name"].ToString(), (int)supGoods[e.RowIndex]["Price"], 1,0);
                     selectGoods.Add(item);
                 }
                 else

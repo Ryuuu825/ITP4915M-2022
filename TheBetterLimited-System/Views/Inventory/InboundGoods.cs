@@ -201,7 +201,7 @@ namespace TheBetterLimited.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Goods Inbounded Unsuccessfully");
+                MessageBox.Show("Goods Inbounded Unsuccessfully.\nThe purchase order has new item(s),\nyou need to create a new stock record first.");
             }
         }
 

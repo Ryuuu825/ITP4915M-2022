@@ -83,7 +83,7 @@ namespace TheBetterLimited.Views
             dt.Columns.Add("goodsName");
             dt.Columns.Add("qty");
             dt.Columns.Add("isNew");
-
+            dt.Columns["isNew"].DataType = System.Type.GetType("System.Byte[]");
             foreach (JObject orderItem in orderItems)
             {
                 var row = dt.NewRow();

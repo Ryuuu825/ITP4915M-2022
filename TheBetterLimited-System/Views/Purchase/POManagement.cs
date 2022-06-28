@@ -157,7 +157,7 @@ namespace TheBetterLimited.Views
             {
                 if ((int)orderList[e.RowIndex]["status"] != (int)POStatus.Pending && (int)orderList[e.RowIndex]["status"] != (int)POStatus.PendingApproval)
                 {
-                    MessageBox.Show("The purchase order has been processed");
+                    MessageBox.Show("The purchase order has been proccessed");
                     return;
                 }
 
