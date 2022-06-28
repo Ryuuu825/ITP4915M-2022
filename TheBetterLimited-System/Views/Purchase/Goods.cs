@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -201,14 +202,14 @@ namespace TheBetterLimited.Views
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
-                result = gc.GetAllGoods();
+                result = gc.GetAllGoods(lang: CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             }
             else
             {
                 string str = "id:" + this.SearchBarTxt.Texts
                             + "|gtincode:" + this.SearchBarTxt.Texts + "|size:" + this.SearchBarTxt.Texts
                             + "|status:" + this.SearchBarTxt.Texts;
-                result = gc.GetGoodsByQry(str);
+                result = gc.GetGoodsByQry(str, lang: CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             }
         }
         private void InitList()
@@ -227,7 +228,7 @@ namespace TheBetterLimited.Views
 
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString()).Content)["Name"].ToString();
+                    row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString(), lang: CultureInfo.CurrentUICulture.TwoLetterISOLanguageName).Content)["Name"].ToString();
                     index++;
                 }
                 bs.DataSource = dataTable;

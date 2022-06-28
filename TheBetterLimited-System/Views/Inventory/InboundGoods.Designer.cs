@@ -38,12 +38,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GoodsDataGrid = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Catalogue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isNew = new System.Windows.Forms.DataGridViewImageColumn();
             this.Action = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.curdAction = new System.Windows.Forms.Panel();
@@ -64,6 +58,12 @@
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Catalogue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isNew = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GoodsDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -141,61 +141,6 @@
             this.GoodsDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.GoodsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GoodsDataGrid.StandardTab = true;
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "goodsId";
-            resources.ApplyResources(this.id, "id");
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // Catalogue
-            // 
-            this.Catalogue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Catalogue.DataPropertyName = "catalogue";
-            resources.ApplyResources(this.Catalogue, "Catalogue");
-            this.Catalogue.Name = "Catalogue";
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.DataPropertyName = "goodsName";
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.name.DefaultCellStyle = dataGridViewCellStyle3;
-            resources.ApplyResources(this.name, "name");
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // expQty
-            // 
-            this.expQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.expQty.DataPropertyName = "expQty";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.expQty.DefaultCellStyle = dataGridViewCellStyle4;
-            resources.ApplyResources(this.expQty, "expQty");
-            this.expQty.Name = "expQty";
-            this.expQty.ReadOnly = true;
-            // 
-            // recQty
-            // 
-            this.recQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.recQty.DataPropertyName = "recQty";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.recQty.DefaultCellStyle = dataGridViewCellStyle5;
-            resources.ApplyResources(this.recQty, "recQty");
-            this.recQty.Name = "recQty";
-            // 
-            // isNew
-            // 
-            this.isNew.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.isNew.DataPropertyName = "isNew";
-            resources.ApplyResources(this.isNew, "isNew");
-            this.isNew.Image = global::TheBetterLimited.Properties.Resources.square24;
-            this.isNew.Name = "isNew";
-            this.isNew.ReadOnly = true;
-            this.isNew.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.isNew.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // Action
             // 
@@ -367,6 +312,62 @@
             resources.ApplyResources(this.dataGridViewImageColumn6, "dataGridViewImageColumn6");
             this.dataGridViewImageColumn6.Image = global::TheBetterLimited.Properties.Resources.trash24;
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
+            // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "goodsId";
+            resources.ApplyResources(this.id, "id");
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // Catalogue
+            // 
+            this.Catalogue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Catalogue.DataPropertyName = "catalogue";
+            resources.ApplyResources(this.Catalogue, "Catalogue");
+            this.Catalogue.Name = "Catalogue";
+            this.Catalogue.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.DataPropertyName = "goodsName";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.name.DefaultCellStyle = dataGridViewCellStyle3;
+            resources.ApplyResources(this.name, "name");
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // expQty
+            // 
+            this.expQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.expQty.DataPropertyName = "expQty";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.expQty.DefaultCellStyle = dataGridViewCellStyle4;
+            resources.ApplyResources(this.expQty, "expQty");
+            this.expQty.Name = "expQty";
+            this.expQty.ReadOnly = true;
+            // 
+            // recQty
+            // 
+            this.recQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.recQty.DataPropertyName = "recQty";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.recQty.DefaultCellStyle = dataGridViewCellStyle5;
+            resources.ApplyResources(this.recQty, "recQty");
+            this.recQty.Name = "recQty";
+            // 
+            // isNew
+            // 
+            this.isNew.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.isNew.DataPropertyName = "isNew";
+            resources.ApplyResources(this.isNew, "isNew");
+            this.isNew.Image = global::TheBetterLimited.Properties.Resources.square24;
+            this.isNew.Name = "isNew";
+            this.isNew.ReadOnly = true;
+            this.isNew.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.isNew.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // InboundGoods
             // 

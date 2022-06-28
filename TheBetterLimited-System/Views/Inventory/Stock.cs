@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -225,7 +226,7 @@ namespace TheBetterLimited.Views
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
-                result = cbStockGoods.GetAll();
+                result = cbStockGoods.GetAll(lang: CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             }
             /*else
             {

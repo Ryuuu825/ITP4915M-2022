@@ -524,8 +524,8 @@ namespace TheBetterLimited.Views
                 }
                 else if (Convert.ToInt32(e.Value) > ((PurchaseItem)orderItems[e.RowIndex]).quantity)
                 {
-                    e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
-                    e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
+                    e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
                 }
                 else if (Convert.ToInt32(e.Value) < ((PurchaseItem)orderItems[e.RowIndex]).quantity)
                 {
