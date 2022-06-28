@@ -83,7 +83,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         {
             
             List<Appointment> res = repository.GetAll().ToList();
-            ConsoleLogger.Debug(res.Count());
             return await ToDto(res);
         }
 

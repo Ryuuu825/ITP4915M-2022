@@ -14,6 +14,10 @@ namespace TheBetterLimited_Server.API.Controller
         private readonly Data.Repositories.Repository<Data.Entity.Store> StoreTable;
         private readonly Data.Repositories.Repository<Data.Entity.Warehouse> WarehouseTable;
         private readonly Data.Repositories.Repository<Data.Entity.Account> AccTable;
+        private readonly Data.Repositories.Repository<Data.Entity.PurchaseOrder> PurchaseOrderTable;
+         private readonly Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods> PurchaseOrder_SupplierGoods_Table;
+        private readonly Data.Repositories.Repository<Data.Entity.RestockRequest> RestockRequestTable;
+         private readonly Data.Repositories.UserInfoRepository userInfo;
         private readonly DataContext db;
 
         private readonly AppLogic.Controllers.GoodsController goodsController;
@@ -25,7 +29,11 @@ namespace TheBetterLimited_Server.API.Controller
             StoreTable = new Data.Repositories.Repository<Data.Entity.Store>(db);
             AccTable = new Data.Repositories.Repository<Data.Entity.Account>(db);
             WarehouseTable = new Data.Repositories.Repository<Data.Entity.Warehouse>(db);
+            PurchaseOrderTable = new Data.Repositories.Repository<Data.Entity.PurchaseOrder>(db);
+            RestockRequestTable = new Data.Repositories.Repository<Data.Entity.RestockRequest>(db);
+            PurchaseOrder_SupplierGoods_Table = new Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods>(db);
             goodsController = new AppLogic.Controllers.GoodsController(db);
+            userInfo = new Data.Repositories.UserInfoRepository(db);
             this.db = db;
         }
 
@@ -174,6 +182,101 @@ namespace TheBetterLimited_Server.API.Controller
            
         }
 
+        [HttpPut("bound")]
+        [Authorize]
+        public IActionResult InBoundOutBound([FromBody] InOutBoundDto dto)
+        {   
+            var staff = userInfo.GetStaffFromUserName(User.Identity.Name);
+            string location = String.Empty;
+            if (staff.warehouse is null && staff.store is not null)
+            {
+                location = staff.store._locationID;
+            }
+            else if (staff.store is null && staff.warehouse is not null)
+            {
+                location = staff.warehouse._locationID;
+            } 
+            else if (AppLogic.Constraint.AdminDepartmentId.Contains(staff._departmentId)) 
+            { 
+                return Ok(); // simply do nothing
+            }
+            else 
+            {
+                return StatusCode(401 , "unauthorized");
+            }
+
+            if (location.Equals(String.Empty))
+                return StatusCode(404, "No location is found");
+
+            try 
+            {
+                foreach(var item in dto.items)
+                {
+                    // update the stock according to the user location
+                    Data.Entity.Supplier_Goods_Stock stock = repository.GetBySQL(
+                                    $"SELECT * FROM `Goods` WHERE `Id` = '{item._goodsId}'"
+                                )?.FirstOrDefault()
+                                .Supplier_Goods.FirstOrDefault()
+                                .Supplier_Goods_Stocks.Where(x => x._locationId == location)
+                                .FirstOrDefault();
+
+                    if (stock is null) throw new BadArgException("Not record found");
+                    if (stock.isSoftDeleted) throw new BadArgException("The stock records is soft deleted");
+
+                    ConsoleLogger.Debug(item.qty);
+                    ConsoleLogger.Debug(stock.Quantity);
+                    ConsoleLogger.Debug(item._goodsId);
+                    ConsoleLogger.Debug(stock.Id);
+                    ConsoleLogger.Debug(stock.Supplier_Goods._goodsId);
+                    stock.Quantity += (int) item.qty;
+                    sgs.Update(stock);
+
+                    if (dto._purchaseOrderId != "") 
+                    {
+                        // warehouse stock inbound
+                        var po = PurchaseOrderTable.GetById(dto._purchaseOrderId);
+                        if (po is null) throw new BadArgException("Purchase Order not found");
+
+                        po.Status = Data.Entity.PurchaseOrderStatus.Inbound;
+                        PurchaseOrderTable.Update(po);
+                        ConsoleLogger.Debug(po.Debug());
+
+                        var poItem = po.Items.Where(x => x._supplierGoodsId == stock._supplierGoodsId).FirstOrDefault();
+                        poItem.ReceivedQuantity = (uint) item.qty;
+                        PurchaseOrder_SupplierGoods_Table.Update(poItem);
+
+                    }
+                    else if (dto._restockRequestId != "") // warehouse outbound OR store inbound
+                    {
+                        var potentialWarehouse = WarehouseTable.GetAll().Where(w => w.Location.Id == location).FirstOrDefault();
+                        var potentialStore = StoreTable.GetAll().Where(s => s.Location.Id == location).FirstOrDefault();
+
+                        // warehouse stock outbound 
+                        if ( potentialWarehouse is not null)
+                        {
+                            
+                        }
+                        // store stock inbound
+                        else if (potentialStore is not null)
+                        {
+                            var rr = RestockRequestTable.GetById(dto._restockRequestId);
+                            rr.Status = Data.Entity.RestockRequestStatus.Completed;
+
+                            RestockRequestTable.Update(rr);
+                        }
+                    }
+                }
+                    
+            }
+            catch(ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
+            
+            
+            return Ok();
+        }
+
         public class InDto 
         {
             public string GoodsId { get; set; }
@@ -181,7 +284,18 @@ namespace TheBetterLimited_Server.API.Controller
             public int MaxLimit { get; set; }   
             public int MinLimit { get; set; }
             public int ReorderLevel { get; set; }
+        }
 
+        public class InOutBoundDto
+        {
+            public string? _purchaseOrderId { get; set; } // warehouse inbound
+            public string? _restockRequestId { get; set; } // outbound
+            public class InOutBoundItem
+            {
+                public string _goodsId { get; set; }
+                public int qty { get; set; }
+            }
+            public List<InOutBoundItem> items { get; set; }
         }
     }
 }

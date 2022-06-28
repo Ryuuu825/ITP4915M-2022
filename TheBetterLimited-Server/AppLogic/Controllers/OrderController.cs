@@ -67,8 +67,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                     _SalesOrderTable.Update(item.SalesOrderItem.SalesOrder);
                 }
                 else if ( 
-                    item.Appointment.Session.EndTime.Hour >= DateTime.Now.Hour &&
-                    (item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery || item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery)
+                    item.Appointment.Session.EndTime.Hour <= DateTime.Now.Hour &&
+                    (item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingDelivery || item.SalesOrderItem.SalesOrder.Status == SalesOrderStatus.PendingInstall)
                 )
                 {
                     item.SalesOrderItem.SalesOrder.Status = SalesOrderStatus.Completed;
@@ -164,7 +164,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 
                 foreach(var salesOrderItem in salesOrderItemList)
                 {
-                    total += salesOrderItem.Price * salesOrderItem.Quantity;
+                    total += (decimal) (salesOrderItem.Price * salesOrderItem.Quantity);
 
                     var appointments = salesOrderItem.SaleOrderItem_Appointment;
                     // if ( appointments is null || appointments.Count == 0)
@@ -340,8 +340,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
             List<SalesOrderItem> salesOrderItems = new List<SalesOrderItem>();
 
-            ConsoleLogger.Debug(order.Debug());
-
             foreach (var item in order.SalesOrderItems)
             {
 
@@ -381,9 +379,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
 
                     foreach (var s in StoreManager)
                     {
-                        receivers.Add(account.UserName);
+                        receivers.Add(s.acc.UserName);
                     }
-
                     _MessageController.SendMessage("system" ,
                         new SendMessageDto
                         {
@@ -589,6 +586,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             // qty : -1
             var salesOrder = repository.GetById(id);
             salesOrder.Status = SalesOrderStatus.Cancelled;
+            repository.Update(salesOrder);
 
             foreach (var item in salesOrder.Items)
             {

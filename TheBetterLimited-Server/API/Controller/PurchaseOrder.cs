@@ -29,6 +29,20 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
+
+        [HttpGet("{id}")]
+        [Authorize]
+        public IActionResult GetById(string id, [FromHeader] string Language)
+        {
+            try 
+            {
+                return Ok(controller.GetById(User.Identity.Name,id , Language));
+            }catch(ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
+        }
+
         [HttpPost]
         [Authorize]
         public IActionResult Post([FromBody] Data.Dto.PurchaseOrderInDto dto)
@@ -36,7 +50,6 @@ namespace TheBetterLimited_Server.API.Controller
             try
             {
                 // print the raw request body
-                ConsoleLogger.Debug( dto is null);
                 controller.CreateEntry(dto, User.Identity.Name);
                 return Ok();
             }
@@ -64,6 +77,8 @@ namespace TheBetterLimited_Server.API.Controller
         [Authorize]
         public IActionResult Update([FromBody] Data.Dto.PurchaseOrderUpdateDto Content)
         {
+            // the user will pass the entire object to the server (same with the post method, with id)
+            
             try 
             {
                 controller.Update(User.Identity.Name , Content);

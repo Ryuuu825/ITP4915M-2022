@@ -76,7 +76,7 @@ namespace TheBetterLimited_Server.Data.Dto
     {
         public string SupplierGoodsStockId { get; set; }
         public int Quantity { get; set; }
-        public int Price { get; set; }
+        public double Price { get; set; }
         public bool NeedDelivery { get; set; }
         public bool NeedInstall { get; set; }
         public bool NeedBooking { get; set; }

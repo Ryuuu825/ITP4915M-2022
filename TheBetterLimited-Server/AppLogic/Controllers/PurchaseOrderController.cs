@@ -13,6 +13,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         private readonly Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods> _PurchaseOrder_Supplier_GoodsTable;
 
         private readonly Data.Repositories.Repository<Data.Entity.Supplier_Goods> _Supplier_GoodsTable;
+        private readonly Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock> _Supplier_GoodsStockTable;
         private readonly AppLogic.Controllers.MessageController _message;
 
         private readonly AppLogic.Controllers.GoodsController _GoodsController;
@@ -28,6 +29,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             _WarehouseTable = new Data.Repositories.Repository<Data.Entity.Warehouse>(db);
             _PurchaseOrder_Supplier_GoodsTable = new Data.Repositories.Repository<Data.Entity.PurchaseOrder_Supplier_Goods>(db);
             _GoodsController = new AppLogic.Controllers.GoodsController(db);
+            _Supplier_GoodsStockTable = new Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock>(db);
             _message = new MessageController(db);
         }
 
@@ -63,6 +65,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             List<Data.Entity.Supplier_Goods> supplier_Goods = _Supplier_GoodsTable.GetAll();
             foreach(var entry in query)
             {
+
                 PurchaseOrderOutDto dto = new PurchaseOrderOutDto();
                 dto.Id = entry.ID;
                 dto.CreateAt = entry.CreateTime;
@@ -77,11 +80,16 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 foreach(var item in entry.Items)
                 {
                     Total += (decimal) (item.Supplier_Goods.Price * item.Quantity);
+                    Data.Entity.Supplier_Goods_Stock? sgs = _Supplier_GoodsStockTable.GetBySQL(
+                        $"SELECT * FROM `Supplier_Goods_Stock` WHERE `_supplierGoodsId` = '{item.Supplier_Goods.ID}' AND `_locationId` = '{entry.Warehouse._locationID}'"
+                    ).FirstOrDefault();
                     dto.Items.Add(
                         new PurchaseOrderItemOutDto
                         {
+                            ReceivedQuantity = item.ReceivedQuantity,
                             Goods = _GoodsController.ToOutDto(item.Supplier_Goods.Goods , username , lang),
-                            Quantity = (int) item.Quantity
+                            Quantity = (int) item.Quantity,
+                            isNewItem = sgs is null
                         }
                     );
                 }
@@ -93,9 +101,25 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             return result;
         }
 
+
+        public List<PurchaseOrderOutDto> GetById(string username , string id , string lang = "en")
+        {
+            var entry = repository.GetById(id);
+            if(entry is null)
+            {
+                return null;
+            }
+
+            return ToDto(new List<Data.Entity.PurchaseOrder> { entry } , username , lang);
+        }
+
         public void CreateEntry(PurchaseOrderInDto dto, string username)
         {
             Helpers.Entity.EntityValidator.Validate<PurchaseOrderInDto>(dto);
+            _message.BoardcastMessageToPosition(username , "802"
+                    ,"New Purchase request pulled!"
+                    ,"Please check the request.");
+
             Data.Entity.PurchaseOrder entry = new Data.Entity.PurchaseOrder()
             {
                 ID = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.PurchaseOrder>(db),
@@ -187,8 +211,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             var status = (Data.Entity.PurchaseOrderStatus) status_i;
             var staff = userInfoRepository.GetStaffFromUserName(username);
             var entry = repository.GetById(id);
-            ConsoleLogger.Debug(staff is null);
-            ConsoleLogger.Debug(entry is null);
             entry._operatorId  = staff.Id;
             entry.OperateTime = DateTime.Now;
             entry.Status = status;
@@ -196,11 +218,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             if (status == Data.Entity.PurchaseOrderStatus.Pending) // waiting for purchase department to approval
             {
                 // 800 : purchase department
-                _message.BoardcastMessage(username , "800", "New Purchase request pulled!" , "Please approval / rejected the request");
+                _message.BoardcastMessageToPosition(username , "801"
+                    ,"New Purchase request pulled!"
+                    ,"Please check the request.");
             }
             else if (status == Data.Entity.PurchaseOrderStatus.PendingApproval) 
             {
-                _message.BoardcastMessage(username , "400", "New Purchase request pulled!" , "Please approval / rejected the request");
+                _message.BoardcastMessage(username , "400", "New Purchase request pulled!" , "Please check the request.");
             }
 
             repository.Update(entry);

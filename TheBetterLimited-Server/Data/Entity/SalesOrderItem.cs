@@ -32,7 +32,7 @@ namespace TheBetterLimited_Server.Data.Entity
         public virtual BookingOrder? BookingOrder { get; set; }
 
         // seafoods price
-        public int Price { get; set; }
+        public double Price { get; set; }
 
         public virtual List<SalesOrderItem_Appointment>? SaleOrderItem_Appointment { get; set; }
 

@@ -177,9 +177,8 @@ public class LoginController
         
         var potentialUser = _UserTable.GetBySQL(
             Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>(
-                $"UserName:{userName};EmailAddress:{emailAddress}"
-            )
-        ).FirstOrDefault();
+                $"SELECT * FROM `Account` WHERE `UserName` = '{userName}' AND `EmailAddress` = '{emailAddress}'"
+            )).FirstOrDefault();
 
         potentialUser.Password = Helpers.Secure.Hasher.Hash(password);
 
