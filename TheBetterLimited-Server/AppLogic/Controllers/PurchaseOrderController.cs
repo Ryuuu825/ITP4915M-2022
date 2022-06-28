@@ -115,7 +115,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         public void CreateEntry(PurchaseOrderInDto dto, string username)
         {
             Helpers.Entity.EntityValidator.Validate<PurchaseOrderInDto>(dto);
-            _message.BoardcastMessage("system" , "800", "New Purchase request pulled!" , "Please approval / rejected the request");
+            _message.BoardcastMessageToPosition(username , "802"
+                    ,"New Purchase request pulled!"
+                    ,"Please check the request.");
 
             Data.Entity.PurchaseOrder entry = new Data.Entity.PurchaseOrder()
             {
@@ -215,11 +217,13 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             if (status == Data.Entity.PurchaseOrderStatus.Pending) // waiting for purchase department to approval
             {
                 // 800 : purchase department
-                _message.BoardcastMessage(username , "800", "New Purchase request pulled!" , "Please approval / rejected the request");
+                _message.BoardcastMessageToPosition(username , "801"
+                    ,"New Purchase request pulled!"
+                    ,"Please check the request.");
             }
             else if (status == Data.Entity.PurchaseOrderStatus.PendingApproval) 
             {
-                _message.BoardcastMessage(username , "400", "New Purchase request pulled!" , "Please approval / rejected the request");
+                _message.BoardcastMessage(username , "400", "New Purchase request pulled!" , "Please check the request.");
             }
 
             repository.Update(entry);

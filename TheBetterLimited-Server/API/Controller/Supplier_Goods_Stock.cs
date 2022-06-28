@@ -210,55 +210,63 @@ namespace TheBetterLimited_Server.API.Controller
 
             try 
             {
-                // update the stock according to the user location
-                Data.Entity.Supplier_Goods_Stock stock = repository.GetBySQL(
-                                $"SELECT * FROM `Goods` WHERE `Id` = {dto._goodsId}"
-                            ).FirstOrDefault()
-                            .Supplier_Goods.FirstOrDefault()
-                            .Supplier_Goods_Stocks.Where(x => x._locationId == location)
-                            .FirstOrDefault();
-
-                if (stock is null) throw new Exception("Not record found");
-                if (stock.isSoftDeleted) throw new Exception("The stock records is soft deleted");
-
-                stock.Quantity += (int) dto.qty;
-                sgs.Update(stock);
-
-                if (dto._purchaseOrderId is not null && dto._restockRequestId is null) 
+                foreach(var item in dto.items)
                 {
-                    // warehouse stock inbound
-                    var po = PurchaseOrderTable.GetById(dto._purchaseOrderId);
-                    if (po is null) throw new BadArgException("Purchase Order not found");
+                    // update the stock according to the user location
+                    Data.Entity.Supplier_Goods_Stock stock = repository.GetBySQL(
+                                    $"SELECT * FROM `Goods` WHERE `Id` = {item._goodsId}"
+                                ).FirstOrDefault()
+                                .Supplier_Goods.FirstOrDefault()
+                                .Supplier_Goods_Stocks.Where(x => x._locationId == location)
+                                .FirstOrDefault();
 
-                    po.Status = Data.Entity.PurchaseOrderStatus.Inbound;
-                    PurchaseOrderTable.Update(po);
+                    if (stock is null) throw new BadArgException("Not record found");
+                    if (stock.isSoftDeleted) throw new BadArgException("The stock records is soft deleted");
 
-                    var poItem = po.Items.Where(x => x._supplierGoodsId == stock._supplierGoodsId).FirstOrDefault();
-                    poItem.ReceivedQuantity = dto.qty;
-                    PurchaseOrder_SupplierGoods_Table.Update(poItem);
+                    stock.Quantity += (int) item.qty;
+                    sgs.Update(stock);
 
-                }
-                else if (dto._restockRequestId is not null) // warehouse outbound OR store inbound
-                {
-                    var potentialWarehouse = WarehouseTable.GetAll().Where(w => w.Location.Id == location).FirstOrDefault();
-                    var potentialStore = StoreTable.GetAll().Where(s => s.Location.Id == location).FirstOrDefault();
-
-                    // warehouse stock outbound 
-                    if ( potentialWarehouse is not null)
+                    if (dto._purchaseOrderId is not null && dto._restockRequestId is null) 
                     {
-                        
-                    }
-                    // store stock inbound
-                    else if (potentialStore is not null)
-                    {
-                        var rr = RestockRequestTable.GetById(dto._restockRequestId);
-                        rr.Status = Data.Entity.RestockRequestStatus.Completed;
+                        // warehouse stock inbound
+                        var po = PurchaseOrderTable.GetById(dto._purchaseOrderId);
+                        if (po is null) throw new BadArgException("Purchase Order not found");
 
-                        RestockRequestTable.Update(rr);
+                        po.Status = Data.Entity.PurchaseOrderStatus.Inbound;
+                        PurchaseOrderTable.Update(po);
+
+                        var poItem = po.Items.Where(x => x._supplierGoodsId == stock._supplierGoodsId).FirstOrDefault();
+                        poItem.ReceivedQuantity = item.qty;
+                        PurchaseOrder_SupplierGoods_Table.Update(poItem);
+
+                    }
+                    else if (dto._restockRequestId is not null) // warehouse outbound OR store inbound
+                    {
+                        var potentialWarehouse = WarehouseTable.GetAll().Where(w => w.Location.Id == location).FirstOrDefault();
+                        var potentialStore = StoreTable.GetAll().Where(s => s.Location.Id == location).FirstOrDefault();
+
+                        // warehouse stock outbound 
+                        if ( potentialWarehouse is not null)
+                        {
+                            
+                        }
+                        // store stock inbound
+                        else if (potentialStore is not null)
+                        {
+                            var rr = RestockRequestTable.GetById(dto._restockRequestId);
+                            rr.Status = Data.Entity.RestockRequestStatus.Completed;
+
+                            RestockRequestTable.Update(rr);
+                        }
                     }
                 }
-                
-            }catch(Exception e)
+                    
+            }
+            catch(ICustException e)
+            {
+                return StatusCode(e.ReturnCode , e.GetHttpResult());
+            }
+            catch(Exception e)
             {
                 return StatusCode(500 , e.Message);
             }
@@ -279,8 +287,12 @@ namespace TheBetterLimited_Server.API.Controller
         {
             public string? _purchaseOrderId { get; set; } // warehouse inbound
             public string? _restockRequestId { get; set; } // outbound
-            public string _goodsId { get; set; }
-            public uint qty { get; set; }
+            public class InOutBoundItem
+            {
+                public string _goodsId { get; set; }
+                public uint qty { get; set; }
+            }
+            public List<InOutBoundItem> items { get; set; }
         }
     }
 }
