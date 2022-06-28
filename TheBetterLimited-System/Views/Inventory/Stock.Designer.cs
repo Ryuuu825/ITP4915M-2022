@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stock));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Stock));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,17 +42,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.StockDataGrid = new System.Windows.Forms.DataGridView();
-            this.select = new System.Windows.Forms.DataGridViewImageColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.locationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maxLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.minLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReorderLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.Action = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.curdAction = new System.Windows.Forms.Panel();
@@ -83,6 +72,17 @@
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.locationId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierGoodsId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.maxLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.minLimit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReorderLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.delete = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.StockDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -95,6 +95,7 @@
             // 
             // StockDataGrid
             // 
+            resources.ApplyResources(this.StockDataGrid, "StockDataGrid");
             this.StockDataGrid.AllowUserToAddRows = false;
             this.StockDataGrid.AllowUserToResizeColumns = false;
             this.StockDataGrid.AllowUserToResizeRows = false;
@@ -108,16 +109,15 @@
             this.StockDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.StockDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.StockDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle14.Padding = new System.Windows.Forms.Padding(5, 0, 10, 0);
             dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.StockDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            resources.ApplyResources(this.StockDataGrid, "StockDataGrid");
             this.StockDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.StockDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.select,
@@ -156,7 +156,6 @@
             this.StockDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.StockDataGrid.RowHeadersVisible = false;
             this.StockDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle24.NullValue = null;
@@ -170,6 +169,286 @@
             this.StockDataGrid.StandardTab = true;
             this.StockDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StockDataGrid_CellClick);
             this.StockDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.StockDataGrid_CellFormatting);
+            // 
+            // Action
+            // 
+            resources.ApplyResources(this.Action, "Action");
+            this.Action.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Action.Controls.Add(this.panel1);
+            this.Action.Name = "Action";
+            // 
+            // panel1
+            // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.curdAction);
+            this.panel1.Name = "panel1";
+            // 
+            // curdAction
+            // 
+            resources.ApplyResources(this.curdAction, "curdAction");
+            this.curdAction.BackColor = System.Drawing.Color.White;
+            this.curdAction.Controls.Add(this.outBtn);
+            this.curdAction.Controls.Add(this.panel6);
+            this.curdAction.Controls.Add(this.inBtn);
+            this.curdAction.Controls.Add(this.panel5);
+            this.curdAction.Controls.Add(this.RestockBtn);
+            this.curdAction.Controls.Add(this.margin1);
+            this.curdAction.Controls.Add(this.exportBtn);
+            this.curdAction.Controls.Add(this.panel2);
+            this.curdAction.Controls.Add(this.DeleteBtn);
+            this.curdAction.Controls.Add(this.panel3);
+            this.curdAction.Controls.Add(this.AddBtn);
+            this.curdAction.Controls.Add(this.panel4);
+            this.curdAction.Controls.Add(this.SearchBar);
+            this.curdAction.Name = "curdAction";
+            // 
+            // outBtn
+            // 
+            resources.ApplyResources(this.outBtn, "outBtn");
+            this.outBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.outBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.outBtn.BorderColor = System.Drawing.Color.White;
+            this.outBtn.BorderRadius = 10;
+            this.outBtn.BorderSize = 0;
+            this.outBtn.FlatAppearance.BorderSize = 0;
+            this.outBtn.ForeColor = System.Drawing.Color.White;
+            this.outBtn.IsChecked = false;
+            this.outBtn.Name = "outBtn";
+            this.outBtn.TextColor = System.Drawing.Color.White;
+            this.outBtn.UseVisualStyleBackColor = false;
+            this.outBtn.Click += new System.EventHandler(this.outBtn_Click);
+            // 
+            // panel6
+            // 
+            resources.ApplyResources(this.panel6, "panel6");
+            this.panel6.Name = "panel6";
+            // 
+            // inBtn
+            // 
+            resources.ApplyResources(this.inBtn, "inBtn");
+            this.inBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.inBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.inBtn.BorderColor = System.Drawing.Color.White;
+            this.inBtn.BorderRadius = 10;
+            this.inBtn.BorderSize = 0;
+            this.inBtn.FlatAppearance.BorderSize = 0;
+            this.inBtn.ForeColor = System.Drawing.Color.White;
+            this.inBtn.IsChecked = false;
+            this.inBtn.Name = "inBtn";
+            this.inBtn.TextColor = System.Drawing.Color.White;
+            this.inBtn.UseVisualStyleBackColor = false;
+            this.inBtn.Click += new System.EventHandler(this.inBtn_Click);
+            // 
+            // panel5
+            // 
+            resources.ApplyResources(this.panel5, "panel5");
+            this.panel5.Name = "panel5";
+            // 
+            // RestockBtn
+            // 
+            resources.ApplyResources(this.RestockBtn, "RestockBtn");
+            this.RestockBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.RestockBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.RestockBtn.BorderColor = System.Drawing.Color.White;
+            this.RestockBtn.BorderRadius = 10;
+            this.RestockBtn.BorderSize = 0;
+            this.RestockBtn.FlatAppearance.BorderSize = 0;
+            this.RestockBtn.ForeColor = System.Drawing.Color.White;
+            this.RestockBtn.IsChecked = false;
+            this.RestockBtn.Name = "RestockBtn";
+            this.RestockBtn.TextColor = System.Drawing.Color.White;
+            this.RestockBtn.UseVisualStyleBackColor = false;
+            this.RestockBtn.Click += new System.EventHandler(this.RestockBtn_Click);
+            // 
+            // margin1
+            // 
+            resources.ApplyResources(this.margin1, "margin1");
+            this.margin1.Name = "margin1";
+            // 
+            // exportBtn
+            // 
+            resources.ApplyResources(this.exportBtn, "exportBtn");
+            this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.exportBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.exportBtn.BorderColor = System.Drawing.Color.White;
+            this.exportBtn.BorderRadius = 10;
+            this.exportBtn.BorderSize = 0;
+            this.exportBtn.FlatAppearance.BorderSize = 0;
+            this.exportBtn.ForeColor = System.Drawing.Color.White;
+            this.exportBtn.IsChecked = false;
+            this.exportBtn.Name = "exportBtn";
+            this.exportBtn.TextColor = System.Drawing.Color.White;
+            this.exportBtn.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.Name = "panel2";
+            // 
+            // DeleteBtn
+            // 
+            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
+            this.DeleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.DeleteBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.DeleteBtn.BorderColor = System.Drawing.Color.White;
+            this.DeleteBtn.BorderRadius = 10;
+            this.DeleteBtn.BorderSize = 0;
+            this.DeleteBtn.FlatAppearance.BorderSize = 0;
+            this.DeleteBtn.ForeColor = System.Drawing.Color.White;
+            this.DeleteBtn.IsChecked = false;
+            this.DeleteBtn.Name = "DeleteBtn";
+            this.DeleteBtn.TextColor = System.Drawing.Color.White;
+            this.DeleteBtn.UseVisualStyleBackColor = false;
+            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
+            // 
+            // panel3
+            // 
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.Name = "panel3";
+            // 
+            // AddBtn
+            // 
+            resources.ApplyResources(this.AddBtn, "AddBtn");
+            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.AddBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.AddBtn.BorderColor = System.Drawing.Color.White;
+            this.AddBtn.BorderRadius = 10;
+            this.AddBtn.BorderSize = 0;
+            this.AddBtn.FlatAppearance.BorderSize = 0;
+            this.AddBtn.ForeColor = System.Drawing.Color.White;
+            this.AddBtn.Image = global::TheBetterLimited.Properties.Resources.add;
+            this.AddBtn.IsChecked = false;
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.TextColor = System.Drawing.Color.White;
+            this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // panel4
+            // 
+            resources.ApplyResources(this.panel4, "panel4");
+            this.panel4.Name = "panel4";
+            // 
+            // SearchBar
+            // 
+            resources.ApplyResources(this.SearchBar, "SearchBar");
+            this.SearchBar.Controls.Add(this.pictureBox1);
+            this.SearchBar.Controls.Add(this.SearchBarTxt);
+            this.SearchBar.Name = "SearchBar";
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // SearchBarTxt
+            // 
+            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
+            this.SearchBarTxt.BackColor = System.Drawing.Color.White;
+            this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
+            this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
+            this.SearchBarTxt.BorderRadius = 10;
+            this.SearchBarTxt.BorderSize = 1;
+            this.SearchBarTxt.ForeColor = System.Drawing.Color.LightGray;
+            this.SearchBarTxt.IsError = false;
+            this.SearchBarTxt.MaxLength = 20;
+            this.SearchBarTxt.Multiline = false;
+            this.SearchBarTxt.Name = "SearchBarTxt";
+            this.SearchBarTxt.PasswordChar = false;
+            this.SearchBarTxt.Placeholder = "Search";
+            this.SearchBarTxt.ReadOnly = false;
+            this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
+            this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
+            this.SearchBarTxt.Texts = "Search";
+            this.SearchBarTxt.UnderlinedStyle = false;
+            // 
+            // Header
+            // 
+            resources.ApplyResources(this.Header, "Header");
+            this.Header.BackColor = System.Drawing.Color.White;
+            this.Header.Controls.Add(this.button1);
+            this.Header.Controls.Add(this.button2);
+            this.Header.Controls.Add(this.Title);
+            this.Header.ForeColor = System.Drawing.Color.White;
+            this.Header.Name = "Header";
+            // 
+            // button1
+            // 
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // button2
+            // 
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.RefreshBtn_Click);
+            // 
+            // Title
+            // 
+            resources.ApplyResources(this.Title, "Title");
+            this.Title.ForeColor = System.Drawing.Color.Black;
+            this.Title.Name = "Title";
+            // 
+            // Data
+            // 
+            resources.ApplyResources(this.Data, "Data");
+            this.Data.Controls.Add(this.StockDataGrid);
+            this.Data.Controls.Add(this.loadPic);
+            this.Data.Name = "Data";
+            // 
+            // loadPic
+            // 
+            resources.ApplyResources(this.loadPic, "loadPic");
+            this.loadPic.BackColor = System.Drawing.Color.White;
+            this.loadPic.Name = "loadPic";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
+            // dataGridViewImageColumn2
+            // 
+            resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            // 
+            // dataGridViewImageColumn3
+            // 
+            resources.ApplyResources(this.dataGridViewImageColumn3, "dataGridViewImageColumn3");
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            // 
+            // dataGridViewImageColumn4
+            // 
+            this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.dataGridViewImageColumn4, "dataGridViewImageColumn4");
+            this.dataGridViewImageColumn4.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn4.Image")));
+            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
+            this.dataGridViewImageColumn4.ReadOnly = true;
+            this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewImageColumn5
+            // 
+            this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            resources.ApplyResources(this.dataGridViewImageColumn5, "dataGridViewImageColumn5");
+            this.dataGridViewImageColumn5.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn5.Image")));
+            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
+            this.dataGridViewImageColumn5.ReadOnly = true;
+            this.dataGridViewImageColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // dataGridViewImageColumn6
+            // 
+            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            resources.ApplyResources(this.dataGridViewImageColumn6, "dataGridViewImageColumn6");
+            this.dataGridViewImageColumn6.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn6.Image")));
+            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
+            this.dataGridViewImageColumn6.ReadOnly = true;
+            this.dataGridViewImageColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // select
             // 
@@ -278,286 +557,6 @@
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
             this.delete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Action
-            // 
-            this.Action.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.Action.Controls.Add(this.panel1);
-            resources.ApplyResources(this.Action, "Action");
-            this.Action.Name = "Action";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.curdAction);
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Name = "panel1";
-            // 
-            // curdAction
-            // 
-            this.curdAction.BackColor = System.Drawing.Color.White;
-            this.curdAction.Controls.Add(this.outBtn);
-            this.curdAction.Controls.Add(this.panel6);
-            this.curdAction.Controls.Add(this.inBtn);
-            this.curdAction.Controls.Add(this.panel5);
-            this.curdAction.Controls.Add(this.RestockBtn);
-            this.curdAction.Controls.Add(this.margin1);
-            this.curdAction.Controls.Add(this.exportBtn);
-            this.curdAction.Controls.Add(this.panel2);
-            this.curdAction.Controls.Add(this.DeleteBtn);
-            this.curdAction.Controls.Add(this.panel3);
-            this.curdAction.Controls.Add(this.AddBtn);
-            this.curdAction.Controls.Add(this.panel4);
-            this.curdAction.Controls.Add(this.SearchBar);
-            resources.ApplyResources(this.curdAction, "curdAction");
-            this.curdAction.Name = "curdAction";
-            // 
-            // outBtn
-            // 
-            this.outBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.outBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.outBtn.BorderColor = System.Drawing.Color.White;
-            this.outBtn.BorderRadius = 10;
-            this.outBtn.BorderSize = 0;
-            resources.ApplyResources(this.outBtn, "outBtn");
-            this.outBtn.FlatAppearance.BorderSize = 0;
-            this.outBtn.ForeColor = System.Drawing.Color.White;
-            this.outBtn.IsChecked = false;
-            this.outBtn.Name = "outBtn";
-            this.outBtn.TextColor = System.Drawing.Color.White;
-            this.outBtn.UseVisualStyleBackColor = false;
-            this.outBtn.Click += new System.EventHandler(this.outBtn_Click);
-            // 
-            // panel6
-            // 
-            resources.ApplyResources(this.panel6, "panel6");
-            this.panel6.Name = "panel6";
-            // 
-            // inBtn
-            // 
-            this.inBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.inBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.inBtn.BorderColor = System.Drawing.Color.White;
-            this.inBtn.BorderRadius = 10;
-            this.inBtn.BorderSize = 0;
-            resources.ApplyResources(this.inBtn, "inBtn");
-            this.inBtn.FlatAppearance.BorderSize = 0;
-            this.inBtn.ForeColor = System.Drawing.Color.White;
-            this.inBtn.IsChecked = false;
-            this.inBtn.Name = "inBtn";
-            this.inBtn.TextColor = System.Drawing.Color.White;
-            this.inBtn.UseVisualStyleBackColor = false;
-            this.inBtn.Click += new System.EventHandler(this.inBtn_Click);
-            // 
-            // panel5
-            // 
-            resources.ApplyResources(this.panel5, "panel5");
-            this.panel5.Name = "panel5";
-            // 
-            // RestockBtn
-            // 
-            this.RestockBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.RestockBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.RestockBtn.BorderColor = System.Drawing.Color.White;
-            this.RestockBtn.BorderRadius = 10;
-            this.RestockBtn.BorderSize = 0;
-            resources.ApplyResources(this.RestockBtn, "RestockBtn");
-            this.RestockBtn.FlatAppearance.BorderSize = 0;
-            this.RestockBtn.ForeColor = System.Drawing.Color.White;
-            this.RestockBtn.IsChecked = false;
-            this.RestockBtn.Name = "RestockBtn";
-            this.RestockBtn.TextColor = System.Drawing.Color.White;
-            this.RestockBtn.UseVisualStyleBackColor = false;
-            this.RestockBtn.Click += new System.EventHandler(this.RestockBtn_Click);
-            // 
-            // margin1
-            // 
-            resources.ApplyResources(this.margin1, "margin1");
-            this.margin1.Name = "margin1";
-            // 
-            // exportBtn
-            // 
-            this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.exportBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.exportBtn.BorderColor = System.Drawing.Color.White;
-            this.exportBtn.BorderRadius = 10;
-            this.exportBtn.BorderSize = 0;
-            resources.ApplyResources(this.exportBtn, "exportBtn");
-            this.exportBtn.FlatAppearance.BorderSize = 0;
-            this.exportBtn.ForeColor = System.Drawing.Color.White;
-            this.exportBtn.IsChecked = false;
-            this.exportBtn.Name = "exportBtn";
-            this.exportBtn.TextColor = System.Drawing.Color.White;
-            this.exportBtn.UseVisualStyleBackColor = false;
-            // 
-            // panel2
-            // 
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.Name = "panel2";
-            // 
-            // DeleteBtn
-            // 
-            this.DeleteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.DeleteBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.DeleteBtn.BorderColor = System.Drawing.Color.White;
-            this.DeleteBtn.BorderRadius = 10;
-            this.DeleteBtn.BorderSize = 0;
-            resources.ApplyResources(this.DeleteBtn, "DeleteBtn");
-            this.DeleteBtn.FlatAppearance.BorderSize = 0;
-            this.DeleteBtn.ForeColor = System.Drawing.Color.White;
-            this.DeleteBtn.IsChecked = false;
-            this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.TextColor = System.Drawing.Color.White;
-            this.DeleteBtn.UseVisualStyleBackColor = false;
-            this.DeleteBtn.Click += new System.EventHandler(this.DeleteBtn_Click);
-            // 
-            // panel3
-            // 
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.Name = "panel3";
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.AddBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
-            this.AddBtn.BorderColor = System.Drawing.Color.White;
-            this.AddBtn.BorderRadius = 10;
-            this.AddBtn.BorderSize = 0;
-            resources.ApplyResources(this.AddBtn, "AddBtn");
-            this.AddBtn.FlatAppearance.BorderSize = 0;
-            this.AddBtn.ForeColor = System.Drawing.Color.White;
-            this.AddBtn.Image = global::TheBetterLimited.Properties.Resources.add;
-            this.AddBtn.IsChecked = false;
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.TextColor = System.Drawing.Color.White;
-            this.AddBtn.UseVisualStyleBackColor = false;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
-            // panel4
-            // 
-            resources.ApplyResources(this.panel4, "panel4");
-            this.panel4.Name = "panel4";
-            // 
-            // SearchBar
-            // 
-            this.SearchBar.Controls.Add(this.pictureBox1);
-            this.SearchBar.Controls.Add(this.SearchBarTxt);
-            resources.ApplyResources(this.SearchBar, "SearchBar");
-            this.SearchBar.Name = "SearchBar";
-            // 
-            // pictureBox1
-            // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // SearchBarTxt
-            // 
-            this.SearchBarTxt.BackColor = System.Drawing.Color.White;
-            this.SearchBarTxt.BorderColor = System.Drawing.Color.LightGray;
-            this.SearchBarTxt.BorderFocusColor = System.Drawing.Color.SeaGreen;
-            this.SearchBarTxt.BorderRadius = 10;
-            this.SearchBarTxt.BorderSize = 1;
-            resources.ApplyResources(this.SearchBarTxt, "SearchBarTxt");
-            this.SearchBarTxt.ForeColor = System.Drawing.Color.LightGray;
-            this.SearchBarTxt.IsError = false;
-            this.SearchBarTxt.MaxLength = 20;
-            this.SearchBarTxt.Multiline = false;
-            this.SearchBarTxt.Name = "SearchBarTxt";
-            this.SearchBarTxt.PasswordChar = false;
-            this.SearchBarTxt.Placeholder = "Search";
-            this.SearchBarTxt.ReadOnly = false;
-            this.SearchBarTxt.TbBackColor = System.Drawing.SystemColors.Window;
-            this.SearchBarTxt.TextAlign = TheBetterLimited.CustomizeControl.CustomizeTextbox.TextAlignEnum.Left;
-            this.SearchBarTxt.Texts = "Search";
-            this.SearchBarTxt.UnderlinedStyle = false;
-            // 
-            // Header
-            // 
-            this.Header.BackColor = System.Drawing.Color.White;
-            this.Header.Controls.Add(this.button1);
-            this.Header.Controls.Add(this.button2);
-            this.Header.Controls.Add(this.Title);
-            resources.ApplyResources(this.Header, "Header");
-            this.Header.ForeColor = System.Drawing.Color.White;
-            this.Header.Name = "Header";
-            // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.BackgroundImage = global::TheBetterLimited.Properties.Resources.close32;
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.CloseBtn_Click);
-            // 
-            // button2
-            // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.BackgroundImage = global::TheBetterLimited.Properties.Resources.rotate_right;
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.RefreshBtn_Click);
-            // 
-            // Title
-            // 
-            resources.ApplyResources(this.Title, "Title");
-            this.Title.ForeColor = System.Drawing.Color.Black;
-            this.Title.Name = "Title";
-            // 
-            // Data
-            // 
-            this.Data.Controls.Add(this.StockDataGrid);
-            this.Data.Controls.Add(this.loadPic);
-            resources.ApplyResources(this.Data, "Data");
-            this.Data.Name = "Data";
-            // 
-            // loadPic
-            // 
-            this.loadPic.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.loadPic, "loadPic");
-            this.loadPic.Name = "loadPic";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            resources.ApplyResources(this.dataGridViewImageColumn1, "dataGridViewImageColumn1");
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
-            // dataGridViewImageColumn2
-            // 
-            resources.ApplyResources(this.dataGridViewImageColumn2, "dataGridViewImageColumn2");
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            // 
-            // dataGridViewImageColumn3
-            // 
-            resources.ApplyResources(this.dataGridViewImageColumn3, "dataGridViewImageColumn3");
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            // 
-            // dataGridViewImageColumn4
-            // 
-            this.dataGridViewImageColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.dataGridViewImageColumn4, "dataGridViewImageColumn4");
-            this.dataGridViewImageColumn4.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn4.Image")));
-            this.dataGridViewImageColumn4.Name = "dataGridViewImageColumn4";
-            this.dataGridViewImageColumn4.ReadOnly = true;
-            this.dataGridViewImageColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewImageColumn5
-            // 
-            this.dataGridViewImageColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            resources.ApplyResources(this.dataGridViewImageColumn5, "dataGridViewImageColumn5");
-            this.dataGridViewImageColumn5.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn5.Image")));
-            this.dataGridViewImageColumn5.Name = "dataGridViewImageColumn5";
-            this.dataGridViewImageColumn5.ReadOnly = true;
-            this.dataGridViewImageColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // dataGridViewImageColumn6
-            // 
-            this.dataGridViewImageColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            resources.ApplyResources(this.dataGridViewImageColumn6, "dataGridViewImageColumn6");
-            this.dataGridViewImageColumn6.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn6.Image")));
-            this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
-            this.dataGridViewImageColumn6.ReadOnly = true;
-            this.dataGridViewImageColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Stock
             // 

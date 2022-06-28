@@ -123,7 +123,7 @@ namespace TheBetterLimited.Views
                 }
                 if (e.Value.ToString().Equals("LowStock"))
                 {
-                    e.Value = "Re-oder";
+                    e.Value = "Re-order";
                     e.CellStyle.ForeColor = Color.FromArgb(250, 182, 99);
                     e.CellStyle.Font = new Font("Segoe UI", 10.10084F, FontStyle.Bold);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(250, 182, 99);

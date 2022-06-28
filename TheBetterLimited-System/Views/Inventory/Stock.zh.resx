@@ -136,7 +136,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="id.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+    <value>75</value>
   </data>
   <data name="locationId.HeaderText" xml:space="preserve">
     <value>所在地</value>
@@ -145,7 +145,7 @@
     <value>库存所在地</value>
   </data>
   <data name="locationId.Width" type="System.Int32, mscorlib">
-    <value>84</value>
+    <value>89</value>
   </data>
   <data name="supplierGoodsId.HeaderText" xml:space="preserve">
     <value>商品名称</value>
@@ -160,25 +160,25 @@
     <value>数量</value>
   </data>
   <data name="quantity.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+    <value>75</value>
   </data>
   <data name="maxLimit.HeaderText" xml:space="preserve">
-    <value>最大</value>
+    <value>最大值</value>
   </data>
   <data name="maxLimit.ToolTipText" xml:space="preserve">
     <value>库存最大值</value>
   </data>
   <data name="maxLimit.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+    <value>89</value>
   </data>
   <data name="minLimit.HeaderText" xml:space="preserve">
-    <value>最小</value>
+    <value>最小值</value>
   </data>
   <data name="minLimit.ToolTipText" xml:space="preserve">
     <value>库存最小值</value>
   </data>
   <data name="minLimit.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+    <value>89</value>
   </data>
   <data name="ReorderLevel.HeaderText" xml:space="preserve">
     <value>再订购</value>
@@ -187,7 +187,7 @@
     <value>再订购水平</value>
   </data>
   <data name="ReorderLevel.Width" type="System.Int32, mscorlib">
-    <value>84</value>
+    <value>89</value>
   </data>
   <data name="Status.HeaderText" xml:space="preserve">
     <value>状态</value>
@@ -196,7 +196,7 @@
     <value>状态</value>
   </data>
   <data name="Status.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+    <value>75</value>
   </data>
   <data name="edit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
