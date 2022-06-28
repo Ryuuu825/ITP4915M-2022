@@ -75,7 +75,7 @@ namespace TheBetterLimited.Views
                     WaitResult waitResult = new WaitResult();
                     waitResult.Show();
                     waitResult.TopMost = true;
-                    //Console.WriteLine("Request: " + JsonConvert.SerializeObject(data));
+                    Console.WriteLine("Request: " + JsonConvert.SerializeObject(data));
                     bgWorker.RunWorkerAsync(response = cbOrder.Create(data));
                     Console.WriteLine(response.Content);
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)

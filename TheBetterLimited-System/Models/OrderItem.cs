@@ -10,7 +10,7 @@ namespace TheBetterLimited.Models
     {
         private string supplierGoodsStockId;
         private string name;
-        private double price;
+        private int price;
         private int stock;
         private bool needDelivery;
         private bool needInstall;
@@ -23,7 +23,7 @@ namespace TheBetterLimited.Models
             this.supplierGoodsStockId = "0";
             this.stock = 0;
             this.name = "";
-            this.price = 0.0;
+            this.price = 0;
             this.quantity = 1;
             this.needDelivery = false;
             this.needInstall = false;
@@ -34,7 +34,7 @@ namespace TheBetterLimited.Models
 
         public string SupplierGoodsStockId { get => supplierGoodsStockId; set => supplierGoodsStockId = value; }
         public string Name { get => name; set => name = value; }
-        public double Price { get => price; set => price = value; }
+        public int Price { get => price; set => price = value; }
         public int Stock { get => stock; set => stock = value; }
         public bool NeedDelivery { get => needDelivery; set => needDelivery = value; }
         public bool IsDisplay { get => isDisplay; set => isDisplay = value; }

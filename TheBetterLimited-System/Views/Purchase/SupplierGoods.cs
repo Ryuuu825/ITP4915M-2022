@@ -227,6 +227,7 @@ namespace TheBetterLimited.Views
         }
         private void InitList()
         {
+            supGoods.Clear();
             try
             {
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));

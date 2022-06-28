@@ -182,8 +182,8 @@ namespace TheBetterLimited.Views
                 Dictionary<string, object> dict = new Dictionary<string, object>();
                 dict.Add("_purchaseOrderId", purchaseId);
                 dict.Add("_restockRequestId", restockId);
-                dict.Add("goods", list);
-                Console.WriteLine("Request: " + JsonConvert.SerializeObject(list));
+                dict.Add("items", list);
+                Console.WriteLine("Request: " + JsonConvert.SerializeObject(dict));
                 response = cbStock.Update("bound", dict);
                 Console.WriteLine(response.Content);
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
