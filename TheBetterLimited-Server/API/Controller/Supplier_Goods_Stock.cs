@@ -231,7 +231,7 @@ namespace TheBetterLimited_Server.API.Controller
                     stock.Quantity += (int) item.qty;
                     sgs.Update(stock);
 
-                    if (dto._purchaseOrderId is not null && dto._restockRequestId is null) 
+                    if (dto._purchaseOrderId is not null) 
                     {
                         // warehouse stock inbound
                         var po = PurchaseOrderTable.GetById(dto._purchaseOrderId);
@@ -239,6 +239,7 @@ namespace TheBetterLimited_Server.API.Controller
 
                         po.Status = Data.Entity.PurchaseOrderStatus.Inbound;
                         PurchaseOrderTable.Update(po);
+                        ConsoleLogger.Debug(po.Debug());
 
                         var poItem = po.Items.Where(x => x._supplierGoodsId == stock._supplierGoodsId).FirstOrDefault();
                         poItem.ReceivedQuantity = (uint) item.qty;
