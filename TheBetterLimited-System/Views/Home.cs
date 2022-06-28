@@ -60,7 +60,8 @@ namespace TheBetterLimited.Views
             profitPie.ChartAreas["ChartArea1"].AxisY.MajorGrid.Enabled = false;
             for (int i = 0; i < orders.Count; i++)
             {
-                profitPie.Series["S1"].Points.AddXY(DateTime.Today.AddDays(-30+i).ToString("M"), orders[i]);
+                var dayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(i).ToString("M");
+                profitPie.Series["S1"].Points.AddXY(dayOfMonth, orders[i]);
             }
         }
 
