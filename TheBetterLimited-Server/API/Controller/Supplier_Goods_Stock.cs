@@ -215,7 +215,7 @@ namespace TheBetterLimited_Server.API.Controller
                     // update the stock according to the user location
                     Data.Entity.Supplier_Goods_Stock stock = repository.GetBySQL(
                                     $"SELECT * FROM `Goods` WHERE `Id` = '{item._goodsId}'"
-                                ).FirstOrDefault()
+                                )?.FirstOrDefault()
                                 .Supplier_Goods.FirstOrDefault()
                                 .Supplier_Goods_Stocks.Where(x => x._locationId == location)
                                 .FirstOrDefault();

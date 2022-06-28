@@ -164,7 +164,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 
                 foreach(var salesOrderItem in salesOrderItemList)
                 {
-                    total += salesOrderItem.Price * salesOrderItem.Quantity;
+                    total += (decimal) (salesOrderItem.Price * salesOrderItem.Quantity);
 
                     var appointments = salesOrderItem.SaleOrderItem_Appointment;
                     // if ( appointments is null || appointments.Count == 0)
@@ -339,8 +339,6 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             }
 
             List<SalesOrderItem> salesOrderItems = new List<SalesOrderItem>();
-
-            ConsoleLogger.Debug(order.Debug());
 
             foreach (var item in order.SalesOrderItems)
             {
