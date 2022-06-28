@@ -448,7 +448,7 @@ namespace TheBetterLimited.Views
 
         private void enBtn_Click(object sender, EventArgs e)
         {
-            if(MultiLanguage.DefaultLanguage == "en")
+            if(MultiLanguage.DefaultLanguage == "en-HK")
             {
                 MessageBox.Show("Current system language is English, you don't need to change");
                 return;
@@ -456,7 +456,7 @@ namespace TheBetterLimited.Views
             DialogResult result = MessageBox.Show("更换系统语言需要重新登入系统, \n请问是否进行更换?", "提醒", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                MultiLanguage.SetDefaultLanguage("en");
+                MultiLanguage.SetDefaultLanguage("en-HK");
                 this.Dispose();
                 this.Delegate.Stop();
                 GlobalsData.currentUser.Clear();
@@ -468,7 +468,7 @@ namespace TheBetterLimited.Views
 
         private void zhBtn_Click(object sender, EventArgs e)
         {
-            if (MultiLanguage.DefaultLanguage == "zh")
+            if (MultiLanguage.DefaultLanguage == "zh-CN")
             {
                 MessageBox.Show("当前系统语言为简体中文，\n你不需要进行更换。");
                 return;
@@ -476,7 +476,7 @@ namespace TheBetterLimited.Views
             DialogResult result = MessageBox.Show("Change language will re-login the system, \nAre you sure to change the system language?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                MultiLanguage.SetDefaultLanguage("zh");
+                MultiLanguage.SetDefaultLanguage("zh-CN");
                 this.Dispose();
                 this.Delegate.Stop();
                 GlobalsData.currentUser.Clear();

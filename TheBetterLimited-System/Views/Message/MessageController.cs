@@ -2,6 +2,7 @@
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,7 @@ namespace TheBetterLimited.Views.Message
             this.timer.Start();
             prompt.Visible = true;
             prompt.Text = "";
-            if (MultiLanguage.DefaultLanguage == "zh")
+            if (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "zh")
                 prompt.BalloonTipText = "打开消息中心查看它";
             else
                 prompt.BalloonTipText = "Open Message Center to see it";
@@ -54,7 +55,7 @@ namespace TheBetterLimited.Views.Message
             JArray messageList = JArray.Parse(messages);
             if (messageList.Count > 1)
             {
-                if (MultiLanguage.DefaultLanguage == "zh")
+                if (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "zh")
                     prompt.BalloonTipTitle = "您收到的数则新消息！";
                 else
                     prompt.BalloonTipTitle = "You receive new messages!";
@@ -63,7 +64,7 @@ namespace TheBetterLimited.Views.Message
             else if (messageList.Count == 1)
             {
                 
-                if (MultiLanguage.DefaultLanguage == "zh")
+                if (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "zh")
                     prompt.BalloonTipTitle = $"您收到一封来自{messageList[0]["senderName"].ToString()}的新消息！";
                 else
                     prompt.BalloonTipTitle = $"You receive one new messages from {messageList[0]["senderName"].ToString()}";

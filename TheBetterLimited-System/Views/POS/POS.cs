@@ -295,7 +295,7 @@ namespace TheBetterLimited.Views
         private void CatalogueCombox_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             selectedProduct = -1;
-            if (CatalogueCombox.SelectedIndex != 0)
+            if (CatalogueCombox.SelectedIndex > 0)
             {
                 QryString = $"_catalogueId:{CatalogueCombox.SelectedIndex}";
                 LoadQryGoods();
@@ -651,6 +651,8 @@ namespace TheBetterLimited.Views
         {
             searchBtn.Focus();
             selectedProduct = -1;
+            CatalogueCombox.Texts = "Catalogue";
+            ProductInfoContainer.Controls.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
             {
                 this.SearchBarTxt.Texts = SearchBarTxt.Placeholder;
@@ -658,13 +660,7 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                string str = "";
-                str = "GTINCode:" + this.SearchBarTxt.Texts;
-                if (CatalogueCombox.SelectedIndex != 0)
-                {
-                    str += $"|_catalogueId:{CatalogueCombox.SelectedIndex}";
-                }
-                QryString = str;
+                QryString = "GTINCode:" + this.SearchBarTxt.Texts;
                 LoadQryGoods();
             }
         }
