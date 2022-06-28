@@ -52,11 +52,10 @@ namespace TheBetterLimited.Views.Message
 
             var messages = JObject.Parse(res.Content)["messages"].ToString();
             JArray messageList = JArray.Parse(messages);
-            Console.WriteLine(MultiLanguage.DefaultLanguage);
             if (messageList.Count > 1)
             {
                 if (MultiLanguage.DefaultLanguage == "zh")
-                    prompt.BalloonTipTitle = "您收到的數則新消息！";
+                    prompt.BalloonTipTitle = "您收到的数则新消息！";
                 else
                     prompt.BalloonTipTitle = "You receive new messages!";
                 prompt.ShowBalloonTip(1000);

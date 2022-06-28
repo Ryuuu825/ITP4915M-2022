@@ -116,6 +116,7 @@ namespace TheBetterLimited.Views
                 if (((int)goodsData[0]["status"]) == (int)POStatus.Inbound || ((int)goodsData[0]["status"]) == (int)POStatus.Completed)
                 {
                     MessageBox.Show("The id " + SearchBarTxt.Texts + " has inbounded");
+                    return;
                 }
                 foreach (JObject o in goodsData[0]["items"])
                 {
@@ -138,7 +139,7 @@ namespace TheBetterLimited.Views
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageBox.Show("Input invalid!");
+                MessageBox.Show("Not Found!");
             }
         }
 

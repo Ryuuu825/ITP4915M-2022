@@ -320,6 +320,11 @@ namespace TheBetterLimited.Views
 
         private void ConfirmBtn_Click(object sender, EventArgs e)
         {
+            if (dataChange)
+            {
+                MessageBox.Show("The purchase order has been changed.\nPlease click the update button to save first");
+                return;
+            }
             if ((int)PO["status"] == (int)POStatus.Pending)
             {
                 DialogResult result = MessageBox.Show("Are you sure to send the purchase order to accounting department?", "Confirmation Request", MessageBoxButtons.YesNo);
@@ -393,7 +398,7 @@ namespace TheBetterLimited.Views
                 {
                     try
                     {
-                        response = cbPO.UpdateStatus(PO["id"].ToString(), (int)POStatus.Approved);
+                        response = cbPO.UpdateStatus(PO["id"].ToString(), (int)POStatus.Rejected);
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
                             MessageBox.Show("The purchase order rejected successfully");
