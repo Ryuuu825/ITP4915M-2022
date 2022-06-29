@@ -12,6 +12,7 @@ namespace TheBetterLimited_Server.API.Controller
         private Data.Repositories.Repository<Data.Entity.RestockRequest_Supplier_Goods> _RSGTable;
         private Data.Repositories.UserInfoRepository userInfo;
         private AppLogic.Controllers.GoodsController _GoodsController;
+        private AppLogic.Controllers.MessageController message;
         private Data.DataContext db;
 
 
@@ -22,6 +23,7 @@ namespace TheBetterLimited_Server.API.Controller
             _RSGTable = new Data.Repositories.Repository<Data.Entity.RestockRequest_Supplier_Goods>(db);
             userInfo = new Data.Repositories.UserInfoRepository(db);
             _GoodsController = new AppLogic.Controllers.GoodsController(db);
+            message = new AppLogic.Controllers.MessageController(db);
             this.db = db;
         }
 
@@ -40,7 +42,7 @@ namespace TheBetterLimited_Server.API.Controller
         public class RestockRequestOutDto 
         {
             public string Id { get; set; }
-            public string _storeId { get; set; }
+            public Hashtable Location { get; set; }
             public DateTime CreateAt { get; set; }
             public DateTime UpdateAt { get; set; }
             public string _operatorId { get; set; }
@@ -77,8 +79,6 @@ namespace TheBetterLimited_Server.API.Controller
 
                 foreach( var item in dto.Items)
                 {
-                    ConsoleLogger.Debug($"SELECT * FROM `Supplier_Goods_Stock` WHERE `Id` = '{item._supplierGoodsStockId}'");
-                    
                     Data.Entity.Supplier_Goods_Stock sgs = _SGSTable.GetBySQL($"SELECT * FROM `Supplier_Goods_Stock` WHERE `Id` = '{item._supplierGoodsStockId}'").First();
                     Data.Entity.RestockRequest_Supplier_Goods rgs = new Data.Entity.RestockRequest_Supplier_Goods
                     {
@@ -109,6 +109,14 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 Data.Entity.Staff s = userInfo.GetStaffFromUserName(User.Identity.Name);
                 List<Data.Entity.RestockRequest> rr = repository.GetBySQL($"SELECT * FROM `RestockRequest` WHERE `_storeId` = '{s.store._locationID}'").ToList();
+                if (userInfo.IsSales(User.Identity.Name))
+                {
+                    message.BoardcastMessage(User.Identity.Name, "300" , "New Restock Request" , "You have new restock request");
+                }
+                else if (userInfo.IsWarehouseStaff(User.Identity.Name))
+                {
+                    message.BoardcastMessage(User.Identity.Name, "800" , "New Restock Request" , "You have new restock request");
+                }
                 return Ok(ToDto(rr,User.Identity.Name, Langauge));
             }
             catch (ICustException e)
@@ -140,7 +148,7 @@ namespace TheBetterLimited_Server.API.Controller
                 RestockRequestOutDto r = new RestockRequestOutDto
                 {
                     Id = req.ID,
-                    _storeId = req._storeId,
+                    Location = req.Location.MapToDto(),
                     CreateAt = req.CreateTime,
                     UpdateAt = req.OperateTime,
                     _operatorId = req._operatorId,
