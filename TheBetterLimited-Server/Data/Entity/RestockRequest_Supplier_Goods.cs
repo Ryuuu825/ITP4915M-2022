@@ -1,7 +1,7 @@
 namespace TheBetterLimited_Server.Data.Entity
 {
     [Table("RestockRequest_Supplier_Goods")]
-    public class RestockRequest_Supplier_Goods
+    public class  RestockRequest_Supplier_Goods
     {
         [MaxLength(10)]
         [Column(TypeName = "char(10)")]
@@ -20,5 +20,10 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "MEDIUMINT")]
         [Range(0, 99999)]
         public uint _quantity { get; set; }
+        
+        [Column(TypeName = "MEDIUMINT")]
+        [Range(0, 99999)]
+        public uint _quantityReceived { get; set; }
+
     }
 }
