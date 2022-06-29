@@ -19,25 +19,25 @@ using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class RestockRequest_Add : Form
+    public partial class RestockRequest_Details : Form
     {
         private RestResponse response = new RestResponse();
         private DataTable orderTable = new DataTable();
         private BindingSource bs = new BindingSource();
-        private List<string> stocks = new List<string>();
+        private JObject rq = new JObject();
         private List<JObject> orderItems = new List<JObject>();
         private List<RestockItem> items = new List<RestockItem>();
         private ControllerBase cbRestock = new ControllerBase("Restock");
         private ControllerBase cbStock = new ControllerBase("inventory/sgs");
 
-        public RestockRequest_Add()
+        public RestockRequest_Details()
         {
             InitializeComponent();
         }
 
-        public RestockRequest_Add(List<string> goodsIds)
+        public RestockRequest_Details(JObject restock)
         {
-            this.stocks = goodsIds;
+            this.rq = restock;
             InitializeComponent();
             InitDataTable();
             InitializeOrderItemTable();
@@ -47,10 +47,9 @@ namespace TheBetterLimited.Views
         private void InitDataTable()
         {
             orderTable.Columns.Add("goodsName");
-            orderTable.Columns.Add("supplierGoodsStockId");
-            orderTable.Columns.Add("curQty");
+            orderTable.Columns.Add("catalogue");
+            orderTable.Columns.Add("goodsId");
             orderTable.Columns.Add("reqQty");
-            orderTable.Columns.Add("max");
         }
 
         public void InitializeOrderItemTable()
@@ -58,21 +57,14 @@ namespace TheBetterLimited.Views
             orderItems.Clear();
             orderTable.Clear();
             items.Clear();
-            foreach (var item in stocks)
-            {
-                response = cbStock.GetById(item);
-                JObject stock = JObject.Parse(response.Content);
-                orderItems.Add(stock);
-            }
-            foreach (var item in orderItems)
+
+            foreach (JObject item in (JArray)rq["items"])
             {
                 var row = orderTable.NewRow();
-                row["goodsName"] = item["GoodsName"].ToString();
-                row["supplierGoodsStockId"] = item["Id"].ToString();
-                row["curQty"] = item["Quantity"];
-                row["reqQty"] = (int)item["MaxLimit"] - (int)item["Quantity"];
-                row["max"] = item["MaxLimit"].ToString();
-                items.Add(new RestockItem(item["Id"].ToString(), Convert.ToInt32(row["reqQty"])));
+                row["goodsName"] = item["goods"]["GoodsName"].ToString();
+                row["goodsId"] = item["goods"]["GoodsId"].ToString();
+                row["reqQty"] = item["quantity"];
+                row["catalogue"] = item["goods"]["Catalogue"].ToString();
                 orderTable.Rows.Add(row);
             }
             bs.DataSource = orderTable;
@@ -90,21 +82,7 @@ namespace TheBetterLimited.Views
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             try {
-                Dictionary<string, object> data = new Dictionary<string, object>();
-                data.Add("items", items);
-                Console.WriteLine("Request: " + JsonConvert.SerializeObject(data));
-                var response =  cbRestock.Create(data);
-                Console.WriteLine(response.Content);
-                if(response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    MessageBox.Show("Restock Request Created Successfully");
-                    this.OnExit.Invoke();
-                    this.Close();
-                    this.Dispose();
-                }else
-                {
-                    throw new Exception(response.Content);
-                }
+               
             }
             catch (Exception ex)
             {
@@ -112,14 +90,6 @@ namespace TheBetterLimited.Views
             };
         }
 
-        private void OrderDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == OrderDataGrid.Columns["delete"].Index)
-            {
-                stocks.RemoveAt(e.RowIndex);
-                InitializeOrderItemTable();
-            }
-        }
         private void OrderDataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);

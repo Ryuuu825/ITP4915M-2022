@@ -125,10 +125,19 @@
     <value>True</value>
   </metadata>
   <data name="goodsID.HeaderText" xml:space="preserve">
-    <value>Stock ID</value>
+    <value>Goods ID</value>
   </data>
-  <data name="goodsID.ToolTipText" xml:space="preserve">
-    <value>Stock ID</value>
+  <data name="goodsID.Width" type="System.Int32, mscorlib">
+    <value>105</value>
+  </data>
+  <metadata name="catalogue.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="catalogue.HeaderText" xml:space="preserve">
+    <value>Catalogue</value>
+  </data>
+  <data name="catalogue.Width" type="System.Int32, mscorlib">
+    <value>110</value>
   </data>
   <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -141,24 +150,6 @@
   </data>
   <data name="ID.ToolTipText" xml:space="preserve">
     <value>Goods Name</value>
-  </data>
-  <metadata name="curQty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="curQty.HeaderText" xml:space="preserve">
-    <value>Stock Qty</value>
-  </data>
-  <data name="curQty.Width" type="System.Int32, mscorlib">
-    <value>109</value>
-  </data>
-  <metadata name="max.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="max.HeaderText" xml:space="preserve">
-    <value>Max.</value>
-  </data>
-  <data name="max.Width" type="System.Int32, mscorlib">
-    <value>77</value>
   </data>
   <metadata name="reqQty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -175,21 +166,6 @@
   <data name="reqQty.Width" type="System.Int32, mscorlib">
     <value>124</value>
   </data>
-  <metadata name="delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="delete.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="delete.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="delete.ToolTipText" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="delete.Width" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="OrderDataGrid.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -205,7 +181,7 @@
     <value>30</value>
   </data>
   <data name="OrderDataGrid.Size" type="System.Drawing.Size, System.Drawing">
-    <value>872, 437</value>
+    <value>914, 437</value>
   </data>
   <data name="OrderDataGrid.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -235,7 +211,7 @@
     <value>0, 2, 0, 0</value>
   </data>
   <data name="Data.Size" type="System.Drawing.Size, System.Drawing">
-    <value>872, 439</value>
+    <value>914, 439</value>
   </data>
   <data name="Data.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -298,7 +274,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>872, 40</value>
+    <value>914, 40</value>
   </data>
   <data name="panel5.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -328,7 +304,7 @@
     <value>NoControl</value>
   </data>
   <data name="CancelBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>597, 6</value>
+    <value>639, 6</value>
   </data>
   <data name="CancelBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 40</value>
@@ -364,7 +340,7 @@
     <value>NoControl</value>
   </data>
   <data name="SaveBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>731, 6</value>
+    <value>773, 6</value>
   </data>
   <data name="SaveBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 40</value>
@@ -373,7 +349,7 @@
     <value>0</value>
   </data>
   <data name="SaveBtn.Text" xml:space="preserve">
-    <value>Create</value>
+    <value>Comfirm</value>
   </data>
   <data name="&gt;&gt;SaveBtn.Name" xml:space="preserve">
     <value>SaveBtn</value>
@@ -400,7 +376,7 @@
     <value>10, 10, 10, 0</value>
   </data>
   <data name="BottomBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>872, 54</value>
+    <value>914, 54</value>
   </data>
   <data name="BottomBtn.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -427,7 +403,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="OrderItemBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>872, 533</value>
+    <value>914, 533</value>
   </data>
   <data name="OrderItemBox.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -471,9 +447,6 @@
   <data name="dataGridViewImageColumn4.ToolTipText" xml:space="preserve">
     <value>Need to install?</value>
   </data>
-  <data name="dataGridViewImageColumn4.Width" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
   <data name="dataGridViewImageColumn5.HeaderText" xml:space="preserve">
     <value />
   </data>
@@ -508,10 +481,7 @@
     <value>6, 12</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>872, 533</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>914, 533</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -524,36 +494,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Restock Request</value>
-  </data>
-  <data name="&gt;&gt;goodsID.Name" xml:space="preserve">
-    <value>goodsID</value>
-  </data>
-  <data name="&gt;&gt;goodsID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ID.Name" xml:space="preserve">
-    <value>ID</value>
-  </data>
-  <data name="&gt;&gt;ID.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;curQty.Name" xml:space="preserve">
-    <value>curQty</value>
-  </data>
-  <data name="&gt;&gt;curQty.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;max.Name" xml:space="preserve">
-    <value>max</value>
-  </data>
-  <data name="&gt;&gt;max.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;reqQty.Name" xml:space="preserve">
-    <value>reqQty</value>
-  </data>
-  <data name="&gt;&gt;reqQty.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn3.Name" xml:space="preserve">
     <value>dataGridViewImageColumn3</value>
@@ -579,12 +519,6 @@
   <data name="&gt;&gt;dataGridViewImageColumn4.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;delete.Name" xml:space="preserve">
-    <value>delete</value>
-  </data>
-  <data name="&gt;&gt;delete.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;dataGridViewImageColumn5.Name" xml:space="preserve">
     <value>dataGridViewImageColumn5</value>
   </data>
@@ -603,8 +537,32 @@
   <data name="&gt;&gt;dataGridViewImageColumn6.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;goodsID.Name" xml:space="preserve">
+    <value>goodsID</value>
+  </data>
+  <data name="&gt;&gt;goodsID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;catalogue.Name" xml:space="preserve">
+    <value>catalogue</value>
+  </data>
+  <data name="&gt;&gt;catalogue.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ID.Name" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="&gt;&gt;ID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;reqQty.Name" xml:space="preserve">
+    <value>reqQty</value>
+  </data>
+  <data name="&gt;&gt;reqQty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>RestockRequest_Add</value>
+    <value>RestockRequest_Details</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

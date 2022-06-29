@@ -1,20 +1,14 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using TheBetterLimited.Controller;
-using TheBetterLimited.CustomizeControl;
 using TheBetterLimited.Models;
 using TheBetterLimited_System.Controller;
 
@@ -22,18 +16,26 @@ namespace TheBetterLimited.Views
 {
     public partial class RestockRequest : Form
     {
-        private UserController uc = new UserController();
-        private GoodsController gc = new GoodsController();
+        private DataTable dt = new DataTable();
         private BindingSource bs = new BindingSource();
-        private List<string> selectGoodsID = new List<string>();
+        private List<string> selecteOrderId = new List<string>();
         private DialogResult choose;
-        private RestResponse result;
-        private ControllerBase cbCatalogue = new ControllerBase("Catalogue");
+        private RestResponse response;
+        private ControllerBase cbOrder = new ControllerBase("restock");
+        private List<JObject> orderList = new List<JObject>();
+        private BackgroundWorker bgWorker = new BackgroundWorker();
 
         public RestockRequest()
         {
             InitializeComponent();
-            GetGoods();//init user table
+            InitDataTable();
+            GetOrder();//init table
+            if (GlobalsData.currentUser["department"].ToString().Equals("Accounting"))
+            {
+                CompletedBtn.Visible = true;
+                OrderDataGrid.Columns["delete"].Visible = false;
+                OrderDataGrid.Columns["select"].Visible = true;
+            }
         }
 
         /*
@@ -41,95 +43,159 @@ namespace TheBetterLimited.Views
          */
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
-            DeleteSelectedGoods();
+            DeleteSelectedOrder();
         }
 
         private void RefreshBtn_Click(object sender, EventArgs e)
         {
             this.Invalidate();
-            GetGoods();
+            GetOrder();
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.Dispose();
         }
 
-        private void GoodsDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void OrderDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (RestockRequestDataGrid.Columns[e.ColumnIndex].Name == "Status")
+            if (OrderDataGrid.Columns[e.ColumnIndex].Name == "status")
             {
-                if (e.Value.ToString().Equals("0"))
+                e.Value = (POStatus)(Convert.ToInt32(e.Value));
+                e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                if (e.Value.Equals(POStatus.Inbound) || e.Value.Equals(POStatus.Completed) || e.Value.Equals(POStatus.Approved))
                 {
-                    e.Value = "Selling";
+                    e.CellStyle.ForeColor = Color.SeaGreen;
+                    e.CellStyle.SelectionForeColor = Color.SeaGreen;
                 }
-                if (e.Value.ToString().Equals("1"))
+                else if (e.Value.Equals(POStatus.PendingApproval) || e.Value.Equals(POStatus.SentToSupplier))
                 {
-                    e.Value = "PhasingOut";
+                    e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
                 }
-                if (e.Value.ToString().Equals("2"))
+                else if (e.Value.Equals(POStatus.Pending))
                 {
-                    e.Value = "StopSelling";
+                    e.CellStyle.ForeColor = Color.Orange;
+                    e.CellStyle.SelectionForeColor = Color.Orange;
                 }
-            }
-
-            if (RestockRequestDataGrid.Columns[e.ColumnIndex].Name == "Size")
-            {
-
-                if (e.Value.ToString().Equals("0"))
+                else if (e.Value.Equals(POStatus.Rejected))
                 {
-                    e.Value = "Small";
-                }
-                if (e.Value.ToString().Equals("1"))
-                {
-                    e.Value = "Medium";
-                }
-                if (e.Value.ToString().Equals("2"))
-                {
-                    e.Value = "Large";
-                }
-            }
-
-        }
-
-        private void GoodsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == RestockRequestDataGrid.Columns["select"].Index)
-            {
-                if (Convert.ToInt32(RestockRequestDataGrid["select", e.RowIndex].Tag) == 0)
-                {
-                    RestockRequestDataGrid["select", e.RowIndex].Value = Properties.Resources.check;
-                    RestockRequestDataGrid["select", e.RowIndex].Tag = 1;
-                    RestockRequestDataGrid.Rows[e.RowIndex].Selected = true;
-                    selectGoodsID.Add(RestockRequestDataGrid["id", e.RowIndex].Value.ToString());
+                    e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
+                    e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
                 }
                 else
                 {
-                    RestockRequestDataGrid["select", e.RowIndex].Value = Properties.Resources.square;
-                    RestockRequestDataGrid["select", e.RowIndex].Tag = 0;
-                    RestockRequestDataGrid.Rows[e.RowIndex].Selected = false;
-                    selectGoodsID.Remove(RestockRequestDataGrid["id", e.RowIndex].Value.ToString());
+                    e.CellStyle.ForeColor = Color.DimGray;
+                    e.CellStyle.SelectionForeColor = Color.DimGray;
+                }
+                var reg = @"(?=[A-Z])";
+                var status = Regex.Split(e.Value.ToString(), reg);
+                var value = "";
+                foreach (var item in status)
+                {
+                    value += item + " ";
+                }
+                e.Value = value;
+            }
+        }
+
+        private void OrderDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == OrderDataGrid.Columns["select"].Index)
+            {
+                if ((int)orderList[e.RowIndex]["status"] != (int)POStatus.Inbound)
+                {
+                    MessageBox.Show("The purchase order have not been inbounded.\nCannot complete the purechase order!");
+                    return;
+                }
+                if (Convert.ToInt32(OrderDataGrid["select", e.RowIndex].Tag) == 0)
+                {
+                    OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.check24;
+                    OrderDataGrid["select", e.RowIndex].Tag = 1;
+                    OrderDataGrid.Rows[e.RowIndex].Selected = true;
+                    selecteOrderId.Add(OrderDataGrid["id", e.RowIndex].Value.ToString());
+                }
+                else
+                {
+                    OrderDataGrid["select", e.RowIndex].Value = Properties.Resources.square24;
+                    OrderDataGrid["select", e.RowIndex].Tag = 0;
+                    OrderDataGrid.Rows[e.RowIndex].Selected = false;
+                    selecteOrderId.Remove(OrderDataGrid["id", e.RowIndex].Value.ToString());
                 }
             }
 
-            if (e.ColumnIndex == RestockRequestDataGrid.Columns["edit"].Index)
+            if (e.ColumnIndex == OrderDataGrid.Columns["details"].Index)
             {
-                MessageBox.Show("You have selected row " + selectGoodsID[0] + " cell");
+                Form order = Application.OpenForms["RestockRequest_Details"];
+                if (order != null)
+                {
+                    order.Close();
+                    order.Dispose();
+                }
+                RestockRequest_Details od = new RestockRequest_Details(orderList[e.RowIndex]);
+                od.Show();
+                od.TopLevel = true;
+                od.OnExit += GetOrder;
             }
 
-            if (e.ColumnIndex == RestockRequestDataGrid.Columns["delete"].Index)
+            if (e.ColumnIndex == OrderDataGrid.Columns["print"].Index)
             {
-                DeleteGoods(e);
+                try
+                {
+                    PONote poNote = new PONote(orderList[e.RowIndex]);
+                    poNote.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Print Unsuccessful");
+                }
             }
 
+            if (e.ColumnIndex == OrderDataGrid.Columns["delete"].Index)
+            {
+                if ((int)orderList[e.RowIndex]["status"] != (int)POStatus.Pending && (int)orderList[e.RowIndex]["status"] != (int)POStatus.PendingApproval)
+                {
+                    MessageBox.Show("The purchase order has been proccessed");
+                    return;
+                }
+
+                DialogResult result = MessageBox.Show("Do you really need to delete this purchase order?", "Confirmation Request", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        bgWorker.RunWorkerAsync(response = cbOrder.Delete(OrderDataGrid["id", e.RowIndex].Value.ToString()));
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            MessageBox.Show("Record Deleted Successfully");
+                        }
+                        GetOrder();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Deleted Unsuccessful");
+                    }
+                }
+            }
         }
 
         //search bar text changed event
         private void SearchBarTxt__TextChanged(object sender, EventArgs e)
         {
-            GetGoods();
+            GetOrder();
         }
 
+        private void InitDataTable()
+        {
+            dt.Columns.Add("orderID");
+            dt.Columns.Add("loc");
+            dt.Columns.Add("creator");
+            dt.Columns.Add("operator");
+            dt.Columns.Add("createAt");
+            dt.Columns.Add("updateAt");
+            dt.Columns.Add("status");
+        }
 
         /*
         * Dom Event Handler
@@ -139,50 +205,54 @@ namespace TheBetterLimited.Views
         private void InitializeDataGridView()
         {
             //Main data column
-            RestockRequestDataGrid.AutoGenerateColumns = false;
-            RestockRequestDataGrid.DataSource = bs;
+            OrderDataGrid.AutoGenerateColumns = false;
+            OrderDataGrid.DataSource = bs;
 
-            for (int i = 0; i < RestockRequestDataGrid.RowCount; i++)
-                RestockRequestDataGrid["select", i].Tag = 0;
+            for (int i = 0; i < OrderDataGrid.RowCount; i++)
+                OrderDataGrid["select", i].Tag = 0;
 
-            selectGoodsID.Clear();
+            selecteOrderId.Clear();
         }
 
-        //Get Goods
-        private void GetGoods()
+        //Get Order
+        public void GetOrder()
         {
-            if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
+            dt.Clear();
+            orderList.Clear();
+            if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
             {
-                result = gc.GetAllGoods();
+                response = cbOrder.GetAll();
             }
-            else
+            /*else
             {
-                string str = "id:" + this.SearchBarTxt.Texts
-                            + "|description:" + this.SearchBarTxt.Texts + "|price:" + this.SearchBarTxt.Texts
-                            + "|gtincode:" + this.SearchBarTxt.Texts + "|size:" + this.SearchBarTxt.Texts
-                            + "|status:" + this.SearchBarTxt.Texts;
-                result = gc.GetGoodsByQry(str);
-            }
+                string str = "ID:" + this.SearchBarTxt.Texts + "|_creatorId:" + this.SearchBarTxt.Texts
+                            + "|Status:" + this.SearchBarTxt.Texts + "|createdAt:" + this.SearchBarTxt.Texts;
+                response = cbOrder.GetByQueryString(str);
+            }*/
             try
             {
-                DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(result.Content, (typeof(DataTable)));
-                var res = JArray.Parse(result.Content.ToString());
-                List<string> list = new List<string>();
-                dataTable.Columns.Add("Catalogue");
-                foreach (var ctgID in res)
+                JArray orders = JArray.Parse(response.Content);
+                foreach (JObject o in orders)
                 {
-                    list.Add(ctgID["_catalogueId"].ToString());
+                    if (GlobalsData.currentUser["department"].ToString() == "Purchase")
+                    {
+                        if (!o["location"]["Id"].ToString().Equals("003"))
+                        {
+                            continue;
+                        }
+                    }
+                    var row = dt.NewRow();
+                    row["loc"] = o["location"]["Loc"].ToString();
+                    row["orderID"] = o["id"].ToString();
+                    row["creator"] = o["_creatorId"].ToString();
+                    row["operator"] = o["_operatorId"].ToString();
+                    row["createAt"] = ((DateTime)o["createAt"]).ToString("g");
+                    row["updateAt"] = ((DateTime)o["updateAt"]).ToString("g");
+                    row["status"] = o["status"];
+                    orderList.Add(o);
+                    dt.Rows.Add(row);
                 }
-                int index = 0;
-
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    row["Catalogue"] = JObject.Parse(cbCatalogue.GetById(list[index].ToString()).Content)["Name"].ToString();
-                    index++;
-                }
-                bs.DataSource = dataTable;
-                RestockRequestDataGrid.AutoGenerateColumns = false;
-                RestockRequestDataGrid.DataSource = bs;
+                bs.DataSource = dt;
                 InitializeDataGridView();
             }
             catch (Exception ex)
@@ -191,124 +261,97 @@ namespace TheBetterLimited.Views
             }
         }
 
-        //Delete Selected Goods
-        private void DeleteSelectedGoods()
+        //Delete Selected Order
+        private void DeleteSelectedOrder()
         {
-            if (selectGoodsID.Count > 0)
+            if (selecteOrderId.Count > 0)
             {
-                choose = MessageBox.Show("Do you really want to delete the " + selectGoodsID.Count + " goods?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                choose = MessageBox.Show("Do you really want to delete the " + selecteOrderId.Count + " Order(s)?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
                 if (choose == DialogResult.Yes)
                 {
                     try
                     {
                         int countDeleted = 0;
-                        string res;
-                        foreach (string uid in selectGoodsID)
+                        foreach (string uid in selecteOrderId)
                         {
-                            result = gc.DeleteGoods(uid);
+                            response = cbOrder.Delete(uid);
+                            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                            {
+                                throw new Exception(response.ErrorMessage);
+                            }
                         }
-                        MessageBox.Show(selectGoodsID.Count + " records have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetGoods();
+                        MessageBox.Show("The " + selecteOrderId.Count + " order(s) have been deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        GetOrder();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Cannot delete the goods.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-
                 }
             }
             else
             {
-                MessageBox.Show("You had not selected a goods.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                MessageBox.Show("You had not selected an order.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             }
         }
 
-        //Delete Goods
-        private void DeleteGoods(DataGridViewCellEventArgs e)
+        //Delete Order
+        public void DeleteOrder(DataGridViewCellEventArgs e)
         {
-            choose = MessageBox.Show("Do you really want to delete the " + RestockRequestDataGrid.Rows[e.RowIndex].Cells["name"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-            if (choose == DialogResult.Yes)
-            {
-                try
-                {
-                    result = gc.DeleteGoods(RestockRequestDataGrid.Rows[e.RowIndex].Cells["id"].Value.ToString());
-                    if (result.StatusCode == System.Net.HttpStatusCode.OK)
-                    {
-                        MessageBox.Show("The " + RestockRequestDataGrid.Rows[e.RowIndex].Cells["name"].Value.ToString() + " have been deleted!", "Delete Goods Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetGoods();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Cannot delete the goods", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
 
-            }
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            //Goodsmanagement_Add goodsAdd = new Goodsmanagement_Add();
-            //goodsAdd.Show();
+            Form po = Application.OpenForms["PurchaseOrder_Create"];
+            if (po != null)
+            {
+                po.Close();
+                po.Dispose();
+            }
+            PurchaseOrder_Create poc = new PurchaseOrder_Create();
+            poc.Show();
+            poc.TopLevel = true;
+            poc.OnExit += GetOrder;
         }
 
-
-
-        // Export Goods PDF
-        private void exportBtn_Click(object sender, EventArgs e)
+        /*private void CompletedBtn_Click(object sender, EventArgs e)
         {
-            CustomizeControl.Loading progress = new CustomizeControl.Loading();
-            progress.Show();
-            progress.Update("Fetch data from server ...", 10);
-            byte[] response = gc.GetGoodsPDF();
-            string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/test.pdf";
-            progress.Update("Generating PDF ...", 30);
-            progress.Update("Writing File ...", 60);
-            System.IO.File.WriteAllBytes(WriteFilePath, response);
-            progress.Update("Finish", 99);
+            bool allOk = true;
+            string errOrder = "";
 
-            choose = MessageBox.Show(
-                "Open in File Explorer?", "", MessageBoxButtons.YesNo);
-            if (choose == DialogResult.Yes)
+            DialogResult result = MessageBox.Show("Are you sure to complete the purchase order(s)?", "Confirmation Request", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
             {
-
-                if (WriteFilePath == null)
-                    throw new ArgumentNullException("filePath");
-
-                Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
+                foreach (var poId in selecteOrderId)
+                {
+                    try
+                    {
+                        response = cbOrder.UpdateStatus(poId, (int)POStatus.Completed);
+                        if (response.StatusCode != System.Net.HttpStatusCode.OK)
+                        {
+                            allOk = false;
+                            errOrder += poId + "\n";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Complete purchase order(s) error.\n" + response.Content);
+                    }
+                }
+            }else
+            {
+                return;
+            }
+            if (allOk)
+            {
+                MessageBox.Show("The purchase order(s) completed successfully");
             }
             else
             {
-                MessageBox.Show("Saved at");
+                MessageBox.Show(errOrder + "Complete purchase order(s) error.");
             }
-
-            progress.End();
-
-            // BackgroundWorker bgw = new BackgroundWorker();
-            // CustomizeControl.Loading process = new Loading();
-            // process.Show();
-            // bgw.DoWork += new DoWorkEventHandler(((o, args) =>
-            // {
-            //     
-            // }));
-            // bgw.ProgressChanged += new ProgressChangedEventHandler(((o, args) =>
-            // {
-            // }));
-            // bgw.RunWorkerCompleted += (o, args) =>
-            // { 
-            // };
-            // bgw.RunWorkerAsync();
-            // get "application/pdf"
-
-
-
-
-
-        }
-
-        private void curdAction_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+            GetOrder();
+        }*/
     }
 }

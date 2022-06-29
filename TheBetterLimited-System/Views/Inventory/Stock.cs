@@ -356,6 +356,18 @@ namespace TheBetterLimited.Views
             {
                 MessageBox.Show("You have not select any goods");
                 return;
+            }else
+            {
+                Form rs = Application.OpenForms["RestockRequest_Add"];
+                if (rs != null)
+                {
+                    rs.Close();
+                    rs.Dispose();
+                }
+                RestockRequest_Add gd = new RestockRequest_Add(selectStockID);
+                gd.Show();
+                gd.TopLevel = true;
+                gd.OnExit += GetStock;
             }
         }
 

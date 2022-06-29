@@ -117,50 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="goodsID.HeaderText" xml:space="preserve">
-    <value>识别编号 ID No.</value>
+  <data name="id.HeaderText" xml:space="preserve">
+    <value>订单编号</value>
   </data>
-  <data name="goodsName.HeaderText" xml:space="preserve">
-    <value>货品 Product</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="id.Width" type="System.Int32, mscorlib">
+    <value>94</value>
   </data>
-  <data name="price.HeaderText" xml:space="preserve">
-    <value>单价 Unit Price</value>
+  <data name="CreateAt.HeaderText" xml:space="preserve">
+    <value>创建时间</value>
+  </data>
+  <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
+    <value>总金额</value>
   </data>
   <data name="qty.HeaderText" xml:space="preserve">
-    <value>数量 Qty</value>
+    <value>总数量</value>
   </data>
-  <data name="amount.HeaderText" xml:space="preserve">
-    <value>金额 Amount</value>
+  <data name="Payment.HeaderText" xml:space="preserve">
+    <value>付款方式</value>
   </data>
-  <data name="isInstall.HeaderText" xml:space="preserve">
-    <value>是否安装 Need Install</value>
+  <data name="status.HeaderText" xml:space="preserve">
+    <value>订单状态</value>
   </data>
-  <data name="label16.Text" xml:space="preserve">
-    <value>预计安装日期与时间 Expect Delivery Date &amp; Time:</value>
+  <data name="status.Width" type="System.Int32, mscorlib">
+    <value>94</value>
   </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>预计送货日期与时间 Expect Delivery Date &amp; Time:</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>送货地址 Delivery Address:</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>顾客姓名 Customer Name:</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 17</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
-    <value>电话 Tel:</value>
+    <value>订金 Deposit:</value>
   </data>
-  <data name="label12.Text" xml:space="preserve">
-    <value>地区 Area:</value>
+  <data name="label7.Text" xml:space="preserve">
+    <value>销售额 Sales:</value>
+  </data>
+  <data name="label19.Text" xml:space="preserve">
+    <value>预订订单数 Booking Order:</value>
+  </data>
+  <data name="orders.Text" xml:space="preserve">
+    <value>#orders</value>
   </data>
   <data name="label17.Text" xml:space="preserve">
-    <value>Deposit 所需订金:</value>
+    <value>订单数 Orders:</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 17</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
-    <value>Total Amount 总额:</value>
+    <value> 总收入Total Revenue:</value>
   </data>
-  <data name="label20.Text" xml:space="preserve">
-    <value>电话 Tel:</value>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 17</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>名称 Sales Name:</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>分店名称 Store Name: </value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>分店编号 Store ID: </value>
@@ -168,24 +182,23 @@
   <data name="label3.Text" xml:space="preserve">
     <value>销售员 Sales: </value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 18pt, style=Bold</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 32</value>
+    <value>118, 32</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>发票</value>
+    <value>销售报告</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 17</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
-    <value>打印日期 Print Date:</value>
+    <value>结算日期 Print Date:</value>
   </data>
   <data name="printDate.Text" xml:space="preserve">
     <value>#打印日期</value>
-  </data>
-  <data name="orderId.Text" xml:space="preserve">
-    <value>#订单编号</value>
   </data>
   <data name="printPreviewDialog1.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -360,21 +373,7 @@
         wf+0BQAAgAUAAIAFAACAAQAAgAHB/4ABAACAAQAAgAEAALwBAAC8AQAAvAHB/4ABbP///5H/
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="printPreviewDialog1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dataGridViewImageColumn1.Width" type="System.Int32, mscorlib">
-    <value>114</value>
-  </data>
-  <data name="dataGridViewImageColumn2.Width" type="System.Int32, mscorlib">
-    <value>124</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>发票</value>
+    <value>销售报告</value>
   </data>
 </root>

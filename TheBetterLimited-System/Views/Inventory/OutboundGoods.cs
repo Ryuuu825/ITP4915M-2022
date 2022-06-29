@@ -28,7 +28,7 @@ namespace TheBetterLimited.Views
         private DialogResult choose;
         private RestResponse response;
         private BackgroundWorker bw = new BackgroundWorker();
-        private ControllerBase cbPO = new ControllerBase("purchase/order");
+        private ControllerBase cbRS = new ControllerBase("restock");
         private ControllerBase cbStock = new ControllerBase("inventory/sgs");
 
         private bool loadAll = true;
@@ -102,7 +102,7 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                response = cbPO.GetById(SearchBarTxt.Texts.ToString());
+                response = cbRS.GetById(SearchBarTxt.Texts.ToString());
                 InitList();
             }
         }
@@ -123,10 +123,6 @@ namespace TheBetterLimited.Views
                     row["expQty"] = o["quantity"].ToString();
                     row["recQty"] = o["quantity"].ToString();
                     row["catalogue"] = o["goods"]["Catalogue"].ToString();
-                    if ((bool)o["isNewItem"])
-                    {
-                        row["isNew"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
-                    }
                     dt.Rows.Add(row);
                 }
                 InitializeDataGridView();
