@@ -100,9 +100,10 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
+
         [HttpGet]
         [Authorize]
-        public IActionResult Get([FromHeader] string Langauge)
+        public IActionResult Get([FromHeader] string Langauge = "en")
         {
             try
             {
