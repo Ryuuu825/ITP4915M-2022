@@ -64,13 +64,13 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
-        [HttpGet("myorder/day/{day}")]
+        [HttpGet("myorder")]
         [Authorize]
-        public async Task<IActionResult> GetSelfOrderByDay( int day, [FromHeader] string Language = "en")
+        public async Task<IActionResult> GetSelfOrderByDay( [FromHeader] string Language = "en")
         {
             try
             {
-                return Ok(await controller.GetOrderByDay(day , User.Identity.Name , Language));
+                return Ok(await controller.GetTodayOrder(User.Identity.Name , Language));
             }
             catch (ICustException e)
             {

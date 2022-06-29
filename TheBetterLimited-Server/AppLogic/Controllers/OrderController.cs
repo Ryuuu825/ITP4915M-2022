@@ -306,12 +306,17 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         }
 
 
-        public async Task<List<OrderOutDto>> GetOrderByDay(int day , string username , string lang = "en")
+        public async Task<Hashtable> GetTodayOrder(string username , string lang = "en")
         {
             var staff = userInfo.GetStaffFromUserName(username);
             // SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE "%-06-%"
-            var list = (await repository.GetBySQLAsync($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"%-%-{day}%\" AND `_creatorId` = \"{staff.Id}\" ")).AsReadOnly().ToList();
-            return await ToDto(list,lang);
+            ConsoleLogger.Debug($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}%\" AND `_creatorId` = \"{staff.Id}\" ");
+            var list = (await repository.GetBySQLAsync($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}%\" AND `_creatorId` = \"{staff.Id}\" ")).AsReadOnly().ToList();
+            return new Hashtable
+            {
+                ["Orders"] = await ToDto(list,lang),
+                ["StaffInfo"] = new { Name = staff.FirstName + " " + staff.LastName , Id = staff.Id  , StoreId = staff._storeId , StoreName = staff.store.Location.Name }
+            };
         }
         public async Task<string> CreateSalesOrder(string Username , OrderInDto order)
         {
