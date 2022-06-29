@@ -301,7 +301,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         public async Task<List<OrderOutDto>> GetOrderByMonth(int month, string lang = "en")        
         {
             // SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE "%-06-%"
-            var list = (await repository.GetBySQLAsync($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"%-{month}-%\" ")).AsReadOnly().ToList();
+            var list = (await repository.GetBySQLAsync($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"%-%{month}-%\" ")).AsReadOnly().ToList();
             return await ToDto(list,lang);
         }
 
