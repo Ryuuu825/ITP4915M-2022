@@ -9,7 +9,7 @@ namespace TheBetterLimited.Utils
 {
     internal class MultiLanguage
     {
-        public static string DefaultLanguage = "en";
+        public static string DefaultLanguage = "en-HK";
 
         public static void SetDefaultLanguage(string lang)
         {

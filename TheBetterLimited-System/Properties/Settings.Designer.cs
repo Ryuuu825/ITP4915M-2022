@@ -25,7 +25,7 @@ namespace TheBetterLimited.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("en")]
+        [global::System.Configuration.DefaultSettingValueAttribute("en-HK")]
         public string DefaultLanguage {
             get {
                 return ((string)(this["DefaultLanguage"]));

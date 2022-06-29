@@ -22,8 +22,7 @@ namespace TheBetterLimited.Views
     public partial class Main : Form
     {
         private bool sidebarExpand = true;
-        private bool subMenu = false;
-        private bool subSidebarExpand;
+        private bool subSidebarExpand = false;
         private Form activeForm = null;
         private UserController uc = new UserController();
         private string position = String.Empty;
@@ -167,6 +166,10 @@ namespace TheBetterLimited.Views
         {
             change_MenuButton_style(sender);
             openChildForm(new Home());
+            if (subSidebarExpand)
+            {
+                subSidebarTimer.Start();
+            }
         }
 
         private void Inventory_Click(object sender, EventArgs e)
@@ -195,6 +198,10 @@ namespace TheBetterLimited.Views
             /*AppointmentContainer.Show();
             subSidebarTimer.Start();*/
             openChildForm(new Appointment());
+            if (subSidebarExpand)
+            {
+                subSidebarTimer.Start();
+            }
         }
 
         private void Accounting_Click(object sender, EventArgs e)
@@ -220,6 +227,10 @@ namespace TheBetterLimited.Views
             this.WindowState = FormWindowState.Maximized;
             change_MenuButton_style(sender);
             openChildForm(new POS());
+            if (subSidebarExpand)
+            {
+                subSidebarTimer.Start();
+            }
         }
 
         private void Menu_Init()
@@ -448,7 +459,7 @@ namespace TheBetterLimited.Views
 
         private void enBtn_Click(object sender, EventArgs e)
         {
-            if(MultiLanguage.DefaultLanguage == "en")
+            if(MultiLanguage.DefaultLanguage == "en-HK")
             {
                 MessageBox.Show("Current system language is English, you don't need to change");
                 return;
@@ -456,7 +467,7 @@ namespace TheBetterLimited.Views
             DialogResult result = MessageBox.Show("更换系统语言需要重新登入系统, \n请问是否进行更换?", "提醒", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                MultiLanguage.SetDefaultLanguage("en");
+                MultiLanguage.SetDefaultLanguage("en-HK");
                 this.Dispose();
                 this.Delegate.Stop();
                 GlobalsData.currentUser.Clear();
@@ -468,7 +479,7 @@ namespace TheBetterLimited.Views
 
         private void zhBtn_Click(object sender, EventArgs e)
         {
-            if (MultiLanguage.DefaultLanguage == "zh")
+            if (MultiLanguage.DefaultLanguage == "zh-CN")
             {
                 MessageBox.Show("当前系统语言为简体中文，\n你不需要进行更换。");
                 return;
@@ -476,7 +487,7 @@ namespace TheBetterLimited.Views
             DialogResult result = MessageBox.Show("Change language will re-login the system, \nAre you sure to change the system language?", "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                MultiLanguage.SetDefaultLanguage("zh");
+                MultiLanguage.SetDefaultLanguage("zh-CN");
                 this.Dispose();
                 this.Delegate.Stop();
                 GlobalsData.currentUser.Clear();

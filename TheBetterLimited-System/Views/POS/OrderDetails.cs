@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -56,7 +57,14 @@ namespace TheBetterLimited.Views
             OrderInfoBox.Enabled = false;
             OrderDataGrid.ReadOnly = true;
             DeleteBtn.Visible = false;
-            SaveBtn.Text = "Arrange";
+            if(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "zh")
+            {
+                SaveBtn.Text = "指派";
+            }
+            else
+            {
+                SaveBtn.Text = "Arrange";
+            }
             if (orderData["status"].ToString().Equals("Completed"))
             {
                 SaveBtn.Visible = false;
