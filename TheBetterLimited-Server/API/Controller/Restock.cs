@@ -77,6 +77,8 @@ namespace TheBetterLimited_Server.API.Controller
 
                 foreach( var item in dto.Items)
                 {
+                    ConsoleLogger.Debug($"SELECT * FROM `Supplier_Goods_Stock` WHERE `Id` = '{item._supplierGoodsStockId}'");
+                    
                     Data.Entity.Supplier_Goods_Stock sgs = _SGSTable.GetBySQL($"SELECT * FROM `Supplier_Goods_Stock` WHERE `Id` = '{item._supplierGoodsStockId}'").First();
                     Data.Entity.RestockRequest_Supplier_Goods rgs = new Data.Entity.RestockRequest_Supplier_Goods
                     {
@@ -100,7 +102,7 @@ namespace TheBetterLimited_Server.API.Controller
 
         [HttpGet]
         [Authorize]
-        public IActionResult Get([FromBody] string Langauge)
+        public IActionResult Get([FromHeader] string Langauge)
         {
             try
             {
