@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheBetterLimited.Controller;
+using TheBetterLimited.Models;
 using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
@@ -68,6 +69,18 @@ namespace TheBetterLimited.Views
                 txtStore.Texts = itemInfo["StoreName"].ToString();
             }
             txtCollectAddress.Texts = itemInfo["CollectAddress"].ToString();
+            AccessControl();
+        }
+
+        private void AccessControl()
+        {
+            switch (GlobalsData.currentUser["department"].ToString())
+            {
+                case "Accounting":
+                    collectBtn.Hide();
+                    returnBtn.Hide();
+                    break;
+            }
         }
 
         private void StaffIDTxt_Enter(object sender, EventArgs e)

@@ -29,7 +29,7 @@ namespace TheBetterLimited.Views
         private RestResponse response;
         private BackgroundWorker bw = new BackgroundWorker();
         private ControllerBase cbPO = new ControllerBase("purchase/order");
-        private ControllerBase cbRQ = new ControllerBase("RestockRequest");
+        private ControllerBase cbRQ = new ControllerBase("restock");
         private StockController cbStock = new StockController("inventory/sgs");
 
         private bool loadAll = true;

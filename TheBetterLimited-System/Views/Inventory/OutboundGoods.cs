@@ -59,7 +59,7 @@ namespace TheBetterLimited.Views
             dt.Columns.Add("goodsId");
             dt.Columns.Add("goodsName");
             dt.Columns.Add("expQty");
-            dt.Columns.Add("recQty");
+            dt.Columns.Add("outQty");
             dt.Columns.Add("isNew");
             dt.Columns.Add("catalogue");
             dt.Columns["isNew"].DataType = System.Type.GetType("System.Byte[]");
@@ -121,7 +121,7 @@ namespace TheBetterLimited.Views
                     row["goodsId"] = o["goods"]["GoodsId"].ToString();
                     row["goodsName"] = o["goods"]["GoodsName"].ToString();
                     row["expQty"] = o["quantity"].ToString();
-                    row["recQty"] = o["quantity"].ToString();
+                    row["outQty"] = o["quantity"].ToString();
                     row["catalogue"] = o["goods"]["Catalogue"].ToString();
                     dt.Rows.Add(row);
                 }
@@ -153,7 +153,7 @@ namespace TheBetterLimited.Views
             int idx = 0;
             foreach (var item in goodsList)
             {
-                list.Add(new { goodsId = item["goods"]["GoodsId"].ToString(), ReceivedQuantity = Convert.ToInt32(GoodsDataGrid["recQty", idx].Value) });
+                list.Add(new { goodsId = item["goods"]["GoodsId"].ToString(), ReceivedQuantity = -(Convert.ToInt32(GoodsDataGrid["recQty", idx].Value)) });
                 idx++;
             }
             try

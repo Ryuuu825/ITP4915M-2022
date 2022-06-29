@@ -35,8 +35,20 @@ namespace TheBetterLimited.Views
         public DefectiveItem()
         {
             InitializeComponent();
+            AccessControl();
             InitDataTable();
             GetDefectItem();//init table
+        }
+
+        private void AccessControl()
+        {
+            switch (GlobalsData.currentUser["department"].ToString())
+            {
+                case "Accounting":
+                    DeleteBtn.Hide();
+                    OrderDataGrid.Columns["delete"].Visible = false;
+                    break;
+            }
         }
 
         /*
@@ -68,9 +80,12 @@ namespace TheBetterLimited.Views
             GetDefectItem();
         }
 
+        public event Action OnExit;
         private void CloseBtn_Click(object sender, EventArgs e)
         {
+            this.OnExit.Invoke();
             this.Close();
+            this.Dispose();
         }
 
         private void OrderDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

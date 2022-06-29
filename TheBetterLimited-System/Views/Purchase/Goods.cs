@@ -36,11 +36,26 @@ namespace TheBetterLimited.Views
         public Goods()
         {
             InitializeComponent();
+            AccessControl();
             initBackgroundWorker();
             showLoading();
             bw.RunWorkerAsync();
-
         }
+
+        private void AccessControl()
+        {
+            switch (GlobalsData.currentUser["department"].ToString())
+            {
+                case "Accounting":
+                    AddBtn.Hide();
+                    DeleteBtn.Hide();
+                    exportBtn.Hide();
+                    GoodsDataGrid.Columns["delete"].Visible = false;
+                    GoodsDataGrid.Columns["edit"].Visible = false;
+                    break;
+            }
+        }
+
         private void initBackgroundWorker()
         {
             bw = new BackgroundWorker();
@@ -93,9 +108,12 @@ namespace TheBetterLimited.Views
             }
         }
 
+        public event Action OnExit;
         private void CloseBtn_Click(object sender, EventArgs e)
         {
+            this.OnExit.Invoke();
             this.Close();
+            this.Dispose();
         }
 
         private void GoodsDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

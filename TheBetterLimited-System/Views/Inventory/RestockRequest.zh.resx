@@ -125,7 +125,13 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="id.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+    <value>75</value>
+  </data>
+  <data name="loc.HeaderText" xml:space="preserve">
+    <value>请求地</value>
+  </data>
+  <data name="loc.Width" type="System.Int32, mscorlib">
+    <value>89</value>
   </data>
   <data name="CreatorId.HeaderText" xml:space="preserve">
     <value>创建者</value>
@@ -134,7 +140,7 @@
     <value>创建者编号</value>
   </data>
   <data name="CreatorId.Width" type="System.Int32, mscorlib">
-    <value>84</value>
+    <value>89</value>
   </data>
   <data name="OperatorId.HeaderText" xml:space="preserve">
     <value>操作者</value>
@@ -143,7 +149,7 @@
     <value>操作者编号</value>
   </data>
   <data name="OperatorId.Width" type="System.Int32, mscorlib">
-    <value>84</value>
+    <value>89</value>
   </data>
   <data name="CreateAt.HeaderText" xml:space="preserve">
     <value>创建于</value>
@@ -157,24 +163,6 @@
   <data name="UpdateAt.ToolTipText" xml:space="preserve">
     <value>更新时间</value>
   </data>
-  <data name="TotalAmount.HeaderText" xml:space="preserve">
-    <value>总金额</value>
-  </data>
-  <data name="TotalAmount.ToolTipText" xml:space="preserve">
-    <value>总金额</value>
-  </data>
-  <data name="TotalAmount.Width" type="System.Int32, mscorlib">
-    <value>84</value>
-  </data>
-  <data name="Paid.HeaderText" xml:space="preserve">
-    <value>付款</value>
-  </data>
-  <data name="Paid.ToolTipText" xml:space="preserve">
-    <value>付款金额</value>
-  </data>
-  <data name="Paid.Width" type="System.Int32, mscorlib">
-    <value>58</value>
-  </data>
   <data name="status.HeaderText" xml:space="preserve">
     <value>状态</value>
   </data>
@@ -182,7 +170,13 @@
     <value>订单状态</value>
   </data>
   <data name="status.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+    <value>75</value>
+  </data>
+  <data name="details.Width" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="Print.Width" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -211,17 +205,8 @@
         cUfkG3BeKFoJ9hXXKqMPXaOTcN69fCG3g8t+Pgqdm/sX1jemh/a/aA0AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="AddBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt, style=Bold</value>
-  </data>
-  <data name="AddBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-4, 0</value>
-  </data>
-  <data name="AddBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 38</value>
-  </data>
-  <data name="AddBtn.Text" xml:space="preserve">
-    <value>      新增</value>
+  <data name="CompletedBtn.Text" xml:space="preserve">
+    <value>完成所选请求</value>
   </data>
   <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
@@ -233,7 +218,7 @@
     <value>82, 21</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
-    <value>采购订单</value>
+    <value>进货请求</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3531,5 +3516,9 @@
         AAAAAAAAP//////////////////////AAAAAAAAAAAAAAAAAAAP//////////////////////+AAAAAA
         AAAAAAAAAAAAD/////8=
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
   </data>
 </root>

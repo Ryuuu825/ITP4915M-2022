@@ -51,9 +51,10 @@ namespace TheBetterLimited.Views
             this.Invalidate();
             GetOrder();
         }
-
+        public event Action OnExit;
         private void CloseBtn_Click(object sender, EventArgs e)
         {
+            this.OnExit.Invoke();
             this.Close();
             this.Dispose();
         }
@@ -137,19 +138,6 @@ namespace TheBetterLimited.Views
                 od.Show();
                 od.TopLevel = true;
                 od.OnExit += GetOrder;
-            }
-
-            if (e.ColumnIndex == OrderDataGrid.Columns["print"].Index)
-            {
-                try
-                {
-                    PONote poNote = new PONote(orderList[e.RowIndex]);
-                    poNote.ShowDialog();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Print Unsuccessful");
-                }
             }
 
             if (e.ColumnIndex == OrderDataGrid.Columns["delete"].Index)
@@ -242,7 +230,7 @@ namespace TheBetterLimited.Views
                         }
                     }
                     var row = dt.NewRow();
-                    row["loc"] = o["location"]["Loc"].ToString();
+                    row["loc"] = o["location"]["Name"].ToString();
                     row["orderID"] = o["id"].ToString();
                     row["creator"] = o["_creatorId"].ToString();
                     row["operator"] = o["_operatorId"].ToString();

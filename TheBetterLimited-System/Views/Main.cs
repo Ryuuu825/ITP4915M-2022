@@ -197,7 +197,9 @@ namespace TheBetterLimited.Views
             change_MenuButton_style(sender);
             /*AppointmentContainer.Show();
             subSidebarTimer.Start();*/
-            openChildForm(new Appointment());
+            Appointment appointment = new Appointment();
+            appointment.OnExit += () => { openChildForm(new Home()); };
+            openChildForm(appointment);
             if (subSidebarExpand)
             {
                 subSidebarTimer.Start();
@@ -305,11 +307,14 @@ namespace TheBetterLimited.Views
             this.mainBox.Tag = child;
             child.BringToFront();
             child.Show();
+            
         }
 
         private void GoodsBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new Goods());
+            Goods goods = new Goods();
+            goods.OnExit += () => { openChildForm(new Home()); };
+            openChildForm(goods);
             subSidebarTimer.Start();
         }
 
@@ -344,43 +349,57 @@ namespace TheBetterLimited.Views
 
         private void supplierBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new Supplier());
+            Supplier supplier = new Supplier();
+            supplier.OnExit += () => { openChildForm(new Home()); };
+            openChildForm(supplier);
             subSidebarTimer.Start();
         }
 
         private void stockBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new Stock());
+            Stock stock = new Stock();
+            stock.OnExit += () => { openChildForm(new Home()); };
+            openChildForm(stock);
             subSidebarTimer.Start();
         }
 
         private void purchaseBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new POManagement());
+            POManagement po = new POManagement();
+            po.OnExit += () => { openChildForm(new Home()); };
+            openChildForm(po);
             subSidebarTimer.Start();
         }
 
         private void restockRequestBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new RestockRequest());
+            RestockRequest rq = new RestockRequest();
+            rq.OnExit += () => { openChildForm(new Home()); };
+            openChildForm(rq);
             subSidebarTimer.Start();
         }
 
         private void staffBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new Staff());
+            Staff staff = new Staff();
+            staff.OnExit += () => { openChildForm(new Home()); };
+            openChildForm(staff);
             subSidebarTimer.Start();
         }
 
         private void accountBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new UserManagement());
+            UserManagement user = new UserManagement();
+            user.OnExit += () => { openChildForm(new Home()); };
+            openChildForm(user);
             subSidebarTimer.Start();
         }
 
         private void DefectItemBtn_Click(object sender, EventArgs e)
         {
-            openChildForm(new DefectiveItem());
+            DefectiveItem df = new DefectiveItem();
+            df.OnExit += () => { openChildForm(new Home()); };
+            openChildForm(df);
             subSidebarTimer.Start();
         }
 

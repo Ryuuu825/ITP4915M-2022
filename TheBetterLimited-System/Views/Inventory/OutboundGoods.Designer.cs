@@ -343,7 +343,7 @@
             // qty
             // 
             this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.qty.DataPropertyName = "qty";
+            this.qty.DataPropertyName = "outQty";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.qty.DefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.qty, "qty");
