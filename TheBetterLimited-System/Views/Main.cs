@@ -22,8 +22,7 @@ namespace TheBetterLimited.Views
     public partial class Main : Form
     {
         private bool sidebarExpand = true;
-        private bool subMenu = false;
-        private bool subSidebarExpand;
+        private bool subSidebarExpand = false;
         private Form activeForm = null;
         private UserController uc = new UserController();
         private string position = String.Empty;
@@ -167,6 +166,10 @@ namespace TheBetterLimited.Views
         {
             change_MenuButton_style(sender);
             openChildForm(new Home());
+            if (subSidebarExpand)
+            {
+                subSidebarTimer.Start();
+            }
         }
 
         private void Inventory_Click(object sender, EventArgs e)
@@ -195,6 +198,10 @@ namespace TheBetterLimited.Views
             /*AppointmentContainer.Show();
             subSidebarTimer.Start();*/
             openChildForm(new Appointment());
+            if (subSidebarExpand)
+            {
+                subSidebarTimer.Start();
+            }
         }
 
         private void Accounting_Click(object sender, EventArgs e)
@@ -220,6 +227,10 @@ namespace TheBetterLimited.Views
             this.WindowState = FormWindowState.Maximized;
             change_MenuButton_style(sender);
             openChildForm(new POS());
+            if (subSidebarExpand)
+            {
+                subSidebarTimer.Start();
+            }
         }
 
         private void Menu_Init()

@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -19,7 +21,7 @@ namespace TheBetterLimited.Views
 {
     public partial class Home : Form
     {
-        private ControllerBase cbOrder = new ControllerBase("Order");
+        private ControllerBase cbOrder = new ControllerBase("Order/month");
         private ControllerBase cbSO = new ControllerBase("SalesOrder");
         private BindingSource bs = new BindingSource();
         private List<string> selecteUserId = new List<string>();
@@ -44,10 +46,11 @@ namespace TheBetterLimited.Views
             lblSales.Text = salesTotal.ToString();
             lblRevenue.Text = String.Format("{0:C2}", revenueTotal);
             lblProfit.Text = String.Format("{0:C2}", revenueTotal * 0.32);
-            goodsPie.Series["S1"].Points.AddXY("Normal Item", normalTotal);
+            ResourceManager rm = new ResourceManager(typeof(Home));
+            goodsPie.Series["S1"].Points.AddXY(rm.GetString("pieTitle1"), normalTotal);
             if (defectItem > 0)
             {
-                goodsPie.Series["S1"].Points.AddXY("Defective Item", defectItem);
+                goodsPie.Series["S1"].Points.AddXY(rm.GetString("pieTitle2"), defectItem);
             }
             goodsPie.Series["S1"].IsValueShownAsLabel = true;
             InitProfitChart();
@@ -81,17 +84,14 @@ namespace TheBetterLimited.Views
 
         private void GetOrder()
         {
-            RestResponse response = cbOrder.GetAll();
+            RestResponse response = cbOrder.GetById(DateTime.Today.Month.ToString());
             JArray orders = JArray.Parse(response.Content);
             foreach (JObject o in orders)
             {
-                if (o["status"].ToString().Equals("Completed"))
+                foreach (var item in (JArray)o["orderItems"])
                 {
                     orderTotal++;
                     revenueTotal += (double)o["total"];
-                }
-                foreach (var item in (JArray)o["orderItems"])
-                {
                     salesTotal += (int)item["quantity"];
                     normalTotal += (int)item["normalQuantity"];
                     defectItem += (int)item["quantity"] - (int)item["normalQuantity"];

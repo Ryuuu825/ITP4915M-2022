@@ -117,27 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="select.Width" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="id.HeaderText" xml:space="preserve">
     <value>编号</value>
   </data>
   <data name="id.ToolTipText" xml:space="preserve">
     <value>订单编号</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="id.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+    <value>75</value>
   </data>
   <data name="storeId.HeaderText" xml:space="preserve">
     <value>分店</value>
   </data>
   <data name="storeId.ToolTipText" xml:space="preserve">
     <value>分店名称</value>
-  </data>
-  <data name="storeId.Width" type="System.Int32, mscorlib">
-    <value>71</value>
   </data>
   <data name="CreatorId.HeaderText" xml:space="preserve">
     <value>创建者</value>
@@ -146,7 +140,7 @@
     <value>操作者编号</value>
   </data>
   <data name="CreatorId.Width" type="System.Int32, mscorlib">
-    <value>84</value>
+    <value>89</value>
   </data>
   <data name="OperatorId.HeaderText" xml:space="preserve">
     <value>操作者</value>
@@ -155,7 +149,7 @@
     <value>创建者编号</value>
   </data>
   <data name="OperatorId.Width" type="System.Int32, mscorlib">
-    <value>84</value>
+    <value>89</value>
   </data>
   <data name="CreateAt.HeaderText" xml:space="preserve">
     <value>创建于</value>
@@ -182,7 +176,7 @@
     <value>付款金额</value>
   </data>
   <data name="Paid.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+    <value>58</value>
   </data>
   <data name="status.HeaderText" xml:space="preserve">
     <value>状态</value>
@@ -191,13 +185,7 @@
     <value>订单状态</value>
   </data>
   <data name="status.Width" type="System.Int32, mscorlib">
-    <value>71</value>
-  </data>
-  <data name="details.Width" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="Print.Width" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>75</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -237,15 +225,6 @@
   </data>
   <data name="Title.Text" xml:space="preserve">
     <value>销售订单</value>
-  </data>
-  <data name="dataGridViewImageColumn4.Width" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="dataGridViewImageColumn5.Width" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="dataGridViewImageColumn6.Width" type="System.Int32, mscorlib">
-    <value>5</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

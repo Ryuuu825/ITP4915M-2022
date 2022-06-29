@@ -231,16 +231,6 @@ namespace TheBetterLimited.Views
             CalculateTotal();
         }
 
-        private void HoldBtn_MouseHover(object sender, EventArgs e)
-        {
-            HoldBtn.TextColor = Color.White;
-        }
-
-        private void HoldBtn_MouseLeave(object sender, EventArgs e)
-        {
-            HoldBtn.TextColor = HoldBtn.BorderColor;
-        }
-
         private void CancelBtn_MouseHover(object sender, EventArgs e)
         {
             ClearBtn.TextColor = Color.White;
@@ -663,6 +653,12 @@ namespace TheBetterLimited.Views
                 QryString = "GTINCode:" + this.SearchBarTxt.Texts;
                 LoadQryGoods();
             }
+        }
+
+        private void settleAccBtn_Click(object sender, EventArgs e)
+        {
+            SettleAccount st = new SettleAccount();
+            st.Show();
         }
     }
 }

@@ -312,6 +312,12 @@
     <Compile Include="Views\POS\DefectItem-Add.Designer.cs">
       <DependentUpon>DefectItem-Add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\POS\SettleAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\POS\SettleAccount.Designer.cs">
+      <DependentUpon>SettleAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Purchase\POManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -736,6 +742,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\POS\Receipt.zh.resx">
       <DependentUpon>Receipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\SettleAccount.resx">
+      <DependentUpon>SettleAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\POS\SettleAccount.zh.resx">
+      <DependentUpon>SettleAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\POS\WaitResult.zh.resx">
       <DependentUpon>WaitResult.cs</DependentUpon>

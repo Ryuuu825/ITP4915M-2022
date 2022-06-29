@@ -225,45 +225,12 @@ namespace TheBetterLimited.Views
             }
         }
 
-        //Delete Selected Order
-        private void DeleteSelectedOrder()
-        {
-            if (selecteOrderId.Count > 0)
-            {
-                choose = MessageBox.Show("Do you really want to delete the " + selecteOrderId.Count + " Order(s)?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-                if (choose == DialogResult.Yes)
-                {
-                    try
-                    {
-                        int countDeleted = 0;
-                        foreach (string uid in selecteOrderId)
-                        {
-                            response = cbDefect.Delete(uid);
-                            if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                            {
-                                throw new Exception(response.ErrorMessage);
-                            }
-                        }
-                        MessageBox.Show("The " + selecteOrderId.Count + " order(s) have been deleted!", "Delete Order Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        GetDefectItem();
-                    }catch (Exception ex)
-                    {
-                        MessageBox.Show("Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("You had not selected an order.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
-            }
-        }
-
         //Delete Order
         public void DeleteOrder(DataGridViewCellEventArgs e)
         {
-            if (OrderDataGrid.Rows[e.RowIndex].Cells["status"].Value.Equals("Pending Delivery"))
+            if (OrderDataGrid.Rows[e.RowIndex].Cells["status"].Value.Equals("Pending"))
             {
-                choose = MessageBox.Show("Do you really want to cancel the " + OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
+                choose = MessageBox.Show("Do you really want to delete the " + OrderDataGrid.Rows[e.RowIndex].Cells["id"].Value + "?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
                 if (choose == DialogResult.Yes)
                 {
                     try
@@ -278,17 +245,17 @@ namespace TheBetterLimited.Views
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
-                        MessageBox.Show("Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Cannot delete the defect item.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                 }
-            }else if ((OrderDataGrid.Rows[e.RowIndex].Cells["status"].Value.Equals("Completed")))
+            }else if ((OrderDataGrid.Rows[e.RowIndex].Cells["status"].Value.Equals("Returned")))
             {
-                MessageBox.Show("The order has completed. \n Cannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The defect item has been returned. \n Cannot delete the defect item.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }else
             {
-                MessageBox.Show("The order has been processed. \nCannot delete the order.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The defect item has been processed. \nCannot delete the defect item.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
