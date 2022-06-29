@@ -51,11 +51,26 @@ namespace TheBetterLimited_Server.API.Controller
         }
 
         [HttpGet("month/{month}")]
+
         public async Task<IActionResult> GetByMonth( int month, [FromHeader] string Language = "en")
         {
             try
             {
                 return Ok(await controller.GetOrderByMonth(month, Language));
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+        }
+
+        [HttpGet("myorder/day/{day}")]
+        [Authorize]
+        public async Task<IActionResult> GetSelfOrderByDay( int day, [FromHeader] string Language = "en")
+        {
+            try
+            {
+                return Ok(await controller.GetOrderByDay(day , User.Identity.Name , Language));
             }
             catch (ICustException e)
             {

@@ -304,6 +304,15 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             var list = (await repository.GetBySQLAsync($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"%-{month}-%\" ")).AsReadOnly().ToList();
             return await ToDto(list,lang);
         }
+
+
+        public async Task<List<OrderOutDto>> GetOrderByDay(int day , string username , string lang = "en")
+        {
+            var staff = userInfo.GetStaffFromUserName(username);
+            // SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE "%-06-%"
+            var list = (await repository.GetBySQLAsync($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"%-%-{day}%\" AND `_creatorId` = \"{staff.Id}\" ")).AsReadOnly().ToList();
+            return await ToDto(list,lang);
+        }
         public async Task<string> CreateSalesOrder(string Username , OrderInDto order)
         {
 
