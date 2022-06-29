@@ -310,8 +310,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         {
             var staff = userInfo.GetStaffFromUserName(username);
             // SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE "%-06-%"
-            ConsoleLogger.Debug($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}%\" AND `_creatorId` = \"{staff.Id}\" ");
-            var list = (await repository.GetBySQLAsync($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"{DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day}%\" AND `_creatorId` = \"{staff.Id}\" ")).AsReadOnly().ToList();
+            var list = (await repository.GetBySQLAsync($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"{DateTime.Now.Year}-%{DateTime.Now.Month}-%{DateTime.Now.Day}%\" AND `_creatorId` = \"{staff.Id}\" ")).AsReadOnly().ToList();
             return new Hashtable
             {
                 ["Orders"] = await ToDto(list,lang),
