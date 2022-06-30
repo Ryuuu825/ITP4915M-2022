@@ -335,6 +335,429 @@
   <data name="ActionBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>SearchBar</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SearchBarTxt.Name" xml:space="preserve">
+    <value>SearchBarTxt</value>
+  </data>
+  <data name="&gt;&gt;SearchBarTxt.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeTextbox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;SearchBarTxt.Parent" xml:space="preserve">
+    <value>SearchBar</value>
+  </data>
+  <data name="&gt;&gt;SearchBarTxt.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="SearchBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="SearchBar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="SearchBar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="SearchBar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 38</value>
+  </data>
+  <data name="SearchBar.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;SearchBar.Name" xml:space="preserve">
+    <value>SearchBar</value>
+  </data>
+  <data name="&gt;&gt;SearchBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SearchBar.Parent" xml:space="preserve">
+    <value>ActionBox</value>
+  </data>
+  <data name="&gt;&gt;SearchBar.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="locCombo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="locCombo.Items" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="locCombo.Items1" xml:space="preserve">
+    <value>KLN Warehouse</value>
+  </data>
+  <data name="locCombo.Items2" xml:space="preserve">
+    <value>TW Main Store</value>
+  </data>
+  <data name="locCombo.Items3" xml:space="preserve">
+    <value>KB Store</value>
+  </data>
+  <data name="locCombo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 57</value>
+  </data>
+  <data name="locCombo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 5, 0, 0</value>
+  </data>
+  <data name="locCombo.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>184, 30</value>
+  </data>
+  <data name="locCombo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 1, 1</value>
+  </data>
+  <data name="locCombo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 31</value>
+  </data>
+  <data name="locCombo.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;locCombo.Name" xml:space="preserve">
+    <value>locCombo</value>
+  </data>
+  <data name="&gt;&gt;locCombo.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.CustomizeComboBox, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;locCombo.Parent" xml:space="preserve">
+    <value>ActionBox</value>
+  </data>
+  <data name="&gt;&gt;locCombo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="AddBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="AddBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="AddBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.28571pt, style=Bold</value>
+  </data>
+  <data name="AddBtn.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="AddBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="AddBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 93</value>
+  </data>
+  <data name="AddBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 5, 0, 0</value>
+  </data>
+  <data name="AddBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>8, 0, 8, 0</value>
+  </data>
+  <data name="AddBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 38</value>
+  </data>
+  <data name="AddBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="AddBtn.Text" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="&gt;&gt;AddBtn.Name" xml:space="preserve">
+    <value>AddBtn</value>
+  </data>
+  <data name="&gt;&gt;AddBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;AddBtn.Parent" xml:space="preserve">
+    <value>ActionBox</value>
+  </data>
+  <data name="&gt;&gt;AddBtn.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="DeleteBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="DeleteBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="DeleteBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.28571pt, style=Bold</value>
+  </data>
+  <data name="DeleteBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="DeleteBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 136</value>
+  </data>
+  <data name="DeleteBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 5, 0, 0</value>
+  </data>
+  <data name="DeleteBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 38</value>
+  </data>
+  <data name="DeleteBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="DeleteBtn.Text" xml:space="preserve">
+    <value>Delete Selected</value>
+  </data>
+  <data name="&gt;&gt;DeleteBtn.Name" xml:space="preserve">
+    <value>DeleteBtn</value>
+  </data>
+  <data name="&gt;&gt;DeleteBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;DeleteBtn.Parent" xml:space="preserve">
+    <value>ActionBox</value>
+  </data>
+  <data name="&gt;&gt;DeleteBtn.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="exportBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="exportBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="exportBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.28571pt, style=Bold</value>
+  </data>
+  <data name="exportBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="exportBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 179</value>
+  </data>
+  <data name="exportBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 5, 0, 0</value>
+  </data>
+  <data name="exportBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 38</value>
+  </data>
+  <data name="exportBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="exportBtn.Text" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="&gt;&gt;exportBtn.Name" xml:space="preserve">
+    <value>exportBtn</value>
+  </data>
+  <data name="&gt;&gt;exportBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;exportBtn.Parent" xml:space="preserve">
+    <value>ActionBox</value>
+  </data>
+  <data name="&gt;&gt;exportBtn.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="RestockBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="RestockBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="RestockBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.28571pt, style=Bold</value>
+  </data>
+  <data name="RestockBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RestockBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 222</value>
+  </data>
+  <data name="RestockBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 5, 0, 0</value>
+  </data>
+  <data name="RestockBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 38</value>
+  </data>
+  <data name="RestockBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="RestockBtn.Text" xml:space="preserve">
+    <value>Restock</value>
+  </data>
+  <data name="&gt;&gt;RestockBtn.Name" xml:space="preserve">
+    <value>RestockBtn</value>
+  </data>
+  <data name="&gt;&gt;RestockBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;RestockBtn.Parent" xml:space="preserve">
+    <value>ActionBox</value>
+  </data>
+  <data name="&gt;&gt;RestockBtn.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="inBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="inBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="inBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.28571pt, style=Bold</value>
+  </data>
+  <data name="inBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="inBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 265</value>
+  </data>
+  <data name="inBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 5, 0, 0</value>
+  </data>
+  <data name="inBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 38</value>
+  </data>
+  <data name="inBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="inBtn.Text" xml:space="preserve">
+    <value>Inbound</value>
+  </data>
+  <data name="&gt;&gt;inBtn.Name" xml:space="preserve">
+    <value>inBtn</value>
+  </data>
+  <data name="&gt;&gt;inBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;inBtn.Parent" xml:space="preserve">
+    <value>ActionBox</value>
+  </data>
+  <data name="&gt;&gt;inBtn.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="outBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="outBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="outBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.28571pt, style=Bold</value>
+  </data>
+  <data name="outBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="outBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 308</value>
+  </data>
+  <data name="outBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 5, 0, 0</value>
+  </data>
+  <data name="outBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 38</value>
+  </data>
+  <data name="outBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="outBtn.Text" xml:space="preserve">
+    <value>Outbound</value>
+  </data>
+  <data name="&gt;&gt;outBtn.Name" xml:space="preserve">
+    <value>outBtn</value>
+  </data>
+  <data name="&gt;&gt;outBtn.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;outBtn.Parent" xml:space="preserve">
+    <value>ActionBox</value>
+  </data>
+  <data name="&gt;&gt;outBtn.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="ActionBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ActionBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ActionBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="ActionBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="ActionBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 395</value>
+  </data>
+  <data name="ActionBox.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;ActionBox.Name" xml:space="preserve">
+    <value>ActionBox</value>
+  </data>
+  <data name="&gt;&gt;ActionBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionBox.Parent" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;ActionBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 10</value>
+  </data>
+  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 395</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Action.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="Action.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 50</value>
+  </data>
+  <data name="Action.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="Action.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 10, 10, 0</value>
+  </data>
+  <data name="Action.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 405</value>
+  </data>
+  <data name="Action.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;Action.Name" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="&gt;&gt;Action.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Action.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Action.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
@@ -424,359 +847,68 @@
   <data name="&gt;&gt;SearchBarTxt.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="SearchBar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
   </data>
-  <data name="SearchBar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="SearchBar.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>Header</value>
   </data>
-  <data name="SearchBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 38</value>
-  </data>
-  <data name="SearchBar.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;SearchBar.Name" xml:space="preserve">
-    <value>SearchBar</value>
-  </data>
-  <data name="&gt;&gt;SearchBar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;SearchBar.Parent" xml:space="preserve">
-    <value>ActionBox</value>
-  </data>
-  <data name="&gt;&gt;SearchBar.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="AddBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;button2.Name" xml:space="preserve">
+    <value>button2</value>
   </data>
-  <data name="AddBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="&gt;&gt;button2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="AddBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.28571pt, style=Bold</value>
+  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+    <value>Header</value>
   </data>
-  <data name="AddBtn.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="AddBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="AddBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 62</value>
-  </data>
-  <data name="AddBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 10, 0, 0</value>
-  </data>
-  <data name="AddBtn.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>8, 0, 8, 0</value>
-  </data>
-  <data name="AddBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 38</value>
-  </data>
-  <data name="AddBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="AddBtn.Text" xml:space="preserve">
-    <value>New</value>
-  </data>
-  <data name="&gt;&gt;AddBtn.Name" xml:space="preserve">
-    <value>AddBtn</value>
-  </data>
-  <data name="&gt;&gt;AddBtn.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;AddBtn.Parent" xml:space="preserve">
-    <value>ActionBox</value>
-  </data>
-  <data name="&gt;&gt;AddBtn.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="DeleteBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;Title.Name" xml:space="preserve">
+    <value>Title</value>
   </data>
-  <data name="DeleteBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="&gt;&gt;Title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="DeleteBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.28571pt, style=Bold</value>
+  <data name="&gt;&gt;Title.Parent" xml:space="preserve">
+    <value>Header</value>
   </data>
-  <data name="DeleteBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="DeleteBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 110</value>
-  </data>
-  <data name="DeleteBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 10, 0, 0</value>
-  </data>
-  <data name="DeleteBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 38</value>
-  </data>
-  <data name="DeleteBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="DeleteBtn.Text" xml:space="preserve">
-    <value>Delete Selected</value>
-  </data>
-  <data name="&gt;&gt;DeleteBtn.Name" xml:space="preserve">
-    <value>DeleteBtn</value>
-  </data>
-  <data name="&gt;&gt;DeleteBtn.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;DeleteBtn.Parent" xml:space="preserve">
-    <value>ActionBox</value>
-  </data>
-  <data name="&gt;&gt;DeleteBtn.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Title.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="exportBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="Header.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="exportBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="Header.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 10</value>
   </data>
-  <data name="exportBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.28571pt, style=Bold</value>
-  </data>
-  <data name="exportBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="exportBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 158</value>
-  </data>
-  <data name="exportBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 10, 0, 0</value>
-  </data>
-  <data name="exportBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 38</value>
-  </data>
-  <data name="exportBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="exportBtn.Text" xml:space="preserve">
-    <value>Export</value>
-  </data>
-  <data name="&gt;&gt;exportBtn.Name" xml:space="preserve">
-    <value>exportBtn</value>
-  </data>
-  <data name="&gt;&gt;exportBtn.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;exportBtn.Parent" xml:space="preserve">
-    <value>ActionBox</value>
-  </data>
-  <data name="&gt;&gt;exportBtn.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="RestockBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="RestockBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="RestockBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.28571pt, style=Bold</value>
-  </data>
-  <data name="RestockBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="RestockBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 206</value>
-  </data>
-  <data name="RestockBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 10, 0, 0</value>
-  </data>
-  <data name="RestockBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 38</value>
-  </data>
-  <data name="RestockBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="RestockBtn.Text" xml:space="preserve">
-    <value>Restock</value>
-  </data>
-  <data name="&gt;&gt;RestockBtn.Name" xml:space="preserve">
-    <value>RestockBtn</value>
-  </data>
-  <data name="&gt;&gt;RestockBtn.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;RestockBtn.Parent" xml:space="preserve">
-    <value>ActionBox</value>
-  </data>
-  <data name="&gt;&gt;RestockBtn.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="inBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="inBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="inBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.28571pt, style=Bold</value>
-  </data>
-  <data name="inBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="inBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 254</value>
-  </data>
-  <data name="inBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 10, 0, 0</value>
-  </data>
-  <data name="inBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 38</value>
-  </data>
-  <data name="inBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="inBtn.Text" xml:space="preserve">
-    <value>Inbound</value>
-  </data>
-  <data name="&gt;&gt;inBtn.Name" xml:space="preserve">
-    <value>inBtn</value>
-  </data>
-  <data name="&gt;&gt;inBtn.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;inBtn.Parent" xml:space="preserve">
-    <value>ActionBox</value>
-  </data>
-  <data name="&gt;&gt;inBtn.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="outBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="outBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="outBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.28571pt, style=Bold</value>
-  </data>
-  <data name="outBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="outBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 302</value>
-  </data>
-  <data name="outBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 10, 0, 0</value>
-  </data>
-  <data name="outBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 38</value>
-  </data>
-  <data name="outBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="outBtn.Text" xml:space="preserve">
-    <value>Outbound</value>
-  </data>
-  <data name="&gt;&gt;outBtn.Name" xml:space="preserve">
-    <value>outBtn</value>
-  </data>
-  <data name="&gt;&gt;outBtn.Type" xml:space="preserve">
-    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;outBtn.Parent" xml:space="preserve">
-    <value>ActionBox</value>
-  </data>
-  <data name="&gt;&gt;outBtn.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="ActionBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="ActionBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="ActionBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="Header.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="ActionBox.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
+  <data name="Header.Size" type="System.Drawing.Size, System.Drawing">
+    <value>758, 40</value>
   </data>
-  <data name="ActionBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 395</value>
+  <data name="Header.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="ActionBox.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+  <data name="&gt;&gt;Header.Name" xml:space="preserve">
+    <value>Header</value>
   </data>
-  <data name="&gt;&gt;ActionBox.Name" xml:space="preserve">
-    <value>ActionBox</value>
-  </data>
-  <data name="&gt;&gt;ActionBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionBox.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;ActionBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 10</value>
-  </data>
-  <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>204, 395</value>
-  </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+  <data name="&gt;&gt;Header.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>Action</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="Action.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="Action.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 50</value>
-  </data>
-  <data name="Action.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="Action.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 10, 10, 0</value>
-  </data>
-  <data name="Action.Size" type="System.Drawing.Size, System.Drawing">
-    <value>214, 405</value>
-  </data>
-  <data name="Action.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;Action.Name" xml:space="preserve">
-    <value>Action</value>
-  </data>
-  <data name="&gt;&gt;Action.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Action.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Header.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Action.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;Header.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="button1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -880,48 +1012,6 @@
   <data name="&gt;&gt;Title.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="Header.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="Header.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 10</value>
-  </data>
-  <data name="Header.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="Header.Size" type="System.Drawing.Size, System.Drawing">
-    <value>758, 40</value>
-  </data>
-  <data name="Header.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;Header.Name" xml:space="preserve">
-    <value>Header</value>
-  </data>
-  <data name="&gt;&gt;Header.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Header.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Header.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="loadPic.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="loadPic.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 10</value>
-  </data>
-  <data name="loadPic.Size" type="System.Drawing.Size, System.Drawing">
-    <value>544, 395</value>
-  </data>
-  <data name="loadPic.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="loadPic.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;loadPic.Name" xml:space="preserve">
     <value>loadPic</value>
   </data>
@@ -963,6 +1053,33 @@
   </data>
   <data name="&gt;&gt;Data.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="loadPic.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="loadPic.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 10</value>
+  </data>
+  <data name="loadPic.Size" type="System.Drawing.Size, System.Drawing">
+    <value>544, 395</value>
+  </data>
+  <data name="loadPic.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="loadPic.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;loadPic.Name" xml:space="preserve">
+    <value>loadPic</value>
+  </data>
+  <data name="&gt;&gt;loadPic.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;loadPic.Parent" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="&gt;&gt;loadPic.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="dataGridViewImageColumn1.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>

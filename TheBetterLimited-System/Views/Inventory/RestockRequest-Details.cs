@@ -27,7 +27,7 @@ namespace TheBetterLimited.Views
         private JObject rq = new JObject();
         private List<JObject> orderItems = new List<JObject>();
         private List<RestockItem> items = new List<RestockItem>();
-        private ControllerBase cbRestock = new ControllerBase("Restock");
+        private RQController cbRestock = new RQController("Restock");
         private ControllerBase cbStock = new ControllerBase("inventory/sgs");
 
         public RestockRequest_Details()
@@ -39,8 +39,46 @@ namespace TheBetterLimited.Views
         {
             this.rq = restock;
             InitializeComponent();
+            AccessControl();
             InitDataTable();
             InitializeOrderItemTable();
+        }
+
+        private void AccessControl()
+        {
+            foreach (Control control in BottomBtn.Controls)
+            {
+                control.Visible = false;
+            }
+            switch ((int)rq["status"])
+            {
+                case (int)RestockStatusEnum.PendingApproval:
+                    if (GlobalsData.currentUser["department"].ToString().Equals("Inventory") && rq["location"]["Id"].ToString() != "003")
+                    {
+                        BackBtn.Visible = true;
+                        ApproveBtn.Visible = true;
+                        RejectBtn.Visible = true;
+                    }else if(GlobalsData.currentUser["department"].ToString().Equals("Purchase") && rq["location"]["Id"].ToString() == "003")
+                    {
+                        BackBtn.Visible = true;
+                        ApproveBtn.Visible = true;
+                        RejectBtn.Visible = true;
+                    }
+                    else
+                    {
+                        BackBtn.Visible = true;
+                        BackBtn.Location = new Point(774, 6);
+                    }
+                    break;
+                case (int)RestockStatusEnum.Pending:
+                    CancelBtn.Visible = true;
+                    ConfirmBtn.Visible = true;
+                    break;
+                default:
+                    BackBtn.Visible = true;
+                    BackBtn.Location = new Point(774, 6);
+                    break;
+            }
         }
 
 
@@ -79,17 +117,6 @@ namespace TheBetterLimited.Views
             this.Dispose();
         }
 
-        private void SaveBtn_Click(object sender, EventArgs e)
-        {
-            try {
-               
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            };
-        }
-
         private void OrderDataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
@@ -118,6 +145,123 @@ namespace TheBetterLimited.Views
         private void OrderDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             items[e.RowIndex].quantity = Convert.ToInt32(OrderDataGrid["quantity", e.RowIndex].Value);
+        }
+
+        private void ApproveBtn_Click(object sender, EventArgs e)
+        {
+            if ((int)rq["status"] == (int)RestockStatusEnum.PendingApproval)
+            {
+                DialogResult result = MessageBox.Show("Are you sure to approve the purchase order?", "Confirmation Request", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        int status = 0;
+                        if (GlobalsData.currentUser["department"].Equals("Inventory"))
+                        {
+                            status = (int)RestockStatusEnum.Handling;
+                        }
+                        else
+                        {
+                            status = (int)RestockStatusEnum.Approved;
+                        }
+                        response = cbRestock.UpdateStatus(rq["id"].ToString(), status);
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            MessageBox.Show("The purchase order approved successfully");
+                            this.OnExit.Invoke();
+                            this.Close();
+                            this.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Approve purchase order error.\n" + response.Content);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Approve purchase order error.\n" + response.Content);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("The purchase order has been processed.");
+            }
+        }
+
+        private void RejectBtn_Click(object sender, EventArgs e)
+        {
+            if ((int)rq["status"] == (int)RestockStatusEnum.PendingApproval)
+            {
+                DialogResult result = MessageBox.Show("Are you sure to reject the purchase order?", "Confirmation Request", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        response = cbRestock.UpdateStatus(rq["id"].ToString(), (int)RestockStatusEnum.Rejected);
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            MessageBox.Show("The purchase order rejected successfully");
+                            this.OnExit.Invoke();
+                            this.Close();
+                            this.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Reject purchase order error.\n" + response.Content);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Reject purchase order error.\n" + response.Content);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("The purchase order has been processed.");
+            }
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+
+        private void ConfirmBtn_Click(object sender, EventArgs e)
+        {
+            if ((int)rq["status"] == (int)RestockStatusEnum.Pending)
+            {
+                DialogResult result = MessageBox.Show("Are you sure to send the purchase order to accounting department?", "Confirmation Request", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        response = cbRestock.UpdateStatus(rq["id"].ToString(), (int)RestockStatusEnum.PendingApproval);
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            MessageBox.Show("The purchase order has been send to accounting department.");
+                            this.OnExit.Invoke();
+                            this.Close();
+                            this.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Confirm purchase order error.\n" + response.Content);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Confirm purchase order error.\n" + response.Content);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("The purchase order has been processed.");
+            }
         }
     }
 }

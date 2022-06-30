@@ -108,6 +108,11 @@ namespace TheBetterLimited.Views
                         MessageBox.Show("The id " + SearchBarTxt.Texts + " has inbounded");
                         return;
                     }
+                    if (((int)goodsData["status"]) != (int)RestockStatusEnum.Handling)
+                    {
+                        MessageBox.Show("Restock Request record not found");
+                        return;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -125,6 +130,11 @@ namespace TheBetterLimited.Views
                     if (((int)goodsData["status"]) == (int)POStatus.Inbound || ((int)goodsData["status"]) == (int)POStatus.Completed)
                     {
                         MessageBox.Show("The id " + SearchBarTxt.Texts + " has inbounded");
+                        return;
+                    }
+                    if (((int)goodsData["status"]) != (int)POStatus.SentToSupplier)
+                    {
+                        MessageBox.Show("Purchase order not found");
                         return;
                     }
                 }

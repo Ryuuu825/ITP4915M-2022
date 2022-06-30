@@ -160,6 +160,7 @@
     <Compile Include="Controller\OrderController.cs" />
     <Compile Include="Controller\POController.cs" />
     <Compile Include="Controller\PostionController.cs" />
+    <Compile Include="Controller\RQController.cs" />
     <Compile Include="Controller\SessionController.cs" />
     <Compile Include="Controller\StaffController.cs" />
     <Compile Include="Controller\StockController.cs" />
