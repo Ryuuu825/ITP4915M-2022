@@ -121,85 +121,64 @@
     <value>编号</value>
   </data>
   <data name="id.ToolTipText" xml:space="preserve">
-    <value>编号</value>
+    <value>订单编号</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="id.Width" type="System.Int32, mscorlib">
-    <value>78</value>
+    <value>75</value>
   </data>
-  <data name="_createrId.HeaderText" xml:space="preserve">
+  <data name="loc.HeaderText" xml:space="preserve">
+    <value>请求地</value>
+  </data>
+  <data name="loc.Width" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
+  <data name="CreatorId.HeaderText" xml:space="preserve">
+    <value>创建者</value>
+  </data>
+  <data name="CreatorId.ToolTipText" xml:space="preserve">
     <value>创建者编号</value>
   </data>
-  <data name="_createrId.ToolTipText" xml:space="preserve">
-    <value>创建者编号</value>
+  <data name="CreatorId.Width" type="System.Int32, mscorlib">
+    <value>89</value>
   </data>
-  <data name="_createrId.Width" type="System.Int32, mscorlib">
-    <value>126</value>
+  <data name="OperatorId.HeaderText" xml:space="preserve">
+    <value>操作者</value>
   </data>
-  <data name="_operatorId.HeaderText" xml:space="preserve">
+  <data name="OperatorId.ToolTipText" xml:space="preserve">
     <value>操作者编号</value>
   </data>
-  <data name="_operatorId.ToolTipText" xml:space="preserve">
-    <value>操作者编号</value>
+  <data name="OperatorId.Width" type="System.Int32, mscorlib">
+    <value>89</value>
   </data>
-  <data name="_operatorId.Width" type="System.Int32, mscorlib">
-    <value>126</value>
+  <data name="CreateAt.HeaderText" xml:space="preserve">
+    <value>创建于</value>
   </data>
-  <data name="_storeId.HeaderText" xml:space="preserve">
-    <value>分店编号</value>
-  </data>
-  <data name="_storeId.ToolTipText" xml:space="preserve">
-    <value>分店编号</value>
-  </data>
-  <data name="_storeId.Width" type="System.Int32, mscorlib">
-    <value>110</value>
-  </data>
-  <data name="createTime.HeaderText" xml:space="preserve">
+  <data name="CreateAt.ToolTipText" xml:space="preserve">
     <value>创建时间</value>
   </data>
-  <data name="createTime.ToolTipText" xml:space="preserve">
-    <value>创建时间</value>
+  <data name="UpdateAt.HeaderText" xml:space="preserve">
+    <value>更新于</value>
   </data>
-  <data name="operateTime.HeaderText" xml:space="preserve">
-    <value>操作时间</value>
+  <data name="UpdateAt.ToolTipText" xml:space="preserve">
+    <value>更新时间</value>
   </data>
-  <data name="operateTime.ToolTipText" xml:space="preserve">
-    <value>操作时间</value>
-  </data>
-  <data name="Status.HeaderText" xml:space="preserve">
+  <data name="status.HeaderText" xml:space="preserve">
     <value>状态</value>
   </data>
-  <data name="Status.ToolTipText" xml:space="preserve">
-    <value>状态</value>
+  <data name="status.ToolTipText" xml:space="preserve">
+    <value>订单状态</value>
   </data>
-  <data name="exportBtn.Text" xml:space="preserve">
-    <value>输出</value>
+  <data name="status.Width" type="System.Int32, mscorlib">
+    <value>75</value>
   </data>
-  <data name="DeleteBtn.Text" xml:space="preserve">
-    <value>删除选取项目</value>
+  <data name="details.Width" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="Print.Width" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 25</value>
-  </data>
-  <data name="Title.Text" xml:space="preserve">
-    <value>补货请求</value>
-  </data>
-  <data name="dataGridViewImageColumn4.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="dataGridViewImageColumn5.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="dataGridViewImageColumn5.ToolTipText" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <data name="dataGridViewImageColumn6.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="dataGridViewImageColumn6.ToolTipText" xml:space="preserve">
-    <value>Delete</value>
-  </data>
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
@@ -226,8 +205,20 @@
         cUfkG3BeKFoJ9hXXKqMPXaOTcN69fCG3g8t+Pgqdm/sX1jemh/a/aA0AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="AddBtn.Text" xml:space="preserve">
-    <value>      新增</value>
+  <data name="CompletedBtn.Text" xml:space="preserve">
+    <value>完成所选请求</value>
+  </data>
+  <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="Title.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 9</value>
+  </data>
+  <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 21</value>
+  </data>
+  <data name="Title.Text" xml:space="preserve">
+    <value>进货请求</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3525,5 +3516,9 @@
         AAAAAAAAP//////////////////////AAAAAAAAAAAAAAAAAAAP//////////////////////+AAAAAA
         AAAAAAAAAAAAD/////8=
 </value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>Inherit</value>
   </data>
 </root>

@@ -48,8 +48,10 @@ namespace TheBetterLimited.Views
             GetAppointment();
         }
 
+        public event Action OnExit;
         private void CloseBtn_Click(object sender, EventArgs e)
         {
+            this.OnExit.Invoke();
             this.Close();
             this.Dispose();
         }

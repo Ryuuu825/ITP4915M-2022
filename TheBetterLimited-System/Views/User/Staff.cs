@@ -66,9 +66,12 @@ namespace TheBetterLimited.Views
             GetStaff();
         }
 
+        public event Action OnExit;
         private void CloseBtn_Click(object sender, EventArgs e)
         {
+            this.OnExit.Invoke();
             this.Close();
+            this.Dispose();
         }
 
         private void StaffDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -179,12 +182,21 @@ namespace TheBetterLimited.Views
                 JArray orders = JArray.Parse(response.Content);
                 foreach (JObject s in orders)
                 {
+
+                    DepartmentEnum departmentEnum = ((DepartmentEnum)Convert.ToInt32(s["_departmentId"].ToString()));
+                    if (GlobalsData.currentUser["department"].ToString().Equals("Admin"))
+                    {
+
+                    }
+                    else if (!GlobalsData.currentUser["department"].ToString().Equals(departmentEnum.ToString()))
+                    {
+                        continue;
+                    }
                     staffList.Add(s);
                     var row = dataTable.NewRow();
                     row["id"] = s["Id"].ToString();
                     row["firstName"] = s["FirstName"].ToString();
                     row["lastName"] = s["LastName"].ToString();
-                    DepartmentEnum departmentEnum = ((DepartmentEnum)Convert.ToInt32(s["_departmentId"].ToString()));
                     row["department"] = departmentEnum;
                     row["gender"] = s["Sex"].ToString();
                     PositionEnum positionEnum = ((PositionEnum)Convert.ToInt32(s["_positionId"].ToString()));

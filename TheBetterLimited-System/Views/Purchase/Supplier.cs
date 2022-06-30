@@ -33,7 +33,22 @@ namespace TheBetterLimited.Views
         public Supplier()
         {
             InitializeComponent();
+            AccessControl();
             GetGoods();//init user table
+        }
+
+        private void AccessControl()
+        {
+            switch (GlobalsData.currentUser["department"].ToString())
+            {
+                case "Accounting":
+                    AddBtn.Hide();
+                    DeleteBtn.Hide();
+                    exportBtn.Hide();
+                    SupplierDataGrid.Columns["delete"].Visible = false;
+                    SupplierDataGrid.Columns["edit"].Visible = false;
+                    break;
+            }
         }
 
         /*
@@ -50,9 +65,12 @@ namespace TheBetterLimited.Views
             GetGoods();
         }
 
+        public event Action OnExit;
         private void CloseBtn_Click(object sender, EventArgs e)
         {
+            this.OnExit.Invoke();
             this.Close();
+            this.Dispose();
         }
 
         private void GoodsDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

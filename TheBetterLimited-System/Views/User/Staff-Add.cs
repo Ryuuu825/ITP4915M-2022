@@ -35,9 +35,15 @@ namespace TheBetterLimited.Views
         public Staff_Add()
         {
             InitializeComponent();
-            foreach (var item in Enum.GetValues(typeof(DepartmentEnum)))
+            if(GlobalsData.currentUser["department"].ToString().Equals("Admin"))
             {
-                cbDept.Items.Add(EnumExtensions.Description((DepartmentEnum)item));
+                foreach (var item in Enum.GetValues(typeof(DepartmentEnum)))
+                {
+                    cbDept.Items.Add(EnumExtensions.Description((DepartmentEnum)item));
+                }
+            }else
+            {
+                cbDept.Items.Add(GlobalsData.currentUser["department"].ToString());
             }
         }
 

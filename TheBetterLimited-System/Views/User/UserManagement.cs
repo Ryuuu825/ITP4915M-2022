@@ -50,9 +50,12 @@ namespace TheBetterLimited.Views
             GetAccount();
         }
 
+        public event Action OnExit;
         private void CloseBtn_Click(object sender, EventArgs e)
         {
+            this.OnExit.Invoke();
             this.Close();
+            this.Dispose();
         }
 
         private void UserDataGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

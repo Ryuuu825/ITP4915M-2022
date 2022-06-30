@@ -42,11 +42,36 @@ namespace TheBetterLimited.Views
         {
             dataTable = new DataTable();
             InitializeComponent();
+            AccessControl();
             InitialzeDataTable();
             initBackgroundWorker();
             showLoading();
             bw.RunWorkerAsync();
         }
+
+        private void AccessControl()
+        {
+            switch (GlobalsData.currentUser["department"].ToString())
+            {
+                case "Sales":
+                    outBtn.Hide();
+                    if (!GlobalsData.currentUser["position"].ToString().Contains("Manager"))
+                    {
+                        RestockBtn.Hide();
+                    }
+                    break;
+                case "Accounting":
+                    outBtn.Hide();
+                    RestockBtn.Hide();
+                    inBtn.Hide();
+                    DeleteBtn.Hide();
+                    AddBtn.Hide();
+                    StockDataGrid.Columns["delete"].Visible = false;
+                    StockDataGrid.Columns["edit"].Visible = false;
+                    break;
+            }
+        }
+
         private void initBackgroundWorker()
         {
             bw = new BackgroundWorker();
@@ -100,8 +125,10 @@ namespace TheBetterLimited.Views
             }
         }
 
+        public event Action OnExit;
         private void CloseBtn_Click(object sender, EventArgs e)
         {
+            this.OnExit.Invoke();
             this.Close();
             this.Dispose();
         }
@@ -356,6 +383,18 @@ namespace TheBetterLimited.Views
             {
                 MessageBox.Show("You have not select any goods");
                 return;
+            }else
+            {
+                Form rs = Application.OpenForms["RestockRequest_Add"];
+                if (rs != null)
+                {
+                    rs.Close();
+                    rs.Dispose();
+                }
+                RestockRequest_Add gd = new RestockRequest_Add(selectStockID);
+                gd.Show();
+                gd.TopLevel = true;
+                gd.OnExit += GetStock;
             }
         }
 
