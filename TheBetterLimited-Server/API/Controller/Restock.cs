@@ -129,6 +129,70 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
+        [HttpGet("{id}")]
+        [Authorize]
+        public IActionResult GetById(string id , [FromHeader] string Langauge)
+        {
+            try
+            {
+                Data.Entity.RestockRequest rr = repository.GetById(id);
+                return Ok(ToDto(new List<Data.Entity.RestockRequest>{rr},User.Identity.Name, Langauge)[0]);
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+            catch (NullReferenceException e)
+            {
+                return StatusCode((int) HttpStatusCode.BadRequest , new { code = HttpStatusCode.BadRequest , message = e.Message });
+            }
+        }
+
+        [HttpPut("status/{id}")]
+        [Authorize]
+        /*
+            Update status of a restock request:
+                - Pending,
+                - Approved,
+                - Rejected,
+                - Cancelled,
+                - Handling,
+                - Completed
+        */ 
+        public IActionResult UpdateOrderStatus(string id  , [FromBody] int status)
+        {
+            try
+            {
+                Data.Entity.RestockRequestStatus RestockRequestStatus = (Data.Entity.RestockRequestStatus) status;
+                Data.Entity.RestockRequest rr = repository.GetById(id);
+                rr.Status = RestockRequestStatus;
+                rr._operatorId = userInfo.GetStaffFromUserName(User.Identity.Name).Id;
+                rr.OperateTime = DateTime.Now;
+                repository.Update(rr);
+
+                if (RestockRequestStatus  == Data.Entity.RestockRequestStatus.Approved || RestockRequestStatus == Data.Entity.RestockRequestStatus.Rejected)
+                {
+                    // send a msg to the creator of the request
+                }
+                else if (RestockRequestStatus == Data.Entity.RestockRequestStatus.Handling)
+                {
+                    // send a msg to warehouse staff
+                }
+                
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+            catch (NullReferenceException e)
+            {
+                return StatusCode((int) HttpStatusCode.BadRequest , new { code = HttpStatusCode.BadRequest , message = e.Message });
+            }
+        }
+
+
+
         [NonAction]
         public List<RestockRequestOutDto> ToDto(List<Data.Entity.RestockRequest> requests , string username , string lang = "en")
         {
