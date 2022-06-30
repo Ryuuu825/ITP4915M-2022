@@ -238,11 +238,11 @@
     <Compile Include="Utils\MultiLanguage.cs" />
     <Compile Include="Utils\Random.cs" />
     <Compile Include="Utils\RestClientUtils.cs" />
-    <Compile Include="Views\Accounting\Revenue.cs">
+    <Compile Include="Views\Accounting\Report.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Accounting\Revenue.Designer.cs">
-      <DependentUpon>Revenue.cs</DependentUpon>
+    <Compile Include="Views\Accounting\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Inventory\DefectiveItem-Details.cs">
       <SubType>Form</SubType>
@@ -612,11 +612,11 @@
     <EmbeddedResource Include="CustomizeControl\ProductInfo.resx">
       <DependentUpon>ProductInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Accounting\Revenue.resx">
-      <DependentUpon>Revenue.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Accounting\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Accounting\Revenue.zh.resx">
-      <DependentUpon>Revenue.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Accounting\Report.zh.resx">
+      <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Home.zh.resx">
       <DependentUpon>Home.cs</DependentUpon>

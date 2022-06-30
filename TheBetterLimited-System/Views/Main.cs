@@ -210,9 +210,9 @@ namespace TheBetterLimited.Views
         {
             /*change_MenuButton_style(sender);
             subSidebarTimer.Start();*/
-            Revenue revenue = new Revenue();
-            revenue.OnExit += () => { openChildForm(new Home()); };
-            openChildForm(revenue);
+            Report report = new Report();
+            report.OnExit += () => { openChildForm(new Home()); };
+            openChildForm(report);
             if (subSidebarExpand)
             {
                 subSidebarTimer.Start();

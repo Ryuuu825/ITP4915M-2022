@@ -19,7 +19,7 @@ using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
 {
-    public partial class Revenue : Form
+    public partial class Report : Form
     {
         private ControllerBase cbOrder = new ControllerBase("Order/month");
         private ControllerBase cbSO = new ControllerBase("SalesOrder");
@@ -40,7 +40,7 @@ namespace TheBetterLimited.Views
         private DataTable dt = new DataTable();
         private List<DataTemplate> dataTemplates = new List<DataTemplate>();
 
-        public Revenue()
+        public Report()
         {
             InitializeComponent();
             InitialzeDataTable();
@@ -237,6 +237,13 @@ namespace TheBetterLimited.Views
         private void Revenue_Resize(object sender, EventArgs e)
         {
             growthBox.Height = this.Height / 2;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.OnExit.Invoke();
+            this.Close();
+            this.Dispose();
         }
     }
 }
