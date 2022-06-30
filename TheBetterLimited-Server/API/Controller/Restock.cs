@@ -131,7 +131,7 @@ namespace TheBetterLimited_Server.API.Controller
 
         [HttpGet("{id}")]
         [Authorize]
-        public IActionResult GetById(string id , [FromHeader] string Langauge)
+        public IActionResult GetById(string id , [FromHeader] string Language)
         {
             try
             {
