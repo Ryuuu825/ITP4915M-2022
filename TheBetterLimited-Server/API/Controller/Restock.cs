@@ -134,6 +134,7 @@ namespace TheBetterLimited_Server.API.Controller
             {
 
                 Data.Entity.Staff s = userInfo.GetStaffFromUserName(User.Identity.Name);
+                ConsoleLogger.Debug(s._departmentId);
                 List<Data.Entity.RestockRequest> rr;
                 if (userInfo.IsWarehouseStaff(User.Identity.Name)  || userInfo.IsAdmin(User.Identity.Name))
                 {
@@ -141,7 +142,7 @@ namespace TheBetterLimited_Server.API.Controller
                 }
                 else if (s._departmentId == "800")
                 {
-                    rr = repository.GetBySQL($"SELECT * FROM `RestockRequest` WHERE `_locationId` = '{003}'");
+                    rr = repository.GetBySQL($"SELECT * FROM `RestockRequest` WHERE `_locationId` = '003'");
                 }
                 else 
                 {
@@ -154,10 +155,6 @@ namespace TheBetterLimited_Server.API.Controller
             catch (ICustException e)
             {
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
-            }
-            catch (NullReferenceException e)
-            {
-                return StatusCode((int) HttpStatusCode.BadRequest , new { code = HttpStatusCode.BadRequest , message = e.Message });
             }
         }
 

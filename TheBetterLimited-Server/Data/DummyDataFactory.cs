@@ -3522,6 +3522,22 @@ namespace TheBetterLimited_Server.Data
                     Address = "20 Tsing Yi Road,Tsing Yi Island, New Territories",
                     Phone = "898-898-898",
                     Contact = "Miss. IVE TY",
+                },
+                new Supplier
+                {
+                    ID = "007",
+                    Name = "亞馬遜中國",
+                    Address = "中國北京朝陽區",
+                    Phone = "898-898-898",
+                    Contact = "Mr. Clean",
+                },
+                new Supplier
+                {
+                    ID = "008",
+                    Name = "香港百貨供應商",
+                    Address = "50 Sha Tin Road, Sha Tin, New Territories",
+                    Phone = "898-898-898",
+                    Contact = "Mr. Clean",
                 }
             };
         }
