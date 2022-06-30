@@ -44,6 +44,8 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             this.db = db;
         }
 
+
+
         public static void UpdateOrderStatus(SalesOrderItem_Appointment item , Data.Repositories.Repository<SalesOrder> _SalesOrderTable)
         {
                 if (item.Appointment is null || item.SalesOrderItem.BookingOrder is null)
@@ -295,7 +297,26 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             list = list.GetRange((int)offset, limit);
             return await ToDto(list, lang);
         }
-        
+
+        public async Task<List<OrderOutDto>> GetOrderByMonth(int month, string lang = "en")        
+        {
+            // SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE "%-06-%"
+            var list = (await repository.GetBySQLAsync($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"%-%{month}-%\" ")).AsReadOnly().ToList();
+            return await ToDto(list,lang);
+        }
+
+
+        public async Task<Hashtable> GetTodayOrder(string username , string lang = "en")
+        {
+            var staff = userInfo.GetStaffFromUserName(username);
+            // SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE "%-06-%"
+            var list = (await repository.GetBySQLAsync($"SELECT * FROM `SalesOrder` WHERE `createdAt` LIKE \"{DateTime.Now.Year}-%{DateTime.Now.Month}-%{DateTime.Now.Day}%\" AND `_creatorId` = \"{staff.Id}\" ")).AsReadOnly().ToList();
+            return new Hashtable
+            {
+                ["Orders"] = await ToDto(list,lang),
+                ["StaffInfo"] = new { Name = staff.FirstName + " " + staff.LastName , Id = staff.Id  , StoreId = staff._storeId , StoreName = staff.store.Location.Name }
+            };
+        }
         public async Task<string> CreateSalesOrder(string Username , OrderInDto order)
         {
 

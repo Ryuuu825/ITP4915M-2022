@@ -39,8 +39,8 @@ public class DataContext : DbContext
         md.Entity<PurchaseOrder_Supplier_Goods>()
             .HasKey(posg => new { posg._purchaseOrderId, posg._supplierGoodsId });
         
-        md.Entity<RestockRequest_Supplier_Goods>()
-            .HasKey(rsg => new { rsg._restockRequestId, rsg._supplierGoodsId });
+        md.Entity<RestockRequest_Supplier_Goods_Stock>()
+            .HasKey(rsg => new { rsg._restockRequestId, rsg._supplierGoodsStockId });
         
         md.Entity<SalesOrderItem>()
             .HasKey(soi => new { soi._salesOrderId, soi._supplierGoodsStockId });
@@ -77,11 +77,11 @@ public class DataContext : DbContext
             .HasPrincipalKey(sg => sg.ID)
             .HasForeignKey(posg => posg._supplierGoodsId);
 
-        md.Entity<RestockRequest_Supplier_Goods>()
-            .HasOne(rrsg => rrsg.Supplier_Goods)
-            .WithMany(sg => sg.RestockRequest_Supplier_Goodss)
-            .HasPrincipalKey(sg => sg.ID)
-            .HasForeignKey(rrsg => rrsg._supplierGoodsId);
+        md.Entity<RestockRequest_Supplier_Goods_Stock>()
+            .HasOne(rrsg => rrsg.Supplier_Goods_Stock)
+            .WithMany(sg => sg.RestockRequest_Supplier_Goods_Stocks)
+            .HasPrincipalKey(sg => sg.Id)
+            .HasForeignKey(rrsg => rrsg._supplierGoodsStockId);
 
         md.Entity<Supplier_Goods>()
             .HasKey(sg => sg.ID);
@@ -130,7 +130,7 @@ public class DataContext : DbContext
     public DbSet<Position> position {get; }
     public DbSet<PurchaseOrder_Supplier_Goods> purchaseOrder_Supplier_Goods {get; }
     public DbSet<PurchaseOrder> purchaseOrder {get; }
-    public DbSet<RestockRequest_Supplier_Goods> restockRequest_Supplier_Goods {get; }
+    public DbSet<RestockRequest_Supplier_Goods_Stock> restockRequest_Supplier_Goods {get; }
     public DbSet<SalesOrder> salesOrder {get; }
     public DbSet<SalesOrderItem> salesOrderItem {get; }
     public DbSet<Staff> staff {get; }

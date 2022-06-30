@@ -29,6 +29,5 @@ namespace TheBetterLimited_Server.Data.Entity
 
         public virtual ICollection<Supplier_Goods_Stock> Supplier_Goods_Stocks { get; set; }
         public virtual ICollection<PurchaseOrder_Supplier_Goods> PurchaseOrder_Supplier_Goodss { get; set; }
-        public virtual ICollection<RestockRequest_Supplier_Goods> RestockRequest_Supplier_Goodss { get; set; }
     }
 }

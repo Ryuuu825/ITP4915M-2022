@@ -40,6 +40,8 @@ namespace TheBetterLimited_Server.Data.Entity
 
         public virtual ICollection<DefectItemRecord> DefectItemRecords { get; set; }
         public virtual ICollection<SalesOrderItem> SalesOrderItems { get; set; }
+
+        public virtual ICollection<RestockRequest_Supplier_Goods_Stock> RestockRequest_Supplier_Goods_Stocks { get; set; }
     
     }
 }

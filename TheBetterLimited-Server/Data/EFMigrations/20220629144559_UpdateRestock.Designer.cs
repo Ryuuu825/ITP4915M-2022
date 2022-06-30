@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheBetterLimited_Server.Data;
 
@@ -10,9 +11,10 @@ using TheBetterLimited_Server.Data;
 namespace TheBetterLimited_Server.Data.EFMigrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220629144559_UpdateRestock")]
+    partial class UpdateRestock
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -629,13 +631,13 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.ToTable("RestockRequest");
                 });
 
-            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.RestockRequest_Supplier_Goods_Stock", b =>
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.RestockRequest_Supplier_Goods", b =>
                 {
                     b.Property<string>("_restockRequestId")
                         .HasMaxLength(10)
                         .HasColumnType("char(10)");
 
-                    b.Property<string>("_supplierGoodsStockId")
+                    b.Property<string>("_supplierGoodsId")
                         .HasMaxLength(9)
                         .HasColumnType("char(9)");
 
@@ -645,9 +647,9 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Property<int>("_quantityReceived")
                         .HasColumnType("MEDIUMINT");
 
-                    b.HasKey("_restockRequestId", "_supplierGoodsStockId");
+                    b.HasKey("_restockRequestId", "_supplierGoodsId");
 
-                    b.HasIndex("_supplierGoodsStockId");
+                    b.HasIndex("_supplierGoodsId");
 
                     b.ToTable("RestockRequest_Supplier_Goods");
                 });
@@ -1357,7 +1359,7 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                     b.Navigation("Operator");
                 });
 
-            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.RestockRequest_Supplier_Goods_Stock", b =>
+            modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.RestockRequest_Supplier_Goods", b =>
                 {
                     b.HasOne("TheBetterLimited_Server.Data.Entity.RestockRequest", "RestockRequest")
                         .WithMany("Items")
@@ -1365,16 +1367,15 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TheBetterLimited_Server.Data.Entity.Supplier_Goods_Stock", "Supplier_Goods_Stock")
-                        .WithMany("RestockRequest_Supplier_Goods_Stocks")
-                        .HasForeignKey("_supplierGoodsStockId")
-                        .HasPrincipalKey("Id")
+                    b.HasOne("TheBetterLimited_Server.Data.Entity.Supplier_Goods", "Supplier_Goods")
+                        .WithMany("RestockRequest_Supplier_Goodss")
+                        .HasForeignKey("_supplierGoodsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("RestockRequest");
 
-                    b.Navigation("Supplier_Goods_Stock");
+                    b.Navigation("Supplier_Goods");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.SalesOrder", b =>
@@ -1665,14 +1666,14 @@ namespace TheBetterLimited_Server.Data.EFMigrations
                 {
                     b.Navigation("PurchaseOrder_Supplier_Goodss");
 
+                    b.Navigation("RestockRequest_Supplier_Goodss");
+
                     b.Navigation("Supplier_Goods_Stocks");
                 });
 
             modelBuilder.Entity("TheBetterLimited_Server.Data.Entity.Supplier_Goods_Stock", b =>
                 {
                     b.Navigation("DefectItemRecords");
-
-                    b.Navigation("RestockRequest_Supplier_Goods_Stocks");
 
                     b.Navigation("SalesOrderItems");
                 });

@@ -78,7 +78,7 @@ namespace TheBetterLimited_Server.API.Controller
     {
         public PurchaseOrder(Data.DataContext db) : base(db) {}
     }
-    public class RestockRequest_Supplier_Goods : APIControllerBase<Data.Entity.RestockRequest_Supplier_Goods>
+    public class RestockRequest_Supplier_Goods : APIControllerBase<Data.Entity.RestockRequest_Supplier_Goods_Stock>
     {
         public RestockRequest_Supplier_Goods(Data.DataContext db) : base(db) {}
     }

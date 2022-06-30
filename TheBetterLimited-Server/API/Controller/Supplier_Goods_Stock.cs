@@ -188,7 +188,21 @@ namespace TheBetterLimited_Server.API.Controller
         {   
             var staff = userInfo.GetStaffFromUserName(User.Identity.Name);
             string location = String.Empty;
-            if (staff.warehouse is null && staff.store is not null)
+            if (AppLogic.Constraint.AdminDepartmentId.Contains(staff._departmentId)) 
+            { 
+                if (dto._purchaseOrderId != "")
+                {
+                    var po = PurchaseOrderTable.GetById(dto._purchaseOrderId);
+                    location = po.Warehouse.Location.Id;
+                    ConsoleLogger.Debug(location);
+                }
+                else
+                {
+                    var rr = RestockRequestTable.GetById(dto._restockRequestId);
+                    location = rr.Creater.store is null ? rr.Creater.warehouse._locationID : rr.Creater.store._locationID;
+                }
+            }
+            else if (staff.warehouse is null && staff.store is not null)
             {
                 location = staff.store._locationID;
             }
@@ -196,10 +210,6 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 location = staff.warehouse._locationID;
             } 
-            else if (AppLogic.Constraint.AdminDepartmentId.Contains(staff._departmentId)) 
-            { 
-                return Ok(); // simply do nothing
-            }
             else 
             {
                 return StatusCode(401 , "unauthorized");
@@ -208,26 +218,21 @@ namespace TheBetterLimited_Server.API.Controller
             if (location.Equals(String.Empty))
                 return StatusCode(404, "No location is found");
 
+
             try 
             {
                 foreach(var item in dto.items)
                 {
                     // update the stock according to the user location
                     Data.Entity.Supplier_Goods_Stock stock = repository.GetBySQL(
-                                    $"SELECT * FROM `Goods` WHERE `Id` = '{item._goodsId}'"
-                                )?.FirstOrDefault()
-                                .Supplier_Goods.FirstOrDefault()
-                                .Supplier_Goods_Stocks.Where(x => x._locationId == location)
-                                .FirstOrDefault();
-
+                            $"SELECT * FROM `Goods` WHERE `Id` = '{item._goodsId}'"
+                    ).FirstOrDefault()
+                     .Supplier_Goods.FirstOrDefault()
+                     .Supplier_Goods_Stocks.Where(x => x._locationId == location)
+                     .FirstOrDefault();
                     if (stock is null) throw new BadArgException("Not record found");
                     if (stock.isSoftDeleted) throw new BadArgException("The stock records is soft deleted");
 
-                    ConsoleLogger.Debug(item.qty);
-                    ConsoleLogger.Debug(stock.Quantity);
-                    ConsoleLogger.Debug(item._goodsId);
-                    ConsoleLogger.Debug(stock.Id);
-                    ConsoleLogger.Debug(stock.Supplier_Goods._goodsId);
                     stock.Quantity += (int) item.qty;
                     sgs.Update(stock);
 
