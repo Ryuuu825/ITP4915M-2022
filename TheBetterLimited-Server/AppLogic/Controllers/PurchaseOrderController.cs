@@ -109,7 +109,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
         }
 
 
-        public List<PurchaseOrderOutDto> GetById(string username , string id , string lang = "en")
+        public PurchaseOrderOutDto GetById(string username , string id , string lang = "en")
         {
             var entry = repository.GetById(id);
             if(entry is null)
@@ -117,7 +117,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 return null;
             }
 
-            return ToDto(new List<Data.Entity.PurchaseOrder> { entry } , username , lang);
+            return ToDto(new List<Data.Entity.PurchaseOrder> { entry } , username , lang)[0];
         }
 
         public void CreateEntry(PurchaseOrderInDto dto, string username)
