@@ -191,6 +191,24 @@ namespace TheBetterLimited_Server.API.Controller
             }
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(string id)
+        {
+            try
+            {
+                repository.Delete(repository.GetById(id));
+                return Ok();
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+            catch (NullReferenceException e)
+            {
+                return StatusCode((int) HttpStatusCode.BadRequest , new { code = HttpStatusCode.BadRequest , message = e.Message });
+            }
+        }
+
 
 
         [NonAction]
