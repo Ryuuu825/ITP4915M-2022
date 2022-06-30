@@ -65,12 +65,21 @@ namespace TheBetterLimited_Server.API.Controller
             try
             {
                 Data.Entity.Staff s = userInfo.GetStaffFromUserName(User.Identity.Name);
+                string locationId = String.Empty;
+                if (userInfo.IsSales(User.Identity.Name))
+                {
+                    locationId = s.store._locationID;
+                }
+                else
+                {
+                    locationId = s.warehouse._locationID;
+                }
                 Data.Entity.RestockRequest rr = new Data.Entity.RestockRequest
                 {
                     ID = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.RestockRequest>(db),
                     _createrId = s.Id,
                     _operatorId = s.Id,
-                    _storeId = s.store._locationID,
+                    _locationId = locationId,
                     CreateTime = DateTime.Now,
                     OperateTime = DateTime.Now,
                     Status = Data.Entity.RestockRequestStatus.Pending
