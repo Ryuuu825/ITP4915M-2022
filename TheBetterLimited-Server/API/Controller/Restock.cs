@@ -92,7 +92,7 @@ namespace TheBetterLimited_Server.API.Controller
                     if (sgs._locationId != locationId)
                     {
                         repository.Delete(rr);
-                        return BadRequest("You can't restock goods from other warehouse");
+                        return BadRequest("You can't restock goods from other location");
                     }
                     Data.Entity.RestockRequest_Supplier_Goods_Stock rgs = new Data.Entity.RestockRequest_Supplier_Goods_Stock
                     {
