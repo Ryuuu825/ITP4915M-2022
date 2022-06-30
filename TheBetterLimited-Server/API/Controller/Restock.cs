@@ -134,16 +134,18 @@ namespace TheBetterLimited_Server.API.Controller
             {
 
                 Data.Entity.Staff s = userInfo.GetStaffFromUserName(User.Identity.Name);
-                string locationId = String.Empty;
                 List<Data.Entity.RestockRequest> rr;
-                if (userInfo.IsWarehouseStaff(User.Identity.Name))
+                if (userInfo.IsWarehouseStaff(User.Identity.Name)  || userInfo.IsAdmin(User.Identity.Name))
                 {
-                    locationId = s.warehouse._locationID;
                     rr = repository.GetAll();
                 }
-                else
+                else if (s._departmentId == "800")
                 {
-                    locationId = s.store._locationID;
+                    rr = repository.GetBySQL($"SELECT * FROM `RestockRequest` WHERE `_locationId` = '{003}'");
+                }
+                else 
+                {
+                    string locationId = s.store._locationID;
                     rr = repository.GetBySQL($"SELECT * FROM `RestockRequest` WHERE `_locationId` = '{locationId}'").ToList();
                 }
                

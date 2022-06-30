@@ -25,6 +25,17 @@ namespace TheBetterLimited_Server.Data.Repositories
             return res.Staff;
         }
 
+        public bool IsAdmin(string username)
+        {
+            username = username.Replace("\"" , "");
+            Data.Entity.Account? res = _accounts.FromSqlRaw(
+                $"SELECT * FROM Account WHERE `username` = \"{username}\""
+            ).FirstOrDefault();
+            if (res == null)
+                throw new BadArgException("The username is not valid.");
+            return AppLogic.Constraint.AdminDepartmentId.Contains(res.Staff._departmentId);
+        }
+
 
         public bool IsWarehouseStaff(string username)
         {

@@ -66,10 +66,14 @@ namespace TheBetterLimited_Server.API.Controller
 
         }
 
+        
+
         [HttpGet]
-        public IActionResult GetAll([FromHeader] string Language = "en")
+        public IActionResult GetAll( [FromQuery] string? location , [FromHeader] string Language = "en")
         {
             var p = repository.GetAll();
+
+            
             List<Data.Entity.Goods> goods = new List<Data.Entity.Goods>();
             foreach( var g in p)
             {
@@ -79,6 +83,11 @@ namespace TheBetterLimited_Server.API.Controller
             var store = StoreTable.GetAll();
             
             var res = sgs.GetAll();
+
+            if (location != null)
+            {
+                res = res.ToList().Where(s => s._locationId == location).ToList();
+            }
             List<Hashtable> result = new List<Hashtable>();
             foreach (var r in res) 
             {
