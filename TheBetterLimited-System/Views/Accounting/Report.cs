@@ -196,9 +196,9 @@ namespace TheBetterLimited.Views
 
         private void YearData()
         {
-            var today = new DateTime().ToString("yyyy-MM-dd");
+            var today = DateTime.Today.Month;
             Random random = new Random();
-            for (int i = 1; i <= 12; i++)
+            for (int i = 1; i <= today; i++)
             {
                 DataRow row = dt.NewRow();
                 var date = DateTime.Today.Year + " - " + i.ToString("00");
