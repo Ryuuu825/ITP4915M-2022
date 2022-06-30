@@ -41,10 +41,11 @@ namespace TheBetterLimited_Server.Data.Entity
     public enum RestockRequestStatus
     {
         Pending,
+        PendingApproval,
         Approved,
         Rejected,
-        Cancelled,
         Handling,
-        Completed
+        Completed,
+        Cancelled,
     }
 }
