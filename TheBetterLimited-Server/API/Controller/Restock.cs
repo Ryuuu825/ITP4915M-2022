@@ -136,7 +136,7 @@ namespace TheBetterLimited_Server.API.Controller
             try
             {
                 Data.Entity.RestockRequest rr = repository.GetById(id);
-                return Ok(ToDto(new List<Data.Entity.RestockRequest>{rr},User.Identity.Name, Langauge)[0]);
+                return Ok(ToDto(new List<Data.Entity.RestockRequest>{rr},User.Identity.Name, Language)[0]);
             }
             catch (ICustException e)
             {
