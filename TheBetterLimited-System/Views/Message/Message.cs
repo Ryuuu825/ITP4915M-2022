@@ -36,37 +36,42 @@ namespace TheBetterLimited.Views.Message
 
         public void SetMessage(RestSharp.RestResponse result, bool isNewMessage = false) // isReverse mean add the message to the front
         {
-            var messages = JObject.Parse(result.Content)["messages"].ToString();
-            JArray messageList = JArray.Parse(messages);
-            foreach (var message in messageList)
+            try
             {
-                /*
-                        "senderName": "system",
-                        "sentDate": "21/6/2022",
-                        "title": "Low Stock Warning",
-                        "content": "The quantity of 100000041 is less than the minimum limit. Please check the stock."
-                */
-                // string title , string message, string sender, string date
-                var msg = new MessageListItem(
-                    new MessageModel
-                    {
-                        Title = message["title"].ToString(),
-                        content = message["content"].ToString(),
-                        senderName = message["senderName"].ToString(),
-                        sendDate = message["sentDate"].ToString() ,
-                        id = message["id"].ToString(),
-                        isRead = message["isRead"].ToObject<bool>()
-                    },
-                    this
-                   );
-                //msg.Dock = DockStyle.Fill;
-                this.MessageList.Controls.Add(msg);
-                if (isNewMessage)
+                var messages = JObject.Parse(result.Content)["messages"].ToString();
+                JArray messageList = JArray.Parse(messages);
+                foreach (var message in messageList)
                 {
-                    this.MessageList.Controls.SetChildIndex(msg, 0);
-                }
+                    /*
+                            "senderName": "system",
+                            "sentDate": "21/6/2022",
+                            "title": "Low Stock Warning",
+                            "content": "The quantity of 100000041 is less than the minimum limit. Please check the stock."
+                    */
+                    // string title , string message, string sender, string date
+                    var msg = new MessageListItem(
+                        new MessageModel
+                        {
+                            Title = message["title"].ToString(),
+                            content = message["content"].ToString(),
+                            senderName = message["senderName"].ToString(),
+                            sendDate = message["sentDate"].ToString(),
+                            id = message["id"].ToString(),
+                            isRead = message["isRead"].ToObject<bool>()
+                        },
+                        this
+                       );
+                    //msg.Dock = DockStyle.Fill;
+                    this.MessageList.Controls.Add(msg);
+                    if (isNewMessage)
+                    {
+                        this.MessageList.Controls.SetChildIndex(msg, 0);
+                    }
 
+                }
             }
+            catch (Exception ex)
+            { }
 
         }
 
