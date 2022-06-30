@@ -14,7 +14,7 @@ namespace TheBetterLimited_Server.Data.Entity
         [Column(TypeName = "char(9)")]
         public string _supplierGoodsStockId { get; set;}
 
-        [ForeignKey("_supplierGoodsId")]
+        [ForeignKey("_supplierGoodsStockId")]
         public virtual Supplier_Goods_Stock Supplier_Goods_Stock { get; set; }
 
         [Column(TypeName = "MEDIUMINT")]
