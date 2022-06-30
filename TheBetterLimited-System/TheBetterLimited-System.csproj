@@ -222,6 +222,7 @@
     <Compile Include="Models\POStatusEnum.cs" />
     <Compile Include="Models\PurchaseItem.cs" />
     <Compile Include="Models\RestockItem.cs" />
+    <Compile Include="Models\RestockStatusEnum.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\StaffModel.cs" />
     <Compile Include="Models\Supplier.cs" />

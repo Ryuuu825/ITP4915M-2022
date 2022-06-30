@@ -236,7 +236,7 @@ namespace TheBetterLimited.Views
 
         private void Revenue_Resize(object sender, EventArgs e)
         {
-            growthBox.Height = this.Height / 2;
+            growthBox.Height = (int)(this.Height *0.4);
         }
 
         private void button1_Click(object sender, EventArgs e)

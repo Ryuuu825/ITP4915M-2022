@@ -63,14 +63,14 @@ namespace TheBetterLimited.Views
         {
             if (OrderDataGrid.Columns[e.ColumnIndex].Name == "status")
             {
-                e.Value = (POStatus)(Convert.ToInt32(e.Value));
+                e.Value = (RestockStatusEnum)(Convert.ToInt32(e.Value));
                 e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                if (e.Value.Equals(POStatus.Inbound) || e.Value.Equals(POStatus.Completed) || e.Value.Equals(POStatus.Approved))
+                if (e.Value.Equals(RestockStatusEnum.Completed) || e.Value.Equals(RestockStatusEnum.Approved))
                 {
                     e.CellStyle.ForeColor = Color.SeaGreen;
                     e.CellStyle.SelectionForeColor = Color.SeaGreen;
                 }
-                else if (e.Value.Equals(POStatus.PendingApproval) || e.Value.Equals(POStatus.SentToSupplier))
+                else if (e.Value.Equals(RestockStatusEnum.PendingApproval))
                 {
                     e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
@@ -148,7 +148,7 @@ namespace TheBetterLimited.Views
                     return;
                 }
 
-                DialogResult result = MessageBox.Show("Do you really need to delete this purchase order?", "Confirmation Request", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Do you really need to delete this restock request?", "Confirmation Request", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -327,7 +327,8 @@ namespace TheBetterLimited.Views
                         MessageBox.Show("Complete purchase order(s) error.\n" + response.Content);
                     }
                 }
-            }else
+            }
+            else
             {
                 return;
             }
