@@ -60,8 +60,8 @@
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Catalogue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GoodsDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -101,8 +101,8 @@
             this.id,
             this.Catalogue,
             this.name,
-            this.recQty,
-            this.qty});
+            this.expQty,
+            this.outQty});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -334,21 +334,22 @@
             this.name.Name = "name";
             this.name.ReadOnly = true;
             // 
-            // recQty
+            // expQty
             // 
-            this.recQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            resources.ApplyResources(this.recQty, "recQty");
-            this.recQty.Name = "recQty";
+            this.expQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.expQty.DataPropertyName = "expQty";
+            resources.ApplyResources(this.expQty, "expQty");
+            this.expQty.Name = "expQty";
             // 
-            // qty
+            // outQty
             // 
-            this.qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.qty.DataPropertyName = "outQty";
+            this.outQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.outQty.DataPropertyName = "outQty";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.qty.DefaultCellStyle = dataGridViewCellStyle4;
-            resources.ApplyResources(this.qty, "qty");
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
+            this.outQty.DefaultCellStyle = dataGridViewCellStyle4;
+            resources.ApplyResources(this.outQty, "outQty");
+            this.outQty.Name = "outQty";
+            this.outQty.ReadOnly = true;
             // 
             // OutboundGoods
             // 
@@ -401,7 +402,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Catalogue;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recQty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expQty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn outQty;
     }
 }

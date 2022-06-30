@@ -160,25 +160,25 @@
   <data name="name.ToolTipText" xml:space="preserve">
     <value>Goods Name</value>
   </data>
-  <metadata name="recQty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="expQty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="recQty.HeaderText" xml:space="preserve">
+  <data name="expQty.HeaderText" xml:space="preserve">
     <value>Request Qty</value>
   </data>
-  <data name="recQty.Width" type="System.Int32, mscorlib">
+  <data name="expQty.Width" type="System.Int32, mscorlib">
     <value>124</value>
   </data>
-  <metadata name="qty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="outQty.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="qty.HeaderText" xml:space="preserve">
+  <data name="outQty.HeaderText" xml:space="preserve">
     <value>Outbound Qty</value>
   </data>
-  <data name="qty.ToolTipText" xml:space="preserve">
+  <data name="outQty.ToolTipText" xml:space="preserve">
     <value>Outbound Quantity</value>
   </data>
-  <data name="qty.Width" type="System.Int32, mscorlib">
+  <data name="outQty.Width" type="System.Int32, mscorlib">
     <value>138</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -4073,16 +4073,16 @@
   <data name="&gt;&gt;name.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;recQty.Name" xml:space="preserve">
-    <value>recQty</value>
+  <data name="&gt;&gt;expQty.Name" xml:space="preserve">
+    <value>expQty</value>
   </data>
-  <data name="&gt;&gt;recQty.Type" xml:space="preserve">
+  <data name="&gt;&gt;expQty.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;qty.Name" xml:space="preserve">
-    <value>qty</value>
+  <data name="&gt;&gt;outQty.Name" xml:space="preserve">
+    <value>outQty</value>
   </data>
-  <data name="&gt;&gt;qty.Type" xml:space="preserve">
+  <data name="&gt;&gt;outQty.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

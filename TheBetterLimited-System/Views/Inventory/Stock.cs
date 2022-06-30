@@ -25,6 +25,8 @@ namespace TheBetterLimited.Views
     {
         private BindingSource bs = new BindingSource();
         private List<string> selectStockID = new List<string>();
+        private List<JObject> stocks = new List<JObject>();
+        private List<JObject> selectStock = new List<JObject>();
         private DialogResult choose;
         private RestResponse result;
         private ControllerBase cbStore = new ControllerBase("Store");
@@ -208,6 +210,7 @@ namespace TheBetterLimited.Views
                     StockDataGrid["select", e.RowIndex].Tag = 1;
                     StockDataGrid.Rows[e.RowIndex].Selected = true;
                     selectStockID.Add(StockDataGrid["id", e.RowIndex].Value.ToString());
+                    selectStock.Add(stocks[e.RowIndex]);
                 }
                 else
                 {
@@ -215,6 +218,7 @@ namespace TheBetterLimited.Views
                     StockDataGrid["select", e.RowIndex].Tag = 0;
                     StockDataGrid.Rows[e.RowIndex].Selected = false;
                     selectStockID.Remove(StockDataGrid["id", e.RowIndex].Value.ToString());
+                    selectStock.Remove(stocks[e.RowIndex]);
                 }
             }
 
@@ -275,8 +279,9 @@ namespace TheBetterLimited.Views
         private void InitList()
         {
             dataTable.Clear();
+            stocks.Clear();
             var res = JArray.Parse(result.Content.ToString());
-            foreach (var row in res)
+            foreach (JObject row in res)
             {
                 // is not soft Deleted
                 if (!row["isDeleted"].ToObject<bool>())
@@ -290,6 +295,7 @@ namespace TheBetterLimited.Views
                     dr["MinLimit"] = row["MinLimit"].ToString();
                     dr["ReorderLevel"] = row["ReorderLevel"].ToString();
                     dr["Status"] = row["Status"].ToString();
+                    stocks.Add(row);
                     dataTable.Rows.Add(dr);
                 }
             }
@@ -402,17 +408,28 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                Form rs = Application.OpenForms["RestockRequest_Add"];
-                if (rs != null)
+                foreach (var stock in selectStock)
                 {
-                    rs.Close();
-                    rs.Dispose();
+                    var i = (int)stock["MaxLimit"] - (int)stock["Quantity"];
+                    if (i == 0)
+                    {
+                        MessageBox.Show(stock["Id"] + " has reached the maximum limit");
+                        return;
+                    }
                 }
-                RestockRequest_Add gd = new RestockRequest_Add(selectStockID);
-                gd.Show();
-                gd.TopLevel = true;
-                gd.OnExit += GetStock;
             }
+
+            Form rs = Application.OpenForms["RestockRequest_Add"];
+            if (rs != null)
+            {
+                rs.Close();
+                rs.Dispose();
+            }
+            RestockRequest_Add gd = new RestockRequest_Add(selectStockID);
+            gd.Show();
+            gd.TopLevel = true;
+            gd.OnExit += GetStock;
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

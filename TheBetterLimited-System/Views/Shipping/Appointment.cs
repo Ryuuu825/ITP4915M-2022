@@ -94,7 +94,6 @@ namespace TheBetterLimited.Views
                 if (Convert.ToInt32(AppointmentDataGrid["select", e.RowIndex].Tag) == 0)
                 {
                     DialogResult result = DialogResult.No;
-                    Console.WriteLine(AppointmentDataGrid["teamId", e.RowIndex].Value.ToString() != String.Empty);
                     if (AppointmentDataGrid["teamId", e.RowIndex].Value.ToString() != String.Empty)
                     {
                         result = MessageBox.Show("The appointment has been arrange to a team. Do you need to modify it?", "Waining", MessageBoxButtons.YesNo);
@@ -221,11 +220,9 @@ namespace TheBetterLimited.Views
             }
             try
             {
-                Console.WriteLine(response.Content);
                 JArray appointments = JArray.Parse(response.Content);
                 foreach (JObject a in appointments)
                 {
-                    Console.WriteLine(a);
                     var row = dt.NewRow();
                     row["Id"] = a["appointmentId"].ToString();
                     row["time"] = ((DateTime)a["startTime"]).ToString("HH:mm") + " - " + ((DateTime)a["endTime"]).ToString("HH:mm");
