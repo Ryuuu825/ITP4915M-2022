@@ -94,10 +94,10 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
             }
-            catch (NullReferenceException e)
+/*            catch (NullReferenceException e)
             {
                 return StatusCode((int) HttpStatusCode.BadRequest , new { code = HttpStatusCode.BadRequest , message = e.Message });
-            }
+            }*/
         }
 
 
@@ -184,6 +184,10 @@ namespace TheBetterLimited_Server.API.Controller
             catch (ICustException e)
             {
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
+            }
+            catch (NullReferenceException e)
+            {
+                return StatusCode((int)HttpStatusCode.BadRequest, new { code = HttpStatusCode.BadRequest, message = e.Message });
             }
         }
 
