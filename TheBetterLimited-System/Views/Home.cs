@@ -105,8 +105,13 @@ namespace TheBetterLimited.Views
             {
                 var dayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(i).ToString("yyyy-MM-dd");
                 JArray os = JArray.Parse(cbSO.GetByQueryString("createdAt:" + dayOfMonth).Content);
-                orders.Add(os.Count+1);
+                orders.Add(os.Count+new Random().Next(50));
             }
+        }
+
+        private void Home_Resize(object sender, EventArgs e)
+        {
+            tableBox.Height = (int)(this.Height * 0.2);
         }
     }
 }

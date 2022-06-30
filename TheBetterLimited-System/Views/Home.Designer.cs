@@ -47,7 +47,7 @@
             this.goodsPie = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableBox = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -75,7 +75,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.goodsPie)).BeginInit();
             this.panel9.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.tableBox.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -84,9 +84,9 @@
             // 
             // Header
             // 
-            resources.ApplyResources(this.Header, "Header");
             this.Header.BackColor = System.Drawing.Color.White;
             this.Header.Controls.Add(this.Title);
+            resources.ApplyResources(this.Header, "Header");
             this.Header.ForeColor = System.Drawing.Color.White;
             this.Header.Name = "Header";
             // 
@@ -102,19 +102,18 @@
             this.Data.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
             this.Data.Controls.Add(this.panel6);
             this.Data.Controls.Add(this.panel2);
-            this.Data.Controls.Add(this.tableLayoutPanel1);
+            this.Data.Controls.Add(this.tableBox);
             this.Data.Name = "Data";
             // 
             // panel6
             // 
-            resources.ApplyResources(this.panel6, "panel6");
             this.panel6.Controls.Add(this.profitPie);
             this.panel6.Controls.Add(this.panel7);
+            resources.ApplyResources(this.panel6, "panel6");
             this.panel6.Name = "panel6";
             // 
             // profitPie
             // 
-            resources.ApplyResources(this.profitPie, "profitPie");
             chartArea3.AxisX.IsLabelAutoFit = false;
             chartArea3.AxisX.IsMarginVisible = false;
             chartArea3.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,6 +123,7 @@
             chartArea3.AxisY.TitleFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea3.Name = "ChartArea1";
             this.profitPie.ChartAreas.Add(chartArea3);
+            resources.ApplyResources(this.profitPie, "profitPie");
             legend3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
             legend3.DockedToChartArea = "ChartArea1";
             legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
@@ -147,9 +147,9 @@
             // 
             // panel7
             // 
-            resources.ApplyResources(this.panel7, "panel7");
             this.panel7.BackColor = System.Drawing.Color.White;
             this.panel7.Controls.Add(this.label6);
+            resources.ApplyResources(this.panel7, "panel7");
             this.panel7.Name = "panel7";
             // 
             // label6
@@ -160,16 +160,16 @@
             // 
             // panel2
             // 
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Controls.Add(this.goodsPie);
             this.panel2.Controls.Add(this.panel9);
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
             // goodsPie
             // 
-            resources.ApplyResources(this.goodsPie, "goodsPie");
             chartArea4.Name = "ChartArea1";
             this.goodsPie.ChartAreas.Add(chartArea4);
+            resources.ApplyResources(this.goodsPie, "goodsPie");
             legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
             legend4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             legend4.IsTextAutoFit = false;
@@ -200,9 +200,9 @@
             // 
             // panel9
             // 
-            resources.ApplyResources(this.panel9, "panel9");
             this.panel9.BackColor = System.Drawing.Color.White;
             this.panel9.Controls.Add(this.label11);
+            resources.ApplyResources(this.panel9, "panel9");
             this.panel9.Name = "panel9";
             // 
             // label11
@@ -211,22 +211,22 @@
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Name = "label11";
             // 
-            // tableLayoutPanel1
+            // tableBox
             // 
-            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
-            this.tableLayoutPanel1.Controls.Add(this.panel5, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel3, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            resources.ApplyResources(this.tableBox, "tableBox");
+            this.tableBox.Controls.Add(this.panel5, 3, 0);
+            this.tableBox.Controls.Add(this.panel4, 2, 0);
+            this.tableBox.Controls.Add(this.panel3, 1, 0);
+            this.tableBox.Controls.Add(this.panel1, 0, 0);
+            this.tableBox.Name = "tableBox";
             // 
             // panel5
             // 
-            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.BackColor = System.Drawing.Color.DimGray;
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.lblProfit);
+            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
             // 
             // label8
@@ -249,11 +249,11 @@
             // 
             // panel4
             // 
-            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.BackColor = System.Drawing.Color.DarkCyan;
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.lblRevenue);
+            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             // 
             // label7
@@ -276,11 +276,11 @@
             // 
             // panel3
             // 
-            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(122)))), ((int)(((byte)(60)))));
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.lblSales);
+            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
             // 
             // label9
@@ -303,11 +303,11 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(149)))), ((int)(((byte)(100)))));
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblCom);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // label5
@@ -352,6 +352,7 @@
             this.Controls.Add(this.Header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Home";
+            this.Resize += new System.EventHandler(this.Home_Resize);
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
             this.Data.ResumeLayout(false);
@@ -363,7 +364,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.goodsPie)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableBox.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -383,7 +384,7 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableBox;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataVisualization.Charting.Chart goodsPie;
         private System.Windows.Forms.Panel panel5;

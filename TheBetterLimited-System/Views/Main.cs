@@ -208,8 +208,15 @@ namespace TheBetterLimited.Views
 
         private void Accounting_Click(object sender, EventArgs e)
         {
-            change_MenuButton_style(sender);
-            subSidebarTimer.Start();
+            /*change_MenuButton_style(sender);
+            subSidebarTimer.Start();*/
+            Report report = new Report();
+            report.OnExit += () => { openChildForm(new Home()); };
+            openChildForm(report);
+            if (subSidebarExpand)
+            {
+                subSidebarTimer.Start();
+            }
         }
         private void Setting_Click(object sender, EventArgs e)
         {

@@ -29,7 +29,7 @@ namespace TheBetterLimited.Views
         private RestResponse response;
         private BackgroundWorker bw = new BackgroundWorker();
         private ControllerBase cbPO = new ControllerBase("purchase/order");
-        private ControllerBase cbRQ = new ControllerBase("restock");
+        private ControllerBase cbRQ = new ControllerBase("Restock");
         private StockController cbStock = new StockController("inventory/sgs");
 
         private bool loadAll = true;
@@ -95,30 +95,65 @@ namespace TheBetterLimited.Views
         //Get Goods
         private void GetGoods()
         {
+            JObject goodsData = null;
             if (GlobalsData.currentUser["department"].ToString().Equals("Sales"))
             {
-                response = cbRQ.GetById(SearchBarTxt.Texts.ToString());
+                try
+                {
+                    response = cbRQ.GetById(SearchBarTxt.Texts.ToString());
+                    restockId = SearchBarTxt.Texts;
+                    goodsData = JObject.Parse(response.Content);
+                    if (((int)goodsData["status"]) == (int)RestockStatusEnum.Completed)
+                    {
+                        MessageBox.Show("The id " + SearchBarTxt.Texts + " has inbounded");
+                        return;
+                    }
+                    if (((int)goodsData["status"]) != (int)RestockStatusEnum.Handling)
+                    {
+                        MessageBox.Show("Restock Request record not found");
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Record not found\nCheck if there are any new products");
+                    return;
+                }
             }
             else
             {
-                response = cbPO.GetById(SearchBarTxt.Texts.ToString());
+                try
+                {
+                    response = cbPO.GetById(SearchBarTxt.Texts.ToString());
+                    purchaseId = SearchBarTxt.Texts;
+                    goodsData = JObject.Parse(response.Content);
+                    if (((int)goodsData["status"]) == (int)POStatus.Inbound || ((int)goodsData["status"]) == (int)POStatus.Completed)
+                    {
+                        MessageBox.Show("The id " + SearchBarTxt.Texts + " has inbounded");
+                        return;
+                    }
+                    if (((int)goodsData["status"]) != (int)POStatus.SentToSupplier)
+                    {
+                        MessageBox.Show("Purchase order not found");
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Record not found\nCheck if there are any new products");
+                    return;
+                }
             }
-            InitList();
+            InitList(goodsData);
         }
 
-        private void InitList()
+        private void InitList(JObject goodsData)
         {
             dt.Clear();
             goodsList.Clear();
             try
             {
-                JArray goodsData = JArray.Parse(response.Content);
-                if (((int)goodsData[0]["status"]) == (int)POStatus.Inbound || ((int)goodsData[0]["status"]) == (int)POStatus.Completed)
-                {
-                    MessageBox.Show("The id " + SearchBarTxt.Texts + " has inbounded");
-                    return;
-                }
-                foreach (JObject o in goodsData[0]["items"])
+                foreach (JObject o in goodsData["items"])
                 {
                     goodsList.Add(o);
                     var row = dt.NewRow();
@@ -127,19 +162,22 @@ namespace TheBetterLimited.Views
                     row["expQty"] = o["quantity"].ToString();
                     row["recQty"] = o["quantity"].ToString();
                     row["catalogue"] = o["goods"]["Catalogue"].ToString();
-                    if ((bool)o["isNewItem"])
+                    if (o["isNewItem"] != null)
                     {
-                        row["isNew"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
+                        if ((bool)o["isNewItem"])
+                        {
+                            row["isNew"] = new ImageConverter().ConvertTo(Properties.Resources.check24, System.Type.GetType("System.Byte[]"));
+                        }
                     }
+
                     dt.Rows.Add(row);
                 }
-                purchaseId = SearchBarTxt.Texts;
                 InitializeDataGridView();
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                MessageBox.Show("Not Found!");
+                MessageBox.Show("");
             }
         }
 

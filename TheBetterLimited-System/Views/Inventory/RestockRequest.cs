@@ -29,14 +29,31 @@ namespace TheBetterLimited.Views
         {
             InitializeComponent();
             InitDataTable();
-            GetOrder();//init table
-            if (GlobalsData.currentUser["department"].ToString().Equals("Accounting"))
+            AccessControl();
+        }
+
+        private void AccessControl()
+        {
+            switch (GlobalsData.currentUser["department"].ToString())
             {
-                CompletedBtn.Visible = true;
-                OrderDataGrid.Columns["delete"].Visible = false;
-                OrderDataGrid.Columns["select"].Visible = true;
+                case "Sales":
+                    locCombo.SelectedIndex = 0;
+                    locCombo.Hide();
+                    break;
+                case "Inventory":
+                    locCombo.SelectedIndex = 1;
+                    break;
+                case "Purchase":
+                    locCombo.SelectedIndex = 1;
+                    locCombo.Hide();
+                    break;
+                case "Admin":
+                    locCombo.SelectedIndex = 0;
+                    locCombo.Hide();
+                    break;
             }
         }
+
 
         /*
          * Dom Style/Event Process
@@ -63,24 +80,24 @@ namespace TheBetterLimited.Views
         {
             if (OrderDataGrid.Columns[e.ColumnIndex].Name == "status")
             {
-                e.Value = (POStatus)(Convert.ToInt32(e.Value));
+                e.Value = (RestockStatusEnum)(Convert.ToInt32(e.Value));
                 e.CellStyle.Font = new System.Drawing.Font("Segoe UI", 9.07563F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                if (e.Value.Equals(POStatus.Inbound) || e.Value.Equals(POStatus.Completed) || e.Value.Equals(POStatus.Approved))
+                if (e.Value.Equals(RestockStatusEnum.Completed) || e.Value.Equals(RestockStatusEnum.Approved))
                 {
                     e.CellStyle.ForeColor = Color.SeaGreen;
                     e.CellStyle.SelectionForeColor = Color.SeaGreen;
                 }
-                else if (e.Value.Equals(POStatus.PendingApproval) || e.Value.Equals(POStatus.SentToSupplier))
+                else if (e.Value.Equals(RestockStatusEnum.PendingApproval))
                 {
                     e.CellStyle.ForeColor = Color.FromArgb(19, 115, 235);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(19, 115, 235);
                 }
-                else if (e.Value.Equals(POStatus.Pending))
+                else if (e.Value.Equals(RestockStatusEnum.Pending) || e.Value.Equals(RestockStatusEnum.Handling))
                 {
                     e.CellStyle.ForeColor = Color.Orange;
                     e.CellStyle.SelectionForeColor = Color.Orange;
                 }
-                else if (e.Value.Equals(POStatus.Rejected))
+                else if (e.Value.Equals(RestockStatusEnum.Rejected))
                 {
                     e.CellStyle.ForeColor = Color.FromArgb(203, 32, 39);
                     e.CellStyle.SelectionForeColor = Color.FromArgb(203, 32, 39);
@@ -148,7 +165,7 @@ namespace TheBetterLimited.Views
                     return;
                 }
 
-                DialogResult result = MessageBox.Show("Do you really need to delete this purchase order?", "Confirmation Request", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Do you really need to delete this restock request?", "Confirmation Request", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -222,9 +239,23 @@ namespace TheBetterLimited.Views
                 JArray orders = JArray.Parse(response.Content);
                 foreach (JObject o in orders)
                 {
+                    if (GlobalsData.currentUser["department"].ToString().Equals("Inventory"))
+                    {
+                        if (locCombo.SelectedIndex == 1 && !o["location"]["Id"].ToString().Equals("003"))
+                        {
+                            continue;
+                        }
+                        else if(locCombo.SelectedIndex == 0 && o["location"]["Id"].ToString().Equals("003"))
+                        {
+                            continue;
+                        }else if (locCombo.SelectedIndex == 0 && (int)o["status"] == (int)RestockStatusEnum.Pending)
+                        {
+                            continue;
+                        }
+                    }
                     if (GlobalsData.currentUser["department"].ToString() == "Purchase")
                     {
-                        if (!o["location"]["Id"].ToString().Equals("003"))
+                        if ((int)o["status"] == (int)RestockStatusEnum.Pending)
                         {
                             continue;
                         }
@@ -303,43 +334,9 @@ namespace TheBetterLimited.Views
             poc.OnExit += GetOrder;
         }
 
-        /*private void CompletedBtn_Click(object sender, EventArgs e)
+        private void locCombo_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            bool allOk = true;
-            string errOrder = "";
-
-            DialogResult result = MessageBox.Show("Are you sure to complete the purchase order(s)?", "Confirmation Request", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                foreach (var poId in selecteOrderId)
-                {
-                    try
-                    {
-                        response = cbOrder.UpdateStatus(poId, (int)POStatus.Completed);
-                        if (response.StatusCode != System.Net.HttpStatusCode.OK)
-                        {
-                            allOk = false;
-                            errOrder += poId + "\n";
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Complete purchase order(s) error.\n" + response.Content);
-                    }
-                }
-            }else
-            {
-                return;
-            }
-            if (allOk)
-            {
-                MessageBox.Show("The purchase order(s) completed successfully");
-            }
-            else
-            {
-                MessageBox.Show(errOrder + "Complete purchase order(s) error.");
-            }
             GetOrder();
-        }*/
+        }
     }
 }

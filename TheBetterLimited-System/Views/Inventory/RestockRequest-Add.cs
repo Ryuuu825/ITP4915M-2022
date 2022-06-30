@@ -103,7 +103,7 @@ namespace TheBetterLimited.Views
                     this.Dispose();
                 }else
                 {
-                    throw new Exception(response.Content);
+                    MessageBox.Show(response.Content);
                 }
             }
             catch (Exception ex)

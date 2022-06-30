@@ -34,17 +34,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.OrderItemBox = new System.Windows.Forms.Panel();
             this.Data = new System.Windows.Forms.Panel();
             this.OrderDataGrid = new System.Windows.Forms.DataGridView();
+            this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.catalogue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reqQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.Label();
             this.BottomBtn = new System.Windows.Forms.Panel();
+            this.RejectBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.BackBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.ApproveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.ConfirmBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.SaveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -52,10 +59,6 @@
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.goodsID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.catalogue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reqQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderItemBox.SuspendLayout();
             this.Data.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGrid)).BeginInit();
@@ -147,6 +150,43 @@
             this.OrderDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.OrderDataGrid.StandardTab = true;
             // 
+            // goodsID
+            // 
+            this.goodsID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.goodsID.DataPropertyName = "goodsID";
+            resources.ApplyResources(this.goodsID, "goodsID");
+            this.goodsID.Name = "goodsID";
+            this.goodsID.ReadOnly = true;
+            // 
+            // catalogue
+            // 
+            this.catalogue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.catalogue.DataPropertyName = "catalogue";
+            resources.ApplyResources(this.catalogue, "catalogue");
+            this.catalogue.Name = "catalogue";
+            this.catalogue.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ID.DataPropertyName = "goodsName";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle3;
+            resources.ApplyResources(this.ID, "ID");
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // reqQty
+            // 
+            this.reqQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.reqQty.DataPropertyName = "reqQty";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.reqQty.DefaultCellStyle = dataGridViewCellStyle4;
+            resources.ApplyResources(this.reqQty, "reqQty");
+            this.reqQty.Name = "reqQty";
+            this.reqQty.ReadOnly = true;
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
@@ -164,11 +204,78 @@
             // BottomBtn
             // 
             this.BottomBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.BottomBtn.Controls.Add(this.BackBtn);
+            this.BottomBtn.Controls.Add(this.ConfirmBtn);
             this.BottomBtn.Controls.Add(this.CancelBtn);
-            this.BottomBtn.Controls.Add(this.SaveBtn);
+            this.BottomBtn.Controls.Add(this.RejectBtn);
+            this.BottomBtn.Controls.Add(this.ApproveBtn);
             resources.ApplyResources(this.BottomBtn, "BottomBtn");
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BottomBtn.Name = "BottomBtn";
+            // 
+            // RejectBtn
+            // 
+            resources.ApplyResources(this.RejectBtn, "RejectBtn");
+            this.RejectBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.RejectBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.RejectBtn.BorderColor = System.Drawing.Color.White;
+            this.RejectBtn.BorderRadius = 10;
+            this.RejectBtn.BorderSize = 0;
+            this.RejectBtn.FlatAppearance.BorderSize = 0;
+            this.RejectBtn.ForeColor = System.Drawing.Color.White;
+            this.RejectBtn.IsChecked = false;
+            this.RejectBtn.Name = "RejectBtn";
+            this.RejectBtn.TextColor = System.Drawing.Color.White;
+            this.RejectBtn.UseVisualStyleBackColor = false;
+            this.RejectBtn.Click += new System.EventHandler(this.RejectBtn_Click);
+            // 
+            // BackBtn
+            // 
+            this.BackBtn.BackColor = System.Drawing.Color.DimGray;
+            this.BackBtn.BackgroundColor = System.Drawing.Color.DimGray;
+            this.BackBtn.BorderColor = System.Drawing.Color.White;
+            this.BackBtn.BorderRadius = 10;
+            this.BackBtn.BorderSize = 0;
+            this.BackBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.BackBtn, "BackBtn");
+            this.BackBtn.ForeColor = System.Drawing.Color.White;
+            this.BackBtn.IsChecked = false;
+            this.BackBtn.Name = "BackBtn";
+            this.BackBtn.TextColor = System.Drawing.Color.White;
+            this.BackBtn.UseVisualStyleBackColor = false;
+            this.BackBtn.Click += new System.EventHandler(this.Back_Click);
+            // 
+            // ApproveBtn
+            // 
+            resources.ApplyResources(this.ApproveBtn, "ApproveBtn");
+            this.ApproveBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.ApproveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.ApproveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.ApproveBtn.BorderRadius = 10;
+            this.ApproveBtn.BorderSize = 0;
+            this.ApproveBtn.FlatAppearance.BorderSize = 0;
+            this.ApproveBtn.ForeColor = System.Drawing.Color.White;
+            this.ApproveBtn.IsChecked = false;
+            this.ApproveBtn.Name = "ApproveBtn";
+            this.ApproveBtn.TextColor = System.Drawing.Color.White;
+            this.ApproveBtn.UseVisualStyleBackColor = false;
+            this.ApproveBtn.Click += new System.EventHandler(this.ApproveBtn_Click);
+            // 
+            // ConfirmBtn
+            // 
+            resources.ApplyResources(this.ConfirmBtn, "ConfirmBtn");
+            this.ConfirmBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.ConfirmBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.ConfirmBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.ConfirmBtn.BorderRadius = 10;
+            this.ConfirmBtn.BorderSize = 0;
+            this.ConfirmBtn.FlatAppearance.BorderSize = 0;
+            this.ConfirmBtn.ForeColor = System.Drawing.Color.White;
+            this.ConfirmBtn.IsChecked = false;
+            this.ConfirmBtn.Name = "ConfirmBtn";
+            this.ConfirmBtn.TextColor = System.Drawing.Color.White;
+            this.ConfirmBtn.UseVisualStyleBackColor = false;
+            this.ConfirmBtn.Click += new System.EventHandler(this.ConfirmBtn_Click);
             // 
             // CancelBtn
             // 
@@ -186,22 +293,6 @@
             this.CancelBtn.TextColor = System.Drawing.Color.White;
             this.CancelBtn.UseVisualStyleBackColor = false;
             this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
-            // 
-            // SaveBtn
-            // 
-            resources.ApplyResources(this.SaveBtn, "SaveBtn");
-            this.SaveBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.SaveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.SaveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.SaveBtn.BorderRadius = 10;
-            this.SaveBtn.BorderSize = 0;
-            this.SaveBtn.FlatAppearance.BorderSize = 0;
-            this.SaveBtn.ForeColor = System.Drawing.Color.White;
-            this.SaveBtn.IsChecked = false;
-            this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.TextColor = System.Drawing.Color.White;
-            this.SaveBtn.UseVisualStyleBackColor = false;
-            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // dataGridViewImageColumn3
             // 
@@ -257,43 +348,6 @@
             this.dataGridViewImageColumn6.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
             // 
-            // goodsID
-            // 
-            this.goodsID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.goodsID.DataPropertyName = "goodsID";
-            resources.ApplyResources(this.goodsID, "goodsID");
-            this.goodsID.Name = "goodsID";
-            this.goodsID.ReadOnly = true;
-            // 
-            // catalogue
-            // 
-            this.catalogue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.catalogue.DataPropertyName = "catalogue";
-            resources.ApplyResources(this.catalogue, "catalogue");
-            this.catalogue.Name = "catalogue";
-            this.catalogue.ReadOnly = true;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ID.DataPropertyName = "goodsName";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle3;
-            resources.ApplyResources(this.ID, "ID");
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // reqQty
-            // 
-            this.reqQty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.reqQty.DataPropertyName = "reqQty";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.reqQty.DefaultCellStyle = dataGridViewCellStyle4;
-            resources.ApplyResources(this.reqQty, "reqQty");
-            this.reqQty.Name = "reqQty";
-            this.reqQty.ReadOnly = true;
-            // 
             // RestockRequest_Details
             // 
             resources.ApplyResources(this, "$this");
@@ -319,7 +373,6 @@
         private System.Windows.Forms.Panel OrderItemBox;
         private System.Windows.Forms.Panel BottomBtn;
         private CustomizeControl.RoundButton CancelBtn;
-        private CustomizeControl.RoundButton SaveBtn;
         private System.Windows.Forms.Panel Data;
         private System.Windows.Forms.DataGridView OrderDataGrid;
         private System.Windows.Forms.Panel panel5;
@@ -336,5 +389,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn catalogue;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn reqQty;
+        private CustomizeControl.RoundButton RejectBtn;
+        private CustomizeControl.RoundButton BackBtn;
+        private CustomizeControl.RoundButton ApproveBtn;
+        private CustomizeControl.RoundButton ConfirmBtn;
     }
 }

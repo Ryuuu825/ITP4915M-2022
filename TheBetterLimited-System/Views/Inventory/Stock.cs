@@ -30,12 +30,13 @@ namespace TheBetterLimited.Views
         private ControllerBase cbStore = new ControllerBase("Store");
         private ControllerBase cbWarehouse = new ControllerBase("cbWarehouse");
         private ControllerBase cbLoc = new ControllerBase("Location");
-        private ControllerBase cbStockGoods = new ControllerBase("inventory/sgs");
+        private StockController cbStockGoods = new StockController("inventory/sgs");
         private GoodsController gc = new GoodsController();
         private DataTable dataTable;
         private BackgroundWorker bw = new BackgroundWorker();
         private bool loadAll = true;
         private string QryString = "";
+        private string qryLoc = "";
 
 
         public Stock()
@@ -44,6 +45,9 @@ namespace TheBetterLimited.Views
             InitializeComponent();
             AccessControl();
             InitialzeDataTable();
+            locCombo.SelectedIndex = 0;
+            locCombo.Enabled = false;
+            pictureBox1.Enabled = false;
             initBackgroundWorker();
             showLoading();
             bw.RunWorkerAsync();
@@ -102,6 +106,8 @@ namespace TheBetterLimited.Views
             InitList();
             loadPic.Hide();
             loadPic.Controls.Clear();
+            locCombo.Enabled = true;
+            pictureBox1.Enabled = true;
         }
         /*
          * Dom Style/Event Process
@@ -117,6 +123,8 @@ namespace TheBetterLimited.Views
             showLoading();
             try
             {
+                locCombo.Enabled = false;
+                pictureBox1.Enabled = false;
                 bw.RunWorkerAsync();
             }
             catch (Exception ex)
@@ -177,6 +185,8 @@ namespace TheBetterLimited.Views
             {
                 try
                 {
+                    locCombo.Enabled = false;
+                    pictureBox1.Enabled = false;
                     showLoading();
                     bw.RunWorkerAsync();
                 }
@@ -253,7 +263,7 @@ namespace TheBetterLimited.Views
         {
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
-                result = cbStockGoods.GetAll(lang: CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
+                result = cbStockGoods.GetAll(loc: qryLoc, lang: CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             }
             /*else
             {
@@ -283,7 +293,6 @@ namespace TheBetterLimited.Views
                     dataTable.Rows.Add(dr);
                 }
             }
-
             bs.DataSource = dataTable;
             StockDataGrid.AutoGenerateColumns = false;
             StockDataGrid.DataSource = bs;
@@ -327,6 +336,9 @@ namespace TheBetterLimited.Views
             }
             try
             {
+                locCombo.Enabled = false;
+                pictureBox1.Enabled = false;
+                showLoading();
                 bw.RunWorkerAsync();
             }
             catch (Exception e)
@@ -349,6 +361,8 @@ namespace TheBetterLimited.Views
                         MessageBox.Show("The " + StockDataGrid["id", e.RowIndex].Value + " have been deleted!", "Delete stock records Successful", MessageBoxButtons.OK, MessageBoxIcon.None);
                         try
                         {
+                            locCombo.Enabled = false;
+                            pictureBox1.Enabled = false;
                             showLoading();
                             bw.RunWorkerAsync();
                         }
@@ -371,6 +385,8 @@ namespace TheBetterLimited.Views
             Stock_Add goodsAdd = new Stock_Add();
             goodsAdd.OnExit += () =>
             {
+                locCombo.Enabled = false;
+                pictureBox1.Enabled = false;
                 showLoading();
                 bw.RunWorkerAsync();
             };
@@ -383,7 +399,8 @@ namespace TheBetterLimited.Views
             {
                 MessageBox.Show("You have not select any goods");
                 return;
-            }else
+            }
+            else
             {
                 Form rs = Application.OpenForms["RestockRequest_Add"];
                 if (rs != null)
@@ -402,6 +419,8 @@ namespace TheBetterLimited.Views
         {
             try
             {
+                locCombo.Enabled = false;
+                pictureBox1.Enabled = false;
                 showLoading();
                 bw.RunWorkerAsync();
             }
@@ -417,6 +436,8 @@ namespace TheBetterLimited.Views
             inbound.Show();
             inbound.OnExit += () =>
             {
+                locCombo.Enabled = false;
+                pictureBox1.Enabled = false;
                 showLoading();
                 bw.RunWorkerAsync();
             };
@@ -428,9 +449,34 @@ namespace TheBetterLimited.Views
             outbound.Show();
             outbound.OnExit += () =>
             {
+                locCombo.Enabled = false;
+                pictureBox1.Enabled = false;
                 showLoading();
                 bw.RunWorkerAsync();
             };
+        }
+
+        private void loc_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (locCombo.SelectedIndex)
+            {
+                case 1:
+                    qryLoc = "003";
+                    break;
+                case 2:
+                    qryLoc = "004";
+                    break;
+                case 3:
+                    qryLoc = "005";
+                    break;
+                default:
+                    qryLoc = "";
+                    break;
+            }
+            locCombo.Enabled = false;
+            pictureBox1.Enabled = false;
+            showLoading();
+            bw.RunWorkerAsync();
         }
 
         // Export stock records PDF
