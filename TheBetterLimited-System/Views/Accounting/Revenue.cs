@@ -233,5 +233,10 @@ namespace TheBetterLimited.Views
         {
             InitGrowthChart();
         }
+
+        private void Revenue_Resize(object sender, EventArgs e)
+        {
+            growthBox.Height = this.Height / 2;
+        }
     }
 }

@@ -108,5 +108,10 @@ namespace TheBetterLimited.Views
                 orders.Add(os.Count+new Random().Next(50));
             }
         }
+
+        private void Home_Resize(object sender, EventArgs e)
+        {
+            tableBox.Height = (int)(this.Height * 0.2);
+        }
     }
 }
