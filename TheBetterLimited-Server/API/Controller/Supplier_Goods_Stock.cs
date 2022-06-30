@@ -194,7 +194,6 @@ namespace TheBetterLimited_Server.API.Controller
                 {
                     var po = PurchaseOrderTable.GetById(dto._purchaseOrderId);
                     location = po.Warehouse.Location.Id;
-                    ConsoleLogger.Debug(location);
                 }
                 else
                 {

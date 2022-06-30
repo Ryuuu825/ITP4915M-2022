@@ -66,13 +66,13 @@ namespace TheBetterLimited_Server.API.Controller
             {
                 Data.Entity.Staff s = userInfo.GetStaffFromUserName(User.Identity.Name);
                 string locationId = String.Empty;
-                if (userInfo.IsSales(User.Identity.Name))
+                if (userInfo.IsWarehouseStaff(User.Identity.Name))
                 {
-                    locationId = s.store._locationID;
+                    locationId = s.warehouse._locationID;
                 }
                 else
                 {
-                    locationId = s.warehouse._locationID;
+                    locationId = s.store._locationID;
                 }
                 Data.Entity.RestockRequest rr = new Data.Entity.RestockRequest
                 {
@@ -89,6 +89,11 @@ namespace TheBetterLimited_Server.API.Controller
                 foreach( var item in dto.Items)
                 {
                     Data.Entity.Supplier_Goods_Stock sgs = _SGSTable.GetBySQL($"SELECT * FROM `Supplier_Goods_Stock` WHERE `Id` = '{item._supplierGoodsStockId}'").First();
+                    if (sgs._locationId != locationId)
+                    {
+                        repository.Delete(rr);
+                        return BadRequest("You can't restock goods from other warehouse");
+                    }
                     Data.Entity.RestockRequest_Supplier_Goods_Stock rgs = new Data.Entity.RestockRequest_Supplier_Goods_Stock
                     {
                         _restockRequestId = rr.ID,
@@ -97,6 +102,17 @@ namespace TheBetterLimited_Server.API.Controller
                     };
                     _RSGTable.Add(rgs);
                 }
+
+                 if (userInfo.IsSales(User.Identity.Name))
+                {
+                    message.BoardcastMessage(User.Identity.Name, "300" , "New Restock Request" , "You have new restock request");
+                }
+                else if (userInfo.IsWarehouseStaff(User.Identity.Name))
+                {
+                    message.BoardcastMessage(User.Identity.Name, "800" , "New Restock Request" , "You have new restock request");
+                }
+
+
                 return Ok();
             }
             catch (ICustException e)
@@ -116,16 +132,21 @@ namespace TheBetterLimited_Server.API.Controller
         {
             try
             {
+
                 Data.Entity.Staff s = userInfo.GetStaffFromUserName(User.Identity.Name);
-                List<Data.Entity.RestockRequest> rr = repository.GetBySQL($"SELECT * FROM `RestockRequest` WHERE `_storeId` = '{s.store._locationID}'").ToList();
-                if (userInfo.IsSales(User.Identity.Name))
+                string locationId = String.Empty;
+                List<Data.Entity.RestockRequest> rr;
+                if (userInfo.IsWarehouseStaff(User.Identity.Name))
                 {
-                    message.BoardcastMessage(User.Identity.Name, "300" , "New Restock Request" , "You have new restock request");
+                    locationId = s.warehouse._locationID;
+                    rr = repository.GetAll();
                 }
-                else if (userInfo.IsWarehouseStaff(User.Identity.Name))
+                else
                 {
-                    message.BoardcastMessage(User.Identity.Name, "800" , "New Restock Request" , "You have new restock request");
+                    locationId = s.store._locationID;
+                    rr = repository.GetBySQL($"SELECT * FROM `RestockRequest` WHERE `_locationId` = '{locationId}'").ToList();
                 }
+               
                 return Ok(ToDto(rr,User.Identity.Name, Langauge));
             }
             catch (ICustException e)
