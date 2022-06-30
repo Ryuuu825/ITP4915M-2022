@@ -34,7 +34,7 @@ namespace TheBetterLimited_Server.Data.Entity
         public DateTime OperateTime { get; set; }
 
         public RestockRequestStatus Status { get; set; }
-        public virtual List<RestockRequest_Supplier_Goods> Items { get; set; }
+        public virtual List<RestockRequest_Supplier_Goods_Stock> Items { get; set; }
         
     }
 

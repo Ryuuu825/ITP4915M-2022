@@ -9,7 +9,7 @@ namespace TheBetterLimited_Server.API.Controller
     {
         private Data.Repositories.Repository<Data.Entity.RestockRequest> repository;
         private Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock> _SGSTable;
-        private Data.Repositories.Repository<Data.Entity.RestockRequest_Supplier_Goods> _RSGTable;
+        private Data.Repositories.Repository<Data.Entity.RestockRequest_Supplier_Goods_Stock> _RSGTable;
         private Data.Repositories.UserInfoRepository userInfo;
         private AppLogic.Controllers.GoodsController _GoodsController;
         private AppLogic.Controllers.MessageController message;
@@ -20,7 +20,7 @@ namespace TheBetterLimited_Server.API.Controller
         {
             repository = new Data.Repositories.Repository<Data.Entity.RestockRequest>(db);
             _SGSTable = new Data.Repositories.Repository<Data.Entity.Supplier_Goods_Stock>(db);
-            _RSGTable = new Data.Repositories.Repository<Data.Entity.RestockRequest_Supplier_Goods>(db);
+            _RSGTable = new Data.Repositories.Repository<Data.Entity.RestockRequest_Supplier_Goods_Stock>(db);
             userInfo = new Data.Repositories.UserInfoRepository(db);
             _GoodsController = new AppLogic.Controllers.GoodsController(db);
             message = new AppLogic.Controllers.MessageController(db);
@@ -80,10 +80,10 @@ namespace TheBetterLimited_Server.API.Controller
                 foreach( var item in dto.Items)
                 {
                     Data.Entity.Supplier_Goods_Stock sgs = _SGSTable.GetBySQL($"SELECT * FROM `Supplier_Goods_Stock` WHERE `Id` = '{item._supplierGoodsStockId}'").First();
-                    Data.Entity.RestockRequest_Supplier_Goods rgs = new Data.Entity.RestockRequest_Supplier_Goods
+                    Data.Entity.RestockRequest_Supplier_Goods_Stock rgs = new Data.Entity.RestockRequest_Supplier_Goods_Stock
                     {
                         _restockRequestId = rr.ID,
-                        _supplierGoodsId = sgs.Id,
+                        _supplierGoodsStockId = sgs.Id,
                         _quantity = (uint) item.Quantity
                     };
                     _RSGTable.Add(rgs);
@@ -249,7 +249,7 @@ namespace TheBetterLimited_Server.API.Controller
                     */
                     r.Items.Add(new RestockRequestOutDto.RestockRequestItemOutDto
                     {
-                        Goods = _GoodsController.ToOutDto(item.Supplier_Goods.Goods , username , lang),
+                        Goods = _GoodsController.ToOutDto(item.Supplier_Goods_Stock.Supplier_Goods.Goods , username , lang),
                         Quantity = (int) item._quantity,
                         ReceivedQuantity = item._quantityReceived
                     });
