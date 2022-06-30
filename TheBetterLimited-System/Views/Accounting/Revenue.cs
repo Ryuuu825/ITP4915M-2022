@@ -73,8 +73,12 @@ namespace TheBetterLimited.Views
 
         private void InitPieChart()
         {
-            goodsPie.Series["S1"].Points.AddXY("H01", "53");
-            goodsPie.Series["S1"].Points.AddXY("H02", "47");
+            Random random = new Random();
+            var h1 = random.Next(100);
+            var h2 = 100- h1;
+            goodsPie.Series["S1"].Points.Clear();
+            goodsPie.Series["S1"].Points.AddXY("H01", h1);
+            goodsPie.Series["S1"].Points.AddXY("H02", h2);
             goodsPie.Series["S1"].IsValueShownAsLabel = true;
         }
 
@@ -126,18 +130,17 @@ namespace TheBetterLimited.Views
             if (timeCombo.SelectedIndex == 0)
             {
                 TodayData();
-                InitGrowthChart();
             }
             if (timeCombo.SelectedIndex == 1)
             {
                 MonthlyData();
-                InitGrowthChart();
             }
             if (timeCombo.SelectedIndex == 2)
             {
                 YearData();
-                InitGrowthChart();
             }
+            InitGrowthChart();
+            InitPieChart();
         }
 
         private void InitialzeDataTable()
