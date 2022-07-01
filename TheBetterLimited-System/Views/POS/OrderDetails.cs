@@ -38,6 +38,7 @@ namespace TheBetterLimited.Views
         private OrderController cbOrder = new OrderController("Order");
         private ControllerBase cbOrderItem = new ControllerBase("SalesOrderItem");
         private bool firstInit = false;
+        private string appointmentId;
 
         public OrderDetails()
         {
@@ -64,12 +65,13 @@ namespace TheBetterLimited.Views
             InitializeOrderItemTable();
         }
 
-        public void SetOrderData(JObject orderData, bool appointment)
+        public void SetOrderData(JObject orderData, bool appointment, string appointmentId)
         {
             this.orderData = orderData;
             OrderInfoBox.Enabled = false;
             OrderDataGrid.ReadOnly = true;
             DeleteBtn.Visible = false;
+            this.appointmentId = appointmentId;
             if (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "zh")
             {
                 SaveBtn.Text = "指派";
@@ -200,7 +202,8 @@ namespace TheBetterLimited.Views
                 {
                     AppointmentBox.Visible = true;
                     PickUpBox.Visible = false;
-                }else
+                }
+                else
                 {
                     AppointmentBox.Visible = false;
                     PickUpBox.Visible = true;
@@ -342,8 +345,10 @@ namespace TheBetterLimited.Views
                 arrangeForm.Dispose();
             }
             Appointment_Arrange arrangeAppointment = new Appointment_Arrange();
+            arrangeAppointment.appointmentId = this.appointmentId;
             arrangeAppointment.Show();
             arrangeAppointment.TopLevel = true;
+            arrangeAppointment.OnExit += () => { this.Close(); this.Dispose(); this.OnExit.Invoke(); };
         }
 
         //init session form server

@@ -438,7 +438,7 @@
     <value>484, 6</value>
   </data>
   <data name="SaveBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 40</value>
+    <value>129, 40</value>
   </data>
   <data name="SaveBtn.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>

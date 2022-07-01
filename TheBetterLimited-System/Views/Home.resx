@@ -1014,9 +1014,9 @@
   <data name="dataGridViewImageColumn3.Width" type="System.Int32, mscorlib">
     <value>124</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <data name="$this.Localizable" type="System.Boolean, mscorlib">
     <value>True</value>
-  </metadata>
+  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
   </data>
@@ -4352,5 +4352,11 @@
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pieTitle1" xml:space="preserve">
+    <value>Normal Item</value>
+  </data>
+  <data name="pieTitle2" xml:space="preserve">
+    <value>Defective Item</value>
   </data>
 </root>
