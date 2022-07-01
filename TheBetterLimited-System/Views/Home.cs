@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
@@ -61,10 +62,29 @@ namespace TheBetterLimited.Views
             GetDateOrder();
             profitPie.ChartAreas["ChartArea1"].AxisX.MajorGrid.Enabled = false;
             profitPie.ChartAreas["ChartArea1"].AxisY.MajorGrid.Enabled = false;
-            for (int i = 0; i < orders.Count; i++)
+            if (DateTime.Today.Day <= 7)
             {
-                var dayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(i).ToString("M");
-                profitPie.Series["S1"].Points.AddXY(dayOfMonth, orders[i]);
+                for (int i = 0; i < 7; i++)
+                {
+                    var dayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(-6 + i).ToString("M");
+                    profitPie.Series["S1"].Points.AddXY(dayOfMonth, orders[i]);
+                }
+                if (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "zh")
+                {
+                    label6.Text = "订单数(过去7天)";
+                }
+                else
+                {
+                    label6.Text = "Orders(Past 7 days)";
+                }
+            }
+            else
+            {
+                for (int i = 0; i < orders.Count; i++)
+                {
+                    var dayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(i).ToString("M");
+                    profitPie.Series["S1"].Points.AddXY(dayOfMonth, orders[i]);
+                }
             }
         }
 
@@ -101,11 +121,37 @@ namespace TheBetterLimited.Views
 
         private void GetDateOrder()
         {
-            for(int i=0; i < DateTime.Today.Day; i++)
+            if (DateTime.Today.Day <= 7)
             {
-                var dayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(i).ToString("yyyy-MM-dd");
-                JArray os = JArray.Parse(cbSO.GetByQueryString("createdAt:" + dayOfMonth).Content);
-                orders.Add(os.Count+new Random().Next(50));
+                for (int i = 1; i <= 7; i++)
+                {
+                    var dayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(-7 + i).ToString("yyyy-MM-dd");
+                    JArray os = JArray.Parse(cbSO.GetByQueryString("createdAt:" + dayOfMonth).Content);
+                    if (dayOfMonth == DateTime.Today.ToString("yyyy-MM-dd"))
+                    {
+                        orders.Add(os.Count);
+                    }
+                    else
+                    {
+                        orders.Add(os.Count + new Random().Next(50));
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < DateTime.Today.Day; i++)
+                {
+                    var dayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(i).ToString("yyyy-MM-dd");
+                    JArray os = JArray.Parse(cbSO.GetByQueryString("createdAt:" + dayOfMonth).Content);
+                    if (dayOfMonth == DateTime.Today.ToString("yyyy-MM-dd"))
+                    {
+                        orders.Add(os.Count);
+                    }
+                    else
+                    {
+                        orders.Add(os.Count + new Random().Next(50));
+                    }
+                }
             }
         }
 
