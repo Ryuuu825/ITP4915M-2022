@@ -47,11 +47,11 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.Title = new System.Windows.Forms.Label();
             this.BottomBtn = new System.Windows.Forms.Panel();
-            this.RejectBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.BackBtn = new TheBetterLimited.CustomizeControl.RoundButton();
-            this.ApproveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.ConfirmBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.CancelBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.RejectBtn = new TheBetterLimited.CustomizeControl.RoundButton();
+            this.ApproveBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -213,22 +213,6 @@
             this.BottomBtn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BottomBtn.Name = "BottomBtn";
             // 
-            // RejectBtn
-            // 
-            resources.ApplyResources(this.RejectBtn, "RejectBtn");
-            this.RejectBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.RejectBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.RejectBtn.BorderColor = System.Drawing.Color.White;
-            this.RejectBtn.BorderRadius = 10;
-            this.RejectBtn.BorderSize = 0;
-            this.RejectBtn.FlatAppearance.BorderSize = 0;
-            this.RejectBtn.ForeColor = System.Drawing.Color.White;
-            this.RejectBtn.IsChecked = false;
-            this.RejectBtn.Name = "RejectBtn";
-            this.RejectBtn.TextColor = System.Drawing.Color.White;
-            this.RejectBtn.UseVisualStyleBackColor = false;
-            this.RejectBtn.Click += new System.EventHandler(this.RejectBtn_Click);
-            // 
             // BackBtn
             // 
             this.BackBtn.BackColor = System.Drawing.Color.DimGray;
@@ -244,22 +228,6 @@
             this.BackBtn.TextColor = System.Drawing.Color.White;
             this.BackBtn.UseVisualStyleBackColor = false;
             this.BackBtn.Click += new System.EventHandler(this.Back_Click);
-            // 
-            // ApproveBtn
-            // 
-            resources.ApplyResources(this.ApproveBtn, "ApproveBtn");
-            this.ApproveBtn.BackColor = System.Drawing.Color.SeaGreen;
-            this.ApproveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.ApproveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.ApproveBtn.BorderRadius = 10;
-            this.ApproveBtn.BorderSize = 0;
-            this.ApproveBtn.FlatAppearance.BorderSize = 0;
-            this.ApproveBtn.ForeColor = System.Drawing.Color.White;
-            this.ApproveBtn.IsChecked = false;
-            this.ApproveBtn.Name = "ApproveBtn";
-            this.ApproveBtn.TextColor = System.Drawing.Color.White;
-            this.ApproveBtn.UseVisualStyleBackColor = false;
-            this.ApproveBtn.Click += new System.EventHandler(this.ApproveBtn_Click);
             // 
             // ConfirmBtn
             // 
@@ -293,6 +261,38 @@
             this.CancelBtn.TextColor = System.Drawing.Color.White;
             this.CancelBtn.UseVisualStyleBackColor = false;
             this.CancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
+            // 
+            // RejectBtn
+            // 
+            resources.ApplyResources(this.RejectBtn, "RejectBtn");
+            this.RejectBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.RejectBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.RejectBtn.BorderColor = System.Drawing.Color.White;
+            this.RejectBtn.BorderRadius = 10;
+            this.RejectBtn.BorderSize = 0;
+            this.RejectBtn.FlatAppearance.BorderSize = 0;
+            this.RejectBtn.ForeColor = System.Drawing.Color.White;
+            this.RejectBtn.IsChecked = false;
+            this.RejectBtn.Name = "RejectBtn";
+            this.RejectBtn.TextColor = System.Drawing.Color.White;
+            this.RejectBtn.UseVisualStyleBackColor = false;
+            this.RejectBtn.Click += new System.EventHandler(this.RejectBtn_Click);
+            // 
+            // ApproveBtn
+            // 
+            resources.ApplyResources(this.ApproveBtn, "ApproveBtn");
+            this.ApproveBtn.BackColor = System.Drawing.Color.SeaGreen;
+            this.ApproveBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.ApproveBtn.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.ApproveBtn.BorderRadius = 10;
+            this.ApproveBtn.BorderSize = 0;
+            this.ApproveBtn.FlatAppearance.BorderSize = 0;
+            this.ApproveBtn.ForeColor = System.Drawing.Color.White;
+            this.ApproveBtn.IsChecked = false;
+            this.ApproveBtn.Name = "ApproveBtn";
+            this.ApproveBtn.TextColor = System.Drawing.Color.White;
+            this.ApproveBtn.UseVisualStyleBackColor = false;
+            this.ApproveBtn.Click += new System.EventHandler(this.ApproveBtn_Click);
             // 
             // dataGridViewImageColumn3
             // 
@@ -385,13 +385,13 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn6;
         private System.Windows.Forms.DataGridViewImageColumn isInstall;
-        private System.Windows.Forms.DataGridViewTextBoxColumn goodsID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn catalogue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reqQty;
         private CustomizeControl.RoundButton RejectBtn;
         private CustomizeControl.RoundButton BackBtn;
         private CustomizeControl.RoundButton ApproveBtn;
         private CustomizeControl.RoundButton ConfirmBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn goodsID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn catalogue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reqQty;
     }
 }
