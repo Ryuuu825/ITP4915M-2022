@@ -66,6 +66,7 @@
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.roundButton1 = new TheBetterLimited.CustomizeControl.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGrid)).BeginInit();
             this.Header.SuspendLayout();
             this.Data.SuspendLayout();
@@ -147,6 +148,7 @@
             this.AppointmentDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.AppointmentDataGrid.StandardTab = true;
             this.AppointmentDataGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GoodsDataGrid_CellClick);
+            this.AppointmentDataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentDataGrid_CellContentClick);
             this.AppointmentDataGrid.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.AppointmentDataGrid_CellFormatting);
             // 
             // select
@@ -294,6 +296,7 @@
             // Action
             // 
             this.Action.BackColor = System.Drawing.Color.White;
+            this.Action.Controls.Add(this.roundButton1);
             this.Action.Controls.Add(this.MultiArrangeBtn);
             this.Action.Controls.Add(this.DeliveryDatePicker);
             this.Action.Controls.Add(this.SearchBar);
@@ -392,6 +395,22 @@
             this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
             this.dataGridViewImageColumn7.ReadOnly = true;
             // 
+            // roundButton1
+            // 
+            this.roundButton1.BackColor = System.Drawing.Color.SeaGreen;
+            this.roundButton1.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.roundButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.roundButton1.BorderRadius = 10;
+            this.roundButton1.BorderSize = 0;
+            this.roundButton1.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.roundButton1, "roundButton1");
+            this.roundButton1.ForeColor = System.Drawing.Color.White;
+            this.roundButton1.IsChecked = false;
+            this.roundButton1.Name = "roundButton1";
+            this.roundButton1.TextColor = System.Drawing.Color.White;
+            this.roundButton1.UseVisualStyleBackColor = false;
+            this.roundButton1.Click += new System.EventHandler(this.roundButton1_Click);
+            // 
             // Appointment
             // 
             resources.ApplyResources(this, "$this");
@@ -444,5 +463,6 @@
         private System.Windows.Forms.DataGridViewImageColumn details;
         private System.Windows.Forms.DataGridViewImageColumn print;
         private System.Windows.Forms.DataGridViewImageColumn arrange;
+        private CustomizeControl.RoundButton roundButton1;
     }
 }

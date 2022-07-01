@@ -401,6 +401,42 @@
   <data name="&gt;&gt;SearchBar.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="roundButton1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="roundButton1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10.28571pt, style=Bold</value>
+  </data>
+  <data name="roundButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="roundButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 0</value>
+  </data>
+  <data name="roundButton1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="roundButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 38</value>
+  </data>
+  <data name="roundButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="roundButton1.Text" xml:space="preserve">
+    <value>Export CSV</value>
+  </data>
+  <data name="&gt;&gt;roundButton1.Name" xml:space="preserve">
+    <value>roundButton1</value>
+  </data>
+  <data name="&gt;&gt;roundButton1.Type" xml:space="preserve">
+    <value>TheBetterLimited.CustomizeControl.RoundButton, TheBetterLimited-System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;roundButton1.Parent" xml:space="preserve">
+    <value>curdAction</value>
+  </data>
+  <data name="&gt;&gt;roundButton1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="exportBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -423,7 +459,7 @@
     <value>5</value>
   </data>
   <data name="exportBtn.Text" xml:space="preserve">
-    <value>Export</value>
+    <value>Export PDF</value>
   </data>
   <data name="&gt;&gt;exportBtn.Name" xml:space="preserve">
     <value>exportBtn</value>
@@ -435,7 +471,7 @@
     <value>curdAction</value>
   </data>
   <data name="&gt;&gt;exportBtn.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="DeleteBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -471,7 +507,7 @@
     <value>curdAction</value>
   </data>
   <data name="&gt;&gt;DeleteBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="AddBtn.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -513,7 +549,7 @@
     <value>curdAction</value>
   </data>
   <data name="&gt;&gt;AddBtn.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="curdAction.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>

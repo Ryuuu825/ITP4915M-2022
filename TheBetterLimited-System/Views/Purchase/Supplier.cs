@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using TheBetterLimited.Controller;
 using TheBetterLimited.CustomizeControl;
 using TheBetterLimited.Models;
+using TheBetterLimited.Utils;
 using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
@@ -44,7 +45,6 @@ namespace TheBetterLimited.Views
                 case "Accounting":
                     AddBtn.Hide();
                     DeleteBtn.Hide();
-                    exportBtn.Hide();
                     SupplierDataGrid.Columns["delete"].Visible = false;
                     SupplierDataGrid.Columns["edit"].Visible = false;
                     break;
@@ -281,32 +281,7 @@ namespace TheBetterLimited.Views
         // Export Goods PDF
         private void exportBtn_Click(object sender, EventArgs e)
         {
-            CustomizeControl.Loading progress = new CustomizeControl.Loading();
-            progress.Show();
-            progress.Update("Fetch data from server ...", 10);
-            byte[] response = gc.GetGoodsPDF();
-            string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/test.pdf";
-            progress.Update("Generating PDF ...", 30);
-            progress.Update("Writing File ...", 60);
-            System.IO.File.WriteAllBytes(WriteFilePath, response);
-            progress.Update("Finish", 99);
-
-            choose = MessageBox.Show(
-                "Open in File Explorer?", "", MessageBoxButtons.YesNo);
-            if (choose == DialogResult.Yes)
-            {
-
-                if (WriteFilePath == null)
-                    throw new ArgumentNullException("filePath");
-
-                Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
-            }
-            else
-            {
-                MessageBox.Show("Saved at");
-            }
-
-            progress.End();
+            
 
             // BackgroundWorker bgw = new BackgroundWorker();
             // CustomizeControl.Loading process = new Loading();
@@ -326,8 +301,6 @@ namespace TheBetterLimited.Views
 
 
 
-
-
         }
 
         private void curdAction_Paint(object sender, PaintEventArgs e)
@@ -335,6 +308,46 @@ namespace TheBetterLimited.Views
 
         }
 
-        
+        private void exportBtn_Click_1(object sender, EventArgs e)
+        {
+            CustomizeControl.Loading progress = new CustomizeControl.Loading();
+            progress.Show();
+            progress.Update("Fetch data from server ...", 10);
+            Console.WriteLine("Get Goods PDF");
+            var request = new RestRequest("/api/Supplier/pdf", Method.Get)
+                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
+            try
+            {
+                var response = RestClientUtils.client.DownloadDataAsync(request).GetAwaiter().GetResult();
+                string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/test.pdf";
+                progress.Update("Generating PDF ...", 30);
+                progress.Update("Writing File ...", 60);
+                System.IO.File.WriteAllBytes(WriteFilePath, response);
+                progress.Update("Finish", 99);
+
+                choose = MessageBox.Show(
+                    "Open in File Explorer?", "", MessageBoxButtons.YesNo);
+                if (choose == DialogResult.Yes)
+                {
+
+                    if (WriteFilePath == null)
+                        throw new ArgumentNullException("filePath");
+
+                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
+                }
+                else
+                {
+                    MessageBox.Show("Saved at");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+            
+
+            progress.End();
+        }
     }
 }

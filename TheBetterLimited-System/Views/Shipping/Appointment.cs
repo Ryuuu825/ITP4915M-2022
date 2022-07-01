@@ -123,7 +123,7 @@ namespace TheBetterLimited.Views
                     WaitResult waitResult = new WaitResult();
                     waitResult.Show();
                     waitResult.TopMost = true;
-                    bgWorker.RunWorkerAsync(response = cbOrder.GetById(AppointmentDataGrid["orderId", e.RowIndex].Value.ToString()));
+                    bgWorker.RunWorkerAsync(response = cbOrder.GetById(AppointmentDataGrid["orderId", e.RowIndex].Value.ToString(), lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName));
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         waitResult.Close();
@@ -147,7 +147,7 @@ namespace TheBetterLimited.Views
                     order.Dispose();
                 }
                 OrderDetails od = new OrderDetails();
-                response = cbOrder.GetById(AppointmentDataGrid["orderId", e.RowIndex].Value.ToString());
+                response = cbOrder.GetById(AppointmentDataGrid["orderId", e.RowIndex].Value.ToString() , lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
                 if(response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     od.SetOrderData(JObject.Parse(response.Content), true, AppointmentDataGrid["id", e.RowIndex].Value.ToString());
@@ -211,13 +211,13 @@ namespace TheBetterLimited.Views
             dt.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == "Search")
             {
-                response = cbAppointment.GetAll(DeliveryDatePicker.Value.Day,DeliveryDatePicker.Value.Month);
+                response = cbAppointment.GetAll(DeliveryDatePicker.Value.Day,DeliveryDatePicker.Value.Month, lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             }
             else
             {
                 string str = "appointmentId:" + this.SearchBarTxt.Texts
                             + "|status:" + this.SearchBarTxt.Texts;
-                response = cbAppointment.GetByQueryString(str);
+                response = cbAppointment.GetByQueryString(str, lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             }
             try
             {
@@ -303,6 +303,69 @@ namespace TheBetterLimited.Views
             {
                 MessageBox.Show("You had not selected an appointment.", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
             }
+        }
+
+        private void roundButton1_Click(object sender, EventArgs e)
+        {
+            CustomizeControl.Loading progress = new CustomizeControl.Loading();
+            progress.Show();
+            progress.Update("Fetch data from server ...", 10);
+
+
+            //Build the CSV file data as a Comma separated string.
+            string csv = string.Empty;
+
+            //Add the Header row for CSV file.
+            string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/Appointments.csv";
+            foreach (DataGridViewColumn column in AppointmentDataGrid.Columns)
+            {
+                csv += column.HeaderText + ',';
+            }
+
+            progress.Update("Formatting ...", 30);
+
+            //Add new line.
+            csv += "\r\n";
+
+            //Adding the Rows
+            foreach (DataGridViewRow row in AppointmentDataGrid.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value.GetType() != typeof(Bitmap))
+                        //Add the Data rows.
+                        csv += cell.Value.ToString().Replace(",", ";") + ',';
+                }
+
+                //Add new line.
+                csv += "\r\n";
+            }
+
+
+            progress.Update("Writing File ...", 60);
+
+            System.IO.File.WriteAllText(WriteFilePath, csv);
+
+            choose = MessageBox.Show(
+                   "Open in File Explorer?", "", MessageBoxButtons.YesNo);
+            if (choose == DialogResult.Yes)
+            {
+
+                if (WriteFilePath == null)
+                    throw new ArgumentNullException("filePath");
+
+                System.Diagnostics.Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
+            }
+            else
+            {
+                MessageBox.Show("Saved at" + WriteFilePath);
+            }
+
+            progress.End();
+        }
+
+        private void AppointmentDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
         }
     }
 }

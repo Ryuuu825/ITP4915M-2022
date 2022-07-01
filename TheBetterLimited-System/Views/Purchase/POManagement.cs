@@ -226,7 +226,7 @@ namespace TheBetterLimited.Views
             orderList.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
             {
-                response = cbOrder.GetAll();
+                response = cbOrder.GetAll(lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             }
             /*else
             {

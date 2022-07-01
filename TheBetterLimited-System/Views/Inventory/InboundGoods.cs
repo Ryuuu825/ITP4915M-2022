@@ -124,7 +124,7 @@ namespace TheBetterLimited.Views
             {
                 try
                 {
-                    response = cbPO.GetById(SearchBarTxt.Texts.ToString());
+                    response = cbPO.GetById(SearchBarTxt.Texts.ToString(), lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
                     purchaseId = SearchBarTxt.Texts;
                     goodsData = JObject.Parse(response.Content);
                     if (((int)goodsData["status"]) == (int)POStatus.Inbound || ((int)goodsData["status"]) == (int)POStatus.Completed)

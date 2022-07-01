@@ -60,7 +60,7 @@ namespace TheBetterLimited.Views
             items.Clear();
             foreach (var item in stocks)
             {
-                response = cbStock.GetById(item);
+                response = cbStock.GetById(item, lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
                 JObject stock = JObject.Parse(response.Content);
                 orderItems.Add(stock);
             }

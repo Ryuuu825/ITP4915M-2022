@@ -32,6 +32,7 @@ namespace TheBetterLimited.Views
         private BackgroundWorker bw = new BackgroundWorker();
         private bool loadAll = true;
         private string QryString = "";
+        private List<DataGridViewRow> cells_csv = new List<DataGridViewRow>();
 
         public Goods()
         {
@@ -170,6 +171,7 @@ namespace TheBetterLimited.Views
                     GoodsDataGrid["select", e.RowIndex].Tag = 1;
                     GoodsDataGrid.Rows[e.RowIndex].Selected = true;
                     selectGoodsID.Add(GoodsDataGrid["id", e.RowIndex].Value.ToString());
+                    cells_csv.Add(GoodsDataGrid.Rows[e.RowIndex]);
                 }
                 else
                 {
@@ -177,6 +179,7 @@ namespace TheBetterLimited.Views
                     GoodsDataGrid["select", e.RowIndex].Tag = 0;
                     GoodsDataGrid.Rows[e.RowIndex].Selected = false;
                     selectGoodsID.Remove(GoodsDataGrid["id", e.RowIndex].Value.ToString());
+                    cells_csv.Remove(GoodsDataGrid.Rows[e.RowIndex]);
                 }
             }
 
@@ -343,36 +346,32 @@ namespace TheBetterLimited.Views
         // Export Goods PDF
         private async void exportBtn_Click(object sender, EventArgs e)
         {
-            System.ComponentModel.BackgroundWorker bgWorker = new System.ComponentModel.BackgroundWorker();
-
+            CustomizeControl.Loading progress = new CustomizeControl.Loading();
+            progress.Show();
+            progress.Update("Fetch data from server ...", 10);
+            byte[] response = gc.GetGoodsPDF();
             string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/test.pdf";
+            progress.Update("Generating PDF ...", 30);
+            progress.Update("Writing File ...", 60);
+            System.IO.File.WriteAllBytes(WriteFilePath, response);
+            progress.Update("Finish", 99);
 
-            bgWorker.DoWork += (s, eargs) =>
-            {
-                byte[] response = gc.GetGoodsPDF();
-                System.IO.File.WriteAllBytes(WriteFilePath, response);
-            };
-
-
-            bgWorker.RunWorkerCompleted += (s, eargs) =>
-            {
-                choose = MessageBox.Show(
+            choose = MessageBox.Show(
                 "Open in File Explorer?", "", MessageBoxButtons.YesNo);
+            if (choose == DialogResult.Yes)
+            {
 
-                if (choose == DialogResult.Yes)
-                {
+                if (WriteFilePath == null)
+                    throw new ArgumentNullException("filePath");
 
-                    if (WriteFilePath == null)
-                        throw new ArgumentNullException("filePath");
-                    Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
-                }
-                else
-                {
-                    MessageBox.Show("Saved at" + WriteFilePath);
-                }
-            };
-            bgWorker.RunWorkerAsync();
-            bgWorker.Dispose();
+                Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
+            }
+            else
+            {
+                MessageBox.Show("Saved at");
+            }
+
+            progress.End();
         }
 
         private void curdAction_Paint(object sender, PaintEventArgs e)
@@ -391,6 +390,84 @@ namespace TheBetterLimited.Views
             {
                 MessageBox.Show("Goods are loading.\nPlease wait a moment!");
             }
+        }
+
+        private void roundButton1_Click(object sender, EventArgs e)
+        {
+            CustomizeControl.Loading progress = new CustomizeControl.Loading();
+            progress.Show();
+            progress.Update("Fetch data from server ...", 10);
+
+
+            //Build the CSV file data as a Comma separated string.
+            string csv = string.Empty;
+
+            //Add the Header row for CSV file.
+            string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/Goods.csv";
+            foreach (DataGridViewColumn column in GoodsDataGrid.Columns)
+            {
+                csv += column.HeaderText + ',';
+            }
+
+            progress.Update("Formatting ...", 30);
+
+            //Add new line.
+            csv += "\r\n";
+
+            
+            //Adding the Rows
+            if (cells_csv.Count <= 0)
+            {
+                foreach (DataGridViewRow row in GoodsDataGrid.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value.GetType() != typeof(Bitmap))
+                            //Add the Data rows.
+                            csv += cell.Value.ToString().Replace(",", ";") + ',';
+                    }
+
+                    //Add new line.
+                    csv += "\r\n";
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in cells_csv)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value.GetType() != typeof(Bitmap))
+                            //Add the Data rows.
+                            csv += cell.Value.ToString().Replace(",", ";") + ',';
+                    }
+
+                    //Add new line.
+                    csv += "\r\n";
+                }
+            }
+
+
+            progress.Update("Writing File ...", 60);
+
+            System.IO.File.WriteAllText(WriteFilePath, csv);
+
+            choose = MessageBox.Show(
+                   "Open in File Explorer?", "", MessageBoxButtons.YesNo);
+            if (choose == DialogResult.Yes)
+            {
+
+                if (WriteFilePath == null)
+                    throw new ArgumentNullException("filePath");
+
+                System.Diagnostics.Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
+            }
+            else
+            {
+                MessageBox.Show("Saved at" + WriteFilePath);
+            }
+
+            progress.End();
         }
     }
 }

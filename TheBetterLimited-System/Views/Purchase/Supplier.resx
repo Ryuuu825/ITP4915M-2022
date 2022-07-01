@@ -443,7 +443,7 @@
     <value>NoControl</value>
   </data>
   <data name="exportBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>222, 0</value>
+    <value>222, 1</value>
   </data>
   <data name="exportBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -452,7 +452,7 @@
     <value>114, 38</value>
   </data>
   <data name="exportBtn.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="exportBtn.Text" xml:space="preserve">
     <value>Export</value>
@@ -823,9 +823,6 @@
   <data name="dataGridViewImageColumn4.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="dataGridViewImageColumn4.Width" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
   <data name="dataGridViewImageColumn6.HeaderText" xml:space="preserve">
     <value />
   </data>
@@ -834,9 +831,6 @@
   </data>
   <data name="dataGridViewImageColumn6.ToolTipText" xml:space="preserve">
     <value>Delete</value>
-  </data>
-  <data name="dataGridViewImageColumn6.Width" type="System.Int32, mscorlib">
-    <value>6</value>
   </data>
   <data name="dataGridViewImageColumn7.HeaderText" xml:space="preserve">
     <value />
@@ -861,9 +855,6 @@
   </data>
   <data name="dataGridViewImageColumn7.ToolTipText" xml:space="preserve">
     <value>Delete</value>
-  </data>
-  <data name="dataGridViewImageColumn7.Width" type="System.Int32, mscorlib">
-    <value>6</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -4171,9 +4162,6 @@
         AAAAAAAAAAAAD/////8=
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
@@ -4182,6 +4170,12 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>InventoryManagement</value>
+  </data>
+  <data name="&gt;&gt;select.Name" xml:space="preserve">
+    <value>select</value>
+  </data>
+  <data name="&gt;&gt;select.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;id.Name" xml:space="preserve">
     <value>id</value>
@@ -4218,6 +4212,18 @@
   </data>
   <data name="&gt;&gt;address.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;edit.Name" xml:space="preserve">
+    <value>edit</value>
+  </data>
+  <data name="&gt;&gt;edit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;delete.Name" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="&gt;&gt;delete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn1.Name" xml:space="preserve">
     <value>dataGridViewImageColumn1</value>
@@ -4259,24 +4265,6 @@
     <value>dataGridViewImageColumn7</value>
   </data>
   <data name="&gt;&gt;dataGridViewImageColumn7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;select.Name" xml:space="preserve">
-    <value>select</value>
-  </data>
-  <data name="&gt;&gt;select.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;edit.Name" xml:space="preserve">
-    <value>edit</value>
-  </data>
-  <data name="&gt;&gt;edit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;delete.Name" xml:space="preserve">
-    <value>delete</value>
-  </data>
-  <data name="&gt;&gt;delete.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewImageColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

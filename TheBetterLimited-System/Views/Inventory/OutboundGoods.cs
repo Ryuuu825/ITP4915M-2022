@@ -101,7 +101,7 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                response = cbRS.GetById(SearchBarTxt.Texts.ToString());
+                response = cbRS.GetById(SearchBarTxt.Texts.ToString(), lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
                 restockId = SearchBarTxt.Texts.ToString();
                 InitList();
             }
