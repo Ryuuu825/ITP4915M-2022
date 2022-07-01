@@ -227,9 +227,9 @@ namespace TheBetterLimited.Views
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (!orderData["status"].ToString().Equals("PendingDelivery"))
+            if (!orderData["status"].ToString().Equals("Placed"))
             {
-                MessageBox.Show("The order had been changed.\nYou cannot change anything.");
+                MessageBox.Show("The order has been processed.\nYou cannot change anything.");
                 return;
             }
             if (NameTxt.Texts.Equals(String.Empty) || NameTxt.Texts.Equals(NameTxt.Placeholder))
