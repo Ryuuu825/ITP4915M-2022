@@ -42,27 +42,27 @@
             // 
             // Msg
             // 
-            resources.ApplyResources(this.Msg, "Msg");
             this.Msg.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.Msg, "Msg");
             this.Msg.ForeColor = System.Drawing.Color.Black;
             this.Msg.Name = "Msg";
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Controls.Add(this.backBtn);
             this.panel1.Controls.Add(this.resendBtn);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // backBtn
             // 
-            resources.ApplyResources(this.backBtn, "backBtn");
             this.backBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(147)))), ((int)(((byte)(29)))));
             this.backBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(147)))), ((int)(((byte)(29)))));
             this.backBtn.BorderColor = System.Drawing.Color.Empty;
             this.backBtn.BorderRadius = 20;
             this.backBtn.BorderSize = 0;
             this.backBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.backBtn, "backBtn");
             this.backBtn.ForeColor = System.Drawing.Color.White;
             this.backBtn.IsChecked = false;
             this.backBtn.Name = "backBtn";
@@ -72,13 +72,13 @@
             // 
             // resendBtn
             // 
-            resources.ApplyResources(this.resendBtn, "resendBtn");
             this.resendBtn.BackColor = System.Drawing.Color.SeaGreen;
             this.resendBtn.BackgroundColor = System.Drawing.Color.SeaGreen;
             this.resendBtn.BorderColor = System.Drawing.Color.Empty;
             this.resendBtn.BorderRadius = 20;
             this.resendBtn.BorderSize = 0;
             this.resendBtn.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.resendBtn, "resendBtn");
             this.resendBtn.ForeColor = System.Drawing.Color.White;
             this.resendBtn.IsChecked = false;
             this.resendBtn.Name = "resendBtn";
@@ -93,16 +93,16 @@
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.BackgroundImage = global::TheBetterLimited.Properties.Resources.email;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
             // ResetPwdResult
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            resources.ApplyResources(this, "$this");
             this.Controls.Add(this.Msg);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);

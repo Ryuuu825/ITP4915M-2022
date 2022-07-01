@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RestSharp;
 using TheBetterLimited.Controller;
 using TheBetterLimited.CustomizeControl;
@@ -77,24 +78,37 @@ namespace TheBetterLimited.Views
             bw.RunWorkerAsync();
 
         }
-        
+
         private void showResult()
         {
             if (result == null)
             {
                 MessageBox.Show("Cannot connect to server!", "Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else if (result.StatusCode == System.Net.HttpStatusCode.OK)
+
+
+            try
             {
-                ResetPwdResult resetResult = new ResetPwdResult(userName.Texts, email.Texts, result.Content);
-                resetResult.Show();
-                this.Dispose();
+                JObject res = JObject.Parse(result.Content);
+                if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    ResetPwdResult resetResult = new ResetPwdResult(userName.Texts, email.Texts, result.Content);
+                    resetResult.Show();
+                    this.Dispose();
+                }
+                else
+                {
+                    string str = res["message"].ToString();
+                    MessageBox.Show(str, "Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                string str = result.Content;
-                MessageBox.Show(str, "Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Reset Error.\nPlease check your inputted value.", "Reset Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
         }
 
         private void picReturn_Click(object sender, EventArgs e)
