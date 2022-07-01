@@ -198,6 +198,7 @@ namespace TheBetterLimited.Views
             else
             {
                 isBooking = true;
+                OrderDataGrid.Columns["defect"].Visible = false;
                 if (needDelivery == true)
                 {
                     AppointmentBox.Visible = true;
