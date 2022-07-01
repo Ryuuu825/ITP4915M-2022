@@ -173,6 +173,10 @@ namespace TheBetterLimited_Server.Helpers.File
 
             // create a html file for wkhtmltopdf to convert
             string htmlFilePath = AppDomain.CurrentDomain.BaseDirectory+ "var/tmp/record.html";
+            if (System.IO.File.Exists(htmlFilePath))
+            {
+                System.IO.File.Delete(htmlFilePath);
+            }
             using (FileStream fs = new FileStream(htmlFilePath, FileMode.OpenOrCreate))
             {
                 await fs.WriteAsync(Encoding.UTF8.GetBytes(temp));
