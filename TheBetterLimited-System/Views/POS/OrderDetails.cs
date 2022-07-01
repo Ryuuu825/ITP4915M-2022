@@ -51,13 +51,26 @@ namespace TheBetterLimited.Views
             InitializeOrderItemTable();
         }
 
+        public void SetOrderData(JObject orderData, string settle)
+        {
+            this.orderData = orderData;
+            OrderInfoBox.Enabled = false;
+            OrderDataGrid.ReadOnly = true;
+            DeleteBtn.Visible = false;
+            SaveBtn.Visible = false;
+            BackBtn.Show();
+            OrderDataGrid.Columns["defect"].Visible = false;
+            InitializeOrderInfo();
+            InitializeOrderItemTable();
+        }
+
         public void SetOrderData(JObject orderData, bool appointment)
         {
             this.orderData = orderData;
             OrderInfoBox.Enabled = false;
             OrderDataGrid.ReadOnly = true;
             DeleteBtn.Visible = false;
-            if(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "zh")
+            if (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "zh")
             {
                 SaveBtn.Text = "指派";
             }
@@ -153,6 +166,7 @@ namespace TheBetterLimited.Views
                 DeleteBtn.Click -= new EventHandler(CancelOrderBtn_Click);
                 DeleteBtn.Click += new EventHandler(DeleteOrderBtn_Click);
             }
+
             needDelivery = false;
             //Check whether booking record / delivery record
             if (((JToken)orderData["customer"]).Type == JTokenType.Null)
@@ -160,10 +174,7 @@ namespace TheBetterLimited.Views
                 OrderInfoBox.Visible = false;
                 OrderDataGrid.Columns["install"].Visible = false;
                 CancelBtn.Hide();
-                SaveBtn.Text = "Back";
-                SaveBtn.BackColor = Color.DimGray;
-                SaveBtn.Click -= new EventHandler(SaveBtn_Click);
-                SaveBtn.Click += new EventHandler(CancelBtn_Click);
+                BackBtn.Show();
                 return;
             }
 
@@ -186,6 +197,10 @@ namespace TheBetterLimited.Views
             {
                 isBooking = true;
                 if (needDelivery == true)
+                {
+                    AppointmentBox.Visible = true;
+                    PickUpBox.Visible = false;
+                }else
                 {
                     AppointmentBox.Visible = false;
                     PickUpBox.Visible = true;

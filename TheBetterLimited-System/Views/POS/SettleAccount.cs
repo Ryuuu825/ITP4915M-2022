@@ -151,7 +151,7 @@ namespace TheBetterLimited.Views
                     order.Dispose();
                 }
                 OrderDetails od = new OrderDetails();
-                od.SetOrderData(list[e.RowIndex],true);
+                od.SetOrderData(list[e.RowIndex],"");
                 od.Show();
                 od.TopLevel = true;
             }
