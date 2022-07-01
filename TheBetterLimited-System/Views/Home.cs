@@ -48,10 +48,17 @@ namespace TheBetterLimited.Views
             lblRevenue.Text = String.Format("{0:C2}", revenueTotal);
             lblProfit.Text = String.Format("{0:C2}", revenueTotal * 0.32);
             ResourceManager rm = new ResourceManager(typeof(Home));
-            goodsPie.Series["S1"].Points.AddXY(rm.GetString("pieTitle1"), normalTotal);
+            var pieTitle1 = "Normal Item";
+            var pieTitle2 = "Defective Item";
+            if(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "zh")
+            {
+                pieTitle1 = "正常商品";
+                pieTitle2 = "瑕疵商品";
+            }
+            goodsPie.Series["S1"].Points.AddXY(pieTitle1, normalTotal);
             if (defectItem > 0)
             {
-                goodsPie.Series["S1"].Points.AddXY(rm.GetString("pieTitle2"), defectItem);
+                goodsPie.Series["S1"].Points.AddXY(pieTitle2, defectItem);
             }
             goodsPie.Series["S1"].IsValueShownAsLabel = true;
             InitProfitChart();
