@@ -231,7 +231,7 @@ namespace TheBetterLimited.Views
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (!orderData["status"].ToString().Equals("Placed"))
+            if (!orderData["status"].ToString().Equals("Placed") || orderData["status"].ToString().Equals("Booking"))
             {
                 MessageBox.Show("The order has been processed.\nYou cannot change anything.");
                 return;
@@ -617,7 +617,7 @@ namespace TheBetterLimited.Views
 
         private void CancelOrderBtn_Click(object sender, EventArgs e)
         {
-            if (orderData["status"].ToString().Equals("Placed") || orderData["status"].ToString().Equals("PendingDelivery"))
+            if (orderData["status"].ToString().Equals("Placed") || orderData["status"].ToString().Equals("PendingDelivery") || orderData["status"].ToString().Equals("Booking"))
             {
                 DialogResult choose = MessageBox.Show("Do you really want to cancel the order?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
                 if (choose == DialogResult.Yes)
