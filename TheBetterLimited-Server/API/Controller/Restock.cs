@@ -128,7 +128,7 @@ namespace TheBetterLimited_Server.API.Controller
 
         [HttpGet]
         [Authorize]
-        public IActionResult Get([FromHeader] string Langauge = "en")
+        public IActionResult Get([FromHeader] string Language = "en")
         {
             try
             {
@@ -150,7 +150,7 @@ namespace TheBetterLimited_Server.API.Controller
                     rr = repository.GetBySQL($"SELECT * FROM `RestockRequest` WHERE `_locationId` = '{locationId}'").ToList();
                 }
                
-                return Ok(ToDto(rr,User.Identity.Name, Langauge));
+                return Ok(ToDto(rr,User.Identity.Name, Language));
             }
             catch (ICustException e)
             {

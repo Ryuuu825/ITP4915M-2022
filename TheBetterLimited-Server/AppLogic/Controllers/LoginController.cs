@@ -107,7 +107,7 @@ public class LoginController
     public void RequestForgetPW(ForgetPwModel model, string lang)
     {
         // get the user from the database
-        Account potentialUser = _UserTable.GetBySQL(Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{model.UserName};EmailAddress:{model.EmailAddress}" )).FirstOrDefault();
+        Account potentialUser = _UserTable.GetBySQL($"SELECT * FROM `Account` WHERE `UserName` = '{model.UserName}' AND `EmailAddress` = '{model.EmailAddress}'" ).FirstOrDefault();
 
         if (potentialUser is null)
             throw new HasNoElementException("UserName or EmailAddress not found", HttpStatusCode.BadRequest);
