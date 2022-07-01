@@ -7932,7 +7932,7 @@ namespace TheBetterLimited_Server.Data
                         _departmentId = "300",
                         StartTime = sessionRange[i].StartTime,
                         EndTime = sessionRange[i].EndTime,
-                        Date = new DateTime(DateTime.Today.Year , DateTime.Today.Month , DateTime.Today.Day - 1),
+                        Date = new DateTime(DateTime.Today.Year , DateTime.Today.AddDays(-1).Month , DateTime.Today.AddDays(-1).Day - 1),
                         NumOfAppointments = (sessionRange[scounter].NumOfAppointments)
                     }
                 );
@@ -7944,7 +7944,7 @@ namespace TheBetterLimited_Server.Data
                         _departmentId = "700",
                         StartTime = sessionRange[i].StartTime,
                         EndTime = sessionRange[i].EndTime,
-                        Date = new DateTime(DateTime.Today.Year , DateTime.Today.Month , DateTime.Today.AddDays(-1).Day),
+                        Date = new DateTime(DateTime.Today.Year , DateTime.Today.AddDays(-1).Month , DateTime.Today.AddDays(-1).Day),
                         NumOfAppointments = (sessionRange[scounter].NumOfAppointments)
                     }
                 );
@@ -7954,8 +7954,8 @@ namespace TheBetterLimited_Server.Data
                 {         
                     ID = "999999999",
                     _departmentId = "300",
-                    StartTime = new DateTime(DateTime.Today.Year , DateTime.Today.Month , DateTime.Today.AddDays(-1).Day , DateTime.Now.AddHours(1).Hour , 0 , 0),
-                    EndTime = new DateTime(DateTime.Today.Year , DateTime.Today.Month , DateTime.Today.AddDays(-1).Day , DateTime.Now.AddHours(2).Hour , 0 , 0),
+                    StartTime = new DateTime(DateTime.Today.Year , DateTime.Today.AddDays(-1).Month , DateTime.Today.AddDays(-1).Day , DateTime.Now.AddHours(1).Hour , 0 , 0),
+                    EndTime = new DateTime(DateTime.Today.Year , DateTime.Today.AddDays(-1).Month , DateTime.Today.AddDays(-1).Day , DateTime.Now.AddHours(2).Hour , 0 , 0),
                     Date = DateTime.Now,
                     NumOfAppointments = 1
                 }
