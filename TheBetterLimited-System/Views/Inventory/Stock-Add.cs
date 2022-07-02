@@ -179,7 +179,7 @@ namespace TheBetterLimited.Views
                 return;
             }
             
-            var res = goodsCon.GetById(id);
+            var res = goodsCon.GetById(id, lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
 
             try 
             {

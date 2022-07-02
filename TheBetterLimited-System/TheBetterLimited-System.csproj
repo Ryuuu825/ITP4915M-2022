@@ -641,9 +641,6 @@
     <EmbeddedResource Include="Views\Inventory\DefectUpdateOption.zh.resx">
       <DependentUpon>DefectUpdateOption.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Inventory\OutboundGoods.ca.resx">
-      <DependentUpon>OutboundGoods.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Inventory\OutboundGoods.resx">
       <DependentUpon>OutboundGoods.cs</DependentUpon>
     </EmbeddedResource>

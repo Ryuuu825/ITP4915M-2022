@@ -151,7 +151,7 @@ namespace TheBetterLimited.Views
         {
             if ((int)rq["status"] == (int)RestockStatusEnum.PendingApproval)
             {
-                DialogResult result = MessageBox.Show("Are you sure to approve the purchase order?", "Confirmation Request", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Are you sure to approve the restock request?", "Confirmation Request", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -168,25 +168,25 @@ namespace TheBetterLimited.Views
                         response = cbRestock.UpdateStatus(rq["id"].ToString(), status);
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
-                            MessageBox.Show("The purchase order approved successfully");
+                            MessageBox.Show("The restock request approved successfully");
                             this.OnExit.Invoke();
                             this.Close();
                             this.Dispose();
                         }
                         else
                         {
-                            MessageBox.Show("Approve purchase order error.\n" + response.Content);
+                            MessageBox.Show("Approve restock request error.");
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Approve purchase order error.\n" + response.Content);
+                        MessageBox.Show("Approve restock request error.");
                     }
                 }
             }
             else
             {
-                MessageBox.Show("The purchase order has been processed.");
+                MessageBox.Show("The restock request has been processed.");
             }
         }
 
@@ -194,7 +194,7 @@ namespace TheBetterLimited.Views
         {
             if ((int)rq["status"] == (int)RestockStatusEnum.PendingApproval)
             {
-                DialogResult result = MessageBox.Show("Are you sure to reject the purchase order?", "Confirmation Request", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Are you sure to reject the restock request?", "Confirmation Request", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -202,25 +202,25 @@ namespace TheBetterLimited.Views
                         response = cbRestock.UpdateStatus(rq["id"].ToString(), (int)RestockStatusEnum.Rejected);
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
-                            MessageBox.Show("The purchase order rejected successfully");
+                            MessageBox.Show("The restock request rejected successfully");
                             this.OnExit.Invoke();
                             this.Close();
                             this.Dispose();
                         }
                         else
                         {
-                            MessageBox.Show("Reject purchase order error.\n" + response.Content);
+                            MessageBox.Show("Reject restock request error.");
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Reject purchase order error.\n" + response.Content);
+                        MessageBox.Show("Reject restock request error.");
                     }
                 }
             }
             else
             {
-                MessageBox.Show("The purchase order has been processed.");
+                MessageBox.Show("The restock request has been processed.");
             }
         }
 
@@ -234,7 +234,7 @@ namespace TheBetterLimited.Views
         {
             if ((int)rq["status"] == (int)RestockStatusEnum.Pending)
             {
-                DialogResult result = MessageBox.Show("Are you sure to send the purchase order to accounting department?", "Confirmation Request", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Are you sure to send out the restock request?", "Confirmation Request", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -242,25 +242,25 @@ namespace TheBetterLimited.Views
                         response = cbRestock.UpdateStatus(rq["id"].ToString(), (int)RestockStatusEnum.PendingApproval);
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
-                            MessageBox.Show("The purchase order has been send to accounting department.");
+                            MessageBox.Show("The restock request has been sent out.");
                             this.OnExit.Invoke();
                             this.Close();
                             this.Dispose();
                         }
                         else
                         {
-                            MessageBox.Show("Confirm purchase order error.\n" + response.Content);
+                            MessageBox.Show("Confirm restock request error.");
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Confirm purchase order error.\n" + response.Content);
+                        MessageBox.Show("Confirm restock request error.");
                     }
                 }
             }
             else
             {
-                MessageBox.Show("The purchase order has been processed.");
+                MessageBox.Show("The restock request has been processed.");
             }
         }
     }

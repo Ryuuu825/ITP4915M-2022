@@ -171,7 +171,7 @@ namespace TheBetterLimited.Views
         private void OrderDataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
-            if (OrderDataGrid.CurrentCell.ColumnIndex == 0) //Desired Column
+            if (OrderDataGrid.CurrentCell.ColumnIndex == OrderDataGrid.Columns["delete"].Index) //Desired Column
             {
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)
@@ -252,6 +252,7 @@ namespace TheBetterLimited.Views
         private void OrderDataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             MessageBox.Show("Quantity value is invalid!");
+            OrderDataGrid.CancelEdit();
         }
 
         private void OrderDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)

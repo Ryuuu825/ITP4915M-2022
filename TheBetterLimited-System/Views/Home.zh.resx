@@ -3503,10 +3503,4 @@
         AAAAAAAAAAAAD/////8=
 </value>
   </data>
-  <data name="pieTitle1" xml:space="preserve">
-    <value>正常商品</value>
-  </data>
-  <data name="pieTitle2" xml:space="preserve">
-    <value>瑕疵商品</value>
-  </data>
 </root>

@@ -8,6 +8,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -17,6 +18,7 @@ using System.Windows.Forms;
 using TheBetterLimited.Controller;
 using TheBetterLimited.CustomizeControl;
 using TheBetterLimited.Models;
+using TheBetterLimited.Utils;
 using TheBetterLimited_System.Controller;
 
 namespace TheBetterLimited.Views
@@ -25,6 +27,8 @@ namespace TheBetterLimited.Views
     {
         private BindingSource bs = new BindingSource();
         private List<string> selectStockID = new List<string>();
+        private List<JObject> stocks = new List<JObject>();
+        private List<JObject> selectStock = new List<JObject>();
         private DialogResult choose;
         private RestResponse result;
         private ControllerBase cbStore = new ControllerBase("Store");
@@ -208,6 +212,7 @@ namespace TheBetterLimited.Views
                     StockDataGrid["select", e.RowIndex].Tag = 1;
                     StockDataGrid.Rows[e.RowIndex].Selected = true;
                     selectStockID.Add(StockDataGrid["id", e.RowIndex].Value.ToString());
+                    selectStock.Add(stocks[e.RowIndex]);
                 }
                 else
                 {
@@ -215,6 +220,7 @@ namespace TheBetterLimited.Views
                     StockDataGrid["select", e.RowIndex].Tag = 0;
                     StockDataGrid.Rows[e.RowIndex].Selected = false;
                     selectStockID.Remove(StockDataGrid["id", e.RowIndex].Value.ToString());
+                    selectStock.Remove(stocks[e.RowIndex]);
                 }
             }
 
@@ -275,8 +281,9 @@ namespace TheBetterLimited.Views
         private void InitList()
         {
             dataTable.Clear();
+            stocks.Clear();
             var res = JArray.Parse(result.Content.ToString());
-            foreach (var row in res)
+            foreach (JObject row in res)
             {
                 // is not soft Deleted
                 if (!row["isDeleted"].ToObject<bool>())
@@ -290,6 +297,7 @@ namespace TheBetterLimited.Views
                     dr["MinLimit"] = row["MinLimit"].ToString();
                     dr["ReorderLevel"] = row["ReorderLevel"].ToString();
                     dr["Status"] = row["Status"].ToString();
+                    stocks.Add(row);
                     dataTable.Rows.Add(dr);
                 }
             }
@@ -402,17 +410,28 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                Form rs = Application.OpenForms["RestockRequest_Add"];
-                if (rs != null)
+                foreach (var stock in selectStock)
                 {
-                    rs.Close();
-                    rs.Dispose();
+                    var i = (int)stock["MaxLimit"] - (int)stock["Quantity"];
+                    if (i == 0)
+                    {
+                        MessageBox.Show(stock["Id"] + " has reached the maximum limit");
+                        return;
+                    }
                 }
-                RestockRequest_Add gd = new RestockRequest_Add(selectStockID);
-                gd.Show();
-                gd.TopLevel = true;
-                gd.OnExit += GetStock;
             }
+
+            Form rs = Application.OpenForms["RestockRequest_Add"];
+            if (rs != null)
+            {
+                rs.Close();
+                rs.Dispose();
+            }
+            RestockRequest_Add gd = new RestockRequest_Add(selectStockID);
+            gd.Show();
+            gd.TopLevel = true;
+            gd.OnExit += GetStock;
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -479,50 +498,83 @@ namespace TheBetterLimited.Views
             bw.RunWorkerAsync();
         }
 
-        // Export stock records PDF
-        /* private void exportBtn_Click(object sender, EventArgs e)
-         {
-             Loading progress = new Loading();
-             progress.Show();
-             progress.Update("Fetch data from server ...", 10);
-             byte[] response = cbStock.GetPDF();
-             string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/test.pdf";
-             progress.Update("Generating PDF ...", 30);
-             progress.Update("Writing File ...", 60);
-             System.IO.File.WriteAllBytes(WriteFilePath, response);
-             progress.Update("Finish", 99);
+        private void exportBtn_Click(object sender, EventArgs e)
+        {
+            CustomizeControl.Loading progress = new CustomizeControl.Loading();
+            progress.Show();
+            progress.Update("Fetch data from server ...", 10);
 
-             choose = MessageBox.Show(
-                 "Open in File Explorer?", "", MessageBoxButtons.YesNo);
-             if (choose == DialogResult.Yes)
-             {
 
-                 if (WriteFilePath == null)
-                     throw new ArgumentNullException("filePath");
+            //Build the CSV file data as a Comma separated string.
+            string csv = string.Empty;
 
-                 Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
-             }
-             else
-             {
-                 MessageBox.Show("Saved at");
-             }
+            //Add the Header row for CSV file.
+            string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/Stock.csv";
+            foreach (DataGridViewColumn column in StockDataGrid.Columns)
+            {
+                csv += column.HeaderText + ',';
+            }
 
-             progress.End();*/
+            progress.Update("Formatting ...", 30);
 
-        // BackgroundWorker bgw = new BackgroundWorker();
-        // CustomizeControl.Loading process = new Loading();
-        // process.Show();
-        // bgw.DoWork += new DoWorkEventHandler(((o, args) =>
-        // {
-        //     
-        // }));
-        // bgw.ProgressChanged += new ProgressChangedEventHandler(((o, args) =>
-        // {
-        // }));
-        // bgw.RunWorkerCompleted += (o, args) =>
-        // { 
-        // };
-        // bgw.RunWorkerAsync();
-        // get "application/pdf"
+            //Add new line.
+            csv += "\r\n";
+
+            Console.WriteLine(selectStock.Count);
+
+            if (selectStock.Count <= 0)
+            {
+                foreach (DataGridViewRow row in StockDataGrid.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value is string || cell.Value is int)
+                            //Add the Data rows.
+                            csv += cell.Value.ToString().Replace(",", ";") + ',';
+
+                    }
+
+                    //Add new line.
+                    csv += "\r\n";
+                }
+            }
+            else
+            {
+                foreach (var row in selectStock)
+                {
+                    foreach (var cell in row)
+                    {
+                        csv += cell.Value.ToString().Replace(",", ";") + ',';
+                    }
+
+                    //Add new line.
+                    csv += "\r\n";
+                }
+            }
+            
+            //Adding the Rows
+           
+
+            progress.Update("Writing File ...", 60);
+
+            File.WriteAllText(WriteFilePath, csv);
+
+            choose = MessageBox.Show(
+                   "Open in File Explorer?", "", MessageBoxButtons.YesNo);
+            if (choose == DialogResult.Yes)
+            {
+
+                if (WriteFilePath == null)
+                    throw new ArgumentNullException("filePath");
+
+                Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
+            }
+            else
+            {
+                MessageBox.Show("Saved at" + WriteFilePath);
+            }
+
+            progress.End();
+        }
     }
 }

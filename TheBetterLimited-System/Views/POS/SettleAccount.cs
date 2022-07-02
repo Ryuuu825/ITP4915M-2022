@@ -74,7 +74,7 @@ namespace TheBetterLimited.Views
 
         private void InitReport()
         {
-            var response = cb.GetAll();
+            var response = cb.GetAll(lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             JObject info = JObject.Parse(response.Content);
             JArray os = (JArray)info["Orders"];
             DataTable dt = new DataTable();
@@ -151,7 +151,7 @@ namespace TheBetterLimited.Views
                     order.Dispose();
                 }
                 OrderDetails od = new OrderDetails();
-                od.SetOrderData(list[e.RowIndex],true);
+                od.SetOrderData(list[e.RowIndex],"");
                 od.Show();
                 od.TopLevel = true;
             }

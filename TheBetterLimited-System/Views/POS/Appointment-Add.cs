@@ -142,8 +142,17 @@ namespace TheBetterLimited.Views
 
         private void DeliverySessionCombo_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            deliverySessionId = deliverySessions[DeliverySessionCombo.SelectedIndex].ID1;
-            InitInstallComboBox();
+            try
+            {
+                deliverySessionId = deliverySessions[DeliverySessionCombo.SelectedIndex].ID1;
+                InitInstallComboBox();
+            }
+            catch (Exception ex)
+            {
+                ResetDeliveryComboBox();
+                InitDeliveryComboBox();
+            }
+
         }
 
         //init session form server
@@ -257,7 +266,15 @@ namespace TheBetterLimited.Views
 
         private void InstallSessionCombo_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            installSessionId = installSessions[InstallSessionCombo.SelectedIndex].ID1;
+            try
+            {
+                installSessionId = installSessions[InstallSessionCombo.SelectedIndex].ID1;
+            }
+            catch(Exception ex)
+            {
+                ResetInstallComboBox();
+                InitInstallComboBox();
+            }
         }
 
         private void CancelBtn_Click_1(object sender, EventArgs e)

@@ -59,7 +59,11 @@ namespace TheBetterLimited.Views
             DialogResult result = DialogResult.None;
             if (needBook)
             {
-                result = MessageBox.Show("Deposit is " + String.Format("{0:C2}", totalAmount * 0.2)
+                if (totalAmount >= 5000)
+                {
+                    totalAmount = totalAmount * 0.2;
+                }
+                result = MessageBox.Show("Deposit is " + String.Format("{0:C2}", totalAmount)
                         + "\nDose customer have paid?", "Confirm payment", MessageBoxButtons.YesNo);
             }
             else
@@ -107,6 +111,10 @@ namespace TheBetterLimited.Views
             DialogResult result = DialogResult.None;
             if (needBook)
             {
+                if (totalAmount >= 5000)
+                {
+                    totalAmount = totalAmount * 0.2;
+                }
                 result = MessageBox.Show("Deposit is " + String.Format("{0:C2}", totalAmount * 0.2)
                         + "\nAre you going to pay?", "Confirm payment", MessageBoxButtons.YesNo);
             }

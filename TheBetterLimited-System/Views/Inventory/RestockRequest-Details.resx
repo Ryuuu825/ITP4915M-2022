@@ -613,7 +613,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Restock Request</value>
+    <value>Restock Request Details</value>
   </data>
   <data name="&gt;&gt;goodsID.Name" xml:space="preserve">
     <value>goodsID</value>

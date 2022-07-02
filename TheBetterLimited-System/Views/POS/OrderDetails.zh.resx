@@ -209,22 +209,28 @@
     <value>订购项目</value>
   </data>
   <data name="DeleteBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt, style=Bold</value>
+    <value>Segoe UI, 9.75pt, style=Bold</value>
   </data>
   <data name="DeleteBtn.Text" xml:space="preserve">
     <value>取消订单</value>
   </data>
   <data name="CancelBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt, style=Bold</value>
+    <value>Segoe UI, 9.75pt, style=Bold</value>
   </data>
   <data name="CancelBtn.Text" xml:space="preserve">
     <value>取消</value>
   </data>
   <data name="SaveBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt, style=Bold</value>
+    <value>Segoe UI, 9.75pt, style=Bold</value>
   </data>
   <data name="SaveBtn.Text" xml:space="preserve">
     <value>修改</value>
+  </data>
+  <data name="BackBtn.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="BackBtn.Text" xml:space="preserve">
+    <value>返回</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>63, 228</value>

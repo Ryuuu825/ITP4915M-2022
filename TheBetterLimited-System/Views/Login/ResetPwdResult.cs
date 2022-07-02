@@ -27,9 +27,9 @@ namespace TheBetterLimited.Views
         public ResetPwdResult(string username, string email, string m)
         {
             JObject msgObj = JObject.Parse(m);
-            username = username;
-            email = email;
-            msg = msgObj["message"].ToString();
+            this.username = username;
+            this.email = email;
+            this.msg = msgObj["message"].ToString();
             InitializeComponent();
             Msg.Text = msg;
         }

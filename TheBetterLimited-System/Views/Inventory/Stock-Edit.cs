@@ -39,7 +39,7 @@ namespace TheBetterLimited.Views
         {
             Console.WriteLine("New ing form" + StockId);
             RestRequest req = new RestRequest("/api/inventory/sgs/" + StockId, Method.Get) 
-                                    .AddHeader("Language", "en");
+                                    .AddHeader("Language", System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             result = Utils.RestClientUtils.client.ExecuteAsync(req).GetAwaiter().GetResult();
             JObject obj = JObject.Parse(result.Content);
             if (obj["isSoftDeleted"].ToObject<bool>())

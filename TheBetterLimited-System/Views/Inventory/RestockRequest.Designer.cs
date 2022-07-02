@@ -71,6 +71,7 @@
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn7 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.exportBtn = new TheBetterLimited.CustomizeControl.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.OrderDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -311,6 +312,7 @@
             // 
             // curdAction
             // 
+            this.curdAction.Controls.Add(this.exportBtn);
             this.curdAction.Controls.Add(this.locCombo);
             resources.ApplyResources(this.curdAction, "curdAction");
             this.curdAction.Name = "curdAction";
@@ -428,6 +430,22 @@
             this.dataGridViewImageColumn7.Name = "dataGridViewImageColumn7";
             this.dataGridViewImageColumn7.ReadOnly = true;
             // 
+            // exportBtn
+            // 
+            resources.ApplyResources(this.exportBtn, "exportBtn");
+            this.exportBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.exportBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.exportBtn.BorderColor = System.Drawing.Color.White;
+            this.exportBtn.BorderRadius = 10;
+            this.exportBtn.BorderSize = 0;
+            this.exportBtn.FlatAppearance.BorderSize = 0;
+            this.exportBtn.ForeColor = System.Drawing.Color.White;
+            this.exportBtn.IsChecked = false;
+            this.exportBtn.Name = "exportBtn";
+            this.exportBtn.TextColor = System.Drawing.Color.White;
+            this.exportBtn.UseVisualStyleBackColor = false;
+            this.exportBtn.Click += new System.EventHandler(this.exportBtn_Click_1);
+            // 
             // RestockRequest
             // 
             resources.ApplyResources(this, "$this");
@@ -482,5 +500,6 @@
         private System.Windows.Forms.DataGridViewImageColumn details;
         private System.Windows.Forms.DataGridViewImageColumn delete;
         private CustomizeControl.CustomizeComboBox locCombo;
+        private CustomizeControl.RoundButton exportBtn;
     }
 }

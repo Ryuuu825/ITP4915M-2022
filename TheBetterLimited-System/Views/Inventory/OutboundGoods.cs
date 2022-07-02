@@ -29,11 +29,12 @@ namespace TheBetterLimited.Views
         private RestResponse response;
         private BackgroundWorker bw = new BackgroundWorker();
         private ControllerBase cbRS = new ControllerBase("restock");
-        private ControllerBase cbStock = new ControllerBase("inventory/sgs");
+        private StockController cbStock = new StockController("inventory/sgs");
 
         private bool loadAll = true;
         private string suplierId = String.Empty;
         private string QryString = String.Empty;
+        private string restockId = String.Empty;
 
         public OutboundGoods()
         {
@@ -60,9 +61,7 @@ namespace TheBetterLimited.Views
             dt.Columns.Add("goodsName");
             dt.Columns.Add("expQty");
             dt.Columns.Add("outQty");
-            dt.Columns.Add("isNew");
             dt.Columns.Add("catalogue");
-            dt.Columns["isNew"].DataType = System.Type.GetType("System.Byte[]");
         }
 
         /*
@@ -102,7 +101,8 @@ namespace TheBetterLimited.Views
             }
             else
             {
-                response = cbRS.GetById(SearchBarTxt.Texts.ToString());
+                response = cbRS.GetById(SearchBarTxt.Texts.ToString(), lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
+                restockId = SearchBarTxt.Texts.ToString();
                 InitList();
             }
         }
@@ -113,8 +113,8 @@ namespace TheBetterLimited.Views
             goodsList.Clear();
             try
             {
-                JArray goodsData = JArray.Parse(response.Content);
-                foreach (JObject o in goodsData[0]["items"])
+                JObject goodsData = JObject.Parse(response.Content);
+                foreach (JObject o in goodsData["items"])
                 {
                     goodsList.Add(o);
                     var row = dt.NewRow();
@@ -153,17 +153,21 @@ namespace TheBetterLimited.Views
             int idx = 0;
             foreach (var item in goodsList)
             {
-                list.Add(new { goodsId = item["goods"]["GoodsId"].ToString(), ReceivedQuantity = -(Convert.ToInt32(GoodsDataGrid["recQty", idx].Value)) });
+                list.Add(new { _goodsId = item["goods"]["GoodsId"].ToString(), qty = -(Convert.ToInt32(GoodsDataGrid["outQty", idx].Value)) });
                 idx++;
             }
             try
             {
-                Console.WriteLine("Request: " + JsonConvert.SerializeObject(list));
-                response = cbStock.Update("bound", list);
+                Dictionary<string, object> dict = new Dictionary<string, object>();
+                dict.Add("_purchaseOrderId", String.Empty);
+                dict.Add("_restockRequestId", restockId);
+                dict.Add("items", list);
+                Console.WriteLine("Request: " + JsonConvert.SerializeObject(dict));
+                response = cbStock.Update("bound", dict);
                 Console.WriteLine(response.Content);
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    MessageBox.Show("Goods Inbounded successfully");
+                    MessageBox.Show("Goods Outbounded successfully");
                     this.OnExit.Invoke();
                     this.Close();
                     this.Dispose();
@@ -175,7 +179,7 @@ namespace TheBetterLimited.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Goods Inbounded Unsuccessfully");
+                MessageBox.Show("Goods Outbounded Unsuccessfully.");
             }
         }
     }

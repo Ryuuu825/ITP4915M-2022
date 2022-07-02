@@ -68,6 +68,7 @@
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.roundButton1 = new TheBetterLimited.CustomizeControl.RoundButton();
             ((System.ComponentModel.ISupportInitialize)(this.GoodsDataGrid)).BeginInit();
             this.Action.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -291,6 +292,7 @@
             // 
             // curdAction
             // 
+            this.curdAction.Controls.Add(this.roundButton1);
             this.curdAction.Controls.Add(this.exportBtn);
             this.curdAction.Controls.Add(this.DeleteBtn);
             this.curdAction.Controls.Add(this.AddBtn);
@@ -431,6 +433,22 @@
             this.dataGridViewImageColumn6.Name = "dataGridViewImageColumn6";
             this.dataGridViewImageColumn6.ReadOnly = true;
             // 
+            // roundButton1
+            // 
+            this.roundButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.roundButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(175)))), ((int)(((byte)(128)))));
+            this.roundButton1.BorderColor = System.Drawing.Color.White;
+            this.roundButton1.BorderRadius = 10;
+            this.roundButton1.BorderSize = 0;
+            this.roundButton1.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.roundButton1, "roundButton1");
+            this.roundButton1.ForeColor = System.Drawing.Color.White;
+            this.roundButton1.IsChecked = false;
+            this.roundButton1.Name = "roundButton1";
+            this.roundButton1.TextColor = System.Drawing.Color.White;
+            this.roundButton1.UseVisualStyleBackColor = false;
+            this.roundButton1.Click += new System.EventHandler(this.roundButton1_Click);
+            // 
             // Goods
             // 
             resources.ApplyResources(this, "$this");
@@ -487,5 +505,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewImageColumn edit;
         private System.Windows.Forms.DataGridViewImageColumn delete;
+        private CustomizeControl.RoundButton roundButton1;
     }
 }

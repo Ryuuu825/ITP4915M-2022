@@ -125,16 +125,16 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="id.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+    <value>75</value>
   </data>
-  <data name="catalogue.HeaderText" xml:space="preserve">
+  <data name="Catalogue.HeaderText" xml:space="preserve">
     <value>种类</value>
   </data>
-  <data name="catalogue.ToolTipText" xml:space="preserve">
-    <value>种类</value>
+  <data name="Catalogue.ToolTipText" xml:space="preserve">
+    <value>商品种类</value>
   </data>
-  <data name="catalogue.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+  <data name="Catalogue.Width" type="System.Int32, mscorlib">
+    <value>75</value>
   </data>
   <data name="name.HeaderText" xml:space="preserve">
     <value>商品名称</value>
@@ -142,20 +142,23 @@
   <data name="name.ToolTipText" xml:space="preserve">
     <value>商品名称</value>
   </data>
-  <data name="price.HeaderText" xml:space="preserve">
-    <value>价格</value>
+  <data name="expQty.HeaderText" xml:space="preserve">
+    <value>请求数量</value>
   </data>
-  <data name="price.ToolTipText" xml:space="preserve">
-    <value>商品价格</value>
+  <data name="expQty.ToolTipText" xml:space="preserve">
+    <value>请求数量</value>
   </data>
-  <data name="price.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+  <data name="expQty.Width" type="System.Int32, mscorlib">
+    <value>103</value>
   </data>
-  <data name="Status.HeaderText" xml:space="preserve">
-    <value>状态</value>
+  <data name="outQty.HeaderText" xml:space="preserve">
+    <value>出库数量</value>
   </data>
-  <data name="Status.Width" type="System.Int32, mscorlib">
-    <value>71</value>
+  <data name="outQty.ToolTipText" xml:space="preserve">
+    <value>出库数量</value>
+  </data>
+  <data name="outQty.Width" type="System.Int32, mscorlib">
+    <value>103</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -184,12 +187,6 @@
         cUfkG3BeKFoJ9hXXKqMPXaOTcN69fCG3g8t+Pgqdm/sX1jemh/a/aA0AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="AddBtn.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt, style=Bold</value>
-  </data>
-  <data name="AddBtn.Text" xml:space="preserve">
-    <value>       新增到采购</value>
-  </data>
   <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
@@ -197,10 +194,22 @@
     <value>2, 9</value>
   </data>
   <data name="Title.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
+    <value>82, 21</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
-    <value>供应商商品</value>
+    <value>商品出库</value>
+  </data>
+  <data name="btnCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnCancel.Text" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="btnSave.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="btnSave.Text" xml:space="preserve">
+    <value>出库</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3498,5 +3507,8 @@
         AAAAAAAAP//////////////////////AAAAAAAAAAAAAAAAAAAP//////////////////////+AAAAAA
         AAAAAAAAAAAAD/////8=
 </value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>商品出库</value>
   </data>
 </root>

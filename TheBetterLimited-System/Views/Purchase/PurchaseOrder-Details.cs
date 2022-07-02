@@ -382,7 +382,7 @@ namespace TheBetterLimited.Views
                         response = cbPO.UpdateStatus(PO["id"].ToString(), (int)POStatus.PendingApproval);
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
-                            MessageBox.Show("The purchase order has been send to accounting department.");
+                            MessageBox.Show("The purchase order has been sent to accounting department.");
                             this.OnExit.Invoke();
                             this.Close();
                             this.Dispose();

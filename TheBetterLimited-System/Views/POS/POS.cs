@@ -204,7 +204,7 @@ namespace TheBetterLimited.Views
                 int qty = Convert.ToInt32(CartItemGrid["qty", e.RowIndex].Value);
                 if (qty >= ((OrderItem)orderItems[e.RowIndex]).Stock && ((OrderItem)orderItems[e.RowIndex]).NeedBooking == false)
                 {
-                    MessageBox.Show("Product is out of stock! \n You should click the booking button to \n create a booking order.");
+                    MessageBox.Show("Quantity reaches the stock maximum.");
                     return;
                 }
                 CartItemGrid["qty", e.RowIndex].Value = ++qty;
@@ -659,6 +659,50 @@ namespace TheBetterLimited.Views
         {
             SettleAccount st = new SettleAccount();
             st.Show();
+        }
+
+        private void OrderDataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
+            if (CartItemGrid.CurrentCell.ColumnIndex == 2) //Desired Column
+            {
+                System.Windows.Forms.TextBox tb = e.Control as System.Windows.Forms.TextBox;
+                if (tb != null)
+                {
+                    tb.KeyPress += new KeyPressEventHandler(Column1_KeyPress);
+                }
+            }
+        }
+
+        private void Column1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void OrderDataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("Quantity value is invaild");
+            CartItemGrid.CancelEdit();
+        }
+
+        private void OrderDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int qty = Convert.ToInt32(CartItemGrid["qty", e.RowIndex].Value);
+            if (qty > ((OrderItem)orderItems[e.RowIndex]).Stock && ((OrderItem)orderItems[e.RowIndex]).NeedBooking == false)
+            {
+                MessageBox.Show("Quantity exceeds the stock maximum.");
+                CartItemGrid["qty", e.RowIndex].Value = ((OrderItem)orderItems[e.RowIndex]).Quantity;
+                return;
+            }
+            if (qty <= 0)
+            {
+                MessageBox.Show("Quantity is at least one.");
+                CartItemGrid["qty", e.RowIndex].Value = ((OrderItem)orderItems[e.RowIndex]).Quantity;
+                return;
+            }
+            ((OrderItem)orderItems[e.RowIndex]).Quantity = Convert.ToInt32(CartItemGrid["qty", e.RowIndex].Value);
         }
     }
 }

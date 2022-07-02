@@ -31,6 +31,8 @@ namespace TheBetterLimited.Views
         private string _storeId;
         private List<JObject> orderList = new List<JObject>();
         private BackgroundWorker bgWorker = new BackgroundWorker();
+        private List<DataGridViewRow> cells_csv = new List<DataGridViewRow>();
+
 
         public OrderManagement()
         {
@@ -109,6 +111,7 @@ namespace TheBetterLimited.Views
                     OrderDataGrid["select", e.RowIndex].Tag = 1;
                     OrderDataGrid.Rows[e.RowIndex].Selected = true;
                     selecteOrderId.Add(OrderDataGrid["id", e.RowIndex].Value.ToString());
+                    cells_csv.Add(OrderDataGrid.Rows[e.RowIndex]);
                 }
                 else
                 {
@@ -116,6 +119,8 @@ namespace TheBetterLimited.Views
                     OrderDataGrid["select", e.RowIndex].Tag = 0;
                     OrderDataGrid.Rows[e.RowIndex].Selected = false;
                     selecteOrderId.Remove(OrderDataGrid["id", e.RowIndex].Value.ToString());
+                    cells_csv.Remove(OrderDataGrid.Rows[e.RowIndex]);
+
                 }
             }
 
@@ -203,7 +208,7 @@ namespace TheBetterLimited.Views
             orderList.Clear();
             if (this.SearchBarTxt.Texts == "" || this.SearchBarTxt.Texts == SearchBarTxt.Placeholder)
             {
-                response = cbOrder.GetAll();
+                response = cbOrder.GetAll( lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
             }
             else
             {
@@ -277,6 +282,84 @@ namespace TheBetterLimited.Views
         public void DeleteOrder(DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void roundButton1_Click(object sender, EventArgs e)
+        {
+            CustomizeControl.Loading progress = new CustomizeControl.Loading();
+            progress.Show();
+            progress.Update("Fetch data from server ...", 10);
+
+
+            //Build the CSV file data as a Comma separated string.
+            string csv = string.Empty;
+
+            //Add the Header row for CSV file.
+            string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/Appointments.csv";
+            foreach (DataGridViewColumn column in OrderDataGrid.Columns)
+            {
+                csv += column.HeaderText + ',';
+            }
+
+            progress.Update("Formatting ...", 30);
+
+            //Add new line.
+            csv += "\r\n";
+
+            //Adding the Rows
+            if (cells_csv.Count <= 0)
+            {
+                foreach (DataGridViewRow row in OrderDataGrid.Rows)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value.GetType() != typeof(Bitmap))
+                            //Add the Data rows.
+                            csv += cell.Value.ToString().Replace(",", ";") + ',';
+                    }
+
+                    //Add new line.
+                    csv += "\r\n";
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in cells_csv)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value.GetType() != typeof(Bitmap))
+                            //Add the Data rows.
+                            csv += cell.Value.ToString().Replace(",", ";") + ',';
+                    }
+
+                    //Add new line.
+                    csv += "\r\n";
+                }
+            }
+            
+
+
+            progress.Update("Writing File ...", 60);
+
+            System.IO.File.WriteAllText(WriteFilePath, csv);
+
+            choose = MessageBox.Show(
+                   "Open in File Explorer?", "", MessageBoxButtons.YesNo);
+            if (choose == DialogResult.Yes)
+            {
+
+                if (WriteFilePath == null)
+                    throw new ArgumentNullException("filePath");
+
+                System.Diagnostics.Process.Start(AppDomain.CurrentDomain.BaseDirectory + "/tmp/");
+            }
+            else
+            {
+                MessageBox.Show("Saved at" + WriteFilePath);
+            }
+
+            progress.End();
         }
     }
 }

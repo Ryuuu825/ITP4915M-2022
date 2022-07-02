@@ -311,7 +311,7 @@ namespace TheBetterLimited.CustomizeControl
         public string Texts
         {
             get { return lblText.Text; }
-            set { lblText.Text = value; }
+            set { lblText.Text = value; this.Invalidate(); }
         }
 
         public ComboBoxStyle DropDownStyle

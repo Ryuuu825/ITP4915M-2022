@@ -38,6 +38,7 @@ namespace TheBetterLimited.Views
         private OrderController cbOrder = new OrderController("Order");
         private ControllerBase cbOrderItem = new ControllerBase("SalesOrderItem");
         private bool firstInit = false;
+        private string appointmentId;
 
         public OrderDetails()
         {
@@ -51,13 +52,27 @@ namespace TheBetterLimited.Views
             InitializeOrderItemTable();
         }
 
-        public void SetOrderData(JObject orderData, bool appointment)
+        public void SetOrderData(JObject orderData, string settle)
         {
             this.orderData = orderData;
             OrderInfoBox.Enabled = false;
             OrderDataGrid.ReadOnly = true;
             DeleteBtn.Visible = false;
-            if(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "zh")
+            SaveBtn.Visible = false;
+            BackBtn.Show();
+            OrderDataGrid.Columns["defect"].Visible = false;
+            InitializeOrderInfo();
+            InitializeOrderItemTable();
+        }
+
+        public void SetOrderData(JObject orderData, bool appointment, string appointmentId)
+        {
+            this.orderData = orderData;
+            OrderInfoBox.Enabled = false;
+            OrderDataGrid.ReadOnly = true;
+            DeleteBtn.Visible = false;
+            this.appointmentId = appointmentId;
+            if (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "zh")
             {
                 SaveBtn.Text = "指派";
             }
@@ -153,6 +168,7 @@ namespace TheBetterLimited.Views
                 DeleteBtn.Click -= new EventHandler(CancelOrderBtn_Click);
                 DeleteBtn.Click += new EventHandler(DeleteOrderBtn_Click);
             }
+
             needDelivery = false;
             //Check whether booking record / delivery record
             if (((JToken)orderData["customer"]).Type == JTokenType.Null)
@@ -160,10 +176,7 @@ namespace TheBetterLimited.Views
                 OrderInfoBox.Visible = false;
                 OrderDataGrid.Columns["install"].Visible = false;
                 CancelBtn.Hide();
-                SaveBtn.Text = "Back";
-                SaveBtn.BackColor = Color.DimGray;
-                SaveBtn.Click -= new EventHandler(SaveBtn_Click);
-                SaveBtn.Click += new EventHandler(CancelBtn_Click);
+                BackBtn.Show();
                 return;
             }
 
@@ -185,7 +198,13 @@ namespace TheBetterLimited.Views
             else
             {
                 isBooking = true;
+                OrderDataGrid.Columns["defect"].Visible = false;
                 if (needDelivery == true)
+                {
+                    AppointmentBox.Visible = true;
+                    PickUpBox.Visible = false;
+                }
+                else
                 {
                     AppointmentBox.Visible = false;
                     PickUpBox.Visible = true;
@@ -212,9 +231,9 @@ namespace TheBetterLimited.Views
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (!orderData["status"].ToString().Equals("PendingDelivery"))
+            if (!orderData["status"].ToString().Equals("Placed") || orderData["status"].ToString().Equals("Booking"))
             {
-                MessageBox.Show("The order had been changed.\nYou cannot change anything.");
+                MessageBox.Show("The order has been processed.\nYou cannot change anything.");
                 return;
             }
             if (NameTxt.Texts.Equals(String.Empty) || NameTxt.Texts.Equals(NameTxt.Placeholder))
@@ -327,8 +346,10 @@ namespace TheBetterLimited.Views
                 arrangeForm.Dispose();
             }
             Appointment_Arrange arrangeAppointment = new Appointment_Arrange();
+            arrangeAppointment.appointmentId = this.appointmentId;
             arrangeAppointment.Show();
             arrangeAppointment.TopLevel = true;
+            arrangeAppointment.OnExit += () => { this.Close(); this.Dispose(); this.OnExit.Invoke(); };
         }
 
         //init session form server
@@ -596,7 +617,7 @@ namespace TheBetterLimited.Views
 
         private void CancelOrderBtn_Click(object sender, EventArgs e)
         {
-            if (orderData["status"].ToString().Equals("Placed") || orderData["status"].ToString().Equals("PendingDelivery"))
+            if (orderData["status"].ToString().Equals("Placed") || orderData["status"].ToString().Equals("PendingDelivery") || orderData["status"].ToString().Equals("Booking"))
             {
                 DialogResult choose = MessageBox.Show("Do you really want to cancel the order?", "Confirmation Request", MessageBoxButtons.YesNo, MessageBoxIcon.None);
                 if (choose == DialogResult.Yes)

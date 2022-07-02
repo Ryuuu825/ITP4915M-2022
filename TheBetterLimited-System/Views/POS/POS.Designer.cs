@@ -340,6 +340,9 @@
             this.CartItemGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CartItemGrid.StandardTab = true;
             this.CartItemGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CartItemGrid_CellClick);
+            this.CartItemGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrderDataGrid_CellEndEdit);
+            this.CartItemGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.OrderDataGrid_DataError);
+            this.CartItemGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.OrderDataGrid_EditingControlShowing);
             // 
             // userName
             // 
@@ -372,7 +375,6 @@
             this.qty.DefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.qty, "qty");
             this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
             // 
             // plus
             // 

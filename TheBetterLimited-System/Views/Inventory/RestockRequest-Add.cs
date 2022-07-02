@@ -60,7 +60,7 @@ namespace TheBetterLimited.Views
             items.Clear();
             foreach (var item in stocks)
             {
-                response = cbStock.GetById(item);
+                response = cbStock.GetById(item, lang: System.Globalization.CultureInfo.CurrentUICulture.TwoLetterISOLanguageName);
                 JObject stock = JObject.Parse(response.Content);
                 orderItems.Add(stock);
             }
@@ -89,19 +89,21 @@ namespace TheBetterLimited.Views
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 Dictionary<string, object> data = new Dictionary<string, object>();
                 data.Add("items", items);
                 Console.WriteLine("Request: " + JsonConvert.SerializeObject(data));
-                var response =  cbRestock.Create(data);
+                var response = cbRestock.Create(data);
                 Console.WriteLine(response.Content);
-                if(response.StatusCode == System.Net.HttpStatusCode.OK)
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     MessageBox.Show("Restock Request Created Successfully");
                     this.OnExit.Invoke();
                     this.Close();
                     this.Dispose();
-                }else
+                }
+                else
                 {
                     MessageBox.Show(response.Content);
                 }
@@ -123,7 +125,7 @@ namespace TheBetterLimited.Views
         private void OrderDataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(Column1_KeyPress);
-            if (OrderDataGrid.CurrentCell.ColumnIndex == 0) //Desired Column
+            if (OrderDataGrid.CurrentCell.ColumnIndex == 4) //Desired Column
             {
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)
@@ -142,12 +144,26 @@ namespace TheBetterLimited.Views
         }
         private void OrderDataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            MessageBox.Show("Quantity value is invalid!");
+            MessageBox.Show("Quantity value is invaild");
+            OrderDataGrid.CancelEdit();
         }
 
         private void OrderDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            items[e.RowIndex].quantity = Convert.ToInt32(OrderDataGrid["quantity", e.RowIndex].Value);
+            int qty = Convert.ToInt32(OrderDataGrid["reqQty", e.RowIndex].Value);
+            if (qty <= 0)
+            {
+                MessageBox.Show("Quantity is at least one.");
+                OrderDataGrid["reqQty", e.RowIndex].Value = items[e.RowIndex].quantity;
+                return;
+            }
+            if(qty > (Convert.ToInt32(OrderDataGrid["max", e.RowIndex].Value) - Convert.ToInt32(OrderDataGrid["curQty", e.RowIndex].Value)))
+            {
+                MessageBox.Show("Quantity cannot exceed maximum limit.");
+                OrderDataGrid["reqQty", e.RowIndex].Value = items[e.RowIndex].quantity;
+                return;
+            }
+            items[e.RowIndex].quantity = Convert.ToInt32(OrderDataGrid["reqQty", e.RowIndex].Value);
         }
     }
 }
