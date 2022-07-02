@@ -118,23 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Info.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt</value>
+  <data name="tip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 245</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Info.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="tip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 15</value>
   </data>
-  <data name="Info.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 38</value>
-  </data>
-  <data name="Info.Text" xml:space="preserve">
-    <value>用户为通过账号与密码登录使用
-The Better Limited系统的使用者。</value>
+  <data name="tip.Text" xml:space="preserve">
+    <value>点击图片上载图片</value>
   </data>
   <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 14.25pt, style=Bold</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Title.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -142,13 +138,16 @@ The Better Limited系统的使用者。</value>
     <value>96, 25</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
-    <value>编辑用户</value>
+    <value>个人资料</value>
   </data>
   <data name="UserIconPic.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="Header.Size" type="System.Drawing.Size, System.Drawing">
-    <value>272, 611</value>
+    <value>272, 536</value>
+  </data>
+  <data name="BottomBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 472</value>
   </data>
   <data name="CancelBtn.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10.5pt, style=Bold</value>
@@ -168,56 +167,14 @@ The Better Limited系统的使用者。</value>
   <data name="SaveBtn.Text" xml:space="preserve">
     <value>保存</value>
   </data>
-  <data name="BottomBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 547</value>
+  <data name="MainForm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>512, 536</value>
   </data>
-  <data name="Remark.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt</value>
+  <data name="AccountInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>492, 255</value>
   </data>
-  <data name="Remark.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Remark.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 181</value>
-  </data>
-  <data name="Remark.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 19</value>
-  </data>
-  <data name="Remark.Text" xml:space="preserve">
-    <value>备注</value>
-  </data>
-  <data name="LockStatusRadio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LockStatusRadio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 19</value>
-  </data>
-  <data name="LockStatusRadio.Text" xml:space="preserve">
-    <value>已锁定</value>
-  </data>
-  <data name="NormalStatusRadio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="NormalStatusRadio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 19</value>
-  </data>
-  <data name="NormalStatusRadio.Text" xml:space="preserve">
-    <value>正常</value>
-  </data>
-  <data name="Status.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10.5pt</value>
-  </data>
-  <data name="Status.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Status.Location" type="System.Drawing.Point, System.Drawing">
-    <value>48, 141</value>
-  </data>
-  <data name="Status.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 19</value>
-  </data>
-  <data name="Status.Text" xml:space="preserve">
-    <value>账号状态*</value>
+  <data name="AccountInfoContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>492, 205</value>
   </data>
   <data name="Email.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10.5pt</value>
@@ -264,9 +221,6 @@ The Better Limited系统的使用者。</value>
   <data name="UserID.Text" xml:space="preserve">
     <value>用户编号</value>
   </data>
-  <data name="AccountInfoContainer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>492, 280</value>
-  </data>
   <data name="AccountHeader.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
@@ -281,12 +235,6 @@ The Better Limited系统的使用者。</value>
   </data>
   <data name="AccountHeader.Text" xml:space="preserve">
     <value>账号</value>
-  </data>
-  <data name="AccountInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>492, 330</value>
-  </data>
-  <data name="SearchStaffBtn.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10.5pt</value>
@@ -396,13 +344,10 @@ The Better Limited系统的使用者。</value>
   <data name="UserInfoHeader.Text" xml:space="preserve">
     <value>用户信息</value>
   </data>
-  <data name="MainForm.Size" type="System.Drawing.Size, System.Drawing">
-    <value>512, 611</value>
-  </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>784, 611</value>
+    <value>784, 536</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>编辑用户</value>
+    <value>个人资料</value>
   </data>
 </root>
