@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using TheBetterLimited.Controller;
 using System.Drawing.Drawing2D;
 using System.Text.RegularExpressions;
+using TheBetterLimited.Views;
 using TheBetterLimited.Views.Message;
 using TheBetterLimited.Utils;
 using System.Globalization;
@@ -521,6 +522,30 @@ namespace TheBetterLimited.Views
                 th.SetApartmentState(ApartmentState.STA);
                 th.Start();
             }
+        }
+
+        private void ProfileBtn_Click(object sender, EventArgs e)
+        {
+            Form pf = Application.OpenForms["Profile"];
+            if (pf != null)
+            {
+                pf.Activate();
+                return;
+            }
+            var sId = GlobalsData.currentUser["staffId"].ToString();
+            Profile profile = new Profile();
+            profile.Show();
+            profile.SetData(sId);
+            profile.TopLevel = true;
+            profile.OnExit += () =>
+            {
+                this.Dispose();
+                this.Delegate.Stop();
+                GlobalsData.currentUser.Clear();
+                var th = new Thread(() => Application.Run(new Login()));
+                th.SetApartmentState(ApartmentState.STA);
+                th.Start();
+            };
         }
     }
 }

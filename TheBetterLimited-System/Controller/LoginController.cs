@@ -80,6 +80,7 @@ namespace TheBetterLimited.Controller
                     GlobalsData.currentUser.Add("displayName", res["initData"]["displayName"].ToString());
                     GlobalsData.currentUser.Add("department", res["initData"]["department"].ToString());
                     GlobalsData.currentUser.Add("position", res["initData"]["position"].ToString());
+                    GlobalsData.currentUser.Add("staffId", res["initData"]["_StaffId"].ToString());
                     return "ok";
                 }
                 else

@@ -569,6 +569,12 @@
     <Compile Include="Views\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\User\Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\User\Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\User\UserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -945,6 +951,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\Usermanagement-Add.zh.resx">
       <DependentUpon>Usermanagement-Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\Profile.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\Profile.zh.resx">
+      <DependentUpon>Profile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\Usermanagement-Edit.zh.resx">
       <DependentUpon>Usermanagement-Edit.cs</DependentUpon>

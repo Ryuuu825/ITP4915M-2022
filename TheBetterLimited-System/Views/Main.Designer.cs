@@ -608,6 +608,7 @@
             this.ProfileBtn.Image = global::TheBetterLimited.Properties.Resources.profile;
             this.ProfileBtn.Name = "ProfileBtn";
             this.ProfileBtn.UseVisualStyleBackColor = false;
+            this.ProfileBtn.Click += new System.EventHandler(this.ProfileBtn_Click);
             // 
             // MessageBtn
             // 
