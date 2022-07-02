@@ -73,7 +73,7 @@ namespace TheBetterLimited.Views
             {
                 for (int i = 0; i < 7; i++)
                 {
-                    var dayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(-6 + i).ToString("M");
+                    var dayOfMonth = DateTime.Today.AddDays(-6 + i).ToString("M");
                     profitPie.Series["S1"].Points.AddXY(dayOfMonth, orders[i]);
                 }
                 if (CultureInfo.CurrentUICulture.TwoLetterISOLanguageName == "zh")
@@ -132,7 +132,7 @@ namespace TheBetterLimited.Views
             {
                 for (int i = 1; i <= 7; i++)
                 {
-                    var dayOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(-7 + i).ToString("yyyy-MM-dd");
+                    var dayOfMonth = DateTime.Today.AddDays(-7 + i).ToString("yyyy-MM-dd");
                     JArray os = JArray.Parse(cbSO.GetByQueryString("createdAt:" + dayOfMonth).Content);
                     if (dayOfMonth == DateTime.Today.ToString("yyyy-MM-dd"))
                     {
