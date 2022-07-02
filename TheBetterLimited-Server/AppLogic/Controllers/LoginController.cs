@@ -75,7 +75,8 @@ public class LoginController
             {
                 DisplayName = potentialUser.Staff.FirstName + " " + potentialUser.Staff.LastName,
                 Position = potentialUser.Staff.position.jobTitle,
-                Department = potentialUser.Staff.department.Name
+                Department = potentialUser.Staff.department.Name,
+                _StaffId = potentialUser.Staff.Id.ToString()
             };
             res.InitData = data;
 

@@ -7923,43 +7923,43 @@ namespace TheBetterLimited_Server.Data
             }
 
             int invertCounter = 100000001;
-            for ( int i = 0 ; i < 3 ; i++)
-            {
-                sessions.Add(
-                    new Session
+                    for ( int i = 0 ; i < 3 ; i++)
                     {
-                        ID = (invertCounter++).ToString(),
-                        _departmentId = "300",
-                        StartTime = sessionRange[i].StartTime,
-                        EndTime = sessionRange[i].EndTime,
-                        Date = new DateTime(DateTime.Today.Year , DateTime.Today.AddDays(-1).Month , DateTime.Today.AddDays(-1).Day - 1),
-                        NumOfAppointments = (sessionRange[scounter].NumOfAppointments)
-                    }
-                );
+                        sessions.Add(
+                            new Session
+                            {
+                                ID = (invertCounter++).ToString(),
+                                _departmentId = "300",
+                                StartTime = sessionRange[i].StartTime,
+                                EndTime = sessionRange[i].EndTime,
+                                Date = new DateTime(DateTime.Today.Year , DateTime.Today.AddDays(-1).Month , DateTime.Today.AddDays(-1).Day ),
+                                NumOfAppointments = (sessionRange[scounter].NumOfAppointments)
+                            }
+                        );
 
-                sessions.Add(
-                    new Session
-                    {
-                        ID = (invertCounter++).ToString(),
-                        _departmentId = "700",
-                        StartTime = sessionRange[i].StartTime,
-                        EndTime = sessionRange[i].EndTime,
-                        Date = new DateTime(DateTime.Today.Year , DateTime.Today.AddDays(-1).Month , DateTime.Today.AddDays(-1).Day),
-                        NumOfAppointments = (sessionRange[scounter].NumOfAppointments)
+                        sessions.Add(
+                            new Session
+                            {
+                                ID = (invertCounter++).ToString(),
+                                _departmentId = "700",
+                                StartTime = sessionRange[i].StartTime,
+                                EndTime = sessionRange[i].EndTime,
+                                Date = new DateTime(DateTime.Today.Year , DateTime.Today.AddDays(-1).Month , DateTime.Today.AddDays(-1).Day),
+                                NumOfAppointments = (sessionRange[scounter].NumOfAppointments)
+                            }
+                        );
                     }
-                );
-            }
-            sessions.Add( // a specical session for demo purpose. To show the appointment is pending install service
-                new Session
-                {         
-                    ID = "999999999",
-                    _departmentId = "300",
-                    StartTime = new DateTime(DateTime.Today.Year , DateTime.Today.AddDays(-1).Month , DateTime.Today.AddDays(-1).Day , DateTime.Now.AddHours(1).Hour , 0 , 0),
-                    EndTime = new DateTime(DateTime.Today.Year , DateTime.Today.AddDays(-1).Month , DateTime.Today.AddDays(-1).Day , DateTime.Now.AddHours(2).Hour , 0 , 0),
-                    Date = DateTime.Now,
-                    NumOfAppointments = 1
-                }
-            );
+                    sessions.Add( // a specical session for demo purpose. To show the appointment is pending install service
+                        new Session
+                        {         
+                            ID = "999999999",
+                            _departmentId = "300",
+                            StartTime = new DateTime(DateTime.Today.Year , DateTime.Today.AddDays(-1).Month , DateTime.Today.AddDays(-1).Day , DateTime.Now.AddHours(1).Hour , 0 , 0),
+                            EndTime = new DateTime(DateTime.Today.Year , DateTime.Today.AddDays(-1).Month , DateTime.Today.AddDays(-1).Day , DateTime.Now.AddHours(2).Hour , 0 , 0),
+                            Date = DateTime.Now,
+                            NumOfAppointments = 1
+                        }
+                    );
             
 
             return sessions;
