@@ -23,5 +23,14 @@ namespace TheBetterLimited.Controller
                         .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]));
             return GetRestResponse(request);
         }
+
+        public RestResponse Modify(object obj, string lang = "en")
+        {
+            var request = new RestRequest("/api/" + ControllerName + "/d", Method.Put)
+                        .AddHeader("Language", lang)
+                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
+                        .AddBody(obj);
+            return GetRestResponse(request);
+        }
     }
 }

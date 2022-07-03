@@ -231,7 +231,8 @@ namespace TheBetterLimited.Views
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (!orderData["status"].ToString().Equals("Placed") || orderData["status"].ToString().Equals("Booking"))
+            Dictionary<string, object> dict = new Dictionary<string, object>();
+            if (!orderData["status"].ToString().Equals("Placed") && !orderData["status"].ToString().Equals("Booking"))
             {
                 MessageBox.Show("The order has been processed.\nYou cannot change anything.");
                 return;
@@ -250,6 +251,7 @@ namespace TheBetterLimited.Views
             }
             var phone = PhoneTxt.Texts;
 
+            var address = "";
             if (needDelivery == true)
             {
                 if (AddressTxt.Texts.Equals(String.Empty) || AddressTxt.Texts.Equals(AddressTxt.Placeholder))
@@ -257,27 +259,45 @@ namespace TheBetterLimited.Views
                     AddressTxt.IsError = true;
                     return;
                 }
-            }
-            var address = AddressTxt.Texts;
+                address = AddressTxt.Texts;
+                if (DeliverySessionCombo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select delivery session");
+                    return;
+                }
+                dict.Add("deliverySessionId", deliverySessionId);
 
-            if (DeliverySessionCombo.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select delivery session");
-                return;
+                if (needInstall == true && InstallSessionCombo.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select installation session");
+                    return;
+                }else if(needInstall)
+                {
+                    dict.Add("installationtSessionId", installSessionId);
+                }
             }
 
-            if (needInstall == true && InstallSessionCombo.SelectedIndex == -1)
+            dict.Add("orderId", orderData["id"].ToString());
+            dict.Add("customerId", orderData["customer"]["id"].ToString());
+            dict.Add("customerName", name);
+            dict.Add("customerPhone", phone);
+            dict.Add("customerAddress", address);
+            try
             {
-                MessageBox.Show("Please select installation session");
-                return;
-            }
-
-            CustomerInfo cusInfo = new CustomerInfo(name, phone, address);
-            List<object> list = new List<object>();
-            list.Add(new { sessionId = deliverySessionId, departmentId = "300" });
-            if (needInstall == true)
+                var response = cbOrder.Modify(dict);
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    MessageBox.Show("Order updated successfully");
+                    this.Close();
+                    this.Dispose();
+                    this.OnExit.Invoke();
+                }else
+                {
+                    throw new Exception();
+                }
+            }catch (Exception ex)
             {
-                list.Add(new { sessionId = installSessionId, departmentId = "700" });
+                MessageBox.Show("Modify order error");
             }
         }
 
@@ -327,8 +347,14 @@ namespace TheBetterLimited.Views
         private void DeliveryDatePicker_ValueChanged(object sender, EventArgs e)
         {
             if (DeliveryDatePicker.Value.DayOfWeek == DayOfWeek.Sunday) return;
-            if (needInstall) InstallDatePicker.MinDate = DeliveryDatePicker.Value;
-            InitDeliveryComboBox();
+            if (needInstall)
+            {
+                InstallDatePicker.MinDate = DeliveryDatePicker.Value;
+            }
+            if (needDelivery)
+            {
+                InitDeliveryComboBox();
+            }
         }
 
         private void DeliverySessionCombo_OnSelectedIndexChanged(object sender, EventArgs e)

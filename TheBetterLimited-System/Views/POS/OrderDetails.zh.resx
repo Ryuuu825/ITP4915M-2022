@@ -125,7 +125,7 @@
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="goodsID.Width" type="System.Int32, mscorlib">
-    <value>103</value>
+    <value>83</value>
   </data>
   <data name="ID.HeaderText" xml:space="preserve">
     <value>商品名称</value>
@@ -140,7 +140,7 @@
     <value>帐户备注</value>
   </data>
   <data name="Price.Width" type="System.Int32, mscorlib">
-    <value>75</value>
+    <value>71</value>
   </data>
   <data name="CreatorId.HeaderText" xml:space="preserve">
     <value>数量</value>
@@ -149,7 +149,7 @@
     <value>数量</value>
   </data>
   <data name="CreatorId.Width" type="System.Int32, mscorlib">
-    <value>75</value>
+    <value>71</value>
   </data>
   <data name="status.HeaderText" xml:space="preserve">
     <value>状态</value>
@@ -158,7 +158,7 @@
     <value>状态</value>
   </data>
   <data name="status.Width" type="System.Int32, mscorlib">
-    <value>75</value>
+    <value>71</value>
   </data>
   <data name="install.HeaderText" xml:space="preserve">
     <value>需要安装</value>
@@ -167,10 +167,10 @@
     <value>需要安装吗?</value>
   </data>
   <data name="install.Width" type="System.Int32, mscorlib">
-    <value>84</value>
+    <value>64</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dataGridViewCellStyle23.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="dataGridViewCellStyle9.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
@@ -194,7 +194,7 @@
     <value>瑕疵</value>
   </data>
   <data name="defect.Width" type="System.Int32, mscorlib">
-    <value>56</value>
+    <value>52</value>
   </data>
   <data name="Title.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
@@ -337,7 +337,7 @@
   <data name="GoodsInfoHeader.Text" xml:space="preserve">
     <value>顾客咨讯</value>
   </data>
-  <data name="dataGridViewCellStyle28.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="dataGridViewCellStyle14.NullValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
