@@ -65,12 +65,21 @@ namespace TheBetterLimited_Server.API.Controller
             try
             {
                 Data.Entity.Staff s = userInfo.GetStaffFromUserName(User.Identity.Name);
+                string locationId = String.Empty;
+                if (userInfo.IsWarehouseStaff(User.Identity.Name))
+                {
+                    locationId = s.warehouse._locationID;
+                }
+                else
+                {
+                    locationId = s.store._locationID;
+                }
                 Data.Entity.RestockRequest rr = new Data.Entity.RestockRequest
                 {
                     ID = Helpers.Sql.PrimaryKeyGenerator.Get<Data.Entity.RestockRequest>(db),
                     _createrId = s.Id,
                     _operatorId = s.Id,
-                    _storeId = s.store._locationID,
+                    _locationId = locationId,
                     CreateTime = DateTime.Now,
                     OperateTime = DateTime.Now,
                     Status = Data.Entity.RestockRequestStatus.Pending
@@ -80,6 +89,11 @@ namespace TheBetterLimited_Server.API.Controller
                 foreach( var item in dto.Items)
                 {
                     Data.Entity.Supplier_Goods_Stock sgs = _SGSTable.GetBySQL($"SELECT * FROM `Supplier_Goods_Stock` WHERE `Id` = '{item._supplierGoodsStockId}'").First();
+                    if (sgs._locationId != locationId)
+                    {
+                        repository.Delete(rr);
+                        return BadRequest("You can't restock goods from other location");
+                    }
                     Data.Entity.RestockRequest_Supplier_Goods_Stock rgs = new Data.Entity.RestockRequest_Supplier_Goods_Stock
                     {
                         _restockRequestId = rr.ID,
@@ -88,28 +102,8 @@ namespace TheBetterLimited_Server.API.Controller
                     };
                     _RSGTable.Add(rgs);
                 }
-                return Ok();
-            }
-            catch (ICustException e)
-            {
-                return StatusCode(e.ReturnCode, e.GetHttpResult());
-            }
-            catch (NullReferenceException e)
-            {
-                return StatusCode((int) HttpStatusCode.BadRequest , new { code = HttpStatusCode.BadRequest , message = e.Message });
-            }
-        }
 
-
-        [HttpGet]
-        [Authorize]
-        public IActionResult Get([FromHeader] string Langauge = "en")
-        {
-            try
-            {
-                Data.Entity.Staff s = userInfo.GetStaffFromUserName(User.Identity.Name);
-                List<Data.Entity.RestockRequest> rr = repository.GetBySQL($"SELECT * FROM `RestockRequest` WHERE `_storeId` = '{s.store._locationID}'").ToList();
-                if (userInfo.IsSales(User.Identity.Name))
+                 if (userInfo.IsSales(User.Identity.Name))
                 {
                     message.BoardcastMessage(User.Identity.Name, "300" , "New Restock Request" , "You have new restock request");
                 }
@@ -117,15 +111,50 @@ namespace TheBetterLimited_Server.API.Controller
                 {
                     message.BoardcastMessage(User.Identity.Name, "800" , "New Restock Request" , "You have new restock request");
                 }
-                return Ok(ToDto(rr,User.Identity.Name, Langauge));
+
+
+                return Ok();
             }
             catch (ICustException e)
             {
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
             }
-            catch (NullReferenceException e)
+/*            catch (NullReferenceException e)
             {
                 return StatusCode((int) HttpStatusCode.BadRequest , new { code = HttpStatusCode.BadRequest , message = e.Message });
+            }*/
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult Get([FromHeader] string Language = "en")
+        {
+            try
+            {
+
+                Data.Entity.Staff s = userInfo.GetStaffFromUserName(User.Identity.Name);
+                ConsoleLogger.Debug(s._departmentId);
+                List<Data.Entity.RestockRequest> rr;
+                if (userInfo.IsWarehouseStaff(User.Identity.Name)  || userInfo.IsAdmin(User.Identity.Name))
+                {
+                    rr = repository.GetAll();
+                }
+                else if (s._departmentId == "800")
+                {
+                    rr = repository.GetBySQL($"SELECT * FROM `RestockRequest` WHERE `_locationId` = '003'");
+                }
+                else 
+                {
+                    string locationId = s.store._locationID;
+                    rr = repository.GetBySQL($"SELECT * FROM `RestockRequest` WHERE `_locationId` = '{locationId}'").ToList();
+                }
+               
+                return Ok(ToDto(rr,User.Identity.Name, Language));
+            }
+            catch (ICustException e)
+            {
+                return StatusCode(e.ReturnCode, e.GetHttpResult());
             }
         }
 
@@ -184,10 +213,6 @@ namespace TheBetterLimited_Server.API.Controller
             catch (ICustException e)
             {
                 return StatusCode(e.ReturnCode, e.GetHttpResult());
-            }
-            catch (NullReferenceException e)
-            {
-                return StatusCode((int) HttpStatusCode.BadRequest , new { code = HttpStatusCode.BadRequest , message = e.Message });
             }
         }
 

@@ -23,8 +23,15 @@ public class LoginController
         res = new LoginOkModel();
         
         // get the user from the database
-        var potentialUser = _UserTable.GetBySQL(Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{name}")).FirstOrDefault();
-        if (potentialUser is null)
+        var potentialUser = _UserTable.GetBySQL(
+            $"SELECT * FROM Account WHERE UserName = '{name}'"
+        ).FirstOrDefault();
+        if (potentialUser is null )
+        {
+            throw new HasNoElementException($"UserName: {name} not found" , HttpStatusCode.BadRequest);
+        }
+
+        if (potentialUser.UserName != name )
         {
             throw new HasNoElementException($"UserName: {name} not found" , HttpStatusCode.BadRequest);
         }
@@ -75,7 +82,8 @@ public class LoginController
             {
                 DisplayName = potentialUser.Staff.FirstName + " " + potentialUser.Staff.LastName,
                 Position = potentialUser.Staff.position.jobTitle,
-                Department = potentialUser.Staff.department.Name
+                Department = potentialUser.Staff.department.Name,
+                _StaffId = potentialUser.Staff.Id.ToString()
             };
             res.InitData = data;
 
@@ -107,7 +115,7 @@ public class LoginController
     public void RequestForgetPW(ForgetPwModel model, string lang)
     {
         // get the user from the database
-        Account potentialUser = _UserTable.GetBySQL(Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{model.UserName};EmailAddress:{model.EmailAddress}" )).FirstOrDefault();
+        Account potentialUser = _UserTable.GetBySQL($"SELECT * FROM `Account` WHERE `UserName` = '{model.UserName}' AND `EmailAddress` = '{model.EmailAddress}'" ).FirstOrDefault();
 
         if (potentialUser is null)
             throw new HasNoElementException("UserName or EmailAddress not found", HttpStatusCode.BadRequest);

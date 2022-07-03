@@ -16,12 +16,12 @@ namespace TheBetterLimited_Server.API.Controller
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> GetAppointment(int day , int month)
+        public async Task<IActionResult> GetAppointment(int day , int month, [FromHeader] string Language = "en")
         {
             if (day == 0 || month == 0)
-                return Ok(await ac.GetAllAppointment(User.Identity.Name));
+                return Ok(await ac.GetAllAppointment(User.Identity.Name, Language));
             else 
-                return Ok(await ac.GetAppointment(User.Identity.Name , day, month));
+                return Ok(await ac.GetAppointment(User.Identity.Name , day, month, Language));
         }
 
 

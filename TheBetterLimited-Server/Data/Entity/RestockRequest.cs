@@ -24,9 +24,9 @@ namespace TheBetterLimited_Server.Data.Entity
 
         [MaxLength(3)]
         [Column(TypeName = "char(3)")]
-        public string _storeId { get; set; }
+        public string _locationId { get; set; }
 
-        [ForeignKey("_storeId")]
+        [ForeignKey("_locationId")]
         public virtual Location Location { get; set; }
 
         public DateTime CreateTime { get; set; }
@@ -41,10 +41,12 @@ namespace TheBetterLimited_Server.Data.Entity
     public enum RestockRequestStatus
     {
         Pending,
+        PendingApproval,
         Approved,
         Rejected,
-        Cancelled,
         Handling,
-        Completed
+        Completed,
+        Cancelled,
+
     }
 }

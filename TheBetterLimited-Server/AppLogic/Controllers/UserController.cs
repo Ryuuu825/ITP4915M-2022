@@ -238,8 +238,16 @@ public class UserController
 
         if (acc is null)
             throw new BadArgException("The staff does not have an account");
+        ConsoleLogger.Debug("UpdateUserIcon" + acc.Debug());
 
-        await UpdateUserIcon(acc , base64Image);
+        try 
+        {
+            acc.Icon = Convert.FromBase64String(base64Image);
+        }catch (System.FormatException e)
+        {
+            throw new BadArgException("Invalid image format");
+        }
+        await _UserTable.UpdateAsync(acc , true);
      }
 
     public async Task UpdateMyUserIcon(string IdentityName , string base64Image)
@@ -247,12 +255,20 @@ public class UserController
          Account? acc = (await _UserTable.GetBySQLAsync(
                 $"SELECT * FROM Account WHERE username = '{IdentityName}'"
          )).FirstOrDefault();
-
+        ConsoleLogger.Debug("UpdateMyUserIcon" + acc.Debug());
 
         if (acc is null)
             throw new BadArgException("No such user");
 
-        await UpdateUserIcon(acc , base64Image);
+        try 
+        {
+            acc.Icon = Convert.FromBase64String(base64Image);
+            ConsoleLogger.Debug(acc.Debug());
+        }catch (System.FormatException e)
+        {
+            throw new BadArgException("Invalid image format");
+        }
+        await _UserTable.UpdateAsync(acc , true);
      }
 
 }
