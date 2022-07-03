@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using TheBetterLimited.Models;
 using TheBetterLimited.Utils;
 
@@ -263,7 +264,7 @@ namespace TheBetterLimited.Controller
             Console.WriteLine($"/api/users/{uid}/icon");
             var request = new RestRequest($"/api/users/{uid}/icon", Method.Post)
                        .AddHeader("Authorization", string.Format("Bearer {0}", GlobalsData.currentUser["token"]))
-                       .AddBody(Convert.ToBase64String(img));
+                       .AddBody("\"" + Convert.ToBase64String(img) + "\"");
             try
             {
                 var response = RestClientUtils.client.ExecuteAsync(request).GetAwaiter().GetResult();

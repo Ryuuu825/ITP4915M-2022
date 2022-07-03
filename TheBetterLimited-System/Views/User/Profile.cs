@@ -242,7 +242,14 @@ namespace TheBetterLimited.Views
             open.Filter = "Image Files(*.jpg; *.jpeg; *.bmp; *.png)|*.jpg; *.jpeg; *.bmp; *.png";
             if (open.ShowDialog() == DialogResult.OK)
             {
-                icon = new Bitmap(open.FileName);
+                try
+                {
+                    icon = new Bitmap(open.FileName);
+                }catch (Exception ex)
+                {
+                    MessageBox.Show("Error when opening image" );
+                    return;
+                }
                 // display image in picture box  
                 UserIconPic.Image = icon;
                 // image file path  
