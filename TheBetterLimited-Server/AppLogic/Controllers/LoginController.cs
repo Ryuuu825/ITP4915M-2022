@@ -23,8 +23,15 @@ public class LoginController
         res = new LoginOkModel();
         
         // get the user from the database
-        var potentialUser = _UserTable.GetBySQL(Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{name}")).FirstOrDefault();
-        if (potentialUser is null)
+        var potentialUser = _UserTable.GetBySQL(
+            $"SELECT * FROM Account WHERE UserName = '{name}'"
+        ).FirstOrDefault();
+        if (potentialUser is null )
+        {
+            throw new HasNoElementException($"UserName: {name} not found" , HttpStatusCode.BadRequest);
+        }
+
+        if (potentialUser.UserName != name )
         {
             throw new HasNoElementException($"UserName: {name} not found" , HttpStatusCode.BadRequest);
         }
