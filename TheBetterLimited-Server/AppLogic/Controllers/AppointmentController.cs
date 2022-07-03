@@ -79,14 +79,14 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
            public string salesOrderStatus  { get; set; }
         }
 
-        public async Task<List<Dto>> GetAllAppointment(string UserName )
+        public async Task<List<Dto>> GetAllAppointment(string UserName , string lang = "en")
         {
             
             List<Appointment> res = repository.GetAll().ToList();
-            return await ToDto(res);
+            return await ToDto(res  , lang);
         }
 
-        public async Task<List<Dto>> GetAppointment(string UserName , int day, int month)
+        public async Task<List<Dto>> GetAppointment(string UserName , int day, int month , string lang = "en")
         {
             Staff usr = (await _AccTable.GetBySQLAsync(
                 Helpers.Sql.QueryStringBuilder.GetSqlStatement<Account>($"UserName:{UserName}")
@@ -102,9 +102,9 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
             {
                 res = res.Where(x => x._departmentId == usr._departmentId).ToList();
             }
-            return await ToDto(res);
+            return await ToDto(res  , lang);
         }
-        public async Task<List<Dto>> ToDto(List<Appointment> list)
+        public async Task<List<Dto>> ToDto(List<Appointment> list , string lang = "en")
         {
             /*
                 public class AppointmentOutDto 
@@ -125,7 +125,7 @@ namespace TheBetterLimited_Server.AppLogic.Controllers
                 List<Goods> localizedGoods = new List<Goods>();
                 foreach (var goods in items)
                 {
-                    localizedGoods.Add(Helpers.Localizer.TryLocalize("en" , goods.SalesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods));
+                    localizedGoods.Add(Helpers.Localizer.TryLocalize( lang, goods.SalesOrderItem.SupplierGoodsStock.Supplier_Goods.Goods));
                 }
                 List<SalesOrderItem_AppointmentOutDto> itemsDto = new List<SalesOrderItem_AppointmentOutDto>();
                 for (int i = 0 ; i < items.Count ; i++)
