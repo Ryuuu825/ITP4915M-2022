@@ -165,6 +165,10 @@ namespace TheBetterLimited.Views
             if (orderData["status"].ToString().Equals("Cancelled"))
             {
                 DeleteBtn.Text = "Delete Order";
+                if (CultureInfo.CurrentCulture.TwoLetterISOLanguageName == "zh")
+                {
+                    DeleteBtn.Text = "刪除订单";
+                }
                 DeleteBtn.Click -= new EventHandler(CancelOrderBtn_Click);
                 DeleteBtn.Click += new EventHandler(DeleteOrderBtn_Click);
             }
@@ -199,16 +203,9 @@ namespace TheBetterLimited.Views
             {
                 isBooking = true;
                 OrderDataGrid.Columns["defect"].Visible = false;
-                if (needDelivery == true)
-                {
-                    AppointmentBox.Visible = true;
-                    PickUpBox.Visible = false;
-                }
-                else
-                {
-                    AppointmentBox.Visible = false;
-                    PickUpBox.Visible = true;
-                }
+                PickUpBox.Show();
+                label9.Visible = false;
+                AppointmentBox.Visible = false;
             }
 
             if (((JToken)orderData["installation"]).Type != JTokenType.Null)
@@ -252,7 +249,7 @@ namespace TheBetterLimited.Views
             var phone = PhoneTxt.Texts;
 
             var address = "";
-            if (needDelivery == true)
+            if (needDelivery == true && !orderData["status"].ToString().Equals("Booking"))
             {
                 if (AddressTxt.Texts.Equals(String.Empty) || AddressTxt.Texts.Equals(AddressTxt.Placeholder))
                 {
@@ -413,7 +410,8 @@ namespace TheBetterLimited.Views
             if (DeliveryDatePicker.Value.DayOfWeek == DayOfWeek.Sunday) return;
             deliverySessions = InitSession(DeliveryDatePicker.Value.Month, DeliveryDatePicker.Value.Day, "300");
             List<Session> removeSession = new List<Session>();
-            if (DeliveryDatePicker.Value.Date == ((DateTime)orderData["delivery"]["date"]).Date)
+            DateTime day = (DateTime)orderData["delivery"]["date"];
+            if (DeliveryDatePicker.Value.Date == day.Date)
             {
                 foreach (Session session in deliverySessions)
                 {
@@ -610,10 +608,6 @@ namespace TheBetterLimited.Views
                         }
                     }
                 }
-            }
-            else if (orderData["status"].ToString().Equals("Booking"))
-            {
-                MessageBox.Show("The order has completed.\nCannot delete the order item(s).");
             }
             else
             {
