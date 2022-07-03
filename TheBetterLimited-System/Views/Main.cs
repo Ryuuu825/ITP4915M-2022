@@ -209,8 +209,7 @@ namespace TheBetterLimited.Views
 
         private void Accounting_Click(object sender, EventArgs e)
         {
-            /*change_MenuButton_style(sender);
-            subSidebarTimer.Start();*/
+            change_MenuButton_style(sender);
             Report report = new Report();
             report.OnExit += () => { openChildForm(new Home()); };
             openChildForm(report);
