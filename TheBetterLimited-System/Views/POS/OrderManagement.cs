@@ -180,7 +180,6 @@ namespace TheBetterLimited.Views
             dt.Columns.Add("createAt");
             dt.Columns.Add("updateAt");
             dt.Columns.Add("total");
-            dt.Columns.Add("paid");
             dt.Columns.Add("status");
         }
 
@@ -230,7 +229,6 @@ namespace TheBetterLimited.Views
                     row["createAt"] = ((DateTime)o["createAt"]).ToString("g");
                     row["updateAt"] = ((DateTime)o["updateAt"]).ToString("g");
                     row["total"] = String.Format("{0:C2}", o["total"]);
-                    row["paid"] = String.Format("{0:C2}", o["paid"]); ;
                     row["status"] = o["status"].ToString();
                     dt.Rows.Add(row);
                 }
@@ -295,10 +293,11 @@ namespace TheBetterLimited.Views
             string csv = string.Empty;
 
             //Add the Header row for CSV file.
-            string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/Appointments.csv";
-            foreach (DataGridViewColumn column in OrderDataGrid.Columns)
+            string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/SalesOrder.csv";
+            for(int i = 1; i < OrderDataGrid.Columns.Count; i++ )
             {
-                csv += column.HeaderText + ',';
+
+                csv += OrderDataGrid.Columns[i].HeaderText + ',';
             }
 
             progress.Update("Formatting ...", 30);

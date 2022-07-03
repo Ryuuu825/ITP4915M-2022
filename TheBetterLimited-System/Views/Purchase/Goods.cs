@@ -404,9 +404,9 @@ namespace TheBetterLimited.Views
 
             //Add the Header row for CSV file.
             string WriteFilePath = AppDomain.CurrentDomain.BaseDirectory + "/tmp/Goods.csv";
-            foreach (DataGridViewColumn column in GoodsDataGrid.Columns)
+            for(int i = 1; i < GoodsDataGrid.Columns.Count; i++)
             {
-                csv += column.HeaderText + ',';
+                csv += GoodsDataGrid.Columns[i].HeaderText + ',';
             }
 
             progress.Update("Formatting ...", 30);
