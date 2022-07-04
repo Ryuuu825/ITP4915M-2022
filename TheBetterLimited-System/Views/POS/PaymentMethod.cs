@@ -63,14 +63,13 @@ namespace TheBetterLimited.Views
                 {
                     totalAmount = totalAmount * 0.2;
                 }
-                result = MessageBox.Show("Deposit is " + String.Format("{0:C2}", totalAmount)
-                        + "\nDose customer have paid?", "Confirm payment", MessageBoxButtons.YesNo);
+                else
+                {
+                    totalAmount = 0;
+                }
             }
-            else
-            {
-                result = MessageBox.Show("Total Amount is " + String.Format("{0:C2}", totalAmount)
-                        + "\nDose customer have paid?", "Confirm payment", MessageBoxButtons.YesNo);
-            }
+            result = MessageBox.Show("Total Amount is " + String.Format("{0:C2}", totalAmount)
+                    + "\nDose customer have paid?", "Confirm payment", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 //Create order
@@ -92,7 +91,8 @@ namespace TheBetterLimited.Views
                         Receipt receipt = new Receipt(response.Content);
                         receipt.ShowDialog();
                         ClearForm();
-                    }else
+                    }
+                    else
                     {
                         waitResult.Close();
                         waitResult.Dispose();
@@ -115,14 +115,13 @@ namespace TheBetterLimited.Views
                 {
                     totalAmount = totalAmount * 0.2;
                 }
-                result = MessageBox.Show("Deposit is " + String.Format("{0:C2}", totalAmount * 0.2)
-                        + "\nAre you going to pay?", "Confirm payment", MessageBoxButtons.YesNo);
+                else
+                {
+                    totalAmount = 0;
+                }
             }
-            else
-            {
-                result = MessageBox.Show("Total Amount is " + String.Format("{0:C2}", totalAmount)
-                        + "\nAre you going to pay?", "Confirm payment", MessageBoxButtons.YesNo);
-            }
+            result = MessageBox.Show("Total Amount is " + String.Format("{0:C2}", totalAmount)
+                    + "\nAre you going to pay?", "Confirm payment", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 //Create order
