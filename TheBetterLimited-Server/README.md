@@ -1,24 +1,26 @@
-﻿# The Backend Server for [The Better Limited System](../TheBetterLimited-ManagementSystem)
+# The Backend Server for [The Better Limited System](../TheBetterLimited-ManagementSystem)
 
 ## Introdution
 
 ```
 ```
 
-## Features
+## TODO
+- [ ] optimize fetching data from database ( related to sql statement )
 
-- TODO
-
-## Dependenies
-
-- .Net 6
-- [Entity Framework Core CLI tools](https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
-- [Xampp MySQL](https://www.apachefriends.org/download.html) or MySQL 
+##  Dependencies
+- Dotnet 6
+- Entity Framework Core CLI tools
+- Xampp MySQL or MySQL
 
 ## Get Started
-
-### 1. Create a file call secret.conf under ./etc
-
+1. Create the database that will be same as you specify in secret.conf
+2. Build the system with
+```
+dotnet run 
+```
+3. Create three folder “./var” and “./var/log” and “./var/tmp” under build directory
+4. Create a file call secret.conf under ./etc 
 ```
 # The Mail Account
 
@@ -36,34 +38,8 @@ Token="ThisRequiredALongToken"
 
 ConnectionString="Data Source={db};Initial Catalog={};User Id={user};password={pw};ConnectionTimeout=5"
 ```
-### 2. import sql file to database
-```
-```
 
-### 2. or create the database table
-
-```
-dotnet ef database update
-```
-
-### 3. build the sysetm
-
-```
-dotnet build -c Release
-```
-
-### 3. Or publish the system into a single executable with .Net 6 runtime contain
-
-[see this page](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog)
-
-```
-dotnet publish -r {Runtime Identifier} /p:PublishSingleFile=true -c Relase -o {output dir}
-```
-
-## Overview
----
-
-### File Structure
+### File Structure (TODO: to update)
 
 ```
 .
