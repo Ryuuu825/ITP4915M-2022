@@ -1,5 +1,7 @@
 # The Better Limited ERP System
 
+![image](./docs/cover.png)
+
 ## Background
 
 Better Limited is a small retail corporation selling electronic appliances. It consists of one office, one warehouse, and two retail stores. There are approximately 90 employees in Better Limited at the moment. As the company expands, it aims to extend its business not only the local market but also the market in the Pearl River Delta Region. The demand for having a new computerized management system has become much larger because of the expansion.
