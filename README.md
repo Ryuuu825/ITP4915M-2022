@@ -9,17 +9,73 @@ Better Limited is a small retail corporation selling electronic appliances. It c
 ## Features
 
 - Login
+
+    ![Login](./docs/images/Slide3.png)
+    ![Login](./docs/images/Slide4.png)
+    ![Login](./docs/images/Slide5.png)
+    
 - POS
+
+    ![POS](./docs/images/Slide7.png)
+    ![POS](./docs/images/Slide8.png)
+    ![POS](./docs/images/Slide9.png)
+    ![POS](./docs/images/Slide10.png)
+    ![POS](./docs/images/Slide11.png)
+    ![POS](./docs/images/Slide12.png)
+    ![POS](./docs/images/Slide13.png)
+    ![POS](./docs/images/Slide14.png)
+    ![POS](./docs/images/Slide15.png)
+    ![POS](./docs/images/Slide16.png)
+    ![POS](./docs/images/Slide17.png)
+    ![POS](./docs/images/Slide18.png)
+
 - Purchase management
+
+    ![Purchase management](./docs/images/Slide24.png)
+    ![Purchase management](./docs/images/Slide25.png)
+    ![Purchase management](./docs/images/Slide27.png)
+    ![Purchase management](./docs/images/Slide28.png)
+
+
+    
 - Inventory management
+
+    ![Purchase management](./docs/images/Slide20.png)
+    ![Purchase management](./docs/images/Slide21.png)
+    ![Purchase management](./docs/images/Slide22.png)
+
 - Shipping management
+
+    ![Purchase management](./docs/images/Slide30.png)
+    ![Purchase management](./docs/images/Slide31.png)
+    ![Purchase management](./docs/images/Slide32.png)
+    ![Purchase management](./docs/images/Slide33.png)
+
 - Accounting management
+
+    ![Purchase management](./docs/images/Slide39.png)
+    ![Purchase management](./docs/images/Slide40.png)
+
 - Supplier management
+
+    ![Purchase management](./docs/images/Slide26.png)
+
 - User management
 
-- Localized
-  - English
-  - Simplified Chinese
+    ![Purchase management](./docs/images/Slide35.png)
+    ![Purchase management](./docs/images/Slide36.png)
+
+- Other
+
+    ![Purchase management](./docs/images/Slide41.png)
+    ![Purchase management](./docs/images/Slide42.png)
+    ![Purchase management](./docs/images/Slide43.png)
+
+    ![Data Export](./docs/images/Slide44.png)
+    ![Data Export](./docs/images/Slide45.png)
+    ![Data Export](./docs/images/Slide46.png)
+
+
 
 ## Tech Stack
 
