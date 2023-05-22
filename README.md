@@ -67,15 +67,13 @@ Better Limited is a small retail corporation selling electronic appliances. It c
 
 - Other
 
-    ![Purchase management](./docs/images/Slide41.png)
-    ![Purchase management](./docs/images/Slide42.png)
-    ![Purchase management](./docs/images/Slide43.png)
-
     ![Data Export](./docs/images/Slide44.png)
     ![Data Export](./docs/images/Slide45.png)
     ![Data Export](./docs/images/Slide46.png)
 
-
+    ![Purchase management](./docs/images/Slide41.png)
+    ![Purchase management](./docs/images/Slide42.png)
+    ![Purchase management](./docs/images/Slide43.png)
 
 ## Tech Stack
 
